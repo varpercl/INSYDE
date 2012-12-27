@@ -16,6 +16,8 @@ Objetivos del proyecto
   al software
 - Implementacion del diversas areas de Inteligencia Artificial como redes neuronales artificiales, algoritmos geneticos,
   logica difusa, sistemas expertos, computacion emergente, entre otros.
+- Implementar un sistema de asistentes inteligentes para que el usuario menos experimentado sea dirigido a la hora
+  de desarrollar su sistema inteligente
 
 Estado del proyecto
 
@@ -26,4 +28,17 @@ El metodo sera muy sencillo, el usuario solamente tomara una red neuronal con el
 Luego este podra colocar otros objetos de entrada/salida como por ejemplo matrices de puntos para el reconocimiento
 de patrones, objetos de imagenes, el cual es un modulo al cual podra asignarle una imagen en distintos formatos; 
 esto puede servir para hacer analisis de vision artificial a imagenes. Tambien se introduciran otros objetos cotidianos
-como displays digitales, entrada de teclado, entrada de raton, 
+como displays digitales, entrada de teclado, entrada de raton, entrada de audio, salida de audio, capturador de video,
+capturador de imagen del escritorio, capturador de entradas analogicas.
+
+Necesidades
+
+El proyecto actualmente esta en pleno desarrollo, por lo cual, se requiere ampliamente el desarrollo de muchas areas, 
+algunas necesidades primordiales son:
+
+- Documentacion del codigo fuente: el codigo fuente ha sido desarrollado por mi persona y lamentablemente soy un mal
+  practicante de la buena programacion, por lo cual en ocasiones por rapidez no documento lo que voy programando.
+- Traduccion del codigo fuente: para que el proyecto sea ampliamente difundido, es imperativo la publicacion en varios
+  idiomas para que distintos desarrolladores a nivel mundial esten en capacidad de trabajar en este proyecto.
+- Programacion de la interfaz grafica: la interfaz grafica es una de las partes mas importantes de todo el proyecto,
+  sin embargo, mi especializacion esta en el area de inteligencia artificial, por lo cual, 
