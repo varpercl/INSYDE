@@ -10,4 +10,20 @@ que componen las distintas tecnicas o paradigmas de inteligencia artificial.
 
 Objetivos del proyecto
 
-- 
+- Desarrollar una interfaz sumamente intuitiva, sencilla y amigable para los usuarios sin que estos deban tener
+  un conocimiento avanzado sobre Inteligencia Artificial
+- Implementar un modelo de integracion de plugins para que los usuarios puedan instalar caracteristicas especiales
+  al software
+- Implementacion del diversas areas de Inteligencia Artificial como redes neuronales artificiales, algoritmos geneticos,
+  logica difusa, sistemas expertos, computacion emergente, entre otros.
+
+Estado del proyecto
+
+Actualmente el proyecto esta en sus inicios, se esta desarrollando como punto de partida el modulo de Redes Neuronales
+Artificiales. En este modulo el usuario podra crear de forma sencilla sus sistemas con aprendizaje mediante redes 
+neuronales. 
+El metodo sera muy sencillo, el usuario solamente tomara una red neuronal con el raton y la colocara sobre el Visor.
+Luego este podra colocar otros objetos de entrada/salida como por ejemplo matrices de puntos para el reconocimiento
+de patrones, objetos de imagenes, el cual es un modulo al cual podra asignarle una imagen en distintos formatos; 
+esto puede servir para hacer analisis de vision artificial a imagenes. Tambien se introduciran otros objetos cotidianos
+como displays digitales, entrada de teclado, entrada de raton, 
