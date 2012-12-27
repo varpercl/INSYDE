@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NewProjectWizard</class>
+ <widget class="QWizard" name="NewProjectWizard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>720</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Nuevo proyecto</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <property name="titleFormat">
+   <enum>Qt::RichText</enum>
+  </property>
+  <property name="subTitleFormat">
+   <enum>Qt::RichText</enum>
+  </property>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
