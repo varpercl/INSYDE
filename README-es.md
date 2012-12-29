@@ -1,6 +1,7 @@
 INSYDE
 ------
 
+
 Descripcion: INSYDE (Intelligent System Designer) es un entorno de desarrollo integrado para la creacion, estudio y
 analisis de sistemas inteligentes, le permitira crear sus proyectos donde podra insertar objetos que pueden emular 
 condiciones basicas de un entorno, asi como tambien, agregar componentes de procesamiento "inteligente" como 
