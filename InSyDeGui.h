@@ -4,6 +4,7 @@
 #include <QtGui>
 #include <insydefunctions.h>
 
+#include <binaryoutputrepresentation.h>
 #include <mlptrainingdialog.h>
 #include <graphicelement.h>
 #include <graphicmlpelement.h>
@@ -27,10 +28,10 @@
 #include <trainingsetdialog.h>
 
 enum Pages{
-    SelectProjectID,
-    ChooseProjectNameID,
-    PerceptronPageID,
-    AdalinePageID
+	SelectProjectID,
+	ChooseProjectNameID,
+	PerceptronPageID,
+	AdalinePageID
 };
 
 #endif // INSYDEGUI_H

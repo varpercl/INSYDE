@@ -63,11 +63,15 @@ void PruebaPantalla::onVisorClicked(QMouseEvent *event)
 		sce->addItem(dm);
 
 		vector<int> lsizes;
-		lsizes.push_back(4);
-		lsizes.push_back(3);
+		lsizes.push_back(30);
+//		lsizes.push_back(3);
 		GraphicMLPElement *mlpe = new GraphicMLPElement(new MultilayerPerceptron(35, 26, lsizes, MultilayerPerceptron::Sigmoid));
-		mlpe->setPos(visor->mapToScene(event->pos() + QPoint(200, 0)));
+		mlpe->setPos(visor->mapToScene(event->pos() + QPoint(100, 0)));
 		sce->addItem(mlpe);
+
+		BinaryOutputRepresentation *bor = new BinaryOutputRepresentation(3);
+		bor->setPos(visor->mapToScene(event->pos() + QPoint(300, 0)));
+		sce->addItem(bor);
 		geCounter++;
 	}
 }

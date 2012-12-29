@@ -15,6 +15,18 @@ MLPTrainingDialog::~MLPTrainingDialog()
 	delete tsMLP;
 }
 
+void MLPTrainingDialog::closeEvent(QCloseEvent *)
+{
+	mlp->stopTraining();
+}
+
+void MLPTrainingDialog::trainingFinished()
+{
+	ui->btnTrain->setText("Entrenar");
+	timer.stop();
+	isTraining = false;
+}
+
 void MLPTrainingDialog::on_btnEditTrainingSet_clicked()
 {
 	tsMLP = new TrainingSetDialog(mlp->getInputSize(), mlp->getOutputSize());
@@ -45,6 +57,7 @@ void MLPTrainingDialog::on_cbTrasnferFunction_currentIndexChanged(int index)
 void MLPTrainingDialog::initDialog(MultilayerPerceptron *mlp)
 {
 	this->mlp = mlp;
+	isTraining = false;
 	ui->lblInputs->setText(QString::number(mlp->getInputSize()));
 	ui->lblOutputs->setText(QString::number(mlp->getOutputSize()));
 
@@ -61,14 +74,29 @@ void MLPTrainingDialog::initDialog(MultilayerPerceptron *mlp)
 		ui->tblLayers->setItem(i, 0, new QTableWidgetItem(QString::number(i+1)));
 		ui->tblLayers->setItem(i, 1, new QTableWidgetItem(QString::number(mlp->getLayerSize(i))));
 	}
+
+	mlptt = new MLPTrainingThread(mlp);
+
+	connect(&timer, SIGNAL(timeout()), SLOT(updateStatusLabels()));
+	connect(mlptt, SIGNAL(finished()), SLOT(trainingFinished()));
 }
 
 void MLPTrainingDialog::on_btnTrain_clicked()
 {
-	MultilayerPerceptron::TrainingResult tr = mlp->train(inputs, targets, ui->sbEpochs->value(), ui->sbMinError->value(), ui->sbLearningRate->value());
-	ui->lblEpochs->setText(QString::number(tr.epochs));
-	ui->lblMinError->setText(QString::number(tr.MSE));
-	ui->lblTime->setText(QString::number(tr.time));
+	if(isTraining){
+		ui->btnTrain->setText("Entrenar");
+		timer.stop();
+		mlp->stopTraining();
+	}else{
+		ui->btnTrain->setText("Detener");
+		mlptt->setTrainingParameters(inputs, targets, ui->sbEpochs->value(), ui->sbMinError->value(), ui->sbLearningRate->value());
+		mlptt->start();
+		timer.start(100);
+		t.start();
+	}
+	isTraining = !isTraining;
+//	MultilayerPerceptron::TrainingResult tr = mlp->startTraining(inputs, targets, ui->sbEpochs->value(), ui->sbMinError->value(), ui->sbLearningRate->value());
+
 }
 
 void MLPTrainingDialog::on_btnCancel_clicked()
@@ -79,4 +107,11 @@ void MLPTrainingDialog::on_btnCancel_clicked()
 void MLPTrainingDialog::on_btnRandomize_clicked()
 {
 	mlp->randomizeWeights();
+}
+
+void MLPTrainingDialog::updateStatusLabels(){
+	tres = mlp->getTrainingSnapshot();
+	ui->lblEpochs->setText(QString::number(tres.epochs));
+	ui->lblMinError->setText(QString::number(tres.MSE));
+	ui->lblTime->setText(QTime(0,0,0).addMSecs(t.elapsed()).toString("hh:mm:ss.zzz"));
 }

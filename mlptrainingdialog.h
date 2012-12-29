@@ -2,6 +2,8 @@
 #define MLPTRAININGDIALOG_H
 
 #include <InSyDeGui.h>
+#include <mlptrainingthread.h>
+
 #include <RNALibrary/multilayerperceptron.h>
 
 namespace Ui {
@@ -19,7 +21,14 @@ class MLPTrainingDialog : public QDialog
 		explicit MLPTrainingDialog(MultilayerPerceptron *mlp, QWidget *parent = 0);
 		~MLPTrainingDialog();
 
+	protected:
+		void closeEvent(QCloseEvent *);
+
 	private slots:
+		void trainingFinished();
+
+		void updateStatusLabels();
+
 		void on_btnEditTrainingSet_clicked();
 
 		void on_cbTrainingAlgorithm_currentIndexChanged(int index);
@@ -35,6 +44,12 @@ class MLPTrainingDialog : public QDialog
 	private:
 		Q_OBJECT
 
+		MultilayerPerceptron::TrainingResult tres;
+		QTime t;
+		clock_t time;
+		MLPTrainingThread *mlptt;
+		bool isTraining;
+		QTimer timer;
 		vector<vector<double> > inputs;
 		vector<vector<double> > targets;
 		MultilayerPerceptron *mlp;

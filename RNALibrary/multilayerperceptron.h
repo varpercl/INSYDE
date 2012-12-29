@@ -28,15 +28,15 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 			Tanh
 		};
 
-		struct TrainingResult{
+		typedef struct {
 				unsigned long epochs;
 				double MSE;
 				double time;
-				vector<double> totalMSEHistory;
+				vector<double> MSEHistory;
 				vector<vector<vector<vector<double> > > >layerWeightsHistory;
-				vector<vector<vector<vector<double> > > >outputWeightsHistory;
-				vector<vector<vector<double> > > thresholdHistory;
-		};
+				vector<vector<vector<double> > > outputWeightsHistory;
+//				vector<vector<vector<double> > > thresholdHistory;
+		}TrainingResult;
 
 		explicit MultilayerPerceptron(int ninputs, int noutputs, const vector<int> &layersizes, const TransferFunctionType &tf);
 
@@ -59,19 +59,25 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 
 		void randomizeWeights();
 
-		TrainingResult train(const vector<MultilayerPerceptronPattern*> &ts, unsigned int epochs, double errormin, double learningRate = 1, TrainingAlgorithm ta = Backpropagation);
-		TrainingResult train(const vector<vector<double> > &inputs, const vector<vector<double> > &targets, unsigned int epochs, double errormin, double learningRate = 1, TrainingAlgorithm ta = Backpropagation);
+		TrainingResult startTraining(const vector<MultilayerPerceptronPattern*> &ts, unsigned int epochs, double errormin, double learningRate = 1, TrainingAlgorithm ta = Backpropagation);
+		TrainingResult startTraining(const vector<vector<double> > &inputs, const vector<vector<double> > &targets, unsigned int epochs, double errormin, double learningRate = 1, TrainingAlgorithm ta = Backpropagation);
+
+		TrainingResult getTrainingSnapshot();
+		void stopTraining();
 
 		void setAlfa(double a);
 		double getAlfa();
 
 	private:
 
+		vector<vector<double> > deltaHidden;
+		TrainingResult tr;
+		bool training;
 		vector<double> __outputs;
 		vector<double> __inputs;
 		int nInputs;
 		double alfa;
-		vector<int> hiddenLayerSizes;
+//		vector<int> hiddenLayerSizes;
 		vector<vector<vector<double> > > layerWeights;
 		vector<vector<double> > outputWeights;
 

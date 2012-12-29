@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mlptrainingdialog.ui'
 **
-** Created: Wed 26. Dec 18:53:19 2012
+** Created: Sat 29. Dec 05:08:35 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -157,8 +157,9 @@ public:
 
         sbLearningRate = new QDoubleSpinBox(groupBox);
         sbLearningRate->setObjectName(QString::fromUtf8("sbLearningRate"));
+        sbLearningRate->setDecimals(4);
         sbLearningRate->setMaximum(1);
-        sbLearningRate->setValue(1);
+        sbLearningRate->setValue(0.05);
 
         formLayout->setWidget(5, QFormLayout::FieldRole, sbLearningRate);
 

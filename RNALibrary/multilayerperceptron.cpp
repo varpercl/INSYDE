@@ -1,4 +1,5 @@
 #include "multilayerperceptron.h"
+//#include <complex>
 
 MultilayerPerceptronPattern::MultilayerPerceptronPattern(int ninputs, int ntargets) :
 	SimpleInputPattern(ninputs)
@@ -135,7 +136,7 @@ int MultilayerPerceptron::getLayerSize(unsigned int layer)
 void MultilayerPerceptron::setLayerSizes(const vector<int> &sizes)
 {
 	//    layerSizes = sizes;
-	this->hiddenLayerSizes = sizes;
+//	this->hiddenLayerSizes = sizes;
 	size_t nLayers = sizes.size();
 	layerWeights = vector<vector<vector<double> > >(nLayers);
 	for(size_t i = 0; i < nLayers; i++){
@@ -222,6 +223,7 @@ vector<double> MultilayerPerceptron::getOutput(const vector<double> &inputs)
 			switch(tf){
 				case Sigmoid:
 					__outputs[neuron] = 1/(1+exp(-alfa*sum));
+//					__outputs[neuron] = 1/__outputs[neuron];
 					break;
 				case Tanh:
 					__outputs[neuron] = tanh(alfa*sum);
@@ -265,7 +267,7 @@ void MultilayerPerceptron::randomizeWeights()
 	}
 }
 
-MultilayerPerceptron::TrainingResult MultilayerPerceptron::train(const vector<MultilayerPerceptronPattern*> &ts, unsigned int epochs, double errormin, double learningRate, TrainingAlgorithm ta)
+MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const vector<MultilayerPerceptronPattern*> &ts, unsigned int epochs, double errormin, double learningRate, TrainingAlgorithm ta)
 {
 	size_t sTS = ts.size();
 	vector<vector<double> > inputs(sTS);
@@ -275,25 +277,25 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::train(const vector<Mu
 		targets[i] = ts[i]->getTargets();
 	}
 
-	TrainingResult tr = train(inputs, targets, epochs, errormin, learningRate, ta);
+	TrainingResult tr = startTraining(inputs, targets, epochs, errormin, learningRate, ta);
 
 	return tr;
 }
 
-MultilayerPerceptron::TrainingResult MultilayerPerceptron::train(const vector<vector<double> > &inputs, const vector<vector<double> > &targets, unsigned int epochs, double errormin, double learningRate, TrainingAlgorithm ta)
+MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const vector<vector<double> > &inputs, const vector<vector<double> > &targets, unsigned int epochs, double errormin, double learningRate, TrainingAlgorithm ta)
 {
 
 	size_t
 			nPatterns,
 			nNeurons,
-			nWeights,
+			nBOutputs,
 			nOutputs;
 
 	vector<double>
 			yObtained,
 			deltaOut(outputWeights.size(), 0);
 
-	vector<vector<double> > deltaHidden(layerWeights.size());
+	deltaHidden.resize(layerWeights.size());
 	for(size_t i = 0; i < deltaHidden.size(); i++){
 		deltaHidden[i] = vector<double>(layerWeights[i].size(), 0);
 	}
@@ -303,22 +305,31 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::train(const vector<ve
 	int nLayers  = int(layerWeights.size());
 
 	double pMSE;
-	unsigned long epc;
+//	unsigned long epc;
 
 	double sumDeltas;
 	nOutputs = getOutputSize();
-	MultilayerPerceptron::TrainingResult tr;
-	tr.epochs = epc = 0;
+//	MultilayerPerceptron::TrainingResult tr;
+	tr.time = 0;
+	tr.epochs = 0;
+	tr.layerWeightsHistory.clear();
+	tr.outputWeightsHistory.clear();
+	tr.MSEHistory.clear();
+	tr.layerWeightsHistory.push_back(layerWeights);
+	tr.outputWeightsHistory.push_back(outputWeights);
+	tr.MSEHistory.push_back(0);
 	vector<vector<double> > layerOutputs;
+	training = true;
 	clock_t t_ini = clock();
 	do{
+//		tr.MSE = 0;
+		pMSE = 0;
 		for(size_t p = 0; p < nPatterns; p++){
 			layerOutputs = getLayerOutputs(inputs[p]);
 			yObtained = layerOutputs[layerOutputs.size() - 1];
 			for(int layer = nLayers; layer >= 0; layer--){
 				nNeurons = (layer == nLayers ? outputWeights.size() : layerWeights[layer].size());
 //				deltaOut = vector<double>(nNeurons, 0);
-
 				for(size_t neuron = 0; neuron <= nNeurons; neuron++){
 					if(layer == nLayers){ //Si es la capa de salida
 						if(neuron < nNeurons){
@@ -356,38 +367,51 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::train(const vector<ve
 			}
 
 			//Comienza la actualizacion de los pesos
-			for(int layer = 0; layer < nLayers; layer++){
-				for(size_t neuron = 0; neuron < nNeurons; neuron++){
-					nWeights = (layer == nLayers ? outputWeights[0].size() : layerWeights[layer][0].size());
-
-					for(size_t weight = 0; weight < nWeights; weight++){
+			for(int layer = 0; layer <= nLayers; layer++){
+				nNeurons = (layer == nLayers ? outputWeights.size() : layerWeights[layer].size());
+				for(size_t i = 0; i < nNeurons; i++){
+					nBOutputs = (layer == 0 ? inputs[p].size() : layerWeights[layer - 1].size());
+					for(size_t j = 0; j <= nBOutputs; j++){
 						if(layer == nLayers){
-							outputWeights[neuron][weight] += learningRate*deltaOut[neuron]*yObtained[neuron];
+							outputWeights[i][j] += (j == nBOutputs ? -learningRate*deltaOut[i] : learningRate*deltaOut[i]*layerOutputs[layer-1][j]);
+						}else if(layer == 0){
+							layerWeights[layer][i][j] += (j == nBOutputs ?
+															  -learningRate*deltaHidden[layer][i] :
+															  learningRate*deltaHidden[layer][i]*inputs[p][j]);
 						}else{
-							layerWeights[layer][neuron][weight] += learningRate*deltaOut[neuron]*yObtained[neuron];
+							layerWeights[layer][i][j] += (j == nBOutputs ? -learningRate*deltaHidden[layer][i] : learningRate*deltaHidden[layer][i]*layerOutputs[layer-1][j]);
 						}
 					}
 				}
 			}
-
-			tr.MSE = 0;
-			pMSE = 0;
 			yObtained = getOutput(inputs[p]);
 			for(size_t neuron = 0; neuron < nOutputs; neuron++){
-				double diff = (targets[p][neuron] - yObtained[neuron]);
-				pMSE += diff * diff;
-				tr.MSE += (targets[p][neuron] - yObtained[neuron])*(targets[p][neuron] - yObtained[neuron]);
+//				double diff = (targets[p][neuron] - yObtained[neuron]);
+//				pMSE += diff * diff;
+				pMSE += (targets[p][neuron] - yObtained[neuron])*(targets[p][neuron] - yObtained[neuron]);
 			}
-			pMSE += pMSE/2;
-			tr.MSE += tr.MSE/2;
 		}
-		epc++;
+		pMSE += pMSE/2;
+		tr.MSE = pMSE;
+		tr.MSEHistory.push_back(tr.MSE);
+//		tr.layerWeightsHistory.push_back(layerWeights);
+//		tr.outputWeightsHistory.push_back(outputWeights);
+//		epc++;
 		tr.epochs++;
-	}while(tr.MSE >= errormin && tr.epochs < epochs);
-	clock_t t_fin = clock();
-
-	tr.time = double(t_fin - t_ini)/CLOCKS_PER_SEC;
+	}while(tr.MSE >= errormin && tr.epochs < epochs && training);
+	tr.time = double(clock() - t_ini)/CLOCKS_PER_SEC;
+//	deltaHidden = vector<vector<double> >(1, vector<double>(1, 0));
 	return tr;
+}
+
+MultilayerPerceptron::TrainingResult MultilayerPerceptron::getTrainingSnapshot()
+{
+	return tr;
+}
+
+void MultilayerPerceptron::stopTraining()
+{
+	training = false;
 }
 
 void MultilayerPerceptron::setAlfa(double a)

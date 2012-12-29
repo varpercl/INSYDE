@@ -71,7 +71,9 @@ SOURCES += main.cpp\
     graphicelement.cpp \
     dotmatrix.cpp \
     graphicmlpelement.cpp \
-    mlptrainingdialog.cpp
+    mlptrainingdialog.cpp \
+    mlptrainingthread.cpp \
+    binaryoutputrepresentation.cpp
 
 HEADERS  += mainwindow.h \
 	obstaculo.h \
@@ -114,7 +116,9 @@ HEADERS  += mainwindow.h \
     graphicmlpelement.h \
     insydefunctions.h \
     letterdeclarations.h \
-    mlptrainingdialog.h
+    mlptrainingdialog.h \
+    mlptrainingthread.h \
+    binaryoutputrepresentation.h
 
 FORMS    += mainwindow.ui \
 	defineruledialog.ui \
