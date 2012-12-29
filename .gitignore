@@ -2,6 +2,8 @@
 ##Qt Creator
 #################
 
+Makefile
+Makefile.debug
 .autosave
 .o
 .lib
