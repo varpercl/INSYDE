@@ -45,9 +45,9 @@ En el primer lanzamiento se tendran las siguientes caracteristicas:
     Este editor permitira crear su conjunto de entrenamiento a partir de datos importado, o capturados de cualquier
     tipo de objeto valido que tenga coherencia con el conjunto de entrenamiento como tal.
 - Objetos de entrada:
-    Matriz de puntos, Regiones, Imagen, Entrada teclado, Entrada raton, Entrada audio
+    Matriz de puntos, Display digital, Regiones, Imagen, Entrada teclado, Entrada raton, Entrada audio
 - Objetos de salida:
-    Representacion binaria, Matriz de puntos, Salida audio, Salida raton, Salida imagen
+    Representacion binaria, Dislplay digital, Matriz de puntos, Salida audio, Salida raton, Salida imagen
 - Gestor de proyectos:
     Como se viene manejando en la mayoria de los IDEs, este tendra un gestor de proyectos basado en XML. Esto le
     permitira guardar el estado actual de su sistema inteligente, asi como datos de sintonizacion actuales, por ejemplo,
