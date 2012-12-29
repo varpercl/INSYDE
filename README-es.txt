@@ -31,6 +31,28 @@ esto puede servir para hacer analisis de vision artificial a imagenes. Tambien s
 como displays digitales, entrada de teclado, entrada de raton, entrada de audio, salida de audio, capturador de video,
 capturador de imagen del escritorio, capturador de entradas analogicas.
 
+Alcance de la primera version (1.0.0)
+
+En el primer lanzamiento se tendran las siguientes caracteristicas: 
+
+- Toolbox de redes neuronales:
+    Perceptron Multicapa, Hopfield, Kohonen, ADALINE, Perceptron simple
+- Editor avanzado de redes neuronales:
+    Este editor permite ver graficamente cada una de las conexiones y las entradas que tiene la red neuronal
+    en un instante dado. Los pesos sinapticos son representados mediante colores que van desde el rojo al verde; 
+    dichos colores pueden ser ajustados en rango para adaptar la representacion grafica.
+- Editor avanzado de conjuntos de entrenamiento:
+    Este editor permitira crear su conjunto de entrenamiento a partir de datos importado, o capturados de cualquier
+    tipo de objeto valido que tenga coherencia con el conjunto de entrenamiento como tal.
+- Objetos de entrada:
+    Matriz de puntos, Regiones, Imagen, Entrada teclado, Entrada raton, Entrada audio
+- Objetos de salida:
+    Representacion binaria, Matriz de puntos, Salida audio, Salida raton, Salida imagen
+- Gestor de proyectos:
+    Como se viene manejando en la mayoria de los IDEs, este tendra un gestor de proyectos basado en XML. Esto le
+    permitira guardar el estado actual de su sistema inteligente, asi como datos de sintonizacion actuales, por ejemplo,
+    los pesos de las redes neuronales. Tambien podra exportar los datos de los objetos en distiontos archivos.
+
 Necesidades
 
 El proyecto actualmente esta en pleno desarrollo, por lo cual, se requiere ampliamente el desarrollo de muchas areas, 
