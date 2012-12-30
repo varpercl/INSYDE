@@ -4,23 +4,23 @@ INSYDE
 INSYDE (Intelligent System Designer): An integrated enviroment to make your own intelligent systems.
 
 
+Description: INSYDE (Intelligent System Designer) is a free Integrated Development Enviroment to create, study and 
+analyse Intelligent Systems, you will be able to create your own projects where you can insert objects to emulate 
+basics conditions in an enviroment, also, to add components realize Intelligent proccessing like Fuzzy logic engine, 
+neural networks, genetic algorithm optimization or ant colony, among others. The principal goal is to develop an 
+enviroment to create intuitively and simply your own Intelligent Systems without advanced knowledge of programming 
+languages or algorithms that compose the variety of tecniques or paradigms of Artificial Intelligence.
 
-INSYDE
+Project goals
 
-Descripcion: INSYDE (Intelligent System Designer) es un entorno de desarrollo integrado para la creacion, estudio y
-analisis de sistemas inteligentes, le permitira crear sus proyectos donde podra insertar objetos que pueden emular 
-condiciones basicas de un entorno, asi como tambien, agregar componentes de procesamiento "inteligente" como 
-algun motor de logica difusa, redes neuronales, optimizacion por algoritmos geneticos o colonias de hormigas, entre
-otros. El objetivo principal es desarrollar un entorno que le permita de forma intuitiva y muy sencilla crear sus 
-propios sistemas inteligentes sin tener un conocimiento muy avanzado de programacion o de los algoritmos 
-que componen las distintas tecnicas o paradigmas de inteligencia artificial.
+- To develop an interface highly intuitive, simply and friendly for that users with no advanced knowledges over
+  Artificial Intelligence
+- To implement a plugin integration model to users can install special features to the software.
+- To implement many Artificial Intelligence areas like artificial neural networks, genetic algorithms, fuzzy logic,
+  expert systems, emergent computing, etc. 
 
 Objetivos del proyecto
 
-- Desarrollar una interfaz sumamente intuitiva, sencilla y amigable para los usuarios sin que estos deban tener
-  un conocimiento avanzado sobre Inteligencia Artificial
-- Implementar un modelo de integracion de plugins para que los usuarios puedan instalar caracteristicas especiales
-  al software
 - Implementacion del diversas areas de Inteligencia Artificial como redes neuronales artificiales, algoritmos geneticos,
   logica difusa, sistemas expertos, computacion emergente, entre otros.
 - Implementar un sistema de asistentes inteligentes para que el usuario menos experimentado sea dirigido a la hora
