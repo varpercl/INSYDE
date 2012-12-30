@@ -18,47 +18,43 @@ Project goals
 - To implement a plugin integration model to users can install special features to the software.
 - To implement many Artificial Intelligence areas like artificial neural networks, genetic algorithms, fuzzy logic,
   expert systems, emergent computing, etc. 
+- To implement an Intelligent Assistant System for less experienced users to be guided in developing their systems.
 
-Objetivos del proyecto
+Project status
 
-- Implementacion del diversas areas de Inteligencia Artificial como redes neuronales artificiales, algoritmos geneticos,
-  logica difusa, sistemas expertos, computacion emergente, entre otros.
-- Implementar un sistema de asistentes inteligentes para que el usuario menos experimentado sea dirigido a la hora
-  de desarrollar su sistema inteligente
+Actually this project is begining, I'm developing as starting point an Artificial Neural Network module. In this module
+users can create intuitively their systems with Simulated Neural Network learning.
 
-Estado del proyecto
+Method to use is so simply, users only take a ANN with mouse and place over View. After, users can place other 
+input/output objects, for example, Dot matrix for pattern recognition, image objects, where you can assign an image
+in diferent formats; this object can help you to make your own analyses of artificial vision. Also I will introduce
+another common objects like digital dislplays, keyboard input, mouse input, audio input, audio output, video capturer,
+image capturer from desktop, analogic inputs capturer.
 
-Actualmente el proyecto esta en sus inicios, se esta desarrollando como punto de partida el modulo de Redes Neuronales
-Artificiales. En este modulo el usuario podra crear de forma sencilla sus sistemas con aprendizaje mediante redes 
-neuronales. 
-El metodo sera muy sencillo, el usuario solamente tomara una red neuronal con el raton y la colocara sobre el Visor.
-Luego este podra colocar otros objetos de entrada/salida como por ejemplo matrices de puntos para el reconocimiento
-de patrones, objetos de imagenes, el cual es un modulo al cual podra asignarle una imagen en distintos formatos; 
-esto puede servir para hacer analisis de vision artificial a imagenes. Tambien se introduciran otros objetos cotidianos
-como displays digitales, entrada de teclado, entrada de raton, entrada de audio, salida de audio, capturador de video,
-capturador de imagen del escritorio, capturador de entradas analogicas.
+Scope of first version (1.0.0)
 
-Alcance de la primera version (1.0.0)
+In this first release it will have following features:
 
-En el primer lanzamiento se tendran las siguientes caracteristicas: 
+- ANN Toolbox:
+  Multilayer Perceptron, Hopfield, Kohonen, ADALINE, Simple Perceptron
 
-- Toolbox de redes neuronales:
-    Perceptron Multicapa, Hopfield, Kohonen, ADALINE, Perceptron simple
-- Editor avanzado de redes neuronales:
-    Este editor permite ver graficamente cada una de las conexiones y las entradas que tiene la red neuronal
-    en un instante dado. Los pesos sinapticos son representados mediante colores que van desde el rojo al verde; 
-    dichos colores pueden ser ajustados en rango para adaptar la representacion grafica.
-- Editor avanzado de conjuntos de entrenamiento:
-    Este editor permitira crear su conjunto de entrenamiento a partir de datos importado, o capturados de cualquier
-    tipo de objeto valido que tenga coherencia con el conjunto de entrenamiento como tal.
-- Objetos de entrada:
-    Matriz de puntos, Display digital, Regiones, Imagen, Entrada teclado, Entrada raton, Entrada audio
-- Objetos de salida:
-    Representacion binaria, Dislplay digital, Matriz de puntos, Salida audio, Salida raton, Salida imagen
-- Gestor de proyectos:
-    Como se viene manejando en la mayoria de los IDEs, este tendra un gestor de proyectos basado en XML. Esto le
-    permitira guardar el estado actual de su sistema inteligente, asi como datos de sintonizacion actuales, por ejemplo,
-    los pesos de las redes neuronales. Tambien podra exportar los datos de los objetos en distiontos archivos.
+- Advanced ANN editor:
+  This editor allows to see graphically each one connection and inputs of ANN at a given moment. Weights are 
+  represented by colors from red to green; these colors can be adjusted in a range to adapt graphic representation
+
+- Advanced Training Set Editor: 
+  This editor allos to create your training sets from imported data or captured from any type of valid object
+  coherent with such Training Set.
+
+- Input objects:
+  Dot matrix, digital display, regions, images, keyboard input, mouse input, audio input.
+
+- Output objects:
+  Binary representation, digital display, dot matrix, audio output, mouse output, image output
+
+- Project manager:
+  Like another IDE, this will have a project manager bases on XML. This allow to save current state of your system,
+  current tunning data, for example, ANN weights. Also you could export all data from objects in diferent files.
 
 Necesidades
 
