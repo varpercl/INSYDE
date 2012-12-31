@@ -56,15 +56,21 @@ In this first release it will have following features:
   Like another IDE, this will have a project manager bases on XML. This allow to save current state of your system,
   current tunning data, for example, ANN weights. Also you could export all data from objects in diferent files.
 
-Necesidades
+Needs
 
-El proyecto actualmente esta en pleno desarrollo, por lo cual, se requiere ampliamente el desarrollo de muchas areas, 
-algunas necesidades primordiales son:
+Currently this project is under development, therefore, it requires a wide collaboration in diferent areas:
 
-- Documentacion del codigo fuente: el codigo fuente ha sido desarrollado por mi y lamentablemente soy un mal
-  practicante de la buena programacion, por lo cual en ocasiones por rapidez no documento lo que voy programando.
-- Traduccion del codigo fuente: para que el proyecto sea ampliamente difundido, es imperativo la publicacion en varios
-  idiomas para que distintos desarrolladores a nivel mundial esten en capacidad de trabajar en este proyecto.
+- Documenting all source code: source code has develped by me and lamentably I'm not a good-programing practicing,
+  therefore, sometimes I don't document every fragment of code programed by myself.
+
+- Translating source code: to share this project with many programmers in the world, it's necessary to translate code
+  in english because this is cataloged like an universal language.
+
+
+
+
+
+
 - Programacion de la interfaz grafica: la interfaz grafica es una de las partes mas importantes de todo el proyecto,
   sin embargo, mi especializacion esta en el area de inteligencia artificial, por lo cual, me es dificil dedicarme a 
   ambas cosas, lo cual requiere mucho tiempo y dedicacion.
