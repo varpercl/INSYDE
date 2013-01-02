@@ -180,14 +180,7 @@ void MultilayerPerceptron::setInputSize(int size)
 {
 	nInputs = size;
 	int sNeurons = layerWeights[0].size();
-	//	if(layerWeights.size() == 0){
-	//		layerWeights.resize(hiddenLayerSizes.size());
-	//		layerWeights[0].resize(sNeurons);
-	//		//        for(int r = 0; r < sNeurons; r++){
-	//		//            layerWeights[0][r].resize(size);
-	//		//        }
-	//	}
-	//    sNeurons = layerWeights[0].size();
+
 	for(int i = 0; i < sNeurons; i++){
 		layerWeights[0][i] = getRandomValues(nInputs + 1);
 	}
@@ -223,7 +216,6 @@ vector<double> MultilayerPerceptron::getOutput(const vector<double> &inputs)
 			switch(tf){
 				case Sigmoid:
 					__outputs[neuron] = 1/(1+exp(-alfa*sum));
-//					__outputs[neuron] = 1/__outputs[neuron];
 					break;
 				case Tanh:
 					__outputs[neuron] = tanh(alfa*sum);
@@ -234,6 +226,16 @@ vector<double> MultilayerPerceptron::getOutput(const vector<double> &inputs)
 	}
 
 	return __outputs;
+}
+
+vector<double> MultilayerPerceptron::getOutput(const vector<int> &inputs)
+{
+	int sInputs = inputs.size();
+	vector<double> dblInputs(sInputs);
+	for(int i = 0; i < sInputs; i++){
+		dblInputs[i] = double(inputs[i]);
+	}
+	return getOutput(dblInputs);
 }
 
 void MultilayerPerceptron::setTransferFunctionType(MultilayerPerceptron::TransferFunctionType tf)
@@ -325,23 +327,28 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 //		tr.MSE = 0;
 		pMSE = 0;
 		for(size_t p = 0; p < nPatterns; p++){
+
+			//Se obtienen las salidas para cada una de las capas
 			layerOutputs = getLayerOutputs(inputs[p]);
 			yObtained = layerOutputs[layerOutputs.size() - 1];
 			for(int layer = nLayers; layer >= 0; layer--){
 				nNeurons = (layer == nLayers ? outputWeights.size() : layerWeights[layer].size());
 //				deltaOut = vector<double>(nNeurons, 0);
 				for(size_t neuron = 0; neuron <= nNeurons; neuron++){
+
+					//Se inicia el calculo de todos los deltas
 					if(layer == nLayers){ //Si es la capa de salida
 						if(neuron < nNeurons){
-							double diff = (targets[p][neuron] - yObtained[neuron]);
 							switch(tf){
 								case Sigmoid:
-									deltaOut[neuron] = alfa * yObtained[neuron] * (1 - yObtained[neuron]) * diff;
+									deltaOut[neuron] = alfa * yObtained[neuron] * (1 - yObtained[neuron]) * (targets[p][neuron] - yObtained[neuron]);
 									break;
 								case Tanh:
-									deltaOut[neuron] = alfa * (1 - (yObtained[neuron]*yObtained[neuron])) * diff;
+									deltaOut[neuron] = alfa * (1 - (yObtained[neuron]*yObtained[neuron])) * (targets[p][neuron] - yObtained[neuron]);
 									break;
 							}
+						}else{
+							continue;
 						}
 					}else{
 						size_t nDeltaElements = (layer == nLayers - 1 ? outputWeights.size() : layerWeights[layer + 1].size());
@@ -356,10 +363,10 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 
 						switch(tf){
 							case Sigmoid:
-								deltaHidden[layer][neuron] = alfa * yObtained[neuron] * (1 - yObtained[neuron]) * sumDeltas;
+								deltaHidden[layer][neuron] = alfa * layerOutputs[layer][neuron] * (1 - layerOutputs[layer][neuron]) * sumDeltas;
 								break;
 							case Tanh:
-								deltaHidden[layer][neuron] = alfa * (1 - (yObtained[neuron]*yObtained[neuron])) * sumDeltas;
+								deltaHidden[layer][neuron] = alfa * (1 - (layerOutputs[layer][neuron]*layerOutputs[layer][neuron])) * sumDeltas;
 								break;
 						}
 					}
@@ -367,8 +374,8 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 			}
 
 			//Comienza la actualizacion de los pesos
-			for(int layer = 0; layer <= nLayers; layer++){
-				nNeurons = (layer == nLayers ? outputWeights.size() : layerWeights[layer].size());
+			for(int layer = nLayers; layer >= 0; layer--){
+				nNeurons = (layer == nLayers ? nOutputs : layerWeights[layer].size());
 				for(size_t i = 0; i < nNeurons; i++){
 					nBOutputs = (layer == 0 ? inputs[p].size() : layerWeights[layer - 1].size());
 					for(size_t j = 0; j <= nBOutputs; j++){
@@ -386,8 +393,6 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 			}
 			yObtained = getOutput(inputs[p]);
 			for(size_t neuron = 0; neuron < nOutputs; neuron++){
-//				double diff = (targets[p][neuron] - yObtained[neuron]);
-//				pMSE += diff * diff;
 				pMSE += (targets[p][neuron] - yObtained[neuron])*(targets[p][neuron] - yObtained[neuron]);
 			}
 		}
@@ -399,8 +404,9 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 //		epc++;
 		tr.epochs++;
 	}while(tr.MSE >= errormin && tr.epochs < epochs && training);
+
 	tr.time = double(clock() - t_ini)/CLOCKS_PER_SEC;
-//	deltaHidden = vector<vector<double> >(1, vector<double>(1, 0));
+
 	return tr;
 }
 

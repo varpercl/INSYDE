@@ -56,6 +56,7 @@ class TrainingSetDialog : public QDialog
 		vector<vector<double> > inputs, targets;
 
 		void initDialog(int inputs, int outputs);
+		void initDialog(const vector<vector<double> > &inputs, const vector<vector<double> > &outputs);
 		void updateHeaders();
 		void loadMLPData();
 

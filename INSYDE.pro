@@ -73,7 +73,7 @@ SOURCES += main.cpp\
     graphicmlpelement.cpp \
     mlptrainingdialog.cpp \
     mlptrainingthread.cpp \
-    binaryoutputrepresentation.cpp
+    binaryoutputelement.cpp
 
 HEADERS  += mainwindow.h \
 	obstaculo.h \
@@ -118,7 +118,7 @@ HEADERS  += mainwindow.h \
     letterdeclarations.h \
     mlptrainingdialog.h \
     mlptrainingthread.h \
-    binaryoutputrepresentation.h
+    binaryoutputelement.h
 
 FORMS    += mainwindow.ui \
 	defineruledialog.ui \

@@ -27,6 +27,31 @@ class Unit;
   */
 class Visor : public QGraphicsView
 {
+
+	public:
+		explicit Visor(QWidget *parent = 0);
+
+		void setSimulationStatus(Status sta);
+		Status getSimulationStatus();
+
+	protected:
+
+		//Eventos heredados
+		void mouseDoubleClickEvent(QMouseEvent *event);
+		void mousePressEvent(QMouseEvent *event);
+		void mouseMoveEvent(QMouseEvent *event);
+		void mouseReleaseEvent(QMouseEvent *event);
+
+	signals:
+		void clicked(QMouseEvent *event);
+
+	protected slots:
+		void contextualMenu(QPoint p);
+
+	public slots:
+		void deleteSelected();
+
+	private:
 		Q_OBJECT
 
 		//        int updateViewPort;
@@ -41,32 +66,6 @@ class Visor : public QGraphicsView
 
 		void showPointer(double angle);
 		void removePointer();
-
-	public:
-		explicit Visor(QWidget *parent = 0);
-
-		void setSimulationStatus(Status sta);
-		Status getSimulationStatus();
-
-	protected:
-		//        void timerEvent(QTimerEvent *event);
-		void mouseDoubleClickEvent(QMouseEvent *event);
-		void mousePressEvent(QMouseEvent *event);
-		void mouseMoveEvent(QMouseEvent *event);
-		void mouseReleaseEvent(QMouseEvent *event);
-		//        void drawForeground(QPainter *painter, const QRectF &rect);
-		//        void paintEvent(QPaintEvent *event);
-		//        void resizeEvent(QResizeEvent *event);
-
-	signals:
-		void clicked(QMouseEvent *event);
-
-	protected slots:
-		void contextualMenu(QPoint p);
-
-	public slots:
-		void deleteSelected();
-
 };
 
 #endif // MAPA_H

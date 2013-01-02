@@ -53,6 +53,7 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 		int getInputSize();
 
 		vector<double> getOutput(const vector<double> &inputs);
+		vector<double> getOutput(const vector<int> &inputs);
 
 		void setTransferFunctionType(TransferFunctionType tf);
 		TransferFunctionType getTransferFunctionType();

@@ -4,7 +4,7 @@
 #include <QtGui>
 #include <insydefunctions.h>
 
-#include <binaryoutputrepresentation.h>
+#include <binaryoutputelement.h>
 #include <mlptrainingdialog.h>
 #include <graphicelement.h>
 #include <graphicmlpelement.h>

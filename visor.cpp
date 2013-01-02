@@ -11,7 +11,7 @@ Visor::Visor(QWidget *parent) : QGraphicsView(parent), apuntador(NULL){
 	setOptimizationFlags(QGraphicsView::DontAdjustForAntialiasing|
 						 QGraphicsView::DontSavePainterState
 						 );
-	setRenderHint(QPainter::Antialiasing);
+	setRenderHint(QPainter::HighQualityAntialiasing);
 	setAttribute(Qt::WA_TranslucentBackground, false);
 	setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
 	//    updateViewPort = startTimer(50);
@@ -51,13 +51,6 @@ Status Visor::getSimulationStatus()
 {
 	return simulationStatus;
 }
-
-//void Visor::timerEvent(QTimerEvent *event)
-//{
-//    if(updateViewPort == event->timerId()){
-//        update();
-//    }
-//}
 
 void Visor::mouseDoubleClickEvent(QMouseEvent *event)
 {
@@ -246,48 +239,11 @@ void Visor::mouseReleaseEvent(QMouseEvent *event){
 		case Stopped:
 			break;
 	}
-
-
 }
-
-//void Visor::resizeEvent(QResizeEvent *event)
-//{
-//    scene()->setSceneRect(frameRect().adjusted(-500, -500, 500, 500));
-//}
 
 int rectArea(QRect rect){
 	return rect.width() * rect.height();
 }
-
-//en caso de querer un cuadro de seleccion personalizado
-
-//void Visor::paintEvent(QPaintEvent *event)
-//{
-////    return;
-//    QPainter painter;
-
-//    painter.begin(viewport());
-
-//    int ra = rectArea(selectionRect);
-//    if(ra > 0){
-
-//        QBrush brush(Qt::blue);
-
-//        QPen pen(Qt::blue, 2);
-
-////        painter.save();
-//        painter.setPen(pen);
-//        painter.drawRect(selectionRect);
-//        painter.setBrush(brush);
-//        painter.setOpacity(0.5);
-//        painter.drawRect(selectionRect);
-
-////        painter.restore();
-//    }
-////    scene()->drawItems(painter, 10, );
-//    painter.end();
-//    QGraphicsView::paintEvent(event);
-//}
 
 void Visor::contextualMenu(QPoint p){
 	QMenu *cntxMenu;

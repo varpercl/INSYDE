@@ -96,6 +96,27 @@ void TrainingSetDialog::initDialog(int inputs, int outputs)
 	loadMLPData();
 }
 
+void TrainingSetDialog::initDialog(const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
+{
+	const int nPatterns = (inputs.size() >= targets.size() ? inputs.size() : targets.size());
+	size_t sInputs, sTargets;
+	for(int i = 0; i < nPatterns; i++){
+		ui->patternTable->setRowCount(ui->patternTable->rowCount()+1);
+		sInputs = inputs[i].size();
+		for(size_t j = 0; j < sInputs; j++){
+			QTableWidgetItem *itm = new QTableWidgetItem();
+			itm->setText(QString::number(inputs[i][j]));
+			ui->patternTable->setItem(i, j, itm);
+		}
+		sTargets = targets[i].size();
+		for(size_t j = 0; j < sTargets; j++){
+			QTableWidgetItem *itm = new QTableWidgetItem();
+			itm->setText(QString::number(targets[i][j]));
+			ui->patternTable->setItem(i, j + inputCount, itm);
+		}
+	}
+}
+
 void TrainingSetDialog::updateHeaders()
 {
 	QStringList headers;

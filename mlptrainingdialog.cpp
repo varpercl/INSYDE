@@ -24,6 +24,7 @@ void MLPTrainingDialog::trainingFinished()
 {
 	ui->btnTrain->setText("Entrenar");
 	timer.stop();
+	updateStatusLabels();
 	isTraining = false;
 }
 
@@ -90,8 +91,8 @@ void MLPTrainingDialog::on_btnTrain_clicked()
 	}else{
 		ui->btnTrain->setText("Detener");
 		mlptt->setTrainingParameters(inputs, targets, ui->sbEpochs->value(), ui->sbMinError->value(), ui->sbLearningRate->value());
-		mlptt->start();
-		timer.start(100);
+		mlptt->start(QThread::LowestPriority);
+		timer.start(500);
 		t.start();
 	}
 	isTraining = !isTraining;

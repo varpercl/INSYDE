@@ -7,7 +7,7 @@ GraphicMLPElement::GraphicMLPElement(MultilayerPerceptron *mlp)
 
 GraphicMLPElement::~GraphicMLPElement()
 {
-	//	delete cntxMenu;
+
 }
 
 QMenu *GraphicMLPElement::getContextMenu(QMenu *cntxMenu)
@@ -19,43 +19,41 @@ QMenu *GraphicMLPElement::getContextMenu(QMenu *cntxMenu)
 	return cntxMenu;
 }
 
-//void GraphicMLPElement::showPropertyDialog()
-//{
-//}
+int GraphicMLPElement::type() const
+{
+	return GraphicMLPElementType;
+}
+
+void GraphicMLPElement::setInputElement(GraphicElement *ge)
+{
+	switch(ge->type()){
+		case DotMatrix::DotMatrixType:
+			DotMatrix *dm = dynamic_cast<DotMatrix*>(ge);
+			dm->setOutputElement(this);
+			connect(dm, SIGNAL(statusChanged(QVector<int>)), SLOT(onDotMatrixStatusChanged(QVector<int>)));
+			break;
+	}
+}
+
+GraphicElement *GraphicMLPElement::getInputElement()
+{
+	return inputElement;
+}
+
+void GraphicMLPElement::setOutputElement(GraphicElement *ge)
+{
+}
+
+GraphicElement *GraphicMLPElement::getOutputElement()
+{
+	return outputElement;
+}
 
 void GraphicMLPElement::onTrainClick()
 {
-	//	QDialog *dlg = new QDialog();
-
-	//	dlg->exec();
-
-
-//	vector<MultilayerPerceptronPattern*> trainingSet;
-//	trainingSet.push_back(new MultilayerPerceptronPattern(aLetter, 35, aLetterTarget, 26));
-
-//	mlp->train(trainingSet, 10000, 0.01, 0.5);
-
-    MLPTrainingDialog *mlptd = new MLPTrainingDialog(mlp);
-    mlptd->show();
+	MLPTrainingDialog *mlptd = new MLPTrainingDialog(mlp);
+	mlptd->show();
 }
-
-//void GraphicMLPElement::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
-//{
-//	GraphicElement::mouseReleaseEvent(event);
-//	if(event->button() == Qt::RightButton){
-
-//		//        QAction *borrar = new QAction("Agregar", cntxMenu);
-//		cntxMenu->addAction("Entrenar", this, SLOT(onTrainClick()));
-////		cntxMenu->addAction("Propiedades", this, SLOT(onPropertyClick()));
-//		cntxMenu->exec(parentWidget()->mapToParent(event->pos()).toPoint());
-//		//    QMenu *mnuAgregar = new QMenu();
-//		//    mnuAgregar->addAction("Agente", )
-//		//        borrar->setMenu(mnuAgregar);
-
-//		//    cntxMenu->addAction("Agregar", this, SLOT(borrarDisenio()));
-//		//    cntxMenu->exec(map->mapToGlobal(p));
-//	}
-//}
 
 void GraphicMLPElement::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
@@ -64,7 +62,17 @@ void GraphicMLPElement::paint(QPainter *painter, const QStyleOptionGraphicsItem 
 	painter->drawImage(getRectangle().adjusted(5,5,-5,-5), QImage(":imagenes/perceptron multicapa.png"));
 }
 
+void GraphicMLPElement::onPropertyClick()
+{
+}
+
 void GraphicMLPElement::initMLP(MultilayerPerceptron *mlp)
 {
 	this->mlp = mlp;
+}
+
+void GraphicMLPElement::onDotMatrixStatusChanged(QVector<int> outputs)
+{
+	vector<double> out = mlp->getOutput(outputs.toStdVector());
+	emit outputChanged(QVector<double>::fromStdVector(out));
 }

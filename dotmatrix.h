@@ -1,47 +1,74 @@
 #ifndef DOTMATRIX_H
 #define DOTMATRIX_H
 
+#include <QtCore>
 #include <graphicelement.h>
+#include <graphicmlpelement.h>
 
 class DotMatrix : public GraphicElement
 {
-    public:
-        enum DataType{
-            Unipolar,
-            Bipolar
-        };
+	public:
+		enum {DotMatrixType = UserType + 3};
 
-        explicit DotMatrix(int dotSize, int rows, int cols);
+		enum DataType{
+			Unipolar,
+			Bipolar
+		};
 
-        void setDotMatrix(const QVector<QVector<int> > &matrix);
-        QVector<QVector<int> > getDotMatrix() const;
+		explicit DotMatrix(int dotSize, int rows, int cols, DataType dt = Unipolar);
 
-        void setDotList(const QVector<int> &list);
-        void setDotList(const QVector<int> &list, int rows, int cols);
-        QVector<int> getDotList() const;
+		void setDotMatrix(const QVector<QVector<int> > &matrix);
+		QVector<QVector<int> > getDotMatrix();
 
-        void setDataType(const DataType &dt);
-        DataType getDataType();
+		void setDotList(const QVector<int> &list);
+		void setDotList(const QVector<int> &list, int rows, int cols);
 
-    protected:
+		void setDotList(const QVector<double> &list);
+		void setDotList(const QVector<double> &list, int rows, int cols);
 
-        void mousePressEvent(QGraphicsSceneMouseEvent *event);
-        void hoverMoveEvent(QGraphicsSceneHoverEvent *event);
-//        void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-        void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+		QVector<int> getDotList();
 
-    private:
-        Q_OBJECT
+		void setDataType(const DataType &dt);
+		DataType getDataType();
 
-        DataType dataType;
-        int curYIndex, curXIndex;
-        QVector<QPoint> ptsList;
-        int cols, rows;
-        int space;
-        int size;
-        QRectF container, mouseRect;
+		void setInputElement(GraphicElement *ge);
+		GraphicElement* getInputElement();
 
-        void initDM(int dotSize, int rows, int cols);
+		void setOutputElement(GraphicElement *ge);
+		GraphicElement* getOutputElement();
+
+		int type() const;
+	signals:
+
+		void statusChanged(QVector<QVector<int> > matrix);
+		void statusChanged(QVector<int> matrix);
+
+	protected:
+
+		void mousePressEvent(QGraphicsSceneMouseEvent *event);
+		void hoverMoveEvent(QGraphicsSceneHoverEvent *event);
+		//        void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+
+	protected slots:
+
+		void onPropertyClick();
+
+	private:
+		Q_OBJECT
+
+		DataType dataType;
+		int curYIndex, curXIndex;
+		QVector<QPoint> ptsList;
+		int cols, rows;
+		int space;
+		int size;
+		QRectF container, mouseRect;
+
+		void initDM(int dotSize, int rows, int cols, DataType dt);
+
+	private slots:
+		void onMLPOutputChanged(QVector<double> inputs);
 };
 
 #endif // DOTMATRIX_H

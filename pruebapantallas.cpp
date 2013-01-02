@@ -57,20 +57,22 @@ void PruebaPantalla::onVisorClicked(QMouseEvent *event)
 {
 	static int geCounter = 0;
 	if(geCounter == 0){
-		DotMatrix *dm = new DotMatrix(6, 15, 10);
+		DotMatrix *dm = new DotMatrix(5, 7, 5, DotMatrix::Bipolar);
 		QGraphicsScene *sce = visor->scene();
 		dm->setPos(visor->mapToScene(event->pos()));
 		sce->addItem(dm);
 
 		vector<int> lsizes;
-		lsizes.push_back(30);
+		lsizes.push_back(40);
 //		lsizes.push_back(3);
 		GraphicMLPElement *mlpe = new GraphicMLPElement(new MultilayerPerceptron(35, 26, lsizes, MultilayerPerceptron::Sigmoid));
 		mlpe->setPos(visor->mapToScene(event->pos() + QPoint(100, 0)));
+		mlpe->setInputElement(dm);
 		sce->addItem(mlpe);
 
-		BinaryOutputRepresentation *bor = new BinaryOutputRepresentation(3);
+		BinaryOutputElement *bor = new BinaryOutputElement(15, BinaryOutputElement::Vertical, 0.5, BinaryOutputElement::GREATER_THAN_ALL);
 		bor->setPos(visor->mapToScene(event->pos() + QPoint(300, 0)));
+		bor->setInputElement(mlpe);
 		sce->addItem(bor);
 		geCounter++;
 	}

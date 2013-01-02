@@ -37,6 +37,11 @@ QRectF GraphicElement::getRectangle()
 	return rectangle;
 }
 
+int GraphicElement::type() const
+{
+	return GraphicElementType;
+}
+
 //void GraphicElement::mousePressEvent(QGraphicsSceneMouseEvent *event)
 //{
 //}
@@ -68,30 +73,10 @@ void GraphicElement::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
 	painter->restore();
 }
 
-void GraphicElement::onPropertyClick()
-{
-	QWidget *w = new QWidget();
-	w->show();
-}
-
 void GraphicElement::onDeleteClick()
 {
+	scene()->removeItem(this);
 }
-
-//void GraphicElement::mousePressEvent(QGraphicsSceneMouseEvent *event)
-//{
-//    QGraphicsObject::mousePressEvent(event);
-//}
-
-//void GraphicElement::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
-//{
-//    QGraphicsObject::mouseDoubleClickEvent(event);
-//}
-
-//void GraphicElement::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
-//{
-//    QGraphicsObject::mouseMoveEvent(event);
-//}
 
 void GraphicElement::initGE(const QRectF &rect, int border)
 {
