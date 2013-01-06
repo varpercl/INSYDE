@@ -44,14 +44,14 @@ En el primer lanzamiento se tendran las siguientes caracteristicas:
     en un instante dado. Los pesos sinapticos son representados mediante colores que van desde el rojo al verde; 
     dichos colores pueden ser ajustados en rango para adaptar la representacion grafica.
 - Editor avanzado de conjuntos de entrenamiento:
-    Este editor permitira crear su conjunto de entrenamiento a partir de datos importado, o capturados de cualquier
-    tipo de objeto valido que tenga coherencia con el conjunto de entrenamiento como tal.
+    Este editor permitira crear su conjunto de entrenamiento a partir de datos importados o capturados de cualquier
+    tipo de objeto valido que tenga coherencia con el conjunto de entrenamiento.
 - Objetos de entrada:
     Matriz de puntos, Display digital, Regiones, Imagen, Entrada teclado, Entrada raton, Entrada audio
 - Objetos de salida:
     Representacion binaria, Dislplay digital, Matriz de puntos, Salida audio, Salida raton, Salida imagen
 - Gestor de proyectos:
-    Como se viene manejando en la mayoria de los IDEs, este tendra un gestor de proyectos basado en XML. Esto le
+    Como se viene manejando en la mayoria de IDEs, este tendra un gestor de proyectos basado en XML. Esto le
     permitira guardar el estado actual de su sistema inteligente, asi como datos de sintonizacion actuales, por ejemplo,
     los pesos de las redes neuronales. Tambien podra exportar los datos de los objetos en distiontos archivos.
 
