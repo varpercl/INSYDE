@@ -2,7 +2,7 @@
 #define GRAPHICMLPELEMENT_H
 
 #include <InSyDeGui.h>
-#include <RNALibrary/multilayerperceptron.h>
+#include <ANNFramework/multilayerperceptron.h>
 
 /**
   @class GraphicMLPElement es una clase que representa graficamente un objeto
@@ -47,6 +47,12 @@ class GraphicMLPElement : public GraphicElement
 		  */
 		int type() const;
 
+		void setTrainingSet(vector<MultilayerPerceptronPattern*> ts);
+		vector<MultilayerPerceptronPattern*> getTrainingSet();
+
+		void setMultilayerPerceptron(MultilayerPerceptron *mlp);
+		MultilayerPerceptron *getMultilayerPerceptron();
+
 	signals:
 		void outputChanged(QVector<double> outputs);
 
@@ -70,6 +76,7 @@ class GraphicMLPElement : public GraphicElement
 	private:
 		Q_OBJECT
 
+//		QVector<double> inputs;
 		vector<MultilayerPerceptronPattern*> ts;
 		//Instancia de la red neuronal
 		MultilayerPerceptron *mlp;
@@ -77,6 +84,8 @@ class GraphicMLPElement : public GraphicElement
 		void initMLP(MultilayerPerceptron *mlp);
 
 	private slots:
+
+		void onAddToTrainingSet();
 		void onDotMatrixStatusChanged(QVector<int> outputs);
 };
 

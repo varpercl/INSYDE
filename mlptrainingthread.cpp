@@ -20,6 +20,25 @@ MLPTrainingThread::MLPTrainingThread(MultilayerPerceptron *mlp, QObject *parent)
 	this->mlp = mlp;
 }
 
+void MLPTrainingThread::setTrainingParameters(vector<MultilayerPerceptronPattern *> &ts, unsigned int epochs, double errormin, double learningRate, MultilayerPerceptron::TrainingAlgorithm ta)
+{
+	size_t sPatterns = ts.size();
+	inputs.resize(sPatterns);
+	targets.resize(sPatterns);
+//	MultilayerPerceptronPattern *pp;
+//	pp->getTargets();
+//	pp->getInputs();
+	for(size_t i = 0; i < sPatterns; i++){
+		inputs[i] = ts[i]->getInputs();
+		targets[i] = ts[i]->getTargets();
+	}
+
+	this->epochs = epochs;
+	this->errormin = errormin;
+	this->learningRate = learningRate;
+	this->ta = ta;
+}
+
 void MLPTrainingThread::run()
 {
 	mlp->startTraining(inputs, targets, epochs, errormin, learningRate, ta);

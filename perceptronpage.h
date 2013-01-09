@@ -2,7 +2,7 @@
 #define PERCEPTRONPAGE_H
 
 #include <InSyDeGui.h>
-#include <RNALibrary/simpleperceptron.h>
+#include <ANNFramework/simpleperceptron.h>
 
 namespace Ui{
     class PerceptronPage;

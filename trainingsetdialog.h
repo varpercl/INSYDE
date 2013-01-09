@@ -28,14 +28,22 @@ class TrainingSetDialog : public QDialog
 
 		explicit TrainingSetDialog(TrainingSetType type, QWidget *parent = 0);
 		explicit TrainingSetDialog(int inputCount, int targetCount, QWidget *parent = 0);
+		explicit TrainingSetDialog(vector<vector<double> > inputs, vector<vector<double> > targets, QWidget *parent = 0);
+		explicit TrainingSetDialog(vector<MultilayerPerceptronPattern*> ts, QWidget *parent = 0);
 
 		vector<vector<double> > getInputs();
 		void setInputSize(int size);
 
 		vector<vector<double> > getTargets();
-		void setOutputSize(int size);
+		void setTargetSize(int size);
 
-	signals:
+		void appendPattern(vector<double> input, vector<double> target);
+		void appendPattern(vector<int> input, vector<int> target);
+		void appendPattern(QVector<double> input, QVector<double> target);
+		void appendPattern(QVector<int> input, QVector<int> target);
+		void removePattern(int i);
+
+		int getPatternCount();
 
 	protected:
 		Ui::TrainingSetDialog *ui;
@@ -57,8 +65,8 @@ class TrainingSetDialog : public QDialog
 
 		void initDialog(int inputs, int outputs);
 		void initDialog(const vector<vector<double> > &inputs, const vector<vector<double> > &outputs);
+		void initDialog(const vector<MultilayerPerceptronPattern*> ts);
 		void updateHeaders();
-		void loadMLPData();
 
 	private slots:
 		void fromFile();

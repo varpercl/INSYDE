@@ -1,5 +1,4 @@
 #include "trainingsetdialog.h"
-#include <letterdeclarations.h>
 
 TrainingSetDialog::TrainingSetDialog(TrainingSetType type, QWidget *parent) :
 	QDialog(parent),
@@ -8,7 +7,7 @@ TrainingSetDialog::TrainingSetDialog(TrainingSetType type, QWidget *parent) :
 	targetCount(1)
 {
 	initDialog(1, 1);
-	loadMLPData();
+//	loadMLPData();
 }
 
 TrainingSetDialog::TrainingSetDialog(int inputCount, int outputCount, QWidget *parent) :
@@ -17,6 +16,22 @@ TrainingSetDialog::TrainingSetDialog(int inputCount, int outputCount, QWidget *p
 	targetCount(outputCount)
 {
 	initDialog(inputCount, outputCount);
+}
+
+TrainingSetDialog::TrainingSetDialog(vector<vector<double> > inputs, vector<vector<double> > targets, QWidget *parent) :
+	QDialog(parent),
+	ui(new Ui::TrainingSetDialog),
+	targetCount(targets[0].size())
+{
+	initDialog(inputs, targets);
+}
+
+TrainingSetDialog::TrainingSetDialog(vector<MultilayerPerceptronPattern *> ts, QWidget *parent) :
+	QDialog(parent),
+	ui(new Ui::TrainingSetDialog),
+	targetCount(ts.size())
+{
+	initDialog(ts);
 }
 
 vector<vector<double> > TrainingSetDialog::getInputs()
@@ -62,11 +77,81 @@ vector<vector<double> > TrainingSetDialog::getTargets()
 	return targets;
 }
 
-void TrainingSetDialog::setOutputSize(int size)
+void TrainingSetDialog::setTargetSize(int size)
 {
 	targetCount = size;
 	ui->patternTable->setColumnCount(targetCount + inputCount);
 	updateHeaders();
+}
+
+void TrainingSetDialog::appendPattern(vector<double> input, vector<double> target)
+{
+	setInputSize(input.size());
+	setTargetSize(target.size());
+	ui->patternTable->setRowCount(ui->patternTable->rowCount() + 1);
+
+	int nRows = ui->patternTable->rowCount();
+	for(int i = 0; i < inputCount; i++){
+		ui->patternTable->setItem(nRows-1, i, new QTableWidgetItem(QString::number(input[i])));
+	}
+	for(int j = inputCount; j < inputCount + targetCount; j++){
+		ui->patternTable->setItem(nRows-1, j, new QTableWidgetItem(QString::number(target[j-inputCount])));
+	}
+}
+
+void TrainingSetDialog::appendPattern(vector<int> input, vector<int> target)
+{
+	setInputSize(input.size());
+	setTargetSize(target.size());
+	ui->patternTable->setRowCount(ui->patternTable->rowCount() + 1);
+
+	int nRows = ui->patternTable->rowCount();
+	for(int i = 0; i < inputCount; i++){
+		ui->patternTable->setItem(nRows-1, i, new QTableWidgetItem(QString::number(input[i])));
+	}
+	for(int j = inputCount; j <  inputCount + targetCount; j++){
+		ui->patternTable->setItem(nRows-1, j, new QTableWidgetItem(QString::number(target[j-inputCount])));
+	}
+}
+
+void TrainingSetDialog::appendPattern(QVector<double> input, QVector<double> target)
+{
+	setInputSize(input.size());
+	setTargetSize(target.size());
+	ui->patternTable->setRowCount(ui->patternTable->rowCount() + 1);
+
+	int nRows = ui->patternTable->rowCount();
+	for(int i = 0; i < inputCount; i++){
+		ui->patternTable->setItem(nRows-1, i, new QTableWidgetItem(QString::number(input[i])));
+	}
+	for(int j = inputCount; j <  inputCount + targetCount; j++){
+		ui->patternTable->setItem(nRows-1, j, new QTableWidgetItem(QString::number(target[j-inputCount])));
+	}
+}
+
+void TrainingSetDialog::appendPattern(QVector<int> input, QVector<int> target)
+{
+	setInputSize(input.size());
+	setTargetSize(target.size());
+	ui->patternTable->setRowCount(ui->patternTable->rowCount() + 1);
+
+	int nRows = ui->patternTable->rowCount();
+	for(int i = 0; i < inputCount; i++){
+		ui->patternTable->setItem(nRows-1, i, new QTableWidgetItem(QString::number(input[i])));
+	}
+	for(int j = inputCount; j < inputCount + targetCount; j++){
+		ui->patternTable->setItem(nRows-1, j, new QTableWidgetItem(QString::number(target[j-inputCount])));
+	}
+}
+
+void TrainingSetDialog::removePattern(int i)
+{
+	ui->patternTable->removeRow(i);
+}
+
+int TrainingSetDialog::getPatternCount()
+{
+	return ui->patternTable->rowCount();
 }
 
 void TrainingSetDialog::on_addPatternButton_clicked()
@@ -91,13 +176,22 @@ void TrainingSetDialog::initDialog(int inputs, int outputs)
 	menuBar->addMenu(file);
 	layout()->setMenuBar(menuBar);
 	setInputSize(inputs);
-	setOutputSize(outputs);
+	setTargetSize(outputs);
 
-	loadMLPData();
+//	loadMLPData();
 }
 
 void TrainingSetDialog::initDialog(const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
 {
+	ui->setupUi(this);
+
+	QMenu *file = new QMenu(tr("Archivo"));
+	file->addAction("Desde archivo...", this, SLOT(fromFile()));
+
+	menuBar = new QMenuBar(this);
+	menuBar->addMenu(file);
+	layout()->setMenuBar(menuBar);
+
 	const int nPatterns = (inputs.size() >= targets.size() ? inputs.size() : targets.size());
 	size_t sInputs, sTargets;
 	for(int i = 0; i < nPatterns; i++){
@@ -117,6 +211,24 @@ void TrainingSetDialog::initDialog(const vector<vector<double> > &inputs, const 
 	}
 }
 
+void TrainingSetDialog::initDialog(const vector<MultilayerPerceptronPattern *> ts)
+{
+	ui->setupUi(this);
+
+	QMenu *file = new QMenu(tr("Archivo"));
+	file->addAction("Desde archivo...", this, SLOT(fromFile()));
+
+	menuBar = new QMenuBar(this);
+	menuBar->addMenu(file);
+	layout()->setMenuBar(menuBar);
+
+	const int nPatterns = ts.size();
+//	size_t sInputs, sTargets;
+	for(int i = 0; i < nPatterns; i++){
+		appendPattern(ts[i]->getInputs(), ts[i]->getTargets());
+	}
+}
+
 void TrainingSetDialog::updateHeaders()
 {
 	QStringList headers;
@@ -127,24 +239,6 @@ void TrainingSetDialog::updateHeaders()
 		headers.append("Out " + QString::number(i - inputCount + 1));
 	}
 	ui->patternTable->setHorizontalHeaderLabels(headers);
-}
-
-void TrainingSetDialog::loadMLPData()
-{
-	const int nPatterns = 26;
-	for(int i = 0; i < nPatterns; i++){
-		ui->patternTable->setRowCount(ui->patternTable->rowCount()+1);
-		for(int j = 0; j < 35; j++){
-			QTableWidgetItem *itm = new QTableWidgetItem();
-			itm->setText(QString::number(letters[i][j]));
-			ui->patternTable->setItem(i, j, itm);
-		}
-		for(int j = 0; j < 26; j++){
-			QTableWidgetItem *itm = new QTableWidgetItem();
-			itm->setText(QString::number(LetterTargets[i][j]));
-			ui->patternTable->setItem(i, j + inputCount, itm);
-		}
-	}
 }
 
 void TrainingSetDialog::fromFile()

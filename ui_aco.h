@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'aco.ui'
 **
-** Created: Wed 2. Jan 16:22:08 2013
+** Created: Sun 6. Jan 00:01:26 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

@@ -1,19 +1,10 @@
 #include "general.h"
 
-int intRandomNumber(int min, int max){
-    float rnd = (float(rand())/float(RAND_MAX));
-    float fmin = min, fmax = max;
-    return int(fmin + (fmax - fmin)*rnd);
-}
-
-float fltRandomNumber(float min, float max){
-    float rnd = (float(rand())/float(RAND_MAX));
-    return min + (max - min)*rnd;
-}
-
-double dblRandomNumber(double min, double max){
-    double rnd = (double(rand())/double(RAND_MAX));
-    return min + (max - min)*rnd;
+double randomNumber(double min, double max){
+	double rnd = (double(rand())/double(RAND_MAX));
+//	double fmin = min, fmax = max;
+	double d = (min + (max - min)*rnd);
+	return d;
 }
 
 double probNumbers(vector<pair<double, double> > pairs){

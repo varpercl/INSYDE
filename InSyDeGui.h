@@ -11,7 +11,6 @@
 #include <dotmatrix.h>
 #include <graphicelement.h>
 #include <trainingsetdialog.h>
-#include <aco.h>
 #include <newprojectwizard.h>
 #include <selectprojectpage.h>
 #include <chooseprojectnamepage.h>

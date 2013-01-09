@@ -30,7 +30,7 @@ TEMPLATE = app
 
 debug:LIBS += -L"debug"
 release:LIBS += -L"release"
-LIBS += -lRNALibrary
+LIBS += -lANNFramework
 
 SOURCES += main.cpp\
 		mainwindow.cpp \
@@ -60,7 +60,6 @@ SOURCES += main.cpp\
 	weapon.cpp \
 	general.cpp \
 	newprojectwizard.cpp \
-	aco.cpp \
 	selectprojectpage.cpp \
 	chooseprojectnamepage.cpp \
 	pruebapantallas.cpp \
@@ -123,7 +122,6 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
 	defineruledialog.ui \
 	addagentsdialog.ui \
-	aco.ui \
 	selectprojectpage.ui \
 	chooseprojectnamepage.ui \
 	trainingsetdialog.ui \

@@ -5,7 +5,7 @@
 
 #include <float.h>
 
-#include "RNALibrary/simpleperceptron.h"
+#include "ANNFramework/simpleperceptron.h"
 
 class PerceptronInput;
 class Soma;

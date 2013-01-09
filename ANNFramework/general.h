@@ -11,11 +11,18 @@
 
 using namespace std;
 
+double randomNumber(double min, double max);
+
 template<typename T>
-T randomNumber(const T min, const T max){
-    double rnd = (double(rand())/double(RAND_MAX));
-    double fmin = min, fmax = max;
-    return T(fmin + (fmax - fmin)*rnd);
+double average(const vector<T> &arr){
+	double sum = 0;
+	int C = 0;
+	size_t sArr = arr.size();
+	for(int i = 0; i < sArr; i++){
+		sum += arr[i];
+		C++;
+	}
+	return sum/C;
 }
 
 /**

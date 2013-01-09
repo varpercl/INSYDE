@@ -35,10 +35,13 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 				vector<double> MSEHistory;
 				vector<vector<vector<vector<double> > > >layerWeightsHistory;
 				vector<vector<vector<double> > > outputWeightsHistory;
-//				vector<vector<vector<double> > > thresholdHistory;
+				//				vector<vector<vector<double> > > thresholdHistory;
 		}TrainingResult;
 
 		explicit MultilayerPerceptron(int ninputs, int noutputs, const vector<int> &layersizes, const TransferFunctionType &tf);
+
+		//		void setLayerWeights(const vector<vector<vector<double> > > &weights);
+		//		void setOutputWeights(const vector<vector<double> > &oweights);
 
 		void setLayerSize(unsigned int layer, int size);
 		int getLayerSize(unsigned int layer);
@@ -69,7 +72,23 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 		void setAlfa(double a);
 		double getAlfa();
 
+		void setSAParameters(double Tmin, int numberOfChanges, double sCondition, double initialAcceptance, double minNoise, double maxNoise);
+
+		double getMSE(const vector<vector<double> > &inputs, const vector<vector<double> > &targets);
+
 	private:
+
+		struct NewState{
+				vector<vector<vector<double> > > newWeights;
+				vector<vector<double> > newOutputWeights;
+		};
+
+		double minNoise, maxNoise;
+		double initialAcceptance;
+		double startCondition;
+		double Tmin;
+		double initialCondition;
+		int nChanges;
 
 		vector<vector<double> > deltaHidden;
 		TrainingResult tr;
@@ -78,7 +97,7 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 		vector<double> __inputs;
 		int nInputs;
 		double alfa;
-//		vector<int> hiddenLayerSizes;
+		//		vector<int> hiddenLayerSizes;
 		vector<vector<vector<double> > > layerWeights;
 		vector<vector<double> > outputWeights;
 
@@ -90,6 +109,11 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 		void initMLP(int ninputs, int noutputs, const vector<int> &layersizes, const TransferFunctionType &tf);
 
 		vector<vector<double> > getLayerOutputs(const vector<double> &inputs);
+
+		NewState addNoise(double min, double max);
+		vector<double> addNoise(const vector<double> &vec, double min, double max);
+		double getNewMSE(const vector<vector<vector<double> > > &lweights, const vector<vector<double> > &oweights, const vector<vector<double> > &inputs, const vector<vector<double> > &targets);
+		vector<double> getAuxOutput(const vector<vector<vector<double> > > &lweights, const vector<vector<double> > &outputWeights, const vector<double> &inputs);
 };
 
 class RNALIBRARY_EXPORT MultilayerPerceptronPattern : public SimpleInputPattern

@@ -4,9 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+#QT       += core gui
 
-TARGET = RNALibrary
+TARGET = ANNFramework
 TEMPLATE = lib
 
 #INCLUDEPATH +=

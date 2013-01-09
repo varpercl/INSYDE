@@ -9,6 +9,7 @@ class PruebaPantalla;
 }
 class DotMatrix;
 class GraphicMLPElement;
+//class MainWindow;
 
 class PruebaPantalla : public QWidget
 {
@@ -33,6 +34,7 @@ class PruebaPantalla : public QWidget
 	private:
 		Q_OBJECT
 
+		GraphicMLPElement *mlpe;
 		Visor *visor;
 		Ui::PruebaPantalla *ui;
 };

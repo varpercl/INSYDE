@@ -4,10 +4,15 @@
 #
 #-------------------------------------------------
 
+
 TARGET = ECFramework
 TEMPLATE = lib
 
 DEFINES += ECFRAMEWORK_LIBRARY
+
+debug{EXTRA = debug}
+release{EXTRA = release}
+DESTDIR = ../$$EXTRA
 
 SOURCES += ecframework.cpp \
     acosolver.cpp \

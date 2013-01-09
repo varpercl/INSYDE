@@ -1,5 +1,6 @@
 #include "pruebapantallas.h"
 #include "ui_prueba_pantallas.h"
+#include <letterdeclarations.h>
 
 PruebaPantalla::PruebaPantalla(QWidget *parent) :
 	QWidget(parent),
@@ -57,20 +58,26 @@ void PruebaPantalla::onVisorClicked(QMouseEvent *event)
 {
 	static int geCounter = 0;
 	if(geCounter == 0){
-		DotMatrix *dm = new DotMatrix(5, 7, 5, DotMatrix::Bipolar);
+		DotMatrix *dm = new DotMatrix(5, 7, 5, DotMatrix::Unipolar);
 		QGraphicsScene *sce = visor->scene();
 		dm->setPos(visor->mapToScene(event->pos()));
 		sce->addItem(dm);
 
+		const int nPatterns = 26;
+		vector<MultilayerPerceptronPattern*> ts(nPatterns);
+		for(int i = 0; i < nPatterns; i++){
+			ts[i] = new MultilayerPerceptronPattern(letters[i], 35, LetterTargets[i], 26);
+		}
 		vector<int> lsizes;
-		lsizes.push_back(40);
+		lsizes.push_back(150);
 //		lsizes.push_back(3);
-		GraphicMLPElement *mlpe = new GraphicMLPElement(new MultilayerPerceptron(35, 26, lsizes, MultilayerPerceptron::Sigmoid));
+		mlpe = new GraphicMLPElement(new MultilayerPerceptron(35, 26, lsizes, MultilayerPerceptron::Sigmoid));
 		mlpe->setPos(visor->mapToScene(event->pos() + QPoint(100, 0)));
+		mlpe->setTrainingSet(ts);
 		mlpe->setInputElement(dm);
 		sce->addItem(mlpe);
 
-		BinaryOutputElement *bor = new BinaryOutputElement(15, BinaryOutputElement::Vertical, 0.5, BinaryOutputElement::GREATER_THAN_ALL);
+		BinaryOutputElement *bor = new BinaryOutputElement(26, BinaryOutputElement::Vertical, 0.5, BinaryOutputElement::GREATER_EQUAL_THAN);
 		bor->setPos(visor->mapToScene(event->pos() + QPoint(300, 0)));
 		bor->setInputElement(mlpe);
 		sce->addItem(bor);
@@ -82,7 +89,7 @@ void PruebaPantalla::on_pushButton_clicked()
 {
 	vector<int> sizes;
 	sizes.push_back(5);
-	MLPTrainingDialog *mlpTS = new MLPTrainingDialog(new MultilayerPerceptron(10, 20, sizes, MultilayerPerceptron::Sigmoid));
+	MLPTrainingDialog *mlpTS = new MLPTrainingDialog(mlpe);
 
 	mlpTS->show();
 }

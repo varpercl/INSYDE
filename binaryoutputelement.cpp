@@ -51,7 +51,7 @@ QVector<bool> BinaryOutputElement::getBinaryInputs()
 				output[i] = (inputs[i] > threshold ? true : false);
 				break;
 			case GREATER_EQUAL_THAN:
-				output[i] = (inputs[i] <= threshold ? true : false);
+				output[i] = (inputs[i] >= threshold ? true : false);
 				break;
 			case GREATER_THAN_ALL:
 				if(inputs[i] > selMayorValue){

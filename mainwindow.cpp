@@ -22,8 +22,8 @@ void MainWindow::conectarEventos(){
     connect(sta, SIGNAL(run()), SLOT(runAnimation()));
     connect(sta, SIGNAL(pause()), SLOT(pauseAnimation()));
     connect(sta, SIGNAL(stop()), SLOT(stopAnimation()));
-    connect(ui->btnAddAgent, SIGNAL(clicked()), SLOT(btnAgregarAgenteClick()));
-    connect(visor->scene(), SIGNAL(selectionChanged()), this, SLOT(mostrarAgentesSeleccionados()));
+	connect(ui->btnAddAgent, SIGNAL(clicked()), SLOT(btnAddAgentClick()));
+	connect(visor->scene(), SIGNAL(selectionChanged()), this, SLOT(showSelectedAgents()));
     connect(visor, SIGNAL(clicked(QMouseEvent*)), SLOT(onVisorClicked(QMouseEvent*)));
 //    connect(map->scene(), SIGNAL(changed(QList<QRectF>)), SLOT(showNumberAgents()));
     connect(&updateStatusTimer, SIGNAL(timeout()), SLOT(updateWindowStatus()));
@@ -82,7 +82,7 @@ void MainWindow::initGUI(){
     ui->twArbolObjetos->addTopLevelItem(trProyecto);
 }
 
-void MainWindow::mostrarAgentesSeleccionados(){
+void MainWindow::showSelectedAgents(){
     int nItems = visor->scene()->selectedItems().count();
     if(nItems > 0){
         ui->statusBar->showMessage("Agentes seleccionados: " + QString::number(nItems));
@@ -166,7 +166,7 @@ void MainWindow::menuContextualListaObjetos(QPoint p){
     cntxMenu->exec(visor->mapToGlobal(p));
 }
 
-void MainWindow::btnAgregarAgenteClick(){
+void MainWindow::btnAddAgentClick(){
     static int agentCont = 1;
 
     int ang;
@@ -298,7 +298,7 @@ void MainWindow::btnAgregarAgenteClick(){
     delete dlgAddAgents;
 }
 
-void MainWindow::btnBorrarAgenteClick(){
+void MainWindow::btnDeleteAgentClick(){
     visor->deleteSelected();
 }
 
@@ -379,14 +379,14 @@ void MainWindow::onNewProyectTriggered(bool val)
     newProjectDialog->exec();
 }
 
-void MainWindow::on_pushButton_2_clicked()
-{
-    acoDialog = new ACO(this);
+//void MainWindow::on_pushButton_2_clicked()
+//{
+//    acoDialog = new ACO(this);
 
-    acoDialog->setAttribute(Qt::WA_DeleteOnClose);
+//    acoDialog->setAttribute(Qt::WA_DeleteOnClose);
 
-    acoDialog->exec();
-}
+//    acoDialog->exec();
+//}
 
 void MainWindow::on_mainToolBox_currentChanged(int index)
 {

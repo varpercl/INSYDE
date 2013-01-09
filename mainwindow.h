@@ -11,13 +11,19 @@
 #include <math.h>
 
 namespace Ui {
-    class MainWindow;
+	class MainWindow;
 }
 
 enum Render{
-    OpenGL,
-    Nativo
+	OpenGL,
+	Nativo
 };
+
+//class ACO;
+//class NewProjectWizard;
+//class AddAgentsDialog;
+//class StatusAnimationControl;
+//class Visor;
 
 /**
   @class MainWindow
@@ -30,159 +36,159 @@ enum Render{
 
 class MainWindow : public QMainWindow
 {
-        Q_OBJECT
+		Q_OBJECT
 
-        //Dialogo para algoritmos ACO
-        ACO *acoDialog;
+		//Dialogo para algoritmos ACO
+//		ACO *acoDialog;
 
-        //Ventana para crear un nuevo proyecto
+		//Ventana para crear un nuevo proyecto
 //        AssistantDialog *npd;
 
-        //Asistente para la creacion de un nuevo proyecto
-        NewProjectWizard *newProjectDialog;
+		//Asistente para la creacion de un nuevo proyecto
+		NewProjectWizard *newProjectDialog;
 
-        //Timer que permite la actualizacion de la barra de estado
-        QTimer updateStatusTimer;
+		//Timer que permite la actualizacion de la barra de estado
+		QTimer updateStatusTimer;
 
-        //Cuadro de dialogo para agregar mas agentes
-        AddAgentsDialog *dlgAddAgents;
+		//Cuadro de dialogo para agregar mas agentes
+		AddAgentsDialog *dlgAddAgents;
 
-        //Control del estado de la animacion
-        StatusAnimationControl *sta;
+		//Control del estado de la animacion
+		StatusAnimationControl *sta;
 
-        //Visor actual de la simulacion
-        Visor *visor;
+		//Visor actual de la simulacion
+		Visor *visor;
 
-        //Estado actual de renderizacion
-        Render actualRender;
+		//Estado actual de renderizacion
+		Render actualRender;
 
-        //Sub-Arbol de exploracion de agentes
-        QTreeWidgetItem *trAgentes;
+		//Sub-Arbol de exploracion de agentes
+		QTreeWidgetItem *trAgentes;
 
-        //Arbol de exploracion de proyecto
-        QTreeWidgetItem *trProyecto;
+		//Arbol de exploracion de proyecto
+		QTreeWidgetItem *trProyecto;
 
-        //Widget para el puerto del visor
-        QWidget *viewPortWidget;
+		//Widget para el puerto del visor
+		QWidget *viewPortWidget;
 
-        //Widget opengl para el puerto del visor
-        QGLWidget *glWidget;
+		//Widget opengl para el puerto del visor
+		QGLWidget *glWidget;
 
-        /**
-          Inicializa los componentes de la interfaz grafica de usuario
-          */
-        void initGUI();
+		/**
+		  Inicializa los componentes de la interfaz grafica de usuario
+		  */
+		void initGUI();
 
-        /**
-          Conecta todos los eventos correspondientes a los controles de la interfaz
-          */
-        void conectarEventos();
+		/**
+		  Conecta todos los eventos correspondientes a los controles de la interfaz
+		  */
+		void conectarEventos();
 
-        /**
-          Actualiza los items hijos de un arbol padre
+		/**
+		  Actualiza los items hijos de un arbol padre
 
-          @param *parent Arbol padre al cual se le actualizaran los sub-items
+		  @param *parent Arbol padre al cual se le actualizaran los sub-items
 
-          */
-        void updateChildItems(QTreeWidgetItem *parent);
+		  */
+		void updateChildItems(QTreeWidgetItem *parent);
 
-    public:
-        Ui::MainWindow *ui;
+	public:
+		Ui::MainWindow *ui;
 
-        explicit MainWindow(QWidget *parent = 0);
-        ~MainWindow();
+		explicit MainWindow(QWidget *parent = 0);
+		~MainWindow();
 
 
-    protected:
+	protected:
 //        void closeEvent (QCloseEvent *event);
 
-    protected slots:
+	protected slots:
 
-        /**
-          Esta funcion es llamada cuando se agregan agentes al entorno, se encarga de generar los nuevos agentes
-          y asignarle las propiedades que el usuario especifique.
-          */
-        void addAgents();
+		/**
+		  Esta funcion es llamada cuando se agregan agentes al entorno, se encarga de generar los nuevos agentes
+		  y asignarle las propiedades que el usuario especifique.
+		  */
+		void addAgents();
 
-        /**
-          Comienza la simulacion de un proyecto si esta detenida o pausada.
-          */
-        void runAnimation();
+		/**
+		  Comienza la simulacion de un proyecto si esta detenida o pausada.
+		  */
+		void runAnimation();
 
-        /**
-          Pausa una animacion en caso de que se encuentre actualmente corriendo.
-          */
-        void pauseAnimation();
+		/**
+		  Pausa una animacion en caso de que se encuentre actualmente corriendo.
+		  */
+		void pauseAnimation();
 
-        /**
-          Detiene una animacion que esta corriendo actualmente.
-          */
-        void stopAnimation();
+		/**
+		  Detiene una animacion que esta corriendo actualmente.
+		  */
+		void stopAnimation();
 
-        /**
-          Este metodo se llama cuando se ha hecho click en el elemento "Salir" del menu Archivo
-          */
-        void menuSalirClick();
+		/**
+		  Este metodo se llama cuando se ha hecho click en el elemento "Salir" del menu Archivo
+		  */
+		void menuSalirClick();
 
-        /**
-          Este metodo se llama cuando se cambia del modo grafico OpenGL al modo grafico Nativo del
-          Sistema Operativo
-          */
-        void menuNativoClick();
+		/**
+		  Este metodo se llama cuando se cambia del modo grafico OpenGL al modo grafico Nativo del
+		  Sistema Operativo
+		  */
+		void menuNativoClick();
 
-        /**
-          Este metodo activa el modo OpenGL para una mejor renderizacion y procesamiento de los graficos
-          */
-        void menuOpenGLClick();
+		/**
+		  Este metodo activa el modo OpenGL para una mejor renderizacion y procesamiento de los graficos
+		  */
+		void menuOpenGLClick();
 
-        /**
-          Se ejecuta cuando se hace click con el secundario sobre el visor de la animacion
+		/**
+		  Se ejecuta cuando se hace click con el secundario sobre el visor de la animacion
 
-          @param p Punto donde se hizo click
-          */
-        void menuContextualListaObjetos(QPoint p);
+		  @param p Punto donde se hizo click
+		  */
+		void menuContextualListaObjetos(QPoint p);
 
-        /**
-          Este metodo es llamado cuando se hace click en el boton Agregar agentes
-          */
-        void btnAgregarAgenteClick();
+		/**
+		  Este metodo es llamado cuando se hace click en el boton Agregar agentes
+		  */
+		void btnAddAgentClick();
 
-        /**
-          Se llama cuando se hace click en el boton Borrar agentes
-          */
-        void btnBorrarAgenteClick();
+		/**
+		  Se llama cuando se hace click en el boton Borrar agentes
+		  */
+		void btnDeleteAgentClick();
 
-        /**
-          Cada vez que se llama imprime sobre la barra de estado la cantidad de agentes que se encuentran seleccionados
-          */
-        void mostrarAgentesSeleccionados();
+		/**
+		  Cada vez que se llama imprime sobre la barra de estado la cantidad de agentes que se encuentran seleccionados
+		  */
+		void showSelectedAgents();
 
-        /**
-          Se llama cada vez que se quiere refrescar la barra de estado de la ventana.
-          */
-        void updateWindowStatus();
+		/**
+		  Se llama cada vez que se quiere refrescar la barra de estado de la ventana.
+		  */
+		void updateWindowStatus();
 
 //        void edicionItemAgente(QTreeWidgetItem *current, QTreeWidgetItem *past);
-    private slots:
+	private slots:
 
-        /**
-          Evento llamado cuando se hace click sobre el visor
+		/**
+		  Evento llamado cuando se hace click sobre el visor
 
-          QMouseEvent *event Informacion sobre el evento del mouse
-          */
-        void onVisorClicked(QMouseEvent *event);
+		  QMouseEvent *event Informacion sobre el evento del mouse
+		  */
+		void onVisorClicked(QMouseEvent *event);
 
-        /**
-          Se ejecuta cada vez que se hace click sobre el boton
-          */
-        void on_btnSearchMode_clicked();
+		/**
+		  Se ejecuta cada vez que se hace click sobre el boton
+		  */
+		void on_btnSearchMode_clicked();
 
-        /**
-          Este evento se dispara cada vez que se quiere crear un nuevo proyecto.
-          */
-        void onNewProyectTriggered(bool val);
-        void on_pushButton_2_clicked();
-        void on_mainToolBox_currentChanged(int index);
+		/**
+		  Este evento se dispara cada vez que se quiere crear un nuevo proyecto.
+		  */
+		void onNewProyectTriggered(bool val);
+//		void on_pushButton_2_clicked();
+		void on_mainToolBox_currentChanged(int index);
 };
 
 #endif // MAINWINDOW_H

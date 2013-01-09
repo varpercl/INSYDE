@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class SimpleInputPattern
+class RNALIBRARY_EXPORT SimpleInputPattern
 {
 	public:
 

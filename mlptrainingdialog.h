@@ -4,12 +4,12 @@
 #include <InSyDeGui.h>
 #include <mlptrainingthread.h>
 
-#include <RNALibrary/multilayerperceptron.h>
+#include <ANNFramework/multilayerperceptron.h>
 
 namespace Ui {
 	class MLPTrainingDialog;
 }
-
+class GraphicMLPElement;
 class TrainingSetDialog;
 
 class MLPTrainingDialog : public QDialog
@@ -18,7 +18,8 @@ class MLPTrainingDialog : public QDialog
 	public:
 		Ui::MLPTrainingDialog *ui;
 
-		explicit MLPTrainingDialog(MultilayerPerceptron *mlp, QWidget *parent = 0);
+//		explicit MLPTrainingDialog(MultilayerPerceptron *gmlp, QWidget *parent = 0);
+		explicit MLPTrainingDialog(GraphicMLPElement *gmlp, QWidget *parent = 0);
 		~MLPTrainingDialog();
 
 	protected:
@@ -41,22 +42,34 @@ class MLPTrainingDialog : public QDialog
 
 		void on_btnRandomize_clicked();
 
+		void onTblLayersCellChanged(int row, int column);
+
+
 	private:
 		Q_OBJECT
 
+//		double minNoise, maxNoise;
+//		double initialAcceptance;
+//		double startCondition;
+//		double Tmin;
+//		int nChanges;
+
+		MultilayerPerceptron::TrainingAlgorithm ta;
 		MultilayerPerceptron::TrainingResult tres;
 		QTime t;
 		clock_t time;
 		MLPTrainingThread *mlptt;
 		bool isTraining;
 		QTimer timer;
-		vector<vector<double> > inputs;
-		vector<vector<double> > targets;
+//		vector<vector<double> > inputs;
+//		vector<vector<double> > targets;
+		GraphicMLPElement *gmlp;
 		MultilayerPerceptron *mlp;
 		TrainingSetDialog *tsMLP;
 
-		void initDialog(MultilayerPerceptron *mlp);
+		void initDialog(GraphicMLPElement *gmlp);
 		void loadMLPData();
 };
 
 #endif // MLPTRAININGDIALOG_H
+
