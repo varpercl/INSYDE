@@ -11,6 +11,8 @@ neural networks, genetic algorithm optimization or ant colony, among others. The
 enviroment to create intuitively and simply your own Intelligent Systems without advanced knowledge of programming 
 languages or algorithms that compose the variety of tecniques or paradigms of Artificial Intelligence.
 
+-[ ] esto es una prueba
+-[x] esto es otra prueba
 Project goals
 
 - To develop an interface highly intuitive, simply and friendly for that users with no advanced knowledges over
