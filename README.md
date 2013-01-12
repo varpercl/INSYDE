@@ -65,18 +65,11 @@ Currently this project is under development, therefore, it requires a wide colla
 
 - Translating source code: to share this project with many programmers in the world, it's necessary to translate code
   in english because this is cataloged like an universal language.
-
-
-
-
-
-
-- Programacion de la interfaz grafica: la interfaz grafica es una de las partes mas importantes de todo el proyecto,
-  sin embargo, mi especializacion esta en el area de inteligencia artificial, por lo cual, me es dificil dedicarme a 
-  ambas cosas, lo cual requiere mucho tiempo y dedicacion.
-- Distintos algoritmos de IA: en inteligencia artificial existen un gran numero de algoritmos, asi como derivaciones
-  y optimizaciones de algunos ya existentes. Estos algoritmos son complejos y toma mucho tiempo implementarlos. Por 
-  tal motivo es necesario un aporte de la comunidad en distintas areas de conocimiento de IA.
-- Modelado UML: como buena practica de la ingenieria de software es necesario partir de un buen diseño para obtener
-  un software bien desarrollado y lo mas optimo posible, sin embargo, actualmente estoy solo en el desarrollo del
-  proyecto, entonces, se hace complicado llevar a cabo estas tareas.
+- Programing graphic interface: graphic interface is an important part of all project, however, my speciality is about Artificial Intelligence, whereby, it's very dificulty to dedicate
+  to both things, this requires to much time and dedication.
+- Variety of algorithms in AI: Artificial Intelligence has a huge number of algorithm, and this number is increasing, 
+  also, exist some optimizations to other existing algorithms. These are complex and take to much time to implement.
+  Because, it is necesary a contribution of AI comunity.
+- UML Modeling: as a good practice of Software Engineering, it is necesary to start with a good design to obtain a 
+  good developed software as optimum as posible, however, I'm actually alone in the development of this project, so
+  this task is so complex to me and take much time.
