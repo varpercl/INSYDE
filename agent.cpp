@@ -212,7 +212,7 @@ void Agent::setShape(const QPainterPath &fig)
 }
 
 void Agent::setName(QString nombre){
-
+    Q_UNUSED(nombre);
 }
 
 QString Agent::getName(){

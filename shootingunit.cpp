@@ -139,6 +139,8 @@ bool ShootingUnit::canAttack(Unit *un)
 
 bool ShootingUnit::canAttack(const QPointF &pt)
 {
+    Q_UNUSED(pt);
+
     return true;
 }
 
@@ -308,6 +310,7 @@ void ShootingUnit::enemyHasSighted(QList<Unit*> aliedList, QList<Unit *> enemies
 
 void ShootingUnit::enemyHasKilled(Unit *unit)
 {
+    Q_UNUSED(unit);
     stopAttack();
 
     switch(currentMode){
@@ -454,6 +457,8 @@ Unit *ShootingUnit::getNearestUnit(const QList<Unit *> &units)
 
 Unit *ShootingUnit::getBetterUnitToAttack(const QList<Unit *> &enemies)
 {
+    Q_UNUSED(enemies);
+
 //    int numUnits = units.count();
 //    int minHealth = 99999999;
 //    Unit *unitToReturn;

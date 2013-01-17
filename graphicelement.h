@@ -1,7 +1,12 @@
 #ifndef GRAPHICELEMENT_H
 #define GRAPHICELEMENT_H
 
-#include <QtGui>
+#include <QGraphicsScene>
+#include <QGraphicsObject>
+#include <QMenu>
+#include <QPen>
+#include <QPainter>
+#include <QStyleOptionGraphicsItem>
 
 /**
   @class GraphicElement esta clase es la base para todos los objetos que necesitan ser representado en un sistema.

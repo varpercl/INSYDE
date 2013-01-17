@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mlptrainingdialog.ui'
 **
-** Created: Wed 9. Jan 13:54:32 2013
-**      by: Qt User Interface Compiler version 4.8.1
+** Created: Wed 16. Jan 00:23:54 2013
+**      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -27,6 +27,7 @@
 #include <QtGui/QSpacerItem>
 #include <QtGui/QSpinBox>
 #include <QtGui/QTableWidget>
+#include <QtGui/QToolButton>
 #include <QtGui/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
@@ -40,8 +41,17 @@ public:
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout;
     QLabel *label;
+    QLabel *lblInputs;
     QLabel *label_2;
+    QLabel *lblOutputs;
     QLabel *label_3;
+    QHBoxLayout *horizontalLayout_4;
+    QTableWidget *tblLayers;
+    QVBoxLayout *verticalLayout_5;
+    QToolButton *btnAddLayer;
+    QToolButton *btnDeleteLayer;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *horizontalSpacer_2;
     QLabel *label_6;
     QComboBox *cbTrainingAlgorithm;
     QLabel *label_7;
@@ -53,9 +63,10 @@ public:
     QDoubleSpinBox *sbLearningRate;
     QLabel *label_9;
     QPushButton *btnEditTrainingSet;
-    QTableWidget *tblLayers;
-    QLabel *lblInputs;
-    QLabel *lblOutputs;
+    QLabel *label_30;
+    QPushButton *btnEditValidationTest;
+    QPushButton *btnEditTestSet;
+    QLabel *label_33;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_2;
     QFormLayout *formLayout_2;
@@ -64,22 +75,29 @@ public:
     QLabel *label_11;
     QDoubleSpinBox *sbMinError;
     QLabel *label_4;
-    QPushButton *btnRandomize;
     QDoubleSpinBox *sbMinRMSError;
     QLabel *label_13;
     QDoubleSpinBox *sbMinErrorClasification;
-    QLabel *label_15;
-    QLabel *label_18;
-    QLabel *label_19;
-    QLabel *label_20;
     QLabel *label_17;
     QDoubleSpinBox *sbStartCondition;
-    QDoubleSpinBox *sbMinTemperature;
-    QDoubleSpinBox *sbInitialAcceptance;
-    QDoubleSpinBox *sbMinNoise;
-    QDoubleSpinBox *sbMaxNoise;
     QLabel *label_21;
     QSpinBox *sbNChanges;
+    QLabel *label_15;
+    QDoubleSpinBox *sbMinTemperature;
+    QLabel *label_18;
+    QDoubleSpinBox *sbTo;
+    QLabel *label_19;
+    QDoubleSpinBox *sbMinNoise;
+    QLabel *label_20;
+    QDoubleSpinBox *sbMaxNoise;
+    QPushButton *btnRandomize;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_28;
+    QDoubleSpinBox *sbRndFrom;
+    QLabel *label_29;
+    QDoubleSpinBox *sbRndTo;
+    QDoubleSpinBox *sbDecFactor;
+    QLabel *label_32;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_3;
     QGridLayout *gridLayout;
@@ -95,6 +113,8 @@ public:
     QLabel *label_25;
     QLabel *label_26;
     QLabel *label_27;
+    QLabel *label_31;
+    QLabel *lblRMSE;
     QHBoxLayout *buttonsLayout;
     QSpacerItem *horizontalSpacer;
     QPushButton *btnTrain;
@@ -104,7 +124,7 @@ public:
     {
         if (MLPTrainingDialog->objectName().isEmpty())
             MLPTrainingDialog->setObjectName(QString::fromUtf8("MLPTrainingDialog"));
-        MLPTrainingDialog->resize(691, 452);
+        MLPTrainingDialog->resize(856, 506);
         verticalLayout_4 = new QVBoxLayout(MLPTrainingDialog);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         horizontalLayout_3 = new QHBoxLayout();
@@ -121,30 +141,98 @@ public:
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
+        lblInputs = new QLabel(groupBox);
+        lblInputs->setObjectName(QString::fromUtf8("lblInputs"));
+        lblInputs->setFrameShape(QFrame::Box);
+        lblInputs->setFrameShadow(QFrame::Sunken);
+
+        formLayout->setWidget(0, QFormLayout::FieldRole, lblInputs);
+
         label_2 = new QLabel(groupBox);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
-        formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
+        formLayout->setWidget(2, QFormLayout::LabelRole, label_2);
+
+        lblOutputs = new QLabel(groupBox);
+        lblOutputs->setObjectName(QString::fromUtf8("lblOutputs"));
+        lblOutputs->setFrameShape(QFrame::Box);
+        lblOutputs->setFrameShadow(QFrame::Sunken);
+
+        formLayout->setWidget(2, QFormLayout::FieldRole, lblOutputs);
 
         label_3 = new QLabel(groupBox);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         formLayout->setWidget(3, QFormLayout::LabelRole, label_3);
 
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        tblLayers = new QTableWidget(groupBox);
+        if (tblLayers->columnCount() < 2)
+            tblLayers->setColumnCount(2);
+        tblLayers->setObjectName(QString::fromUtf8("tblLayers"));
+        tblLayers->setMaximumSize(QSize(150, 16777215));
+        tblLayers->setEditTriggers(QAbstractItemView::DoubleClicked|QAbstractItemView::SelectedClicked);
+        tblLayers->setAlternatingRowColors(true);
+        tblLayers->setRowCount(0);
+        tblLayers->setColumnCount(2);
+        tblLayers->horizontalHeader()->setCascadingSectionResizes(false);
+        tblLayers->horizontalHeader()->setDefaultSectionSize(74);
+        tblLayers->horizontalHeader()->setMinimumSectionSize(27);
+        tblLayers->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
+        tblLayers->horizontalHeader()->setStretchLastSection(false);
+        tblLayers->verticalHeader()->setVisible(false);
+        tblLayers->verticalHeader()->setDefaultSectionSize(20);
+
+        horizontalLayout_4->addWidget(tblLayers);
+
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        btnAddLayer = new QToolButton(groupBox);
+        btnAddLayer->setObjectName(QString::fromUtf8("btnAddLayer"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/imagenes/plus_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnAddLayer->setIcon(icon);
+
+        verticalLayout_5->addWidget(btnAddLayer);
+
+        btnDeleteLayer = new QToolButton(groupBox);
+        btnDeleteLayer->setObjectName(QString::fromUtf8("btnDeleteLayer"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/imagenes/minus_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnDeleteLayer->setIcon(icon1);
+
+        verticalLayout_5->addWidget(btnDeleteLayer);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_5->addItem(verticalSpacer);
+
+
+        horizontalLayout_4->addLayout(verticalLayout_5);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_2);
+
+
+        formLayout->setLayout(3, QFormLayout::FieldRole, horizontalLayout_4);
+
         label_6 = new QLabel(groupBox);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
-        formLayout->setWidget(4, QFormLayout::LabelRole, label_6);
+        formLayout->setWidget(5, QFormLayout::LabelRole, label_6);
 
         cbTrainingAlgorithm = new QComboBox(groupBox);
         cbTrainingAlgorithm->setObjectName(QString::fromUtf8("cbTrainingAlgorithm"));
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, cbTrainingAlgorithm);
+        formLayout->setWidget(5, QFormLayout::FieldRole, cbTrainingAlgorithm);
 
         label_7 = new QLabel(groupBox);
         label_7->setObjectName(QString::fromUtf8("label_7"));
 
-        formLayout->setWidget(5, QFormLayout::LabelRole, label_7);
+        formLayout->setWidget(6, QFormLayout::LabelRole, label_7);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
@@ -166,64 +254,51 @@ public:
         horizontalLayout_2->addWidget(sbSlope);
 
 
-        formLayout->setLayout(5, QFormLayout::FieldRole, horizontalLayout_2);
+        formLayout->setLayout(6, QFormLayout::FieldRole, horizontalLayout_2);
 
         label_5 = new QLabel(groupBox);
         label_5->setObjectName(QString::fromUtf8("label_5"));
 
-        formLayout->setWidget(6, QFormLayout::LabelRole, label_5);
+        formLayout->setWidget(7, QFormLayout::LabelRole, label_5);
 
         sbLearningRate = new QDoubleSpinBox(groupBox);
         sbLearningRate->setObjectName(QString::fromUtf8("sbLearningRate"));
         sbLearningRate->setDecimals(4);
         sbLearningRate->setMaximum(1);
         sbLearningRate->setSingleStep(0.01);
-        sbLearningRate->setValue(0.75);
+        sbLearningRate->setValue(0.2);
 
-        formLayout->setWidget(6, QFormLayout::FieldRole, sbLearningRate);
+        formLayout->setWidget(7, QFormLayout::FieldRole, sbLearningRate);
 
         label_9 = new QLabel(groupBox);
         label_9->setObjectName(QString::fromUtf8("label_9"));
 
-        formLayout->setWidget(7, QFormLayout::LabelRole, label_9);
+        formLayout->setWidget(8, QFormLayout::LabelRole, label_9);
 
         btnEditTrainingSet = new QPushButton(groupBox);
         btnEditTrainingSet->setObjectName(QString::fromUtf8("btnEditTrainingSet"));
 
-        formLayout->setWidget(7, QFormLayout::FieldRole, btnEditTrainingSet);
+        formLayout->setWidget(8, QFormLayout::FieldRole, btnEditTrainingSet);
 
-        tblLayers = new QTableWidget(groupBox);
-        if (tblLayers->columnCount() < 2)
-            tblLayers->setColumnCount(2);
-        tblLayers->setObjectName(QString::fromUtf8("tblLayers"));
-        tblLayers->setMaximumSize(QSize(150, 80));
-        tblLayers->setEditTriggers(QAbstractItemView::DoubleClicked|QAbstractItemView::SelectedClicked);
-        tblLayers->setAlternatingRowColors(true);
-        tblLayers->setRowCount(0);
-        tblLayers->setColumnCount(2);
-        tblLayers->horizontalHeader()->setCascadingSectionResizes(false);
-        tblLayers->horizontalHeader()->setDefaultSectionSize(74);
-        tblLayers->horizontalHeader()->setMinimumSectionSize(27);
-        tblLayers->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
-        tblLayers->horizontalHeader()->setStretchLastSection(false);
-        tblLayers->verticalHeader()->setVisible(false);
-        tblLayers->verticalHeader()->setDefaultSectionSize(20);
+        label_30 = new QLabel(groupBox);
+        label_30->setObjectName(QString::fromUtf8("label_30"));
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, tblLayers);
+        formLayout->setWidget(9, QFormLayout::LabelRole, label_30);
 
-        lblInputs = new QLabel(groupBox);
-        lblInputs->setObjectName(QString::fromUtf8("lblInputs"));
-        lblInputs->setFrameShape(QFrame::Box);
-        lblInputs->setFrameShadow(QFrame::Sunken);
+        btnEditValidationTest = new QPushButton(groupBox);
+        btnEditValidationTest->setObjectName(QString::fromUtf8("btnEditValidationTest"));
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, lblInputs);
+        formLayout->setWidget(9, QFormLayout::FieldRole, btnEditValidationTest);
 
-        lblOutputs = new QLabel(groupBox);
-        lblOutputs->setObjectName(QString::fromUtf8("lblOutputs"));
-        lblOutputs->setFrameShape(QFrame::Box);
-        lblOutputs->setFrameShadow(QFrame::Sunken);
+        btnEditTestSet = new QPushButton(groupBox);
+        btnEditTestSet->setObjectName(QString::fromUtf8("btnEditTestSet"));
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, lblOutputs);
+        formLayout->setWidget(10, QFormLayout::FieldRole, btnEditTestSet);
+
+        label_33 = new QLabel(groupBox);
+        label_33->setObjectName(QString::fromUtf8("label_33"));
+
+        formLayout->setWidget(10, QFormLayout::LabelRole, label_33);
 
 
         verticalLayout->addLayout(formLayout);
@@ -239,6 +314,7 @@ public:
         formLayout_2 = new QFormLayout();
         formLayout_2->setObjectName(QString::fromUtf8("formLayout_2"));
         formLayout_2->setSizeConstraint(QLayout::SetMinimumSize);
+        formLayout_2->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         label_10 = new QLabel(groupBox_2);
         label_10->setObjectName(QString::fromUtf8("label_10"));
 
@@ -248,7 +324,7 @@ public:
         sbEpochs->setObjectName(QString::fromUtf8("sbEpochs"));
         sbEpochs->setMinimum(1);
         sbEpochs->setMaximum(999999999);
-        sbEpochs->setValue(500000);
+        sbEpochs->setValue(200000);
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, sbEpochs);
 
@@ -262,7 +338,7 @@ public:
         sbMinError->setDecimals(6);
         sbMinError->setMaximum(999.99);
         sbMinError->setSingleStep(0.01);
-        sbMinError->setValue(0.1);
+        sbMinError->setValue(0.5);
 
         formLayout_2->setWidget(1, QFormLayout::FieldRole, sbMinError);
 
@@ -270,12 +346,6 @@ public:
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
         formLayout_2->setWidget(2, QFormLayout::LabelRole, label_4);
-
-        btnRandomize = new QPushButton(groupBox_2);
-        btnRandomize->setObjectName(QString::fromUtf8("btnRandomize"));
-        btnRandomize->setMinimumSize(QSize(100, 0));
-
-        formLayout_2->setWidget(11, QFormLayout::LabelRole, btnRandomize);
 
         sbMinRMSError = new QDoubleSpinBox(groupBox_2);
         sbMinRMSError->setObjectName(QString::fromUtf8("sbMinRMSError"));
@@ -300,26 +370,6 @@ public:
 
         formLayout_2->setWidget(3, QFormLayout::FieldRole, sbMinErrorClasification);
 
-        label_15 = new QLabel(groupBox_2);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
-
-        formLayout_2->setWidget(6, QFormLayout::LabelRole, label_15);
-
-        label_18 = new QLabel(groupBox_2);
-        label_18->setObjectName(QString::fromUtf8("label_18"));
-
-        formLayout_2->setWidget(8, QFormLayout::LabelRole, label_18);
-
-        label_19 = new QLabel(groupBox_2);
-        label_19->setObjectName(QString::fromUtf8("label_19"));
-
-        formLayout_2->setWidget(9, QFormLayout::LabelRole, label_19);
-
-        label_20 = new QLabel(groupBox_2);
-        label_20->setObjectName(QString::fromUtf8("label_20"));
-
-        formLayout_2->setWidget(10, QFormLayout::LabelRole, label_20);
-
         label_17 = new QLabel(groupBox_2);
         label_17->setObjectName(QString::fromUtf8("label_17"));
 
@@ -333,38 +383,6 @@ public:
 
         formLayout_2->setWidget(4, QFormLayout::FieldRole, sbStartCondition);
 
-        sbMinTemperature = new QDoubleSpinBox(groupBox_2);
-        sbMinTemperature->setObjectName(QString::fromUtf8("sbMinTemperature"));
-        sbMinTemperature->setSingleStep(0.01);
-        sbMinTemperature->setValue(0.01);
-
-        formLayout_2->setWidget(6, QFormLayout::FieldRole, sbMinTemperature);
-
-        sbInitialAcceptance = new QDoubleSpinBox(groupBox_2);
-        sbInitialAcceptance->setObjectName(QString::fromUtf8("sbInitialAcceptance"));
-        sbInitialAcceptance->setSingleStep(0.08);
-        sbInitialAcceptance->setValue(0.8);
-
-        formLayout_2->setWidget(8, QFormLayout::FieldRole, sbInitialAcceptance);
-
-        sbMinNoise = new QDoubleSpinBox(groupBox_2);
-        sbMinNoise->setObjectName(QString::fromUtf8("sbMinNoise"));
-        sbMinNoise->setMinimum(-9999);
-        sbMinNoise->setMaximum(9999);
-        sbMinNoise->setSingleStep(0.01);
-        sbMinNoise->setValue(-0.05);
-
-        formLayout_2->setWidget(9, QFormLayout::FieldRole, sbMinNoise);
-
-        sbMaxNoise = new QDoubleSpinBox(groupBox_2);
-        sbMaxNoise->setObjectName(QString::fromUtf8("sbMaxNoise"));
-        sbMaxNoise->setMinimum(-9999);
-        sbMaxNoise->setMaximum(9999);
-        sbMaxNoise->setSingleStep(0.01);
-        sbMaxNoise->setValue(0.05);
-
-        formLayout_2->setWidget(10, QFormLayout::FieldRole, sbMaxNoise);
-
         label_21 = new QLabel(groupBox_2);
         label_21->setObjectName(QString::fromUtf8("label_21"));
 
@@ -374,9 +392,121 @@ public:
         sbNChanges->setObjectName(QString::fromUtf8("sbNChanges"));
         sbNChanges->setMinimum(0);
         sbNChanges->setMaximum(999999);
-        sbNChanges->setValue(100);
+        sbNChanges->setValue(10);
 
         formLayout_2->setWidget(5, QFormLayout::FieldRole, sbNChanges);
+
+        label_15 = new QLabel(groupBox_2);
+        label_15->setObjectName(QString::fromUtf8("label_15"));
+
+        formLayout_2->setWidget(6, QFormLayout::LabelRole, label_15);
+
+        sbMinTemperature = new QDoubleSpinBox(groupBox_2);
+        sbMinTemperature->setObjectName(QString::fromUtf8("sbMinTemperature"));
+        sbMinTemperature->setDecimals(6);
+        sbMinTemperature->setSingleStep(0.01);
+        sbMinTemperature->setValue(0.001);
+
+        formLayout_2->setWidget(6, QFormLayout::FieldRole, sbMinTemperature);
+
+        label_18 = new QLabel(groupBox_2);
+        label_18->setObjectName(QString::fromUtf8("label_18"));
+
+        formLayout_2->setWidget(8, QFormLayout::LabelRole, label_18);
+
+        sbTo = new QDoubleSpinBox(groupBox_2);
+        sbTo->setObjectName(QString::fromUtf8("sbTo"));
+        sbTo->setDecimals(6);
+        sbTo->setMaximum(0.999999);
+        sbTo->setSingleStep(0.08);
+        sbTo->setValue(0.2);
+
+        formLayout_2->setWidget(8, QFormLayout::FieldRole, sbTo);
+
+        label_19 = new QLabel(groupBox_2);
+        label_19->setObjectName(QString::fromUtf8("label_19"));
+
+        formLayout_2->setWidget(9, QFormLayout::LabelRole, label_19);
+
+        sbMinNoise = new QDoubleSpinBox(groupBox_2);
+        sbMinNoise->setObjectName(QString::fromUtf8("sbMinNoise"));
+        sbMinNoise->setDecimals(6);
+        sbMinNoise->setMinimum(-9999);
+        sbMinNoise->setMaximum(9999);
+        sbMinNoise->setSingleStep(0.01);
+        sbMinNoise->setValue(-0.05);
+
+        formLayout_2->setWidget(9, QFormLayout::FieldRole, sbMinNoise);
+
+        label_20 = new QLabel(groupBox_2);
+        label_20->setObjectName(QString::fromUtf8("label_20"));
+
+        formLayout_2->setWidget(10, QFormLayout::LabelRole, label_20);
+
+        sbMaxNoise = new QDoubleSpinBox(groupBox_2);
+        sbMaxNoise->setObjectName(QString::fromUtf8("sbMaxNoise"));
+        sbMaxNoise->setDecimals(6);
+        sbMaxNoise->setMinimum(-9999);
+        sbMaxNoise->setMaximum(9999);
+        sbMaxNoise->setSingleStep(0.01);
+        sbMaxNoise->setValue(0.05);
+
+        formLayout_2->setWidget(10, QFormLayout::FieldRole, sbMaxNoise);
+
+        btnRandomize = new QPushButton(groupBox_2);
+        btnRandomize->setObjectName(QString::fromUtf8("btnRandomize"));
+        btnRandomize->setMinimumSize(QSize(100, 0));
+
+        formLayout_2->setWidget(11, QFormLayout::LabelRole, btnRandomize);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        label_28 = new QLabel(groupBox_2);
+        label_28->setObjectName(QString::fromUtf8("label_28"));
+
+        horizontalLayout->addWidget(label_28);
+
+        sbRndFrom = new QDoubleSpinBox(groupBox_2);
+        sbRndFrom->setObjectName(QString::fromUtf8("sbRndFrom"));
+        sbRndFrom->setDecimals(10);
+        sbRndFrom->setMinimum(-9999);
+        sbRndFrom->setMaximum(9999);
+        sbRndFrom->setSingleStep(0.01);
+        sbRndFrom->setValue(-3.001);
+
+        horizontalLayout->addWidget(sbRndFrom);
+
+        label_29 = new QLabel(groupBox_2);
+        label_29->setObjectName(QString::fromUtf8("label_29"));
+
+        horizontalLayout->addWidget(label_29);
+
+        sbRndTo = new QDoubleSpinBox(groupBox_2);
+        sbRndTo->setObjectName(QString::fromUtf8("sbRndTo"));
+        sbRndTo->setDecimals(10);
+        sbRndTo->setMinimum(-9999);
+        sbRndTo->setMaximum(9999);
+        sbRndTo->setSingleStep(0.01);
+        sbRndTo->setValue(3.001);
+
+        horizontalLayout->addWidget(sbRndTo);
+
+
+        formLayout_2->setLayout(11, QFormLayout::FieldRole, horizontalLayout);
+
+        sbDecFactor = new QDoubleSpinBox(groupBox_2);
+        sbDecFactor->setObjectName(QString::fromUtf8("sbDecFactor"));
+        sbDecFactor->setDecimals(6);
+        sbDecFactor->setMinimum(1e-06);
+        sbDecFactor->setMaximum(1);
+        sbDecFactor->setValue(0.8);
+
+        formLayout_2->setWidget(7, QFormLayout::FieldRole, sbDecFactor);
+
+        label_32 = new QLabel(groupBox_2);
+        label_32->setObjectName(QString::fromUtf8("label_32"));
+
+        formLayout_2->setWidget(7, QFormLayout::LabelRole, label_32);
 
 
         verticalLayout_2->addLayout(formLayout_2);
@@ -406,12 +536,12 @@ public:
         label_16 = new QLabel(groupBox_3);
         label_16->setObjectName(QString::fromUtf8("label_16"));
 
-        gridLayout->addWidget(label_16, 2, 0, 1, 1);
+        gridLayout->addWidget(label_16, 3, 0, 1, 1);
 
         lblTime = new QLabel(groupBox_3);
         lblTime->setObjectName(QString::fromUtf8("lblTime"));
 
-        gridLayout->addWidget(lblTime, 2, 1, 1, 1);
+        gridLayout->addWidget(lblTime, 3, 1, 1, 1);
 
         label_14 = new QLabel(groupBox_3);
         label_14->setObjectName(QString::fromUtf8("label_14"));
@@ -436,7 +566,7 @@ public:
         label_24 = new QLabel(groupBox_3);
         label_24->setObjectName(QString::fromUtf8("label_24"));
 
-        gridLayout->addWidget(label_24, 2, 2, 1, 1);
+        gridLayout->addWidget(label_24, 3, 2, 1, 1);
 
         label_25 = new QLabel(groupBox_3);
         label_25->setObjectName(QString::fromUtf8("label_25"));
@@ -451,7 +581,17 @@ public:
         label_27 = new QLabel(groupBox_3);
         label_27->setObjectName(QString::fromUtf8("label_27"));
 
-        gridLayout->addWidget(label_27, 2, 3, 1, 1);
+        gridLayout->addWidget(label_27, 3, 3, 1, 1);
+
+        label_31 = new QLabel(groupBox_3);
+        label_31->setObjectName(QString::fromUtf8("label_31"));
+
+        gridLayout->addWidget(label_31, 2, 0, 1, 1);
+
+        lblRMSE = new QLabel(groupBox_3);
+        lblRMSE->setObjectName(QString::fromUtf8("lblRMSE"));
+
+        gridLayout->addWidget(lblRMSE, 2, 1, 1, 1);
 
 
         verticalLayout_3->addLayout(gridLayout);
@@ -488,11 +628,15 @@ public:
 
     void retranslateUi(QDialog *MLPTrainingDialog)
     {
-        MLPTrainingDialog->setWindowTitle(QApplication::translate("MLPTrainingDialog", "Dialog", 0, QApplication::UnicodeUTF8));
+        MLPTrainingDialog->setWindowTitle(QApplication::translate("MLPTrainingDialog", "Entrenamiento", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("MLPTrainingDialog", "Propiedades", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MLPTrainingDialog", "Entradas", 0, QApplication::UnicodeUTF8));
+        lblInputs->setText(QApplication::translate("MLPTrainingDialog", "TextLabel", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("MLPTrainingDialog", "Salidas", 0, QApplication::UnicodeUTF8));
+        lblOutputs->setText(QApplication::translate("MLPTrainingDialog", "TextLabel", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("MLPTrainingDialog", "Capas", 0, QApplication::UnicodeUTF8));
+        btnAddLayer->setText(QApplication::translate("MLPTrainingDialog", "...", 0, QApplication::UnicodeUTF8));
+        btnDeleteLayer->setText(QApplication::translate("MLPTrainingDialog", "...", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("MLPTrainingDialog", "Algoritmo de entrenamiento", 0, QApplication::UnicodeUTF8));
         cbTrainingAlgorithm->clear();
         cbTrainingAlgorithm->insertItems(0, QStringList()
@@ -509,26 +653,31 @@ public:
         label_5->setText(QApplication::translate("MLPTrainingDialog", "Tasa de aprendizaje", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("MLPTrainingDialog", "Conjunto de entrenamiento", 0, QApplication::UnicodeUTF8));
         btnEditTrainingSet->setText(QApplication::translate("MLPTrainingDialog", "Editar", 0, QApplication::UnicodeUTF8));
-        lblInputs->setText(QApplication::translate("MLPTrainingDialog", "TextLabel", 0, QApplication::UnicodeUTF8));
-        lblOutputs->setText(QApplication::translate("MLPTrainingDialog", "TextLabel", 0, QApplication::UnicodeUTF8));
+        label_30->setText(QApplication::translate("MLPTrainingDialog", "Conjunto de validaci\303\263n", 0, QApplication::UnicodeUTF8));
+        btnEditValidationTest->setText(QApplication::translate("MLPTrainingDialog", "Editar", 0, QApplication::UnicodeUTF8));
+        btnEditTestSet->setText(QApplication::translate("MLPTrainingDialog", "Editar", 0, QApplication::UnicodeUTF8));
+        label_33->setText(QApplication::translate("MLPTrainingDialog", "Conjunto de prueba", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("MLPTrainingDialog", "Condici\303\263n de parada", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("MLPTrainingDialog", "Epocas", 0, QApplication::UnicodeUTF8));
         label_11->setText(QApplication::translate("MLPTrainingDialog", "E Minimo", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("MLPTrainingDialog", "Erms Minimo", 0, QApplication::UnicodeUTF8));
-        btnRandomize->setText(QApplication::translate("MLPTrainingDialog", "Aleatorizar pesos", 0, QApplication::UnicodeUTF8));
         label_13->setText(QApplication::translate("MLPTrainingDialog", "Ec Minimo", 0, QApplication::UnicodeUTF8));
-        label_15->setText(QApplication::translate("MLPTrainingDialog", "T min", 0, QApplication::UnicodeUTF8));
-        label_18->setText(QApplication::translate("MLPTrainingDialog", "Aceptacion inicial (Pa)", 0, QApplication::UnicodeUTF8));
-        label_19->setText(QApplication::translate("MLPTrainingDialog", "Valor inferior de ruido", 0, QApplication::UnicodeUTF8));
-        label_20->setText(QApplication::translate("MLPTrainingDialog", "Valor superior de ruido", 0, QApplication::UnicodeUTF8));
         label_17->setText(QApplication::translate("MLPTrainingDialog", "Condicion de inicio", 0, QApplication::UnicodeUTF8));
         label_21->setText(QApplication::translate("MLPTrainingDialog", "N\302\260 cambios", 0, QApplication::UnicodeUTF8));
+        label_15->setText(QApplication::translate("MLPTrainingDialog", "T min", 0, QApplication::UnicodeUTF8));
+        label_18->setText(QApplication::translate("MLPTrainingDialog", "To", 0, QApplication::UnicodeUTF8));
+        label_19->setText(QApplication::translate("MLPTrainingDialog", "Valor inferior de ruido", 0, QApplication::UnicodeUTF8));
+        label_20->setText(QApplication::translate("MLPTrainingDialog", "Valor superior de ruido", 0, QApplication::UnicodeUTF8));
+        btnRandomize->setText(QApplication::translate("MLPTrainingDialog", "Aleatorizar pesos", 0, QApplication::UnicodeUTF8));
+        label_28->setText(QApplication::translate("MLPTrainingDialog", "Desde", 0, QApplication::UnicodeUTF8));
+        label_29->setText(QApplication::translate("MLPTrainingDialog", "hasta", 0, QApplication::UnicodeUTF8));
+        label_32->setText(QApplication::translate("MLPTrainingDialog", "F. de decrecimiento", 0, QApplication::UnicodeUTF8));
         groupBox_3->setTitle(QApplication::translate("MLPTrainingDialog", "Resultados", 0, QApplication::UnicodeUTF8));
-        label_12->setText(QApplication::translate("MLPTrainingDialog", "Epocas totales", 0, QApplication::UnicodeUTF8));
+        label_12->setText(QApplication::translate("MLPTrainingDialog", "Epocas", 0, QApplication::UnicodeUTF8));
         lblEpochs->setText(QString());
         label_16->setText(QApplication::translate("MLPTrainingDialog", "Tiempo", 0, QApplication::UnicodeUTF8));
         lblTime->setText(QString());
-        label_14->setText(QApplication::translate("MLPTrainingDialog", "Error minimo", 0, QApplication::UnicodeUTF8));
+        label_14->setText(QApplication::translate("MLPTrainingDialog", "ECM", 0, QApplication::UnicodeUTF8));
         lblMinError->setText(QString());
         label_22->setText(QApplication::translate("MLPTrainingDialog", "T", 0, QApplication::UnicodeUTF8));
         label_23->setText(QApplication::translate("MLPTrainingDialog", "N\302\260 cambios totales", 0, QApplication::UnicodeUTF8));
@@ -536,6 +685,8 @@ public:
         label_25->setText(QApplication::translate("MLPTrainingDialog", "TextLabel", 0, QApplication::UnicodeUTF8));
         label_26->setText(QApplication::translate("MLPTrainingDialog", "TextLabel", 0, QApplication::UnicodeUTF8));
         label_27->setText(QApplication::translate("MLPTrainingDialog", "TextLabel", 0, QApplication::UnicodeUTF8));
+        label_31->setText(QApplication::translate("MLPTrainingDialog", "RCECM", 0, QApplication::UnicodeUTF8));
+        lblRMSE->setText(QString());
         btnTrain->setText(QApplication::translate("MLPTrainingDialog", "Entrenar", 0, QApplication::UnicodeUTF8));
         btnCancel->setText(QApplication::translate("MLPTrainingDialog", "Salir", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

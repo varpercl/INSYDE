@@ -2,6 +2,7 @@
 #define VISIONSENSOR_H
 
 #include <QtCore>
+#include <QGraphicsScene>
 #include <agent.h>
 #include <sensor.h>
 

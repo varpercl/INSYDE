@@ -36,7 +36,7 @@ void MLPTrainingThread::setTrainingParameters(vector<MultilayerPerceptronPattern
 	this->epochs = epochs;
 	this->errormin = errormin;
 	this->learningRate = learningRate;
-	this->ta = ta;
+    this->ta = ta;
 }
 
 void MLPTrainingThread::run()
@@ -51,7 +51,7 @@ void MLPTrainingThread::setTrainingParameters(const vector<vector<double> > &inp
 	this->epochs = epochs;
 	this->errormin = errormin;
 	this->learningRate = learningRate;
-	this->ta = ta;
+    this->ta = ta;
 }
 
 MultilayerPerceptron::TrainingResult MLPTrainingThread::getTrainingSnapshot()

@@ -2,7 +2,11 @@
 #define PHEROMONEITEM_H
 
 #include <QtCore>
-#include <QtGui>
+#include <QFontMetricsF>
+#include <QPainter>
+#include <QStyleOptionGraphicsItem>
+#include <QGraphicsObject>
+#include <QGraphicsScene>
 
 /**
   @class PheromoneItem

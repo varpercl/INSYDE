@@ -567,6 +567,8 @@ void Unit::checkPointReached(QPointF point)
 
 void Unit::checkAll(QPointF pt)
 {
+    Q_UNUSED(pt);
+
     if(checkCounter > 20){
         Unit *unit;
         VisionSensor *vs = dynamic_cast<VisionSensor*>(getSensor("vision"));

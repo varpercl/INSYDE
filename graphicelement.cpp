@@ -60,6 +60,8 @@ QRectF GraphicElement::boundingRect() const
 
 void GraphicElement::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    Q_UNUSED(widget);
+
 	QPen pen;
 	painter->save();
 	pen.setWidth(border);

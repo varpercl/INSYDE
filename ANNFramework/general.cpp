@@ -28,3 +28,12 @@ vector<double> getRandomValues(int nvalues)
     }
     return values;
 }
+
+vector<double> getRandomValues(int nvalues, double min, double max)
+{
+    vector<double> values(nvalues);
+    for(int i = 0; i < nvalues; i++){
+        values[i] = randomNumber(min, max);
+    }
+    return values;
+}

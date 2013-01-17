@@ -170,7 +170,7 @@ Adaline::TrainResult Adaline::train(const vector<vector<double> > &inputs, const
     double delta;
     double currErr = 0;
     double out;
-    double dsigma;
+	double dsigma = 0;
     int curEpoch = 0;
     vector<double> deltaW;
     double deltaThreshold;
@@ -240,6 +240,8 @@ Adaline::TrainResult Adaline::train(const vector<vector<double> > &inputs, const
 
 Adaline::TrainResult Adaline::train(vector<AdalineTrainingPattern> &ts, double error, int nEpochs, double learningFactor, Adaline::WeightUpdateType wut)
 {
+    Q_UNUSED(wut);
+
     size_t sTS = ts.size();
     vector<vector<double> > inputs(sTS);
     vector<double> outputs(sTS);

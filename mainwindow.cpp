@@ -169,12 +169,12 @@ void MainWindow::menuContextualListaObjetos(QPoint p){
 void MainWindow::btnAddAgentClick(){
     static int agentCont = 1;
 
-    int ang;
+//    int ang;
     double posX;
     double posY;
 
     qsrand(QTime::currentTime().msec());
-    ang = qrand() * 360 / 32768;
+//    ang = qrand() * 360 / 32768;
     posX = qrand() * 400 / 32768;
     posY = qrand() * 400 / 32768;
 
@@ -372,7 +372,7 @@ void MainWindow::onNewProyectTriggered(bool val)
 
 void MainWindow::onNewProyectTriggered(bool val)
 {
-//    Q_UNUSED(val)
+    Q_UNUSED(val)
 
     newProjectDialog = new NewProjectWizard();
     newProjectDialog->setWindowTitle("Nuevo Proyecto");

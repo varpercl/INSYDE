@@ -6,6 +6,8 @@ TrainingSetDialog::TrainingSetDialog(TrainingSetType type, QWidget *parent) :
 	inputCount(1),
 	targetCount(1)
 {
+    Q_UNUSED(type);
+
 	initDialog(1, 1);
 //	loadMLPData();
 }
@@ -92,10 +94,14 @@ void TrainingSetDialog::appendPattern(vector<double> input, vector<double> targe
 
 	int nRows = ui->patternTable->rowCount();
 	for(int i = 0; i < inputCount; i++){
-		ui->patternTable->setItem(nRows-1, i, new QTableWidgetItem(QString::number(input[i])));
+		QTableWidgetItem *itm = new QTableWidgetItem(QString::number(input[i]));
+		itm->setTextAlignment(Qt::AlignRight);
+		ui->patternTable->setItem(nRows-1, i, itm);
 	}
 	for(int j = inputCount; j < inputCount + targetCount; j++){
-		ui->patternTable->setItem(nRows-1, j, new QTableWidgetItem(QString::number(target[j-inputCount])));
+		QTableWidgetItem *itm = new QTableWidgetItem(QString::number(target[j-inputCount]));
+		itm->setTextAlignment(Qt::AlignRight);
+		ui->patternTable->setItem(nRows-1, j, itm);
 	}
 }
 
@@ -107,41 +113,25 @@ void TrainingSetDialog::appendPattern(vector<int> input, vector<int> target)
 
 	int nRows = ui->patternTable->rowCount();
 	for(int i = 0; i < inputCount; i++){
-		ui->patternTable->setItem(nRows-1, i, new QTableWidgetItem(QString::number(input[i])));
+		QTableWidgetItem *itm = new QTableWidgetItem(QString::number(input[i]));
+		itm->setTextAlignment(Qt::AlignRight);
+		ui->patternTable->setItem(nRows-1, i, itm);
 	}
 	for(int j = inputCount; j <  inputCount + targetCount; j++){
-		ui->patternTable->setItem(nRows-1, j, new QTableWidgetItem(QString::number(target[j-inputCount])));
+		QTableWidgetItem *itm = new QTableWidgetItem(QString::number(target[j-inputCount]));
+		itm->setTextAlignment(Qt::AlignRight);
+		ui->patternTable->setItem(nRows-1, j, itm);
 	}
 }
 
-void TrainingSetDialog::appendPattern(QVector<double> input, QVector<double> target)
+void TrainingSetDialog::appendPattern(const QVector<double> &input, const QVector<double> &target)
 {
-	setInputSize(input.size());
-	setTargetSize(target.size());
-	ui->patternTable->setRowCount(ui->patternTable->rowCount() + 1);
-
-	int nRows = ui->patternTable->rowCount();
-	for(int i = 0; i < inputCount; i++){
-		ui->patternTable->setItem(nRows-1, i, new QTableWidgetItem(QString::number(input[i])));
-	}
-	for(int j = inputCount; j <  inputCount + targetCount; j++){
-		ui->patternTable->setItem(nRows-1, j, new QTableWidgetItem(QString::number(target[j-inputCount])));
-	}
+	appendPattern(input.toStdVector(), target.toStdVector());
 }
 
-void TrainingSetDialog::appendPattern(QVector<int> input, QVector<int> target)
+void TrainingSetDialog::appendPattern(const QVector<int> &input, const QVector<int> &target)
 {
-	setInputSize(input.size());
-	setTargetSize(target.size());
-	ui->patternTable->setRowCount(ui->patternTable->rowCount() + 1);
-
-	int nRows = ui->patternTable->rowCount();
-	for(int i = 0; i < inputCount; i++){
-		ui->patternTable->setItem(nRows-1, i, new QTableWidgetItem(QString::number(input[i])));
-	}
-	for(int j = inputCount; j < inputCount + targetCount; j++){
-		ui->patternTable->setItem(nRows-1, j, new QTableWidgetItem(QString::number(target[j-inputCount])));
-	}
+	appendPattern(input.toStdVector(), target.toStdVector());
 }
 
 void TrainingSetDialog::removePattern(int i)
@@ -243,49 +233,5 @@ void TrainingSetDialog::updateHeaders()
 
 void TrainingSetDialog::fromFile()
 {
-	QString file = QFileDialog::getOpenFileName(this, "Abrir archivo", "", "Archivos de datos (*.ts *.csv *.xls *.txt *.xml)");
+	QString file = QFileDialog::getOpenFileName(this, "Abrir archivo", "", "Archivos de datos (*.csv *.xls *.txt *.xml)");
 }
-
-//template<class TrainingPattern>
-//TrainingSetDialog<TrainingPattern>::TrainingSetDialog(int size, QWidget *parent) :
-//    TrainingSetObject(parent)
-//{
-//    ts.resize(size);
-//    ui->patternTable->setRowCount(size);
-//}
-
-//template<class TrainingPattern>
-//TrainingSetDialog<TrainingPattern>::TrainingSetDialog(QVector<TrainingPattern> ts, QWidget *parent) :
-//    TrainingSetObject(parent)
-//{
-
-//}
-
-//template<class TrainingPattern>
-//void TrainingSetDialog<TrainingPattern>::initTS(QVector<TrainingPattern> ts)
-//{
-//    this->ts = ts;
-//    ui->patternTable->setRowCount(ts.size());
-//}
-
-//template<class TrainingPattern>
-//void TrainingSetDialog<TrainingPattern>::initTS(int size)
-//{
-//    ts.resize(size);
-//    ui->patternTable->setRowCount(size);
-//}
-
-
-//template<class TrainingPattern>
-//void TrainingSetDialog<TrainingPattern>::setTrainingSet(const QVector<TrainingPattern> &ts)
-//{
-//    this->ts = ts;
-//    ui->patternTable->setRowCount(ts.size());
-//}
-
-//template<class TrainingPattern>
-//QVector<TrainingPattern> TrainingSetDialog<TrainingPattern>::getTrainingSet() const
-//{
-//    return ts;
-//}
-

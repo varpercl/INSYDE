@@ -72,7 +72,8 @@ SOURCES += main.cpp\
     graphicmlpelement.cpp \
     mlptrainingdialog.cpp \
     mlptrainingthread.cpp \
-    binaryoutputelement.cpp
+    binaryoutputelement.cpp \
+    samplesdialog.cpp
 
 HEADERS  += mainwindow.h \
 	obstaculo.h \
@@ -117,7 +118,8 @@ HEADERS  += mainwindow.h \
     letterdeclarations.h \
     mlptrainingdialog.h \
     mlptrainingthread.h \
-    binaryoutputelement.h
+    binaryoutputelement.h \
+    samplesdialog.h
 
 FORMS    += mainwindow.ui \
 	defineruledialog.ui \
@@ -129,7 +131,8 @@ FORMS    += mainwindow.ui \
 	perceptronpage.ui \
 	newprojectwizard.ui \
 	adalinepage.ui \
-    mlptrainingdialog.ui
+    mlptrainingdialog.ui \
+    samplesdialog.ui
 
 RESOURCES += \
 	imagenes.qrc

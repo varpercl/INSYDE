@@ -1,7 +1,12 @@
 #ifndef PERCEPTRONDISPLAY_H
 #define PERCEPTRONDISPLAY_H
 
-#include <QtGui>
+#include <QGraphicsLineItem>
+#include <QGraphicsProxyWidget>
+#include <QGraphicsScene>
+#include <QLineEdit>
+#include <QPainter>
+#include <QDoubleValidator>
 
 #include <float.h>
 

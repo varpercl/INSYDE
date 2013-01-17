@@ -153,6 +153,8 @@ PheromoneItem *PheromoneItem::getMostIntenseNeighbour()
 
 void PheromoneItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
+    Q_UNUSED(event);
+
     setZValue(9999999);
     update();
 }

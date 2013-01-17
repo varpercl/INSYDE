@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'trainingsetdialog.ui'
 **
-** Created: Sun 6. Jan 00:01:26 2013
-**      by: Qt User Interface Compiler version 4.8.1
+** Created: Wed 16. Jan 17:05:41 2013
+**      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -73,7 +73,7 @@ public:
         patternTable->setAlternatingRowColors(true);
         patternTable->setRowCount(0);
         patternTable->setColumnCount(0);
-        patternTable->verticalHeader()->setVisible(false);
+        patternTable->verticalHeader()->setVisible(true);
         patternTable->verticalHeader()->setCascadingSectionResizes(true);
         patternTable->verticalHeader()->setHighlightSections(true);
         patternTable->verticalHeader()->setProperty("showSortIndicator", QVariant(false));

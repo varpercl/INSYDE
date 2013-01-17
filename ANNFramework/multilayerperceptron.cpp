@@ -139,7 +139,7 @@ vector<double> MultilayerPerceptron::addNoise(const vector<double> &vec, double 
 {
 	vector<double> cVec = vec;
 	size_t sVec = cVec.size();
-//	srand(clock());
+	//	srand(clock());
 	for(size_t i = 0; i < sVec; i++){
 		cVec[i] += randomNumber(min, max);
 	}
@@ -344,7 +344,7 @@ MultilayerPerceptron::TransferFunctionType MultilayerPerceptron::getTransferFunc
 	return tf;
 }
 
-void MultilayerPerceptron::randomizeWeights()
+void MultilayerPerceptron::randomizeWeights(double min, double max)
 {
 	size_t
 			nLayers = layerWeights.size(),
@@ -356,12 +356,12 @@ void MultilayerPerceptron::randomizeWeights()
 	for(layer = 0; layer < nLayers; layer++){
 		nNeurons = layerWeights[layer].size();
 		for(neuron = 0; neuron < nNeurons; neuron++){
-			layerWeights[layer][neuron] = (layer == 0 ? getRandomValues(getInputSize()+1) : getRandomValues(layerWeights[layer-1].size()+1));
+			layerWeights[layer][neuron] = (layer == 0 ? getRandomValues(getInputSize()+1, min, max) : getRandomValues(layerWeights[layer-1].size()+1, min, max));
 		}
 	}
 	nOutputs = outputWeights.size();
 	for(size_t i = 0; i < nOutputs; i++){
-		outputWeights[i] = getRandomValues(layerWeights[nLayers-1].size() + 1);
+		outputWeights[i] = getRandomValues(layerWeights[nLayers-1].size() + 1, min, max);
 	}
 }
 
@@ -412,13 +412,15 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 	tr.time = 0;
 	tr.epochs = 0;
 	tr.MSE = getMSE(inputs, targets);
+	tr.RMSE = getRMSE(inputs, targets);
 	tr.layerWeightsHistory.clear();
 	tr.outputWeightsHistory.clear();
 	tr.MSEHistory.clear();
+	tr.RMSEHistory.clear();
 
 	tr.layerWeightsHistory.push_back(layerWeights);
 	tr.outputWeightsHistory.push_back(outputWeights);
-	tr.MSEHistory.push_back(0);
+	tr.MSEHistory.push_back(tr.MSE);
 	vector<vector<double> > layerOutputs;
 	training = true;
 	clock_t t_ini = clock();
@@ -492,13 +494,17 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 							}
 						}
 					}
-					yObtained = getOutput(inputs[p]);
-					for(size_t neuron = 0; neuron < nOutputs; neuron++){
-						pMSE += (targets[p][neuron] - yObtained[neuron])*(targets[p][neuron] - yObtained[neuron]);
-					}
+					//					yObtained = getOutput(inputs[p]);
+					//					double diff;
+					//					for(size_t neuron = 0; neuron < nOutputs; neuron++){
+					//						diff = (targets[p][neuron] - yObtained[neuron]);
+					//						pMSE += diff*diff;
+					//					}
 				}
-				pMSE += pMSE/2;
-				tr.MSE = pMSE;
+				tr.RMSE = getRMSE(inputs, targets);
+				tr.RMSEHistory.push_back(tr.RMSE);
+
+				tr.MSE = getMSE(inputs, targets);
 				tr.MSEHistory.push_back(tr.MSE);
 				//		tr.layerWeightsHistory.push_back(layerWeights);
 				//		tr.outputWeightsHistory.push_back(outputWeights);
@@ -512,14 +518,13 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 			long double
 					T = 0,
 					sumDeltaF = 0,
-					lastMSE = 0,
 					deltaF = 0,
-					Pa = initialAcceptance;
+					Pa = 0;
 
 			int c = 0;
 			do{
 				//		tr.MSE = 0;
-				lastMSE = pMSE = 0;
+				pMSE = 0;
 				for(size_t p = 0; p < nPatterns; p++){
 
 					//Se obtienen las salidas para cada una de las capas
@@ -585,12 +590,11 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 							}
 						}
 					}
-					yObtained = getOutput(inputs[p]);
-					for(size_t neuron = 0; neuron < nOutputs; neuron++){
-						pMSE += (targets[p][neuron] - yObtained[neuron])*(targets[p][neuron] - yObtained[neuron]);
-					}
 				}
-				pMSE += pMSE/2;
+				tr.RMSE = getRMSE(inputs, targets);
+				tr.RMSEHistory.push_back(tr.RMSE);
+
+				pMSE = getMSE(inputs, targets);
 
 				deltaF = pMSE - tr.MSE;
 				sumDeltaF += deltaF; // Se calcula deltaF promedio
@@ -604,12 +608,17 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 
 				double avgDeltaF = sumDeltaF / c;
 
-				if(fabs(avgDeltaF) < startCondition && c > 100){
-//					double avgDeltaF = sumDeltaF / c;
-					T = avgDeltaF / log(Pa);
+				if(fabs(avgDeltaF) < startCondition && c > 999){
+					//					double avgDeltaF = sumDeltaF / c;
+//					T = avgDeltaF / log(initialAcceptance);
+					//                    T = 1 / log(initialAcceptance) * avgDeltaF;
+					//                    T = deltaF / log(Pa);
+					//                    T = -deltaF;
+					//                    T = To;
+					T = To;
 					double fNew;
 					NewState ns;
-					int n = 0;
+					//					int n = 0;
 					double fOld = tr.MSE;
 					double rnd = 0;
 					do{
@@ -619,14 +628,17 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 							deltaF = fNew - fOld;
 							Pa = exp(-deltaF/T);
 							rnd = randomNumber(0,1);
-							if(deltaF < 0 || rnd < Pa){
+							if(deltaF < 0
+							   || rnd < Pa
+							   ){
 								layerWeights = ns.newWeights;
 								outputWeights = ns.newOutputWeights;
-								fOld = fNew;
+								fOld = getMSE(inputs, targets);
 							}
 						}
-						T = T / (1 + n);
-						n++;
+						//						T = T / (1 + n);
+						T = tempDecFactor*T;
+						//						n++;
 					}while(T > Tmin);
 					c = 0;
 					sumDeltaF = 0;
@@ -673,14 +685,15 @@ double MultilayerPerceptron::getAlfa()
 	return alfa;
 }
 
-void MultilayerPerceptron::setSAParameters(double minTemperature, int numberOfChanges, double sCondition, double initialAcceptance, double minNoise, double maxNoise)
+void MultilayerPerceptron::setSAParameters(double minTemperature, int numberOfChanges, double sCondition, double To, double minNoise, double maxNoise, double tdf)
 {
-	this->Tmin = minTemperature;
+	Tmin = minTemperature;
 	nChanges = numberOfChanges;
-	this->startCondition = sCondition;
-	this->initialAcceptance = initialAcceptance;
+	startCondition = sCondition;
+	this->To = To;
 	this->minNoise = minNoise;
 	this->maxNoise = maxNoise;
+	tempDecFactor = tdf;
 }
 
 double MultilayerPerceptron::getMSE(const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
@@ -696,5 +709,20 @@ double MultilayerPerceptron::getMSE(const vector<vector<double> > &inputs, const
 		}
 	}
 	return pMSE / 2;
+}
+
+double MultilayerPerceptron::getRMSE(const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
+{
+	size_t nPatterns = inputs.size();
+	double pMSE = 0;
+	vector<double> yObtained;
+	size_t nOutputs = getOutputSize();
+	for(size_t p = 0; p < nPatterns; p++){
+		yObtained = getOutput(inputs[p]);
+		for(size_t neuron = 0; neuron < nOutputs; neuron++){
+			pMSE += (targets[p][neuron] - yObtained[neuron])*(targets[p][neuron] - yObtained[neuron]);
+		}
+	}
+	return sqrt(pMSE)/(nPatterns*nOutputs);
 }
 

@@ -40,7 +40,7 @@ double average(const vector<T> &arr){
 
   @param vector<pair<double, double> > pairs Pares elemento/probabilidad
   */
-double RNALIBRARY_EXPORT probNumbers(vector<pair<double, double> > pairs);
+double probNumbers(vector<pair<double, double> > pairs);
 
 /**
 Este metodo devuelve un vector con una lista de valores aleatorios de tipo @code{double}
@@ -51,5 +51,7 @@ entradas aleatorias inicialmente.
 
 */
 vector<double> getRandomValues(int nvalues);
+
+vector<double> getRandomValues(int nvalues, double min, double max);
 
 #endif // GENERAL_H

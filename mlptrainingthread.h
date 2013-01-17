@@ -10,8 +10,8 @@ class MLPTrainingThread : public QThread
 		explicit MLPTrainingThread(MultilayerPerceptron *mlp, const vector<vector<double> > &inputs, const vector<vector<double> > &targets, unsigned int epochs, double errormin, double learningRate = 1, MultilayerPerceptron::TrainingAlgorithm ta = MultilayerPerceptron::Backpropagation, QObject *parent = 0);
 		explicit MLPTrainingThread(MultilayerPerceptron *mlp, QObject *parent = 0);
 
-		void setTrainingParameters(vector<MultilayerPerceptronPattern *> &ts, unsigned int epochs, double errormin, double learningRate = 1, MultilayerPerceptron::TrainingAlgorithm ta = MultilayerPerceptron::Backpropagation);
-		void setTrainingParameters(const vector<vector<double> > &inputs, const vector<vector<double> > &targets, unsigned int epochs, double errormin, double learningRate = 1, MultilayerPerceptron::TrainingAlgorithm ta = MultilayerPerceptron::Backpropagation);
+        void setTrainingParameters(vector<MultilayerPerceptronPattern *> &ts, unsigned int epochs, double errormin, double learningRate = 1, MultilayerPerceptron::TrainingAlgorithm ta = MultilayerPerceptron::Backpropagation);
+        void setTrainingParameters(const vector<vector<double> > &inputs, const vector<vector<double> > &targets, unsigned int epochs, double errormin, double learningRate = 1, MultilayerPerceptron::TrainingAlgorithm ta = MultilayerPerceptron::Backpropagation);
 		MultilayerPerceptron::TrainingResult getTrainingSnapshot();
 
 	protected:
@@ -26,7 +26,7 @@ class MLPTrainingThread : public QThread
 		vector<vector<double> > inputs, targets;
 		unsigned int epochs;
 		double errormin, learningRate;
-		MultilayerPerceptron::TrainingAlgorithm ta;
+        MultilayerPerceptron::TrainingAlgorithm ta;
 		MultilayerPerceptron *mlp;
 
 };

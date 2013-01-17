@@ -31,8 +31,9 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 		typedef struct {
 				unsigned long epochs;
 				double MSE;
+				double RMSE;
 				double time;
-				vector<double> MSEHistory;
+				vector<double> MSEHistory, RMSEHistory;
 				vector<vector<vector<vector<double> > > >layerWeightsHistory;
 				vector<vector<vector<double> > > outputWeightsHistory;
 				//				vector<vector<vector<double> > > thresholdHistory;
@@ -61,7 +62,7 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 		void setTransferFunctionType(TransferFunctionType tf);
 		TransferFunctionType getTransferFunctionType();
 
-		void randomizeWeights();
+		void randomizeWeights(double min = -1, double max = 1);
 
 		TrainingResult startTraining(const vector<MultilayerPerceptronPattern*> &ts, unsigned int epochs, double errormin, double learningRate = 1, TrainingAlgorithm ta = Backpropagation);
 		TrainingResult startTraining(const vector<vector<double> > &inputs, const vector<vector<double> > &targets, unsigned int epochs, double errormin, double learningRate = 1, TrainingAlgorithm ta = Backpropagation);
@@ -72,10 +73,10 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 		void setAlfa(double a);
 		double getAlfa();
 
-		void setSAParameters(double Tmin, int numberOfChanges, double sCondition, double initialAcceptance, double minNoise, double maxNoise);
+		void setSAParameters(double minTemperature, int numberOfChanges, double sCondition, double To, double minNoise, double maxNoise, double tdf);
 
 		double getMSE(const vector<vector<double> > &inputs, const vector<vector<double> > &targets);
-
+		double getRMSE(const vector<vector<double> > &inputs, const vector<vector<double> > &targets);
 	private:
 
 		struct NewState{
@@ -83,8 +84,9 @@ class RNALIBRARY_EXPORT MultilayerPerceptron
 				vector<vector<double> > newOutputWeights;
 		};
 
+		double tempDecFactor;
 		double minNoise, maxNoise;
-		double initialAcceptance;
+		double To;
 		double startCondition;
 		double Tmin;
 		double initialCondition;

@@ -2,7 +2,10 @@
 #define STATUSANIMATION_H
 
 #include <QtCore>
-#include <QtGui>
+#include <QIcon>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QFrame>
 
 enum Status{
     Running,

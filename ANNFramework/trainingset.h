@@ -14,12 +14,12 @@ using namespace std;
   la etapa de entrenamiento de la red neuronal se le presentara cada par de entrenamiento y la
   red calculara los pesos adecuados.
   */
-struct TrainingPair{
-        //Vector de entradas
-        vector<double> inputs;
-        //Vector de objetivos
-        vector<double> targets;
-};
+//struct TrainingPair{
+//        //Vector de entradas
+//        vector<double> inputs;
+//        //Vector de objetivos
+//        vector<double> targets;
+//};
 
 /**
   @class TrainingSet
@@ -32,53 +32,74 @@ struct TrainingPair{
   pueden existir tantos pares de entrenamiento como se desee o como asi lo
   permita el computador o la red neuronal
   */
-template<class TrainingPattern>
-class TrainingSet : public list<TrainingPattern>
+
+class TrainingSet
 {
-    public:
+	public:
 
-        /**
-          Crea una instancia TrainingSet vacia y establece el numero de entradas que tendra
-          y el numero de salidas que tendra el vector objetivo
-          */
-        explicit TrainingSet<TrainingPattern>();
-        explicit TrainingSet<TrainingPattern>(int n);
+		/**
+		  Crea una instancia TrainingSet vacia y establece el numero de entradas que tendra
+		  y el numero de salidas que tendra el vector objetivo
+		  */
+		explicit TrainingSet(int n = 1);
+		explicit TrainingSet(const vector<vector<double> > &inputs, const vector<vector<double> > &targets);
 
-//        /**
-//          Redimensiona el numero de entradas del conjunto de entrenamiento. Cuando se cambia el numero
-//          de entradas del conjunto de entrenamiento, los valores que estos pares entradas/objetivos
-//          contienen se vuelven inciertos, por lo cual es necesario que se le asignen los valores deseados
-//          nuevamente
-//          */
-//        void setNumberInputs(int ni);
+		/**
+				  Redimensiona el numero de entradas del conjunto de entrenamiento. Cuando se cambia el numero
+				  de entradas del conjunto de entrenamiento, los valores que estos pares entradas/objetivos
+				  contienen se vuelven inciertos, por lo cual es necesario que se le asignen los valores deseados
+				  nuevamente
+				  */
+		void setInputSize(int is);
 
-//        /**
-//          Devuelve el numero de entradas del conjunto de entrenamiento
-//          */
-//        int getNumberInputs();
+		/**
+				  Devuelve el numero de entradas del conjunto de entrenamiento
+				  */
+		int getInputSize();
 
-//        /**
-//          Analogo a setNumberInputs
-//          */
-//        void setNumberOutputs(int no);
+		/**
+				  Analogo a setNumberInputs
+				  */
+		void setTargetSize(int ts);
 
-//        /**
-//          Analogo a getNumberInputs
-//          */
-//        int getNumberOutputs();
+		/**
+				  Analogo a getNumberInputs
+				  */
+		int getTargetSize();
 
-//        void insertTrainingPattern(const TrainingPattern &tp);
+		void insertTrainingPattern(int i);
+		void deleteTrainingPattern(int i);
 
-//        TrainingPattern getTrainingPattern();
+		void setInputs(const vector<vector<double> > &inputs);
+		void setInputs(const vector<vector<int> > &inputs);
 
-    private:
-//        //vector con un conjunto de pares de entrenamiento
-////        list<TrainingPair> tableList;
-//        vector<TrainingPattern> table;
-//        //numero de entradas que tiene el TrainingSet
-//        int ninputs;
-//        //numero de salidas que tiene el TrainingSet
-//        int noutputs;
+		void setTargets(const vector<vector<double> > &targets);
+		void setTargets(const vector<vector<int> > &targets);
+
+		vector<vector<double> > getInputs();
+		vector<vector<double> > getTargets();
+
+		void normalizeTrainingSet();
+		void normalizeTrainingSet(double min, double max);
+
+		void addNoiseToInputs(double min = 0, double max = 1);
+		void addNoiseToInputs(double a);
+
+		void addNoiseToTargets(double min = 0, double max = 1);
+		void addNoiseToTargets(double a);
+
+		void addNoiseToAll(double min = 0, double max = 1);
+		void addNoiseToAll(double a);
+
+		void appendPattern(const vector<double> &inputs, const vector<double> &targets);
+		void appendPattern(const vector<int> &inputs, const vector<double> &targets);
+
+	private:
+		//conjunto de entradas
+		vector<vector<double> > inputs;
+		//conjunto de objetivos
+		vector<vector<double> > targets;
+
 };
 
 #endif // TRAININGSET_H

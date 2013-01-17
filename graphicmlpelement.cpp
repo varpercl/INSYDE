@@ -65,6 +65,7 @@ GraphicElement *GraphicMLPElement::getInputElement()
 
 void GraphicMLPElement::setOutputElement(GraphicElement *ge)
 {
+	outputElement = ge;
 }
 
 GraphicElement *GraphicMLPElement::getOutputElement()
@@ -96,7 +97,7 @@ void GraphicMLPElement::initMLP(MultilayerPerceptron *mlp)
 
 void GraphicMLPElement::onDotMatrixStatusChanged(QVector<int> outputs)
 {
-//	inputs = outputs;
+	//	inputs = outputs;
 	vector<double> out = mlp->getOutput(outputs.toStdVector());
 	emit outputChanged(QVector<double>::fromStdVector(out));
 }
@@ -115,7 +116,7 @@ void GraphicMLPElement::onAddToTrainingSet()
 			ts[i] = new MultilayerPerceptronPattern(in[i], out[i]);
 		}
 		setTrainingSet(ts);
-//		targets = tsMLP->getTargets();
-//		inputs = tsMLP->getInputs();
+		//		targets = tsMLP->getTargets();
+		//		inputs = tsMLP->getInputs();
 	}
 }

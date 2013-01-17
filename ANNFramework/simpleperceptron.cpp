@@ -122,7 +122,7 @@ SimplePerceptron::TransferFunctionType SimplePerceptron::getTransferFunction()
 
 bool SimplePerceptron::getOutput(const vector<double> &inputs)
 {
-    double out;
+	double out = 0;
     double sum = 0;
     size_t sData = inputs.size();
 //    if(sData == weights.size()){

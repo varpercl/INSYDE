@@ -35,6 +35,8 @@ void PerceptronPage::initPage()
 
 void PerceptronPage::on_sbInputs_valueChanged(int arg1)
 {
+    Q_UNUSED(arg1);
+
     tupdate.start(300);
 }
 

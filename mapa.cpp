@@ -34,28 +34,7 @@ void Enviroment::drawBackground(QPainter *painter, const QRectF &rect)
 
 void Enviroment::dragEnterEvent(QGraphicsSceneDragDropEvent *e)
 {
-    if(e->mimeData()->hasFormat("text/plain"));
-    e->acceptProposedAction();
-}
-
-void Enviroment::dragMoveEvent(QGraphicsSceneDragDropEvent *e)
-{
-}
-
-void Enviroment::dropEvent(QGraphicsSceneDragDropEvent *e)
-{
-//    e->acceptProposedAction();
-//    int itemType = e->mimeData()->property("type").toInt();
-//    switch(itemType)
-//    {
-//        case BlockSegment:
-//            drawStandartBlockSegment(e->scenePos());
-//            break;
-//        case Switch:
-//            drawStandartSwitch(e->scenePos());
-//            break;
-//        case Signal:
-//            drawStandartSignal(e->scenePos());
-//            break;
-//    }
+    if(e->mimeData()->hasFormat("text/plain")){
+        e->acceptProposedAction();
+    }
 }

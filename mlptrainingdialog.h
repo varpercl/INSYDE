@@ -3,6 +3,7 @@
 
 #include <InSyDeGui.h>
 #include <mlptrainingthread.h>
+#include <samplesdialog.h>
 
 #include <ANNFramework/multilayerperceptron.h>
 
@@ -18,7 +19,7 @@ class MLPTrainingDialog : public QDialog
 	public:
 		Ui::MLPTrainingDialog *ui;
 
-//		explicit MLPTrainingDialog(MultilayerPerceptron *gmlp, QWidget *parent = 0);
+		//		explicit MLPTrainingDialog(MultilayerPerceptron *gmlp, QWidget *parent = 0);
 		explicit MLPTrainingDialog(GraphicMLPElement *gmlp, QWidget *parent = 0);
 		~MLPTrainingDialog();
 
@@ -26,6 +27,8 @@ class MLPTrainingDialog : public QDialog
 		void closeEvent(QCloseEvent *);
 
 	private slots:
+		void exportData();
+
 		void trainingFinished();
 
 		void updateStatusLabels();
@@ -45,15 +48,26 @@ class MLPTrainingDialog : public QDialog
 		void onTblLayersCellChanged(int row, int column);
 
 
+		void on_btnEditValidationTest_clicked();
+
+		void on_btnEditTestSet_clicked();
+
+		void on_btnAddLayer_clicked();
+
+		void on_btnDeleteLayer_clicked();
+
+		void on_btnMultipleTraining_clicked();
+
 	private:
 		Q_OBJECT
 
-//		double minNoise, maxNoise;
-//		double initialAcceptance;
-//		double startCondition;
-//		double Tmin;
-//		int nChanges;
-
+		QAction *saveFile;
+		//		double minNoise, maxNoise;
+		//		double initialAcceptance;
+		//		double startCondition;
+		//		double Tmin;
+		//		int nChanges;
+		QMenuBar *menuBar;
 		MultilayerPerceptron::TrainingAlgorithm ta;
 		MultilayerPerceptron::TrainingResult tres;
 		QTime t;
@@ -61,15 +75,14 @@ class MLPTrainingDialog : public QDialog
 		MLPTrainingThread *mlptt;
 		bool isTraining;
 		QTimer timer;
-//		vector<vector<double> > inputs;
-//		vector<vector<double> > targets;
+		//		vector<vector<double> > inputs;
+		//		vector<vector<double> > targets;
 		GraphicMLPElement *gmlp;
 		MultilayerPerceptron *mlp;
 		TrainingSetDialog *tsMLP;
 
 		void initDialog(GraphicMLPElement *gmlp);
-		void loadMLPData();
+		void generateReport(QString path, MultilayerPerceptron::TrainingResult tr, int interval);
 };
 
 #endif // MLPTRAININGDIALOG_H
-

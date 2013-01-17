@@ -69,7 +69,7 @@ void PruebaPantalla::onVisorClicked(QMouseEvent *event)
 			ts[i] = new MultilayerPerceptronPattern(letters[i], 35, LetterTargets[i], 26);
 		}
 		vector<int> lsizes;
-		lsizes.push_back(150);
+		lsizes.push_back(20);
 //		lsizes.push_back(3);
 		mlpe = new GraphicMLPElement(new MultilayerPerceptron(35, 26, lsizes, MultilayerPerceptron::Sigmoid));
 		mlpe->setPos(visor->mapToScene(event->pos() + QPoint(100, 0)));

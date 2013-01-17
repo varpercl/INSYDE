@@ -61,7 +61,7 @@ namespace INSYDEFunctions {
 
       @return double Valor ya redondeado
       */
-    double roundedValue(double val, double divisor);
+	double roundedValue(double val, double divisor);
 }
 
 #endif // GENERAL_H

@@ -2,7 +2,8 @@
 #define AGENT_H
 
 #include <QtCore>
-#include <QtGui>
+#include <QStyleOptionGraphicsItem>
+#include <QGraphicsObject>
 
 #include <vector2d.h>
 #include <math.h>
@@ -12,7 +13,6 @@
 
 class Sensor;
 class Actuator;
-
 /**
   @class Agent
   @author Edixon Vargas

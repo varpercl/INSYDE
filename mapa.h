@@ -1,6 +1,7 @@
 #ifndef MAPA_H
 #define MAPA_H
 
+#include <QGraphicsSceneDragDropEvent>
 #include <insydefunctions.h>
 
 using namespace INSYDEFunctions;
@@ -38,8 +39,8 @@ class Enviroment : public QGraphicsScene
         void drawBackground(QPainter *painter, const QRectF &rect);
 
         void dragEnterEvent(QGraphicsSceneDragDropEvent *e);
-        void dragMoveEvent(QGraphicsSceneDragDropEvent *e);
-        void dropEvent(QGraphicsSceneDragDropEvent *e);
+//        void dragMoveEvent(QGraphicsSceneDragDropEvent *e);
+//        void dropEvent(QGraphicsSceneDragDropEvent *e);
 };
 
 #endif // MAPA_H

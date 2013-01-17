@@ -34,7 +34,7 @@ QVector<double> BinaryOutputElement::getInputs()
 
 QVector<bool> BinaryOutputElement::getBinaryInputs()
 {
-	int selIndex;
+	int selIndex = 0;
 	double selMayorValue = -999999999;
 	double selMinorValue = 999999999;
 	int sInputs = inputs.size();

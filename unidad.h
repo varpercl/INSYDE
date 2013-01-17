@@ -1,10 +1,8 @@
 #ifndef UNIT_H
 #define UNIT_H
 
-#include <QtGui>
 #include <QtCore>
-//#include <sys/time.h>
-//#include <time.h>
+#include<QStyleOptionGraphicsItem>
 
 //#include <shootingweapon.h>
 #include <movilagent.h>

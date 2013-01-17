@@ -39,8 +39,8 @@ class TrainingSetDialog : public QDialog
 
 		void appendPattern(vector<double> input, vector<double> target);
 		void appendPattern(vector<int> input, vector<int> target);
-		void appendPattern(QVector<double> input, QVector<double> target);
-		void appendPattern(QVector<int> input, QVector<int> target);
+		void appendPattern(const QVector<double> &input, const QVector<double> &target);
+		void appendPattern(const QVector<int> &input, const QVector<int> &target);
 		void removePattern(int i);
 
 		int getPatternCount();
