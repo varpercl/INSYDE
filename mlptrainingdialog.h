@@ -82,7 +82,8 @@ class MLPTrainingDialog : public QDialog
 		TrainingSetDialog *tsMLP;
 
 		void initDialog(GraphicMLPElement *gmlp);
-		void generateReport(QString path, MultilayerPerceptron::TrainingResult tr, int interval);
+		void createFile(QString path, MultilayerPerceptron::TrainingResult tr, int interval);
+		void setEnabledControls(bool enabled);
 };
 
 #endif // MLPTRAININGDIALOG_H

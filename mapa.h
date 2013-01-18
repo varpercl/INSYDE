@@ -2,9 +2,12 @@
 #define MAPA_H
 
 #include <QGraphicsSceneDragDropEvent>
-#include <insydefunctions.h>
+#include <QGraphicsScene>
+#include <QPainter>
+#include <QMimeData>
+#include <INSYDECommon/insydefunctions.h>
 
-using namespace INSYDEFunctions;
+using namespace CommonFunctions;
 
 /**
   @class Enviroment
@@ -17,28 +20,28 @@ using namespace INSYDEFunctions;
 
 class Enviroment : public QGraphicsScene
 {
-        Q_OBJECT
+		Q_OBJECT
 
-        QPixmap grid;
-        int gridSpace;
+		QPixmap grid;
+		int gridSpace;
 
-        /**
-          Inicializa el ambiente actual
-          */
-        void initMapa();
+		/**
+		  Inicializa el ambiente actual
+		  */
+		void initMapa();
 
-    public:
-        explicit Enviroment();
+	public:
+		explicit Enviroment();
 
-    protected:
+	protected:
 
-        /**
-          Implementacion del metodo heredado de la clase QGraphicsScene se usa en este
-          caso para dibujar una grilla y otros elementos que puedan ir de fondo
-          */
-        void drawBackground(QPainter *painter, const QRectF &rect);
+		/**
+		  Implementacion del metodo heredado de la clase QGraphicsScene se usa en este
+		  caso para dibujar una grilla y otros elementos que puedan ir de fondo
+		  */
+		void drawBackground(QPainter *painter, const QRectF &rect);
 
-        void dragEnterEvent(QGraphicsSceneDragDropEvent *e);
+		void dragEnterEvent(QGraphicsSceneDragDropEvent *e);
 //        void dragMoveEvent(QGraphicsSceneDragDropEvent *e);
 //        void dropEvent(QGraphicsSceneDragDropEvent *e);
 };

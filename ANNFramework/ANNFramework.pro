@@ -17,6 +17,8 @@ debug{EXTRA = debug}
 release{EXTRA = release}
 DESTDIR = ../$$EXTRA
 
+INCLUDEPATH += .
+
 HEADERS += \
 	trainingset.h \
 	simpleperceptron.h \
@@ -26,8 +28,8 @@ HEADERS += \
 	hopfieldnetwork.h \
 	adaline.h \
 	RNALibrary_global.h \
-    multilayerperceptron.h \
-    general.h
+	multilayerperceptron.h \
+	general.h
 
 SOURCES += \
 	trainingset.cpp \
@@ -36,5 +38,5 @@ SOURCES += \
 	neuralnetwork.cpp \
 	hopfieldnetwork.cpp \
 	adaline.cpp \
-    multilayerperceptron.cpp \
-    general.cpp
+	multilayerperceptron.cpp \
+	general.cpp

@@ -149,7 +149,12 @@ void MLPTrainingDialog::on_btnTrain_clicked()
 		ui->btnTrain->setText("Entrenar");
 		timer.stop();
 		mlp->stopTraining();
+
+		setEnabledControls(true);
+
 	}else{
+		setEnabledControls(false);
+
 		ui->btnTrain->setText("Detener");
 		vector<MultilayerPerceptronPattern*> ts =gmlp->getTrainingSet();
 		mlptt->setTrainingParameters(ts, ui->sbEpochs->value(), ui->sbMinError->value(), ui->sbLearningRate->value(), ta);
@@ -196,7 +201,7 @@ void MLPTrainingDialog::onTblLayersCellChanged(int row, int column)
 	mlp->setLayerSizes(ls);
 }
 
-void MLPTrainingDialog::generateReport(QString path, MultilayerPerceptron::TrainingResult tr, int nsamples){
+void MLPTrainingDialog::createFile(QString path, MultilayerPerceptron::TrainingResult tr, int nsamples){
 	QFile *f = new QFile(path);
 	if (f->open(QFile::ReadWrite)) { // file opened successfully
 		f->write("", qstrlen(""));
@@ -238,6 +243,37 @@ void MLPTrainingDialog::generateReport(QString path, MultilayerPerceptron::Train
 	delete f;
 }
 
+void MLPTrainingDialog::setEnabledControls(bool enabled)
+{
+	ui->cbTrainingAlgorithm->setEnabled(enabled);
+	ui->cbTrasnferFunction->setEnabled(enabled);
+
+	ui->tblLayers->setEnabled(enabled);
+
+	ui->btnAddLayer->setEnabled(enabled);
+	ui->btnDeleteLayer->setEnabled(enabled);
+	ui->btnEditTestSet->setEnabled(enabled);
+	ui->btnEditTrainingSet->setEnabled(enabled);
+	ui->btnEditValidationTest->setEnabled(enabled);
+	ui->btnRandomize->setEnabled(enabled);
+
+	ui->sbDecFactor->setEnabled(enabled);
+	ui->sbEpochs->setEnabled(enabled);
+	ui->sbLearningRate->setEnabled(enabled);
+	ui->sbMaxNoise->setEnabled(enabled);
+	ui->sbMinError->setEnabled(enabled);
+	ui->sbMinErrorClasification->setEnabled(enabled);
+	ui->sbMinNoise->setEnabled(enabled);
+	ui->sbMinRMSError->setEnabled(enabled);
+	ui->sbMinTemperature->setEnabled(enabled);
+	ui->sbNChanges->setEnabled(enabled);
+	ui->sbRndFrom->setEnabled(enabled);
+	ui->sbRndTo->setEnabled(enabled);
+	ui->sbSlope->setEnabled(enabled);
+	ui->sbStartCondition->setEnabled(enabled);
+	ui->sbTo->setEnabled(enabled);
+}
+
 void MLPTrainingDialog::exportData()
 {
 	if(tres.epochs > 1){
@@ -250,7 +286,7 @@ void MLPTrainingDialog::exportData()
 		if(path != ""){
 			SamplesDialog sd(tres, this);
 			if(sd.exec() == QDialog::Accepted){
-				generateReport(path, tres, sd.getSampleCount());
+				createFile(path, tres, sd.getSampleCount());
 				saveFile->setEnabled(false);
 				return;
 			}
@@ -297,5 +333,18 @@ void MLPTrainingDialog::on_btnDeleteLayer_clicked()
 
 void MLPTrainingDialog::on_btnMultipleTraining_clicked()
 {
+	bool ok = false;
+	int nSamples = QInputDialog::getInt(this,
+										"Numero de entrenamientos",
+										"Numero",
+										1,
+										1,
+										1000000,
+										1,
+										&ok);
+	if(ok){
+		for(int i = 0; i < nSamples; i++){
 
+		}
+	}
 }

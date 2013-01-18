@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mlptrainingdialog.ui'
 **
-** Created: Wed 16. Jan 00:23:54 2013
+** Created: Thu 17. Jan 19:30:36 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -117,6 +117,7 @@ public:
     QLabel *lblRMSE;
     QHBoxLayout *buttonsLayout;
     QSpacerItem *horizontalSpacer;
+    QPushButton *btnMultipleTraining;
     QPushButton *btnTrain;
     QPushButton *btnCancel;
 
@@ -605,6 +606,11 @@ public:
 
         buttonsLayout->addItem(horizontalSpacer);
 
+        btnMultipleTraining = new QPushButton(MLPTrainingDialog);
+        btnMultipleTraining->setObjectName(QString::fromUtf8("btnMultipleTraining"));
+
+        buttonsLayout->addWidget(btnMultipleTraining);
+
         btnTrain = new QPushButton(MLPTrainingDialog);
         btnTrain->setObjectName(QString::fromUtf8("btnTrain"));
         btnTrain->setDefault(true);
@@ -687,6 +693,7 @@ public:
         label_27->setText(QApplication::translate("MLPTrainingDialog", "TextLabel", 0, QApplication::UnicodeUTF8));
         label_31->setText(QApplication::translate("MLPTrainingDialog", "RCECM", 0, QApplication::UnicodeUTF8));
         lblRMSE->setText(QString());
+        btnMultipleTraining->setText(QApplication::translate("MLPTrainingDialog", "Multiples entrenamientos", 0, QApplication::UnicodeUTF8));
         btnTrain->setText(QApplication::translate("MLPTrainingDialog", "Entrenar", 0, QApplication::UnicodeUTF8));
         btnCancel->setText(QApplication::translate("MLPTrainingDialog", "Salir", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

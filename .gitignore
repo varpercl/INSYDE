@@ -3,13 +3,12 @@
 #################
 
 Makefile
-Makefile.debug
 .autosave
-.o
+*.o
 .lib
-.pdb
-.Debug
-.Release
+*.pdb
+*.[Dd]ebug
+*.[Rd]elease
 
 #################
 ## Eclipse

@@ -14,116 +14,64 @@ TEMPLATE = app
 #QMAKE_CXXFLAGS += -std=c++0x -U__STRICT_ANSI__
 #    QMAKE_CXXFLAGS += -std=gnu++0x -U__STRICT_ANSI__
 
-#debug:DEPENDPATH += TBAssistant
-#release:DEPENDPATH += TBAssistant
-#DEPENDPATH += . TBAssistant
-
-#debug:INCLUDEPATH += TBAssistant
-#release:INCLUDEPATH += TBAssistant
-#INCLUDEPATH += TBAssistant
-
-#debug:LIBS += -L"debug"
-#release:LIBS += -L"release"
-#LIBS += -lTBAssistant
-
-#INCLUDEPATH +=
 
 debug:LIBS += -L"debug"
 release:LIBS += -L"release"
 LIBS += -lANNFramework
+LIBS += -lINSYDECommon
+LIBS += -lECGraphicInterface
+LIBS += -lECFramework
 
-SOURCES += main.cpp\
-		mainwindow.cpp \
-	obstaculo.cpp \
-	apuntador.cpp \
-	sensor.cpp \
-	actuador.cpp \
-	sensordistancia.cpp \
-	unidad.cpp \
-	actuadormovimiento.cpp \
+INCLUDEPATH += INSYDECommon ECGraphicInterface
+
+
+SOURCES += \
 	visor.cpp \
-	mapa.cpp \
-	regla.cpp \
-	vector2d.cpp \
+	trainingsetdialog.cpp \
 	statusanimation.cpp \
-	defineruledialog.cpp \
-	agent.cpp \
-	movilagent.cpp \
-	addagentsdialog.cpp \
-	pheromonesensor.cpp \
-	pheromonedepositor.cpp \
-	pheromoneitem.cpp \
-	ofensiveunit.cpp \
-	meleeunit.cpp \
-	shootingweapon.cpp \
-	shootingunit.cpp \
-	weapon.cpp \
-	general.cpp \
-	newprojectwizard.cpp \
 	selectprojectpage.cpp \
-	chooseprojectnamepage.cpp \
+	samplesdialog.cpp \
 	pruebapantallas.cpp \
 	perceptronpage.cpp \
 	perceptrondisplay.cpp \
-	adalinepage.cpp \
-	trainingsetdialog.cpp \
-    graphicelement.cpp \
-    dotmatrix.cpp \
-    graphicmlpelement.cpp \
-    mlptrainingdialog.cpp \
-    mlptrainingthread.cpp \
-    binaryoutputelement.cpp \
-    samplesdialog.cpp
+	newprojectwizard.cpp \
+	mlptrainingthread.cpp \
+	mlptrainingdialog.cpp \
+	mapa.cpp \
+	mainwindow.cpp \
+	main.cpp \
+	graphicmlpelement.cpp \
+	graphicelement.cpp \
+	dotmatrix.cpp \
+	chooseprojectnamepage.cpp \
+	binaryoutputelement.cpp \
+	adalinepage.cpp
 
-HEADERS  += mainwindow.h \
-	obstaculo.h \
-	apuntador.h \
-	sensor.h \
-	actuador.h \
-	sensordistancia.h \
-	unidad.h \
-	actuadormovimiento.h \
+HEADERS  += \
 	visor.h \
-	mapa.h \
-	regla.h \
-	vector2d.h \
+	trainingsetdialog.h \
 	statusanimation.h \
-	defineruledialog.h \
-	agent.h \
-	movilagent.h \
-	addagentsdialog.h \
-	pheromonesensor.h \
-	pheromonedepositor.h \
-	pheromoneitem.h \
-	ofensiveunit.h \
-	meleeunit.h \
-	shootingweapon.h \
-	shootingunit.h \
-	weapon.h \
-	InSyDeCore.h \
-	InSyDeGui.h \
-	newprojectwizard.h \
-	aco.h \
 	selectprojectpage.h \
-	chooseprojectnamepage.h \
+	samplesdialog.h \
 	pruebapantallas.h \
 	perceptronpage.h \
 	perceptrondisplay.h \
-	adalinepage.h \
-	trainingsetdialog.h \
-    graphicelement.h \
-    dotmatrix.h \
-    graphicmlpelement.h \
-    insydefunctions.h \
-    letterdeclarations.h \
-    mlptrainingdialog.h \
-    mlptrainingthread.h \
-    binaryoutputelement.h \
-    samplesdialog.h
+	newprojectwizard.h \
+	mlptrainingthread.h \
+	mlptrainingdialog.h \
+	mapa.h \
+	mainwindow.h \
+	letterdeclarations.h \
+	InSyDeGui.h \
+	InSyDeCore.h \
+	graphicmlpelement.h \
+	graphicelement.h \
+	dotmatrix.h \
+	chooseprojectnamepage.h \
+	binaryoutputelement.h \
+	adalinepage.h
 
 FORMS    += mainwindow.ui \
-	defineruledialog.ui \
-	addagentsdialog.ui \
 	selectprojectpage.ui \
 	chooseprojectnamepage.ui \
 	trainingsetdialog.ui \
@@ -131,8 +79,9 @@ FORMS    += mainwindow.ui \
 	perceptronpage.ui \
 	newprojectwizard.ui \
 	adalinepage.ui \
-    mlptrainingdialog.ui \
-    samplesdialog.ui
+	mlptrainingdialog.ui \
+	samplesdialog.ui \
+	newprojectdialog.ui \
 
 RESOURCES += \
 	imagenes.qrc

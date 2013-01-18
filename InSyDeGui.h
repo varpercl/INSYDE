@@ -2,7 +2,7 @@
 #define INSYDEGUI_H
 
 #include <QtGui>
-#include <insydefunctions.h>
+#include <INSYDECommon/insydefunctions.h>
 
 #include <binaryoutputelement.h>
 #include <mlptrainingdialog.h>
@@ -14,13 +14,13 @@
 #include <newprojectwizard.h>
 #include <selectprojectpage.h>
 #include <chooseprojectnamepage.h>
-#include <addagentsdialog.h>
+#include <ECGraphicInterface/addagentsdialog.h>
 #include <statusanimation.h>
 #include <mapa.h>
 #include <visor.h>
-#include <obstaculo.h>
-#include <apuntador.h>
-#include <shootingunit.h>
+#include <ECGraphicInterface/obstaculo.h>
+#include <ECGraphicInterface/apuntador.h>
+#include <ECGraphicInterface/shootingunit.h>
 #include <perceptronpage.h>
 #include <adalinepage.h>
 #include <perceptrondisplay.h>
