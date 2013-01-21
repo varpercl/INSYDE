@@ -20,8 +20,8 @@ HEADERS +=\
 	acosolver.h \
 	ant.h
 
-debug{EXTRA = debug}
-release{EXTRA = release}
+debug{EXTRA = bindebug}
+release{EXTRA = binrelease}
 DESTDIR = ../$$EXTRA
 
 INCLUDEPATH += .

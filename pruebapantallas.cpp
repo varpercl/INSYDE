@@ -63,14 +63,16 @@ void PruebaPantalla::onVisorClicked(QMouseEvent *event)
 		dm->setPos(visor->mapToScene(event->pos()));
 		sce->addItem(dm);
 
-		const int nPatterns = 26;
-		vector<MultilayerPerceptronPattern*> ts(nPatterns);
-		for(int i = 0; i < nPatterns; i++){
-			ts[i] = new MultilayerPerceptronPattern(letters[i], 35, LetterTargets[i], 26);
-		}
+		int nPatterns = 26;
+		TrainingSet ts(letters, 35, LetterTargets, 26, nPatterns);
+////		vector<MultilayerPerceptronPattern*> patterns(nPatterns);
+//		for(int i = 0; i < nPatterns; i++){
+//			patterns[i] = new MultilayerPerceptronPattern(letters[i], 35, LetterTargets[i], 26);
+//		}
 		vector<int> lsizes;
 		lsizes.push_back(20);
 //		lsizes.push_back(3);
+
 		mlpe = new GraphicMLPElement(new MultilayerPerceptron(35, 26, lsizes, MultilayerPerceptron::Sigmoid));
 		mlpe->setPos(visor->mapToScene(event->pos() + QPoint(100, 0)));
 		mlpe->setTrainingSet(ts);

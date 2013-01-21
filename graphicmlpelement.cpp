@@ -25,12 +25,12 @@ int GraphicMLPElement::type() const
 	return GraphicMLPElementType;
 }
 
-void GraphicMLPElement::setTrainingSet(vector<MultilayerPerceptronPattern *> ts)
+void GraphicMLPElement::setTrainingSet(const TrainingSet &ts)
 {
 	this->ts = ts;
 }
 
-vector<MultilayerPerceptronPattern *> GraphicMLPElement::getTrainingSet()
+TrainingSet GraphicMLPElement::getTrainingSet() const
 {
 	return ts;
 }
@@ -107,15 +107,16 @@ void GraphicMLPElement::onAddToTrainingSet()
 	TrainingSetDialog *tsMLP = new TrainingSetDialog(ts);
 	DotMatrix *dm = dynamic_cast<DotMatrix*>(inputElement);
 	tsMLP->appendPattern(dm->getDotList(), QVector<int>(mlp->getOutputSize(), 0));
+
 	if(tsMLP->exec() == QDialog::Accepted){
-		int sPatterns = tsMLP->getPatternCount();
-		vector<MultilayerPerceptronPattern*> ts(sPatterns);
-		for(int i = 0; i < sPatterns; i++){
-			vector<vector<double> > in = tsMLP->getInputs();
-			vector<vector<double> > out = tsMLP->getTargets();
-			ts[i] = new MultilayerPerceptronPattern(in[i], out[i]);
-		}
-		setTrainingSet(ts);
+//		int sPatterns = tsMLP->getPatternCount();
+//		vector<MultilayerPerceptronPattern*> ts(sPatterns);
+//		for(int i = 0; i < sPatterns; i++){
+//			vector<vector<double> > in = tsMLP->getInputs();
+//			vector<vector<double> > out = tsMLP->getTargets();
+//			ts[i] = new MultilayerPerceptronPattern(in[i], out[i]);
+//		}
+		setTrainingSet(tsMLP->getTrainingSet());
 		//		targets = tsMLP->getTargets();
 		//		inputs = tsMLP->getInputs();
 	}

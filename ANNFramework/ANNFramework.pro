@@ -11,10 +11,10 @@ TEMPLATE = lib
 
 #INCLUDEPATH +=
 
-DEFINES += RNALIBRARY_LIBRARY
+DEFINES += ANNFRAMEWORK_LIBRARY
 
-debug{EXTRA = debug}
-release{EXTRA = release}
+debug{EXTRA = bindebug}
+release{EXTRA = binrelease}
 DESTDIR = ../$$EXTRA
 
 INCLUDEPATH += .
@@ -27,9 +27,8 @@ HEADERS += \
 	itrainable.h \
 	hopfieldnetwork.h \
 	adaline.h \
-	RNALibrary_global.h \
 	multilayerperceptron.h \
-	general.h
+	ANNFramework_global.h
 
 SOURCES += \
 	trainingset.cpp \
@@ -39,4 +38,4 @@ SOURCES += \
 	hopfieldnetwork.cpp \
 	adaline.cpp \
 	multilayerperceptron.cpp \
-	general.cpp
+	ANNFramework_global.cpp

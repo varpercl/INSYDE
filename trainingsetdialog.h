@@ -3,8 +3,14 @@
 
 #include <typeinfo>
 
-#include <QDebug>
-#include <InSyDeGui.h>
+//#include <QDebug>
+//#include <InSyDeGui.h>
+#include <QMenuBar>
+#include <QFileDialog>
+
+#include <trainingset.h>
+#include <multilayerperceptron.h>
+
 #include "ui_trainingsetdialog.h"
 
 
@@ -26,15 +32,16 @@ class TrainingSetDialog : public QDialog
 			MultipleInputsOneTarget
 		};
 
-		explicit TrainingSetDialog(TrainingSetType type, QWidget *parent = 0);
+//		explicit TrainingSetDialog(TrainingSetType type, QWidget *parent = 0);
+		explicit TrainingSetDialog(const TrainingSet &ts, QWidget *parent = 0);
 		explicit TrainingSetDialog(int inputCount, int targetCount, QWidget *parent = 0);
 		explicit TrainingSetDialog(vector<vector<double> > inputs, vector<vector<double> > targets, QWidget *parent = 0);
 		explicit TrainingSetDialog(vector<MultilayerPerceptronPattern*> ts, QWidget *parent = 0);
 
-		vector<vector<double> > getInputs();
+		vector<vector<double> > getInputs() const;
 		void setInputSize(int size);
 
-		vector<vector<double> > getTargets();
+		vector<vector<double> > getTargets() const;
 		void setTargetSize(int size);
 
 		void appendPattern(vector<double> input, vector<double> target);
@@ -44,6 +51,8 @@ class TrainingSetDialog : public QDialog
 		void removePattern(int i);
 
 		int getPatternCount();
+
+		TrainingSet getTrainingSet() const;
 
 	protected:
 		Ui::TrainingSetDialog *ui;
@@ -61,7 +70,8 @@ class TrainingSetDialog : public QDialog
 		TrainingSetType tst;
 		int inputCount, targetCount;
 
-		vector<vector<double> > inputs, targets;
+//		vector<vector<double> >
+//		inputs, targets;
 
 		void initDialog(int inputs, int outputs);
 		void initDialog(const vector<vector<double> > &inputs, const vector<vector<double> > &outputs);

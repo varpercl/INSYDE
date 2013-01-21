@@ -26,11 +26,4 @@
 #include <perceptrondisplay.h>
 #include <trainingsetdialog.h>
 
-enum Pages{
-	SelectProjectID,
-	ChooseProjectNameID,
-	PerceptronPageID,
-	AdalinePageID
-};
-
 #endif // INSYDEGUI_H

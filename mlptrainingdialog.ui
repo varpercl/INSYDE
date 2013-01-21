@@ -192,21 +192,16 @@
               <string>Backpropagation</string>
              </property>
             </item>
-            <item>
-             <property name="text">
-              <string>Simulated Annealing</string>
-             </property>
-            </item>
            </widget>
           </item>
-          <item row="6" column="0">
+          <item row="7" column="0">
            <widget class="QLabel" name="label_7">
             <property name="text">
              <string>Funcion de transferencia</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="1">
+          <item row="7" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <item>
              <widget class="QComboBox" name="cbTrasnferFunction">
@@ -241,14 +236,14 @@
             </item>
            </layout>
           </item>
-          <item row="7" column="0">
+          <item row="8" column="0">
            <widget class="QLabel" name="label_5">
             <property name="text">
              <string>Tasa de aprendizaje</string>
             </property>
            </widget>
           </item>
-          <item row="7" column="1">
+          <item row="8" column="1">
            <widget class="QDoubleSpinBox" name="sbLearningRate">
             <property name="decimals">
              <number>4</number>
@@ -264,45 +259,52 @@
             </property>
            </widget>
           </item>
-          <item row="8" column="0">
+          <item row="9" column="0">
            <widget class="QLabel" name="label_9">
             <property name="text">
              <string>Conjunto de entrenamiento</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="1">
+          <item row="9" column="1">
            <widget class="QPushButton" name="btnEditTrainingSet">
             <property name="text">
              <string>Editar</string>
             </property>
            </widget>
           </item>
-          <item row="9" column="0">
+          <item row="10" column="0">
            <widget class="QLabel" name="label_30">
             <property name="text">
              <string>Conjunto de validación</string>
             </property>
            </widget>
           </item>
-          <item row="9" column="1">
+          <item row="10" column="1">
            <widget class="QPushButton" name="btnEditValidationTest">
             <property name="text">
              <string>Editar</string>
             </property>
            </widget>
           </item>
-          <item row="10" column="1">
+          <item row="11" column="1">
            <widget class="QPushButton" name="btnEditTestSet">
             <property name="text">
              <string>Editar</string>
             </property>
            </widget>
           </item>
-          <item row="10" column="0">
+          <item row="11" column="0">
            <widget class="QLabel" name="label_33">
             <property name="text">
              <string>Conjunto de prueba</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QCheckBox" name="chkSA">
+            <property name="text">
+             <string>Simulated Annealing</string>
             </property>
            </widget>
           </item>
@@ -351,14 +353,14 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
+          <item row="3" column="0">
            <widget class="QLabel" name="label_11">
             <property name="text">
              <string>E Minimo</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
+          <item row="3" column="1">
            <widget class="QDoubleSpinBox" name="sbMinError">
             <property name="decimals">
              <number>6</number>
@@ -374,14 +376,14 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
+          <item row="4" column="0">
            <widget class="QLabel" name="label_4">
             <property name="text">
              <string>Erms Minimo</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
+          <item row="4" column="1">
            <widget class="QDoubleSpinBox" name="sbMinRMSError">
             <property name="decimals">
              <number>6</number>
@@ -397,14 +399,14 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
+          <item row="5" column="0">
            <widget class="QLabel" name="label_13">
             <property name="text">
              <string>Ec Minimo</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
+          <item row="5" column="1">
            <widget class="QDoubleSpinBox" name="sbMinErrorClasification">
             <property name="decimals">
              <number>6</number>
@@ -420,14 +422,14 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="0">
+          <item row="6" column="0">
            <widget class="QLabel" name="label_17">
             <property name="text">
              <string>Condicion de inicio</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
+          <item row="6" column="1">
            <widget class="QDoubleSpinBox" name="sbStartCondition">
             <property name="decimals">
              <number>6</number>
@@ -440,14 +442,14 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
+          <item row="7" column="0">
            <widget class="QLabel" name="label_21">
             <property name="text">
              <string>N° cambios</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
+          <item row="7" column="1">
            <widget class="QSpinBox" name="sbNChanges">
             <property name="minimum">
              <number>0</number>
@@ -460,14 +462,14 @@
             </property>
            </widget>
           </item>
-          <item row="6" column="0">
+          <item row="8" column="0">
            <widget class="QLabel" name="label_15">
             <property name="text">
              <string>T min</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="1">
+          <item row="8" column="1">
            <widget class="QDoubleSpinBox" name="sbMinTemperature">
             <property name="decimals">
              <number>6</number>
@@ -480,14 +482,14 @@
             </property>
            </widget>
           </item>
-          <item row="8" column="0">
+          <item row="10" column="0">
            <widget class="QLabel" name="label_18">
             <property name="text">
              <string>To</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="1">
+          <item row="10" column="1">
            <widget class="QDoubleSpinBox" name="sbTo">
             <property name="decimals">
              <number>6</number>
@@ -503,14 +505,14 @@
             </property>
            </widget>
           </item>
-          <item row="9" column="0">
+          <item row="11" column="0">
            <widget class="QLabel" name="label_19">
             <property name="text">
              <string>Valor inferior de ruido</string>
             </property>
            </widget>
           </item>
-          <item row="9" column="1">
+          <item row="11" column="1">
            <widget class="QDoubleSpinBox" name="sbMinNoise">
             <property name="decimals">
              <number>6</number>
@@ -529,14 +531,14 @@
             </property>
            </widget>
           </item>
-          <item row="10" column="0">
+          <item row="12" column="0">
            <widget class="QLabel" name="label_20">
             <property name="text">
              <string>Valor superior de ruido</string>
             </property>
            </widget>
           </item>
-          <item row="10" column="1">
+          <item row="12" column="1">
            <widget class="QDoubleSpinBox" name="sbMaxNoise">
             <property name="decimals">
              <number>6</number>
@@ -555,7 +557,7 @@
             </property>
            </widget>
           </item>
-          <item row="11" column="0">
+          <item row="13" column="0">
            <widget class="QPushButton" name="btnRandomize">
             <property name="minimumSize">
              <size>
@@ -568,7 +570,7 @@
             </property>
            </widget>
           </item>
-          <item row="11" column="1">
+          <item row="13" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
              <widget class="QLabel" name="label_28">
@@ -624,7 +626,7 @@
             </item>
            </layout>
           </item>
-          <item row="7" column="1">
+          <item row="9" column="1">
            <widget class="QDoubleSpinBox" name="sbDecFactor">
             <property name="decimals">
              <number>6</number>
@@ -640,10 +642,56 @@
             </property>
            </widget>
           </item>
-          <item row="7" column="0">
+          <item row="9" column="0">
            <widget class="QLabel" name="label_32">
             <property name="text">
              <string>F. de decrecimiento</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="cbStopCondition">
+            <item>
+             <property name="text">
+              <string>MSE minimo</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>RMSE minimo</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CE minimo</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_34">
+            <property name="text">
+             <string>Condicion de parada</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_35">
+            <property name="text">
+             <string>Umbral</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QDoubleSpinBox" name="sbThreshold">
+            <property name="decimals">
+             <number>6</number>
+            </property>
+            <property name="minimum">
+             <double>-1.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.500000000000000</double>
             </property>
            </widget>
           </item>

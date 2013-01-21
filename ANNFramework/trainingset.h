@@ -1,12 +1,13 @@
 #ifndef TRAININGSET_H
 #define TRAININGSET_H
 
-#include "RNALibrary_global.h"
+#include <ANNFramework_global.h>
 #include <vector>
 #include <list>
 //#include <string>
 
 using namespace std;
+using namespace ANNFrameworkFunctions;
 
 /**
   TrainingPair es un vector expandido que contiene la informacion sobre el par de entrenamiento.
@@ -33,16 +34,30 @@ using namespace std;
   permita el computador o la red neuronal
   */
 
-class TrainingSet
+class ANNFRAMEWORK_EXPORT TrainingSet
 {
 	public:
 
+		enum NormalizeOption{
+			Standart,
+			Sigmoid,
+			Tanh
+		};
+
+		explicit TrainingSet();
 		/**
 		  Crea una instancia TrainingSet vacia y establece el numero de entradas que tendra
 		  y el numero de salidas que tendra el vector objetivo
 		  */
-		explicit TrainingSet(int n = 1);
+		explicit TrainingSet(int inputsize, double targetsize, int n = 1);
 		explicit TrainingSet(const vector<vector<double> > &inputs, const vector<vector<double> > &targets);
+		explicit TrainingSet(double **inputs,
+							 unsigned int sinputs,
+							 double **targets,
+							 unsigned int stargets,
+							 unsigned int spatterns);
+
+		~TrainingSet();
 
 		/**
 				  Redimensiona el numero de entradas del conjunto de entrenamiento. Cuando se cambia el numero
@@ -51,6 +66,7 @@ class TrainingSet
 				  nuevamente
 				  */
 		void setInputSize(int is);
+		void setInputSize(int is, double fill);
 
 		/**
 				  Devuelve el numero de entradas del conjunto de entrenamiento
@@ -61,13 +77,15 @@ class TrainingSet
 				  Analogo a setNumberInputs
 				  */
 		void setTargetSize(int ts);
+		void setTargetSize(int ts, double fill);
 
 		/**
 				  Analogo a getNumberInputs
 				  */
-		int getTargetSize();
+		int getTargetSize() const;
 
-		void insertTrainingPattern(int i);
+		void insertTrainingPattern(const vector<double> &inputs, const vector<double> &targets, int i);
+		void insertTrainingPattern(const vector<int> &inputs, const vector<int> &targets, int i);
 		void deleteTrainingPattern(int i);
 
 		void setInputs(const vector<vector<double> > &inputs);
@@ -76,11 +94,11 @@ class TrainingSet
 		void setTargets(const vector<vector<double> > &targets);
 		void setTargets(const vector<vector<int> > &targets);
 
-		vector<vector<double> > getInputs();
-		vector<vector<double> > getTargets();
+		vector<vector<double> > getInputs() const;
+		vector<vector<double> > getTargets() const;
 
-		void normalizeTrainingSet();
-		void normalizeTrainingSet(double min, double max);
+		void normalize(double min, double max);
+		void normalize(NormalizeOption no);
 
 		void addNoiseToInputs(double min = 0, double max = 1);
 		void addNoiseToInputs(double a);
@@ -94,12 +112,19 @@ class TrainingSet
 		void appendPattern(const vector<double> &inputs, const vector<double> &targets);
 		void appendPattern(const vector<int> &inputs, const vector<double> &targets);
 
+		void setPatternCount(int s);
+		int getPatternCount();
+
+		TrainingSet operator=(const TrainingSet &trset);
+
 	private:
 		//conjunto de entradas
 		vector<vector<double> > inputs;
 		//conjunto de objetivos
 		vector<vector<double> > targets;
 
+		void initTS(const vector<vector<double> > &inputs, const vector<vector<double> > &targets);
+		void resizeVectorSet(vector<vector<double> > &vec, int s, double fill);
 };
 
 #endif // TRAININGSET_H

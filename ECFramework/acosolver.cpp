@@ -196,7 +196,7 @@ void ACOSolver::neighbour_choose_and_move_to_next(Ant *a, long phase)
 		DEBUG( assert ( help >= 0 && help < n ); )
 		DEBUG( assert ( a->visited[help] == FALSE ); )
 		a->tour[phase] = help; /* instance.nn_list[current_city][i]; */
-		a->visited[help] = TRUE;
+		a->visited[help] = 't';
 	}
 }
 
@@ -302,7 +302,7 @@ void ACOSolver::neighbour_choose_best_next(Ant *a, long phase)
 		DEBUG( assert ( value_best > 0.0 ); )
 		DEBUG( assert ( a->visited[next_city] == FALSE ); )
 		a->tour[phase] = next_city;
-		a->visited[next_city] = TRUE;
+		a->visited[next_city] = 't';
 	}
 }
 
@@ -336,7 +336,7 @@ void ACOSolver::choose_best_next(Ant *a, long phase)
 	DEBUG( assert ( value_best > 0.0 ); )
 	DEBUG( assert ( a->visited[next_city] == FALSE ); )
 	a->tour[phase] = next_city;
-	a->visited[next_city] = TRUE;
+	a->visited[next_city] = 't';
 }
 
 void ACOSolver::start_timers()
@@ -466,7 +466,7 @@ void ACOSolver::choose_closest_next(Ant *a, long phase)
 	}
 	DEBUG( assert ( 0 <= next_city && next_city < n); );
 	a->tour[phase] = next_city;
-	a->visited[next_city] = TRUE;
+	a->visited[next_city] = 't';
 }
 
 void ACOSolver::two_opt_first(long *tour)
@@ -501,15 +501,15 @@ void ACOSolver::two_opt_first(long *tour)
 	dlb = (long int*) malloc(n * sizeof(long int));
 	for ( i = 0 ; i < n ; i++ ) {
 		pos[tour[i]] = i;
-		dlb[i] = FALSE;
+		dlb[i] = 'f';
 	}
 
-	improvement_flag = TRUE;
+	improvement_flag = 't';
 	random_vector = generate_random_permutation( n );
 
 	while ( improvement_flag ) {
 
-		improvement_flag = FALSE;
+		improvement_flag = 'f';
 
 		for (l = 0 ; l < n; l++) {
 
@@ -517,7 +517,7 @@ void ACOSolver::two_opt_first(long *tour)
 			DEBUG ( assert ( c1 < n && c1 >= 0); )
 				if ( dlb_flag && dlb[c1] )
 					continue;
-			improve_node = FALSE;
+			improve_node = 'f';
 			pos_c1 = pos[c1];
 			s_c1 = tour[pos_c1+1];
 			radius = instance.distance[c1][s_c1];
@@ -531,7 +531,7 @@ void ACOSolver::two_opt_first(long *tour)
 						instance.distance[s_c1][s_c2] - instance.distance[c2][s_c2];
 					if ( gain < 0 ) {
 						h1 = c1; h2 = s_c1; h3 = c2; h4 = s_c2;
-						improve_node = TRUE;
+						improve_node = 't';
 						goto exchange2opt;
 					}
 				}
@@ -560,7 +560,7 @@ void ACOSolver::two_opt_first(long *tour)
 						instance.distance[p_c1][p_c2] - instance.distance[p_c2][c2];
 					if ( gain < 0 ) {
 						h1 = p_c1; h2 = c1; h3 = p_c2; h4 = c2;
-						improve_node = TRUE;
+						improve_node = 't';
 						goto exchange2opt;
 					}
 				}
@@ -570,9 +570,9 @@ void ACOSolver::two_opt_first(long *tour)
 			if (improve_node) {
 			exchange2opt:
 				n_exchanges++;
-				improvement_flag = TRUE;
-				dlb[h1] = FALSE; dlb[h2] = FALSE;
-				dlb[h3] = FALSE; dlb[h4] = FALSE;
+				improvement_flag = 't';
+				dlb[h1] = 'f'; dlb[h2] = 'f';
+				dlb[h3] = 'f'; dlb[h4] = 'f';
 				/* Now perform move */
 				if ( pos[h3] < pos[h1] ) {
 					help = h1; h1 = h3; h3 = help;
@@ -615,7 +615,7 @@ void ACOSolver::two_opt_first(long *tour)
 					tour[n] = tour[0];
 				}
 			} else {
-				dlb[c1] = TRUE;
+				dlb[c1] = 't';
 			}
 
 		}

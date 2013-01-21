@@ -47,8 +47,8 @@ class GraphicMLPElement : public GraphicElement
 		  */
 		int type() const;
 
-		void setTrainingSet(vector<MultilayerPerceptronPattern*> ts);
-		vector<MultilayerPerceptronPattern*> getTrainingSet();
+		void setTrainingSet(const TrainingSet &ts);
+		TrainingSet getTrainingSet() const;
 
 		void setMultilayerPerceptron(MultilayerPerceptron *mlp);
 		MultilayerPerceptron *getMultilayerPerceptron();
@@ -77,7 +77,7 @@ class GraphicMLPElement : public GraphicElement
 		Q_OBJECT
 
 //		QVector<double> inputs;
-		vector<MultilayerPerceptronPattern*> ts;
+		TrainingSet ts;
 		//Instancia de la red neuronal
 		MultilayerPerceptron *mlp;
 

@@ -1,7 +1,9 @@
 #ifndef ANT_H
 #define ANT_H
 
-#include "ECFramework_global.h"
+
+
+#include <ECFramework_global.h>
 
 class ECFRAMEWORKSHARED_EXPORT Ant
 {

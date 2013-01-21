@@ -13,7 +13,18 @@
 //#include <vector2d.h>
 //#include <shootingunit.h>
 
-#include <InSyDeGui.h>
+//#include <InSyDeGui.h>
+
+#include <QGraphicsView>
+#include <QGraphicsScene>
+
+#include <mapa.h>
+#include <statusanimation.h>
+#include <graphicmlpelement.h>
+#include <ECGraphicInterface/shootingunit.h>
+
+
+
 class GraphicPointer;
 class Unit;
 

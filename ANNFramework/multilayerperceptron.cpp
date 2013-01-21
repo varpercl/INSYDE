@@ -50,7 +50,11 @@ void MultilayerPerceptronPattern::initMLPP(double *targets, size_t s)
 	setTargets(targets, s);
 }
 
-MultilayerPerceptron::MultilayerPerceptron(int ninputs, int noutputs, const vector<int> &layersizes, const TransferFunctionType &tf)
+MultilayerPerceptron::MultilayerPerceptron(int ninputs,
+										   int noutputs,
+										   const vector<int> &layersizes,
+										   const TransferFunctionType &tf) :
+	QThread(0)
 {
 	initMLP(ninputs, noutputs, layersizes, tf);
 }
@@ -63,7 +67,9 @@ void MultilayerPerceptron::initMLP(int ninputs, int noutputs, const vector<int> 
 	setInputSize(ninputs);
 	setOutputSize(noutputs);
 	setTransferFunctionType(tf);
+	//	setOutputType(Continuous);
 	randomizeWeights();
+	connect(this, SIGNAL(finished()), SLOT(finished()));
 }
 
 vector<vector<double> > MultilayerPerceptron::getLayerOutputs(const vector<double> &inputs)
@@ -125,25 +131,14 @@ MultilayerPerceptron::NewState MultilayerPerceptron::addNoise(double min, double
 	for(layer = 0; layer < nLayers; layer++){
 		nNeurons = weights.newWeights[layer].size();
 		for(neuron = 0; neuron < nNeurons; neuron++){
-			weights.newWeights[layer][neuron] = addNoise(weights.newWeights[layer][neuron], min, max);
+			weights.newWeights[layer][neuron] = ANNFrameworkFunctions::addNoise(weights.newWeights[layer][neuron], min, max);
 		}
 	}
 	nOutputs = weights.newOutputWeights.size();
 	for(size_t i = 0; i < nOutputs; i++){
-		weights.newOutputWeights[i] = addNoise(weights.newOutputWeights[i], min, max);
+		weights.newOutputWeights[i] = ANNFrameworkFunctions::addNoise(weights.newOutputWeights[i], min, max);
 	}
 	return weights;
-}
-
-vector<double> MultilayerPerceptron::addNoise(const vector<double> &vec, double min, double max)
-{
-	vector<double> cVec = vec;
-	size_t sVec = cVec.size();
-	//	srand(clock());
-	for(size_t i = 0; i < sVec; i++){
-		cVec[i] += randomNumber(min, max);
-	}
-	return cVec;
 }
 
 double MultilayerPerceptron::getNewMSE(const vector<vector<vector<double> > > &lweights, const vector<vector<double> > &oweights, const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
@@ -287,6 +282,25 @@ vector<double> MultilayerPerceptron::getOutput(const vector<double> &inputs)
 	return __outputs;
 }
 
+vector<int> MultilayerPerceptron::getClasifierOutput(const vector<double> &inputs, double threshold, ClasifierOutputType cot)
+{
+	vector<int> out;
+	vector<double> yObtained = getOutput(inputs);
+	int os = getOutputSize();
+	for(int i = 0; i < os; i++){
+		switch(cot){
+			case UnipolarClasifier:
+				out[i] = (yObtained[i] >= threshold ? 1 : 0);
+				break;
+			case BipolarClasifier:
+				out[i] = (yObtained[i] > threshold ? 1 : -1);
+				break;
+		}
+
+	}
+	return out;
+}
+
 vector<double> MultilayerPerceptron::getOutput(const vector<int> &inputs)
 {
 	int sInputs = inputs.size();
@@ -365,7 +379,78 @@ void MultilayerPerceptron::randomizeWeights(double min, double max)
 	}
 }
 
-MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const vector<MultilayerPerceptronPattern*> &ts, unsigned int epochs, double errormin, double learningRate, TrainingAlgorithm ta)
+void MultilayerPerceptron::startTraining(TrainingSet ts,
+										 MLPBackpropagationTrainingSettings mlpts)
+{
+	this->ts = ts;
+	mlpbpts = mlpts;
+
+	sa = false;
+	//	return startTraining(ts.getInputs(), ts.getTargets(), mlpts.getMaxEpochs(), mlpts.getMSEmin(), mlpts.getRMSEmin(), mlpts.getClasificationErrorMin(), mlpts.getLearningRate());
+	start(LowestPriority);
+}
+
+void MultilayerPerceptron::startTraining(TrainingSet ts,
+										 MLPBackpropagationTrainingSettings mlpts,
+										 MLPSimulatedAnnealingTrainingSettings mlpsats)
+{
+
+	this->ts = ts;
+	mlpbpts = mlpts;
+	this->mlpsats = mlpsats;
+
+	sa = true;
+
+	start(LowestPriority);
+
+	//	setSAParameters(mlpsats.getMinTemperature(),
+	//					mlpsats.getChanges(),
+	//					mlpsats.getLocalMinimumCondition(),
+	//					mlpsats.getTo(),
+	//					mlpsats.getMinNoise(),
+	//					mlpsats.getMaxNoise(),
+	//					mlpsats.getTempDecrementFactor());
+
+	//	return startTraining(ts.getInputs(),
+	//						 ts.getTargets(),
+	//						 mlpts.getMaxEpochs(),
+	//						 mlpts.getMSEmin(),
+	//						 mlpts.getLearningRate(),
+	//						 SimulatedAnnealing);
+}
+
+void MultilayerPerceptron::startTraining(TrainingSet ts,
+										 unsigned int epochs,
+										 double MSEmin,
+										 double RMSEmin,
+										 double CEmin,
+										 double learningRate,
+										 //										 MultilayerPerceptron::TrainingAlgorithm ta,
+										 StopCondition sc)
+{
+	this->ts = ts;
+	mlpbpts = MLPBackpropagationTrainingSettings(epochs,
+												 MSEmin,
+												 RMSEmin,
+												 CEmin,
+												 learningRate,
+												 (MLPBackpropagationTrainingSettings::EfficiencyMeasure)sc);
+
+	sa = false;
+
+	start(LowestPriority);
+
+	//	return startTraining(ts.getInputs(), ts.getTargets(), epochs, MSEmin, RMSEmin, CEmin, learningRate, ta, sc);
+}
+
+void MultilayerPerceptron::startTraining(const vector<MultilayerPerceptronPattern*> &ts,
+										 unsigned int epochs,
+										 double MSEmin,
+										 double RMSEmin,
+										 double CEmin,
+										 double learningRate,
+										 //										 TrainingAlgorithm ta,
+										 StopCondition sc)
 {
 	size_t sTS = ts.size();
 	vector<vector<double> > inputs(sTS);
@@ -375,293 +460,45 @@ MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const v
 		targets[i] = ts[i]->getTargets();
 	}
 
-	TrainingResult tr = startTraining(inputs, targets, epochs, errormin, learningRate, ta);
+	this->ts = TrainingSet(inputs, targets);
+	mlpbpts = MLPBackpropagationTrainingSettings(epochs,
+												 MSEmin,
+												 RMSEmin,
+												 CEmin,
+												 learningRate,
+												 (MLPBackpropagationTrainingSettings::EfficiencyMeasure)sc);
 
-	return tr;
+	sa = false;
+	start(LowestPriority);
+	//	return startTraining(inputs, targets, epochs, MSEmin, RMSEmin, CEmin, learningRate, ta, sc);
 }
 
-MultilayerPerceptron::TrainingResult MultilayerPerceptron::startTraining(const vector<vector<double> > &inputs, const vector<vector<double> > &targets, unsigned int epochs, double errormin, double learningRate, TrainingAlgorithm ta)
+void MultilayerPerceptron::startTraining(const vector<vector<double> > &inputs,
+										 const vector<vector<double> > &targets,
+										 unsigned int epochs,
+										 double MSEmin,
+										 double RMSEmin,
+										 double CEmin,
+										 double learningRate,
+										 //										 TrainingAlgorithm ta,
+										 StopCondition sc)
 {
+	ts = TrainingSet(inputs, targets);
+	mlpbpts = MLPBackpropagationTrainingSettings(epochs,
+												 MSEmin,
+												 RMSEmin,
+												 CEmin,
+												 learningRate,
+												 (MLPBackpropagationTrainingSettings::EfficiencyMeasure)sc);
 
-	size_t
-			nPatterns,
-			nNeurons,
-			nBOutputs,
-			nOutputs;
-
-	vector<double>
-			yObtained,
-			deltaOut(outputWeights.size(), 0);
-	//	vector<vector<double> > deltaHidden(layerWeights.size());
-	deltaHidden.resize(layerWeights.size());
-	for(size_t i = 0; i < deltaHidden.size(); i++){
-		size_t sLayer = layerWeights[i].size();
-		deltaHidden[i].resize(sLayer, 0);
-	}
-
-
-	nPatterns = inputs.size();
-	int nLayers  = int(layerWeights.size());
-
-	double pMSE;
-	//	unsigned long epc;
-
-	double sumDeltas;
-	nOutputs = getOutputSize();
-	//	MultilayerPerceptron::TrainingResult tr;
-	tr.time = 0;
-	tr.epochs = 0;
-	tr.MSE = getMSE(inputs, targets);
-	tr.RMSE = getRMSE(inputs, targets);
-	tr.layerWeightsHistory.clear();
-	tr.outputWeightsHistory.clear();
-	tr.MSEHistory.clear();
-	tr.RMSEHistory.clear();
-
-	tr.layerWeightsHistory.push_back(layerWeights);
-	tr.outputWeightsHistory.push_back(outputWeights);
-	tr.MSEHistory.push_back(tr.MSE);
-	vector<vector<double> > layerOutputs;
-	training = true;
-	clock_t t_ini = clock();
-	switch(ta){
-		case Backpropagation:
-			do{
-				//		tr.MSE = 0;
-				pMSE = 0;
-				for(size_t p = 0; p < nPatterns; p++){
-
-					//Se obtienen las salidas para cada una de las capas
-					layerOutputs = getLayerOutputs(inputs[p]);
-					yObtained = layerOutputs[layerOutputs.size() - 1];
-					for(int layer = nLayers; layer >= 0; layer--){
-						nNeurons = (layer == nLayers ? outputWeights.size() : layerWeights[layer].size());
-						//				deltaOut = vector<double>(nNeurons, 0);
-						for(size_t neuron = 0; neuron <= nNeurons; neuron++){
-
-							//Se inicia el calculo de todos los deltas
-							if(layer == nLayers){ //Si es la capa de salida
-								if(neuron < nNeurons){
-									switch(tf){
-										case Sigmoid:
-											deltaOut[neuron] = alfa * yObtained[neuron] * (1 - yObtained[neuron]) * (targets[p][neuron] - yObtained[neuron]);
-											break;
-										case Tanh:
-											deltaOut[neuron] = alfa * (1 - (yObtained[neuron]*yObtained[neuron])) * (targets[p][neuron] - yObtained[neuron]);
-											break;
-									}
-								}else{
-									continue;
-								}
-							}else{
-								size_t nDeltaElements = (layer == nLayers - 1 ? outputWeights.size() : layerWeights[layer + 1].size());
-								sumDeltas = 0;
-								for(size_t element = 0; element < nDeltaElements; element++){
-									if(layer == nLayers - 1){
-										sumDeltas += deltaOut[element] * outputWeights[element][neuron];
-									}else{
-										sumDeltas += deltaHidden[layer+1][element] * layerWeights[layer+1][element][neuron];
-									}
-								}
-
-								switch(tf){
-									case Sigmoid:
-										deltaHidden[layer][neuron] = alfa * layerOutputs[layer][neuron] * (1 - layerOutputs[layer][neuron]) * sumDeltas;
-										break;
-									case Tanh:
-										deltaHidden[layer][neuron] = alfa * (1 - (layerOutputs[layer][neuron]*layerOutputs[layer][neuron])) * sumDeltas;
-										break;
-								}
-							}
-						}
-					}
-
-					//Comienza la actualizacion de los pesos
-					for(int layer = nLayers; layer >= 0; layer--){
-						nNeurons = (layer == nLayers ? nOutputs : layerWeights[layer].size());
-						for(size_t i = 0; i < nNeurons; i++){
-							nBOutputs = (layer == 0 ? inputs[p].size() : layerWeights[layer - 1].size());
-							for(size_t j = 0; j <= nBOutputs; j++){
-								if(layer == nLayers){
-									outputWeights[i][j] += (j == nBOutputs ? -learningRate*deltaOut[i] : learningRate*deltaOut[i]*layerOutputs[layer-1][j]);
-								}else if(layer == 0){
-									layerWeights[layer][i][j] += (j == nBOutputs ?
-																	  -learningRate*deltaHidden[layer][i] :
-																	  learningRate*deltaHidden[layer][i]*inputs[p][j]);
-								}else{
-									layerWeights[layer][i][j] += (j == nBOutputs ? -learningRate*deltaHidden[layer][i] : learningRate*deltaHidden[layer][i]*layerOutputs[layer-1][j]);
-								}
-							}
-						}
-					}
-					//					yObtained = getOutput(inputs[p]);
-					//					double diff;
-					//					for(size_t neuron = 0; neuron < nOutputs; neuron++){
-					//						diff = (targets[p][neuron] - yObtained[neuron]);
-					//						pMSE += diff*diff;
-					//					}
-				}
-				tr.RMSE = getRMSE(inputs, targets);
-				tr.RMSEHistory.push_back(tr.RMSE);
-
-				tr.MSE = getMSE(inputs, targets);
-				tr.MSEHistory.push_back(tr.MSE);
-				//		tr.layerWeightsHistory.push_back(layerWeights);
-				//		tr.outputWeightsHistory.push_back(outputWeights);
-				//		epc++;
-				tr.epochs++;
-			}while(tr.MSE >= errormin && tr.epochs < epochs && training);
-			break;
-
-		case SimulatedAnnealing:{
-
-			long double
-					T = 0,
-					sumDeltaF = 0,
-					deltaF = 0,
-					Pa = 0;
-
-			int c = 0;
-			do{
-				//		tr.MSE = 0;
-				pMSE = 0;
-				for(size_t p = 0; p < nPatterns; p++){
-
-					//Se obtienen las salidas para cada una de las capas
-					layerOutputs = getLayerOutputs(inputs[p]);
-					yObtained = layerOutputs[layerOutputs.size() - 1];
-					for(int layer = nLayers; layer >= 0; layer--){
-						nNeurons = (layer == nLayers ? outputWeights.size() : layerWeights[layer].size());
-						//				deltaOut = vector<double>(nNeurons, 0);
-						for(size_t neuron = 0; neuron <= nNeurons; neuron++){
-
-							//Se inicia el calculo de todos los deltas
-							if(layer == nLayers){ //Si es la capa de salida
-								if(neuron < nNeurons){
-									switch(tf){
-										case Sigmoid:
-											deltaOut[neuron] = alfa * yObtained[neuron] * (1 - yObtained[neuron]) * (targets[p][neuron] - yObtained[neuron]);
-											break;
-										case Tanh:
-											deltaOut[neuron] = alfa * (1 - (yObtained[neuron]*yObtained[neuron])) * (targets[p][neuron] - yObtained[neuron]);
-											break;
-									}
-								}else{
-									continue;
-								}
-							}else{
-								size_t nDeltaElements = (layer == nLayers - 1 ? outputWeights.size() : layerWeights[layer + 1].size());
-								sumDeltas = 0;
-								for(size_t element = 0; element < nDeltaElements; element++){
-									if(layer == nLayers - 1){
-										sumDeltas += deltaOut[element] * outputWeights[element][neuron];
-									}else{
-										sumDeltas += deltaHidden[layer+1][element] * layerWeights[layer+1][element][neuron];
-									}
-								}
-
-								switch(tf){
-									case Sigmoid:
-										deltaHidden[layer][neuron] = alfa * layerOutputs[layer][neuron] * (1 - layerOutputs[layer][neuron]) * sumDeltas;
-										break;
-									case Tanh:
-										deltaHidden[layer][neuron] = alfa * (1 - (layerOutputs[layer][neuron]*layerOutputs[layer][neuron])) * sumDeltas;
-										break;
-								}
-							}
-						}
-					}
-
-					//Comienza la actualizacion de los pesos
-					for(int layer = nLayers; layer >= 0; layer--){
-						nNeurons = (layer == nLayers ? nOutputs : layerWeights[layer].size());
-						for(size_t i = 0; i < nNeurons; i++){
-							nBOutputs = (layer == 0 ? inputs[p].size() : layerWeights[layer - 1].size());
-							for(size_t j = 0; j <= nBOutputs; j++){
-								if(layer == nLayers){
-									outputWeights[i][j] += (j == nBOutputs ? -learningRate*deltaOut[i] : learningRate*deltaOut[i]*layerOutputs[layer-1][j]);
-								}else if(layer == 0){
-									layerWeights[layer][i][j] += (j == nBOutputs ?
-																	  -learningRate*deltaHidden[layer][i] :
-																	  learningRate*deltaHidden[layer][i]*inputs[p][j]);
-								}else{
-									layerWeights[layer][i][j] += (j == nBOutputs ? -learningRate*deltaHidden[layer][i] : learningRate*deltaHidden[layer][i]*layerOutputs[layer-1][j]);
-								}
-							}
-						}
-					}
-				}
-				tr.RMSE = getRMSE(inputs, targets);
-				tr.RMSEHistory.push_back(tr.RMSE);
-
-				pMSE = getMSE(inputs, targets);
-
-				deltaF = pMSE - tr.MSE;
-				sumDeltaF += deltaF; // Se calcula deltaF promedio
-				c++;
-
-				tr.MSE = pMSE;
-				tr.MSEHistory.push_back(tr.MSE);
-				//		tr.layerWeightsHistory.push_back(layerWeights);
-				//		tr.outputWeightsHistory.push_back(outputWeights);
-				//		epc++;
-
-				double avgDeltaF = sumDeltaF / c;
-
-				if(fabs(avgDeltaF) < startCondition && c > 999){
-					//					double avgDeltaF = sumDeltaF / c;
-//					T = avgDeltaF / log(initialAcceptance);
-					//                    T = 1 / log(initialAcceptance) * avgDeltaF;
-					//                    T = deltaF / log(Pa);
-					//                    T = -deltaF;
-					//                    T = To;
-					T = To;
-					double fNew;
-					NewState ns;
-					//					int n = 0;
-					double fOld = tr.MSE;
-					double rnd = 0;
-					do{
-						for(int i = 0; i < nChanges; i++){
-							ns = addNoise(minNoise, maxNoise);
-							fNew = getNewMSE(ns.newWeights, ns.newOutputWeights, inputs, targets);
-							deltaF = fNew - fOld;
-							Pa = exp(-deltaF/T);
-							rnd = randomNumber(0,1);
-							if(deltaF < 0
-							   || rnd < Pa
-							   ){
-								layerWeights = ns.newWeights;
-								outputWeights = ns.newOutputWeights;
-								fOld = getMSE(inputs, targets);
-							}
-						}
-						//						T = T / (1 + n);
-						T = tempDecFactor*T;
-						//						n++;
-					}while(T > Tmin);
-					c = 0;
-					sumDeltaF = 0;
-				}
-
-				tr.epochs++;
-			}while(tr.MSE >= errormin && tr.epochs < epochs && training);
-			break;
-		}
-		case GradientDescendent:
-			break;
-		case ScaledConjugateGradient:
-			break;
-	}
-
-	tr.time = double(clock() - t_ini)/CLOCKS_PER_SEC;
-
-	return tr;
+	sa = false;
+	start(LowestPriority);
 }
 
-MultilayerPerceptron::TrainingResult MultilayerPerceptron::getTrainingSnapshot()
+MLPTrainingResult MultilayerPerceptron::getTrainingSnapshot()
 {
-	return tr;
+	QReadLocker locker(&rwlock);
+	return tres;
 }
 
 void MultilayerPerceptron::stopTraining()
@@ -685,16 +522,16 @@ double MultilayerPerceptron::getAlfa()
 	return alfa;
 }
 
-void MultilayerPerceptron::setSAParameters(double minTemperature, int numberOfChanges, double sCondition, double To, double minNoise, double maxNoise, double tdf)
-{
-	Tmin = minTemperature;
-	nChanges = numberOfChanges;
-	startCondition = sCondition;
-	this->To = To;
-	this->minNoise = minNoise;
-	this->maxNoise = maxNoise;
-	tempDecFactor = tdf;
-}
+//void MultilayerPerceptron::setSAParameters(double minTemperature, int numberOfChanges, double sCondition, double To, double minNoise, double maxNoise, double tdf)
+//{
+//	Tmin = minTemperature;
+//	nChanges = numberOfChanges;
+//	startCondition = sCondition;
+//	this->To = To;
+//	this->minNoise = minNoise;
+//	this->maxNoise = maxNoise;
+//	tempDecFactor = tdf;
+//}
 
 double MultilayerPerceptron::getMSE(const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
 {
@@ -726,3 +563,469 @@ double MultilayerPerceptron::getRMSE(const vector<vector<double> > &inputs, cons
 	return sqrt(pMSE)/(nPatterns*nOutputs);
 }
 
+double MultilayerPerceptron::getCE(const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
+{
+	size_t sInputs = inputs.size();
+	int os = getOutputSize();
+	int errCount = 0;
+	int n = 0;
+	vector<int> yObtained;
+	for(size_t p = 0; p < sInputs; p++){
+		yObtained = getClasifierOutput(inputs[p],
+									   (ot == UnipolarClasifier ? 0.5 : 0),
+									   ot);
+		for(int element = 0; element < os; element++){
+			switch(ot){
+				case UnipolarClasifier:
+					if(toUnipolar(targets[p], 0.5)[element] != yObtained[element]){
+						errCount++;
+					}
+					break;
+				case BipolarClasifier:
+					if(toBipolar(targets[p], 0)[element] != yObtained[element]){
+						errCount++;
+					}
+					break;
+			}
+			n++;
+		}
+	}
+
+	return errCount/n;
+}
+
+void MultilayerPerceptron::run()
+{
+	vector<vector<double> >
+			inputs = ts.getInputs(),
+			targets = ts.getTargets();
+
+	StopCondition
+			//BP parameters
+			sc = (StopCondition)mlpbpts.getStopParameter();
+
+	double
+			//SA parameters
+			startCondition = 0,
+			To = 0,
+			minNoise = 0,
+			maxNoise = 0,
+			tempDecFactor = 0,
+			Tmin = 0,
+
+			//BP parameters
+			learningRate = mlpbpts.getLearningRate(),
+			MSEmin = mlpbpts.getMinMSE(),
+			RMSEmin = mlpbpts.getMinRMSE(),
+			CEmin = mlpbpts.getMinCE();
+	unsigned int
+			//SA parameters
+			nChanges = 0,
+
+			//BP parameters
+			epochs = mlpbpts.getMaxEpochs();
+
+	if(sa){
+		startCondition = mlpsats.getLocalMinimumCondition();
+		To = mlpsats.getTo();
+		minNoise = mlpsats.getMinNoise();
+		maxNoise = mlpsats.getMaxNoise();
+		tempDecFactor = mlpsats.getTempDecrementFactor();
+		Tmin = mlpsats.getMinTemperature();
+		nChanges = mlpsats.getChanges();
+	}
+
+	size_t
+			nPatterns,
+			nNeurons,
+			nBOutputs,
+			nOutputs;
+
+	vector<double>
+			yObtained,
+			deltaOut(outputWeights.size(), 0);
+	//	vector<vector<double> > deltaHidden(layerWeights.size());
+	deltaHidden.resize(layerWeights.size());
+	for(size_t i = 0; i < deltaHidden.size(); i++){
+		size_t sLayer = layerWeights[i].size();
+		deltaHidden[i].resize(sLayer, 0);
+	}
+
+
+	nPatterns = inputs.size();
+	int nLayers  = int(layerWeights.size());
+
+	double pMSE;
+	//	unsigned long epc;
+
+	double sumDeltas;
+	nOutputs = getOutputSize();
+	//	MultilayerPerceptron::TrainingResult tr;
+	tres.time = 0;
+	tres.epochs = 0;
+
+	tres.MSEHistory.clear();
+	tres.MSE = getMSE(inputs, targets);
+	tres.MSEHistory.push_back(tres.MSE);
+
+	tres.RMSEHistory.clear();
+	tres.RMSE = getRMSE(inputs, targets);
+	tres.RMSEHistory.push_back(tres.RMSE);
+
+	tres.CEHistory.clear();
+	tres.CE = getCE(inputs, targets);
+	tres.CEHistory.push_back(tres.CE);
+
+	//	tres.layerWeightsHistory.clear();
+	//	tres.layerWeightsHistory.push_back(layerWeights);
+	//	tres.outputWeightsHistory.clear();
+	//	tres.outputWeightsHistory.push_back(outputWeights);
+	vector<vector<double> > layerOutputs;
+
+	long double
+			T = 0,
+			sumDeltaF = 0,
+			deltaF = 0,
+			Pa = 0,
+			avgDeltaF = 0;
+	int c = 0;
+
+	training = true;
+	clock_t t_ini = clock();
+	do{
+		//		tr.MSE = 0;
+		//				pMSE = 0;
+		for(size_t p = 0; p < nPatterns; p++){
+
+			//Se obtienen las salidas para cada una de las capas
+			layerOutputs = getLayerOutputs(inputs[p]);
+			yObtained = layerOutputs[layerOutputs.size() - 1];
+			for(int layer = nLayers; layer >= 0; layer--){
+				nNeurons = (layer == nLayers ? outputWeights.size() : layerWeights[layer].size());
+				//				deltaOut = vector<double>(nNeurons, 0);
+				for(size_t neuron = 0; neuron <= nNeurons; neuron++){
+
+					//Se inicia el calculo de todos los deltas
+					if(layer == nLayers){ //Si es la capa de salida
+						if(neuron < nNeurons){
+							switch(tf){
+								case Sigmoid:
+									deltaOut[neuron] = alfa * yObtained[neuron] * (1 - yObtained[neuron]) * (targets[p][neuron] - yObtained[neuron]);
+									break;
+								case Tanh:
+									deltaOut[neuron] = alfa * (1 - (yObtained[neuron]*yObtained[neuron])) * (targets[p][neuron] - yObtained[neuron]);
+									break;
+							}
+						}else{
+							continue;
+						}
+					}else{
+						size_t nDeltaElements = (layer == nLayers - 1 ? outputWeights.size() : layerWeights[layer + 1].size());
+						sumDeltas = 0;
+						for(size_t element = 0; element < nDeltaElements; element++){
+							if(layer == nLayers - 1){
+								sumDeltas += deltaOut[element] * outputWeights[element][neuron];
+							}else{
+								sumDeltas += deltaHidden[layer+1][element] * layerWeights[layer+1][element][neuron];
+							}
+						}
+
+						switch(tf){
+							case Sigmoid:
+								deltaHidden[layer][neuron] = alfa * layerOutputs[layer][neuron] * (1 - layerOutputs[layer][neuron]) * sumDeltas;
+								break;
+							case Tanh:
+								deltaHidden[layer][neuron] = alfa * (1 - (layerOutputs[layer][neuron]*layerOutputs[layer][neuron])) * sumDeltas;
+								break;
+						}
+					}
+				}
+			}
+
+			//Comienza la actualizacion de los pesos
+			for(int layer = nLayers; layer >= 0; layer--){
+				nNeurons = (layer == nLayers ? nOutputs : layerWeights[layer].size());
+				for(size_t i = 0; i < nNeurons; i++){
+					nBOutputs = (layer == 0 ? inputs[p].size() : layerWeights[layer - 1].size());
+					for(size_t j = 0; j <= nBOutputs; j++){
+						if(layer == nLayers){
+							outputWeights[i][j] += (j == nBOutputs ? -learningRate*deltaOut[i] : learningRate*deltaOut[i]*layerOutputs[layer-1][j]);
+						}else if(layer == 0){
+							layerWeights[layer][i][j] += (j == nBOutputs ?
+															  -learningRate*deltaHidden[layer][i] :
+															  learningRate*deltaHidden[layer][i]*inputs[p][j]);
+						}else{
+							layerWeights[layer][i][j] += (j == nBOutputs ? -learningRate*deltaHidden[layer][i] : learningRate*deltaHidden[layer][i]*layerOutputs[layer-1][j]);
+						}
+					}
+				}
+			}
+		}
+
+		pMSE = getMSE(inputs, targets);
+
+		if(sa){//if Simulated annealing activated
+			deltaF = pMSE - tres.MSE;
+			sumDeltaF += deltaF; // Se calcula deltaF promedio
+			c++;
+			avgDeltaF = sumDeltaF / c;
+		}
+
+		tres.MSE = pMSE;
+		tres.MSEHistory.push_back(tres.MSE);
+
+		tres.RMSE = getRMSE(inputs, targets);
+		tres.RMSEHistory.push_back(tres.RMSE);
+
+		tres.CE = getCE(inputs, targets);
+		tres.CEHistory.push_back(tres.CE);
+		//		tr.layerWeightsHistory.push_back(layerWeights);
+		//		tr.outputWeightsHistory.push_back(outputWeights);
+		//		epc++;
+
+		if(sa){
+			if(fabs(avgDeltaF) < startCondition && c > 999){
+				//					double avgDeltaF = sumDeltaF / c;
+				//					T = avgDeltaF / log(initialAcceptance);
+				//                    T = 1 / log(initialAcceptance) * avgDeltaF;
+				//                    T = deltaF / log(Pa);
+				//                    T = -deltaF;
+				//                    T = To;
+				T = To;
+				double fNew;
+				NewState ns;
+				//					int n = 0;
+				double fOld = tres.MSE;
+				double rnd = 0;
+				do{
+					for(unsigned int i = 0; i < nChanges; i++){
+						ns = addNoise(minNoise, maxNoise);
+						fNew = getNewMSE(ns.newWeights, ns.newOutputWeights, inputs, targets);
+						deltaF = fNew - fOld;
+						Pa = exp(-deltaF/T);
+						rnd = randomNumber(0,1);
+						if(deltaF < 0
+						   || rnd < Pa
+						   ){
+							layerWeights = ns.newWeights;
+							outputWeights = ns.newOutputWeights;
+							fOld = getMSE(inputs, targets);
+						}
+					}
+					//						T = T / (1 + n);
+					T = tempDecFactor*T;
+					//						n++;
+				}while(T > Tmin);
+				c = 0;
+				sumDeltaF = 0;
+			}
+		}
+
+		tres.epochs++;
+	}while(((tres.MSE >= MSEmin && sc == MSE) ||
+			(tres.RMSE >= RMSEmin && sc == RMSE) ||
+			(tres.CE >= CEmin && sc == CE)) &&
+		   tres.epochs < epochs &&
+		   training);
+	training = false;
+	tres.time = double(clock() - t_ini)/CLOCKS_PER_SEC;
+}
+
+void MultilayerPerceptron::finished()
+{
+	emit trainingFinished(tres);
+}
+
+MLPBackpropagationTrainingSettings::MLPBackpropagationTrainingSettings()
+{
+	initMLPBTS(0,0,0,0,0,MeanSquareError);
+}
+
+MLPBackpropagationTrainingSettings::MLPBackpropagationTrainingSettings(unsigned int epochs, double MSEmin, double RMSEmin, double CEmin, double learningRate, EfficiencyMeasure sp)
+{
+	initMLPBTS(epochs, MSEmin, RMSEmin, CEmin, learningRate, sp);
+}
+
+void MLPBackpropagationTrainingSettings::setMaxEpochs(unsigned int epochs)
+{
+	this->epochs = epochs;
+}
+
+unsigned int MLPBackpropagationTrainingSettings::getMaxEpochs() const
+{
+	return epochs;
+}
+
+void MLPBackpropagationTrainingSettings::setMinMSE(double msemin)
+{
+	MSEmin = msemin;
+}
+
+double MLPBackpropagationTrainingSettings::getMinMSE() const
+{
+	return MSEmin;
+}
+
+void MLPBackpropagationTrainingSettings::setMinRMSE(double rmsemin)
+{
+	RMSEmin = rmsemin;
+}
+
+double MLPBackpropagationTrainingSettings::getMinRMSE() const
+{
+	return RMSEmin;
+}
+
+void MLPBackpropagationTrainingSettings::setMinCE(double cemin)
+{
+	CEmin = cemin;
+}
+
+double MLPBackpropagationTrainingSettings::getMinCE() const
+{
+	return CEmin;
+}
+
+void MLPBackpropagationTrainingSettings::setLearningRate(double lr)
+{
+	learningRate = lr;
+}
+
+double MLPBackpropagationTrainingSettings::getLearningRate() const
+{
+	return learningRate;
+}
+
+void MLPBackpropagationTrainingSettings::setStopParameter(MLPBackpropagationTrainingSettings::EfficiencyMeasure em)
+{
+	this->em = em;
+}
+
+MLPBackpropagationTrainingSettings::EfficiencyMeasure MLPBackpropagationTrainingSettings::getStopParameter() const
+{
+	return em;
+}
+
+MLPBackpropagationTrainingSettings MLPBackpropagationTrainingSettings::operator=(const MLPBackpropagationTrainingSettings &mlpbp)
+{
+	setLearningRate(mlpbp.getLearningRate());
+	setMaxEpochs(mlpbp.getMaxEpochs());
+	setMinCE(mlpbp.getMinCE());
+	setMinMSE(mlpbp.getMinMSE());
+	setMinRMSE(mlpbp.getMinRMSE());
+	setStopParameter(mlpbp.getStopParameter());
+	return *this;
+}
+
+void MLPBackpropagationTrainingSettings::initMLPBTS(unsigned int epochs, double MSEmin, double RMSEmin, double CEmin, double learningRate, EfficiencyMeasure em)
+{
+	setMaxEpochs(epochs);
+	setMinMSE(MSEmin);
+	setMinRMSE(RMSEmin);
+	setMinCE(CEmin);
+	setLearningRate(learningRate);
+	setStopParameter(em);
+}
+
+MLPSimulatedAnnealingTrainingSettings::MLPSimulatedAnnealingTrainingSettings()
+{
+	initSATS(0, 0, 0, 0, 0, 0, 0);
+}
+
+MLPSimulatedAnnealingTrainingSettings::MLPSimulatedAnnealingTrainingSettings(double minTemperature, int numberOfChanges, double sCondition, double To, double minNoise, double maxNoise, double tdf)
+{
+	initSATS(minTemperature, numberOfChanges, sCondition, To, minNoise, maxNoise, tdf);
+}
+
+void MLPSimulatedAnnealingTrainingSettings::setMinTemperature(double tmin)
+{
+	Tmin = tmin;
+}
+
+double MLPSimulatedAnnealingTrainingSettings::getMinTemperature() const
+{
+	return Tmin;
+}
+
+void MLPSimulatedAnnealingTrainingSettings::setChanges(unsigned int nchanges)
+{
+	nChanges = nchanges;
+}
+
+unsigned int MLPSimulatedAnnealingTrainingSettings::getChanges() const
+{
+	return nChanges;
+}
+
+void MLPSimulatedAnnealingTrainingSettings::setLocalMinimunCondition(double lmd)
+{
+	localMinimumStartCondition = lmd;
+}
+
+double MLPSimulatedAnnealingTrainingSettings::getLocalMinimumCondition() const
+{
+	return localMinimumStartCondition;
+}
+
+void MLPSimulatedAnnealingTrainingSettings::setTo(double to)
+{
+	To = to;
+}
+
+double MLPSimulatedAnnealingTrainingSettings::getTo() const
+{
+	return To;
+}
+
+void MLPSimulatedAnnealingTrainingSettings::setMinNoise(double minnoise)
+{
+	minNoise = minnoise;
+}
+
+double MLPSimulatedAnnealingTrainingSettings::getMinNoise() const
+{
+	return minNoise;
+}
+
+void MLPSimulatedAnnealingTrainingSettings::setMaxNoise(double maxnoise)
+{
+	maxNoise = maxnoise;
+}
+
+double MLPSimulatedAnnealingTrainingSettings::getMaxNoise() const
+{
+	return maxNoise;
+}
+
+void MLPSimulatedAnnealingTrainingSettings::setTempDecrementFactor(double decfactor)
+{
+	temperatureDecrementFactor = decfactor;
+}
+
+double MLPSimulatedAnnealingTrainingSettings::getTempDecrementFactor() const
+{
+	return temperatureDecrementFactor;
+}
+
+MLPSimulatedAnnealingTrainingSettings MLPSimulatedAnnealingTrainingSettings::operator =(const MLPSimulatedAnnealingTrainingSettings &mlpsa)
+{
+	setChanges(mlpsa.getChanges());
+	setLocalMinimunCondition(mlpsa.getLocalMinimumCondition());
+	setMaxNoise(mlpsa.getMaxNoise());
+	setMinNoise(mlpsa.getMinNoise());
+	setMinTemperature(mlpsa.getMinTemperature());
+	setTempDecrementFactor(mlpsa.getTempDecrementFactor());
+	setTo(mlpsa.getTo());
+	return *this;
+}
+
+void MLPSimulatedAnnealingTrainingSettings::initSATS(double minTemperature, int numberOfChanges, double sCondition, double To, double minNoise, double maxNoise, double tdf)
+{
+	setMinTemperature(minTemperature);
+	setChanges(numberOfChanges);
+	setLocalMinimunCondition(sCondition);
+	setTo(To);
+	setMinNoise(minNoise);
+	setMaxNoise(maxNoise);
+	setTempDecrementFactor(tdf);
+}

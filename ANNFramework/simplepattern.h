@@ -1,12 +1,12 @@
 #ifndef SIMPLEPATTERN_H
 #define SIMPLEPATTERN_H
 
-#include "RNALibrary_global.h"
+#include <ANNFramework_global.h>
 #include <vector>
 
 using namespace std;
 
-class RNALIBRARY_EXPORT SimpleInputPattern
+class ANNFRAMEWORK_EXPORT SimpleInputPattern
 {
 	public:
 

@@ -2,6 +2,12 @@
 #define SHOOTINGWEAPON_H
 
 #define _ISOC99_SOURCE
+#ifdef WIN32
+	#ifndef NAN
+		static const unsigned long __nan[2] = {0xffffffff, 0x7fffffff};
+		#define NAN (*(const float *) __nan)
+	#endif
+#endif
 
 #include <ECGraphicInterface_global.h>
 #include <QtCore>
@@ -31,7 +37,7 @@ class ECGRAPHICINTERFACESHARED_EXPORT ShootingWeapon : public Actuator
 {
 		Q_OBJECT
 
-//        QVector<void*> gcItems;
+		//        QVector<void*> gcItems;
 
 		//Indica cuantos pixeles avanzara el proyectil por unidad de tiempo
 		int incProyectile;

@@ -10,11 +10,11 @@ namespace Ui {
 
 class SamplesDialog : public QDialog
 {
-		
+
 	public:
-		explicit SamplesDialog(MultilayerPerceptron::TrainingResult tr, QWidget *parent = 0);
+		explicit SamplesDialog(MLPTrainingResult tr, QWidget *parent = 0);
 		~SamplesDialog();
-		
+
 		int getSampleCount();
 
 	private slots:
@@ -24,10 +24,10 @@ class SamplesDialog : public QDialog
 
 		Q_OBJECT
 
-		MultilayerPerceptron::TrainingResult tres;
+		MLPTrainingResult tres;
 		Ui::SamplesDialog *ui;
 
-		void initDialog(MultilayerPerceptron::TrainingResult tr);
+		void initDialog(MLPTrainingResult tr);
 };
 
 #endif // SAMPLESDIALOG_H

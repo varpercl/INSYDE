@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'newprojectdialog.ui'
 **
-** Created: Thu 17. Jan 19:30:36 2013
-**      by: Qt User Interface Compiler version 4.8.4
+** Created: Sat 19. Jan 16:02:31 2013
+**      by: Qt User Interface Compiler version 5.0.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -11,26 +11,26 @@
 #define UI_NEWPROJECTDIALOG_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QComboBox>
-#include <QtGui/QFormLayout>
-#include <QtGui/QFrame>
-#include <QtGui/QGridLayout>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
-#include <QtGui/QSpacerItem>
-#include <QtGui/QSpinBox>
-#include <QtGui/QTextEdit>
-#include <QtGui/QToolButton>
-#include <QtGui/QTreeWidget>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QWizard>
-#include <QtGui/QWizardPage>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QFrame>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
+#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QToolButton>
+#include <QtWidgets/QTreeWidget>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWizard>
+#include <QtWidgets/QWizardPage>
 
 QT_BEGIN_NAMESPACE
 
@@ -96,16 +96,16 @@ public:
     void setupUi(QWizard *Wizard)
     {
         if (Wizard->objectName().isEmpty())
-            Wizard->setObjectName(QString::fromUtf8("Wizard"));
+            Wizard->setObjectName(QStringLiteral("Wizard"));
         Wizard->resize(585, 452);
         Wizard->setTitleFormat(Qt::RichText);
         Wizard->setSubTitleFormat(Qt::RichText);
         selectProjectPage = new QWizardPage();
-        selectProjectPage->setObjectName(QString::fromUtf8("selectProjectPage"));
+        selectProjectPage->setObjectName(QStringLiteral("selectProjectPage"));
         verticalLayout = new QVBoxLayout(selectProjectPage);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label_3 = new QLabel(selectProjectPage);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setObjectName(QStringLiteral("label_3"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -116,7 +116,7 @@ public:
         verticalLayout->addWidget(label_3);
 
         line = new QFrame(selectProjectPage);
-        line->setObjectName(QString::fromUtf8("line"));
+        line->setObjectName(QStringLiteral("line"));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 
@@ -124,22 +124,22 @@ public:
 
         treeProjects = new QTreeWidget(selectProjectPage);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
-        __qtreewidgetitem->setText(0, QString::fromUtf8("1"));
+        __qtreewidgetitem->setText(0, QStringLiteral("1"));
         treeProjects->setHeaderItem(__qtreewidgetitem);
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/imagenes/artificial neural network.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/imagenes/artificial neural network.png"), QSize(), QIcon::Normal, QIcon::Off);
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/imagenes/perceptron2.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/imagenes/perceptron2.png"), QSize(), QIcon::Normal, QIcon::Off);
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/imagenes/adaline.gif"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QStringLiteral(":/imagenes/adaline.gif"), QSize(), QIcon::Normal, QIcon::Off);
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/imagenes/perceptron multicapa.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QStringLiteral(":/imagenes/perceptron multicapa.png"), QSize(), QIcon::Normal, QIcon::Off);
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/imagenes/hopfield.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QStringLiteral(":/imagenes/hopfield.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/imagenes/sistema multiagente.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QStringLiteral(":/imagenes/sistema multiagente.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/imagenes/fuzzy logic.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon6.addFile(QStringLiteral(":/imagenes/fuzzy logic.png"), QSize(), QIcon::Normal, QIcon::Off);
         QTreeWidgetItem *__qtreewidgetitem1 = new QTreeWidgetItem(treeProjects);
         __qtreewidgetitem1->setIcon(0, icon);
         QTreeWidgetItem *__qtreewidgetitem2 = new QTreeWidgetItem(__qtreewidgetitem1);
@@ -157,7 +157,7 @@ public:
         QTreeWidgetItem *__qtreewidgetitem7 = new QTreeWidgetItem(treeProjects);
         __qtreewidgetitem7->setIcon(0, icon6);
         new QTreeWidgetItem(__qtreewidgetitem7);
-        treeProjects->setObjectName(QString::fromUtf8("treeProjects"));
+        treeProjects->setObjectName(QStringLiteral("treeProjects"));
         QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
@@ -174,7 +174,7 @@ public:
         verticalLayout->addWidget(treeProjects);
 
         lblDescription = new QTextEdit(selectProjectPage);
-        lblDescription->setObjectName(QString::fromUtf8("lblDescription"));
+        lblDescription->setObjectName(QStringLiteral("lblDescription"));
         QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Maximum);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
@@ -191,11 +191,11 @@ public:
 
         Wizard->addPage(selectProjectPage);
         chooseProjectNamePage = new QWizardPage();
-        chooseProjectNamePage->setObjectName(QString::fromUtf8("chooseProjectNamePage"));
+        chooseProjectNamePage->setObjectName(QStringLiteral("chooseProjectNamePage"));
         verticalLayout_2 = new QVBoxLayout(chooseProjectNamePage);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         label = new QLabel(chooseProjectNamePage);
-        label->setObjectName(QString::fromUtf8("label"));
+        label->setObjectName(QStringLiteral("label"));
         label->setEnabled(true);
         sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
         label->setSizePolicy(sizePolicy);
@@ -204,46 +204,46 @@ public:
         verticalLayout_2->addWidget(label);
 
         line_2 = new QFrame(chooseProjectNamePage);
-        line_2->setObjectName(QString::fromUtf8("line_2"));
+        line_2->setObjectName(QStringLiteral("line_2"));
         line_2->setFrameShape(QFrame::HLine);
         line_2->setFrameShadow(QFrame::Sunken);
 
         verticalLayout_2->addWidget(line_2);
 
         gridLayout = new QGridLayout();
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         lineEdit_3 = new QLineEdit(chooseProjectNamePage);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
+        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
 
         gridLayout->addWidget(lineEdit_3, 2, 1, 1, 1);
 
         label_23 = new QLabel(chooseProjectNamePage);
-        label_23->setObjectName(QString::fromUtf8("label_23"));
+        label_23->setObjectName(QStringLiteral("label_23"));
 
         gridLayout->addWidget(label_23, 2, 0, 1, 1);
 
         label_24 = new QLabel(chooseProjectNamePage);
-        label_24->setObjectName(QString::fromUtf8("label_24"));
+        label_24->setObjectName(QStringLiteral("label_24"));
 
         gridLayout->addWidget(label_24, 4, 0, 1, 1);
 
         lineEdit_4 = new QLineEdit(chooseProjectNamePage);
-        lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
+        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
 
         gridLayout->addWidget(lineEdit_4, 4, 1, 1, 1);
 
         label_25 = new QLabel(chooseProjectNamePage);
-        label_25->setObjectName(QString::fromUtf8("label_25"));
+        label_25->setObjectName(QStringLiteral("label_25"));
 
         gridLayout->addWidget(label_25, 10, 0, 1, 1);
 
         lineEdit_5 = new QLineEdit(chooseProjectNamePage);
-        lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
+        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
 
         gridLayout->addWidget(lineEdit_5, 10, 1, 1, 1);
 
         toolButton = new QToolButton(chooseProjectNamePage);
-        toolButton->setObjectName(QString::fromUtf8("toolButton"));
+        toolButton->setObjectName(QStringLiteral("toolButton"));
 
         gridLayout->addWidget(toolButton, 4, 2, 1, 1);
 
@@ -264,23 +264,23 @@ public:
 
         Wizard->addPage(chooseProjectNamePage);
         newPerceptronPage = new QWizardPage();
-        newPerceptronPage->setObjectName(QString::fromUtf8("newPerceptronPage"));
+        newPerceptronPage->setObjectName(QStringLiteral("newPerceptronPage"));
         horizontalLayout_7 = new QHBoxLayout(newPerceptronPage);
-        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         frame = new QFrame(newPerceptronPage);
-        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setObjectName(QStringLiteral("frame"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         formLayout_4 = new QFormLayout(frame);
-        formLayout_4->setObjectName(QString::fromUtf8("formLayout_4"));
+        formLayout_4->setObjectName(QStringLiteral("formLayout_4"));
         formLayout_4->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         label_14 = new QLabel(frame);
-        label_14->setObjectName(QString::fromUtf8("label_14"));
+        label_14->setObjectName(QStringLiteral("label_14"));
 
         formLayout_4->setWidget(3, QFormLayout::LabelRole, label_14);
 
         spinBox_2 = new QSpinBox(frame);
-        spinBox_2->setObjectName(QString::fromUtf8("spinBox_2"));
+        spinBox_2->setObjectName(QStringLiteral("spinBox_2"));
         spinBox_2->setMinimum(1);
         spinBox_2->setMaximum(10000);
         spinBox_2->setValue(2);
@@ -288,59 +288,59 @@ public:
         formLayout_4->setWidget(3, QFormLayout::FieldRole, spinBox_2);
 
         label_15 = new QLabel(frame);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
+        label_15->setObjectName(QStringLiteral("label_15"));
 
         formLayout_4->setWidget(4, QFormLayout::LabelRole, label_15);
 
         comboBox_4 = new QComboBox(frame);
-        comboBox_4->setObjectName(QString::fromUtf8("comboBox_4"));
+        comboBox_4->setObjectName(QStringLiteral("comboBox_4"));
 
         formLayout_4->setWidget(4, QFormLayout::FieldRole, comboBox_4);
 
         label_16 = new QLabel(frame);
-        label_16->setObjectName(QString::fromUtf8("label_16"));
+        label_16->setObjectName(QStringLiteral("label_16"));
 
         formLayout_4->setWidget(5, QFormLayout::LabelRole, label_16);
 
         comboBox_5 = new QComboBox(frame);
-        comboBox_5->setObjectName(QString::fromUtf8("comboBox_5"));
+        comboBox_5->setObjectName(QStringLiteral("comboBox_5"));
 
         formLayout_4->setWidget(5, QFormLayout::FieldRole, comboBox_5);
 
         label_17 = new QLabel(frame);
-        label_17->setObjectName(QString::fromUtf8("label_17"));
+        label_17->setObjectName(QStringLiteral("label_17"));
 
         formLayout_4->setWidget(6, QFormLayout::LabelRole, label_17);
 
         comboBox_6 = new QComboBox(frame);
-        comboBox_6->setObjectName(QString::fromUtf8("comboBox_6"));
+        comboBox_6->setObjectName(QStringLiteral("comboBox_6"));
 
         formLayout_4->setWidget(6, QFormLayout::FieldRole, comboBox_6);
 
         line_5 = new QFrame(frame);
-        line_5->setObjectName(QString::fromUtf8("line_5"));
+        line_5->setObjectName(QStringLiteral("line_5"));
         line_5->setFrameShape(QFrame::HLine);
         line_5->setFrameShadow(QFrame::Sunken);
 
         formLayout_4->setWidget(8, QFormLayout::SpanningRole, line_5);
 
         conjuntoDeEntranamientoLabel_2 = new QLabel(frame);
-        conjuntoDeEntranamientoLabel_2->setObjectName(QString::fromUtf8("conjuntoDeEntranamientoLabel_2"));
+        conjuntoDeEntranamientoLabel_2->setObjectName(QStringLiteral("conjuntoDeEntranamientoLabel_2"));
 
         formLayout_4->setWidget(9, QFormLayout::LabelRole, conjuntoDeEntranamientoLabel_2);
 
         pushButton_2 = new QPushButton(frame);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
 
         formLayout_4->setWidget(9, QFormLayout::FieldRole, pushButton_2);
 
         label_18 = new QLabel(frame);
-        label_18->setObjectName(QString::fromUtf8("label_18"));
+        label_18->setObjectName(QStringLiteral("label_18"));
 
         formLayout_4->setWidget(1, QFormLayout::LabelRole, label_18);
 
         lineEdit = new QLineEdit(frame);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
 
         formLayout_4->setWidget(1, QFormLayout::FieldRole, lineEdit);
 
@@ -348,7 +348,7 @@ public:
         horizontalLayout_7->addWidget(frame);
 
         line_6 = new QFrame(newPerceptronPage);
-        line_6->setObjectName(QString::fromUtf8("line_6"));
+        line_6->setObjectName(QStringLiteral("line_6"));
         line_6->setFrameShape(QFrame::VLine);
         line_6->setFrameShadow(QFrame::Sunken);
 
@@ -356,33 +356,33 @@ public:
 
         Wizard->addPage(newPerceptronPage);
         newAdalinePage = new QWizardPage();
-        newAdalinePage->setObjectName(QString::fromUtf8("newAdalinePage"));
+        newAdalinePage->setObjectName(QStringLiteral("newAdalinePage"));
         horizontalLayout_8 = new QHBoxLayout(newAdalinePage);
-        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
         frame_2 = new QFrame(newAdalinePage);
-        frame_2->setObjectName(QString::fromUtf8("frame_2"));
+        frame_2->setObjectName(QStringLiteral("frame_2"));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         formLayout_5 = new QFormLayout(frame_2);
-        formLayout_5->setObjectName(QString::fromUtf8("formLayout_5"));
+        formLayout_5->setObjectName(QStringLiteral("formLayout_5"));
         formLayout_5->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         label_19 = new QLabel(frame_2);
-        label_19->setObjectName(QString::fromUtf8("label_19"));
+        label_19->setObjectName(QStringLiteral("label_19"));
 
         formLayout_5->setWidget(1, QFormLayout::LabelRole, label_19);
 
         lineEdit_2 = new QLineEdit(frame_2);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
 
         formLayout_5->setWidget(1, QFormLayout::FieldRole, lineEdit_2);
 
         label_20 = new QLabel(frame_2);
-        label_20->setObjectName(QString::fromUtf8("label_20"));
+        label_20->setObjectName(QStringLiteral("label_20"));
 
         formLayout_5->setWidget(3, QFormLayout::LabelRole, label_20);
 
         spinBox_3 = new QSpinBox(frame_2);
-        spinBox_3->setObjectName(QString::fromUtf8("spinBox_3"));
+        spinBox_3->setObjectName(QStringLiteral("spinBox_3"));
         spinBox_3->setMinimum(1);
         spinBox_3->setMaximum(10000);
         spinBox_3->setValue(2);
@@ -390,39 +390,39 @@ public:
         formLayout_5->setWidget(3, QFormLayout::FieldRole, spinBox_3);
 
         label_21 = new QLabel(frame_2);
-        label_21->setObjectName(QString::fromUtf8("label_21"));
+        label_21->setObjectName(QStringLiteral("label_21"));
 
         formLayout_5->setWidget(4, QFormLayout::LabelRole, label_21);
 
         comboBox_7 = new QComboBox(frame_2);
-        comboBox_7->setObjectName(QString::fromUtf8("comboBox_7"));
+        comboBox_7->setObjectName(QStringLiteral("comboBox_7"));
 
         formLayout_5->setWidget(4, QFormLayout::FieldRole, comboBox_7);
 
         label_22 = new QLabel(frame_2);
-        label_22->setObjectName(QString::fromUtf8("label_22"));
+        label_22->setObjectName(QStringLiteral("label_22"));
 
         formLayout_5->setWidget(5, QFormLayout::LabelRole, label_22);
 
         comboBox_8 = new QComboBox(frame_2);
-        comboBox_8->setObjectName(QString::fromUtf8("comboBox_8"));
+        comboBox_8->setObjectName(QStringLiteral("comboBox_8"));
 
         formLayout_5->setWidget(5, QFormLayout::FieldRole, comboBox_8);
 
         line_7 = new QFrame(frame_2);
-        line_7->setObjectName(QString::fromUtf8("line_7"));
+        line_7->setObjectName(QStringLiteral("line_7"));
         line_7->setFrameShape(QFrame::HLine);
         line_7->setFrameShadow(QFrame::Sunken);
 
         formLayout_5->setWidget(7, QFormLayout::SpanningRole, line_7);
 
         conjuntoDeEntranamientoLabel_3 = new QLabel(frame_2);
-        conjuntoDeEntranamientoLabel_3->setObjectName(QString::fromUtf8("conjuntoDeEntranamientoLabel_3"));
+        conjuntoDeEntranamientoLabel_3->setObjectName(QStringLiteral("conjuntoDeEntranamientoLabel_3"));
 
         formLayout_5->setWidget(8, QFormLayout::LabelRole, conjuntoDeEntranamientoLabel_3);
 
         pushButton_3 = new QPushButton(frame_2);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
 
         formLayout_5->setWidget(8, QFormLayout::FieldRole, pushButton_3);
 
@@ -430,7 +430,7 @@ public:
         horizontalLayout_8->addWidget(frame_2);
 
         line_8 = new QFrame(newAdalinePage);
-        line_8->setObjectName(QString::fromUtf8("line_8"));
+        line_8->setObjectName(QStringLiteral("line_8"));
         line_8->setFrameShape(QFrame::VLine);
         line_8->setFrameShadow(QFrame::Sunken);
 
@@ -445,129 +445,129 @@ public:
 
     void retranslateUi(QWizard *Wizard)
     {
-        Wizard->setWindowTitle(QApplication::translate("Wizard", "Wizard", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("Wizard", "Seleccione un proyecto:", 0, QApplication::UnicodeUTF8));
+        Wizard->setWindowTitle(QApplication::translate("Wizard", "Wizard", 0));
+        label_3->setText(QApplication::translate("Wizard", "Seleccione un proyecto:", 0));
 
         const bool __sortingEnabled = treeProjects->isSortingEnabled();
         treeProjects->setSortingEnabled(false);
         QTreeWidgetItem *___qtreewidgetitem = treeProjects->topLevelItem(0);
-        ___qtreewidgetitem->setText(0, QApplication::translate("Wizard", "Redes neuronales artificiales", 0, QApplication::UnicodeUTF8));
+        ___qtreewidgetitem->setText(0, QApplication::translate("Wizard", "Redes neuronales artificiales", 0));
 #ifndef QT_NO_TOOLTIP
         ___qtreewidgetitem->setToolTip(0, QApplication::translate("Wizard", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Crea un proyecto con redes neuronales para emular el proceso de aprendizaje humano, las redes neuronales son un paradigma de la Inteligencia Artificial y permite agregar &quot;inteligencia&quot; a un sistema, puede crear su proyecto de redes neuronales y a\303\261adirlos a otros proyectos si lo desea. Asimismo puede crear sus propios modelos de redes neuronales para llevar a cabo pruebas y generar conclusiones.</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Crea un proyecto con redes neuronales para emular el proceso de aprendizaje humano, las redes neuronales son un paradigma de la Inteligencia Artificial y permite agregar &quot;inteligencia&quot; a un sistema, puede crear su proyecto de redes neuronales y a\303\261adirlos a otros proyectos si lo desea. Asimismo puede crear sus propios modelos de redes neuronales para llevar a cabo pruebas y generar conclusiones.</span></p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
         QTreeWidgetItem *___qtreewidgetitem1 = ___qtreewidgetitem->child(0);
-        ___qtreewidgetitem1->setText(0, QApplication::translate("Wizard", "Perceptron Simple", "simple-perceptron", QApplication::UnicodeUTF8));
+        ___qtreewidgetitem1->setText(0, QApplication::translate("Wizard", "Perceptron Simple", "simple-perceptron"));
 #ifndef QT_NO_TOOLTIP
-        ___qtreewidgetitem1->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto con uno o mas perceptr\303\263nes simples como elementos principales. El perceptr\303\263n es la unidad mas elemental, con el muchas redes neuronales trabajan ya que su modelo es muy aproximado al de una neurona real.", 0, QApplication::UnicodeUTF8));
+        ___qtreewidgetitem1->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto con uno o mas perceptr\303\263nes simples como elementos principales. El perceptr\303\263n es la unidad mas elemental, con el muchas redes neuronales trabajan ya que su modelo es muy aproximado al de una neurona real.", 0));
 #endif // QT_NO_TOOLTIP
         QTreeWidgetItem *___qtreewidgetitem2 = ___qtreewidgetitem->child(1);
-        ___qtreewidgetitem2->setText(0, QApplication::translate("Wizard", "ADALINE", "adaline", QApplication::UnicodeUTF8));
+        ___qtreewidgetitem2->setText(0, QApplication::translate("Wizard", "ADALINE", "adaline"));
 #ifndef QT_NO_TOOLTIP
-        ___qtreewidgetitem2->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto con uno o mas ADALINEs como elementos principales. Un ADALINE es un tipo especial de perceptr\303\263n que funciona de forma adaptativa y tiene una regla de entrenamiento totalmente distinta, idealmente utilizado para evitar la dependencia lineal.", 0, QApplication::UnicodeUTF8));
+        ___qtreewidgetitem2->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto con uno o mas ADALINEs como elementos principales. Un ADALINE es un tipo especial de perceptr\303\263n que funciona de forma adaptativa y tiene una regla de entrenamiento totalmente distinta, idealmente utilizado para evitar la dependencia lineal.", 0));
 #endif // QT_NO_TOOLTIP
         QTreeWidgetItem *___qtreewidgetitem3 = ___qtreewidgetitem->child(2);
-        ___qtreewidgetitem3->setText(0, QApplication::translate("Wizard", "Perceptr\303\263n multicapa", "multilayer-perceptron", QApplication::UnicodeUTF8));
+        ___qtreewidgetitem3->setText(0, QApplication::translate("Wizard", "Perceptr\303\263n multicapa", "multilayer-perceptron"));
 #ifndef QT_NO_TOOLTIP
-        ___qtreewidgetitem3->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto con una o mas redes del tipo Perceptron Multicapa que consiste en una serie de capas de perceptrones que se organizan en capa de entrada, capa(s) oculta(s) y capa de salida. El n\303\272mero de capas y el n\303\272mero de perceptrones por capa puede ser modificado dependiendo las necesidades.", 0, QApplication::UnicodeUTF8));
+        ___qtreewidgetitem3->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto con una o mas redes del tipo Perceptron Multicapa que consiste en una serie de capas de perceptrones que se organizan en capa de entrada, capa(s) oculta(s) y capa de salida. El n\303\272mero de capas y el n\303\272mero de perceptrones por capa puede ser modificado dependiendo las necesidades.", 0));
 #endif // QT_NO_TOOLTIP
         QTreeWidgetItem *___qtreewidgetitem4 = ___qtreewidgetitem->child(3);
-        ___qtreewidgetitem4->setText(0, QApplication::translate("Wizard", "Hopfield", "hopfield", QApplication::UnicodeUTF8));
+        ___qtreewidgetitem4->setText(0, QApplication::translate("Wizard", "Hopfield", "hopfield"));
 #ifndef QT_NO_TOOLTIP
-        ___qtreewidgetitem4->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto con una o mas Redes de Hopfield que basicamente son redes de perceptrones auto-asociados y que estan conectados bidireccionalmente unos con otros, esta cualidad junto con su algoritmo de entrenamiento permite que esta red se auto-organice y aprenda diferentes patrones.", 0, QApplication::UnicodeUTF8));
+        ___qtreewidgetitem4->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto con una o mas Redes de Hopfield que basicamente son redes de perceptrones auto-asociados y que estan conectados bidireccionalmente unos con otros, esta cualidad junto con su algoritmo de entrenamiento permite que esta red se auto-organice y aprenda diferentes patrones.", 0));
 #endif // QT_NO_TOOLTIP
         QTreeWidgetItem *___qtreewidgetitem5 = treeProjects->topLevelItem(1);
-        ___qtreewidgetitem5->setText(0, QApplication::translate("Wizard", "Sistemas multiagentes", 0, QApplication::UnicodeUTF8));
+        ___qtreewidgetitem5->setText(0, QApplication::translate("Wizard", "Sistemas multiagentes", 0));
 #ifndef QT_NO_TOOLTIP
         ___qtreewidgetitem5->setToolTip(0, QApplication::translate("Wizard", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Crea un proyecto que le permite insertar cualquier cantidad de agentes personalizables y con caracteristicas que pueden ser a\303\261adidas, como actuadores, sensores, motores de inferencia, redes neuronales entre otras. Los sistemas multiagentes pueden ser dinamicos y llevar a cabo simulaciones de movimiento, ideales para emular el comportamiento de seres vivios, insectos sociales, entre otros. </span></p></body></html>", 0, QApplication::UnicodeUTF8));
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Crea un proyecto que le permite insertar cualquier cantidad de agentes personalizables y con caracteristicas que pueden ser a\303\261adidas, como actuadores, sensores, motores de inferencia, redes neuronales entre otras. Los sistemas multiagentes pueden ser dinamicos y llevar a cabo simulaciones de movimiento, ideales para emular el comportamiento de seres vivios, insectos sociales, entre otros. </span></p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
         QTreeWidgetItem *___qtreewidgetitem6 = ___qtreewidgetitem5->child(0);
-        ___qtreewidgetitem6->setText(0, QApplication::translate("Wizard", "Sistema b\303\241sico", "multiagent-basic-system", QApplication::UnicodeUTF8));
+        ___qtreewidgetitem6->setText(0, QApplication::translate("Wizard", "Sistema b\303\241sico", "multiagent-basic-system"));
 #ifndef QT_NO_TOOLTIP
-        ___qtreewidgetitem6->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto de un sistema multi-agente b\303\241sico, puede contener multiples agentes interactuando entre s\303\255 dependiendo de las reglas o motor de respuestas, los actuadores y sensores que tengan.", 0, QApplication::UnicodeUTF8));
+        ___qtreewidgetitem6->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto de un sistema multi-agente b\303\241sico, puede contener multiples agentes interactuando entre s\303\255 dependiendo de las reglas o motor de respuestas, los actuadores y sensores que tengan.", 0));
 #endif // QT_NO_TOOLTIP
         QTreeWidgetItem *___qtreewidgetitem7 = ___qtreewidgetitem5->child(1);
-        ___qtreewidgetitem7->setText(0, QApplication::translate("Wizard", "Sistemas de insectos sociales", "sociable-insects", QApplication::UnicodeUTF8));
+        ___qtreewidgetitem7->setText(0, QApplication::translate("Wizard", "Sistemas de insectos sociales", "sociable-insects"));
 #ifndef QT_NO_TOOLTIP
-        ___qtreewidgetitem7->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto especial multiagente donde cada agente tiene propiedades de insectos sociales b\303\241sicos, como abejas, horm\303\255gas, entre otros. El tipo de insectos se puede cambiar dependiendo de la necesidad.", 0, QApplication::UnicodeUTF8));
+        ___qtreewidgetitem7->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto especial multiagente donde cada agente tiene propiedades de insectos sociales b\303\241sicos, como abejas, horm\303\255gas, entre otros. El tipo de insectos se puede cambiar dependiendo de la necesidad.", 0));
 #endif // QT_NO_TOOLTIP
         QTreeWidgetItem *___qtreewidgetitem8 = treeProjects->topLevelItem(2);
-        ___qtreewidgetitem8->setText(0, QApplication::translate("Wizard", "L\303\263gica difusa", 0, QApplication::UnicodeUTF8));
+        ___qtreewidgetitem8->setText(0, QApplication::translate("Wizard", "L\303\263gica difusa", 0));
 #ifndef QT_NO_TOOLTIP
         ___qtreewidgetitem8->setToolTip(0, QApplication::translate("Wizard", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Crea un proyecto de logica difusa que le permite trabajar con sistemas que tienen variables con algun grado de pertenencia o borrosidad, es decir, datos que son imprecisos y que pueden venir del lenguaje natural humano. Este proyecto tambien puede ser incluido dentro de otros proyectos para generar sistemas mas complejos aun.</p></body></html>", 0, QApplication::UnicodeUTF8));
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Crea un proyecto de logica difusa que le permite trabajar con sistemas que tienen variables con algun grado de pertenencia o borrosidad, es decir, datos que son imprecisos y que pueden venir del lenguaje natural humano. Este proyecto tambien puede ser incluido dentro de otros proyectos para generar sistemas mas complejos aun.</p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
         QTreeWidgetItem *___qtreewidgetitem9 = ___qtreewidgetitem8->child(0);
-        ___qtreewidgetitem9->setText(0, QApplication::translate("Wizard", "Sistema b\303\241sico", "fuzzy-logic-basic-system", QApplication::UnicodeUTF8));
+        ___qtreewidgetitem9->setText(0, QApplication::translate("Wizard", "Sistema b\303\241sico", "fuzzy-logic-basic-system"));
 #ifndef QT_NO_TOOLTIP
-        ___qtreewidgetitem9->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto de l\303\263gica difusa b\303\241sico, se pueden configurar las reglas, hipotesis (condiciones), conclusiones y las funciones de membres\303\255a que corresponden a cada variable.", 0, QApplication::UnicodeUTF8));
+        ___qtreewidgetitem9->setToolTip(0, QApplication::translate("Wizard", "Crea un proyecto de l\303\263gica difusa b\303\241sico, se pueden configurar las reglas, hipotesis (condiciones), conclusiones y las funciones de membres\303\255a que corresponden a cada variable.", 0));
 #endif // QT_NO_TOOLTIP
         treeProjects->setSortingEnabled(__sortingEnabled);
 
-        label->setText(QApplication::translate("Wizard", "Nombre y ubicaci\303\263n", 0, QApplication::UnicodeUTF8));
-        label_23->setText(QApplication::translate("Wizard", "Nombre", 0, QApplication::UnicodeUTF8));
-        label_24->setText(QApplication::translate("Wizard", "Carpeta", 0, QApplication::UnicodeUTF8));
-        label_25->setText(QApplication::translate("Wizard", "Ruta final", 0, QApplication::UnicodeUTF8));
-        toolButton->setText(QApplication::translate("Wizard", "Explorar...", 0, QApplication::UnicodeUTF8));
-        label_14->setText(QApplication::translate("Wizard", "Numero de entradas", 0, QApplication::UnicodeUTF8));
-        label_15->setText(QApplication::translate("Wizard", "Tipo de salida", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("Wizard", "Nombre y ubicaci\303\263n", 0));
+        label_23->setText(QApplication::translate("Wizard", "Nombre", 0));
+        label_24->setText(QApplication::translate("Wizard", "Carpeta", 0));
+        label_25->setText(QApplication::translate("Wizard", "Ruta final", 0));
+        toolButton->setText(QApplication::translate("Wizard", "Explorar...", 0));
+        label_14->setText(QApplication::translate("Wizard", "Numero de entradas", 0));
+        label_15->setText(QApplication::translate("Wizard", "Tipo de salida", 0));
         comboBox_4->clear();
         comboBox_4->insertItems(0, QStringList()
-         << QApplication::translate("Wizard", "Unipolar", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Bipolar", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Wizard", "Unipolar", 0)
+         << QApplication::translate("Wizard", "Bipolar", 0)
         );
-        label_16->setText(QApplication::translate("Wizard", "Funci\303\263n de activaci\303\263n", 0, QApplication::UnicodeUTF8));
+        label_16->setText(QApplication::translate("Wizard", "Funci\303\263n de activaci\303\263n", 0));
         comboBox_5->clear();
         comboBox_5->insertItems(0, QStringList()
-         << QApplication::translate("Wizard", "Escalon unipolar", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Escalon bipolar", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Sigmoide", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Tangente hiperbolica", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Lineal limitada unipolar", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Lineal limitada bipolar", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Wizard", "Escalon unipolar", 0)
+         << QApplication::translate("Wizard", "Escalon bipolar", 0)
+         << QApplication::translate("Wizard", "Sigmoide", 0)
+         << QApplication::translate("Wizard", "Tangente hiperbolica", 0)
+         << QApplication::translate("Wizard", "Lineal limitada unipolar", 0)
+         << QApplication::translate("Wizard", "Lineal limitada bipolar", 0)
         );
-        label_17->setText(QApplication::translate("Wizard", "Regla de aprendizaje", 0, QApplication::UnicodeUTF8));
+        label_17->setText(QApplication::translate("Wizard", "Regla de aprendizaje", 0));
         comboBox_6->clear();
         comboBox_6->insertItems(0, QStringList()
-         << QApplication::translate("Wizard", "Regla simple", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Regla delta", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Wizard", "Regla simple", 0)
+         << QApplication::translate("Wizard", "Regla delta", 0)
         );
-        conjuntoDeEntranamientoLabel_2->setText(QApplication::translate("Wizard", "Conjunto de entranamiento", 0, QApplication::UnicodeUTF8));
-        pushButton_2->setText(QApplication::translate("Wizard", "Asignar", 0, QApplication::UnicodeUTF8));
-        label_18->setText(QApplication::translate("Wizard", "Nombre", 0, QApplication::UnicodeUTF8));
-        lineEdit->setText(QApplication::translate("Wizard", "perceptron", 0, QApplication::UnicodeUTF8));
+        conjuntoDeEntranamientoLabel_2->setText(QApplication::translate("Wizard", "Conjunto de entranamiento", 0));
+        pushButton_2->setText(QApplication::translate("Wizard", "Asignar", 0));
+        label_18->setText(QApplication::translate("Wizard", "Nombre", 0));
+        lineEdit->setText(QApplication::translate("Wizard", "perceptron", 0));
         lineEdit->setPlaceholderText(QString());
-        label_19->setText(QApplication::translate("Wizard", "Nombre", 0, QApplication::UnicodeUTF8));
-        lineEdit_2->setText(QApplication::translate("Wizard", "adaline", 0, QApplication::UnicodeUTF8));
+        label_19->setText(QApplication::translate("Wizard", "Nombre", 0));
+        lineEdit_2->setText(QApplication::translate("Wizard", "adaline", 0));
         lineEdit_2->setPlaceholderText(QString());
-        label_20->setText(QApplication::translate("Wizard", "Numero de entradas", 0, QApplication::UnicodeUTF8));
-        label_21->setText(QApplication::translate("Wizard", "Funci\303\263n de transferencia", 0, QApplication::UnicodeUTF8));
+        label_20->setText(QApplication::translate("Wizard", "Numero de entradas", 0));
+        label_21->setText(QApplication::translate("Wizard", "Funci\303\263n de transferencia", 0));
         comboBox_7->clear();
         comboBox_7->insertItems(0, QStringList()
-         << QApplication::translate("Wizard", "Lineal", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Sigmoide", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Tangente hiperbolica", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Lineal limitada unipolar", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Lineal limitada bipolar", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Wizard", "Lineal", 0)
+         << QApplication::translate("Wizard", "Sigmoide", 0)
+         << QApplication::translate("Wizard", "Tangente hiperbolica", 0)
+         << QApplication::translate("Wizard", "Lineal limitada unipolar", 0)
+         << QApplication::translate("Wizard", "Lineal limitada bipolar", 0)
         );
-        label_22->setText(QApplication::translate("Wizard", "Actualizaci\303\263n de pesos", 0, QApplication::UnicodeUTF8));
+        label_22->setText(QApplication::translate("Wizard", "Actualizaci\303\263n de pesos", 0));
         comboBox_8->clear();
         comboBox_8->insertItems(0, QStringList()
-         << QApplication::translate("Wizard", "Sincrona", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("Wizard", "Asincrona", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Wizard", "Sincrona", 0)
+         << QApplication::translate("Wizard", "Asincrona", 0)
         );
-        conjuntoDeEntranamientoLabel_3->setText(QApplication::translate("Wizard", "Conjunto de entranamiento", 0, QApplication::UnicodeUTF8));
-        pushButton_3->setText(QApplication::translate("Wizard", "Asignar", 0, QApplication::UnicodeUTF8));
+        conjuntoDeEntranamientoLabel_3->setText(QApplication::translate("Wizard", "Conjunto de entranamiento", 0));
+        pushButton_3->setText(QApplication::translate("Wizard", "Asignar", 0));
     } // retranslateUi
 
 };

@@ -1,15 +1,23 @@
 #include "trainingsetdialog.h"
 
-TrainingSetDialog::TrainingSetDialog(TrainingSetType type, QWidget *parent) :
+//TrainingSetDialog::TrainingSetDialog(TrainingSetType type, QWidget *parent) :
+//	QDialog(parent),
+//	ui(new Ui::TrainingSetDialog),
+//	inputCount(1),
+//	targetCount(1)
+//{
+//    Q_UNUSED(type);
+
+//	initDialog(1, 1);
+////	loadMLPData();
+//}
+
+TrainingSetDialog::TrainingSetDialog(const TrainingSet &ts, QWidget *parent):
 	QDialog(parent),
 	ui(new Ui::TrainingSetDialog),
-	inputCount(1),
-	targetCount(1)
+	targetCount(ts.getTargetSize())
 {
-    Q_UNUSED(type);
-
-	initDialog(1, 1);
-//	loadMLPData();
+	initDialog(ts.getInputs(), ts.getTargets());
 }
 
 TrainingSetDialog::TrainingSetDialog(int inputCount, int outputCount, QWidget *parent) :
@@ -36,10 +44,12 @@ TrainingSetDialog::TrainingSetDialog(vector<MultilayerPerceptronPattern *> ts, Q
 	initDialog(ts);
 }
 
-vector<vector<double> > TrainingSetDialog::getInputs()
+vector<vector<double> > TrainingSetDialog::getInputs() const
 {
 	int nRows = ui->patternTable->rowCount();
-	inputs = vector<vector<double> > (nRows, vector<double>(inputCount, 0));
+	vector<vector<double> >
+			inputs = vector<vector<double> > (nRows, vector<double>(inputCount, 0));
+
 	for(int i = 0; i < nRows; i++){
 		inputs[i].resize(inputCount);
 		for(int j = 0; j < inputCount; j++){
@@ -62,10 +72,12 @@ void TrainingSetDialog::setInputSize(int size)
 	updateHeaders();
 }
 
-vector<vector<double> > TrainingSetDialog::getTargets()
+vector<vector<double> > TrainingSetDialog::getTargets() const
 {
 	int nRows = ui->patternTable->rowCount();
-	targets = vector<vector<double> > (nRows, vector<double>(targetCount, 0));
+	vector<vector<double> >
+			targets = vector<vector<double> > (nRows, vector<double>(targetCount, 0));
+
 	for(int i = 0; i < nRows; i++){
 		for(int j = inputCount; j < ui->patternTable->columnCount(); j++){
 			QTableWidgetItem *itm = ui->patternTable->item(i,j);
@@ -144,6 +156,11 @@ int TrainingSetDialog::getPatternCount()
 	return ui->patternTable->rowCount();
 }
 
+TrainingSet TrainingSetDialog::getTrainingSet() const
+{
+	return TrainingSet(getInputs(), getTargets());
+}
+
 void TrainingSetDialog::on_addPatternButton_clicked()
 {
 	ui->patternTable->setRowCount(ui->patternTable->rowCount()+1);
@@ -168,11 +185,38 @@ void TrainingSetDialog::initDialog(int inputs, int outputs)
 	setInputSize(inputs);
 	setTargetSize(outputs);
 
-//	loadMLPData();
+	//	loadMLPData();
 }
 
 void TrainingSetDialog::initDialog(const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
 {
+//	ui->setupUi(this);
+
+//	QMenu *file = new QMenu(tr("Archivo"));
+//	file->addAction("Desde archivo...", this, SLOT(fromFile()));
+
+//	menuBar = new QMenuBar(this);
+//	menuBar->addMenu(file);
+//	layout()->setMenuBar(menuBar);
+
+//	const int nPatterns = (inputs.size() >= targets.size() ? inputs.size() : targets.size());
+//	size_t sInputs, sTargets;
+//	for(int i = 0; i < nPatterns; i++){
+//		ui->patternTable->setRowCount(ui->patternTable->rowCount()+1);
+//		sInputs = inputs[i].size();
+//		for(size_t j = 0; j < sInputs; j++){
+//			QTableWidgetItem *itm = new QTableWidgetItem();
+//			itm->setText(QString::number(inputs[i][j]));
+//			ui->patternTable->setItem(i, j, itm);
+//		}
+//		sTargets = targets[i].size();
+//		for(size_t j = 0; j < sTargets; j++){
+//			QTableWidgetItem *itm = new QTableWidgetItem();
+//			itm->setText(QString::number(targets[i][j]));
+//			ui->patternTable->setItem(i, j + inputCount, itm);
+//		}
+//	}
+
 	ui->setupUi(this);
 
 	QMenu *file = new QMenu(tr("Archivo"));
@@ -182,22 +226,10 @@ void TrainingSetDialog::initDialog(const vector<vector<double> > &inputs, const 
 	menuBar->addMenu(file);
 	layout()->setMenuBar(menuBar);
 
-	const int nPatterns = (inputs.size() >= targets.size() ? inputs.size() : targets.size());
-	size_t sInputs, sTargets;
+	const int nPatterns = inputs.size();
+	//	size_t sInputs, sTargets;
 	for(int i = 0; i < nPatterns; i++){
-		ui->patternTable->setRowCount(ui->patternTable->rowCount()+1);
-		sInputs = inputs[i].size();
-		for(size_t j = 0; j < sInputs; j++){
-			QTableWidgetItem *itm = new QTableWidgetItem();
-			itm->setText(QString::number(inputs[i][j]));
-			ui->patternTable->setItem(i, j, itm);
-		}
-		sTargets = targets[i].size();
-		for(size_t j = 0; j < sTargets; j++){
-			QTableWidgetItem *itm = new QTableWidgetItem();
-			itm->setText(QString::number(targets[i][j]));
-			ui->patternTable->setItem(i, j + inputCount, itm);
-		}
+		appendPattern(inputs[i], targets[i]);
 	}
 }
 
@@ -213,7 +245,7 @@ void TrainingSetDialog::initDialog(const vector<MultilayerPerceptronPattern *> t
 	layout()->setMenuBar(menuBar);
 
 	const int nPatterns = ts.size();
-//	size_t sInputs, sTargets;
+	//	size_t sInputs, sTargets;
 	for(int i = 0; i < nPatterns; i++){
 		appendPattern(ts[i]->getInputs(), ts[i]->getTargets());
 	}

@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'trainingsetdialog.ui'
 **
-** Created: Thu 17. Jan 19:30:36 2013
-**      by: Qt User Interface Compiler version 4.8.4
+** Created: Sat 19. Jan 16:02:31 2013
+**      by: Qt User Interface Compiler version 5.0.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -11,17 +11,17 @@
 #define UI_TRAININGSETDIALOG_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QDialogButtonBox>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QPushButton>
-#include <QtGui/QSpacerItem>
-#include <QtGui/QTableWidget>
-#include <QtGui/QVBoxLayout>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 
@@ -39,28 +39,28 @@ public:
     void setupUi(QDialog *TrainingSetDialog)
     {
         if (TrainingSetDialog->objectName().isEmpty())
-            TrainingSetDialog->setObjectName(QString::fromUtf8("TrainingSetDialog"));
+            TrainingSetDialog->setObjectName(QStringLiteral("TrainingSetDialog"));
         TrainingSetDialog->resize(630, 409);
         verticalLayout = new QVBoxLayout(TrainingSetDialog);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
 
         addPatternButton = new QPushButton(TrainingSetDialog);
-        addPatternButton->setObjectName(QString::fromUtf8("addPatternButton"));
+        addPatternButton->setObjectName(QStringLiteral("addPatternButton"));
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/imagenes/plus_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/imagenes/plus_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         addPatternButton->setIcon(icon);
 
         horizontalLayout->addWidget(addPatternButton);
 
         delPatternButton = new QPushButton(TrainingSetDialog);
-        delPatternButton->setObjectName(QString::fromUtf8("delPatternButton"));
+        delPatternButton->setObjectName(QStringLiteral("delPatternButton"));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/imagenes/minus_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/imagenes/minus_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         delPatternButton->setIcon(icon1);
 
         horizontalLayout->addWidget(delPatternButton);
@@ -69,7 +69,7 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         patternTable = new QTableWidget(TrainingSetDialog);
-        patternTable->setObjectName(QString::fromUtf8("patternTable"));
+        patternTable->setObjectName(QStringLiteral("patternTable"));
         patternTable->setAlternatingRowColors(true);
         patternTable->setRowCount(0);
         patternTable->setColumnCount(0);
@@ -82,7 +82,7 @@ public:
         verticalLayout->addWidget(patternTable);
 
         buttonBox = new QDialogButtonBox(TrainingSetDialog);
-        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
@@ -98,7 +98,7 @@ public:
 
     void retranslateUi(QDialog *TrainingSetDialog)
     {
-        TrainingSetDialog->setWindowTitle(QApplication::translate("TrainingSetDialog", "Dialog", 0, QApplication::UnicodeUTF8));
+        TrainingSetDialog->setWindowTitle(QApplication::translate("TrainingSetDialog", "Dialog", 0));
         addPatternButton->setText(QString());
         delPatternButton->setText(QString());
     } // retranslateUi

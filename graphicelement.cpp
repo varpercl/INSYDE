@@ -60,7 +60,7 @@ QRectF GraphicElement::boundingRect() const
 
 void GraphicElement::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    Q_UNUSED(widget);
+	Q_UNUSED(widget);
 
 	QPen pen;
 	painter->save();
@@ -83,7 +83,11 @@ void GraphicElement::onDeleteClick()
 void GraphicElement::initGE(const QRectF &rect, int border)
 {
 //	cntxMenu = 0;
+#if _MSC_VER == 1600
+	setAcceptHoverEvents(true);
+#else
 	setAcceptsHoverEvents(true);
+#endif
 	setFlags(ItemIsMovable | ItemIsSelectable);
 
 	this->border = border;

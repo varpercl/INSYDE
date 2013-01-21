@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'samplesdialog.ui'
 **
-** Created: Thu 17. Jan 19:30:36 2013
-**      by: Qt User Interface Compiler version 4.8.4
+** Created: Sat 19. Jan 16:02:31 2013
+**      by: Qt User Interface Compiler version 5.0.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -11,18 +11,18 @@
 #define UI_SAMPLESDIALOG_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QCheckBox>
-#include <QtGui/QDialog>
-#include <QtGui/QDialogButtonBox>
-#include <QtGui/QFormLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QSpacerItem>
-#include <QtGui/QSpinBox>
-#include <QtGui/QVBoxLayout>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
+#include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 
@@ -40,24 +40,24 @@ public:
     void setupUi(QDialog *SamplesDialog)
     {
         if (SamplesDialog->objectName().isEmpty())
-            SamplesDialog->setObjectName(QString::fromUtf8("SamplesDialog"));
+            SamplesDialog->setObjectName(QStringLiteral("SamplesDialog"));
         SamplesDialog->resize(240, 98);
         verticalLayout = new QVBoxLayout(SamplesDialog);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer);
 
         formLayout = new QFormLayout();
-        formLayout->setObjectName(QString::fromUtf8("formLayout"));
+        formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         label = new QLabel(SamplesDialog);
-        label->setObjectName(QString::fromUtf8("label"));
+        label->setObjectName(QStringLiteral("label"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
         sbNSamples = new QSpinBox(SamplesDialog);
-        sbNSamples->setObjectName(QString::fromUtf8("sbNSamples"));
+        sbNSamples->setObjectName(QStringLiteral("sbNSamples"));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, sbNSamples);
 
@@ -65,13 +65,13 @@ public:
         verticalLayout->addLayout(formLayout);
 
         cbAllSamples = new QCheckBox(SamplesDialog);
-        cbAllSamples->setObjectName(QString::fromUtf8("cbAllSamples"));
+        cbAllSamples->setObjectName(QStringLiteral("cbAllSamples"));
         cbAllSamples->setChecked(false);
 
         verticalLayout->addWidget(cbAllSamples);
 
         buttonBox = new QDialogButtonBox(SamplesDialog);
-        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
@@ -87,9 +87,9 @@ public:
 
     void retranslateUi(QDialog *SamplesDialog)
     {
-        SamplesDialog->setWindowTitle(QApplication::translate("SamplesDialog", "Dialog", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("SamplesDialog", "N\302\260 de muestras", 0, QApplication::UnicodeUTF8));
-        cbAllSamples->setText(QApplication::translate("SamplesDialog", "Todas las muestras", 0, QApplication::UnicodeUTF8));
+        SamplesDialog->setWindowTitle(QApplication::translate("SamplesDialog", "Dialog", 0));
+        label->setText(QApplication::translate("SamplesDialog", "N\302\260 de muestras", 0));
+        cbAllSamples->setText(QApplication::translate("SamplesDialog", "Todas las muestras", 0));
     } // retranslateUi
 
 };

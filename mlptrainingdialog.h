@@ -1,10 +1,17 @@
 #ifndef MLPTRAININGDIALOG_H
 #define MLPTRAININGDIALOG_H
 
-#include <InSyDeGui.h>
-#include <mlptrainingthread.h>
+//#include <InSyDeGui.h>
+#include <QMessageBox>
+#include <QTime>
+#include <QTimer>
+#include <QFile>
+#include <QMenuBar>
+#include <QInputDialog>
+#include <QVector>
 #include <samplesdialog.h>
 
+#include <graphicmlpelement.h>
 #include <ANNFramework/multilayerperceptron.h>
 
 namespace Ui {
@@ -29,7 +36,9 @@ class MLPTrainingDialog : public QDialog
 	private slots:
 		void exportData();
 
-		void trainingFinished();
+		void trainingFinished(MLPTrainingResult tres);
+
+		void multipleTrainingResult(MLPTrainingResult tres);
 
 		void updateStatusLabels();
 
@@ -47,7 +56,6 @@ class MLPTrainingDialog : public QDialog
 
 		void onTblLayersCellChanged(int row, int column);
 
-
 		void on_btnEditValidationTest_clicked();
 
 		void on_btnEditTestSet_clicked();
@@ -58,9 +66,15 @@ class MLPTrainingDialog : public QDialog
 
 		void on_btnMultipleTraining_clicked();
 
+		void on_cbStopCondition_currentIndexChanged(int index);
+
+		void on_chkSA_toggled(bool checked);
+
 	private:
 		Q_OBJECT
 
+		int fileIndex;
+		QString multipleReportPath;
 		QAction *saveFile;
 		//		double minNoise, maxNoise;
 		//		double initialAcceptance;
@@ -69,10 +83,10 @@ class MLPTrainingDialog : public QDialog
 		//		int nChanges;
 		QMenuBar *menuBar;
 		MultilayerPerceptron::TrainingAlgorithm ta;
-		MultilayerPerceptron::TrainingResult tres;
+		MLPTrainingResult tres;
 		QTime t;
 		clock_t time;
-		MLPTrainingThread *mlptt;
+		//		MLPTrainingThread *mlptt;
 		bool isTraining;
 		QTimer timer;
 		//		vector<vector<double> > inputs;
@@ -82,8 +96,11 @@ class MLPTrainingDialog : public QDialog
 		TrainingSetDialog *tsMLP;
 
 		void initDialog(GraphicMLPElement *gmlp);
-		void createFile(QString path, MultilayerPerceptron::TrainingResult tr, int interval);
-		void setEnabledControls(bool enabled);
+		void createFile(QString path, MLPTrainingResult tr, int interval);
+		void disableAllControls();
+		void setSAEnabledControls(bool enabled);
+		void setBPEnabledControls(bool enabled);
 };
 
 #endif // MLPTRAININGDIALOG_H
+

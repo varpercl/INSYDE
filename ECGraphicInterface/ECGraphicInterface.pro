@@ -11,12 +11,12 @@ TEMPLATE = lib
 
 DEFINES += ECGRAPHICINTERFACE_LIBRARY
 
-debug{EXTRA = debug}
-release{EXTRA = release}
+debug{EXTRA = bindebug}
+release{EXTRA = binrelease}
 DESTDIR = ../$$EXTRA
 
-debug:LIBS += -L"../debug"
-release:LIBS += -L"../release"
+debug:LIBS += -L"../bindebug"
+release:LIBS += -L"../binrelease"
 LIBS += -lINSYDECommon
 
 INCLUDEPATH += .

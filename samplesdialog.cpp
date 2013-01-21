@@ -1,7 +1,7 @@
 #include "samplesdialog.h"
 #include "ui_samplesdialog.h"
 
-SamplesDialog::SamplesDialog(MultilayerPerceptron::TrainingResult tr, QWidget *parent) :
+SamplesDialog::SamplesDialog(MLPTrainingResult tr, QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::SamplesDialog)
 {
@@ -22,7 +22,7 @@ int SamplesDialog::getSampleCount()
 	}
 }
 
-void SamplesDialog::initDialog(MultilayerPerceptron::TrainingResult tr)
+void SamplesDialog::initDialog(MLPTrainingResult tr)
 {
 	ui->setupUi(this);
 

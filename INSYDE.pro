@@ -14,15 +14,18 @@ TEMPLATE = app
 #QMAKE_CXXFLAGS += -std=c++0x -U__STRICT_ANSI__
 #    QMAKE_CXXFLAGS += -std=gnu++0x -U__STRICT_ANSI__
 
+debug{EXTRA = bindebug}
+release{EXTRA = binrelease}
+DESTDIR = $$EXTRA
 
-debug:LIBS += -L"debug"
-release:LIBS += -L"release"
+debug:LIBS += -L"bindebug"
+release:LIBS += -L"binrelease"
 LIBS += -lANNFramework
 LIBS += -lINSYDECommon
 LIBS += -lECGraphicInterface
 LIBS += -lECFramework
 
-INCLUDEPATH += INSYDECommon ECGraphicInterface
+INCLUDEPATH += INSYDECommon ECGraphicInterface ANNFramework
 
 
 SOURCES += \
@@ -35,7 +38,6 @@ SOURCES += \
 	perceptronpage.cpp \
 	perceptrondisplay.cpp \
 	newprojectwizard.cpp \
-	mlptrainingthread.cpp \
 	mlptrainingdialog.cpp \
 	mapa.cpp \
 	mainwindow.cpp \
@@ -57,7 +59,6 @@ HEADERS  += \
 	perceptronpage.h \
 	perceptrondisplay.h \
 	newprojectwizard.h \
-	mlptrainingthread.h \
 	mlptrainingdialog.h \
 	mapa.h \
 	mainwindow.h \

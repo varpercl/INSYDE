@@ -71,7 +71,11 @@ void Visor::mouseDoubleClickEvent(QMouseEvent *event)
 void Visor::mousePressEvent(QMouseEvent *event){
 
 	QList<QGraphicsItem*> itemsSeleccionados = scene()->selectedItems();
+#if _MSC_VER == 1600
+	QGraphicsItem *item = scene()->itemAt(mapToScene(event->pos()), transform());
+#else
 	QGraphicsItem *item = scene()->itemAt(mapToScene(event->pos()));
+#endif
 
 	if(event->button() == Qt::LeftButton){
 		//en caso de querer un recuadro de seleccion personalizado
@@ -143,7 +147,11 @@ void Visor::mouseReleaseEvent(QMouseEvent *event){
 
 	removePointer();
 
+#if _MSC_VER == 1600
+	QGraphicsItem *item = scene()->itemAt(mapToScene(event->pos()), transform());
+#else
 	QGraphicsItem *item = scene()->itemAt(mapToScene(event->pos()));
+#endif
 	//    if(event->button() & Qt::LeftButton){
 
 	//    }

@@ -1,30 +1,22 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2013-01-17T17:15:39
+# Project created by QtCreator 2013-01-18T02:05:53
 #
 #-------------------------------------------------
 
-QT       -= gui
-
-TARGET = INSYDECommon
+TARGET = ANNGraphicInterface
 TEMPLATE = lib
 
-DEFINES += INSYDECOMMON_LIBRARY
+DEFINES += ANNGRAPHICINTERFACE_LIBRARY
 
 debug{EXTRA = bindebug}
 release{EXTRA = binrelease}
 DESTDIR = ../$$EXTRA
 
-INCLUDEPATH += .
+SOURCES += anngraphicinterface.cpp
 
-SOURCES += \
-	vector2d.cpp \
-	general.cpp
-
-HEADERS +=\
-		INSYDECommon_global.h \
-	vector2d.h \
-	insydefunctions.h
+HEADERS += anngraphicinterface.h\
+		ANNGraphicInterface_global.h
 
 #unix:!symbian {
 #    maemo5 {

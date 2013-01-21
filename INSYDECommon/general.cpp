@@ -15,5 +15,9 @@ double CommonFunctions::trunkedValue(double val, double divisor){
 }
 
 double CommonFunctions::roundedValue(double val, double divisor){
+#if _MSC_VER == 1600
+	return floor( (val/divisor) + 0.5 )*divisor;
+#else
 	return round(val/divisor)*divisor;
+#endif
 }

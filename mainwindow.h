@@ -7,8 +7,15 @@
 #include <QGLWidget>
 #endif
 
-#include <InSyDeGui.h>
+//#include <InSyDeGui.h>
+#include <QMainWindow>
+#include <QMessageBox>
 #include <math.h>
+
+#include <newprojectwizard.h>
+#include <ECGraphicInterface/addagentsdialog.h>
+#include <statusanimation.h>
+#include <visor.h>
 
 namespace Ui {
 	class MainWindow;

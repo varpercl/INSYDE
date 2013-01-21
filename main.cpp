@@ -1,5 +1,9 @@
 //#undef __STRICT_ANSI__
-#include <QtGui/QApplication>
+#if _MSC_VER == 1600
+	#include <QApplication>
+#else
+	#include <QtGui/QApplication>
+#endif
 #include <mainwindow.h>
 #include <pruebapantallas.h>
 
