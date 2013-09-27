@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>856</width>
-    <height>506</height>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -353,72 +353,23 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_11">
-            <property name="text">
-             <string>E Minimo</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QDoubleSpinBox" name="sbMinError">
-            <property name="decimals">
-             <number>6</number>
-            </property>
-            <property name="maximum">
-             <double>999.990000000000009</double>
-            </property>
-            <property name="singleStep">
-             <double>0.010000000000000</double>
-            </property>
-            <property name="value">
-             <double>0.500000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Erms Minimo</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QDoubleSpinBox" name="sbMinRMSError">
-            <property name="decimals">
-             <number>6</number>
-            </property>
-            <property name="maximum">
-             <double>999.899999999999977</double>
-            </property>
-            <property name="singleStep">
-             <double>0.010000000000000</double>
-            </property>
-            <property name="value">
-             <double>0.100000000000000</double>
-            </property>
-           </widget>
-          </item>
           <item row="5" column="0">
-           <widget class="QLabel" name="label_13">
+           <widget class="QLabel" name="label_35">
             <property name="text">
-             <string>Ec Minimo</string>
+             <string>Umbral</string>
             </property>
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="QDoubleSpinBox" name="sbMinErrorClasification">
+           <widget class="QDoubleSpinBox" name="sbThreshold">
             <property name="decimals">
              <number>6</number>
             </property>
-            <property name="maximum">
-             <double>99990000.000000000000000</double>
-            </property>
-            <property name="singleStep">
-             <double>0.010000000000000</double>
+            <property name="minimum">
+             <double>-1.000000000000000</double>
             </property>
             <property name="value">
-             <double>0.100000000000000</double>
+             <double>0.500000000000000</double>
             </property>
            </widget>
           </item>
@@ -479,6 +430,29 @@
             </property>
             <property name="value">
              <double>0.001000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_32">
+            <property name="text">
+             <string>F. de decrecimiento de temp.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
+           <widget class="QDoubleSpinBox" name="sbDecFactor">
+            <property name="decimals">
+             <number>6</number>
+            </property>
+            <property name="minimum">
+             <double>0.000001000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.800000000000000</double>
             </property>
            </widget>
           </item>
@@ -594,7 +568,7 @@
                <double>0.010000000000000</double>
               </property>
               <property name="value">
-               <double>-3.001000000000000</double>
+               <double>-0.001000000000000</double>
               </property>
              </widget>
             </item>
@@ -620,78 +594,55 @@
                <double>0.010000000000000</double>
               </property>
               <property name="value">
-               <double>3.001000000000000</double>
+               <double>0.001000000000000</double>
               </property>
              </widget>
             </item>
            </layout>
           </item>
-          <item row="9" column="1">
-           <widget class="QDoubleSpinBox" name="sbDecFactor">
-            <property name="decimals">
-             <number>6</number>
-            </property>
-            <property name="minimum">
-             <double>0.000001000000000</double>
-            </property>
-            <property name="maximum">
-             <double>1.000000000000000</double>
-            </property>
-            <property name="value">
-             <double>0.800000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="0">
-           <widget class="QLabel" name="label_32">
-            <property name="text">
-             <string>F. de decrecimiento</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QComboBox" name="cbStopCondition">
+          <item row="3" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
-             <property name="text">
-              <string>MSE minimo</string>
-             </property>
+             <widget class="QComboBox" name="cbStopCondition">
+              <item>
+               <property name="text">
+                <string>MSE minimo</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>RMSE minimo</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>CE minimo</string>
+               </property>
+              </item>
+             </widget>
             </item>
             <item>
-             <property name="text">
-              <string>RMSE minimo</string>
-             </property>
+             <widget class="QDoubleSpinBox" name="sbEMValue">
+              <property name="decimals">
+               <number>6</number>
+              </property>
+              <property name="maximum">
+               <double>999.990000000000009</double>
+              </property>
+              <property name="singleStep">
+               <double>0.010000000000000</double>
+              </property>
+              <property name="value">
+               <double>0.500000000000000</double>
+              </property>
+             </widget>
             </item>
-            <item>
-             <property name="text">
-              <string>CE minimo</string>
-             </property>
-            </item>
-           </widget>
+           </layout>
           </item>
-          <item row="1" column="0">
+          <item row="3" column="0">
            <widget class="QLabel" name="label_34">
             <property name="text">
              <string>Condicion de parada</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_35">
-            <property name="text">
-             <string>Umbral</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QDoubleSpinBox" name="sbThreshold">
-            <property name="decimals">
-             <number>6</number>
-            </property>
-            <property name="minimum">
-             <double>-1.000000000000000</double>
-            </property>
-            <property name="value">
-             <double>0.500000000000000</double>
             </property>
            </widget>
           </item>

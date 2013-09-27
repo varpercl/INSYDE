@@ -59,8 +59,14 @@ MultilayerPerceptron::MultilayerPerceptron(int ninputs,
 	initMLP(ninputs, noutputs, layersizes, tf);
 }
 
+MultilayerPerceptron::~MultilayerPerceptron()
+{
+	delete tres;
+}
+
 void MultilayerPerceptron::initMLP(int ninputs, int noutputs, const vector<int> &hiddenLayerSizes, const TransferFunctionType &tf)
 {
+	tres = new MLPTrainingResult();
 	nInputs = ninputs;
 	setAlfa(1);
 	setLayerSizes(hiddenLayerSizes);
@@ -139,6 +145,11 @@ MultilayerPerceptron::NewState MultilayerPerceptron::addNoise(double min, double
 		weights.newOutputWeights[i] = ANNFrameworkFunctions::addNoise(weights.newOutputWeights[i], min, max);
 	}
 	return weights;
+}
+
+bool MultilayerPerceptron::isTraining()
+{
+	return training;
 }
 
 double MultilayerPerceptron::getNewMSE(const vector<vector<vector<double> > > &lweights, const vector<vector<double> > &oweights, const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
@@ -379,8 +390,8 @@ void MultilayerPerceptron::randomizeWeights(double min, double max)
 	}
 }
 
-void MultilayerPerceptron::startTraining(TrainingSet ts,
-										 MLPBackpropagationTrainingSettings mlpts)
+void MultilayerPerceptron::startTraining(TrainingSet *ts,
+										 MLPBackpropagationTrainingSettings *mlpts)
 {
 	this->ts = ts;
 	mlpbpts = mlpts;
@@ -390,9 +401,9 @@ void MultilayerPerceptron::startTraining(TrainingSet ts,
 	start(LowestPriority);
 }
 
-void MultilayerPerceptron::startTraining(TrainingSet ts,
-										 MLPBackpropagationTrainingSettings mlpts,
-										 MLPSimulatedAnnealingTrainingSettings mlpsats)
+void MultilayerPerceptron::startTraining(TrainingSet *ts,
+										 MLPBackpropagationTrainingSettings *mlpts,
+										 MLPSimulatedAnnealingTrainingSettings *mlpsats)
 {
 
 	this->ts = ts;
@@ -419,7 +430,7 @@ void MultilayerPerceptron::startTraining(TrainingSet ts,
 	//						 SimulatedAnnealing);
 }
 
-void MultilayerPerceptron::startTraining(TrainingSet ts,
+void MultilayerPerceptron::startTraining(TrainingSet *ts,
 										 unsigned int epochs,
 										 double MSEmin,
 										 double RMSEmin,
@@ -429,12 +440,12 @@ void MultilayerPerceptron::startTraining(TrainingSet ts,
 										 StopCondition sc)
 {
 	this->ts = ts;
-	mlpbpts = MLPBackpropagationTrainingSettings(epochs,
+	mlpbpts = new MLPBackpropagationTrainingSettings(epochs,
 												 MSEmin,
 												 RMSEmin,
 												 CEmin,
 												 learningRate,
-												 (MLPBackpropagationTrainingSettings::EfficiencyMeasure)sc);
+												 (MultilayerPerceptron::StopCondition)sc);
 
 	sa = false;
 
@@ -460,13 +471,13 @@ void MultilayerPerceptron::startTraining(const vector<MultilayerPerceptronPatter
 		targets[i] = ts[i]->getTargets();
 	}
 
-	this->ts = TrainingSet(inputs, targets);
-	mlpbpts = MLPBackpropagationTrainingSettings(epochs,
+	this->ts = new TrainingSet(inputs, targets);
+	mlpbpts = new MLPBackpropagationTrainingSettings(epochs,
 												 MSEmin,
 												 RMSEmin,
 												 CEmin,
 												 learningRate,
-												 (MLPBackpropagationTrainingSettings::EfficiencyMeasure)sc);
+													 (StopCondition)sc);
 
 	sa = false;
 	start(LowestPriority);
@@ -483,19 +494,19 @@ void MultilayerPerceptron::startTraining(const vector<vector<double> > &inputs,
 										 //										 TrainingAlgorithm ta,
 										 StopCondition sc)
 {
-	ts = TrainingSet(inputs, targets);
-	mlpbpts = MLPBackpropagationTrainingSettings(epochs,
+	ts = new TrainingSet(inputs, targets);
+	mlpbpts = new MLPBackpropagationTrainingSettings(epochs,
 												 MSEmin,
 												 RMSEmin,
 												 CEmin,
 												 learningRate,
-												 (MLPBackpropagationTrainingSettings::EfficiencyMeasure)sc);
+												 (StopCondition)sc);
 
 	sa = false;
 	start(LowestPriority);
 }
 
-MLPTrainingResult MultilayerPerceptron::getTrainingSnapshot()
+MLPTrainingResult* MultilayerPerceptron::getTrainingSnapshot()
 {
 	QReadLocker locker(&rwlock);
 	return tres;
@@ -597,12 +608,12 @@ double MultilayerPerceptron::getCE(const vector<vector<double> > &inputs, const 
 void MultilayerPerceptron::run()
 {
 	vector<vector<double> >
-			inputs = ts.getInputs(),
-			targets = ts.getTargets();
+			inputs = ts->getInputs(),
+			targets = ts->getTargets();
 
 	StopCondition
 			//BP parameters
-			sc = (StopCondition)mlpbpts.getStopParameter();
+			sc = (StopCondition)mlpbpts->getStopParameter();
 
 	double
 			//SA parameters
@@ -614,25 +625,25 @@ void MultilayerPerceptron::run()
 			Tmin = 0,
 
 			//BP parameters
-			learningRate = mlpbpts.getLearningRate(),
-			MSEmin = mlpbpts.getMinMSE(),
-			RMSEmin = mlpbpts.getMinRMSE(),
-			CEmin = mlpbpts.getMinCE();
+			learningRate = mlpbpts->getLearningRate(),
+			MSEmin = mlpbpts->getMinMSE(),
+			RMSEmin = mlpbpts->getMinRMSE(),
+			CEmin = mlpbpts->getMinCE();
 	unsigned int
 			//SA parameters
 			nChanges = 0,
 
 			//BP parameters
-			epochs = mlpbpts.getMaxEpochs();
+			epochs = mlpbpts->getMaxEpochs();
 
 	if(sa){
-		startCondition = mlpsats.getLocalMinimumCondition();
-		To = mlpsats.getTo();
-		minNoise = mlpsats.getMinNoise();
-		maxNoise = mlpsats.getMaxNoise();
-		tempDecFactor = mlpsats.getTempDecrementFactor();
-		Tmin = mlpsats.getMinTemperature();
-		nChanges = mlpsats.getChanges();
+		startCondition = mlpsats->getLocalMinimumCondition();
+		To = mlpsats->getTo();
+		minNoise = mlpsats->getMinNoise();
+		maxNoise = mlpsats->getMaxNoise();
+		tempDecFactor = mlpsats->getTempDecrementFactor();
+		Tmin = mlpsats->getMinTemperature();
+		nChanges = mlpsats->getChanges();
 	}
 
 	size_t
@@ -661,20 +672,21 @@ void MultilayerPerceptron::run()
 	double sumDeltas;
 	nOutputs = getOutputSize();
 	//	MultilayerPerceptron::TrainingResult tr;
-	tres.time = 0;
-	tres.epochs = 0;
 
-	tres.MSEHistory.clear();
-	tres.MSE = getMSE(inputs, targets);
-	tres.MSEHistory.push_back(tres.MSE);
+	tres->time = 0;
+	tres->epochs = 0;
 
-	tres.RMSEHistory.clear();
-	tres.RMSE = getRMSE(inputs, targets);
-	tres.RMSEHistory.push_back(tres.RMSE);
+	tres->MSEHistory.clear();
+	tres->MSE = getMSE(inputs, targets);
+	tres->MSEHistory.push_back(tres->MSE);
 
-	tres.CEHistory.clear();
-	tres.CE = getCE(inputs, targets);
-	tres.CEHistory.push_back(tres.CE);
+	tres->RMSEHistory.clear();
+	tres->RMSE = getRMSE(inputs, targets);
+	tres->RMSEHistory.push_back(tres->RMSE);
+
+	tres->CEHistory.clear();
+	tres->CE = getCE(inputs, targets);
+	tres->CEHistory.push_back(tres->CE);
 
 	//	tres.layerWeightsHistory.clear();
 	//	tres.layerWeightsHistory.push_back(layerWeights);
@@ -765,20 +777,20 @@ void MultilayerPerceptron::run()
 		pMSE = getMSE(inputs, targets);
 
 		if(sa){//if Simulated annealing activated
-			deltaF = pMSE - tres.MSE;
+			deltaF = pMSE - tres->MSE;
 			sumDeltaF += deltaF; // Se calcula deltaF promedio
 			c++;
 			avgDeltaF = sumDeltaF / c;
 		}
 
-		tres.MSE = pMSE;
-		tres.MSEHistory.push_back(tres.MSE);
+		tres->MSE = pMSE;
+		tres->MSEHistory.push_back(tres->MSE);
 
-		tres.RMSE = getRMSE(inputs, targets);
-		tres.RMSEHistory.push_back(tres.RMSE);
+		tres->RMSE = getRMSE(inputs, targets);
+		tres->RMSEHistory.push_back(tres->RMSE);
 
-		tres.CE = getCE(inputs, targets);
-		tres.CEHistory.push_back(tres.CE);
+		tres->CE = getCE(inputs, targets);
+		tres->CEHistory.push_back(tres->CE);
 		//		tr.layerWeightsHistory.push_back(layerWeights);
 		//		tr.outputWeightsHistory.push_back(outputWeights);
 		//		epc++;
@@ -795,7 +807,7 @@ void MultilayerPerceptron::run()
 				double fNew;
 				NewState ns;
 				//					int n = 0;
-				double fOld = tres.MSE;
+				double fOld = tres->MSE;
 				double rnd = 0;
 				do{
 					for(unsigned int i = 0; i < nChanges; i++){
@@ -821,14 +833,15 @@ void MultilayerPerceptron::run()
 			}
 		}
 
-		tres.epochs++;
-	}while(((tres.MSE >= MSEmin && sc == MSE) ||
-			(tres.RMSE >= RMSEmin && sc == RMSE) ||
-			(tres.CE >= CEmin && sc == CE)) &&
-		   tres.epochs < epochs &&
+		tres->epochs++;
+	}while(((tres->MSE >= MSEmin && sc == MSE) ||
+			(tres->RMSE >= RMSEmin && sc == RMSE) ||
+			(tres->CE >= CEmin && sc == CE)) &&
+		   tres->epochs < epochs &&
 		   training);
 	training = false;
-	tres.time = double(clock() - t_ini)/CLOCKS_PER_SEC;
+	tres->time = double(clock() - t_ini)/CLOCKS_PER_SEC;
+
 }
 
 void MultilayerPerceptron::finished()
@@ -838,12 +851,17 @@ void MultilayerPerceptron::finished()
 
 MLPBackpropagationTrainingSettings::MLPBackpropagationTrainingSettings()
 {
-	initMLPBTS(0,0,0,0,0,MeanSquareError);
+	initMLPBTS(0,0,0,0,0, MultilayerPerceptron::MSE);
 }
 
-MLPBackpropagationTrainingSettings::MLPBackpropagationTrainingSettings(unsigned int epochs, double MSEmin, double RMSEmin, double CEmin, double learningRate, EfficiencyMeasure sp)
+MLPBackpropagationTrainingSettings::MLPBackpropagationTrainingSettings(unsigned int epochs, double MSEmin, double RMSEmin, double CEmin, double learningRate, MultilayerPerceptron::StopCondition sp)
 {
 	initMLPBTS(epochs, MSEmin, RMSEmin, CEmin, learningRate, sp);
+}
+
+MLPBackpropagationTrainingSettings::MLPBackpropagationTrainingSettings(unsigned int epochs, MultilayerPerceptron::StopCondition em, double emValue, double learningRate)
+{
+	initMLPBTS(epochs, em, emValue, learningRate);
 }
 
 void MLPBackpropagationTrainingSettings::setMaxEpochs(unsigned int epochs)
@@ -896,15 +914,25 @@ double MLPBackpropagationTrainingSettings::getLearningRate() const
 	return learningRate;
 }
 
-void MLPBackpropagationTrainingSettings::setStopParameter(MLPBackpropagationTrainingSettings::EfficiencyMeasure em)
+void MLPBackpropagationTrainingSettings::setStopParameter(MultilayerPerceptron::StopCondition em)
 {
 	this->em = em;
 }
 
-MLPBackpropagationTrainingSettings::EfficiencyMeasure MLPBackpropagationTrainingSettings::getStopParameter() const
+MultilayerPerceptron::StopCondition MLPBackpropagationTrainingSettings::getStopParameter() const
 {
 	return em;
 }
+
+//void MLPBackpropagationTrainingSettings::setStopParameterValue(double value)
+//{
+//	stopParameterValue = value;
+//}
+
+//double MLPBackpropagationTrainingSettings::getStopParameterValue()
+//{
+//	return stopParameterValue;
+//}
 
 MLPBackpropagationTrainingSettings MLPBackpropagationTrainingSettings::operator=(const MLPBackpropagationTrainingSettings &mlpbp)
 {
@@ -917,7 +945,7 @@ MLPBackpropagationTrainingSettings MLPBackpropagationTrainingSettings::operator=
 	return *this;
 }
 
-void MLPBackpropagationTrainingSettings::initMLPBTS(unsigned int epochs, double MSEmin, double RMSEmin, double CEmin, double learningRate, EfficiencyMeasure em)
+void MLPBackpropagationTrainingSettings::initMLPBTS(unsigned int epochs, double MSEmin, double RMSEmin, double CEmin, double learningRate, MultilayerPerceptron::StopCondition em)
 {
 	setMaxEpochs(epochs);
 	setMinMSE(MSEmin);
@@ -925,6 +953,17 @@ void MLPBackpropagationTrainingSettings::initMLPBTS(unsigned int epochs, double 
 	setMinCE(CEmin);
 	setLearningRate(learningRate);
 	setStopParameter(em);
+}
+
+void MLPBackpropagationTrainingSettings::initMLPBTS(unsigned int epochs, MultilayerPerceptron::StopCondition em, double emValue, double learningRate)
+{
+	setMaxEpochs(epochs);
+	setStopParameter(em);
+	setMinMSE(emValue);
+	setMinRMSE(emValue);
+	setMinCE(emValue);
+//	setStopParameterValue(emValue);
+	setLearningRate(learningRate);
 }
 
 MLPSimulatedAnnealingTrainingSettings::MLPSimulatedAnnealingTrainingSettings()

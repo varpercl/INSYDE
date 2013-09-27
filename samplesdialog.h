@@ -12,7 +12,7 @@ class SamplesDialog : public QDialog
 {
 
 	public:
-		explicit SamplesDialog(MLPTrainingResult tr, QWidget *parent = 0);
+		explicit SamplesDialog(MLPTrainingResult *tr, QWidget *parent = 0);
 		~SamplesDialog();
 
 		int getSampleCount();
@@ -24,10 +24,10 @@ class SamplesDialog : public QDialog
 
 		Q_OBJECT
 
-		MLPTrainingResult tres;
+		MLPTrainingResult *tres;
 		Ui::SamplesDialog *ui;
 
-		void initDialog(MLPTrainingResult tr);
+		void initDialog(MLPTrainingResult *tr);
 };
 
 #endif // SAMPLESDIALOG_H

@@ -18,6 +18,7 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 
+#include <apuntador.h>
 #include <mapa.h>
 #include <statusanimation.h>
 #include <graphicmlpelement.h>
@@ -67,7 +68,7 @@ class Visor : public QGraphicsView
 
 		//        int updateViewPort;
 		QRect selectionRect;
-		Enviroment *map;
+		Enviroment *_map;
 		Status simulationStatus;
 		GraphicPointer *apuntador;
 		QPointF posInicialMouse;

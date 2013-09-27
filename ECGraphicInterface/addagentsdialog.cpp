@@ -1,4 +1,5 @@
 #include "addagentsdialog.h"
+#include "ui_addagentsdialog.h"
 
 AddAgentsDialog::AddAgentsDialog(QWidget *parent) :
     QDialog(parent),
@@ -12,7 +13,67 @@ AddAgentsDialog::AddAgentsDialog(QWidget *parent) :
 
 AddAgentsDialog::~AddAgentsDialog()
 {
-    delete ui;
+	delete ui;
+}
+
+int AddAgentsDialog::getMaxVitality()
+{
+	return ui->sbMaxVitality->value();
+}
+
+int AddAgentsDialog::getInitialVitality()
+{
+	return ui->sbInitialVitality->value();
+}
+
+int AddAgentsDialog::getMaxEnergy()
+{
+	return ui->sbMaxEnergy->value();
+}
+
+int AddAgentsDialog::getInitialEnergy()
+{
+	return ui->sbInitialEnergy->value();
+}
+
+int AddAgentsDialog::getSpeed()
+{
+	return ui->sbSpeed->value();
+}
+
+int AddAgentsDialog::getVisualScope()
+{
+	return ui->sbVisualScope->value();
+}
+
+int AddAgentsDialog::getNumOfUnits()
+{
+	return ui->sbNumOfUnits->value();
+}
+
+int AddAgentsDialog::getCurrentController()
+{
+	return ui->cmbController->currentIndex();
+}
+
+int AddAgentsDialog::getCurrentColor()
+{
+	return ui->cmbColorList->currentIndex();
+}
+
+int AddAgentsDialog::getCurrentAgentType()
+{
+	return ui->cmbAgentType->currentIndex();
+}
+
+int AddAgentsDialog::getPowerValue()
+{
+	return ui->sbPowerValue->value();
+}
+
+int AddAgentsDialog::getRangeValue()
+{
+	return ui->sbRangeValue->value();
 }
 
 //void AddAgentsDialog::closeEvent(QCloseEvent *event)

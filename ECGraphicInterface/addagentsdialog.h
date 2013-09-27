@@ -4,7 +4,7 @@
 #include "ECGraphicInterface_global.h"
 #include <QtCore>
 #include <QtGui>
-#include "ui_addagentsdialog.h"
+//#include "ui_addagentsdialog.h"
 
 namespace Ui {
 	class AddAgentsDialog;
@@ -17,18 +17,33 @@ namespace Ui {
 
 class ECGRAPHICINTERFACESHARED_EXPORT AddAgentsDialog : public QDialog
 {
-		Q_OBJECT
 
 	public:
-		Ui::AddAgentsDialog *ui;
 
 		explicit AddAgentsDialog(QWidget *parent = 0);
 		~AddAgentsDialog();
+
+		int getMaxVitality();
+		int getInitialVitality();
+		int getMaxEnergy();
+		int getInitialEnergy();
+		int getSpeed();
+		int getVisualScope();
+		int getNumOfUnits();
+		int getCurrentController();
+		int getCurrentColor();
+		int getCurrentAgentType();
+		int getPowerValue();
+		int getRangeValue();
 
 	protected:
 
 	private slots:
 		void on_cmbAgentType_currentIndexChanged(int index);
+
+	private:
+		Q_OBJECT
+		Ui::AddAgentsDialog *ui;
 };
 
 #endif // ADDAGENTSDIALOG_H

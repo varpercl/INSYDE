@@ -1,7 +1,10 @@
 #ifndef PERCEPTRONPAGE_H
 #define PERCEPTRONPAGE_H
 
-#include <InSyDeGui.h>
+#include <QtGui>
+
+#include <trainingsetdialog.h>
+#include <perceptrondisplay.h>
 #include <ANNFramework/simpleperceptron.h>
 
 namespace Ui{

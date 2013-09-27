@@ -2,8 +2,11 @@
 #define DOTMATRIX_H
 
 #include <QtCore>
+
+#include <dotmatrixelementpropertydialog.h>
 #include <graphicelement.h>
 #include <graphicmlpelement.h>
+
 
 class DotMatrix : public GraphicElement
 {
@@ -32,10 +35,6 @@ class DotMatrix : public GraphicElement
 		DataType getDataType();
 
 		void setInputElement(GraphicElement *ge);
-		GraphicElement* getInputElement();
-
-		void setOutputElement(GraphicElement *ge);
-		GraphicElement* getOutputElement();
 
 		int type() const;
 	signals:
@@ -45,7 +44,8 @@ class DotMatrix : public GraphicElement
 
 	protected:
 
-		void mousePressEvent(QGraphicsSceneMouseEvent *event);
+		void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+//		void mousePressEvent(QGraphicsSceneMouseEvent *event);
 		void hoverMoveEvent(QGraphicsSceneHoverEvent *event);
 		//        void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
 		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
@@ -53,6 +53,7 @@ class DotMatrix : public GraphicElement
 	protected slots:
 
 		void onPropertyClick();
+		void onOpenClick();
 
 	private:
 		Q_OBJECT
@@ -61,7 +62,6 @@ class DotMatrix : public GraphicElement
 		int curYIndex, curXIndex;
 		QVector<QPoint> ptsList;
 		int cols, rows;
-		int space;
 		int size;
 		QRectF container, mouseRect;
 

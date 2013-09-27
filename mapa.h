@@ -31,7 +31,7 @@ class Enviroment : public QGraphicsScene
 		void initMapa();
 
 	public:
-		explicit Enviroment();
+		explicit Enviroment(QObject *parent = 0);
 
 	protected:
 

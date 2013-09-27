@@ -15,6 +15,9 @@ class GraphicElement : public QGraphicsObject
 {
 	public:
 
+		/**
+		 *Tipo de elemento grafico
+		 */
 		enum {GraphicElementType = UserType + 1};
 
 		/**
@@ -56,14 +59,15 @@ class GraphicElement : public QGraphicsObject
 
 		  @param const QRectF &rect - Rectangulo con la dimension del objeto grafico
 		  */
-		void setRectangle(const QRectF &rect);
+		virtual void setRectangle(const QRectF &rect);
+		virtual void setRectangle(const QRect &rect);
 
 		/**
 		  Devuelve la dimension del objeto grafico
 
 		  @return QRectF Rectangulo que contiene la dimension del objeto grafico
 		  */
-		QRectF getRectangle();
+		virtual QRectF getRectangle() const;
 
 		/**
 		  Asigna el elemento que proporcionara el valor de entrada para este objeto
@@ -73,10 +77,24 @@ class GraphicElement : public QGraphicsObject
 		  @param GraphicElement *ge - Puntero al elemento que se le asignara
 		  */
 		virtual void setInputElement(GraphicElement *ge) = 0;
-		virtual GraphicElement* getInputElement() = 0;
 
-		virtual void setOutputElement(GraphicElement *ge) = 0;
-		virtual GraphicElement* getOutputElement() = 0;
+		/**
+		 * @brief getInputElement Obtiene el elemento que proporciona el valor de entrada.
+		 * @return
+		 */
+		virtual GraphicElement* getInputElement() const;
+
+		/**
+		 * @brief setOutputElement Conecta este elemento grafico con un elemento al cual se le asignara la salida de este.
+		 * @param ge Elemento grafico al cual sera conectado
+		 */
+		virtual void setOutputElement(GraphicElement *ge);
+
+		/**
+		 * @brief getOutputElement Obtiene el elemento al cual esta conectado.
+		 * @return
+		 */
+		virtual GraphicElement* getOutputElement() const;
 
 		/**
 		  Vease funcion @code{type()} de la clase @code{QGraphicsItem}
@@ -87,7 +105,10 @@ class GraphicElement : public QGraphicsObject
 
 	protected:
 
+		//Elemento de entrada
 		GraphicElement *inputElement;
+
+		//Elemento de salida
 		GraphicElement *outputElement;
 
 		//Funciones heredadas
@@ -110,12 +131,20 @@ class GraphicElement : public QGraphicsObject
 		  */
 		virtual void onDeleteClick();
 
+		/**
+		 * @brief onOpenClick Es llamado cuando se hace click en el elemento abrir del menu contextual
+		 */
+		virtual void onOpenClick() = 0;
+
 	private:
 
 		Q_OBJECT
 
 		//Ancho de borde del objeto
 		int border;
+
+		//Ancho del marco
+		int sep;
 
 		//Rectangulo que contiene las dimensiones de este objeto grafico
 		QRectF rectangle;

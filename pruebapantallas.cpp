@@ -64,7 +64,7 @@ void PruebaPantalla::onVisorClicked(QMouseEvent *event)
 		sce->addItem(dm);
 
 		int nPatterns = 26;
-		TrainingSet ts(letters, 35, LetterTargets, 26, nPatterns);
+		TrainingSet *ts = new TrainingSet(letters, 35, LetterTargets, 26, nPatterns);
 ////		vector<MultilayerPerceptronPattern*> patterns(nPatterns);
 //		for(int i = 0; i < nPatterns; i++){
 //			patterns[i] = new MultilayerPerceptronPattern(letters[i], 35, LetterTargets[i], 26);
@@ -94,4 +94,11 @@ void PruebaPantalla::on_pushButton_clicked()
 	MLPTrainingDialog *mlpTS = new MLPTrainingDialog(mlpe);
 
 	mlpTS->show();
+}
+
+void PruebaPantalla::on_pushButton_2_clicked()
+{
+	GraphicImageEffectElementPropertyDialog *gieepd = new GraphicImageEffectElementPropertyDialog(new GraphicImageEffectElement());
+
+	gieepd->show();
 }

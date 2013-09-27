@@ -1,7 +1,7 @@
 #include "samplesdialog.h"
 #include "ui_samplesdialog.h"
 
-SamplesDialog::SamplesDialog(MLPTrainingResult tr, QWidget *parent) :
+SamplesDialog::SamplesDialog(MLPTrainingResult *tr, QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::SamplesDialog)
 {
@@ -16,20 +16,20 @@ SamplesDialog::~SamplesDialog()
 int SamplesDialog::getSampleCount()
 {
 	if(ui->cbAllSamples->checkState() == Qt::Checked){
-		return tres.MSEHistory.size();
+		return tres->MSEHistory.size();
 	}else{
 		return ui->sbNSamples->value();
 	}
 }
 
-void SamplesDialog::initDialog(MLPTrainingResult tr)
+void SamplesDialog::initDialog(MLPTrainingResult *tr)
 {
 	ui->setupUi(this);
 
 	tres = tr;
 	ui->sbNSamples->setMinimum(0);
-	ui->sbNSamples->setMaximum(tr.MSEHistory.size());
-	ui->sbNSamples->setValue(tr.MSEHistory.size());
+	ui->sbNSamples->setMaximum(tr->MSEHistory.size());
+	ui->sbNSamples->setValue(tr->MSEHistory.size());
 	ui->cbAllSamples->setChecked(true);
 }
 

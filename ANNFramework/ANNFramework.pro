@@ -13,9 +13,27 @@ TEMPLATE = lib
 
 DEFINES += ANNFRAMEWORK_LIBRARY
 
-debug{EXTRA = bindebug}
-release{EXTRA = binrelease}
-DESTDIR = ../$$EXTRA
+#debug:EXTRA = debug
+#release:EXTRA = release
+#DESTDIR = ../$$EXTRA
+#OBJECTS_DIR = $$EXTRA/obj
+#MOC_DIR = $$EXTRA/moc
+#RCC_DIR = $$EXTRA/rcc
+#UI_DIR = $$EXTRA/ui
+
+#debug:EXTRA = debug
+#release:EXTRA = release
+
+debug:DESTDIR = "../debug"
+release:DESTDIR = "../release"
+debug:OBJECTS_DIR = "debug/obj"
+release:OBJECTS_DIR = "release/obj"
+debug:MOC_DIR = "debug/moc"
+release:MOC_DIR = "release/moc"
+debug:RCC_DIR = "debug/rcc"
+release:RCC_DIR = "release/rcc"
+debug:UI_DIR = "debug/ui"
+release:UI_DIR = "release/ui"
 
 INCLUDEPATH += .
 

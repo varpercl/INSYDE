@@ -4,7 +4,7 @@ DotMatrix::DotMatrix(int dotSize, int rows, int cols, DataType dt)
 {
 	initDM(dotSize, rows, cols, dt);
 
-	GraphicElement::setRectangle(container.adjusted(-space, -space, space, space));
+	GraphicElement::setRectangle(container);
 }
 
 void DotMatrix::setDotMatrix(const QVector<QVector<int> > &matrix)
@@ -145,40 +145,25 @@ void DotMatrix::setInputElement(GraphicElement *ge)
 	inputElement = ge;
 }
 
-GraphicElement *DotMatrix::getInputElement()
-{
-	return inputElement;
-}
-
-void DotMatrix::setOutputElement(GraphicElement *ge)
-{
-	outputElement = ge;
-}
-
-GraphicElement *DotMatrix::getOutputElement()
-{
-	return outputElement;
-}
-
-void DotMatrix::mousePressEvent(QGraphicsSceneMouseEvent *event)
-{
-	GraphicElement::mousePressEvent(event);
-	QPoint toPush = QPoint(curXIndex, curYIndex);
-	if(curXIndex >= 0 && curYIndex >= 0 &&
-	   mouseRect.x() != -1 &&
-	   mouseRect.y() != -1){
-		if(ptsList.contains(toPush)){
-			ptsList.remove(ptsList.indexOf(QPoint(curXIndex, curYIndex)));
-		}else{
-			ptsList.push_back(QPoint(curXIndex, curYIndex));
-		}
-		QVector<int> list = getDotList();
-		emit statusChanged(list);
-		QVector<QVector<int> > matrix = getDotMatrix();
-		emit statusChanged(matrix);
-		update();
-	}
-}
+//void DotMatrix::mousePressEvent(QGraphicsSceneMouseEvent *event)
+//{
+//	GraphicElement::mousePressEvent(event);
+//	QPoint toPush = QPoint(curXIndex, curYIndex);
+//	if(curXIndex >= 0 && curYIndex >= 0 &&
+//	   mouseRect.x() != -1 &&
+//	   mouseRect.y() != -1){
+//		if(ptsList.contains(toPush)){
+//			ptsList.remove(ptsList.indexOf(QPoint(curXIndex, curYIndex)));
+//		}else{
+//			ptsList.push_back(QPoint(curXIndex, curYIndex));
+//		}
+//		QVector<int> list = getDotList();
+//		emit statusChanged(list);
+//		QVector<QVector<int> > matrix = getDotMatrix();
+//		emit statusChanged(matrix);
+//		update();
+//	}
+//}
 
 void DotMatrix::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
 {
@@ -237,12 +222,18 @@ void DotMatrix::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 
 void DotMatrix::onPropertyClick()
 {
+	DotMatrixElementPropertyDialog *dmepd = new DotMatrixElementPropertyDialog();
+
+	dmepd->show();
+}
+
+void DotMatrix::onOpenClick()
+{
 }
 
 void DotMatrix::initDM(int dotSize, int rows, int cols, DataType dt)
 {
 	size = dotSize;
-	space = 5;
 	this->cols = cols;
 	this->rows = rows;
 	container = QRectF(0, 0, cols * dotSize, rows * dotSize);
@@ -255,3 +246,23 @@ void DotMatrix::onMLPOutputChanged(QVector<double> inputs)
 	setDotList(QVector<double>::fromStdVector(mlp->getOutput(inputs.toStdVector())));
 }
 
+
+void DotMatrix::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+	GraphicElement::mouseReleaseEvent(event);
+	QPoint toPush = QPoint(curXIndex, curYIndex);
+	if(curXIndex >= 0 && curYIndex >= 0 &&
+	   mouseRect.x() != -1 &&
+	   mouseRect.y() != -1){
+		if(ptsList.contains(toPush)){
+			ptsList.remove(ptsList.indexOf(QPoint(curXIndex, curYIndex)));
+		}else{
+			ptsList.push_back(QPoint(curXIndex, curYIndex));
+		}
+		QVector<int> list = getDotList();
+		emit statusChanged(list);
+		QVector<QVector<int> > matrix = getDotMatrix();
+		emit statusChanged(matrix);
+		update();
+	}
+}

@@ -1,9 +1,12 @@
 #include "visor.h"
 
-Visor::Visor(QWidget *parent) : QGraphicsView(parent), apuntador(NULL){
+Visor::Visor(QWidget *parent) :
+	QGraphicsView(parent),
+	apuntador(NULL)
+{
 	//    simulationStatus = true;
-	map = new Enviroment();
-	setScene(map);
+	_map = new Enviroment(this);
+	setScene(_map);
 	setSimulationStatus(Stopped);
 	//    setFrameStyle(0);
 
@@ -253,17 +256,27 @@ int rectArea(QRect rect){
 	return rect.width() * rect.height();
 }
 
+/**
+ * @brief Visor::contextualMenu Este evento es llamado cuando se solicita el menu contextual
+ * @param p
+ */
 void Visor::contextualMenu(QPoint p){
 	QMenu *cntxMenu;
 
+	//Determina si se hace click sobre un unico elemento y se obtiene su
+	//determinado menu contextual
+	//Se debe hacer llamadas independientes a delete y a exec dado que
+	//se necesita asegurar que el apuntador tenga una direccion valida parapoder eliminar el mismo
 	QList<QGraphicsItem*> listItems = items(p);
 	if(areDifferentTypes(listItems)){
 		cntxMenu = new QMenu();
 		cntxMenu->addAction("Borrar", this, SLOT(deleteSelected()));
 		cntxMenu->exec(mapToGlobal(p));
+		delete cntxMenu;
 	}else if(!listItems.empty()){
 		cntxMenu = dynamic_cast<GraphicElement*>(itemAt(p))->getContextMenu(new QMenu());
 		cntxMenu->exec(mapToGlobal(p));
+		delete cntxMenu;
 	}
 }
 
@@ -289,7 +302,7 @@ void Visor::showPointer(double angle){
 	if(apuntador == NULL){
 		apuntador = new GraphicPointer();
 		apuntador->setVisible(false);
-		map->addItem(apuntador);
+		_map->addItem(apuntador);
 	}
 	apuntador->setPos(posInicialMouse);
 	apuntador->setRotation(angle);

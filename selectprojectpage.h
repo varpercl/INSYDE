@@ -1,7 +1,6 @@
 #ifndef SELECTPROJECTPAGE_H
 #define SELECTPROJECTPAGE_H
 
-//#include <InSyDeGui.h>
 #include <QWizardPage>
 #include <QTreeWidgetItem>
 

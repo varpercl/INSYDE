@@ -26,6 +26,49 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Zoom</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="horizontalSlider">
+            <property name="maximumSize">
+             <size>
+              <width>120</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="minimum">
+             <number>10</number>
+            </property>
+            <property name="maximum">
+             <number>1000</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
          <layout class="QVBoxLayout" name="mainSystemLayout"/>
         </item>
        </layout>
@@ -223,15 +266,15 @@
         <enum>QFrame::Plain</enum>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
-       <widget class="QWidget" name="page">
+       <widget class="QWidget" name="gen">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>135</width>
-          <height>108</height>
+          <width>145</width>
+          <height>288</height>
          </rect>
         </property>
         <attribute name="label">
@@ -239,13 +282,13 @@
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
-          <widget class="QToolButton" name="btnAddMatrix">
+          <widget class="QToolButton" name="btnAddDotMatrix">
            <property name="text">
             <string>Matriz de puntos</string>
            </property>
            <property name="icon">
             <iconset resource="imagenes.qrc">
-             <normaloff>:/imagenes/matriz.png</normaloff>:/imagenes/matriz.png</iconset>
+             <normaloff>:/imagenes/puntos.jpg</normaloff>:/imagenes/puntos.jpg</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -258,6 +301,9 @@
            </property>
            <property name="autoExclusive">
             <bool>false</bool>
+           </property>
+           <property name="popupMode">
+            <enum>QToolButton::DelayedPopup</enum>
            </property>
            <property name="toolButtonStyle">
             <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -297,6 +343,35 @@
           </widget>
          </item>
          <item>
+          <widget class="QToolButton" name="btnEffect">
+           <property name="text">
+            <string>Efecto</string>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/imagenes/add_effect_icon.jpg</normaloff>:/imagenes/add_effect_icon.jpg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonTextBesideIcon</enum>
+           </property>
+           <property name="autoRaise">
+            <bool>true</bool>
+           </property>
+           <property name="arrowType">
+            <enum>Qt::NoArrow</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QToolButton" name="btnAddRegion">
            <property name="text">
             <string>Regiones</string>
@@ -327,13 +402,13 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="page_3">
+       <widget class="QWidget" name="nnw">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
           <width>156</width>
-          <height>140</height>
+          <height>271</height>
          </rect>
         </property>
         <attribute name="label">
@@ -356,7 +431,7 @@
             </size>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
            <property name="autoExclusive">
             <bool>false</bool>
@@ -428,7 +503,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QToolButton" name="btnAddMultilayerPerceptron">
+          <widget class="QToolButton" name="btnAddMLP">
            <property name="text">
             <string>Perceptron multicapa</string>
            </property>
@@ -458,7 +533,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="page_4">
+       <widget class="QWidget" name="mas">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -487,7 +562,7 @@
             </size>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
            <property name="autoRepeat">
             <bool>false</bool>

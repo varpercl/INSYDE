@@ -28,5 +28,9 @@
         <file>imagenes/matriz.png</file>
         <file>imagenes/manzana-verde-thumb7707762.jpg</file>
         <file>imagenes/conjuntos.gif</file>
+        <file>imagenes/puntos.jpg</file>
+        <file>imagenes/Zoom in.png</file>
+        <file>imagenes/Zoom out.png</file>
+        <file>imagenes/add_effect_icon.jpg</file>
     </qresource>
 </RCC>

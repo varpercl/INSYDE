@@ -12,7 +12,7 @@ void Enviroment::initMapa(){
 
 }
 
-Enviroment::Enviroment() : QGraphicsScene()
+Enviroment::Enviroment(QObject *parent) : QGraphicsScene(parent)
 {
     initMapa();
 }

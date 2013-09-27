@@ -40,10 +40,6 @@ class BinaryOutputElement : public GraphicElement
 		void setThreshold(double threshold);
 
 		void setInputElement(GraphicElement *ge);
-		GraphicElement* getInputElement();
-
-		void setOutputElement(GraphicElement *ge);
-		GraphicElement* getOutputElement();
 
 		/**
 		  Vease funcion @code{type()} de la clase @code{QGraphicsItem}
@@ -60,6 +56,7 @@ class BinaryOutputElement : public GraphicElement
 
 		void onInputChanged(QVector<double> input);
 		void onPropertyClick();
+		void onOpenClick();
 
 	private:
 		Q_OBJECT

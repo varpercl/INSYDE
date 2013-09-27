@@ -1,14 +1,18 @@
 #ifndef PRUEBAPANTALLAS_H
 #define PRUEBAPANTALLAS_H
 
-#include <InSyDeGui.h>
+#include <graphicimageeffectelementpropertydialog.h>
+#include <mlptrainingdialog.h>
+#include <binaryoutputelement.h>
+#include <dotmatrix.h>
+#include <graphicmlpelement.h>
 #include <mainwindow.h>
 
 namespace Ui {
 class PruebaPantalla;
 }
-class DotMatrix;
-class GraphicMLPElement;
+//class DotMatrix;
+//class GraphicMLPElement;
 //class MainWindow;
 
 class PruebaPantalla : public QWidget
@@ -30,6 +34,8 @@ class PruebaPantalla : public QWidget
 		void onVisorClicked(QMouseEvent *event);
 
 		void on_pushButton_clicked();
+
+		void on_pushButton_2_clicked();
 
 	private:
 		Q_OBJECT

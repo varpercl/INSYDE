@@ -20,6 +20,7 @@ MLPTrainingDialog::~MLPTrainingDialog()
 {
 	delete ui;
 	delete tsMLP;
+	delete tres;
 }
 
 void MLPTrainingDialog::closeEvent(QCloseEvent *)
@@ -27,20 +28,22 @@ void MLPTrainingDialog::closeEvent(QCloseEvent *)
 	mlp->stopTraining();
 }
 
-void MLPTrainingDialog::trainingFinished(MLPTrainingResult tres)
+void MLPTrainingDialog::trainingFinished(MLPTrainingResult *tres)
 {
 	ui->btnTrain->setText("Entrenar");
 	timer.stop();
 	updateStatusLabels();
 	isTraining = false;
-	if(tres.epochs > 0){
+	if(tres->epochs > 0){
 		saveFile->setEnabled(true);
 	}
+	setBPEnabledControls(true);
+	setSAEnabledControls(true);
 	activateWindow();
 	raise();
 }
 
-void MLPTrainingDialog::multipleTrainingResult(MLPTrainingResult tres)
+void MLPTrainingDialog::multipleTrainingResult(MLPTrainingResult *tres)
 {
 	QString wnefp = multipleReportPath;
 	wnefp.truncate(multipleReportPath.lastIndexOf('.'));
@@ -51,7 +54,7 @@ void MLPTrainingDialog::multipleTrainingResult(MLPTrainingResult tres)
 	while(QFile::exists(wnefp + QString::number(fileIndex) + ext)){
 		fileIndex++;
 	}
-	createFile(wnefp + QString::number(fileIndex) + ext, tres, tres.MSEHistory.size());
+	createFile(wnefp + QString::number(fileIndex) + ext, tres, tres->MSEHistory.size());
 }
 
 void MLPTrainingDialog::on_btnEditTrainingSet_clicked()
@@ -106,7 +109,8 @@ void MLPTrainingDialog::on_cbTrasnferFunction_currentIndexChanged(int index)
 void MLPTrainingDialog::initDialog(GraphicMLPElement *gmlp)
 {
 	ui->setupUi(this);
-
+//	tsMLP = new TrainingSetDialog(gmlp->getTrainingSet(), this);
+	tres = new MLPTrainingResult;
 	//Instalacion de un menu principal
 	QMenu *file = new QMenu(tr("Archivo"));
 	saveFile = file->addAction("Exportar datos...", this, SLOT(exportData())),
@@ -120,7 +124,7 @@ void MLPTrainingDialog::initDialog(GraphicMLPElement *gmlp)
 	layout()->setMenuBar(menuBar);
 
 
-	tres.epochs = 0;
+	tres->epochs = 0;
 	ta = MultilayerPerceptron::Backpropagation;
 	this->gmlp = gmlp;
 	mlp = gmlp->getMultilayerPerceptron();
@@ -136,6 +140,8 @@ void MLPTrainingDialog::initDialog(GraphicMLPElement *gmlp)
 	ui->tblLayers->setHorizontalHeaderLabels(headers);
 
 	//	ui->tblLayers->setRowCount(ui->tblLayers->rowCount() + 1);
+
+	//Inicializa la tabla de las capas
 	for(size_t i = 0; i < mlp->getLayerSizes().size(); i++){
 		ui->tblLayers->setRowCount(ui->tblLayers->rowCount() + 1);
 		QTableWidgetItem *layerNumberCell = new QTableWidgetItem(QString::number(i+1));
@@ -156,7 +162,7 @@ void MLPTrainingDialog::initDialog(GraphicMLPElement *gmlp)
 	on_chkSA_toggled(false);
 
 	connect(&timer, SIGNAL(timeout()), SLOT(updateStatusLabels()));
-	connect(mlp, SIGNAL(trainingFinished(MLPTrainingResult)), SLOT(trainingFinished(MLPTrainingResult)));
+	connect(mlp, SIGNAL(trainingFinished(MLPTrainingResult*)), SLOT(trainingFinished(MLPTrainingResult*)));
 	connect(ui->tblLayers, SIGNAL(cellChanged(int,int)), SLOT(onTblLayersCellChanged(int,int)));
 }
 
@@ -176,27 +182,27 @@ void MLPTrainingDialog::on_btnTrain_clicked()
 		disableAllControls();
 
 		ui->btnTrain->setText("Detener");
-		TrainingSet ts = gmlp->getTrainingSet();
+		TrainingSet *ts = gmlp->getTrainingSet();
 		//		mlptt->setTrainingSettings(ts,
 		//								   ui->sbEpochs->value(),
 		//								   ui->sbMinError->value(),
 		//								   ui->sbLearningRate->value(),
 		//								   ta);
 
-		MLPBackpropagationTrainingSettings bp(ui->sbEpochs->value(),
-											  ui->sbMinError->value(),
-											  ui->sbMinRMSError->value(),
-											  ui->sbMinErrorClasification->value(),
-											  ui->sbLearningRate->value(),
-											  (MLPBackpropagationTrainingSettings::EfficiencyMeasure)ui->cbStopCondition->currentIndex());
+		MLPBackpropagationTrainingSettings *bp = new MLPBackpropagationTrainingSettings(
+													ui->sbEpochs->value(),
+													(MultilayerPerceptron::StopCondition)ui->cbStopCondition->currentIndex(),
+													ui->sbEMValue->value(),
+													ui->sbLearningRate->value());
 
-		MLPSimulatedAnnealingTrainingSettings sa(ui->sbMinTemperature->value(),
-												 ui->sbNChanges->value(),
-												 ui->sbStartCondition->value(),
-												 ui->sbTo->value(),
-												 ui->sbMinNoise->value(),
-												 ui->sbMaxNoise->value(),
-												 ui->sbDecFactor->value());
+		MLPSimulatedAnnealingTrainingSettings *sa = new MLPSimulatedAnnealingTrainingSettings(
+													   ui->sbMinTemperature->value(),
+													   ui->sbNChanges->value(),
+													   ui->sbStartCondition->value(),
+													   ui->sbTo->value(),
+													   ui->sbMinNoise->value(),
+													   ui->sbMaxNoise->value(),
+													   ui->sbDecFactor->value());
 		//Si esta habilitado Simulated Annealing
 		if(ui->chkSA->isChecked()){
 			mlp->startTraining(ts, bp, sa);
@@ -204,7 +210,7 @@ void MLPTrainingDialog::on_btnTrain_clicked()
 			mlp->startTraining(ts, bp);
 		}
 
-		timer.start(10000);
+		timer.start(500);
 		t.start();
 	}
 	isTraining = !isTraining;
@@ -224,9 +230,9 @@ void MLPTrainingDialog::on_btnRandomize_clicked()
 
 void MLPTrainingDialog::updateStatusLabels(){
 	tres = mlp->getTrainingSnapshot();
-	ui->lblEpochs->setText(QString::number(tres.epochs, 'e', 6));
-	ui->lblMinError->setText(QString::number(tres.MSE));
-	ui->lblRMSE->setText(QString::number(tres.RMSE));
+	ui->lblEpochs->setText(QString::number(tres->epochs));
+	ui->lblMinError->setText(QString::number(tres->MSE));
+	ui->lblRMSE->setText(QString::number(tres->RMSE));
 	ui->lblTime->setText(QTime(0,0,0).addMSecs(t.elapsed()).toString("hh:mm:ss.zzz"));
 }
 
@@ -237,7 +243,7 @@ void MLPTrainingDialog::onTblLayersCellChanged(int row, int column)
 	mlp->setLayerSizes(ls);
 }
 
-void MLPTrainingDialog::createFile(QString path, MLPTrainingResult tr, int nsamples){
+void MLPTrainingDialog::createFile(QString path, MLPTrainingResult *tr, int nsamples){
 	QFile *f = new QFile(path);
 	if (f->open(QFile::ReadWrite)) { // file opened successfully
 		f->write("", qstrlen(""));
@@ -245,9 +251,9 @@ void MLPTrainingDialog::createFile(QString path, MLPTrainingResult tr, int nsamp
 		QString s("");
 		const QString sep = "\t";
 		//		int sWeights;
-		int inc = tr.epochs / nsamples < 1 ? 1 : tr.epochs / nsamples;
-		for(unsigned int i = 0; i <= tr.epochs; i += inc){
-			s += QString::number(i) + sep + QString::number(tr.MSEHistory[i]) + "\n\r";
+		int inc = tr->epochs / nsamples < 1 ? 1 : tr->epochs / nsamples;
+		for(unsigned int i = 0; i <= tr->epochs; i += inc){
+			s += QString::number(i) + sep + QString::number(tr->MSEHistory[i]) + "\n\r";
 		}
 		t << s;
 		f->close();
@@ -299,10 +305,10 @@ void MLPTrainingDialog::disableAllControls()
 	ui->sbEpochs->setEnabled(false);
 	ui->sbLearningRate->setEnabled(false);
 	ui->sbMaxNoise->setEnabled(false);
-	ui->sbMinError->setEnabled(false);
-	ui->sbMinErrorClasification->setEnabled(false);
+	ui->sbEMValue->setEnabled(false);
+//	ui->sbMinErrorClasification->setEnabled(false);
 	ui->sbMinNoise->setEnabled(false);
-	ui->sbMinRMSError->setEnabled(false);
+//	ui->sbMinRMSError->setEnabled(false);
 	ui->sbMinTemperature->setEnabled(false);
 	ui->sbNChanges->setEnabled(false);
 	ui->sbRndFrom->setEnabled(false);
@@ -344,9 +350,9 @@ void MLPTrainingDialog::setBPEnabledControls(bool enabled)
 	if(enabled){
 		on_cbStopCondition_currentIndexChanged(ui->cbStopCondition->currentIndex());
 	}else{
-		ui->sbMinError->setEnabled(enabled);
-		ui->sbMinErrorClasification->setEnabled(enabled);
-		ui->sbMinRMSError->setEnabled(enabled);
+		ui->sbEMValue->setEnabled(enabled);
+//		ui->sbMinErrorClasification->setEnabled(enabled);
+//		ui->sbMinRMSError->setEnabled(enabled);
 	}
 	ui->sbRndFrom->setEnabled(enabled);
 	ui->sbRndTo->setEnabled(enabled);
@@ -356,7 +362,7 @@ void MLPTrainingDialog::setBPEnabledControls(bool enabled)
 
 void MLPTrainingDialog::exportData()
 {
-	if(tres.epochs > 1){
+	if(tres->epochs > 1){
 		QString path = QFileDialog::getSaveFileName(
 						   this,
 						   "Ruta del archivo",
@@ -437,16 +443,16 @@ void MLPTrainingDialog::on_btnMultipleTraining_clicked()
 	fileIndex = 0;
 	if(ok){
 		QVector<MultilayerPerceptron*> arr(nSamples);
-		TrainingSet ts = gmlp->getTrainingSet();
+		TrainingSet *ts = gmlp->getTrainingSet();
 
-		MLPBackpropagationTrainingSettings bp(ui->sbEpochs->value(),
-											  ui->sbMinError->value(),
-											  ui->sbMinRMSError->value(),
-											  ui->sbMinErrorClasification->value(),
-											  ui->sbLearningRate->value(),
-											  (MLPBackpropagationTrainingSettings::EfficiencyMeasure)ui->cbStopCondition->currentIndex());
+		MLPBackpropagationTrainingSettings *bp = new MLPBackpropagationTrainingSettings(ui->sbEpochs->value(),
+											  (MultilayerPerceptron::StopCondition)ui->cbStopCondition->currentIndex(),
+											  ui->sbEMValue->value(),
+//											  ui->sbMinRMSError->value(),
+//											  ui->sbMinErrorClasification->value(),
+											  ui->sbLearningRate->value());
 
-		MLPSimulatedAnnealingTrainingSettings sa(ui->sbMinTemperature->value(),
+		MLPSimulatedAnnealingTrainingSettings *sa = new MLPSimulatedAnnealingTrainingSettings(ui->sbMinTemperature->value(),
 												 ui->sbNChanges->value(),
 												 ui->sbStartCondition->value(),
 												 ui->sbTo->value(),
@@ -475,23 +481,21 @@ void MLPTrainingDialog::on_btnMultipleTraining_clicked()
 
 void MLPTrainingDialog::on_cbStopCondition_currentIndexChanged(int index)
 {
+	ui->sbEMValue->setEnabled(true);
 	switch(index){
 		case 0:
-			ui->sbMinError->setEnabled(true);
-			ui->sbMinRMSError->setEnabled(false);
-			ui->sbMinErrorClasification->setEnabled(false);
+//			ui->sbMinRMSError->setEnabled(false);
+//			ui->sbMinErrorClasification->setEnabled(false);
 			ui->sbThreshold->setEnabled(false);
 			break;
 		case 1:
-			ui->sbMinError->setEnabled(false);
-			ui->sbMinRMSError->setEnabled(true);
-			ui->sbMinErrorClasification->setEnabled(false);
+//			ui->sbMinRMSError->setEnabled(true);
+//			ui->sbMinErrorClasification->setEnabled(false);
 			ui->sbThreshold->setEnabled(false);
 			break;
 		case 2:
-			ui->sbMinError->setEnabled(false);
-			ui->sbMinRMSError->setEnabled(false);
-			ui->sbMinErrorClasification->setEnabled(true);
+//			ui->sbMinRMSError->setEnabled(false);
+//			ui->sbMinErrorClasification->setEnabled(true);
 			ui->sbThreshold->setEnabled(true);
 	}
 }

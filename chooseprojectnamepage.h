@@ -1,7 +1,7 @@
 #ifndef CHOOSEPROJECTNAMEPAGE_H
 #define CHOOSEPROJECTNAMEPAGE_H
 
-#include <InSyDeGui.h>
+#include <QtGui>
 
 namespace Ui {
     class ChooseProjectNamePage;

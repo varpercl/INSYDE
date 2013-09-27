@@ -7,7 +7,7 @@
 #include <mainwindow.h>
 #include <pruebapantallas.h>
 
-#define BOOT_MAN
+//#define BOOT_MAN
 
 int main(int argc, char *argv[])
 {

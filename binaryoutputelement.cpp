@@ -109,6 +109,10 @@ void BinaryOutputElement::onPropertyClick()
 
 }
 
+void BinaryOutputElement::onOpenClick()
+{
+}
+
 void BinaryOutputElement::initBOR(int inputs, Align a, double threshold, ThresholdType tt)
 {
 	intRect = boundingRect().adjusted(5, 5, -5, -5);
@@ -151,21 +155,6 @@ void BinaryOutputElement::setInputElement(GraphicElement *ge)
 			break;
 	}
 	inputElement = ge;
-}
-
-GraphicElement *BinaryOutputElement::getInputElement()
-{
-	return inputElement;
-}
-
-void BinaryOutputElement::setOutputElement(GraphicElement *ge)
-{
-	outputElement = ge;
-}
-
-GraphicElement *BinaryOutputElement::getOutputElement()
-{
-	return outputElement;
 }
 
 int BinaryOutputElement::type() const

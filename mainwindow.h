@@ -7,15 +7,16 @@
 #include <QGLWidget>
 #endif
 
-//#include <InSyDeGui.h>
-#include <QMainWindow>
-#include <QMessageBox>
+#include <graphicimageeffectelement.h>
+#include <graphicimageelement.h>
+#include <addnewmlpdialog.h>
+#include <adddotmatrixdialog.h>
+#include <visor.h>
+#include <statusanimation.h>
+#include <addagentsdialog.h>
+#include <newprojectwizard.h>
 #include <math.h>
 
-#include <newprojectwizard.h>
-#include <ECGraphicInterface/addagentsdialog.h>
-#include <statusanimation.h>
-#include <visor.h>
 
 namespace Ui {
 	class MainWindow;
@@ -25,12 +26,6 @@ enum Render{
 	OpenGL,
 	Nativo
 };
-
-//class ACO;
-//class NewProjectWizard;
-//class AddAgentsDialog;
-//class StatusAnimationControl;
-//class Visor;
 
 /**
   @class MainWindow
@@ -43,7 +38,15 @@ enum Render{
 
 class MainWindow : public QMainWindow
 {
+	private:
 		Q_OBJECT
+
+		//Usada temporalmente
+		GraphicImageEffectElement *giee;
+
+		GraphicElement *tmpInputElement;
+
+		QList<QToolButton*> toolList;
 
 		//Dialogo para algoritmos ACO
 //		ACO *acoDialog;
@@ -98,6 +101,20 @@ class MainWindow : public QMainWindow
 
 		  */
 		void updateChildItems(QTreeWidgetItem *parent);
+
+
+		/**
+		 * @brief uncheckAllBut Deselecciona todas las herramientas menos @code{control}
+		 * @param control
+		 */
+		void uncheckAllBut(QToolButton *control);
+
+		/**
+		 * @brief uncheckAllTools Desactiva todas las herramientas.
+		 */
+		void uncheckAllTools();
+
+		void setEnabledAllTools(bool en);
 
 	public:
 		Ui::MainWindow *ui;
@@ -175,8 +192,8 @@ class MainWindow : public QMainWindow
 		  */
 		void updateWindowStatus();
 
-//        void edicionItemAgente(QTreeWidgetItem *current, QTreeWidgetItem *past);
 	private slots:
+		void onCloseTab(int index);
 
 		/**
 		  Evento llamado cuando se hace click sobre el visor
@@ -194,8 +211,17 @@ class MainWindow : public QMainWindow
 		  Este evento se dispara cada vez que se quiere crear un nuevo proyecto.
 		  */
 		void onNewProyectTriggered(bool val);
-//		void on_pushButton_2_clicked();
 		void on_mainToolBox_currentChanged(int index);
+		void on_btnAddDotMatrix_clicked(bool checked);
+		void on_btnAddImage_clicked(bool checked);
+		void on_btnAddRegion_clicked(bool checked);
+		void on_btnAddADALINE_clicked(bool checked);
+		void on_btnAddHopfield_clicked(bool checked);
+		void on_btnAddMLP_clicked(bool checked);
+		void on_btnAddPerceptron_clicked(bool checked);
+		void on_btnAddAgent_clicked(bool checked);
+		void on_btnEffect_clicked(bool checked);
+		void on_horizontalSlider_valueChanged(int value);
 };
 
 #endif // MAINWINDOW_H
