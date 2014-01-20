@@ -105,6 +105,13 @@
      </property>
     </widget>
    </item>
+   <item row="7" column="0">
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="text">
+      <string>SelectImageSegment</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>

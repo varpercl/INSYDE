@@ -1,17 +1,17 @@
 //#undef __STRICT_ANSI__
-#if _MSC_VER == 1600
+#if _MSC_VER == 1600 || __GNUC__
 	#include <QApplication>
 #else
-	#include <QtGui/QApplication>
+    #include <QtGui/QApplication>
 #endif
-#include <mainwindow.h>
-#include <pruebapantallas.h>
+#include "mainwindow.h"
+#include "pruebapantallas.h"
 
-//#define BOOT_MAN
+#define BOOT_MAN
 
 int main(int argc, char *argv[])
 {
-	Q_INIT_RESOURCE(imagenes);
+//	Q_INIT_RESOURCE(imagenes);
 //    QApplication::setGraphicsSystem("raster");
 	QApplication a(argc, argv);
 #ifndef BOOT_MAN

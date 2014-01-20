@@ -1,6 +1,5 @@
 #include "pruebapantallas.h"
 #include "ui_prueba_pantallas.h"
-#include <letterdeclarations.h>
 
 PruebaPantalla::PruebaPantalla(QWidget *parent) :
 	QWidget(parent),
@@ -38,9 +37,13 @@ void PruebaPantalla::on_perceptronButton_clicked()
 
 void PruebaPantalla::on_trainingSetButton_clicked()
 {
-	//    TrainingSetDialog<PerceptronTrainingPattern*> *tsd = new TrainingSetDialog<PerceptronTrainingPattern*>(5);
-	////    tsd->getPat
-	//    tsd->show();
+//	TrainingSetDialog *tsd = new TrainingSetDialog(10, 10);
+//	tsd->exec();
+
+	TrainingSetDialog *tsd1 = new TrainingSetDialog(new TrainingSet(26, 36));
+	tsd1->exec();
+
+//	TrainingSetDialog *tsd2 = new TrainingSetDialog()
 }
 
 void PruebaPantalla::on_systemButton_clicked()
@@ -56,35 +59,37 @@ void PruebaPantalla::on_systemButton_clicked()
 
 void PruebaPantalla::onVisorClicked(QMouseEvent *event)
 {
-	static int geCounter = 0;
-	if(geCounter == 0){
-		DotMatrix *dm = new DotMatrix(5, 7, 5, DotMatrix::Unipolar);
-		QGraphicsScene *sce = visor->scene();
-		dm->setPos(visor->mapToScene(event->pos()));
-		sce->addItem(dm);
 
-		int nPatterns = 26;
-		TrainingSet *ts = new TrainingSet(letters, 35, LetterTargets, 26, nPatterns);
-////		vector<MultilayerPerceptronPattern*> patterns(nPatterns);
-//		for(int i = 0; i < nPatterns; i++){
-//			patterns[i] = new MultilayerPerceptronPattern(letters[i], 35, LetterTargets[i], 26);
-//		}
-		vector<int> lsizes;
-		lsizes.push_back(20);
-//		lsizes.push_back(3);
+	(void)event;
+	//	static int geCounter = 0;
+	//	if(geCounter == 0){
+	//		DotMatrix *dm = new DotMatrix(5, 7, 5, DotMatrix::Unipolar);
+	//		QGraphicsScene *sce = visor->scene();
+	//		dm->setPos(visor->mapToScene(event->pos()));
+	//		sce->addItem(dm);
 
-		mlpe = new GraphicMLPElement(new MultilayerPerceptron(35, 26, lsizes, MultilayerPerceptron::Sigmoid));
-		mlpe->setPos(visor->mapToScene(event->pos() + QPoint(100, 0)));
-		mlpe->setTrainingSet(ts);
-		mlpe->setInputElement(dm);
-		sce->addItem(mlpe);
+	//		int nPatterns = 26;
+	//		TrainingSet *ts = new TrainingSet(letters, 35, LetterTargets, 26, nPatterns);
+	//////		vector<MultilayerPerceptronPattern*> patterns(nPatterns);
+	////		for(int i = 0; i < nPatterns; i++){
+	////			patterns[i] = new MultilayerPerceptronPattern(letters[i], 35, LetterTargets[i], 26);
+	////		}
+	//		vector<int> lsizes;
+	//		lsizes.push_back(20);
+	////		lsizes.push_back(3);
 
-		BinaryOutputElement *bor = new BinaryOutputElement(26, BinaryOutputElement::Vertical, 0.5, BinaryOutputElement::GREATER_EQUAL_THAN);
-		bor->setPos(visor->mapToScene(event->pos() + QPoint(300, 0)));
-		bor->setInputElement(mlpe);
-		sce->addItem(bor);
-		geCounter++;
-	}
+	//		mlpe = new GraphicMLPElement(new MultilayerPerceptron(35, 26, lsizes, MultilayerPerceptron::Sigmoid));
+	//		mlpe->setPos(visor->mapToScene(event->pos() + QPoint(100, 0)));
+	//		mlpe->setTrainingSet(ts);
+	//		mlpe->setInputElement(dm);
+	//		sce->addItem(mlpe);
+
+	//		BinaryOutputElement *bor = new BinaryOutputElement(26, BinaryOutputElement::Vertical, 0.5, BinaryOutputElement::GREATER_EQUAL_THAN);
+	//		bor->setPos(visor->mapToScene(event->pos() + QPoint(300, 0)));
+	//		bor->setInputElement(mlpe);
+	//		sce->addItem(bor);
+	//		geCounter++;
+	//	}
 }
 
 void PruebaPantalla::on_pushButton_clicked()
@@ -101,4 +106,17 @@ void PruebaPantalla::on_pushButton_2_clicked()
 	GraphicImageEffectElementPropertyDialog *gieepd = new GraphicImageEffectElementPropertyDialog(new GraphicImageEffectElement());
 
 	gieepd->show();
+}
+
+void PruebaPantalla::on_pushButton_3_clicked()
+{
+//	QMessageBox msgBox;
+	QImage imageFile;
+//	QString file = QFileDialog::getOpenFileName(this, "Abrir archivo", "C:\\Users\\Edixon Vargas\\Google Drive\\Programacion\\C++\\Qt\\INSYDE\\INSYDEUI\\imagenes\\png", "Portable Network Graphic (*.png);; Bitmap (*.bmp);; JPEG Image (*.jpg);; (*.gif)");
+//	imageFile = QImage(file);
+	imageFile = QImage("C:\\Users\\Edixon Vargas\\Google Drive\\Programacion\\C++\\Qt\\INSYDE\\INSYDEUI\\imagenes\\png\\Microphone Hot.png");
+
+	sisd = new SelectImageSegmentDialog(imageFile);
+
+	sisd->exec();
 }

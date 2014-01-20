@@ -1,12 +1,15 @@
 #ifndef PRUEBAPANTALLAS_H
 #define PRUEBAPANTALLAS_H
 
-#include <graphicimageeffectelementpropertydialog.h>
-#include <mlptrainingdialog.h>
-#include <binaryoutputelement.h>
-#include <dotmatrix.h>
-#include <graphicmlpelement.h>
-#include <mainwindow.h>
+#include "INSYDEUI/newprojectwizard.h"
+#include "INSYDEUI/ANNGraphicInterface/perceptronpage.h"
+
+#include "INSYDEUI/graphicimageeffectelementpropertydialog.h"
+#include "INSYDEUI/ANNGraphicInterface/mlptrainingdialog.h"
+#include "INSYDEUI/binaryoutputelement.h"
+#include "INSYDEUI/dotmatrix.h"
+#include "INSYDEUI/ANNGraphicInterface/graphicmlpelement.h"
+#include "mainwindow.h"
 
 namespace Ui {
 class PruebaPantalla;
@@ -37,9 +40,12 @@ class PruebaPantalla : public QWidget
 
 		void on_pushButton_2_clicked();
 
+		void on_pushButton_3_clicked();
+
 	private:
 		Q_OBJECT
 
+		SelectImageSegmentDialog *sisd;
 		GraphicMLPElement *mlpe;
 		Visor *visor;
 		Ui::PruebaPantalla *ui;

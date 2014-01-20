@@ -7,14 +7,14 @@
 #include <QGLWidget>
 #endif
 
-#include <graphicimageeffectelement.h>
-#include <graphicimageelement.h>
-#include <addnewmlpdialog.h>
-#include <adddotmatrixdialog.h>
-#include <visor.h>
-#include <statusanimation.h>
-#include <addagentsdialog.h>
-#include <newprojectwizard.h>
+#include "INSYDEUI/graphicimageeffectelement.h"
+#include "INSYDEUI/graphicimageelement.h"
+#include "INSYDEUI/ANNGraphicInterface/addnewmlpdialog.h"
+#include "INSYDEUI/adddotmatrixdialog.h"
+#include "INSYDEUI/visor.h"
+#include "INSYDEUI/statusanimation.h"
+#include "INSYDEUI/ECGraphicInterface/addagentsdialog.h"
+#include "INSYDEUI/newprojectwizard.h"
 #include <math.h>
 
 
@@ -23,7 +23,7 @@ namespace Ui {
 }
 
 enum Render{
-	OpenGL,
+	OpenGL = 3,
 	Nativo
 };
 

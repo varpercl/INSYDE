@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SelectProjectPage</class>
+ <widget class="QWizard" name="SelectProjectPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>585</width>
+    <height>452</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Wizard</string>
+  </property>
+  <property name="titleFormat">
+   <enum>Qt::RichText</enum>
+  </property>
+  <property name="subTitleFormat">
+   <enum>Qt::RichText</enum>
+  </property>
+  <widget class="QWizardPage" name="selectProjectPage">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Seleccione un proyecto:</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTreeWidget" name="treeProjects">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="rootIsDecorated">
+       <bool>true</bool>
+      </property>
+      <property name="animated">
+       <bool>true</bool>
+      </property>
+      <attribute name="headerVisible">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string notr="true">1</string>
+       </property>
+      </column>
+      <item>
+       <property name="text">
+        <string>Redes neuronales artificiales</string>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Crea un proyecto con redes neuronales para emular el proceso de aprendizaje humano, las redes neuronales son un paradigma de la Inteligencia Artificial y permite agregar &amp;quot;inteligencia&amp;quot; a un sistema, puede crear su proyecto de redes neuronales y añadirlos a otros proyectos si lo desea. Asimismo puede crear sus propios modelos de redes neuronales para llevar a cabo pruebas y generar conclusiones.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="icon">
+        <iconset resource="imagenes.qrc">
+         <normaloff>:/imagenes/artificial neural network.png</normaloff>:/imagenes/artificial neural network.png</iconset>
+       </property>
+       <item>
+        <property name="text">
+         <string comment="simple-perceptron">Perceptron Simple</string>
+        </property>
+        <property name="toolTip">
+         <string>Crea un proyecto con uno o mas perceptrónes simples como elementos principales. El perceptrón es la unidad mas elemental, con el muchas redes neuronales trabajan ya que su modelo es muy aproximado al de una neurona real.</string>
+        </property>
+        <property name="icon">
+         <iconset resource="imagenes.qrc">
+          <normaloff>:/imagenes/perceptron2.png</normaloff>:/imagenes/perceptron2.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="adaline">ADALINE</string>
+        </property>
+        <property name="toolTip">
+         <string>Crea un proyecto con uno o mas ADALINEs como elementos principales. Un ADALINE es un tipo especial de perceptrón que funciona de forma adaptativa y tiene una regla de entrenamiento totalmente distinta, idealmente utilizado para evitar la dependencia lineal.</string>
+        </property>
+        <property name="icon">
+         <iconset resource="imagenes.qrc">
+          <normaloff>:/imagenes/adaline.gif</normaloff>:/imagenes/adaline.gif</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="multilayer-perceptron">Perceptrón multicapa</string>
+        </property>
+        <property name="toolTip">
+         <string>Crea un proyecto con una o mas redes del tipo Perceptron Multicapa que consiste en una serie de capas de perceptrones que se organizan en capa de entrada, capa(s) oculta(s) y capa de salida. El número de capas y el número de perceptrones por capa puede ser modificado dependiendo las necesidades.</string>
+        </property>
+        <property name="icon">
+         <iconset resource="imagenes.qrc">
+          <normaloff>:/imagenes/perceptron multicapa.png</normaloff>:/imagenes/perceptron multicapa.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="hopfield">Hopfield</string>
+        </property>
+        <property name="toolTip">
+         <string>Crea un proyecto con una o mas Redes de Hopfield que basicamente son redes de perceptrones auto-asociados y que estan conectados bidireccionalmente unos con otros, esta cualidad junto con su algoritmo de entrenamiento permite que esta red se auto-organice y aprenda diferentes patrones.</string>
+        </property>
+        <property name="icon">
+         <iconset resource="imagenes.qrc">
+          <normaloff>:/imagenes/hopfield.jpg</normaloff>:/imagenes/hopfield.jpg</iconset>
+        </property>
+       </item>
+      </item>
+      <item>
+       <property name="text">
+        <string>Sistemas multiagentes</string>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Crea un proyecto que le permite insertar cualquier cantidad de agentes personalizables y con caracteristicas que pueden ser añadidas, como actuadores, sensores, motores de inferencia, redes neuronales entre otras. Los sistemas multiagentes pueden ser dinamicos y llevar a cabo simulaciones de movimiento, ideales para emular el comportamiento de seres vivios, insectos sociales, entre otros. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="icon">
+        <iconset resource="imagenes.qrc">
+         <normaloff>:/imagenes/sistema multiagente.jpg</normaloff>:/imagenes/sistema multiagente.jpg</iconset>
+       </property>
+       <item>
+        <property name="text">
+         <string comment="multiagent-basic-system">Sistema básico</string>
+        </property>
+        <property name="toolTip">
+         <string>Crea un proyecto de un sistema multi-agente básico, puede contener multiples agentes interactuando entre sí dependiendo de las reglas o motor de respuestas, los actuadores y sensores que tengan.</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="sociable-insects">Sistemas de insectos sociales</string>
+        </property>
+        <property name="toolTip">
+         <string>Crea un proyecto especial multiagente donde cada agente tiene propiedades de insectos sociales básicos, como abejas, hormígas, entre otros. El tipo de insectos se puede cambiar dependiendo de la necesidad.</string>
+        </property>
+       </item>
+      </item>
+      <item>
+       <property name="text">
+        <string>Lógica difusa</string>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Crea un proyecto de logica difusa que le permite trabajar con sistemas que tienen variables con algun grado de pertenencia o borrosidad, es decir, datos que son imprecisos y que pueden venir del lenguaje natural humano. Este proyecto tambien puede ser incluido dentro de otros proyectos para generar sistemas mas complejos aun.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="icon">
+        <iconset resource="imagenes.qrc">
+         <normaloff>:/imagenes/fuzzy logic.png</normaloff>:/imagenes/fuzzy logic.png</iconset>
+       </property>
+       <item>
+        <property name="text">
+         <string comment="fuzzy-logic-basic-system">Sistema básico</string>
+        </property>
+        <property name="toolTip">
+         <string>Crea un proyecto de lógica difusa básico, se pueden configurar las reglas, hipotesis (condiciones), conclusiones y las funciones de membresía que corresponden a cada variable.</string>
+        </property>
+       </item>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextEdit" name="lblDescription">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::NoTextInteraction</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="chooseProjectNamePage">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Nombre y ubicación</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_3"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_23">
+        <property name="text">
+         <string>Nombre</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_24">
+        <property name="text">
+         <string>Carpeta</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit_4"/>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="label_25">
+        <property name="text">
+         <string>Ruta final</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QLineEdit" name="lineEdit_5"/>
+      </item>
+      <item row="4" column="2">
+       <widget class="QToolButton" name="toolButton">
+        <property name="text">
+         <string>Explorar...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="10" column="2">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="newPerceptronPage">
+   <layout class="QHBoxLayout" name="horizontalLayout_7">
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QFormLayout" name="formLayout_4">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Numero de entradas</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="spinBox_2">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>10000</number>
+         </property>
+         <property name="value">
+          <number>2</number>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_15">
+         <property name="text">
+          <string>Tipo de salida</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="comboBox_4">
+         <item>
+          <property name="text">
+           <string>Unipolar</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bipolar</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_16">
+         <property name="text">
+          <string>Función de activación</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="comboBox_5">
+         <item>
+          <property name="text">
+           <string>Escalon unipolar</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Escalon bipolar</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sigmoide</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Tangente hiperbolica</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Lineal limitada unipolar</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Lineal limitada bipolar</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>Regla de aprendizaje</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="comboBox_6">
+         <item>
+          <property name="text">
+           <string>Regla simple</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Regla delta</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="8" column="0" colspan="2">
+        <widget class="Line" name="line_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="conjuntoDeEntranamientoLabel_2">
+         <property name="text">
+          <string>Conjunto de entranamiento</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>Asignar</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_18">
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="text">
+          <string>perceptron</string>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_6">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="newAdalinePage">
+   <layout class="QHBoxLayout" name="horizontalLayout_8">
+    <item>
+     <widget class="QFrame" name="frame_2">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QFormLayout" name="formLayout_5">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_19">
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_2">
+         <property name="text">
+          <string>adaline</string>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_20">
+         <property name="text">
+          <string>Numero de entradas</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="spinBox_3">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>10000</number>
+         </property>
+         <property name="value">
+          <number>2</number>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_21">
+         <property name="text">
+          <string>Función de transferencia</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="comboBox_7">
+         <item>
+          <property name="text">
+           <string>Lineal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sigmoide</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Tangente hiperbolica</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Lineal limitada unipolar</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Lineal limitada bipolar</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_22">
+         <property name="text">
+          <string>Actualización de pesos</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="comboBox_8">
+         <item>
+          <property name="text">
+           <string>Sincrona</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Asincrona</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="2">
+        <widget class="Line" name="line_7">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="conjuntoDeEntranamientoLabel_3">
+         <property name="text">
+          <string>Conjunto de entranamiento</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>Asignar</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_8">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
+ <connections/>
+</ui>
