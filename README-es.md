@@ -38,7 +38,7 @@ Alcance de la primera version (1.0.0)
 En el primer lanzamiento se tendran las siguientes caracteristicas: 
 
 - Toolbox de redes neuronales:
-    Perceptron Multicapa, Hopfield, Kohonen, ADALINE, Perceptron simple
+    Perceptron Multicapa, Hopfield, ADALINE, Perceptron simple
 - Editor avanzado de redes neuronales:
     Este editor permite ver graficamente cada una de las conexiones y las entradas que tiene la red neuronal
     en un instante dado. Los pesos sinapticos son representados mediante colores que van desde el rojo al verde; 
@@ -49,7 +49,7 @@ En el primer lanzamiento se tendran las siguientes caracteristicas:
 - Objetos de entrada:
     Matriz de puntos, Display digital, Regiones, Imagen, Entrada teclado, Entrada raton, Entrada audio
 - Objetos de salida:
-    Representacion binaria, Dislplay digital, Matriz de puntos, Salida audio, Salida raton, Salida imagen
+    Matriz de puntos, Dislplay digital, Salida audio, Salida raton, Salida imagen
 - Gestor de proyectos:
     Como se viene manejando en la mayoria de IDEs, este tendra un gestor de proyectos basado en XML. Esto le
     permitira guardar el estado actual de su sistema inteligente, asi como datos de sintonizacion actuales, por ejemplo,
@@ -62,8 +62,7 @@ algunas necesidades primordiales son:
 
 - Documentacion del codigo fuente: el codigo fuente ha sido desarrollado por mi y lamentablemente soy un mal
   practicante de la buena programacion, por lo cual en ocasiones por rapidez no documento lo que voy programando.
-- Traduccion del codigo fuente: para que el proyecto sea ampliamente difundido, es imperativo la publicacion en varios
-  idiomas para que distintos desarrolladores a nivel mundial esten en capacidad de trabajar en este proyecto.
+- Traduccion de la documentacion del codigo: para que el proyecto sea ampliamente difundido, es imperativo la publicacion en varios idiomas para que distintos desarrolladores a nivel mundial esten en capacidad de trabajar en este proyecto de manera facil y accesible.
 - Programacion de la interfaz grafica: la interfaz grafica es una de las partes mas importantes de todo el proyecto,
   sin embargo, mi especializacion esta en el area de inteligencia artificial, por lo cual, me es dificil dedicarme a 
   ambas cosas, lo cual requiere mucho tiempo y dedicacion.
