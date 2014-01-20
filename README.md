@@ -50,7 +50,7 @@ In this first release it will have following features:
   Dot matrix, digital display, regions, images, keyboard input, mouse input, audio input.
 
 - Output objects:
-  Binary representation, digital display, dot matrix, audio output, mouse output, image output
+  Dot matrix, digital display, audio output, mouse output, image output
 
 - Project manager:
   Like another IDE, this will have a project manager bases on XML. This allow to save current state of your system,
