@@ -4,7 +4,7 @@ void TrainingSetDialog::setupUi(QDialog *TrainingSetDialog)
 {
 	if (TrainingSetDialog->objectName().isEmpty())
 		TrainingSetDialog->setObjectName(QString::fromUtf8("TrainingSetDialog"));
-//	TrainingSetDialog->resize(630, 650);
+
 	TrainingSetDialog->setMinimumWidth(750);
 	mainVertlLayout = new QVBoxLayout(TrainingSetDialog);
 	mainVertlLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -17,19 +17,36 @@ void TrainingSetDialog::setupUi(QDialog *TrainingSetDialog)
 
 	horizontalLayout->addItem(horizontalSpacer);
 
-	addPatternButton = new QPushButton(TrainingSetDialog);
+	file = new QMenu(tr("Archivo"));
+	file->addAction("Desde archivo...", this, SLOT(fromFile()));
+	file->addAction("Desde imagenes...", this, SLOT(fromImages()));
+
+	menuBar = new QMenuBar(TrainingSetDialog);
+	menuBar->setObjectName(QString::fromUtf8("menuBar"));
+	menuBar->addMenu(file);
+	menuBar->setMaximumHeight(15);
+	mainVertlLayout->setMenuBar(menuBar);
+
+	addPatternMenu = new QMenu(QString::fromLatin1("Agregar patrón"));
+	addPatternMenu->setObjectName(QString::fromUtf8("addPatternMenu"));
+	addPatternMenu->addAction("Desde archivo...", this, SLOT(fromFile()));
+	addPatternMenu->addAction("Desde imagenes...", this, SLOT(fromImages()));
+
+	addPatternButton = new QToolButton(TrainingSetDialog);
 	addPatternButton->setObjectName(QString::fromUtf8("addPatternButton"));
-	QIcon icon;
-	icon.addFile(QString::fromUtf8(":/imagenes/plus_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-	addPatternButton->setIcon(icon);
+	addPatternButton->setIcon(QIcon(QString::fromUtf8(":/imagenes/plus_icon.png")));
+	addPatternButton->setIconSize(QSize(20, 20));
+	addPatternButton->setPopupMode(QToolButton::MenuButtonPopup);
+	addPatternButton->setAutoRaise(true);
+	addPatternButton->setMenu(addPatternMenu);
 
 	horizontalLayout->addWidget(addPatternButton);
 
-	delPatternButton = new QPushButton(TrainingSetDialog);
+	delPatternButton = new QToolButton(TrainingSetDialog);
 	delPatternButton->setObjectName(QString::fromUtf8("delPatternButton"));
-	QIcon icon1;
-	icon1.addFile(QString::fromUtf8(":/imagenes/minus_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-	delPatternButton->setIcon(icon1);
+	delPatternButton->setIcon(QIcon(QString::fromUtf8(":/imagenes/minus_icon.png")));
+	delPatternButton->setIconSize(QSize(20, 20));
+	delPatternButton->setAutoRaise(true);
 
 	horizontalLayout->addWidget(delPatternButton);
 
@@ -214,13 +231,7 @@ void TrainingSetDialog::initDialog(int inputs, int outputs)
 
 	fileDialog = new QFileDialog(this);
 
-	QMenu *file = new QMenu(tr("Archivo"));
-	file->addAction("Desde archivo...", this, SLOT(fromFile()));
-	file->addAction("Desde imagenes...", this, SLOT(fromImages()));
 
-	menuBar = new QMenuBar(this);
-	menuBar->addMenu(file);
-	layout()->setMenuBar(menuBar);
 	setInputSize(inputs);
 	setTargetSize(outputs);
 

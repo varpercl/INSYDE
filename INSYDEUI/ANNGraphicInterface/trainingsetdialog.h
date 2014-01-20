@@ -184,6 +184,8 @@ class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
 	private:
 		Q_OBJECT
 
+		QMenu *addPatternMenu;
+		QMenu *file;
 		QImage imageFile;
 		SelectImageSegmentDialog *sisd;
 		QPushButton *btnMsgBoxFirstPixels;
@@ -194,8 +196,8 @@ class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
 		QVBoxLayout *mainVertlLayout;
 		QHBoxLayout *horizontalLayout;
 		QSpacerItem *horizontalSpacer;
-		QPushButton *addPatternButton;
-		QPushButton *delPatternButton;
+		QToolButton *addPatternButton;
+		QToolButton *delPatternButton;
 		QTableWidget *patternTable;
 		QDialogButtonBox *buttonBox;
 
