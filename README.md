@@ -63,8 +63,7 @@ Currently this project is under development, therefore, it requires a wide colla
 - Documenting all source code: source code has develped by me and lamentably I'm not a good-programing practicing,
   therefore, sometimes I don't document every fragment of code programed by myself.
 
-- Translating source code: to share this project with many programmers in the world, it's necessary to translate code
-  in english because this is cataloged like an universal language.
+- Translating documentation: to share this project with many programmers in the world, it's necessary to translate   documentation code to english to ensure anyone can read this project.
 - Programing graphic interface: graphic interface is an important part of all project, however, my speciality is about Artificial Intelligence, whereby, it's very dificulty to dedicate
   to both things, this requires to much time and dedication.
 - Variety of algorithms in AI: Artificial Intelligence has a huge number of algorithm, and this number is increasing, 
