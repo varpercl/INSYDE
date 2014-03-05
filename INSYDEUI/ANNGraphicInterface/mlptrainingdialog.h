@@ -23,6 +23,8 @@ class INSYDEUISHARED_EXPORT MLPTrainingDialog : public QDialog
 		Ui::MLPTrainingDialog *ui;
 
 		//		explicit MLPTrainingDialog(MultilayerPerceptron *gmlp, QWidget *parent = 0);
+		//TODO: implementar constructor que acepte como parametro un MultilayerPerceptron
+		explicit MLPTrainingDialog(MultilayerPerceptron *mlp, QWidget *parent = 0);
 		explicit MLPTrainingDialog(GraphicMLPElement *gmlp, QWidget *parent = 0);
 		~MLPTrainingDialog();
 
@@ -132,6 +134,7 @@ class INSYDEUISHARED_EXPORT MLPTrainingDialog : public QDialog
 		 * @param gmlp Elemento MLP grafico que se le asignara
 		 */
 		void initDialog(GraphicMLPElement *gmlp);
+		void initDialog(MultilayerPerceptron *mlp);
 
 		/**
 		 * @brief createFile Metodo para la creacion de un archivo de resultados de entrenamiento

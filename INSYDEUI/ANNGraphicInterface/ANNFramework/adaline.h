@@ -9,7 +9,6 @@
 #include <vector>
 #include <time.h>
 
-#include "itrainable.h"
 #include "simplepattern.h"
 
 using namespace std;

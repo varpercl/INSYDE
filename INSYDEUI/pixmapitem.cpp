@@ -17,12 +17,13 @@ bool PixmapItem::getSelectionRectVisible() const
 	return rectVisible;
 }
 
-void PixmapItem::setSelectionRect(const QRectF &sr)
+void PixmapItem::setSelectionRect(const QRect &sr)
 {
 	rect = sr;
+	update();
 }
 
-QRectF PixmapItem::getSelectionRect() const
+QRect PixmapItem::getSelectionRect() const
 {
 	return rect;
 }
@@ -37,6 +38,11 @@ QColor PixmapItem::getSelectionRectColor() const
 	return rectColor;
 }//getSelectionRectColor
 
+QImage PixmapItem::getImageSegment() const
+{
+	return pixmap().copy(rect).toImage();
+}//getImageSegment
+
 void PixmapItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
 	QGraphicsPixmapItem::mousePressEvent(event);
@@ -46,8 +52,6 @@ void PixmapItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 void PixmapItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
 	QGraphicsPixmapItem::mouseMoveEvent(event);
-
-//	Qt::MouseButton button = event->button();
 
 	if(event->buttons() & Qt::LeftButton){
 		int
@@ -68,52 +72,52 @@ void PixmapItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 		   mouseY <= imageH - midRectH &&
 		   mouseY >= midRectH){
 
-			rect.moveTopLeft(QPointF(mouseX - midRectW, mouseY - midRectH));
+			rect.moveTopLeft(QPoint(mouseX - midRectW, mouseY - midRectH));
 
 			//Se verifica si el puntero se encuentra en la esquina superior izquierda
 		}else if(mouseX < midRectW && mouseY < midRectH){
 
-			rect.moveTopLeft(QPointF(0, 0));
+			rect.moveTopLeft(QPoint(0, 0));
 
 			//Se verifica si el puntero se encuentra en la esquina superior derecha
 		}else if(mouseX > imageW - midRectW && mouseY < midRectH){
 
-			rect.moveTopRight(QPointF(imageW, 0));
+			rect.moveTopRight(QPoint(imageW, 0));
 
 			//Se verifica si el puntero se encuentra en la esquina inferior izquierda
 		}else if(mouseX < midRectW && mouseY > imageH - midRectH){
 
-			rect.moveBottomLeft(QPointF(0, imageH));
+			rect.moveBottomLeft(QPoint(0, imageH));
 
 			//Se verifica si el puntero se encuentra en la esquina inferior derecha
 		}else if(mouseX > imageW - midRectW && mouseY > imageH - midRectH){
 
-			rect.moveBottomRight(QPointF(imageW, imageH));
+			rect.moveBottomRight(QPoint(imageW, imageH));
 
 			//Se verifica si el puntero se encuentra en la banda derecha
 		}else if(mouseX > imageW - midRectW){
 
-			rect.moveTopLeft(QPointF(imageW - rectW, mouseY - midRectH));
+			rect.moveTopLeft(QPoint(imageW - rectW, mouseY - midRectH));
 
 			//Se verifica si el puntero se encuentra en la banda izquierda
 		}else if(mouseX < midRectW){
 
-			rect.moveTopLeft(QPointF(0, mouseY - midRectH));
+			rect.moveTopLeft(QPoint(0, mouseY - midRectH));
 
 			//Se verifica si el puntero se encuentra en la banda inferior
 		}else if(mouseY > imageH - midRectH){
 
-			rect.moveTopLeft(QPointF(mouseX - midRectW, imageH - rectW));
+			rect.moveTopLeft(QPoint(mouseX - midRectW, imageH - rectW));
 
 			//Se verifica si el puntero se encuentra en la banda superior
 		}else if(mouseY < midRectH){
 
-			rect.moveTopLeft(QPointF(mouseX - midRectW, 0));
+			rect.moveTopLeft(QPoint(mouseX - midRectW, 0));
 
 		}
 	}
 
-	if(rect.contains(event->pos())){
+	if(rect.contains(event->pos().toPoint())){
 		mouseIsOverSelectionRect = true;
 	}else{
 		mouseIsOverSelectionRect = false;
@@ -142,7 +146,7 @@ void PixmapItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 void PixmapItem::initPI()
 {
 	setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
-	setSelectionRect(QRectF());
+	setSelectionRect(QRect());
 	setSelectionRectColor(qRgb(0, 0, 0));
 	setSelectionRectVisible(false);
 }

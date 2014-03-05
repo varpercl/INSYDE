@@ -46,7 +46,7 @@ class PruebaPantalla : public QWidget
 		Q_OBJECT
 
 		SelectImageSegmentDialog *sisd;
-		GraphicMLPElement *mlpe;
+		MultilayerPerceptron *mlp;
 		Visor *visor;
 		Ui::PruebaPantalla *ui;
 };

@@ -7,14 +7,16 @@
 
 #include "ANNFramework_global.h"
 #include "trainingset.h"
+#include "simplepattern.h"
+
 #include <vector>
 #include <math.h>
 #include <time.h>
-#include "simplepattern.h"
 
 //#include <itrainable.h>
 
 using namespace std;
+using namespace ANNFrameworkFunctions;
 
 class PerceptronTrainingPattern;
 

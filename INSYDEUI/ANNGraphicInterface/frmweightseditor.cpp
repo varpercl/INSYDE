@@ -25,7 +25,8 @@ SimplePerceptron *WeightsEditorDialog::getSimplePerceptron() const
 
 void WeightsEditorDialog::setWeights(vector<double> weights)
 {
-
+	//TODO: implementar
+	(void)weights;
 }//setWeights
 
 vector<double> WeightsEditorDialog::getWeights() const

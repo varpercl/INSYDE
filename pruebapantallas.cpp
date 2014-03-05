@@ -40,7 +40,7 @@ void PruebaPantalla::on_trainingSetButton_clicked()
 //	TrainingSetDialog *tsd = new TrainingSetDialog(10, 10);
 //	tsd->exec();
 
-	TrainingSetDialog *tsd1 = new TrainingSetDialog(new TrainingSet(26, 36));
+	TrainingSetDialog *tsd1 = new TrainingSetDialog(new TrainingSet(403, 36));
 	tsd1->exec();
 
 //	TrainingSetDialog *tsd2 = new TrainingSetDialog()
@@ -96,9 +96,12 @@ void PruebaPantalla::on_pushButton_clicked()
 {
 	vector<int> sizes;
 	sizes.push_back(5);
-	MLPTrainingDialog *mlpTS = new MLPTrainingDialog(mlpe);
+	mlp = new MultilayerPerceptron(10, 10, sizes, MultilayerPerceptron::Sigmoid);
 
-	mlpTS->show();
+
+	MLPTrainingDialog *mlpTS = new MLPTrainingDialog(mlp);
+
+	mlpTS->exec();
 }
 
 void PruebaPantalla::on_pushButton_2_clicked()
@@ -116,7 +119,7 @@ void PruebaPantalla::on_pushButton_3_clicked()
 //	imageFile = QImage(file);
 	imageFile = QImage("C:\\Users\\Edixon Vargas\\Google Drive\\Programacion\\C++\\Qt\\INSYDE\\INSYDEUI\\imagenes\\png\\Microphone Hot.png");
 
-	sisd = new SelectImageSegmentDialog(imageFile);
+	sisd = new SelectImageSegmentDialog(imageFile, QRect(0, 0, 20, 20));
 
 	sisd->exec();
 }

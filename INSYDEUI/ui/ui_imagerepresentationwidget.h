@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'imagerepresentationwidget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.0
+** Created by: Qt User Interface Compiler version 5.2.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -13,12 +13,13 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QSpinBox>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -29,15 +30,12 @@ class Ui_ImageRepresentationWidget
 public:
     QVBoxLayout *verticalLayout;
     QGroupBox *groupBox_2;
-    QGridLayout *gridLayout;
-    QLabel *label_2;
-    QSpinBox *sbWidth;
-    QComboBox *cbImageFormat;
-    QSpinBox *sbHeight;
+    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout;
     QLabel *label_6;
-    QLabel *label;
-    QLabel *label_3;
-    QLabel *label_4;
+    QComboBox *cbImageFormat;
+    QCheckBox *cbxIgnoreAlpha;
+    QSpacerItem *horizontalSpacer;
 
     void setupUi(QWidget *ImageRepresentationWidget)
     {
@@ -56,51 +54,46 @@ public:
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
         sizePolicy.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
         groupBox_2->setSizePolicy(sizePolicy);
-        gridLayout = new QGridLayout(groupBox_2);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        label_2 = new QLabel(groupBox_2);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        verticalLayout_2 = new QVBoxLayout(groupBox_2);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        label_6 = new QLabel(groupBox_2);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        QSizePolicy sizePolicy1(QSizePolicy::Maximum, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
+        label_6->setSizePolicy(sizePolicy1);
 
-        gridLayout->addWidget(label_2, 3, 0, 1, 1);
-
-        sbWidth = new QSpinBox(groupBox_2);
-        sbWidth->setObjectName(QStringLiteral("sbWidth"));
-        sbWidth->setMinimum(1);
-        sbWidth->setMaximum(999999);
-
-        gridLayout->addWidget(sbWidth, 1, 1, 1, 1);
+        horizontalLayout->addWidget(label_6);
 
         cbImageFormat = new QComboBox(groupBox_2);
         cbImageFormat->setObjectName(QStringLiteral("cbImageFormat"));
+        QSizePolicy sizePolicy2(QSizePolicy::Maximum, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(cbImageFormat->sizePolicy().hasHeightForWidth());
+        cbImageFormat->setSizePolicy(sizePolicy2);
 
-        gridLayout->addWidget(cbImageFormat, 0, 1, 1, 1);
+        horizontalLayout->addWidget(cbImageFormat);
 
-        sbHeight = new QSpinBox(groupBox_2);
-        sbHeight->setObjectName(QStringLiteral("sbHeight"));
-        sbHeight->setMinimum(1);
-        sbHeight->setMaximum(999999);
+        cbxIgnoreAlpha = new QCheckBox(groupBox_2);
+        cbxIgnoreAlpha->setObjectName(QStringLiteral("cbxIgnoreAlpha"));
+        QSizePolicy sizePolicy3(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(cbxIgnoreAlpha->sizePolicy().hasHeightForWidth());
+        cbxIgnoreAlpha->setSizePolicy(sizePolicy3);
 
-        gridLayout->addWidget(sbHeight, 3, 1, 1, 1);
+        horizontalLayout->addWidget(cbxIgnoreAlpha);
 
-        label_6 = new QLabel(groupBox_2);
-        label_6->setObjectName(QStringLiteral("label_6"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addWidget(label_6, 0, 0, 1, 1);
+        horizontalLayout->addItem(horizontalSpacer);
 
-        label = new QLabel(groupBox_2);
-        label->setObjectName(QStringLiteral("label"));
 
-        gridLayout->addWidget(label, 1, 0, 1, 1);
-
-        label_3 = new QLabel(groupBox_2);
-        label_3->setObjectName(QStringLiteral("label_3"));
-
-        gridLayout->addWidget(label_3, 1, 2, 1, 1);
-
-        label_4 = new QLabel(groupBox_2);
-        label_4->setObjectName(QStringLiteral("label_4"));
-
-        gridLayout->addWidget(label_4, 3, 2, 1, 1);
+        verticalLayout_2->addLayout(horizontalLayout);
 
 
         verticalLayout->addWidget(groupBox_2);
@@ -115,15 +108,12 @@ public:
     {
         ImageRepresentationWidget->setWindowTitle(QApplication::translate("ImageRepresentationWidget", "Form", 0));
         groupBox_2->setTitle(QApplication::translate("ImageRepresentationWidget", "Dimensiones", 0));
-        label_2->setText(QApplication::translate("ImageRepresentationWidget", "Altura", 0));
+        label_6->setText(QApplication::translate("ImageRepresentationWidget", "Formato", 0));
         cbImageFormat->clear();
         cbImageFormat->insertItems(0, QStringList()
          << QApplication::translate("ImageRepresentationWidget", "RGB 8 bits", 0)
         );
-        label_6->setText(QApplication::translate("ImageRepresentationWidget", "Formato", 0));
-        label->setText(QApplication::translate("ImageRepresentationWidget", "Anchura", 0));
-        label_3->setText(QApplication::translate("ImageRepresentationWidget", "pixeles", 0));
-        label_4->setText(QApplication::translate("ImageRepresentationWidget", "pixeles", 0));
+        cbxIgnoreAlpha->setText(QApplication::translate("ImageRepresentationWidget", "Ignorar canal alfa", 0));
     } // retranslateUi
 
 };

@@ -80,7 +80,7 @@ void GraphicMLPElement::onAnalizeClick()
 
 	QImage window;
 	//	vector<int> finalVector;
-	vector<int> wdwVector;
+	vector<long> wdwVector;
 
 	int steps = (giee->getImageWidth() / WINDOW_STEP) - WINDOW_WIDTH;
 	for(int x = 0; x < steps; x += WINDOW_STEP){
@@ -260,13 +260,17 @@ void GraphicMLPElement::onDotMatrixStatusChanged(QVector<int> outputs)
 
 void GraphicMLPElement::onAddToTrainingSet()
 {
-
 	TrainingSetDialog *tsMLP = new TrainingSetDialog(ts);
+	TrainingSetTable *tempTST = tsMLP->getTrainingSetTable();
+	TrainingSet *tempTS = tempTST->getTrainingSet();
+
 	switch(inputElement->type()){
 		case DotMatrix::DotMatrixType:
 		{
 			DotMatrix *dm = dynamic_cast<DotMatrix*>(inputElement);
-			tsMLP->appendPattern(dm->getDotList().toStdVector(), vector<int>(mlp->getOutputSize(), 0));
+			QVector<int> intDotList = dm->getDotList();
+			vector<double> dotList(intDotList.begin(), intDotList.end());
+			tempTS->appendPattern(dotList/*.toStdVector()*/, vector<double>(mlp->getOutputSize(), 0));
 
 			if(tsMLP->exec() == QDialog::Accepted){
 				//		int sPatterns = tsMLP->getPatternCount();
@@ -276,7 +280,7 @@ void GraphicMLPElement::onAddToTrainingSet()
 				//			vector<vector<double> > out = tsMLP->getTargets();
 				//			ts[i] = new MultilayerPerceptronPattern(in[i], out[i]);
 				//		}
-				setTrainingSet(tsMLP->getTrainingSet());
+				setTrainingSet(tempTS);
 				//		targets = tsMLP->getTargets();
 				//		inputs = tsMLP->getInputs();
 			}
@@ -306,8 +310,11 @@ void GraphicMLPElement::onAddToTrainingSet()
 				//				vector<int> pixels = CommonFunctions::imageToIntVector(giee->getWindow(0, cursor, giee->getWindowWidth(), giee->getImageHeight()));
 				int ww = giee->getWindowWidth();
 				QImage img = giee->getWindow(cursor, 0, ww, giee->getImageHeight());
-				tsMLP->appendPattern(CommonFunctions::imageToIntVector(img, CommonFunctions::Bipolar),
-									 vector<int>(mlp->getOutputSize(), 0));
+
+				vector<long> intImg = CommonFunctions::imageToIntVector(img, CommonFunctions::Bipolar);
+				vector<double> dblImg(intImg.begin(), intImg.end());
+
+				tempTS->appendPattern(dblImg, vector<double>(mlp->getOutputSize(), 0));
 				//				appendPattern(CommonFunctions::imageToIntVector(QImage(file), CommonFunctions::Bipolar), vector<int>(targetSize, 0));
 
 				if(tsMLP->exec() == QDialog::Accepted){
@@ -318,7 +325,7 @@ void GraphicMLPElement::onAddToTrainingSet()
 					//			vector<vector<double> > out = tsMLP->getTargets();
 					//			ts[i] = new MultilayerPerceptronPattern(in[i], out[i]);
 					//		}
-					setTrainingSet(tsMLP->getTrainingSet());
+					setTrainingSet(tempTS);
 					//		targets = tsMLP->getTargets();
 					//		inputs = tsMLP->getInputs();
 				}

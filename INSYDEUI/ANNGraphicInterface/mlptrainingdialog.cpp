@@ -9,6 +9,13 @@
 //	initDialog(mlp);
 //}
 
+MLPTrainingDialog::MLPTrainingDialog(MultilayerPerceptron *mlp, QWidget *parent) :
+	QDialog(parent),
+	ui(new Ui::MLPTrainingDialog)
+{
+	initDialog(mlp);
+}
+
 MLPTrainingDialog::MLPTrainingDialog(GraphicMLPElement *gmlp, QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::MLPTrainingDialog)
@@ -70,7 +77,7 @@ void MLPTrainingDialog::on_btnEditTrainingSet_clicked()
 		//			ts[i] = new MultilayerPerceptronPattern(in[i], out[i]);
 		//		}
 
-		gmlp->setTrainingSet(tsMLP->getTrainingSet());
+		gmlp->setTrainingSet(tsMLP->getTrainingSetTable()->getTrainingSet());
 		//		targets = tsMLP->getTargets();
 		//		inputs = tsMLP->getInputs();
 	}
@@ -128,6 +135,66 @@ void MLPTrainingDialog::initDialog(GraphicMLPElement *gmlp)
 	ta = MultilayerPerceptron::Backpropagation;
 	this->gmlp = gmlp;
 	mlp = gmlp->getMultilayerPerceptron();
+	isTraining = false;
+	ui->lblInputs->setText(QString::number(mlp->getInputSize()));
+	ui->lblOutputs->setText(QString::number(mlp->getOutputSize()));
+
+	ui->buttonsLayout->setAlignment(ui->buttonsLayout, Qt::AlignBottom);
+
+	QStringList headers;
+	headers.append("Capa");
+	headers.append("Elementos");
+	ui->tblLayers->setHorizontalHeaderLabels(headers);
+
+	//	ui->tblLayers->setRowCount(ui->tblLayers->rowCount() + 1);
+
+	//Inicializa la tabla de las capas
+	for(size_t i = 0; i < mlp->getLayerSizes().size(); i++){
+		ui->tblLayers->setRowCount(ui->tblLayers->rowCount() + 1);
+		QTableWidgetItem *layerNumberCell = new QTableWidgetItem(QString::number(i+1));
+		layerNumberCell->setFlags(Qt::NoItemFlags);
+		layerNumberCell->setTextAlignment(Qt::AlignHCenter);
+		ui->tblLayers->setItem(i, 0, layerNumberCell);
+		QTableWidgetItem *nElementsCell = new QTableWidgetItem(QString::number(mlp->getLayerSize(i)));
+		nElementsCell->setTextAlignment(Qt::AlignHCenter);
+		ui->tblLayers->setItem(i, 1, nElementsCell);
+	}
+
+	//	mlptt = new MLPTrainingThread(mlp);
+
+	ui->cbTrainingAlgorithm->setCurrentIndex(0);
+
+	on_cbStopCondition_currentIndexChanged(0);
+	on_btnRandomize_clicked();
+	on_chkSA_toggled(false);
+
+	connect(&timer, SIGNAL(timeout()), SLOT(updateStatusLabels()));
+	connect(mlp, SIGNAL(trainingFinished(MLPTrainingResult*)), SLOT(trainingFinished(MLPTrainingResult*)));
+	connect(ui->tblLayers, SIGNAL(cellChanged(int,int)), SLOT(onTblLayersCellChanged(int,int)));
+}
+
+void MLPTrainingDialog::initDialog(MultilayerPerceptron *mlp)
+{
+	ui->setupUi(this);
+//	tsMLP = new TrainingSetDialog(gmlp->getTrainingSet(), this);
+	tres = new MLPTrainingResult;
+	//Instalacion de un menu principal
+	QMenu *file = new QMenu(tr("Archivo"));
+	saveFile = file->addAction("Exportar datos...", this, SLOT(exportData())),
+			saveFile->setShortcut(QKeySequence::Save);
+	saveFile->setEnabled(false);
+
+	//	QShortcut *shortcut = new QShortcut(QKeySequence("Ctrl+S"), this);
+
+	menuBar = new QMenuBar(this);
+	menuBar->addMenu(file);
+	layout()->setMenuBar(menuBar);
+
+
+	tres->epochs = 0;
+	ta = MultilayerPerceptron::Backpropagation;
+//	this->gmlp = gmlp;
+	this->mlp = mlp;
 	isTraining = false;
 	ui->lblInputs->setText(QString::number(mlp->getInputSize()));
 	ui->lblOutputs->setText(QString::number(mlp->getOutputSize()));

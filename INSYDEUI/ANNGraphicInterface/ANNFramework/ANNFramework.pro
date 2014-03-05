@@ -23,6 +23,7 @@ DEFINES += ANNFRAMEWORK_LIBRARY
 
 #debug:EXTRA = debug
 #release:EXTRA = release
+QMAKE_CXX += -std=c++11
 
 debug:DESTDIR = "../../../debug"
 release:DESTDIR = "../../../release"
@@ -42,11 +43,14 @@ HEADERS += \
 	simpleperceptron.h \
 	simplepattern.h \
 	neuralnetwork.h \
-	itrainable.h \
 	hopfieldnetwork.h \
 	adaline.h \
 	multilayerperceptron.h \
-	ANNFramework_global.h
+	ANNFramework_global.h \
+    trainingsetinterface.h \
+    trainingsetfile.h \
+    simpleperceptronfile.h \
+    normalization.h
 
 SOURCES += \
 	trainingset.cpp \
@@ -56,4 +60,8 @@ SOURCES += \
 	hopfieldnetwork.cpp \
 	adaline.cpp \
 	multilayerperceptron.cpp \
-	ANNFramework_global.cpp
+	ANNFramework_global.cpp \
+    trainingsetfile.cpp \
+    simpleperceptronfile.cpp \
+    normalization.cpp \
+    trainingsetinterface.cpp

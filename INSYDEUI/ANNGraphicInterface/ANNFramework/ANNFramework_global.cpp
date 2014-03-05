@@ -11,6 +11,17 @@ vector<vector<double> > ANNFrameworkFunctions::toDouble(const vector<vector<int>
 	return result;
 }
 
+vector<vector<int> > ANNFrameworkFunctions::toInt(const vector<vector<double> > &vec)
+{
+	size_t sVec= vec.size();
+	vector<vector<int> > result(sVec);
+
+	for(size_t i = 0; i < sVec; i++){
+		result[i] = vector<int>(vec[i].begin(), vec[i].end());
+	}
+	return result;
+}
+
 double ANNFrameworkFunctions::getMin(const vector<double> &vec)
 {
 	return *min_element(vec.begin(), vec.end());
@@ -36,7 +47,7 @@ double ANNFrameworkFunctions::getMax(const vector<vector<double> > &matrix)
 	size_t sMatrix = matrix.size();
 	vector<double> maxvec(sMatrix);
 	for(size_t i = 0; i < sMatrix; i++){
-		maxvec[i] = *min_element(matrix[i].begin(), matrix[i].end());
+		maxvec[i] = *max_element(matrix[i].begin(), matrix[i].end());
 	}
 	return *max_element(maxvec.begin(), maxvec.end());
 }
@@ -135,4 +146,188 @@ vector<int> ANNFrameworkFunctions::toBipolar(const vector<double> &vec, double t
 		cVec[i] = vec[i] > threshold ? 1 : -1;
 	}
 	return cVec;
+}
+
+vector<double> ANNFrameworkFunctions::normalizeBipolarFixedThreshold(const vector<double> &vec, double threshold)
+{
+	size_t sVec = vec.size();
+	
+	vector<double> output(sVec, 0);
+	
+	for(size_t i = 0; i < sVec; i++){
+		output[i] = vec[i] < threshold ? -1 : 1;
+	}
+	return output;
+}
+
+vector<vector<double> > ANNFrameworkFunctions::normalizeBipolarFixedThreshold(const vector<vector<double> > &vec, double threshold)
+{
+	size_t sVec = vec.size();
+	vector<vector<double> > output(sVec);
+
+	for(size_t i = 0; i < sVec; i++){
+		output[i] = normalizeBipolarFixedThreshold(vec[i], threshold);
+	}
+	return output;
+}
+
+vector<double> ANNFrameworkFunctions::normalizeBipolarAutoThreshold(const vector<double> &vec, double *threshold)
+{
+	size_t sVec = vec.size();
+
+	vector<double> output(sVec, 0);
+
+	if(threshold == NULL){
+		threshold = new double;
+	}
+	*threshold = (getMin(vec) + getMax(vec)) / 2;
+	for(size_t i = 0; i < sVec; i++){
+		output[i] = vec[i] < *threshold ? -1 : 1;
+	}
+	return output;
+}
+
+vector<vector<double> > ANNFrameworkFunctions::normalizeBipolarAutoThreshold(const vector<vector<double> > &vec, double *threshold)
+{
+	size_t sVec = vec.size();
+	vector<vector<double> > output(sVec);
+
+	if(threshold == NULL){
+		threshold = new double;
+	}
+	*threshold = (getMin(vec) + getMax(vec)) / 2;
+	for(size_t i = 0; i < sVec; i++){
+		output[i] = normalizeBipolarFixedThreshold(vec[i], *threshold);
+	}
+	return output;
+}
+
+vector<double> ANNFrameworkFunctions::normalizeUnipolarFixedThreshold(const vector<double> &vec, double threshold)
+{
+	size_t sVec = vec.size();
+
+	vector<double> output(sVec, 0);
+
+	for(size_t i = 0; i < sVec; i++){
+		output[i] = vec[i] < threshold ? 0 : 1;
+	}
+	return output;
+}
+
+vector<vector<double> > ANNFrameworkFunctions::normalizeUnipolarFixedThreshold(const vector<vector<double> > &vec, double threshold)
+{
+	size_t sVec = vec.size();
+	vector<vector<double> > output(sVec);
+
+	for(size_t i = 0; i < sVec; i++){
+		output[i] = normalizeUnipolarFixedThreshold(vec[i], threshold);
+	}
+	return output;
+}
+
+vector<double> ANNFrameworkFunctions::normalizeUnipolarAutoThreshold(const vector<double> &vec, double *threshold)
+{
+	size_t sVec = vec.size();
+
+	vector<double> output(sVec, 0);
+
+	if(threshold == NULL){
+		threshold = new double;
+	}
+	*threshold = (getMin(vec) + getMax(vec)) / 2;
+	for(size_t i = 0; i < sVec; i++){
+		output[i] = vec[i] < *threshold ? 0 : 1;
+	}
+	return output;
+}
+
+vector<vector<double> > ANNFrameworkFunctions::normalizeUnipolarAutoThreshold(const vector<vector<double> > &vec, double *threshold)
+{
+	size_t sVec = vec.size();
+	vector<vector<double> > output(sVec);
+
+	if(threshold == NULL){
+		threshold = new double;
+	}
+	*threshold = (getMin(vec) + getMax(vec)) / 2;
+	for(size_t i = 0; i < sVec; i++){
+		output[i] = normalizeUnipolarFixedThreshold(vec[i], *threshold);
+	}
+	return output;
+}
+
+vector<double> ANNFrameworkFunctions::normalizeLinearFixedRange(const vector<double> &vec, double min, double max)
+{
+	size_t sVec = vec.size();
+
+	vector<double> output(sVec, 0);
+	double val;
+	for(size_t i = 0; i < sVec; i++){
+		val = (((vec[i] - min)/(max - min))*2)-1;
+		if(val < -1){
+			val = -1;
+		}else if(val > 1){
+			val = 1;
+		}
+		output[i] = val;
+	}
+	return output;
+}
+
+vector<vector<double> > ANNFrameworkFunctions::normalizeLinearFixedRange(const vector<vector<double> > &vec, double min, double max)
+{
+	size_t sVec = vec.size();
+	vector<vector<double> > output(sVec);
+
+	for(size_t i = 0; i < sVec; i++){
+		output[i] = normalizeLinearFixedRange(vec[i], min, max);
+	}
+	return output;
+}
+
+vector<double> ANNFrameworkFunctions::normalizeLinearAutoRange(const vector<double> &vec, double *min, double *max)
+{
+	size_t sVec = vec.size();
+
+	vector<double> output(sVec, 0);
+
+	if(!(min && max)){
+		min = new double;
+		max = new double;
+	}
+	*min = getMin(vec);
+	*max = getMax(vec);
+	for(size_t i = 0; i < sVec; i++){
+		output[i] = (vec[i] - *min)/(*max - *min);
+	}
+	return output;
+}
+
+vector<vector<double> > ANNFrameworkFunctions::normalizeLinearAutoRange(const vector<vector<double> > &vec, double *min, double *max)
+{
+	size_t sVec = vec.size();
+	vector<vector<double> > output(sVec);
+
+	if(!(min && max)){
+		min = new double;
+		max = new double;
+	}
+	*min = getMin(vec);
+	*max = getMax(vec);
+	for(size_t i = 0; i < sVec; i++){
+		//NOTE: se hace un llamado a la funcion normalizeLinearFixedRange ya que se busco inicialmente el valor maximo y minimo global,
+		//por lo cual no necesita ser determinado en cada iteracion como se haria si se llama a normalizeLinearAutoRange
+		output[i] = normalizeLinearFixedRange(vec[i], *min, *max);
+	}
+	return output;
+}
+
+vector<double> ANNFrameworkFunctions::normalizeTanh(const vector<double> &vec)
+{
+
+}
+
+vector<double> ANNFrameworkFunctions::normalizeSigmoid(const vector<double> &vec)
+{
+
 }

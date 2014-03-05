@@ -50,7 +50,6 @@ LIBS += -lANNFramework \
 INCLUDEPATH +=
 
 SOURCES += \
-	general.cpp \
     visor.cpp \
     vector2d.cpp \
     statusanimation.cpp \
@@ -112,7 +111,13 @@ SOURCES += \
     pixmapitem.cpp \
     ANNGraphicInterface/imagerepresentationwidget.cpp \
     ANNGraphicInterface/representationwidget.cpp \
-    ANNGraphicInterface/datarepresentationbox.cpp
+    ANNGraphicInterface/datarepresentationbox.cpp \
+    INSYDEUI_global.cpp \
+    ANNGraphicInterface/normalizationwidget.cpp \
+    minmaxvaluewidget.cpp \
+    labeledspinboxwidget.cpp \
+    ANNGraphicInterface/trainingsettable.cpp \
+    integersizewidget.cpp
 
 HEADERS += INSYDEUI_global.h \
     visor.h \
@@ -176,7 +181,12 @@ HEADERS += INSYDEUI_global.h \
     pixmapitem.h \
     ANNGraphicInterface/imagerepresentationwidget.h \
     ANNGraphicInterface/representationwidget.h \
-    ANNGraphicInterface/datarepresentationbox.h
+    ANNGraphicInterface/datarepresentationbox.h \
+    ANNGraphicInterface/normalizationwidget.h \
+    minmaxvaluewidget.h \
+    labeledspinboxwidget.h \
+    ANNGraphicInterface/trainingsettable.h \
+    integersizewidget.h
 
 #unix:!symbian {
 #    maemo5 {
@@ -210,7 +220,11 @@ FORMS += \
     ECGraphicInterface/defineruledialog.ui \
     ECGraphicInterface/addagentsdialog.ui \
     selectimagesegmentdialog.ui \
-    ANNGraphicInterface/imagerepresentationwidget.ui
+    ANNGraphicInterface/imagerepresentationwidget.ui \
+    ANNGraphicInterface/normalizationwidget.ui \
+    minmaxvaluewidget.ui \
+    labeledspinboxwidget.ui \
+    integersizewidget.ui
 
 RESOURCES += \
     imagenes.qrc \

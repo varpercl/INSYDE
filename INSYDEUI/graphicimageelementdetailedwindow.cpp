@@ -26,6 +26,11 @@ QImage GraphicImageElementDetailedWindow::getImage() const
 	return img;
 }//getImage
 
+QImage GraphicImageElementDetailedWindow::getImageSegment() const
+{
+	return pmItm->getImageSegment();
+}
+
 void GraphicImageElementDetailedWindow::setGraphicsPixmapItem(PixmapItem *pmitm)
 {
 	pmItm = pmitm;
@@ -76,12 +81,12 @@ QColor GraphicImageElementDetailedWindow::getSelectionRectColor() const
 	return pmItm->getSelectionRectColor();
 }//getSelectionRectColor
 
-void GraphicImageElementDetailedWindow::setSelectionRect(const QRectF &rect)
+void GraphicImageElementDetailedWindow::setSelectionRect(const QRect &rect)
 {
 	pmItm->setSelectionRect(rect);
 }//setSelectionRect
 
-QRectF GraphicImageElementDetailedWindow::getSelectionRect() const
+QRect GraphicImageElementDetailedWindow::getSelectionRect() const
 {
 	return pmItm->getSelectionRect();
 }//getSelectionRect
@@ -121,6 +126,7 @@ void GraphicImageElementDetailedWindow::initWindow(const QImage &img)
 
 	setVisibleToolbar(true);
 	layout()->addWidget(gv);
+	layout()->setMargin(0);
 
 	connect(gv, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenu(QPoint)));
 

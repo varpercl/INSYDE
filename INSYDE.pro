@@ -12,8 +12,10 @@ TEMPLATE = app
 
 #QMAKE_CXXFLAGS += -std=c++0x -ansi -U__STRICT_ANSI__
 #QMAKE_CXXFLAGS += -std=c++0x -U__STRICT_ANSI__
-#    QMAKE_CXXFLAGS += -std=gnu++0x -U__STRICT_ANSI__
+#QMAKE_CXX += -fno-elide-constructors -Wunused-parameter
+QMAKE_CXX += -std=c++11
 
+QMAKE_CFLAGS
 
 
 INCLUDEPATH +=

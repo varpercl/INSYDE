@@ -24,6 +24,11 @@ vector<double> DataRepresentationBox::getDataInput() const
 	return inputs;
 }//getDataInput
 
+RepresentationWidget *DataRepresentationBox::getRepresentationWidget() const
+{
+	return irw;
+}
+
 void DataRepresentationBox::initGR(const vector<double> &inputdata)
 {
 	ui->setupUi(this);

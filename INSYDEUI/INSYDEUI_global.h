@@ -7,6 +7,7 @@
 #include <QColor>
 #include <math.h>
 #include <vector>
+#include <utility>
 
 #if defined(INSYDEUI_LIBRARY)
 #  define INSYDEUISHARED_EXPORT Q_DECL_EXPORT
@@ -30,7 +31,8 @@ namespace CommonFunctions {
 enum IntegerTypes{
 	Unipolar,
 	Bipolar,
-	Normal
+	NormalSigned,
+	NormalUnsigned
 };
 
 /**
@@ -76,9 +78,9 @@ size_t INSYDEUISHARED_EXPORT mayor(const vector<double> &vec);
 size_t INSYDEUISHARED_EXPORT mayor(const vector<int> &vec);
 
 vector<unsigned int> INSYDEUISHARED_EXPORT imageToUIntVector(const QImage &img);
-vector<int> INSYDEUISHARED_EXPORT imageToIntVector(const QImage &img, IntegerTypes it = Normal, double threshold = 0.5);
+vector<long> imageToIntVector(const QImage &img, IntegerTypes it = NormalSigned, double threshold = 0.5);
 
-//bool INSYDEUISHARED_EXPORT contains(const QRectF &rect, const QPointF &point);
+pair<int, int> INSYDEUISHARED_EXPORT getWidthHeight(int value);
 
 }
 

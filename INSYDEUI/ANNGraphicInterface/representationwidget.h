@@ -5,6 +5,8 @@
 
 #include <vector>
 
+#include "../graphicimageelementdetailedwindow.h"
+
 using namespace std;
 
 class RepresentationWidget : public QWidget
@@ -20,6 +22,7 @@ class RepresentationWidget : public QWidget
 	protected:
 
 		vector<double> dataInput;
+		GraphicImageElementDetailedWindow *giedw;
 
 	private:
 		Q_OBJECT

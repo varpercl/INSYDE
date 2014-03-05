@@ -314,12 +314,20 @@ vector<int> MultilayerPerceptron::getClasifierOutput(const vector<double> &input
 
 vector<double> MultilayerPerceptron::getOutput(const vector<int> &inputs)
 {
-	int sInputs = inputs.size();
-	vector<double> dblInputs(sInputs);
-	for(int i = 0; i < sInputs; i++){
-		dblInputs[i] = double(inputs[i]);
-	}
-	return getOutput(dblInputs);
+	//NOTE: se reemplazo este segmento de codigo por algo mas eficiente
+//	int sInputs = inputs.size();
+//	vector<double> dblInputs(sInputs);
+//	for(int i = 0; i < sInputs; i++){
+//		dblInputs[i] = double(inputs[i]);
+//	}
+//	return getOutput(dblInputs);
+
+	return getOutput(vector<double>(inputs.begin(), inputs.end()));
+}
+
+vector<double> MultilayerPerceptron::getOutput(const vector<long> &inputs)
+{
+	return getOutput(vector<double>(inputs.begin(), inputs.end()));
 }
 
 vector<double> MultilayerPerceptron::getAuxOutput(const vector<vector<vector<double> > > &layerWeights, const vector<vector<double> > &outputWeights, const vector<double> &inputs)

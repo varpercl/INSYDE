@@ -10,6 +10,8 @@ TEMPLATE = lib
 
 DEFINES += ECFRAMEWORK_LIBRARY
 
+QMAKE_CXX += -std=c++11
+
 SOURCES += \
 	acosolver.cpp \
 	ant.cpp

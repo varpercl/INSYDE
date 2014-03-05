@@ -27,6 +27,8 @@ class INSYDEUISHARED_EXPORT GraphicImageElementDetailedWindow : public GraphicEl
 		void setImage(const QImage &img);
 		QImage getImage() const;
 
+		QImage getImageSegment() const;
+
 		void setGraphicsPixmapItem(PixmapItem *pmitm);
 		QGraphicsPixmapItem *getGraphicsPixmapItem();
 
@@ -42,8 +44,8 @@ class INSYDEUISHARED_EXPORT GraphicImageElementDetailedWindow : public GraphicEl
 		void setSelectionRectColor(const QColor &color);
 		QColor getSelectionRectColor() const;
 
-		void setSelectionRect(const QRectF &rect);
-		QRectF getSelectionRect() const;
+		void setSelectionRect(const QRect &rect);
+		QRect getSelectionRect() const;
 
 	protected slots:
 		void contextMenu(QPoint pos);

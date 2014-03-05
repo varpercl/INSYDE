@@ -17,6 +17,8 @@
 #include <QPushButton>
 #include <QMessageBox>
 
+#include "trainingsettable.h"
+#include "normalizationwidget.h"
 #include "../selectimagesegmentdialog.h"
 #include "datarepresentationbox.h"
 #include "../graphicimageelementdetailedwindow.h"
@@ -30,8 +32,9 @@ using namespace std;
 class DotMatrix;
 class PerceptronTrainingPattern;
 
-class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
+class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog/*, public ITrainingSet*/
 {
+
 	public:
 
 		/**
@@ -50,7 +53,7 @@ class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
 		 * @param ts Conjunto de entrenamiento asignado (Si se desea crear a partir de tal)
 		 * @param parent Widget padre
 		 */
-		explicit TrainingSetDialog(const TrainingSet *ts, QWidget *parent = 0);
+		explicit TrainingSetDialog(TrainingSet *ts, QWidget *parent = 0);
 
 		/**
 		 * @brief TrainingSetDialog TrainingSetDialog Genera una instancia de un cuadro de dialogo para generar un conjunto de entrenamiento
@@ -59,7 +62,7 @@ class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
 		 * @param targetSize Numero de salidas (u objetivos)
 		 * @param parent Widget padre
 		 */
-		explicit TrainingSetDialog(int inputSize, int targetSize, QWidget *parent = 0);
+		explicit TrainingSetDialog(int inputSize, int targetCount, int nPatterns, QWidget *parent = 0);
 
 		/**
 		 * @brief TrainingSetDialog Genera una instancia de un cuadro de dialogo para generar un conjunto de entrenamiento
@@ -69,7 +72,7 @@ class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
 		 * @param targets Vector con los objetivos
 		 * @param parent Widget padre
 		 */
-		explicit TrainingSetDialog(vector<vector<double> > inputs, vector<vector<double> > targets, QWidget *parent = 0);
+		explicit TrainingSetDialog(const vector<vector<double> > &inputs, const vector<vector<double> > &targets, QWidget *parent = 0);
 
 		/**
 		 * @brief TrainingSetDialog Genera una instancia de un cuadro de dialogo para generar un conjunto de entrenamiento
@@ -81,115 +84,139 @@ class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
 
 		~TrainingSetDialog();
 
-		/**
-		 * @brief getInputs Devuelve las entradas de este conjunto de entrenamiento
-		 * @return Matriz con las entradas que posee este conjunto de entrenamiento
+		/*!
+		 * \brief getInputs
+		 * \return
 		 */
-		vector<vector<double> > getInputs() const;
+		//		vector<vector<double> > getInputs() const;
 
-		/**
-		 * @brief setInputSize Redimensiona el tamaño de las entradas del conjunto de entrenamiento
-		 * @param size Tamaño de la entrada
+		/*!
+		 * \brief getTargets
+		 * \return
 		 */
-		void setInputSize(int size);
-
-		/**
-		 * @brief getTargets Devuelve los objetivos de este conjunto de entrenamiento
-		 * @return Vector con los valores objetivos
-		 */
-		vector<vector<double> > getTargets() const;
-
-		/**
-		 * @brief setTargetSize Redimensiona el tamaño de los valores objetivos del conjunto de entrenamiento
-		 * @param size Tamaño que se asignara
-		 */
-		void setTargetSize(int size);
-
-		/**
-		 * @brief appendPattern Agrega un patron de entrenamiento al conjunto de entrenamiento
-		 * @param input Entradas de este patron (double)
-		 * @param target Valores objetivo de este patron (double)
-		 */
-		//		void appendPattern(const vector<double> &input, const vector<double> &target);
-
-		/**
-		 * @brief appendPattern Agrega un patron de entrenamiento al conjunto de entrenamiento
-		 * @param input Entradas de este patron (int)
-		 * @param target Valores objetivo de este patron (int)
-		 */
-		template<typename I, typename T>
-		void appendPattern(const vector<I> &input, const vector<T> &target){
-			patternTable->setRowCount(patternTable->rowCount() + 1);
-
-			int nRows = patternTable->rowCount();
-			for(int i = 0; i < inputSize; i++){
-				QTableWidgetItem *itm = new QTableWidgetItem(QString::number((I)input[i]));
-				itm->setTextAlignment(Qt::AlignRight);
-				patternTable->setItem(nRows-1, i, itm);
-			}
-			for(int j = inputSize; j <  inputSize + targetSize; j++){
-				QTableWidgetItem *itm = new QTableWidgetItem(QString::number((T)target[j-inputSize]));
-				itm->setTextAlignment(Qt::AlignRight);
-				patternTable->setItem(nRows-1, j, itm);
-			}
-		}
-
-		//		void appendPattern(const vector<unsigned int> &input, const vector<unsigned int> &target);
-
-		/**
-		 * @brief appendPattern Agrega un patron de entrenamiento al conjunto de entrenamiento. En este caso se utiliza la clase QVector
-		 * @param input Entradas de este patron (double)
-		 * @param target Valores objetivo de este patron (double)
-		 */
-		//		void appendPattern(const QVector<double> &input, const QVector<double> &target);
-
-		/**
-		 * @brief appendPattern Agrega un patron de entrenamiento al conjunto de entrenamiento. En este caso se utiliza la clase QVector
-		 * @param input Entradas de este patron (int)
-		 * @param target Valores objetivo de este patron (int)
-		 */
-		//		void appendPattern(const QVector<int> &input, const QVector<int> &target);
-
-		/**
-		 * @brief removePattern Elimina el patron en la posicion @code{i}
-		 * @param i Indice del patron que se eliminara
-		 */
-		void removePattern(int i);
+		//		vector<vector<double> > getTargets() const;
 
 		/**
 		 * @brief getPatternCount Devuelve el numero de patrones de entrenamiento que tiene este conjunto
 		 * @return Numero de patrones
 		 */
-		int getPatternCount();
+		//		int getPatternCount() const;
 
 		/**
 		 * @brief setTrainingSet Asigna un conjunto de entrenamiento a este dialogo para que sea editado por el usuario.
 		 * @param ts Conjunto de entrenamiento que sera asignado. Este puede ser obtenido desde alguna red neuronal.
 		 */
-		void setTrainingSet(TrainingSet *ts);
+		//		void setTrainingSet(TrainingSet *ts);
 
 		/**
 		 * @brief getTrainingSet Devuelve el objeto TrainingSet asociado a este cuadro de dialogo
 		 * @return Puntero al objeto
 		 */
-		TrainingSet *getTrainingSet() const;
+		//		TrainingSet *getTrainingSet() const;
 
-	private slots:
+		//		int getInputSize() const;
 
-		//Eventos de controles
-		void on_addPatternButton_clicked();
+		//		int getTargetSize() const;
 
-		void on_delPatternButton_clicked();
+		//		NormalizationType getNormalizationType() const;
+
+		//		TrainingSetTable *getTrainingSetTable() const;
+
+		// ITrainingSet interface
+		//		void setInputSize(int is, double fill = 0);
+		//		void setTargetSize(int ts, double fill = 0);
+		//		void insertPattern(const vector<double> &inputs, const vector<double> &targets, int index);
+		//		void insertPattern(const vector<int> &inputs, const vector<int> &targets, int index);
+		//		void deletePattern(int index);
+		//		void setInputs(const vector<vector<double> > &inputs);
+		//		void setInputs(const vector<vector<int> > &inputs);
+		//		void setTargets(const vector<vector<double> > &targets);
+		//		void setTargets(const vector<vector<int> > &targets);
+		//		void addNoiseToInputs(double min, double max);
+		//		void addNoiseToInputs(double a);
+		//		void addNoiseToTargets(double min, double max);
+		//		void addNoiseToTargets(double a);
+		//		void addNoiseToAll(double min, double max);
+		//		void addNoiseToAll(double a);
+		//		void setPatternCount(int s);
+
+		//		void appendPattern(const vector<float> &inputs, const vector<float> &targets);
+		//		void appendPattern(const vector<double> &inputs, const vector<double> &targets);
+		//		void appendPattern(const vector<long double> &inputs, const vector<long double> &targets);
+		//		void appendPattern(const vector<char> &inputs, const vector<char> &targets);
+		//		void appendPattern(const vector<int> &inputs, const vector<int> &targets);
+		//		void appendPattern(const vector<short> &inputs, const vector<short> &targets);
+		//		void appendPattern(const vector<long> &inputs, const vector<long> &targets);
+		//		void appendPattern(const vector<unsigned char> &inputs, const vector<unsigned char> &targets);
+		//		void appendPattern(const vector<unsigned int> &inputs, const vector<unsigned int> &targets);
+		//		void appendPattern(const vector<unsigned short> &inputs, const vector<unsigned short> &targets);
+		//		void appendPattern(const vector<unsigned long> &inputs, const vector<unsigned long> &targets);
+
+		//		void setInput(int pat, int index, double value);
+		//		void setTarget(int pattern, int index, double value);
+		//		double getInput(int pat, int index) const;
+		//		double getTarget(int pat, int index) const;
+		//		void setPattern(int index, const vector<double> &inputs, const vector<double> &targets);
+		//		pair<vector<double>, vector<double> > getPattern(int index) const;
+
+		//		void normalize(double minInputs, double maxInputs, double minTargets, double maxTargets);
+		//		void normalize(double *minInputs, double *maxInputs, double *minTargets, double *maxTargets);
+		//		void normalize(NormalizationType no);
+
+		//		TrainingSet getNormalized(NormalizationType no) const;
+		//		TrainingSet getNormalized(double *minInputs, double *maxInputs, double *minTargets, double *maxTargets) const;
+		//		TrainingSet getNormalized(double minInputs, double maxInputs, double minTargets, double maxTargets) const;
+
+		void setTrainingSetTable(TrainingSetTable *tst);
+		TrainingSetTable *getTrainingSetTable() const;
+
+	public slots:
+
+		/**
+		 * @brief setNormalizationType Establece el tipo de normalizacion de los datos de entrenamiento.
+		 *
+		 * La normalizacion de los datos previene que el entrenamiento sea mucho mas largo e inestable al presentar
+		 * datos que se encuentran entre rangos peque�os de valores (0 y 1 por ejemplo)
+		 *
+		 * @param nt
+		 *
+		 */
+		//		void setNormalizationType(ITrainingSet::NormalizationType nt);
 
 	private:
 		Q_OBJECT
 
+		double
+		dblInputsThreshold,
+		dblInputsMinValue,
+		dblInputsMaxValue,
+		dblTargetsThreshold,
+		dblTargetsMinValue,
+		dblTargetsMaxValue;
+
+		QTimer
+		tnInputsThreshold,
+		tnInputsMaxValue,
+		tnInputsMinValue,
+		tnTargetsThreshold,
+		tnTargetsMaxValue,
+		tnTargetsMinValue;
+
+		TrainingSet *ts;
+		TrainingSet *normalizedTS;
+		NormalizationWidget
+		*inw,
+		*tnw;
+		QMessageBox mbImageSegmentMessage;
+		QMessageBox mbErrorLoadingImageMessage;
 		QMenu *addPatternMenu;
 		QMenu *file;
 		QImage imageFile;
 		SelectImageSegmentDialog *sisd;
+		QPushButton *lastButtonPressed;
 		QPushButton *btnMsgBoxFirstPixels;
 		QPushButton *btnMsgBoxImageSegment;
+		QPushButton *btnCancel;
 		QHBoxLayout *hlRepresentation;
 		DataRepresentationBox *gbGraphicTargetRepresentation;
 		DataRepresentationBox *gbGraphicInputRepresentation;
@@ -198,7 +225,7 @@ class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
 		QSpacerItem *horizontalSpacer;
 		QToolButton *addPatternButton;
 		QToolButton *delPatternButton;
-		QTableWidget *patternTable;
+		TrainingSetTable *patternTable;
 		QDialogButtonBox *buttonBox;
 
 		QGraphicsItem *itm;
@@ -212,15 +239,14 @@ class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
 		//Tipo de conjunto de entrenamiento
 		TrainingSetType tst;
 
-		//Tama�o de las entradas y salidas
-		int inputSize, targetSize;
+		//		int inputSize, targetSize; /**< Tama�o de las entradas y objetivos */
 
 		/**
 		 * @brief initDialog Es un metodo auxiliar para inicializar este cuadro de dialogo
 		 * @param inputs Numero de entradas
 		 * @param outputs Numero de salidas
 		 */
-		void initDialog(int inputs, int outputs);
+		//		void initDialog(int inputs, int outputs);
 
 		/**
 		 * @brief initDialog
@@ -236,15 +262,20 @@ class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
 		void initDialog(const vector<MultilayerPerceptronPattern*> ts);
 
 		/**
+		 * @brief initMsgBoxes Inicializa los cuadros de mensajes al usuario.
+		 */
+		void initMsgBoxes();
+
+		/**
 		 * @brief updateHeaders Actualiza la cabecera de la tabla que muestra el conjunto de entrenamiento
 		 */
 		void updateHeaders();
 
 		void updateRepresentation(int row);
 
-		void setupUi(QDialog *TrainingSetDialog); // setupUi
+		void setupUi(TrainingSet *ts, QWidget *TrainingSetDialog); // setupUi
 
-		void retranslateUi(QDialog *TrainingSetDialog); // retranslateUi
+		void retranslateUi(QWidget *TrainingSetDialog); // retranslateUi
 
 	private slots:
 
@@ -259,8 +290,41 @@ class INSYDEUISHARED_EXPORT TrainingSetDialog : public QDialog
 		void fromImages();
 
 		void on_patternTable_cellChanged(int row, int column);
+
 		void on_patternTable_currentCellChanged(int currentRow, int currentColumn, int previousRow, int previousColumn);
 
 		void onMessageBoxButtonClicked(QAbstractButton *button);
+
+		//Eventos de controles
+		void on_addPatternButton_clicked();
+
+		void on_delPatternButton_clicked();
+
+		void onIgnoreAlphaChannelToogled(bool);
+
+		void onInputsNormalizationTypeChanged(ITrainingSet::NormalizationType nt);
+
+		void onTargetsNormalizationTypeChanged(ITrainingSet::NormalizationType nt);
+
+		void onInputsThresholdChanged(double val);
+		void onInputsThresholdTimed();
+
+		void onInputsMinValueChanged(double val);
+		void onInputsMinValueTimed();
+
+		void onInputsMaxValueChanged(double val);
+		void onInputsMaxValueTimed();
+
+		void onTargetsThresholdChanged(double val);
+		void onTargetsThresholdTimed();
+
+		void onTargetsMinValueChanged(double val);
+		void onTargetsMinValueTimed();
+
+		void onTargetsMaxValueChanged(double val);
+		void onTargetsMaxValueTimed();
+
+		void onWidthChanged(int width);
+		void onHeightChanged(int height);
 };
 #endif // TRAININGSETDIALOG_H

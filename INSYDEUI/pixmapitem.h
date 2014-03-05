@@ -12,11 +12,13 @@ class PixmapItem : public QGraphicsPixmapItem
 		void setSelectionRectVisible(bool rv);
 		bool getSelectionRectVisible() const;
 
-		void setSelectionRect(const QRectF &sr);
-		QRectF getSelectionRect() const;
+		void setSelectionRect(const QRect &sr);
+		QRect getSelectionRect() const;
 
 		void setSelectionRectColor(const QColor &color);
 		QColor getSelectionRectColor() const;
+
+		QImage getImageSegment() const;
 
 	protected:
 
@@ -30,7 +32,7 @@ class PixmapItem : public QGraphicsPixmapItem
 		bool mouseIsOverSelectionRect;
 		QColor rectColor;
 		bool rectVisible;
-		QRectF rect;
+		QRect rect;
 
 		void initPI();
 };

@@ -144,6 +144,13 @@ class ANNFRAMEWORK_EXPORT MultilayerPerceptron : public QThread
 		vector<double> getOutput(const vector<int> &inputs);
 
 		/**
+		 * @brief getOutput
+		 * @param inputs
+		 * @return
+		 */
+		vector<double> getOutput(const vector<long> &inputs);
+
+		/**
 		 * @brief getClasifierOutput Devuelve las salidas de la red neuronales en la forma de clasificador, los valores de salida
 		 * dependeran del valor @code{threshold}, el cual indica el punto en el cual pasara a ser un nivel alto o nivel bajo.
 		 * @param inputs Entradas que se le presentan a la red para generar la salida

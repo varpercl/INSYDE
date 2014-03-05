@@ -6,7 +6,6 @@
 #endif
 
 #include "ANNFramework_global.h"
-#include "itrainable.h"
 
 class NeuralNetwork
 {

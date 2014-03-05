@@ -16,6 +16,7 @@ using namespace std;
 
 namespace ANNFrameworkFunctions {
 	vector<vector<double> > toDouble(const vector<vector<int> > &vec);
+	vector<vector<int> > toInt(const vector<vector<double> > &vec);
 
 	double getMin(const vector<double> &vec);
 	double getMin(const vector<vector<double> > &matrix);
@@ -74,6 +75,35 @@ namespace ANNFrameworkFunctions {
 	vector<int> toUnipolar(const vector<double> &vec, double threshold);
 
 	vector<int> toBipolar(const vector<double> &vec, double threshold);
+
+	vector<double> normalizeBipolarFixedThreshold(const vector<double> &vec, double threshold);
+
+	vector<vector<double> > normalizeBipolarFixedThreshold(const vector<vector<double> > &vec, double threshold);
+
+	vector<double> normalizeBipolarAutoThreshold(const vector<double> &vec, double *threshold = 0);
+
+	vector<vector<double> > normalizeBipolarAutoThreshold(const vector<vector<double> > &vec, double *threshold = 0);
+
+	vector<double> normalizeUnipolarFixedThreshold(const vector<double> &vec, double threshold);
+
+	vector<vector<double> > normalizeUnipolarFixedThreshold(const vector<vector<double> > &vec, double threshold);
+
+	vector<double> normalizeUnipolarAutoThreshold(const vector<double> &vec, double *threshold = 0);
+
+	vector<vector<double> > normalizeUnipolarAutoThreshold(const vector<vector<double> > &vec, double *threshold = 0);
+
+	vector<double> normalizeLinearFixedRange(const vector<double> &vec, double min, double max);
+
+	vector<vector<double> > normalizeLinearFixedRange(const vector<vector<double> > &vec, double min, double max);
+
+	vector<double> normalizeLinearAutoRange(const vector<double> &vec, double *min, double *max);
+
+	vector<vector<double> > normalizeLinearAutoRange(const vector<vector<double> > &vec, double *min, double *max);
+
+	vector<double> normalizeTanh(const vector<double> &vec);
+
+	vector<double> normalizeSigmoid(const vector<double> &vec);
+
 }
 
 #endif // RNALIBRARY_GLOBAL_H

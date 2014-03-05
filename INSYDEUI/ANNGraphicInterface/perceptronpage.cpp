@@ -77,7 +77,7 @@ void PerceptronPage::on_btnEditWeights_clicked()
 
 void PerceptronPage::on_btnEditTrainingSet_clicked()
 {
-	TrainingSetDialog *tsd = new TrainingSetDialog(ui->sbInputs->value(), 1);
+	TrainingSetDialog *tsd = new TrainingSetDialog(ui->sbInputs->value(), 1, 1);
 	tsd->exec();
 
 	delete tsd;

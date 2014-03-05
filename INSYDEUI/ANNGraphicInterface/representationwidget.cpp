@@ -19,5 +19,5 @@ vector<double> RepresentationWidget::getDataInput() const
 
 void RepresentationWidget::initRW(const vector<double> &dataInput)
 {
-
+	(void)dataInput;
 }
