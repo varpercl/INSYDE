@@ -7,8 +7,8 @@ Makefile
 *.o
 .lib
 *.pdb
-*.[Dd]ebug
-*.[Rd]elease
+#*.[Dd]ebug
+#*.[Rd]elease
 
 #################
 ## Eclipse
