@@ -1,0 +1,16 @@
+INPUT(
+./debug\obj\trainingset.o
+./debug\obj\simpleperceptron.o
+./debug\obj\simplepattern.o
+./debug\obj\neuralnetwork.o
+./debug\obj\hopfieldnetwork.o
+./debug\obj\adaline.o
+./debug\obj\multilayerperceptron.o
+./debug\obj\ANNFramework_global.o
+./debug\obj\trainingsetfile.o
+./debug\obj\simpleperceptronfile.o
+./debug\obj\normalization.o
+./debug\obj\trainingsetinterface.o
+./debug\obj\moc_trainingset.o
+./debug\obj\moc_multilayerperceptron.o
+);
