@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>TrainingSets/pruebas/aprendizaje-de-letras-de-placas.tsf</file>
+    </qresource>
+</RCC>

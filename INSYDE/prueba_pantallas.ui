@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PruebaPantalla</class>
+ <widget class="QWidget" name="PruebaPantalla">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>518</width>
+    <height>312</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="7" column="1">
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="text">
+      <string>GraphicImageEffectElementPropertyDialog</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="text">
+      <string>SelectImageSegment</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QPushButton" name="addAgentsButton">
+     <property name="text">
+      <string>Add agents</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="adalineButton">
+     <property name="text">
+      <string>ADALINE</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="hopfieldButton">
+     <property name="text">
+      <string>Hopfield</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QPushButton" name="newProjectButton">
+     <property name="text">
+      <string>New project</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QPushButton" name="mainWindowButton">
+     <property name="text">
+      <string>Main Window</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QPushButton" name="systemButton">
+     <property name="text">
+      <string>System</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>MLPTrainingDialog</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QPushButton" name="acoButton">
+     <property name="text">
+      <string>ACO</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QPushButton" name="chooseProjectNameButton">
+     <property name="text">
+      <string>Choose project name</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QPushButton" name="selectProjectButton">
+     <property name="text">
+      <string>Select project</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QPushButton" name="trainingSetButton">
+     <property name="text">
+      <string>TrainingSetDialog</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QPushButton" name="perceptronButton">
+     <property name="text">
+      <string>PerceptronPage</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1">
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="text">
+      <string>MultilayerPerceptron tests</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
