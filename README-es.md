@@ -1,4 +1,4 @@
-INSYDE
+﻿INSYDE
 ------
 
 
@@ -26,7 +26,7 @@ Estado del proyecto
 Actualmente el proyecto esta en sus inicios, se esta desarrollando como punto de partida el modulo de Redes Neuronales
 Artificiales. En este modulo el usuario podra crear de forma sencilla sus sistemas con aprendizaje mediante redes 
 neuronales. 
-El metodo sera muy sencillo, el usuario solamente tomara una red neuronal con el raton y la colocara sobre el Visor.
+El metodo sera muy sencillo, el usuario solamente tomara una red neuronal con el raton (Drag and Drop) y la colocara sobre el Visor.
 Luego este podra colocar otros objetos de entrada/salida como por ejemplo matrices de puntos para el reconocimiento
 de patrones, objetos de imagenes, el cual es un modulo al cual podra asignarle una imagen en distintos formatos; 
 esto puede servir para hacer analisis de vision artificial a imagenes. Tambien se introduciran otros objetos cotidianos
@@ -47,7 +47,7 @@ En el primer lanzamiento se tendran las siguientes caracteristicas:
     Este editor permitira crear su conjunto de entrenamiento a partir de datos importados o capturados de cualquier
     tipo de objeto valido que tenga coherencia con el conjunto de entrenamiento.
 - Objetos de entrada:
-    Matriz de puntos, Display digital, Regiones, Imagen, Entrada teclado, Entrada raton, Entrada audio
+    Matriz de puntos, Display digital, Imagen, Entrada teclado, Entrada raton, Entrada audio
 - Objetos de salida:
     Matriz de puntos, Dislplay digital, Salida audio, Salida raton, Salida imagen
 - Gestor de proyectos:

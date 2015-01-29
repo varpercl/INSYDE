@@ -39,15 +39,15 @@ In this first release it will have following features:
   Multilayer Perceptron, Hopfield, Kohonen, ADALINE, Simple Perceptron
 
 - Advanced ANN editor:
-  This editor allows to see graphically each one connection and inputs of ANN at a given moment. Weights are 
+  This editor allows to see graphically each one connection and inputs of ANN at given moment. Weights are 
   represented by colors from red to green; these colors can be adjusted in a range to adapt graphic representation
 
 - Advanced Training Set Editor: 
-  This editor allos to create your training sets from imported data or captured from any type of valid object
-  coherent with such Training Set.
+  This editor allos to create your training sets from imported data or captured from any type of valid coherent object
+  within such Training Set.
 
 - Input objects:
-  Dot matrix, digital display, regions, images, keyboard input, mouse input, audio input.
+  Dot matrix, digital display, images, keyboard input, mouse input, audio input.
 
 - Output objects:
   Dot matrix, digital display, audio output, mouse output, image output
