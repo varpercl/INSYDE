@@ -1,0 +1,125 @@
+#include "image.h"
+
+Image::Image(const QString &imgpath)
+{
+	init(imgpath);
+}
+
+Image::~Image()
+{
+}
+
+void Image::setImage(const QString &path)
+{
+	image = QImage(path);
+	snapshot = image.scaled(50, 50, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+	setContainerRect(snapshot.rect());
+
+	emit imageChange(image);
+}
+
+void Image::setImage(const QImage &image)
+{
+	this->image = image;
+	snapshot = this->image.scaled(50, 50, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+	setContainerRect(snapshot.rect());
+
+	emit imageChange(this->image);
+}
+
+QImage Image::getImage() const
+{
+	return image;
+}
+
+void Image::setInputElement(GraphicObject *ge)
+{
+	switch(ge->type()){
+		case DotMatrix::DotMatrixObject:{
+			DotMatrix *dm = dynamic_cast<DotMatrix*>(ge);
+			dm->setOutputElement(this);
+			connect(dm, SIGNAL(statusChanged(QVector<int>)), SLOT(onDotMatrixStatusChanged(QVector<int>)));
+			break;
+		}
+		case GraphicMLPElement::GraphicMLPElementType:{
+			GraphicMLPElement *mlpe = dynamic_cast<GraphicMLPElement*>(ge);
+			mlpe->setOutputElement(this);
+			connect(mlpe, SIGNAL(outputChanged(QVector<double>)), SLOT(onMLPOutputChanged(QVector<double>)));
+			break;
+		}
+	}
+	inputElement = ge;
+}
+
+QMenu *Image::getContextMenu(QMenu *menu)
+{
+	menu->addAction("Abrir", this, SLOT(openClick()));
+	menu->addAction("Cambiar imagen...", this, SLOT(onChangeImageClick()));
+	menu->addAction("Borrar", this, SLOT(deleteClick()));
+	menu->addAction("Propiedades", this, SLOT(propertyClick()));
+	return menu;
+}
+
+int Image::type() const
+{
+	return GraphicImageElementType;
+}
+
+void Image::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+	GraphicObject::paint(painter, option, widget);
+	
+	painter->save();
+	
+	painter->drawImage(QPoint(0,0), snapshot);
+	if(mouseIsOverSelectionRect){
+		painter->setOpacity(0.2);
+	}else{
+		painter->setOpacity(0.5);
+	}
+	painter->fillRect(rect, Qt::black);
+	painter->drawRect(rect);
+	
+	painter->restore();
+}
+
+void Image::saveClick()
+{
+
+}
+
+void Image::propertyClick()
+{
+	ImagePropertyDialog *giepd = new ImagePropertyDialog();
+
+	giepd->show();
+}
+
+void Image::openClick()
+{
+
+	QGraphicsWidget *gw = (QGraphicsWidget*)this->scene()->parent();
+	QWidget *qw = (QWidget*)gw->parent();
+
+	QTabWidget *tw = (QTabWidget*)qw->parentWidget()->parentWidget();
+
+	ImageDetailedWindow *giedw = new ImageDetailedWindow(image);
+	tw->addTab(giedw, "Imagen");
+}
+
+void Image::onChangeImageClick()
+{
+	QString path = QFileDialog::getOpenFileName(0, "Abrir archivo", "", "Mapa de bits (*.bmp);; Formato JPEG (*.jpg);; Portable Network Graphics (*.png);; Formato de Intercambio de Graficos (*.gif)");
+
+	if(path != ""){
+		this->setImage(QImage(path));
+	}
+}
+
+void Image::init(const QString &path)
+{
+	setImage(path);
+	setSelectionRect(QRect());
+	setSelectionRectColor(qRgb(0, 0, 0));
+	setSelectionRectVisible(false);
+}

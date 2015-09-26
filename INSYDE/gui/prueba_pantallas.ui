@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PruebaPantalla</class>
+ <widget class="QWidget" name="PruebaPantalla">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>419</width>
+    <height>582</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="6" column="1">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>ann_gui</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="TrainingSetDialogButton">
+        <property name="text">
+         <string>TrainingSetDialog</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="perceptronButton">
+        <property name="text">
+         <string>PerceptronPage</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="WeightEditorDialogButton">
+        <property name="text">
+         <string>WeightEditorDialog</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="MLPTrainingDialog">
+        <property name="text">
+         <string>MLPTrainingDialog</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>core</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="6" column="0">
+       <widget class="QPushButton" name="SelectImageSegmentButton">
+        <property name="text">
+         <string>SelectImageSegment</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="DataRepresentationBoxButton">
+        <property name="text">
+         <string>DataRepresentationBox</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QPushButton" name="LabeledIntegerSpinBoxButton">
+        <property name="text">
+         <string>LabeledIntegerSpinBox</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QPushButton" name="BasicDialogButton">
+        <property name="text">
+         <string>BasicDialog</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QPushButton" name="IntegerSizeWidgetButton">
+        <property name="text">
+         <string>IntegerSizeWidget</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="DotMatrixRepresentationButton">
+        <property name="text">
+         <string>DotMatrixRepresentation</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QPushButton" name="LabeledComboBoxButton">
+        <property name="text">
+         <string>LabeledComboBox</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="NormalizationWidgetButton">
+        <property name="text">
+         <string>NormalizationWidget</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="ZoomControlButton">
+        <property name="text">
+         <string>ZoomControl</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="DetailedWindowButton">
+        <property name="text">
+         <string>DetailedWindow</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QPushButton" name="DoubleMinMaxWidgetButton">
+        <property name="text">
+         <string>DoubleMinMaxWidget</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>gui</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="systemButton">
+        <property name="text">
+         <string>System</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="mainWindowButton">
+        <property name="text">
+         <string>Main Window</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="selectProjectButton">
+        <property name="text">
+         <string>Select project</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="newProjectButton">
+        <property name="text">
+         <string>New project</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="chooseProjectNameButton">
+        <property name="text">
+         <string>Choose project name</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

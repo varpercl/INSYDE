@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/minus_icon.png</file>
+        <file>images/plus_icon.png</file>
+        <file>images/Agent_icon.png</file>
+        <file>images/png/Pause Disabled.png</file>
+        <file>images/png/Pause Hot.png</file>
+        <file>images/png/Pause Normal.png</file>
+        <file>images/png/Pause Pressed.png</file>
+        <file>images/png/Play Disabled.png</file>
+        <file>images/png/Play Hot.png</file>
+        <file>images/png/Play Normal.png</file>
+        <file>images/png/Play Pressed.png</file>
+        <file>images/png/Stop Disabled.png</file>
+        <file>images/png/Stop Normal Red.png</file>
+        <file>images/artificial neural network.png</file>
+        <file>images/sistema multiagente.jpg</file>
+        <file>images/fuzzy logic.png</file>
+        <file>images/perceptron.png</file>
+        <file>images/perceptron2.png</file>
+        <file>images/adaline.gif</file>
+        <file>images/hopfield.jpg</file>
+        <file>images/perceptron multicapa.png</file>
+        <file>images/artificial-intelligence.png</file>
+        <file>images/suma.png</file>
+        <file>images/theta.png</file>
+        <file>images/salida.png</file>
+        <file>images/matriz.png</file>
+        <file>images/manzana-verde-thumb7707762.jpg</file>
+        <file>images/conjuntos.gif</file>
+        <file>images/puntos.jpg</file>
+        <file>images/Zoom in.png</file>
+        <file>images/Zoom out.png</file>
+        <file>images/add_effect_icon.jpg</file>
+    </qresource>
+    <qresource prefix="/traininsets">
+        <file>../samples/aprendizaje-de-letras-de-placas.tsf</file>
+    </qresource>
+</RCC>

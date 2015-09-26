@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>media/Zoom in.png</file>
+        <file>media/Zoom out.png</file>
+        <file>media/Redo-icon.png</file>
+        <file>media/Undo-icon.png</file>
+        <file>media/Button-Close-icon.png</file>
+        <file>media/export-icon.png</file>
+        <file>media/FAQ-icon.png</file>
+        <file>media/Files-New-Window-icon.png</file>
+        <file>media/folder-open-floder-icon.png</file>
+        <file>media/Gear-icon.png</file>
+        <file>media/import-icon.png</file>
+        <file>media/Actions-help-about-icon.png</file>
+        <file>media/Floppy-Small-icon.png</file>
+        <file>media/minus_icon.png</file>
+        <file>media/plus_icon.png</file>
+        <file>media/symbol-check-icon.png</file>
+        <file>media/copy-icon.png</file>
+        <file>media/cut-icon.png</file>
+        <file>media/paste-icon.png</file>
+        <file>media/SEO-icon.png</file>
+        <file>media/ModernXP-70-Window-Settings-icon.png</file>
+        <file>media/Window-Enter-icon.png</file>
+        <file>media/Actions-edit-delete-icon.png</file>
+        <file>media/brain_working.png</file>
+        <file>media/Utilities-tasks-icon.png</file>
+        <file>media/Pause-icon.png</file>
+        <file>media/Play-1-Normal-icon.png</file>
+        <file>media/stop-red-icon.png</file>
+        <file>media/Hourglass.png</file>
+        <file>media/clear.png</file>
+        <file>media/Dice-icon.png</file>
+        <file>media/edit-icon.png</file>
+        <file>media/update_icon.svg</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>

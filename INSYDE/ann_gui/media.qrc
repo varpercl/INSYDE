@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>media/import_icon.png</file>
+        <file>media/minus_icon.png</file>
+        <file>media/open_file_icon.png</file>
+        <file>media/plus_icon.png</file>
+        <file>media/save_icon.png</file>
+    </qresource>
+</RCC>
