@@ -4,7 +4,8 @@
 #include <QtWidgets>
 #include <math.h>
 
-#include "../gui/vector2d.h"
+#include "share_ec_gui.h"
+#include "../core/vector2d.h"
 #include "sensordistancia.h"
 #include "actuador.h"
 #include "regla.h"
@@ -21,7 +22,7 @@ class Actuator;
   los atributos y metodos necesarios para el funcionamiento basico en un entorno virtual.
 
   */
-class Agent : public QGraphicsObject
+class EC_GUI_LIB_IMPORT_EXPORT Agent : public QGraphicsObject
 {
 	private:
 		Q_OBJECT

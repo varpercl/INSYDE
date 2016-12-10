@@ -1,7 +1,9 @@
 #ifndef ECFUNCTIONS_H
 #define ECFUNCTIONS_H
 
+#include "share_ec_gui.h"
 #include "agent.h"
+
 namespace ECFunctions {
 
 	/**
@@ -12,7 +14,7 @@ namespace ECFunctions {
 
 	  @return double Distancia entre ambos agentes.
 	  */
-	double distanceBetweenUnits(const Agent &agent1, const Agent &agent2);
+	EC_GUI_LIB_IMPORT_EXPORT double distanceBetweenUnits(const Agent &agent1, const Agent &agent2);
 
 }
 #endif // ECFUNCTIONS_H

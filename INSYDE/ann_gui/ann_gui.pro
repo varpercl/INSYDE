@@ -1,10 +1,10 @@
 
-QT += widgets opengl
+QT += core widgets opengl gui
 
-CONFIG += qt shared c++11
+CONFIG += qt shared_and_static
 
-CONFIG(release, debug|release):message("Staring RELEASE build for ann_gui sources") #will print
-CONFIG(debug, debug|release):message("Staring DEBUG build for ann_gui sources") #no print
+#CONFIG(release, debug|release):message("Staring RELEASE build for ann_gui sources") #will print
+#CONFIG(debug, debug|release):message("Staring DEBUG build for ann_gui sources") #no print
 
 TARGET = ann_gui
 
@@ -16,16 +16,11 @@ OBJECTS_DIR = obj
 RCC_DIR = res
 DESTDIR = ..
 
-DEFINES += \
-WINDOW_HEIGH=31 \
-WINDOW_WIDTH=13 \
-WINDOW_STEP=1
+DEFINES += EXPORT_ANN_GUI_LIB \
 
 SOURCES += \
     adalinepage.cpp \
     addnewmlpdialog.cpp \
-    graphicmlpelement.cpp \
-    graphicmlpelementpropertydialog.cpp \
     perceptrondisplay.cpp \
     perceptronpage.cpp \
     samplesdialog.cpp \
@@ -36,14 +31,16 @@ SOURCES += \
     weighteditordialog.cpp \
     anntrainingdialog.cpp \
     annmodelwrapper.cpp \
-    treeitem.cpp
+    tsmodelwrapper.cpp \
+    annview.cpp \
+    annmodeltree.cpp \
+    mlpobject.cpp \
+    mlpobjectpropertydialog.cpp
 
 
 HEADERS += \
     adalinepage.h \
     addnewmlpdialog.h \
-    graphicmlpelement.h \
-    graphicmlpelementpropertydialog.h \
     perceptrondisplay.h \
     perceptronpage.h \
     samplesdialog.h \
@@ -54,9 +51,16 @@ HEADERS += \
     weighteditordialog.h \
     anntrainingdialog.h \
     annmodelwrapper.h \
-    treeitem.h
+    share_ann_gui_lib.h \
+    tsmodelwrapper.h \
+    annview.h \
+    annmodeltree.h \
+    definitions.h \
+    mlpobject.h \
+    mlpobjectpropertydialog.h
 
-RESOURCES +=
+RESOURCES += \
+    ann_gui_media.qrc
 
 FORMS += \
     adalinepage.ui \
@@ -65,16 +69,56 @@ FORMS += \
     perceptronpage.ui \
     samplesdialog.ui
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../external/kdchart-2.5.1-source/lib/release/ -lkdchart
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../external/kdchart-2.5.1-source/lib/debug/ -lkdchart
-else:unix: LIBS += -L$$PWD/../external/kdchart-2.5.1-source/lib/ -lkdchart
+LIBS += \
+-L$$DESTDIR -lcore \
+-L$$DESTDIR -lann_base
 
-INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source/include
-DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source/include
+win32:{
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../external/tbb42_20140416oss/lib/intel64/gcc4.4/release/ -ltbb
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../external/tbb42_20140416oss/lib/intel64/gcc4.4/debug/ -ltbb
-else:unix: LIBS += -L$$PWD/../external/tbb42_20140416oss/lib/intel64/gcc4.4/ -ltbb
+    CONFIG(release, debug|release):{
+	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
+		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
+		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
+    }
+    CONFIG(debug, debug|release):{
+	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb_debug \
+		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb_debug \
+		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
+    }
 
-INCLUDEPATH += $$PWD/../external/tbb42_20140416oss/include
-DEPENDPATH += $$PWD/../external/tbb42_20140416oss/include
+    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
+    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
+
+    INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
+    DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
+}
+
+unix:{
+
+    QMAKE_CXX += -std=c++11
+
+    CONFIG(release, debug|release):{
+	QMAKE_CXX += -O3
+	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
+		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
+		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
+
+	lib.path = $$PWD/../../custom_libs/insyde/$$TARGET/lib
+	lib.files = $$OUT_PWD/../$$join(TARGET,,"lib").*
+
+	includes.path = $$PWD/../../custom_libs/insyde/$$TARGET/include
+	includes.files = $$PWD/*.h
+	INSTALLS += lib includes
+    }else{
+	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
+		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
+		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
+    }
+
+    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
+    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
+
+
+    INCLUDEPATH += $$PWD/../external/tbb42_20140416oss_lin/include
+    DEPENDPATH += $$PWD/../external/tbb42_20140416oss_lin/include
+}

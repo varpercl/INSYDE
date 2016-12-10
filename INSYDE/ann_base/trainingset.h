@@ -1,14 +1,16 @@
 #ifndef TRAININGSET_H
 #define TRAININGSET_H
 
-#include <QObject>
-#include <QStandardItemModel>
+#include <QtCore>
 
 #include <vector>
 #include <list>
 
 #include <tbb/concurrent_vector.h>
 
+#include "share_ann_base_lib.h"
+#include "../core/imath.h"
+#include "../core/common.h"
 #include "../core/normalization.h"
 #include "../core/datarepresentation.h"
 #include "mlp.h"
@@ -23,6 +25,7 @@ using namespace tbb;
 
 class TrainingSetFile;
 class MultilayerPerceptron;
+
 
 //NOTE: evaluar la posibilidad de usar una sola matriz MxN en lugar de dos matrices (uno para las entradas y uno para las salidas)
 
@@ -39,7 +42,7 @@ class MultilayerPerceptron;
  * \author Ing. Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT TrainingSet : public QAbstractTableModel
+class ANN_BASE_LIB_IMPORT_EXPORT TrainingSet : public QAbstractTableModel
 {
 	public:
 
@@ -132,20 +135,20 @@ class Q_DECL_EXPORT TrainingSet : public QAbstractTableModel
 		bool insertPattern(int i);
 
 		/*!
-		 * \brief insertTrainingPattern
+		 * \brief insertPattern Insert a given pattern before a given \code{row}
 		 * \param inputs
 		 * \param targets
 		 * \param i
 		 */
-		bool insertPattern(const vector<double> &inputs, const vector<double> &targets, int i);
+		bool insertPattern(const vector<double> &inputs, const vector<double> &targets, int row);
 
 		/*!
-		 * \brief insertTrainingPattern
+		 * \brief insertPattern
 		 * \param inputs
 		 * \param targets
 		 * \param i
 		 */
-		bool insertPattern(const vector<int> &inputs, const vector<int> &targets, int i);
+		bool insertPattern(const vector<int> &inputs, const vector<int> &targets, int row);
 
 		/*!
 		 * \brief deleteTrainingPattern
@@ -253,6 +256,9 @@ class Q_DECL_EXPORT TrainingSet : public QAbstractTableModel
 		 */
 		void appendPattern(const vector<double> &inputs, const vector<double> &targets);
 
+		void appendInputs(double value, int count = 1);
+		void appendTarget(double value, int count = 1);
+
 		//Operators
 		TrainingSet &operator=(const TrainingSet &trset);
 		bool operator==(const TrainingSet &trset);
@@ -305,6 +311,74 @@ class Q_DECL_EXPORT TrainingSet : public QAbstractTableModel
 		//NOTE: esta en evaluacion la implementacion de esta funcion
 		//		bool isValidDataRepresentation(const DataRepresentation &value);
 
+		/*!
+		 * \brief removeInput Removes an especific input, this implies to remove the whole column of the table.
+		 * \code{index} must start from 0.
+		 * \param index
+		 */
+		bool removeInput(int index);
+
+		/*!
+		 * \brief removeTarget Removes an especific input, this implies to remove the whole column of the table.
+		 * \code{index} must start from 0.
+		 * \param index
+		 */
+		bool removeTarget(int index);
+
+		/*!
+		 * \brief removeColumn This function removes an input or target depending on the index supplied by column.
+		 * Remember a training set it's composed by an input matrix and a target matrix.
+		 * \param column
+		 * \param parent
+		 * \return
+		 */
+		bool removeColumn(int column, const QModelIndex &parent = QModelIndex());
+
+		bool removeColumns(int column, int count, const QModelIndex &parent = QModelIndex());
+
+		/*!
+		 * \brief removeRow Removes a whole pattern including inputs and targets.
+		 * \param row
+		 * \param parent
+		 * \return
+		 */
+		bool removeRow(int row, const QModelIndex &parent = QModelIndex());
+
+		bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
+
+		/*!
+		 * \brief insertRow Insert a pattern just after \code{row}
+		 * \param row
+		 * \param parent
+		 * \return
+		 */
+		bool insertRow(int row, const QModelIndex &parent = QModelIndex());
+
+		/*!
+		 * \brief insertRows
+		 * \param row
+		 * \param count
+		 * \param parent
+		 * \return
+		 */
+		bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
+		/*!
+		 * \brief insertColumn
+		 * \param column
+		 * \param parent
+		 * \return
+		 */
+		bool insertColumn(int column, const QModelIndex &parent = QModelIndex());
+
+		/*!
+		 * \brief insertColumns
+		 * \param column
+		 * \param count
+		 * \param parent
+		 * \return
+		 */
+		bool insertColumns(int column, int count, const QModelIndex &parent = QModelIndex());
+
 	protected:
 
 		/*!
@@ -323,8 +397,11 @@ class Q_DECL_EXPORT TrainingSet : public QAbstractTableModel
 		 * \param parent
 		 * \return
 		 */
+
+	public:
 		int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
+	protected:
 		/*!
 		 * \brief setData
 		 *
@@ -369,10 +446,6 @@ class Q_DECL_EXPORT TrainingSet : public QAbstractTableModel
 		 */
 		Qt::ItemFlags flags(const QModelIndex &index) const;
 
-		bool removeRow(int row, const QModelIndex &parent = QModelIndex());
-
-		bool insertRow(int row, const QModelIndex &parent = QModelIndex());
-
 	signals:
 
 		void inputsChanged(const vector<vector<double> > &li, const vector<vector<double> > &ni);
@@ -411,6 +484,9 @@ class Q_DECL_EXPORT TrainingSet : public QAbstractTableModel
 
 		void targetsNormalizationChanged(Normalization *ln, Normalization *nn);
 		void targetsNormalizationChanged(Normalization *nn);
+
+		//TODO: 17/4/15 replace it with columnsInserted
+		void columnInserted(int column);
 
 	private slots:
 

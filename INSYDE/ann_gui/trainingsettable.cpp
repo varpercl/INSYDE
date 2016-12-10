@@ -14,8 +14,10 @@ void TrainingSetTable::setTrainingSet(TrainingSet *ts)
 		setModel(this->ts);
 
 //		resizeColumnsToContents();
-		setInputsVisible(inputsVisible);
-		setTargetsVisible(targetsVisible);
+
+		updateColumnVisibility();
+
+		connectTSSignals();
 
 		emit trainingSetChanged(ts);
 	}
@@ -48,22 +50,11 @@ char TrainingSetTable::getFormat() const
 
 void TrainingSetTable::setInputsVisible(bool b)
 {
-	//TODO: verificar si se puede simplificar haciendo uso del objeto ts
+	//TODO: 12/4/15 setInputsVisible verificar si se puede simplificar haciendo uso del objeto
 
-	size_t sInputs = ts->getInputsSize();
-
-	for(size_t i = 0; i < sInputs; i++){
-		if(b){
-			if(isColumnHidden(i)){
-				showColumn(i);
-			}
-		}else{
-			if(!isColumnHidden(i)){
-				hideColumn(i);
-			}
-		}
-	}
 	inputsVisible = b;
+
+	updateColumnVisibility();
 }
 
 bool TrainingSetTable::getInputsVisible() const
@@ -73,16 +64,11 @@ bool TrainingSetTable::getInputsVisible() const
 
 void TrainingSetTable::setTargetsVisible(bool b)
 {
-	//TODO: verificar si se puede simplificar haciendo uso del objeto ts
+	//TODO: 12/4/15 setTargetsVisible verificar si se puede simplificar haciendo uso del objeto ts
 
-	size_t
-			sInputs = ts->getInputsSize(),
-			sTargets = ts->getTargetsSize();
-
-	for(size_t i = sInputs; i < sInputs + sTargets; i++){
-		setColumnHidden(i, !b);
-	}
 	targetsVisible = b;
+
+	updateColumnVisibility();
 }
 
 bool TrainingSetTable::getTargetsVisible() const
@@ -90,15 +76,49 @@ bool TrainingSetTable::getTargetsVisible() const
 	return targetsVisible;
 }
 
+void TrainingSetTable::onInsertRightColumnTriggered()
+{
+	int index = horizontalHeader()->logicalIndexAt(horizontalHeader()->viewport()->mapFromGlobal(horizontalHeaderContextMenu->pos()));
+	if(index == ts->getInputsSize() - 1){
+		ts->appendInputs(0);
+	}else{
+		BasicTable::onInsertRightColumnTriggered();
+	}
+}
+
+void TrainingSetTable::onColumnInserted(int column)
+{
+	(void)column;
+	updateColumnVisibility();
+}
+
+void TrainingSetTable::onInputsSizeChanged(int lsize, int nsize)
+{
+	(void)lsize;
+	(void)nsize;
+	updateColumnVisibility();
+}
+
+void TrainingSetTable::onTargetsSizeChanged(int lsize, int nsize)
+{
+	(void)lsize;
+	(void)nsize;
+	updateColumnVisibility();
+}
+
 void TrainingSetTable::init(TrainingSet *ts)
 {
 //	getCutAction()->setVisible(false);
 	getCutAction()->setEnabled(false);
 
+	inputsVisible = true;
+	targetsVisible = true;
+
 	setTrainingSet(ts);
 
-	setInputsVisible(true);
-	setTargetsVisible(true);
+//	setInputsVisible(false);
+//	setTargetsVisible(false);
+
 	setFormat('f');
 	setPrecision(6);
 
@@ -112,6 +132,34 @@ void TrainingSetTable::init(TrainingSet *ts)
 
 	horizontalHeader()->setEditTriggers(QAbstractItemView::AllEditTriggers);
 
-	selectRow(0);
+	connectTSSignals();
+}
 
+void TrainingSetTable::updateColumnVisibility()
+{
+	//TODO: 12/4/15 setTargetsVisible verificar si se puede simplificar haciendo uso del objeto ts
+
+	int
+			inputsSize = ts->getInputsSize(),
+			targetsSize = ts->getTargetsSize(),
+			tsSize = inputsSize + targetsSize;
+
+//	for(int i = 0; i < tsSize; i++){
+//		setColumnHidden(i, false);
+//	}
+
+	for(int i = 0; i < tsSize; i++){
+		if(i < inputsSize){
+			setColumnHidden(i, !inputsVisible);
+		}else{
+			setColumnHidden(i, !targetsVisible);
+		}
+	}
+}
+
+void TrainingSetTable::connectTSSignals()
+{
+	connect(ts, SIGNAL(columnInserted(int)), SLOT(onColumnInserted(int)));
+	connect(ts, SIGNAL(inputsSizeChanged(int,int)), SLOT(onInputsSizeChanged(int,int)));
+	connect(ts, SIGNAL(targetsSizeChanged(int,int)), SLOT(onTargetsSizeChanged(int,int)));
 }

@@ -156,10 +156,11 @@ void DataRepresentationBox::changeDataRepresentation(int index)
 	update();
 }
 
-void DataRepresentationBox::onImageSizeChanged(const QSize &size)
+void DataRepresentationBox::onSizeChanged(const QSize &size)
 {
-	dataRepresentation->setWidth(size.width());
-	dataRepresentation->setHeight(size.height());
+	dataRepresentation->setSize(size);
+//	dataRepresentation->setWidth(size.width());
+//	dataRepresentation->setHeight(size.height());
 }
 
 void DataRepresentationBox::onImageFormatChanged(const QImage::Format &format)
@@ -175,9 +176,10 @@ void DataRepresentationBox::init(const vector<double> &inputdata, DataRepresenta
 											   << QString::fromLatin1("Sin representación")
 											   << QString::fromLatin1("Imagen")
 											   << QString::fromLatin1("Matriz de puntos")
-											   << QString::fromLatin1("Salida de audio")
-											   << QString::fromLatin1("Texto")
-											   << QString::fromLatin1("Gráfica"));
+								  //TODO: 25/4/16 init implement this representations before showing them
+//											   << QString::fromLatin1("Salida de audio")
+//											   << QString::fromLatin1("Texto")
+											   /*<< QString::fromLatin1("Gráfica")*/);
 
 	rrw = new RawRepresentationWidget(inputdata);
 	rrw->setVisible(false);
@@ -214,6 +216,7 @@ void DataRepresentationBox::init(const vector<double> &inputdata, DataRepresenta
 	setLayout(mainLayout);
 
 	connect(repType->getComboBox(), SIGNAL(currentIndexChanged(int)), SLOT(changeDataRepresentation(int)));
-	connect(irw, SIGNAL(imageSizeChanged(QSize)), SLOT(onImageSizeChanged(QSize)));
 	connect(irw, SIGNAL(imageFormatChanged(QImage::Format)), SLOT(onImageFormatChanged(QImage::Format)));
+	connect(irw, SIGNAL(sizeChanged(QSize)), SLOT(onSizeChanged(QSize)));
+	connect(dmrw, SIGNAL(sizeChanged(QSize)), SLOT(onSizeChanged(QSize)));
 }

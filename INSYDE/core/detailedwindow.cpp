@@ -1,5 +1,5 @@
 #include "detailedwindow.h"
-#include "icons.h"
+#include "definitions.h"
 
 DetailedWindow::DetailedWindow(QWidget *parent) :
 	QWidget(parent)
@@ -51,44 +51,47 @@ QToolBar *DetailedWindow::getToolbar()
 	return mainToolbar;
 }
 
-void DetailedWindow::setGraphicView(QGraphicsView *gv)
+void DetailedWindow::setGraphicDetailedView(GraphicDetailedView *gv)
 {
-	if(this->gv != gv){
-		this->gv = gv;
+	if(this->gdv != gv){
+		this->gdv = gv;
 
 		connectGVSignals();
 	}
 }
 
-QGraphicsView *DetailedWindow::getGraphicsView() const
+GraphicDetailedView *DetailedWindow::getGraphicsDetailedView() const
 {
-	return gv;
+	return gdv;
 }
 
 void DetailedWindow::onZoomChanged(int zoom)
 {
+	double
+			newZoom = double(zoom)/100,
+			scaleFactor;
 
-	double dZoom = this->zoom;
-	this->zoom = ((double)zoom) / 100;
-	dZoom = this->zoom - dZoom; //obtiene el delta zoom
+	scaleFactor = newZoom/curZoom;
 
-	//TODO: se debe corregir el problema de zooming
-	getGraphicsView()->scale(1 + dZoom, 1 + dZoom);
+	curZoom = newZoom;
+	getGraphicsDetailedView()->scale(scaleFactor, scaleFactor);
+
 }
 
 void DetailedWindow::init()
 {
-	gv = new QGraphicsView(new QGraphicsScene());
-	gv->setAlignment(Qt::AlignCenter);
-	gv->setMouseTracking(true);
-	gv->setContextMenuPolicy(Qt::DefaultContextMenu);
-//	gv->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-//	gv->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+	gdv = new GraphicDetailedView(new Enviroment());
+	gdv->setAlignment(Qt::AlignCenter);
+	gdv->setMouseTracking(true);
+	gdv->setContextMenuPolicy(Qt::DefaultContextMenu);
+	gdv->setCenterMarkerVisible(false);
+	gdv->setGridVisible(false);
+
 
 	mainToolbar = new QToolBar();
 	mainToolbar->setLayoutDirection(Qt::RightToLeft);
 
-	zoom = 1;
+	curZoom = 1;
 	zc = new ZoomControl();
 	actionZoomControl = mainToolbar->addWidget(zc);
 
@@ -96,7 +99,7 @@ void DetailedWindow::init()
 	mainLayout->setMargin(0);
 	mainLayout->setAlignment(Qt::AlignTop);
 	mainLayout->addWidget(mainToolbar);
-	mainLayout->addWidget(gv);
+	mainLayout->addWidget(gdv);
 
 	//Se debe establecer en falso para asegurarse que al llamar setEnableZooming(true) actualice los controles
 	zooming = false;

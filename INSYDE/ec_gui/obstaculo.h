@@ -4,6 +4,8 @@
 #include <QGraphicsItem>
 #include <QGraphicsPolygonItem>
 
+#include "share_ec_gui.h"
+
 /**
   @class Obstacle
   @author Edixon Vargas
@@ -13,7 +15,7 @@
   en un entorno
 
   */
-class Obstacle : public QGraphicsPolygonItem
+class EC_GUI_LIB_IMPORT_EXPORT Obstacle : public QGraphicsPolygonItem
 {
 	public:
 

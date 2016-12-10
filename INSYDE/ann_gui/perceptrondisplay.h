@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <float.h>
 
+#include "share_ann_gui_lib.h"
 #include "weightline.h"
 #include "../ann_base/simpleperceptron.h"
 
@@ -23,7 +24,7 @@ class Soma;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT PerceptronDisplay : public QGraphicsScene
+class ANN_GUI_LIB_IMPORT_EXPORT PerceptronDisplay : public QGraphicsScene
 {
 
 	public:

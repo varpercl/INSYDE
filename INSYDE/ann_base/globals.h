@@ -1,16 +1,18 @@
 #ifndef ANNFRAMEWORK_GLOBAL_H
 #define ANNFRAMEWORK_GLOBAL_H
 
-#include <vector>
-#include <algorithm>
-#include <math.h>
-#include <exception>
 #include <QtCore>
+//#include <vector>
+//#include <algorithm>
+//#include <math.h>
+//#include <exception>
 
-#include <tbb/concurrent_vector.h>
+//#include "share_ann_base_lib.h"
 
-using namespace std;
-using namespace tbb;
+//#include <tbb/concurrent_vector.h>
+
+//using namespace std;
+//using namespace tbb;
 
 
 /*!
@@ -21,7 +23,9 @@ using namespace tbb;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-namespace ann_base Q_DECL_EXPORT{
+
+namespace ann_base {
+
 
 	/*!
 	 * \enum
@@ -33,9 +37,6 @@ namespace ann_base Q_DECL_EXPORT{
 		RMSE,
 		CE
 	};
-
-
-
 
 }
 

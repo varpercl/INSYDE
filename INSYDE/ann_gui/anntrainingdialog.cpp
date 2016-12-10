@@ -1,5 +1,4 @@
 #include "anntrainingdialog.h"
-#include "ui_mlptrainingdialog.h"
 
 ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, QWidget *parent) :
 	BasicDialog(parent)
@@ -13,7 +12,7 @@ ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts,
 	init(mlp, ts, vs, testset);
 }
 
-ANNTrainingDialog::ANNTrainingDialog(GraphicMLPElement *gmlp, QWidget *parent) :
+ANNTrainingDialog::ANNTrainingDialog(MLPObject *gmlp, QWidget *parent) :
 	BasicDialog(parent)
 {
 	init(gmlp->getMultilayerPerceptron(),
@@ -24,6 +23,18 @@ ANNTrainingDialog::ANNTrainingDialog(GraphicMLPElement *gmlp, QWidget *parent) :
 
 ANNTrainingDialog::~ANNTrainingDialog()
 {
+	//TODO: 30/4/16 ~ANNTrainingDialog: implement
+}
+
+void ANNTrainingDialog::setUsingScrollArea(bool u)
+{
+	//TODO: must be implemented this and all functions regarding to fitting controlls to scroll area
+	usingScrollArea = u;
+}
+
+bool ANNTrainingDialog::getUsingScrollArea() const
+{
+	return usingScrollArea;
 }
 
 void ANNTrainingDialog::setTrainingSet(TrainingSet *ts)
@@ -62,7 +73,7 @@ TrainingSet *ANNTrainingDialog::getTestSet() const
 	return testSet;
 }
 
-void ANNTrainingDialog::setMultilayerPerceptron(MultilayerPerceptron *mlp)
+void ANNTrainingDialog::setArtificialNeuralNetwork(MultilayerPerceptron *mlp)
 {
 	this->mlp = mlp;
 }
@@ -77,9 +88,54 @@ void ANNTrainingDialog::saveClick()
 
 }
 
+void ANNTrainingDialog::setCanEditANNType(bool b)
+{
+	canEditANN = b;
+}
+
+bool ANNTrainingDialog::getCanEditANNType() const
+{
+	return canEditANN;
+}
+
+void ANNTrainingDialog::setCanEditInputSize(bool b)
+{
+	canEditInSize = b;
+}
+
+bool ANNTrainingDialog::getCanEditInputSize() const
+{
+	return canEditInSize;
+}
+
+void ANNTrainingDialog::setCanEditOutputSize(bool b)
+{
+	canEditOutSize = b;
+}
+
+bool ANNTrainingDialog::getCanEditOutputSize() const
+{
+	return canEditOutSize;
+}
+
+void ANNTrainingDialog::setEnableMultipleTraining(bool b)
+{
+	actionMultipleTraining->setEnabled(b);
+}
+
+bool ANNTrainingDialog::getEnableMultipleTraining() const
+{
+	return actionMultipleTraining->isEnabled();
+}
+
 void ANNTrainingDialog::closeEvent(QCloseEvent *)
 {
 	mlp->stopTraining();
+}
+
+void ANNTrainingDialog::onOuputSizeChanged()
+{
+	lisbOutputs->setValue(mlp->getOutputsSize());
 }
 
 void ANNTrainingDialog::onTrainingFinished(MLPTrainingResult tres)
@@ -130,7 +186,7 @@ void ANNTrainingDialog::onBtnEditTrainingSetClicked()
 		if(isValidTrainingSet(ts = trainingSetDialog->getTrainingSet())){
 			trainingSet = ts;
 		}else{
-
+			//TODO: implement
 		}
 	}
 }
@@ -177,6 +233,12 @@ void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, Traini
 	const double
 			minError = 0.5;
 
+	//Init bool variables
+	usingScrollArea = false; //TOTO: Initialized but not used. Must be implemented
+	canEditANN = true;
+	canEditInSize = true;
+	canEditOutSize = true;
+
 	//Se inicializan todos los QVBoxLayout
 	vlyMainScrollArea = new QVBoxLayout();
 	vlyTrainingConditions = new QVBoxLayout();
@@ -219,6 +281,7 @@ void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, Traini
 	//Initialize every LabeledComboBox
 	lcbAlgorithm = new LabeledComboBox("Algoritmo");
 	lcbTransferFunction = new LabeledComboBox(QString::fromLatin1("Función de transferencia"));
+	lcbANNType = new LabeledComboBox("Red Neuronal");
 
 	//Initializa every LabeledDoubleSpinBoxWidget
 	ldsbLearningRate = new LabeledDoubleSpinBox("Taza de aprendizaje", 0.5);
@@ -284,29 +347,40 @@ void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, Traini
 	//Initialize every WeightEditorDialog
 	weightEditor = new WeightEditorDialog();
 
+	//TODO: 26/4/16 implement all ANNs
+	QStringList annTypeList;
+	annTypeList <<
+//				   "Adaline" <<
+//				   "Hopfield" <<
+				   "MLP" //<<
+//				   "Simple Perceptron" <<
+//				   "Kohonen"
+				   ;
 
-
-
-
-
-
+	lcbANNType->getComboBox()->addItems(annTypeList);
 
 	//==================================================================================================================
 	sbInValue = lisbInputs->getIntegerSpinBox();
-	sbInValue->setButtonSymbols(QSpinBox::NoButtons);
-	sbInValue->setReadOnly(true);
+	sbInValue->setReadOnly(!canEditInSize);
+	if(canEditInSize){
+		sbInValue->setButtonSymbols(QSpinBox::PlusMinus);
+	}else{
+		sbInValue->setButtonSymbols(QSpinBox::NoButtons);
+	}
 
 	//==================================================================================================================
 	sbOutValue = lisbOutputs->getIntegerSpinBox();
-	sbOutValue->setButtonSymbols(QSpinBox::NoButtons);
-	sbOutValue->setReadOnly(true);
+	sbOutValue->setReadOnly(!canEditOutSize);
+	if(canEditOutSize){
+		sbOutValue->setButtonSymbols(QSpinBox::PlusMinus);
+	}else{
+		sbOutValue->setButtonSymbols(QSpinBox::NoButtons);
+	}
 
 	//==================================================================================================================
-//	tblLayers->setEditTriggers(QAbstractItemView::DoubleClicked|QAbstractItemView::SelectedClicked);
-//	tblLayers->setAlternatingRowColors(true);
-//	tblLayers->setColumnCount(2);
-//	tblLayers->verticalHeader()->setVisible(false);
-////	tblLayers->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+	tblLayers->setEditTriggers(QAbstractItemView::DoubleClicked|QAbstractItemView::SelectedClicked);
+	tblLayers->setAlternatingRowColors(true);
+	tblLayers->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
 
 	//==================================================================================================================
 	btnAddLayer->setIcon(ICON_PLUS);
@@ -466,6 +540,7 @@ void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, Traini
 	btnTraining->setMenu(mnuTraining);
 
 	//==================================================================================================================
+	flyPropertiesBox->addRow(lcbANNType);
 	flyPropertiesBox->addRow(lisbInputs);
 	flyPropertiesBox->addRow(lisbOutputs);
 	flyPropertiesBox->addRow(hlyLayers);
@@ -492,10 +567,23 @@ void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, Traini
 	scrollAreaContent->setLayout(vlyMainScrollArea);
 
 	//==================================================================================================================
-	scrollArea->setWidgetResizable(true);
 	scrollArea->setWidget(scrollAreaContent);
+	scrollArea->setWidgetResizable(true);
 
 	//==================================================================================================================
+	setCanEditInputSize(true);
+	setCanEditOutputSize(true);
+
+	//==================================================================================================================
+	setEnableSave(false);
+	setEnableSaveAs(false);
+	setEnableOpen(false);
+	setEnableMultipleTraining(false);
+	setHelpMenuVisible(false);
+	setHelpButtonVisible(false);
+	setToolsMenuVisible(false);
+	setViewMenuVisible(false);
+	setEnablePreferences(false);
 	setEnableNew(false);
 	setEnableExport(false);
 	setEnableImport(false);
@@ -503,18 +591,21 @@ void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, Traini
 	setEnableClipboardFramework(false);
 	getRejectButton()->setText("Cerrar");
 	setAcceptButtonVisible(false);
+	getPreferencesAction()->setVisible(false);
 
 	//Must be inserted after index 1 because 0 is Stretch Item
 	insertButton(1, btnTraining);
+
 	getMainWindow()->setCentralWidget(scrollArea);
 	setWindowModality(Qt::NonModal);
 	setWindowFlags(Qt::Window);
 
 	//Se asigna el perceptron
-	setMultilayerPerceptron(imlp);
+	setArtificialNeuralNetwork(imlp);
 
 	mlp->setSaveTrainingResults(true);
 	mlp->setEnabledElapsedTimeEvent(true);
+	mlp->setDefaultRandomRange(ldsbRndFrom->getValue(), ldsbRndTo->getValue());
 
 	tres = mlp->getTrainingResult();
 	plotter->setModel(tres);
@@ -526,8 +617,7 @@ void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, Traini
 	setTrainingStatus(Stopped);
 
 	ta = MultilayerPerceptron::Backpropagation;
-	//	this->gmlp = gmlp;
-	//	isTraining = false;
+
 	lisbInputs->setValue(mlp->getInputsSize());
 	lisbOutputs->setValue(mlp->getOutputsSize());
 
@@ -535,24 +625,14 @@ void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, Traini
 
 	annModel->setCanEditLayerSize(true);
 	annModel->setVisibleNeurons(false);
-	annModel->setVisibleWeightValues(false);
+	annModel->setVisibleWeightValues(true);
+	annModel->setVisibleOutputLayer(true);
 	annModel->setViewType(ANNModelWrapper::Table);
 
 	tblLayers->setModel(annModel);
+	tblLayers->resizeColumnToContents(0);
 
-//	//Inicializa la tabla de las capas
-//	for(size_t i = 0; i < mlp->getLayerSizes().size(); i++){
-//		tblLayers->setRowCount(tblLayers->rowCount() + 1);
-//		QTableWidgetItem *layerNumberCell = new QTableWidgetItem(QString::number(i+1));
-//		layerNumberCell->setFlags(Qt::NoItemFlags);
-//		layerNumberCell->setTextAlignment(Qt::AlignHCenter);
-//		tblLayers->setItem(i, 0, layerNumberCell);
-//		QTableWidgetItem *nElementsCell = new QTableWidgetItem(QString::number(mlp->getLayerSize(i)));
-//		nElementsCell->setTextAlignment(Qt::AlignHCenter);
-//		tblLayers->setItem(i, 1, nElementsCell);
-//	}
-
-	btnDeleteLayer->setEnabled(mlp->getLayerCount() > 1);
+	btnDeleteLayer->setEnabled(mlp->getHiddenLayerCount() > 1);
 	lcbAlgorithm->getComboBox()->setCurrentIndex(0);
 
 	onCbStopConditionCurrentIndexChanged(0);
@@ -579,6 +659,12 @@ void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, Traini
 	connect(btnDeleteLayer, SIGNAL(clicked()), SLOT(onDeleteLayerClicked()));
 	connect(mlp, SIGNAL(elapsedTime(MLPTrainingResult)), SLOT(updateStatusLabels(MLPTrainingResult)));
 	connect(mlp, SIGNAL(trainingFinished(MLPTrainingResult)), SLOT(onTrainingFinished(MLPTrainingResult)));
+	connect(mlp, SIGNAL(outputSizeChanged()), SLOT(onOuputSizeChanged()));
+	connect(lisbInputs->getIntegerSpinBox(), SIGNAL(valueChanged(int)), SLOT(onANNInputChanged(int)));
+	connect(lisbOutputs->getIntegerSpinBox(), SIGNAL(valueChanged(int)), SLOT(onANNOutputChanged(int)));
+	connect(lcbANNType->getComboBox(), SIGNAL(currentIndexChanged(int)), SLOT(onAnnTypeSelectionChanged(int)));
+	connect(ldsbRndFrom->getDoubleSpinBox(), SIGNAL(valueChanged(double)), SLOT(onRndFromValueChanged(double)));
+	connect(ldsbRndTo->getDoubleSpinBox(), SIGNAL(valueChanged(double)), SLOT(onRndToValueChanged(double)));
 }
 
 void ANNTrainingDialog::createFile(QString path, MLPTrainingResult *tr, int nsamples){
@@ -637,6 +723,8 @@ void ANNTrainingDialog::disableAllControls()
 	btnEditValidationSet->setEnabled(false);
 	btnWeights->setEnabled(false);
 	ldsbMinError->setEnabled(false);
+	lisbInputs->setEnabled(false);
+	lisbOutputs->setEnabled(false);
 
 	lisbEpochs->setEnabled(false);
 	ldsbLearningRate->setEnabled(false);
@@ -653,7 +741,8 @@ void ANNTrainingDialog::setBPEnabledControls(bool enabled)
 	chkSA->setEnabled(enabled);
 	lcbAlgorithm->setEnabled(enabled);
 	lcbTransferFunction->setEnabled(enabled);
-
+	lisbInputs->setEnabled(enabled);
+	lisbOutputs->setEnabled(enabled);
 	tblLayers->setEnabled(enabled);
 
 	btnAddLayer->setEnabled(enabled);
@@ -695,6 +784,7 @@ void ANNTrainingDialog::updateActionClearChart()
 
 bool ANNTrainingDialog::isValidTrainingSet(TrainingSet *ts)
 {
+	//FIXME: 30/4/16 isValidTrainingSet: not working, check it
 	if(ts->getInputsSize() == mlp->getInputsSize() &&
 	   ts->getTargetsSize() == mlp->getOutputsSize()){
 		return true;
@@ -810,33 +900,32 @@ void ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingStatus ts)
 	}
 }
 
-void ANNTrainingDialog::updateTableLayers()
+void ANNTrainingDialog::updateControls(ArtificialNeuralNetwork *ann)
 {
+	switch(ann->getType()){
+		case ann_base::ArtificialNeuralNetwork::NoType:
+			break;
+		case ann_base::ArtificialNeuralNetwork::Adaline:
+			break;
+		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
+			break;
+		case ann_base::ArtificialNeuralNetwork::MultilayerPerceptron:
+			break;
+		case ann_base::ArtificialNeuralNetwork::Hopfiel:
+			break;
+		case ann_base::ArtificialNeuralNetwork::Kohonen:
+			break;
 
-	//TODO: 13/9/15 this method should be removed
-//	tblLayers->blockSignals(true);
-
-//	int lc = mlp->getLayerCount();
-//	tblLayers->setRowCount(lc);
-//	QTableWidgetItem
-//			*nLayer,
-//			*cNeurons;
-
-//	for(int i = 0; i < lc; i++){
-//		nLayer = new QTableWidgetItem(QString::number(i + 1));
-//		nLayer->setTextAlignment(Qt::AlignCenter);
-//		tblLayers->setItem(i, 0, nLayer);
-
-//		cNeurons = new QTableWidgetItem(QString::number(mlp->getLayerSizes()[i]));
-//		cNeurons->setTextAlignment(Qt::AlignCenter);
-//		tblLayers->setItem(i, 1, cNeurons);
-//	}
-
-//	tblLayers->blockSignals(false);
+	}
 }
 
 void ANNTrainingDialog::onTrainClicked()
 {
+	//Start validation process
+	QMessageBox message;
+	QStringList strings;
+	bool incongruence = false;
+
 	switch(currentTrainingStatus){
 		case ANNTrainingDialog::Running:
 			setTrainingStatus(Pausing);
@@ -848,6 +937,35 @@ void ANNTrainingDialog::onTrainClicked()
 		case ANNTrainingDialog::Paused:
 		case ANNTrainingDialog::Stopped:
 		default:
+
+			if(mlp->getInputsSize() != trainingSet->getInputsSize()){
+				strings << QString::fromLatin1("- El número de entradas de la red neuronal no coincide con el número de entradas suministradas por el conjunto de entrenamiento. \n\n");
+				incongruence = true;
+			}
+			if(mlp->getOutputsSize() != trainingSet->getTargetsSize()){
+				strings << QString::fromLatin1("- El número de salidas de la red neuronal no coincide con el número de salidas suministradas por el conjunto de entrenamiento. \n\n");
+				incongruence = true;
+			}
+
+			if(incongruence){
+				QString wholeString;
+
+				wholeString = QString::fromLatin1("Se han detectado los siguientes errores:\n\n");
+
+				for(int i = 0; i < strings.size(); i++){
+					wholeString += strings[i];
+				}
+
+				wholeString += QString::fromLatin1("Debe corregir estos errores para poder continuar.");
+
+				message.setWindowTitle("Se detectaron irregularidades");
+				message.setIcon(QMessageBox::Warning);
+				message.setText(wholeString);
+
+				message.exec();
+				break;
+			}
+
 			setTrainingStatus(Running);
 			break;
 
@@ -894,7 +1012,11 @@ void ANNTrainingDialog::onBtnRandomizeClicked()
 
 void ANNTrainingDialog::onEditWeightsClicked()
 {
-	weightEditor = new WeightEditorDialog(mlp);
+	weightEditor = new WeightEditorDialog(mlp, this);
+
+	weightEditor->setViewMenuVisible(false);
+
+	weightEditor->setWindowFlags(windowFlags() | Qt::Window);
 
 	weightEditor->setWindowModality(Qt::NonModal);
 
@@ -917,7 +1039,54 @@ void ANNTrainingDialog::updateStatusLabels(MLPTrainingResult tres)
 
 void ANNTrainingDialog::generateReport()
 {
-	//TODO: implementar
+	//TODO: implement
+}
+
+void ANNTrainingDialog::onANNInputChanged(int value)
+{
+	mlp->setInputSize(value);
+	mlp->randomizeWeights(ldsbRndFrom->getValue(), ldsbRndTo->getValue());
+}
+
+void ANNTrainingDialog::onANNOutputChanged(int value)
+{
+	mlp->setOutputSize(value);
+	mlp->randomizeWeights(ldsbRndFrom->getValue(), ldsbRndTo->getValue());
+}
+
+void ANNTrainingDialog::onAnnTypeSelectionChanged(int index)
+{
+	switch(index){
+		case 0: //"Adaline"
+			updateControls(adaline);
+			break;
+		case 1: //"Hopfield"
+			updateControls(hopfield);
+			break;
+		case 2: //"MLP"
+
+			updateControls(mlp);
+
+			break;
+		case 3: //"Simple Perceptron"
+			updateControls(sp);
+			break;
+		case 4: //"Kohonen"
+			updateControls(kohonen);
+			break;
+		default:
+			break;
+	}
+}
+
+void ANNTrainingDialog::onRndFromValueChanged(double value)
+{
+	mlp->setDefaultRandomMinimum(value);
+}
+
+void ANNTrainingDialog::onRndToValueChanged(double value)
+{
+	mlp->setDefaultRandomMaximum(value);
 }
 
 void ANNTrainingDialog::exportData()
@@ -940,9 +1109,6 @@ void ANNTrainingDialog::exportData()
 		}
 	}else{
 		QMessageBox::critical(this, "Error", "No hay ningun dato para guardar");
-		//		QMessageBox msgBox;
-		//		msgBox.setText("No hay ningun dato para guardar");
-		//		msgBox.exec();
 	}
 
 	//TODO: corregir boton de guardar
@@ -992,22 +1158,25 @@ void ANNTrainingDialog::onBtnAddLayerClicked()
 
 		mlp->addLayer(val);
 
-		updateTableLayers();
-
-		btnDeleteLayer->setEnabled(mlp->getLayerCount() > 1);
+		btnDeleteLayer->setEnabled(mlp->getHiddenLayerCount() > 1);
 	}
 }
 
 void ANNTrainingDialog::onDeleteLayerClicked()
 {
-	//TODO: 13/9/15 this method should be validated
-//	int selRow = tblLayers->selectedItems()[0]->row();
+	QItemSelectionModel *selection = tblLayers->selectionModel();
+	QModelIndexList selList = selection->selectedIndexes();
 
-//	mlp->removeLayer(selRow);
-
-//	updateTableLayers();
-
-//	btnDeleteLayer->setEnabled(mlp->getLayerCount() > 1);
+	if(!selList.isEmpty()){
+		if(selList[0].row() != mlp->getHiddenLayerCount() + 1 && mlp->getHiddenLayerCount() > 1){
+			mlp->removeLayer(selList[0].row());
+			if(mlp->getHiddenLayerCount() > 1){
+				btnDeleteLayer->setEnabled(true);
+			}else{
+				btnDeleteLayer->setEnabled(false);
+			}
+		}
+	}
 }
 
 void ANNTrainingDialog::onMultipleTrainingClicked()

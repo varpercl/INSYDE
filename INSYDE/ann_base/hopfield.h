@@ -1,9 +1,10 @@
 #ifndef HOPFIELDNETWORK_H
 #define HOPFIELDNETWORK_H
 
-#include <QDebug>
-#include <QFile>
+#include <QtCore>
 
+#include "share_ann_base_lib.h"
+#include "../core/imath.h"
 #include "../core/common.h"
 #include "artificialneuralnetwork.h"
 
@@ -20,7 +21,7 @@ namespace ann_base{
 	 * \author Edixon Vargas <ingedixonvargas@gmail.com>
 	 * \date 03/02/2015
 	 */
-	class Q_DECL_EXPORT Hopfield : public ArtificialNeuralNetwork
+	class ANN_BASE_LIB_IMPORT_EXPORT Hopfield : public ArtificialNeuralNetwork
 	{
 		public:
 
@@ -115,6 +116,10 @@ namespace ann_base{
 
 			Type getType() const;
 
+			QString getName() const;
+
+			void randomizeWeights(double min = -1, double max = 1);
+
 		private:
 
 			vector<double> miu;
@@ -154,7 +159,6 @@ namespace ann_base{
 		 * \return
 		 */
 			vector<vector<int> > calculateWeights(const vector<vector<double> > &patterns);
-
 	};
 }
 

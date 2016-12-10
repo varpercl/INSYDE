@@ -1,6 +1,9 @@
 #ifndef ARTIFICIALNEURALNETWORK_H
 #define ARTIFICIALNEURALNETWORK_H
 
+#include <QtCore>
+
+#include "share_ann_base_lib.h"
 
 namespace ann_base{
 	/*!
@@ -11,7 +14,7 @@ namespace ann_base{
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-	class ArtificialNeuralNetwork
+	class ANN_BASE_LIB_IMPORT_EXPORT ArtificialNeuralNetwork
 	{
 		public:
 
@@ -27,6 +30,8 @@ namespace ann_base{
 			};
 
 			virtual Type getType() const;
+
+			virtual QString getName() const;
 
 			virtual void randomizeWeights(double min = -0.01, double max = 0.01) = 0;
 

@@ -1,6 +1,7 @@
 #ifndef LABELEDCOMBOBOX_H
 #define LABELEDCOMBOBOX_H
 
+#include "share_core_lib.h"
 #include "labeledwidget.h"
 
 /*!
@@ -11,7 +12,7 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT LabeledComboBox : public LabeledWidget
+class CORE_LIB_IMPORT_EXPORT LabeledComboBox : public LabeledWidget
 {
 	public:
 

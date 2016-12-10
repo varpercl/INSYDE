@@ -8,6 +8,7 @@
 #include <queue>
 #include <time.h>
 
+#include "share_ann_base_lib.h"
 #include "globals.h"
 #include "bptrainingsettings.h"
 #include "satrainingsettings.h"
@@ -47,7 +48,7 @@ class MLPTrainingResult;
  * \date 03/02/2015
  */
 
-class Q_DECL_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeuralNetwork
+class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeuralNetwork
 {
 	public:
 
@@ -136,13 +137,13 @@ class Q_DECL_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeur
 		 * \brief getLayerCount Returns the number of layers this neural network has
 		 * \return
 		 */
-		int getLayerCount() const;
+		int getHiddenLayerCount() const;
 
 		/**
 		 * @brief setOutputSize Indica el tamaño de la salida de la red neuronal
 		 * @param size Valor que indica el tamaño de la red neuronal
 		 */
-		void setOutputSize(size_t size);
+		void setOutputSize(int size);
 
 		/**
 		 * @brief getOutputSize Devuelve el tamaño de la salida de la red neuronal
@@ -404,7 +405,6 @@ class Q_DECL_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeur
 		 * \param after
 		 * \param elements
 		 *
-		 * TODO: insertLayer must be implemented
 		 */
 		void insertLayer(int after, int elements);
 
@@ -468,7 +468,17 @@ class Q_DECL_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeur
 		 */
 		bool getEnabledElapsedTimeEvent() const;
 
+		/*!
+		 * \brief getType
+		 * \return
+		 */
 		Type getType() const;
+
+		/*!
+		 * \brief getName
+		 * \return
+		 */
+		QString getName() const;
 
 		/*!
 		 * \brief setSaturationRange Establish maximum and minimum weight value for any synaptic conection between
@@ -479,8 +489,6 @@ class Q_DECL_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeur
 		 * floating point).
 		 *
 		 * Considere \code{min} must be less than \code{max}, otherwise behavior is undefined.
-		 *
-		 * TODO: setSaturationRange must be implemented
 		 *
 		 * \param min Minimum saturation value
 		 * \param max Maximum saturation value
@@ -494,6 +502,43 @@ class Q_DECL_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeur
 		 * \return A 3D vector with all weights in this MLP.
 		 */
 		vector<vector<vector<double> > > getWeights() const;
+
+		/*!
+		 * \brief setDefaultRandomRange
+		 * \param min
+		 * \param max
+		 */
+		void setDefaultRandomRange(double min, double max);
+
+		/*!
+		 * \brief getDefaultRandomRange
+		 * \return
+		 */
+		pair<double, double> getDefaultRandomRange() const;
+
+		/*!
+		 * \brief setDefaultRandomMinimum
+		 * \param min
+		 */
+		void setDefaultRandomMinimum(double min);
+
+		/*!
+		 * \brief getDefaultRandomMinimum
+		 * \return
+		 */
+		double getDefaultRandomMinimum() const;
+
+		/*!
+		 * \brief setDefaultRandomMaximum
+		 * \param max
+		 */
+		void setDefaultRandomMaximum(double max);
+
+		/*!
+		 * \brief getDefaultRandonMaximum
+		 * \return
+		 */
+		double getDefaultRandonMaximum() const;
 
 	signals:
 
@@ -538,6 +583,28 @@ class Q_DECL_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeur
 		 */
 		void weightsChanged();
 
+		/*!
+		 * \brief layerCountChanged
+		 * \param last
+		 * \param newCount
+		 */
+		void layerCountChanged(int last, int newCount);
+
+		/*!
+		 * \brief layerCountChanged
+		 */
+		void layerCountChanged();
+
+		void outputSizeChanged();
+
+		void outputSizeChanged(int lastSize, int newSize);
+
+		void layerRemoved(int index);
+
+		void layerSizeChanged(int layer, int lastSize, int newSize);
+
+		void layerSizeChanged(int layer);
+
 	protected:
 
 		/*!
@@ -576,7 +643,9 @@ class Q_DECL_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeur
 		double
 		alfa,
 		minSat,
-		maxSat;
+		maxSat,
+		defaultRandomMinimum,
+		defaultRandomMaximum;
 
 		int
 		timeTriggerInterval,
@@ -618,8 +687,20 @@ class Q_DECL_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeur
 
 		void init(int ninputs, int noutputs, const vector<int> &layersizes, const TransferFunctionType &tf);
 
+		/*!
+		 * \brief getLayerOutputs Return an output matrix obtained from \code{inputs}.
+		 * Each value belong to a respective neuron on each layer
+		 * \param inputs
+		 * \return
+		 */
 		vector<vector<double> > getLayerOutputs(const vector<double> &inputs);
 
+		/*!
+		 * \brief addNoise
+		 * \param min
+		 * \param max
+		 * \return
+		 */
 		NewState addNoise(double min, double max);
 
 		/*!

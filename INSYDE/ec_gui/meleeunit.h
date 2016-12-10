@@ -4,6 +4,7 @@
 #include <QtCore>
 #include <QtGui>
 
+#include "share_ec_gui.h"
 #include "ofensiveunit.h"
 
 /**
@@ -16,7 +17,7 @@
 
   */
 
-class MeleeUnit : public OfensiveUnit
+class EC_GUI_LIB_IMPORT_EXPORT MeleeUnit : public OfensiveUnit
 {
 		Q_OBJECT
 

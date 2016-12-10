@@ -3,6 +3,7 @@
 
 #include <QtWidgets>
 
+#include "share_core_lib.h"
 #include "common.h"
 #include "imagedetailedwindow.h"
 #include "labeledcombobox.h"
@@ -27,7 +28,7 @@ class ImageDetailedWindow;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT ImageRepresentationWidget : public DataRepresentationWidget, public Resizable
+class CORE_LIB_IMPORT_EXPORT ImageRepresentationWidget : public DataRepresentationWidget, public Resizable
 {
 
 	public:
@@ -47,37 +48,37 @@ class Q_DECL_EXPORT ImageRepresentationWidget : public DataRepresentationWidget,
 		 * \brief setWidth
 		 * \param w
 		 */
-		void setWidth(int w);
+		void setWidth(int w) override;
 
 		/*!
 		 * \brief getWidth
 		 * \return
 		 */
-		int getWidth() const;
+		int getWidth() const override;
 
 		/*!
 		 * \brief setHeight
 		 * \param h
 		 */
-		void setHeight(int h);
+		void setHeight(int h) override;
 
 		/*!
 		 * \brief getHeight
 		 * \return
 		 */
-		int getHeight() const;
+		int getHeight() const override;
 
 		/*!
 		 * \brief setSize
 		 * \param size
 		 */
-		void setSize(const QSize &size);
+		void setSize(const QSize &size) override;
 
 		/*!
 		 * \brief getSize
 		 * \return
 		 */
-		QSize getSize() const;
+		QSize getSize() const override;
 
 		/*!
 		 * \brief getImage
@@ -110,12 +111,6 @@ class Q_DECL_EXPORT ImageRepresentationWidget : public DataRepresentationWidget,
 		Image *getImageObject() const;
 
 	signals:
-
-		/*!
-		 * \brief imageSizeChanged
-		 * \param size
-		 */
-		void imageSizeChanged(const QSize &size);
 
 		/*!
 		 * \brief imageFormatChanged
@@ -155,7 +150,7 @@ class Q_DECL_EXPORT ImageRepresentationWidget : public DataRepresentationWidget,
 		QHBoxLayout *frmLayout;
 
 		QLabel *label_6;
-		LabeledComboBox *cbImageFormat;
+		LabeledComboBox *lcbImageFormat;
 		QCheckBox *cbxIgnoreAlpha;
 		QSpacerItem *horizontalSpacer;
 

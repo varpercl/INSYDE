@@ -3,8 +3,9 @@
 
 #include <QtWidgets>
 
+#include "share_core_lib.h"
 #include "interfaces.h"
-#include "icons.h"
+#include "definitions.h"
 
 
 /*!
@@ -20,7 +21,7 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 07/02/2015
  */
-class Q_DECL_EXPORT BasicDialog
+class CORE_LIB_IMPORT_EXPORT BasicDialog
 		:
 		public QDialog,
 		public ClipboardInterface,
@@ -41,6 +42,12 @@ class Q_DECL_EXPORT BasicDialog
 		 * \return
 		 */
 		QMainWindow *getMainWindow() const;
+
+		/*!
+		 * \brief setEnableTools
+		 * \param b
+		 */
+		void setEnablePreferences(bool b);
 
 		/*!
 		 * \brief setEnableNew
@@ -67,6 +74,11 @@ class Q_DECL_EXPORT BasicDialog
 		void setEnableSave(bool save);
 
 		/*!
+		 * \brief setEnableSaveAs
+		 * \param saveas
+		 */
+		void setEnableSaveAs(bool saveas);
+		/*!
 		 * \brief setEnableOpen
 		 * \param open
 		 */
@@ -90,14 +102,64 @@ class Q_DECL_EXPORT BasicDialog
 		 */
 		bool getEnableUnDo() const;
 
+		/*!
+		 * \brief getNewAction
+		 * \return
+		 */
 		QAction *getNewAction() const;
+
+		/*!
+		 * \brief getOpenAction
+		 * \return
+		 */
 		QAction *getOpenAction() const;
+
+		/*!
+		 * \brief getSaveAction
+		 * \return
+		 */
 		QAction *getSaveAction() const;
+
+		/*!
+		 * \brief getSaveAsAction
+		 * \return
+		 */
+		QAction *getSaveAsAction() const;
+
+		/*!
+		 * \brief getCloseAction
+		 * \return
+		 */
 		QAction *getCloseAction() const;
+
+		/*!
+		 * \brief getImportAction
+		 * \return
+		 */
 		QAction *getImportAction() const;
+
+		/*!
+		 * \brief getExportAction
+		 * \return
+		 */
 		QAction *getExportAction() const;
+
+		/*!
+		 * \brief getPreferencesAction
+		 * \return
+		 */
 		QAction *getPreferencesAction() const;
+
+		/*!
+		 * \brief getAboutAction
+		 * \return
+		 */
 		QAction *getAboutAction() const;
+
+		/*!
+		 * \brief getHelpAction
+		 * \return
+		 */
 		QAction *getHelpAction() const;
 
 		/*!
@@ -105,6 +167,11 @@ class Q_DECL_EXPORT BasicDialog
 		 * \param vis If \code{vis} is \code{true} then Ok button will be visible.
 		 */
 		void setAcceptButtonVisible(bool vis);
+
+		/*!
+		 * \brief getAcceptButton
+		 * \return
+		 */
 		QPushButton *getAcceptButton() const;
 
 		/*!
@@ -112,26 +179,129 @@ class Q_DECL_EXPORT BasicDialog
 		 * \param vis If \code{vis} is \code{true} then Cancel button will be visible.
 		 */
 		void setRejectButtonVisible(bool vis);
+
+		/*!
+		 * \brief getRejectButton
+		 * \return
+		 */
 		QPushButton *getRejectButton() const;
 
+		/*!
+		 * \brief setHelpButtonVisible
+		 * \param vis
+		 */
 		void setHelpButtonVisible(bool vis);
+
+		/*!
+		 * \brief getHelptButton
+		 * \return
+		 */
 		QPushButton *getHelptButton() const;
 
+		/*!
+		 * \brief addButton
+		 * \param btn
+		 */
 		void addButton(QPushButton *btn);
+
+		/*!
+		 * \brief insertButton
+		 * \param index
+		 * \param btn
+		 */
 		void insertButton(int index, QPushButton* btn);
+
+		/*!
+		 * \brief insertButton
+		 * \param index
+		 * \param btn
+		 */
 		void insertButton(int index, QToolButton* btn);
 
+		/*!
+		 * \brief getFileMenu
+		 * \return
+		 */
 		QMenu *getFileMenu() const;
+
+		/*!
+		 * \brief getEditMenu
+		 * \return
+		 */
 		QMenu *getEditMenu() const;
+
+		/*!
+		 * \brief getViewMenu
+		 * \return
+		 */
+		QMenu *getViewMenu() const;
+
+		/*!
+		 * \brief getToolsMenu
+		 * \return
+		 */
 		QMenu *getToolsMenu() const;
+
+		/*!
+		 * \brief getHelpMenu
+		 * \return
+		 */
 		QMenu *getHelpMenu() const;
 
+		/*!
+		 * \brief addMenu
+		 * \param menu
+		 */
 		void addMenu(QMenu *menu);
 
+		/*!
+		 * \brief setFileMenuVisible
+		 * \param vis
+		 */
 		void setFileMenuVisible(bool vis);
+
+		/*!
+		 * \brief setEditMenuVisible
+		 * \param vis
+		 */
 		void setEditMenuVisible(bool vis);
+
+		/*!
+		 * \brief setViewMenuVisible
+		 * \param vis
+		 */
+		void setViewMenuVisible(bool vis);
+
+		/*!
+		 * \brief setToolsMenuVisible
+		 * \param vis
+		 */
 		void setToolsMenuVisible(bool vis);
+
+		/*!
+		 * \brief setHelpMenuVisible
+		 * \param vis
+		 */
 		void setHelpMenuVisible(bool vis);
+
+		/*!
+		 * \brief setEnableApplyButton
+		 * \param en
+		 */
+		void setApplyButtonVisible(bool en);
+
+		/*!
+		 * \brief getEnableApplyButton
+		 * \return
+		 */
+		bool getApplyButtonVisible() const;
+
+		/*!
+		 * \brief getMainToolbar
+		 * \return
+		 */
+		QToolBar *getMainToolbar() const;
+
 
 	public slots:
 
@@ -139,20 +309,83 @@ class Q_DECL_EXPORT BasicDialog
 		 * \brief Abre un nuevo proyecto o documento segun sea el caso
 		 */
 		virtual void newClick();
+
+		/*!
+		 * \brief openClick
+		 */
 		virtual void openClick();
+
+		/*!
+		 * \brief saveClick
+		 */
 		virtual void saveClick();
+
+		/*!
+		 * \brief saveAsClick
+		 */
+		virtual void saveAsClick();
+
+		/*!
+		 * \brief importClick
+		 */
 		virtual void importClick();
+
+		/*!
+		 * \brief exportClick
+		 */
 		virtual void exportClick();
+
+		/*!
+		 * \brief preferencesClick
+		 */
 		virtual void preferencesClick();
+
+		/*!
+		 * \brief aboutClick
+		 */
 		virtual void aboutClick();
+
+		/*!
+		 * \brief helpClick
+		 */
 		virtual void helpClick();
 
-		virtual void unDoClick();
-		virtual void reDoClick();
+		/*!
+		 * \brief unDoClick
+		 */
+		virtual void undoClick();
 
+		/*!
+		 * \brief reDoClick
+		 */
+		virtual void redoClick();
+
+		/*!
+		 * \brief copyClick
+		 */
 		virtual void copyClick();
+
+		/*!
+		 * \brief cutClick
+		 */
 		virtual void cutClick();
+
+		/*!
+		 * \brief pasteClick
+		 */
 		virtual void pasteClick();
+
+		/*!
+		 * \brief onAlwaysOnTopClicked
+		 * \param checked
+		 */
+		virtual void onAlwaysOnTopClicked(bool checked);
+
+		/*!
+		 * \brief applyClicked
+		 */
+		virtual void onApplyClicked();
+
 
 	private:
 		Q_OBJECT
@@ -162,15 +395,21 @@ class Q_DECL_EXPORT BasicDialog
 		enableExport,
 		enableImport,
 		enableSave,
+		enableSaveAs,
 		enableOpen,
 		enableUndo,
-		enableClipboard;
+		enableClipboard,
+		enablePreferences,
+		visibleFileMenu,
+		visibleEditMenu;
 
-//		QVector<QPushButton*> extraButtons;
+		QToolButton
+		*saveButton;
 
 		QPushButton
 		*btnAccept,
 		*btnReject,
+		*btnApply,
 		*btnHelp;
 
 		QMenuBar *menuBar;
@@ -178,21 +417,26 @@ class Q_DECL_EXPORT BasicDialog
 		QToolBar *mainToolbar;
 
 		QAction
+		*saveButtonAction,
 		*newAction,
 		*openAction,
 		*saveAction,
+		*saveAsAction,
 		*closeAction,
 		*importAction,
 		*exportAction,
 		*preferencesAction,
+		*alwaysOnTopAction,
 		*aboutAction,
 		*helpAction;
 
 		QMenu
 		*fileMenu,
 		*editMenu,
+		*viewMenu,
 		*toolsMenu,
-		*helpMenu;
+		*helpMenu,
+		*saveMenu;
 
 		QHBoxLayout *hlyButtons;
 
@@ -200,8 +444,14 @@ class Q_DECL_EXPORT BasicDialog
 
 		QMainWindow *mw;
 
+		/*!
+		 * \brief init
+		 */
 		void init();
 
+		/*!
+		 * \brief updateActionsVisibility
+		 */
 		void updateActionsVisibility();
 
 };

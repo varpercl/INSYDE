@@ -1,6 +1,7 @@
 #ifndef SIMULATEDANNEALINGTRAININGSETTINGS_H
 #define SIMULATEDANNEALINGTRAININGSETTINGS_H
 
+#include "share_ann_base_lib.h"
 #include "globals.h"
 
 namespace ann_base{
@@ -12,7 +13,7 @@ namespace ann_base{
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT SimulatedAnnealingSettings
+class ANN_BASE_LIB_IMPORT_EXPORT SimulatedAnnealingSettings
 {
 	public:
 		explicit SimulatedAnnealingSettings();

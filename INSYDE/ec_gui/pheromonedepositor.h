@@ -5,21 +5,23 @@
 	#define _ISOC99_SOURCE
 #endif
 
-#ifdef WIN32
-	#ifndef NAN
-		static const unsigned long __nan[2] = {0xffffffff, 0x7fffffff};
-		#define NAN (*(const float *) __nan)
-	#endif
-#endif
+//#ifdef WIN32
+//	#ifndef NAN
+//		static const unsigned long __nan[2] = {0xffffffff, 0x7fffffff};
+//		#define NAN (*(const float *) __nan)
+//	#endif
+//#endif
 
 #include <QtCore>
 #include <math.h>
 
+#include "share_ec_gui.h"
 #include "pheromoneitem.h"
 #include "actuador.h"
 #include "movilagent.h"
 #include "ECFunctions.h"
 #include "../core/common.h"
+#include "../core/imath.h"
 
 using namespace ECFunctions;
 
@@ -32,7 +34,7 @@ using namespace ECFunctions;
   segun las especificaciones que se le den a este actuador.
 
   */
-class PheromoneDepositor : public Actuator
+class EC_GUI_LIB_IMPORT_EXPORT PheromoneDepositor : public Actuator
 {
 		Q_OBJECT
 

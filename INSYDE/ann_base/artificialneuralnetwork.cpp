@@ -10,3 +10,9 @@ ArtificialNeuralNetwork::Type ArtificialNeuralNetwork::getType() const
 {
 	return NoType;
 }
+
+QString ArtificialNeuralNetwork::getName() const
+{
+	return "NoType";
+}
+

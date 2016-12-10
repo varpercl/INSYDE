@@ -67,7 +67,7 @@ void PheromoneDepositor::placePheromoneItem(int intensity)
 
 double PheromoneDepositor::distanceToLastPheromone()
 {
-	return lastPheromoneItem ? math::distanceBetweenPoints(lastPheromoneItem->pos(), getAgent()->pos()) : NAN;
+	return lastPheromoneItem ? math::distance(lastPheromoneItem->pos(), getAgent()->pos()) : NAN;
 }
 
 void PheromoneDepositor::placePheromoneItem(PheromoneItem *pi)

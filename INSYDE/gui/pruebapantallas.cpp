@@ -7,8 +7,7 @@ PruebaPantalla::PruebaPantalla(QWidget *parent) :
 {
 	ui->setupUi(this);
 
-	visor = new Visor();
-	connect(visor, SIGNAL(clicked(QMouseEvent*)), SLOT(onVisorClicked(QMouseEvent*)));
+
 }
 
 PruebaPantalla::~PruebaPantalla()
@@ -38,12 +37,14 @@ void PruebaPantalla::on_perceptronButton_clicked()
 void PruebaPantalla::on_systemButton_clicked()
 {
 	//    ui->mainSystemLayout->addWidget(visor, Qt::Vertical);
+	visor = new View();
 	visor->setVisible(false);
-	visor->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-	visor->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-	visor->setDragMode(QGraphicsView::RubberBandDrag);
-	visor->setSceneRect(-5000, -5000, 10000, 10000);
+	visor->getGraphicsDetailedView()->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+	visor->getGraphicsDetailedView()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+	visor->getGraphicsDetailedView()->setDragMode(QGraphicsView::RubberBandDrag);
+	visor->getGraphicsDetailedView()->setSceneRect(-5000, -5000, 10000, 10000);
 	visor->setVisible(true);
+	connect(visor, SIGNAL(clicked(QMouseEvent*)), SLOT(onVisorClicked(QMouseEvent*)));
 }
 
 void PruebaPantalla::onVisorClicked(QMouseEvent *event)
@@ -81,8 +82,9 @@ void PruebaPantalla::onVisorClicked(QMouseEvent *event)
 	//	}
 }
 
-void PruebaPantalla::on_MLPTrainingDialog_clicked()
+void PruebaPantalla::on_ANNTrainingDialog_clicked()
 {
+
 	vector<int> sizes;
 //	sizes.push_back(200);
 //	sizes.push_back(150);
@@ -235,5 +237,25 @@ void PruebaPantalla::on_DoubleMinMaxWidgetButton_clicked()
 {
 	DoubleMinMaxWidget *dmmw = new DoubleMinMaxWidget(-2, 2);
 
+	dmmw->setAligment(Qt::Vertical);
+	dmmw->setAligment(Qt::Horizontal);
+
 	dmmw->show();
+}
+
+
+void PruebaPantalla::on_NewMainWindowButton_clicked()
+{
+	NewMainWindow *mainWindow = new NewMainWindow;
+
+	mainWindow->show();
+}
+
+void PruebaPantalla::on_GraphicObjectPropertyDialogButton_clicked()
+{
+	DotMatrix *dm = new DotMatrix(10, 10, DotMatrix::Unipolar);
+
+	GraphicObjectPropertyDialog *gopd = new GraphicObjectPropertyDialog(dm);
+
+	gopd->show();
 }

@@ -55,7 +55,7 @@ SimplePerceptron::SimplePerceptron(vector<double> weights, TransferFunctionType 
 void SimplePerceptron::setInputSize(size_t n)
 {
 	if(n != weights.size()){
-		setWeights(getRandomValues(n));
+		setWeights(getRandomValues((int)n));
 		setThreshold(getRandomValues(1)[0]);
 	}else{
 		qWarning("No se realizo cambio alguno porque el numero de entradas no vario");
@@ -64,12 +64,12 @@ void SimplePerceptron::setInputSize(size_t n)
 
 int SimplePerceptron::getInputSize()
 {
-	return weights.size();
+	return (int)weights.size();
 }
 
 void SimplePerceptron::setWeights(double *w)
 {
-	int sInputs = weights.size();
+	int sInputs = (int)weights.size();
 	for(int i = 0; i < sInputs; i++){
 		weights[i] = w[i];
 	}
@@ -191,7 +191,7 @@ SimplePerceptron::LearningRule SimplePerceptron::getLearningRule()
 
 void SimplePerceptron::randomizeWeights()
 {
-	setWeights(getRandomValues(weights.size()));
+	setWeights(getRandomValues((int)weights.size()));
 	threshold = getRandomValues(1)[0];
 }
 
@@ -218,6 +218,8 @@ ArtificialNeuralNetwork::Type SimplePerceptron::getType() const
 
 void SimplePerceptron::randomizeWeights(double min, double max)
 {
+	(void)min;
+	(void)max;
 	//TODO: 5/9/15 randomizeWeights must be implemented
 }
 
@@ -315,25 +317,4 @@ ann_base::SimplePerceptron::TrainResult ann_base::SimplePerceptron::train(vector
 	return train(inputs, outputs, epochs, nEpochsAfterNoChange, learningFactor);
 }
 
-PerceptronTrainingPattern::PerceptronTrainingPattern(int ninputs) :
-	SimpleInputPattern(ninputs)
-{
-	output = false;
-}
-
-PerceptronTrainingPattern::PerceptronTrainingPattern(const vector<double> &inputs, bool output) :
-	SimpleInputPattern(inputs)
-{
-	this->output = output;
-}
-
-void PerceptronTrainingPattern::setOutput(bool out)
-{
-	output = out;
-}
-
-bool PerceptronTrainingPattern::getOutput() const
-{
-	return output;
-}
 

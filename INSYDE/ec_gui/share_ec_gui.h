@@ -1,0 +1,10 @@
+#ifndef SHARE_EC_GUI_H
+#define SHARE_EC_GUI_H
+
+#ifdef EXPORT_EC_GUI_LIB
+#  define EC_GUI_LIB_IMPORT_EXPORT Q_DECL_EXPORT
+#else
+#  define EC_GUI_LIB_IMPORT_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // SHARE_EC_GUI_H

@@ -2,6 +2,8 @@
 #define ACTUADOR_H
 
 #include <QtCore>
+
+#include "share_ec_gui.h"
 #include "agent.h"
 
 class Agent;
@@ -20,7 +22,7 @@ class Agent;
   @see Sensor
 
   */
-class Actuator : public QObject
+class EC_GUI_LIB_IMPORT_EXPORT Actuator : public QObject
 {
 		Q_OBJECT
 

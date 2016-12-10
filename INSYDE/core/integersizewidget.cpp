@@ -73,6 +73,52 @@ Qt::Alignment IntegerSizeWidget::getLabelAlignment() const
 	return mainLayout->labelAlignment();
 }
 
+void IntegerSizeWidget::setMinimumSizeValues(const QSize &min)
+{
+	widthField->setMinimumValue(min.width());
+	heightField->setMinimumValue(min.height());
+}
+
+QSize IntegerSizeWidget::getMinimumnSizeValues() const
+{
+	return QSize(widthField->getMinimumValue(), heightField->getMinimumValue());
+}
+
+void IntegerSizeWidget::setMinimumSizeValues(int w, int h)
+{
+	widthField->setMinimumValue(w);
+	heightField->setMinimumValue(h);
+}
+
+void IntegerSizeWidget::setMaximumSizeValues(const QSize &max)
+{
+	widthField->setMaximumValue(max.width());
+	heightField->setMaximumValue(max.height());
+}
+
+QSize IntegerSizeWidget::getMaximumSizeValues() const
+{
+	return QSize(widthField->getMaximumValue(), heightField->getMaximumValue());
+}
+
+void IntegerSizeWidget::setMaximumSizeValues(int w, int h)
+{
+	widthField->setMaximumValue(w);
+	heightField->setMaximumValue(h);
+}
+
+LabeledIntegerSpinBox *IntegerSizeWidget::getLabeledIntegerSpinBox(IntegerSizeWidget::Measure dimention)
+{
+	switch(dimention){
+		case IntegerSizeWidget::Width:
+			return widthField;
+		case IntegerSizeWidget::Height:
+			return heightField;
+		default:
+			return Q_NULLPTR;
+	}
+}
+
 void IntegerSizeWidget::setSize(const QSize &size)
 {
 	QSize sizeValue(widthField->getValue(), heightField->getValue());
@@ -173,15 +219,15 @@ void IntegerSizeWidget::setUnits(IntegerSizeWidget::Units widthUnit, IntegerSize
 void IntegerSizeWidget::init(const QSize &size, const QPair<Units, Units> &units)
 {
 
-	widthLabel = new QLabel("Ancho");
+	widthLabel = new QLabel("Width");
 	widthLabel->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
 
-	heightLabel = new QLabel("Alto");
+	heightLabel = new QLabel("Height");
 	heightLabel->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
 
-	heightField = new LabeledIntegerSpinBox("", 0, LabeledWidget::Right);
+	heightField = new LabeledIntegerSpinBox(tr("Width"), 0, LabeledWidget::Right);
 
-	widthField = new LabeledIntegerSpinBox("", 0, LabeledWidget::Right);
+	widthField = new LabeledIntegerSpinBox(tr("Height"), 0, LabeledWidget::Right);
 
 	mainLayout = new QFormLayout();
 	mainLayout->setMargin(0);

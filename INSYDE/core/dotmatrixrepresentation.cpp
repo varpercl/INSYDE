@@ -94,6 +94,8 @@ DotMatrix *DotMatrixRepresentation::getDotMatrixObject() const
 void DotMatrixRepresentation::onWidgetSizeChanged(const QSize &s)
 {
 	dmWidget->setSize(s);
+
+	emit sizeChanged(s);
 }
 
 void DotMatrixRepresentation::init()
@@ -103,7 +105,8 @@ void DotMatrixRepresentation::init()
 	dm->setEnableEdit(false);
 	dmWidget->setEnableZooming(true);
 
-	isw = new IntegerSizeWidget(dm->getSize());
+	isw = new IntegerSizeWidget(dm->getMatrixSize());
+	isw->setMinimumSizeValues(0, 0);
 
 	gbPropLayout = new QVBoxLayout();
 	gbPropLayout->addWidget(isw);

@@ -1,11 +1,11 @@
-#ifndef GRAPHICIMAGEELEMENT_H
-#define GRAPHICIMAGEELEMENT_H
+#ifndef IMAGE_H
+#define IMAGE_H
 
-#include <QGraphicsWidget>
-#include <QFileDialog>
+#include <QtWidgets>
 
+#include "share_core_lib.h"
 #include "common.h"
-#include "../gui/graphiccursorelement.h"
+#include "graphiccursorelement.h"
 #include "imagepropertydialog.h"
 #include "dotmatrix.h"
 #include "graphicobject.h"
@@ -19,10 +19,9 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT Image : public GraphicObject, public Resizable
+class CORE_LIB_IMPORT_EXPORT Image : public GraphicObject
 {
 	public:
-		enum{ImageObjectType = UserType + 3};
 
 		/*!
 		 * \brief Image
@@ -33,7 +32,7 @@ class Q_DECL_EXPORT Image : public GraphicObject, public Resizable
 		 * \brief Image
 		 * \param img
 		 */
-		explicit Image(const QImage &img);
+		explicit Image(QImage *img);
 
 		/*!
 		 * \brief Image
@@ -44,7 +43,9 @@ class Q_DECL_EXPORT Image : public GraphicObject, public Resizable
 		~Image();
 
 		/*!
-		 * \brief setImage
+		 * \brief setImage Sets a new image. This method doesn't change addres of image is pointing to, it only changes
+		 * the content of current image, if you want to change image pointer call setImage(QImage*) instead.
+		 *
 		 * \param path
 		 */
 		void setImage(const QString &path);
@@ -53,13 +54,13 @@ class Q_DECL_EXPORT Image : public GraphicObject, public Resizable
 		 * \brief setImage
 		 * \param image
 		 */
-		void setImage(const QImage &image);
+		void setImage(QImage *image);
 
 		/*!
 		 * \brief getImage
 		 * \return
 		 */
-		QImage getImage() const;
+		QImage *getImage() const;
 
 		/*!
 		 * \brief setInputElement
@@ -116,40 +117,40 @@ class Q_DECL_EXPORT Image : public GraphicObject, public Resizable
 		QImage getImageSelection() const;
 
 		/*!
-		 * \brief setSize
+		 * \brief setImageSize
 		 * \param size
 		 */
-		void setSize(const QSize &size);
+		void setImageSize(const QSize &size);
 
 		/*!
-		 * \brief getSize
+		 * \brief getImageSize
 		 * \return
 		 */
-		QSize getSize() const;
+		QSize getImageSize() const;
 
 		/*!
-		 * \brief setWidth
+		 * \brief setImageWidth
 		 * \param w
 		 */
-		void setWidth(int w);
+		void setImageWidth(int w);
 
 		/*!
-		 * \brief getWidth
+		 * \brief getImageWidth
 		 * \return
 		 */
-		int getWidth() const;
+		int getImageWidth() const;
 
 		/*!
-		 * \brief setHeight
+		 * \brief setImageHeight
 		 * \param h
 		 */
-		void setHeight(int h);
+		void setImageHeight(int h);
 
 		/*!
-		 * \brief getHeight
+		 * \brief getImageHeight
 		 * \return
 		 */
-		int getHeight() const;
+		int getImageHeight() const;
 
 		/*!
 		 * \brief setEnableCopyImage
@@ -163,7 +164,47 @@ class Q_DECL_EXPORT Image : public GraphicObject, public Resizable
 		 */
 		bool getEnableCopyImage() const;
 
+		/*!
+		 * \brief setThumbnailSize
+		 * \param size
+		 */
+		void setThumbnailSize(const QSize &size);
+
+		/*!
+		 * \brief getThumbnailSize
+		 * \return
+		 */
+		QSize getThumbnailSize() const;
+
+		/*!
+		 * \brief setShowOnlyThumbnail Establish if a thumbnail is shown instead full image
+		 * \param b
+		 */
+		void setShowOnlyThumbnail(bool b);
+
+		/*!
+		 * \brief getShowOnlyThumbnail
+		 * \return
+		 */
+		bool getShowOnlyThumbnail() const;
+
+		/*!
+		 * \brief getPath Returns the current file path associated to this image if it has. To set a file path
+		 * use setImage(QString) this method automatically change image and sets the file path
+		 *
+		 * \return
+		 */
+		QString getFilePath() const;
+
+		QStringList getFormats() const;
+
 	protected:
+
+		/*!
+		 * \brief mouseDoubleClickEvent
+		 * \param event
+		 */
+		void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
 
 		/*!
 		 * \brief mousePressEvent
@@ -176,6 +217,12 @@ class Q_DECL_EXPORT Image : public GraphicObject, public Resizable
 		 * \param event
 		 */
 		void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+
+		/*!
+		 * \brief hoverMoveEvent
+		 * \param event
+		 */
+		void hoverMoveEvent(QGraphicsSceneHoverEvent *event);
 
 		/*!
 		 * \brief paint
@@ -220,11 +267,6 @@ class Q_DECL_EXPORT Image : public GraphicObject, public Resizable
 		void propertyClick();
 
 		/*!
-		 * \brief openClick
-		 */
-		void openClick();
-
-		/*!
 		 * \brief onChangeImageClick
 		 */
 		void onChangeImageClick();
@@ -246,25 +288,45 @@ class Q_DECL_EXPORT Image : public GraphicObject, public Resizable
 	private:
 		Q_OBJECT
 
-		static const QString STR_IMAGE;
-		static const QString STR_IMAGE_DATA;
+		QImage
+		*image,
+		*thumbnail;
+
+		const QString
+		STR_IMAGE = "image",
+		STR_IMAGE_DATA = "imagedata";
+
+		QString path;
+
+		QSize
+		thumbnailSize;
 
 		QClipboard *clip;
 
 		QAction *copyImageAction;
 
-		bool mouseIsOverSelectionRect;
-		QColor rectColor;
-		bool rectVisible;
-		QRect rect;
+		bool
+		showOnlyThumbnail,
+		mouseIsOverSelectionRect,
+		visibleSelRect;
 
-		QImage image;
-		QImage snapshot;
+		QColor rectColor;
+
+		QRect selRect;
+
 
 		/*!
 		 * \brief initGIE Metodo auxiliar para la inicializacion de los parametros
 		 */
-		void init(const QImage &img);
+		void init(QImage *img);
+
+		void init(const QString &path);
+
+		QImage *getThumbnail(QImage *img);
+
+		void updateSelRect(const QPointF &pos);
+
+		void setup();
 
 };
 

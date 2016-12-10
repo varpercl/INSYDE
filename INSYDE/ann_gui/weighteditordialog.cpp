@@ -68,8 +68,6 @@ void WeightEditorDialog::init(ANNModelWrapper *mw)
 	setupUI();
 
 	btWeights->setModel(model);
-	connect(model, SIGNAL(trainingAboutStart()), SLOT(onTrainingAboutStart()));
-	connect(model, SIGNAL(trainingFinished()), SLOT(onTrainingFinished()));
 }
 
 void WeightEditorDialog::init(ArtificialNeuralNetwork *ann)
@@ -79,15 +77,13 @@ void WeightEditorDialog::init(ArtificialNeuralNetwork *ann)
 	setupUI();
 
 	btWeights->setModel(model);
-	connect(model, SIGNAL(trainingAboutStart()), SLOT(onTrainingAboutStart()));
-	connect(model, SIGNAL(trainingFinished()), SLOT(onTrainingFinished()));
 }
 
 void WeightEditorDialog::setupUI()
 {
 
 	//Construct BasicTree
-	btWeights = new BasicTree();
+	btWeights = new QTreeView();
 
 	//Construct QToolButton
 	btnRandomize = new QToolButton();

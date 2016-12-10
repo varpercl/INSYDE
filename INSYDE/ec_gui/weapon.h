@@ -1,6 +1,7 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
+#include "share_ec_gui.h"
 #include "ofensiveunit.h"
 
 /**
@@ -12,7 +13,7 @@
   Los agentes del tipo ShootingUnit u otros ofensivos deben tener este tipo de actuador.
 
   */
-class Weapon : public Actuator
+class EC_GUI_LIB_IMPORT_EXPORT Weapon : public Actuator
 {
 	public:
 		explicit Weapon(OfensiveUnit *unit = 0);

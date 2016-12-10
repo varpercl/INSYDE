@@ -4,12 +4,8 @@
 #include <vector>
 
 #include <QtCore>
-#include <QFile>
-#include <QString>
-#include <QXmlStreamAttributes>
-#include <QXmlStreamReader>
-#include <QAbstractTableModel>
 
+#include "share_ann_base_lib.h"
 #include "globals.h"
 
 using namespace std;
@@ -24,7 +20,7 @@ namespace ann_base{
  * \author Edixon Vargas
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT TrainingResult : public QAbstractTableModel
+class ANN_BASE_LIB_IMPORT_EXPORT TrainingResult : public QAbstractTableModel
 {
 	public:
 

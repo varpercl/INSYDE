@@ -1,6 +1,7 @@
 #ifndef WEIGHTSEDITORDIALOG_H
 #define WEIGHTSEDITORDIALOG_H
 
+#include "share_ann_gui_lib.h"
 #include "../core/basicdialog.h"
 #include "../core/basictree.h"
 #include "../core/labeleddoublespinbox.h"
@@ -19,7 +20,7 @@ using namespace ann_base;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT WeightEditorDialog : public BasicDialog
+class ANN_GUI_LIB_IMPORT_EXPORT WeightEditorDialog : public BasicDialog
 {
 	public:
 
@@ -82,7 +83,7 @@ class Q_DECL_EXPORT WeightEditorDialog : public BasicDialog
 
 		ANNModelWrapper *model;
 
-		BasicTree *btWeights;
+		QTreeView *btWeights;
 
 		ArtificialNeuralNetwork *ann;
 

@@ -4,6 +4,7 @@
 #include <QtGui>
 #include <QtWidgets>
 
+#include "share_ec_gui.h"
 #include "../core/common.h"
 
 namespace Ui {
@@ -15,7 +16,7 @@ namespace Ui {
   iniciales de los agentes que se van a ingresar en un entorno virtual grafico.
   */
 
-class Q_DECL_EXPORT AddAgentsDialog : public QDialog
+class EC_GUI_LIB_IMPORT_EXPORT AddAgentsDialog : public QDialog
 {
 
 	public:

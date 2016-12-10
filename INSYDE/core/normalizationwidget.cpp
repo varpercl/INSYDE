@@ -133,29 +133,33 @@ double NormalizationWidget::getElongationValue() const
 
 void NormalizationWidget::setNormalization(Normalization *no)
 {
-	//TODO: corregir que actualice todos los parametros al llamar a esta funcion
 
 	QComboBox *cb = lcbNormalization->getComboBox();
 
 	foreach (NormProp np, normList) {
 		if(no->getType() == np.norm->getType()){
-			//Se bloquea las señales ya que no se quiere que se llame al evento indexChanged
-			cb->blockSignals(true);
 
-			cb->setCurrentIndex(np.index);
-			*np.norm = *no;
+			*(normList[np.norm->getType()].norm) = *no;
 			lsbwAmplitude->setValue(no->getAmplitude());
 			lsbwElongation->setValue(no->getElongation());
 			lsbwThreshold->setValue(no->getThreshold());
 			mmvw->setMinValue(no->getMinValue());
 			mmvw->setMaxValue(no->getMaxValue());
 
+			cb->blockSignals(true);
+
+			currentNormalization = no;
+
+			cb->setCurrentIndex(np.index);
+
+			updateNormalizationControls();
+
 			cb->blockSignals(false);
+
 			break;
 		}
 	}
 
-	currentNormalization = no;
 
 	emit normalizationChanged(currentNormalization);
 }
@@ -183,11 +187,31 @@ void NormalizationWidget::hideNormalization(Normalization nor)
 {
 	foreach(NormProp np, normList){
 		if(np.norm->getType() == nor.getType()){
-			np.visibility = false;
+			normList[nor.getType()].visibility = false;
 		}
 	}
 	updateNormalizationList();
-	cbNormalizationIndexChanged(0);
+}
+
+void NormalizationWidget::hideNormalization(Normalization::Type type)
+{
+	(void)type;
+
+	//TODO: 30/4/16 hideNormalization implement
+}
+
+void NormalizationWidget::showNormalization(Normalization nor)
+{
+	(void)nor;
+
+	//TODO 30/4/16 showNormalization: implement
+}
+
+void NormalizationWidget::showNormalization(Normalization::Type type)
+{
+	(void)type;
+
+	//TODO: 30/4/16 showNormalization: implement
 }
 
 void NormalizationWidget::setDecimals(int dec)
@@ -328,15 +352,12 @@ void NormalizationWidget::init(const QString &title, Normalization *nor)
 	tmrMinValue.setSingleShot(true);
 	tmrMaxValue.setSingleShot(true);
 
-	//NOTE: se debe llamar luego de inicializar los demas widgets
-
+	//se debe llamar luego de inicializar los demas widgets
+	updateNormalizationList();
 	setDecimals(3);
 	setNormalization(nor);
 	setUpdateDelay(1000);
 	setEnableUpdateDelay(true);
-
-	updateNormalizationList();
-	cbNormalizationIndexChanged(0);
 
 	connect(&tmrAmplitude, SIGNAL(timeout()), SLOT(amplitudeTimeout()));
 	connect(&tmrElongation, SIGNAL(timeout()), SLOT(elongationTimeout()));
@@ -357,36 +378,38 @@ void NormalizationWidget::updateNormalizationList()
 	QComboBox *cb = lcbNormalization->getComboBox();
 
 	cb->blockSignals(true);
-	cb->clear();
+//	cb->clear();
+//	foreach(NormProp np, normList){
+//		if(np.visibility){
+//			cb->addItem(np.name);
+//			normList[np.norm->getType()].index = cb->count() - 1;
+//		}else{
+//			normList[np.norm->getType()].index = -1;
+//			continue;
+//		}
+//	}
+	int index = 0;
 	foreach(NormProp np, normList){
 		if(np.visibility){
-			cb->addItem(np.name);
-			np.index = cb->count() - 1;
+			if(index + 1 <= cb->count()){
+				cb->setItemText(index, np.name);
+			}else{
+				cb->addItem(np.name);
+			}
+			normList[np.norm->getType()].index = index;
+			index++;
 		}else{
-			np.index = -1;
-			continue;
+			normList[np.norm->getType()].index = -1;
 		}
+	}
+	for(int i = index; i < cb->count(); i++){
+		cb->removeItem(i);
 	}
 	cb->blockSignals(false);
 }
 
-void NormalizationWidget::cbNormalizationIndexChanged(int index)
+void NormalizationWidget::updateNormalizationControls()
 {
-	Normalization *curSel = 0;
-
-	//Realiza un pareo del tipo de normalizacion segun el indice del ComboBox
-	foreach(NormProp np, normList){
-		if(np.index == index){
-			curSel = np.norm;
-			break;
-		}
-	}
-
-	//NOTE: No se quiere cambiar el puntero de currentNormalization debido a que si el usuario asigno un objeto de
-	//normalizacion en especifico no es conveniente que este cambie sin la peticion del usuario (simplemente se hace una
-	//clonacion de las variables miembro)
-	*currentNormalization = *curSel;
-
 	Normalization::Type type = currentNormalization->getType();
 
 	lsbwAmplitude->setValue(currentNormalization->getAmplitude());
@@ -487,8 +510,28 @@ void NormalizationWidget::cbNormalizationIndexChanged(int index)
 
 			break;
 	}
+}
 
-	emit typeChanged(type);
+void NormalizationWidget::cbNormalizationIndexChanged(int index)
+{
+	Normalization *curSel = 0;
+
+	//Realiza un pareo del tipo de normalizacion segun el indice del ComboBox
+	foreach(NormProp np, normList){
+		if(np.index == index){
+			curSel = np.norm;
+			break;
+		}
+	}
+
+	//NOTE: No se quiere cambiar el puntero de currentNormalization debido a que si el usuario asigno un objeto de
+	//normalizacion en especifico no es conveniente que este cambie sin la peticion del usuario (simplemente se hace una
+	//clonacion de las variables miembro)
+	*currentNormalization = *curSel;
+
+	updateNormalizationControls();
+
+	emit typeChanged(currentNormalization->getType());
 	emit normalizationChanged(curSel);
 }
 

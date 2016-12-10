@@ -35,7 +35,7 @@ void MainWindow::initGUI()
 	setWindowState(Qt::WindowMaximized);
 	setMinimumSize(600, 600);
 
-	sta = new StatusAnimationControl(this);
+	sta = new SimulationControl(this);
 	ui->mainToolBar->addWidget(sta);
 	//    ui->mainVerticalLayout->addWidget(sta);
 
@@ -45,9 +45,12 @@ void MainWindow::initGUI()
 	grupoRenderer->addAction(ui->actionNativo);
 	grupoRenderer->addAction(ui->actionOpenGL);
 
-	visor = new Visor();
+	view = new View();
+
+	visor = view->getGraphicsDetailedView();
+
 	//    ui->mainSystemLayout->addWidget(visor, Qt::Vertical);
-	visor->setVisible(false);
+
 	visor->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 	visor->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 	visor->setDragMode(QGraphicsView::RubberBandDrag);
@@ -71,8 +74,7 @@ void MainWindow::initGUI()
 	ui->actionOpenGL->setEnabled(false);
 #endif
 
-	visor->setVisible(true);
-	ui->mainSystemLayout->addWidget(visor, Qt::Vertical);
+	ui->mainSystemLayout->addWidget(view, Qt::Vertical);
 
 	ui->twArbolObjetos->setColumnCount(1);
 
@@ -158,10 +160,10 @@ void MainWindow::onVisorClicked(QMouseEvent *event)
 				}else if(btn == ui->btnAddAgent){
 
 				}else if(btn == ui->btnAddDotMatrix){
-					AddDotMatrixDialog *dmd = new AddDotMatrixDialog();
+					AddDotMatrixDialog *dmd = new AddDotMatrixDialog(25, 25);
 
 					if(dmd->exec() == QDialog::Accepted){
-						DotMatrix *dm = new DotMatrix(7, dmd->getRowSize(), dmd->getColSize(), dmd->getDataType());
+						DotMatrix *dm = new DotMatrix(7, dmd->getRows(), dmd->getCols(), dmd->getDataType());
 
 						QGraphicsScene *sce = visor->scene();
 						dm->setPos(visor->mapToScene(event->pos()));
@@ -187,7 +189,7 @@ void MainWindow::onVisorClicked(QMouseEvent *event)
 					AddNewMLPDialog *mlpd = new AddNewMLPDialog();
 
 					if(mlpd->exec() == QDialog::Accepted){
-						GraphicMLPElement *mlpe = new GraphicMLPElement(new MultilayerPerceptron(
+						MLPObject *mlpe = new MLPObject(new MultilayerPerceptron(
 																			mlpd->getInputSize(),
 																			mlpd->getOutputSize(),
 																			mlpd->getLayerSizes(),
@@ -285,7 +287,7 @@ void MainWindow::btnAddAgentClick(){
 	if(dlgAddAgents->exec() == QDialog::Accepted){
 		PlayerType pt = Human;
 		PlayerColor pc = Blue;
-		PlayerTeam ptm = None;
+		PlayerTeam ptm = PlayerTeam::None;
 		int maxVitality = dlgAddAgents->getMaxVitality();
 		int vitality = dlgAddAgents->getInitialVitality();
 		int maxEnergy = dlgAddAgents->getMaxEnergy();
@@ -332,7 +334,7 @@ void MainWindow::btnAddAgentClick(){
 
 		switch(dlgAddAgents->getCurrentColor()){
 			case 0:
-				ptm = None;
+				ptm = PlayerTeam::None;
 				break;
 			case 1:
 				ptm = Team1;
@@ -402,22 +404,22 @@ void MainWindow::btnAddAgentClick(){
 }
 
 void MainWindow::btnDeleteAgentClick(){
-	visor->removeSelected();
+	view->getGraphicsDetailedView()->removeSelected();
 }
 
 void MainWindow::runAnimation()
 {
-	visor->setSimulationStatus(Running);
+//	view->getGraphicsDetailedView()->setSimulationStatus(Running);
 }
 
 void MainWindow::pauseAnimation()
 {
-	visor->setSimulationStatus(Paused);
+//	view->getGraphicsDetailedView()->setSimulationStatus(Paused);
 }
 
 void MainWindow::stopAnimation()
 {
-	visor->setSimulationStatus(Stopped);
+//	view->getGraphicsDetailedView()->setSimulationStatus(Stopped);
 }
 
 void MainWindow::addAgents()
@@ -431,7 +433,7 @@ void MainWindow::on_btnSearchMode_clicked()
 	//    QGraphicsObject *obj;
 	Unit *unit;
 	int itemCount = items.count();
-	switch(visor->getSimulationStatus()){
+	switch(view->getSimulationStatus()){
 		case Running:
 			for(int i = 0; i < itemCount; i++){
 				if((unit = dynamic_cast<Unit*>(dynamic_cast<QGraphicsObject*>(items[i])))){
@@ -545,5 +547,6 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
 	double zoom = double(value)/100;
 	visor->setTransform(QTransform::fromScale(zoom, zoom));
-//	visor->scale();
+	//	visor->scale();
 }
+

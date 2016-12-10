@@ -5,11 +5,14 @@
 
 #include <QtCore>
 
+#include "share_core_lib.h"
 #include "common.h"
 #include "dotmatrixpropertydialog.h"
 #include "graphicobject.h"
-#include "../ann_gui/graphicmlpelement.h"
-#include "interfaces.h"
+//#include "../ann_gui/graphicmlpelement.h"
+//#include "interfaces.h"
+
+//class GraphicMLPElement;
 
 /*!
  * \class
@@ -19,16 +22,28 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT DotMatrix : public GraphicObject, public Resizable
+class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 {
-	public:
+//		struct Dot;
 
-		enum {DotMatrixObject = UserType + 3};
+	public:
+		struct Dot{
+			public:
+				int
+				row,
+				col;
+
+//				bool operator==(const Dot &dot){
+//					return dot.row == row && dot.col == col;
+//				}
+		};
 
 		enum DataType{
 			Unipolar,
 			Bipolar
 		};
+
+		explicit DotMatrix();
 
 		/*!
 		 * \brief DotMatrix
@@ -40,18 +55,20 @@ class Q_DECL_EXPORT DotMatrix : public GraphicObject, public Resizable
 
 		/*!
 		 * \brief DotMatrix
-		 * \param dotSize
+		 * \param dotsize
 		 * \param rows
 		 * \param cols
 		 * \param dt
 		 */
-		explicit DotMatrix(int dotSize, int rows, int cols, const DataType &dt = Unipolar);
+		explicit DotMatrix(int dotsize, int rows, int cols, const DataType &dt = Unipolar);
 
 		/*!
-		 * \brief setRows
-		 * \param value
+		 * \brief DotMatrix
+		 * \param dotList
+		 * \param dt
 		 */
-		void setRows(int value);
+		explicit DotMatrix(QVector<Dot> *dotList, int dotsize, int rows, int cols, const DataType &dt = Unipolar);
+
 
 		/*!
 		 * \brief getRows
@@ -60,28 +77,16 @@ class Q_DECL_EXPORT DotMatrix : public GraphicObject, public Resizable
 		int getRows() const;
 
 		/*!
-		 * \brief setCols
-		 * \param value
-		 */
-		void setCols(int value);
-
-		/*!
 		 * \brief getCols
 		 * \return
 		 */
 		int getCols() const;
 
 		/*!
-		 * \brief setSize
-		 * \param dotSize
-		 */
-		void setSize(const QSize &dotSize);
-
-		/*!
 		 * \brief getSize
 		 * \return
 		 */
-		QSize getSize() const;
+		QSizeF getSize() const override;
 
 		/*!
 		 * \brief setInputs
@@ -176,30 +181,6 @@ class Q_DECL_EXPORT DotMatrix : public GraphicObject, public Resizable
 		void setInputElement(GraphicObject *ge);
 
 		/*!
-		 * \brief setWidth Funcion identica a setCols
-		 * \param w Numero de columnas que tendra el objeto
-		 */
-		void setWidth(int w);
-
-		/*!
-		 * \brief getWidth Funcion identica a getCols
-		 * \return
-		 */
-		int getWidth() const;
-
-		/*!
-		 * \brief setHeight Funcion identica a setRows
-		 * \param h Numero de filas que tendra el objeto
-		 */
-		void setHeight(int h);
-
-		/*!
-		 * \brief getHeight Funcion identica a getRows
-		 * \return
-		 */
-		int getHeight() const;
-
-		/*!
 		 * \brief Devuelve el tipo de objeto actual. Esta funcion es sumamente util para identificar el tipo de
 		 * objeto sin necesidad de hacer casting.
 		 *
@@ -227,6 +208,89 @@ class Q_DECL_EXPORT DotMatrix : public GraphicObject, public Resizable
 		 */
 		QString getXML() const;
 
+		/*!
+		 * \brief getDotSize
+		 * \return
+		 */
+		int getDotSize() const;
+
+		/*!
+		 * \brief getEnableContinuousDotsWritting
+		 * \return
+		 */
+		bool getEnableContinuousDrawing() const;
+
+		/*!
+		 * \brief getEnableEraserPen
+		 * \return
+		 */
+		bool getEnableEraserPen() const;
+
+		/*!
+		 * \brief setDotList Dot matrix object works with a dot list. This dot list indicates which dots are ones, the
+		 * size of the list can vary depending on how many dots user has set. Maximum size of this list is
+		 * \code{getCols() * getRows()}, in this case it is supposed all dots are ones and dot matrix should be shown
+		 * completely filled.
+		 *
+		 * With this method you can set any dot list you want. Passing a pointer ensures data can be changed from diferent
+		 * sources and affect different dot matrix, this is useful in case we want to show a dot matrix object in
+		 * different windows but representing the same data.
+		 *
+		 * \param dots
+		 */
+		void setDotList(QVector<Dot> *dots);
+
+		/*!
+		 * \brief getDotList
+		 * \return
+		 */
+		QVector<Dot> *getDotList() const;
+
+		/*!
+		 * \brief getMatrixSize
+		 * \return
+		 */
+		QSize getMatrixSize() const;
+
+
+	public slots:
+
+		/*!
+		 * \brief setEnableContinuousDotsWritting
+		 * \param b
+		 */
+		void setEnableContinuousDrawing(bool b);
+
+		/*!
+		 * \brief setEnableEraserPen
+		 * \param b
+		 */
+		void setEnableEraserPen(bool b);
+
+		/*!
+		 * \brief setRows
+		 * \param value
+		 */
+		void setRows(int value);
+
+		/*!
+		 * \brief setCols
+		 * \param value
+		 */
+		void setCols(int value);
+
+		/*!
+		 * \brief setDotSize
+		 * \param size
+		 */
+		void setDotSize(int size);
+
+		/*!
+		 * \brief setSize
+		 * \param dotSize
+		 */
+		void setMatrixSize(const QSize &size);
+
 	signals:
 
 		/*!
@@ -241,13 +305,58 @@ class Q_DECL_EXPORT DotMatrix : public GraphicObject, public Resizable
 		 */
 		void statusChanged(const QVector<int> &inputs);
 
+		/*!
+		 * \brief rowCountChanged
+		 * \param value
+		 */
+		void rowCountChanged(int value);
+
+		/*!
+		 * \brief colCountChanged
+		 * \param value
+		 */
+		void colCountChanged(int value);
+
+		/*!
+		 * \brief dotSizeChanged
+		 * \param value
+		 */
+		void dotSizeChanged(int value);
+
+		/*!
+		 * \brief sizeChanged
+		 * \param size
+		 */
+		void matrixSizeChanged(const QSize &size);
+
 	protected:
 
-		//TODO: evaluar si es necesaria la implementacion de estos metodos ya que pueden ser ambiguos e innecesarios
-		//es mas conveniente el uso de setDotMatrix
+		void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 
-		void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-		void hoverMoveEvent(QGraphicsSceneHoverEvent *event);
+		/*!
+		 * \brief mouseReleaseEvent
+		 * \param event
+		 */
+		void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+
+		/*!
+		 * \brief mouseMoveEvent
+		 * \param event
+		 */
+		void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+
+		/*!
+		 * \brief hoverMoveEvent
+		 * \param event
+		 */
+		void hoverMoveEvent(QGraphicsSceneHoverEvent *event) override;
+
+		/*!
+		 * \brief paint
+		 * \param painter
+		 * \param option
+		 * \param widget
+		 */
 		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
 	protected slots:
@@ -280,26 +389,48 @@ class Q_DECL_EXPORT DotMatrix : public GraphicObject, public Resizable
 	private slots:
 
 		/*!
-		 * \brief onMLPOutputChanged
-		 * \param inputs
+		 * \brief onClearClicked
+		 * \param checked
 		 */
-		void onMLPOutputChanged(QVector<double> inputs);
+		void onClearClicked(bool checked);
+
+		/*!
+		 * \brief onFillClicked
+		 * \param checked
+		 */
+		void onFillClicked(bool checked);
+
+
 
 	private:
 		Q_OBJECT
 
-		bool enableEdit;
+
+
+		QAction
+		*continuousDrawingAction,
+		*clearAction,
+		*fillAction,
+		*eraserAction;
+
+		bool
+		enableEdit,
+		enableContinuousDrawing,
+		enableEraser;
 
 		DataType dataType;
 
-		QList<QPoint> ptsList;
+		QVector<Dot > *ptsList;
 
 		int
-		curYIndex,
-		curXIndex,
+		curRowIndex,
+		curColIndex,
 		cols,
 		rows,
-		dotSize;
+		size; // Size of each dot
+
+		QPointF
+		objectPosAtPress;
 
 		QRectF
 		mouseRect; /**< Rectangulo del tamaño de un cuadro ubicado en la posicion del mouse */
@@ -311,7 +442,7 @@ class Q_DECL_EXPORT DotMatrix : public GraphicObject, public Resizable
 		 * \param cols
 		 * \param dt
 		 */
-		void init(int dotSize, int rows, int cols, DataType dt);
+		void init(int size, int rows, int cols, DataType dt);
 
 		/*!
 		 * \brief getContainer
@@ -331,6 +462,29 @@ class Q_DECL_EXPORT DotMatrix : public GraphicObject, public Resizable
 		 */
 		bool isValidDot(const QRectF &rect);
 
+		/*!
+		 * \brief setDot
+		 * \param row
+		 * \param col
+		 * \param b
+		 */
+		void setDot(int row, int col, bool b);
+
+		/*!
+		 * \brief updateMouseRectangle
+		 */
+		void updateMouseRectangle(const QPointF &pos);
+
+		/*!
+		 * \brief updateCurRowAndColIndexes
+		 * \param pos
+		 */
+		void updateCurRowAndColIndexes(const QPointF &pos);
+
 };
+
+bool operator==(const DotMatrix::Dot &dotleft, const DotMatrix::Dot &dotright){
+	return dotleft.col == dotright.col && dotleft.row == dotleft.col;
+}
 
 #endif // DOTMATRIX_H

@@ -1,0 +1,17 @@
+#ifndef ANN_GUI_ICONS_H
+#define ANN_GUI_ICONS_H
+
+#ifndef ICON_MLP
+#define ICON_MLP QIcon(":/media/icons/artificial neural network.png")
+#endif
+#ifndef ICON_ADALINE
+#define ICON_ADALINE QIcon(":/media/icons/adaline.gif")
+#endif
+#ifndef ICON_HOPFIELD
+#define ICON_HOPFIELD QIcon(":/media/icons/hopfield.jpg")
+#endif
+#ifndef ICON_ANN
+#define ICON_ANN QIcon(":/media/icons/artificial neural network.png")
+#endif
+
+#endif // ICONS_H

@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsLineItem>
 
+#include "share_ann_gui_lib.h"
 #include "../ann_base/simpleperceptron.h"
 
 using namespace ann_base;
@@ -20,7 +21,7 @@ using namespace ann_base;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT WeightLine : public QObject, public QGraphicsLineItem
+class ANN_GUI_LIB_IMPORT_EXPORT WeightLine : public QObject, public QGraphicsLineItem
 {
 	public:
 		explicit WeightLine(const QLineF &line, SimplePerceptron *sp, int index, QGraphicsItem *parent = 0);

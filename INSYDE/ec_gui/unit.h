@@ -2,13 +2,15 @@
 #define UNIT_H
 
 #include <QtCore>
+#include <QtWidgets>
 
-#if QT_VERSION > 0x050000
-#include <QtWidgets/QStyleOptionGraphicsItem>
-#else
-#include <QtGui>
-#endif
+//#if QT_VERSION > 0x050000
+//#include <QtWidgets/QStyleOptionGraphicsItem>
+//#else
+//#include <QtGui>
+//#endif
 
+#include "share_ec_gui.h"
 #include "../core/common.h"
 #include "movilagent.h"
 
@@ -76,7 +78,7 @@ enum Mode{
  * \author Edixon Vargas
  * \date 08-06-2012
  */
-class Q_DECL_EXPORT Unit : public MovilAgent
+class EC_GUI_LIB_IMPORT_EXPORT Unit : public MovilAgent
 {
 		Q_OBJECT
 

@@ -26,7 +26,7 @@ void BasicTree::pasteClick()
 
 }
 
-void BasicTree::contextMenuEvent(QContextMenuEvent */*event*/)
+void BasicTree::contextMenuEvent(QContextMenuEvent *)
 {
 }
 

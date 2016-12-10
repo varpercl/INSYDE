@@ -119,7 +119,7 @@ void PerceptronDisplay::init(SimplePerceptron *sp)
 
 void PerceptronDisplay::updateWeightLines(vector<double> weights)
 {
-	int wLines = weights.size();
+	int wLines = (int)weights.size();
 	for(int i = 0; i < wLines; i++){
 		gliWeights[i]->updateWeightColor();
 	}

@@ -1,5 +1,11 @@
 #include "trainingsetdialog.h"
 
+TrainingSetDialog::TrainingSetDialog(QWidget *parent) :
+	BasicDialog(parent)
+{
+	init(new TrainingSet());
+}
+
 TrainingSetDialog::TrainingSetDialog(TrainingSet *ts, QWidget *parent):
 	BasicDialog(parent)
 {
@@ -21,6 +27,30 @@ TrainingSetDialog::TrainingSetDialog(const vector<vector<double> > &inputs, int 
 	init(new TrainingSet(inputs, is, targets, ts));
 }
 
+TrainingSetDialog::TrainingSetDialog(ArtificialNeuralNetwork *ann, QWidget *parent) :
+	BasicDialog(parent)
+{
+	switch(ann->getType()){
+		case ann_base::ArtificialNeuralNetwork::NoType:
+			break;
+		case ann_base::ArtificialNeuralNetwork::Adaline:
+			break;
+		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
+			break;
+		case ann_base::ArtificialNeuralNetwork::MultilayerPerceptron:
+		{
+			MultilayerPerceptron *mlp = dynamic_cast<MultilayerPerceptron *>(ann);
+			init(new TrainingSet(mlp->getInputsSize(), mlp->getOutputsSize()));
+			break;
+		}
+		case ann_base::ArtificialNeuralNetwork::Hopfiel:
+			break;
+		case ann_base::ArtificialNeuralNetwork::Kohonen:
+			break;
+
+	}
+}
+
 TrainingSetDialog::~TrainingSetDialog()
 {
 	delete btnMsgBoxFirstPixels;
@@ -39,8 +69,12 @@ void TrainingSetDialog::setTrainingSet(TrainingSet *ts)
 		this->ts = ts;
 
 		tstInputs->setTrainingSet(ts);
+		inw->setNormalization(ts->getInputsNormalization());
+		gbInputsRepresentation->setDataRepresentation(ts->getInputsDataRepresentation());
 
 		tstTargets->setTrainingSet(ts);
+		tnw->setNormalization(ts->getTargetsNormalization());
+		gbTargetsRepresentation->setDataRepresentation(ts->getTargetsDataRepresentation());
 
 		connectTrainingSetSignals();
 	}
@@ -49,6 +83,11 @@ void TrainingSetDialog::setTrainingSet(TrainingSet *ts)
 TrainingSet *TrainingSetDialog::getTrainingSet() const
 {
 	return ts;
+}
+
+void TrainingSetDialog::onExportClick()
+{
+	//TODO: 15/4/16 onExportClick implement
 }
 
 void TrainingSetDialog::onInputsCellClicked(const QModelIndex &index)
@@ -85,9 +124,98 @@ void TrainingSetDialog::onTargetsHeightChanged(int height)
 	ts->getTargetsDataRepresentation()->setHeight(height);
 }
 
+void TrainingSetDialog::deleteRows()
+{
+	QItemSelectionModel *ism = 0;
+	QModelIndexList mil;
+
+	if(tstInputs->hasFocus()){
+		ism = tstInputs->selectionModel();
+	}
+
+	if(tstTargets->hasFocus()){
+		ism = tstTargets->selectionModel();
+	}
+	if(ism){
+		mil = ism->selection().indexes();
+		for(int i = 0; i < mil.size(); i++){
+			ts->removeRow(mil.at(i).row());
+		}
+
+		isEditingTS = true;
+	}
+}
+
+void TrainingSetDialog::deleteColumns()
+{
+
+	QItemSelectionModel *ism = 0;
+	QModelIndexList mil;
+
+	if(tstInputs->hasFocus()){
+		ism = tstInputs->selectionModel();
+	}
+
+	if(tstTargets->hasFocus()){
+		ism = tstTargets->selectionModel();
+	}
+
+	if(ism){
+		mil = ism->selection().indexes();
+		for(int i = 0; i < mil.size(); i++){
+			ts->removeColumn(mil.at(i).column());
+		}
+
+		isEditingTS = true;
+	}
+}
+
+void TrainingSetDialog::onInputsSizeChanged(int val)
+{
+	ts->setInputsSize(val);
+
+	isEditingTS = true;
+}
+
+void TrainingSetDialog::onTargetsSizeChanged(int val)
+{
+	ts->setTargetsSize(val);
+
+	isEditingTS = true;
+}
+
+void TrainingSetDialog::onInputsNormalizationChanged(Normalization *nor)
+{
+	if(nor->getType() != Normalization::Nothing){
+		tstInputs->getPasteAction()->setEnabled(false);
+		getPasteAction()->setEnabled(false);
+	}else{
+		tstInputs->getPasteAction()->setEnabled(true);
+		getPasteAction()->setEnabled(true);
+	}
+
+	isEditingTS = true;
+}
+
+void TrainingSetDialog::onTargetsNormalizationChanged(Normalization *nor)
+{
+	if(nor->getType() != Normalization::Nothing){
+		tstTargets->getPasteAction()->setEnabled(false);
+		getPasteAction()->setEnabled(false);
+	}else{
+		tstTargets->getPasteAction()->setEnabled(true);
+		getPasteAction()->setEnabled(true);
+	}
+
+	isEditingTS = true;
+}
+
 void TrainingSetDialog::on_addPatternButton_clicked()
 {
+
 	ts->appendPattern();
+
+	isEditingTS = true;
 }
 
 void TrainingSetDialog::on_delPatternButton_clicked()
@@ -107,14 +235,21 @@ void TrainingSetDialog::init(TrainingSet *ts)
 
 	this->ts = ts;
 
+	//Initialize QVBoxLayout
 	mainLayout = new QVBoxLayout();
 
+	//Initialize QGridLayout
 	gridLayout = new QGridLayout();
+
+	lisbInputsSize = new LabeledIntegerSpinBox(QString::fromLatin1("Número de entradas"), ts->getInputsSize());
+	lisbTargetsSize = new LabeledIntegerSpinBox(QString::fromLatin1("Número de salidas"), ts->getTargetsSize());
 
 	QMenu *importMenu = new QMenu("Importar");
 	importMenu->addAction(ICON_IMPORT, "Entradas...", this, SLOT(importInputsClick()));
 	importMenu->addAction(ICON_IMPORT, "Salidas...", this, SLOT(importTargetsClick()));
-	importMenu->addAction(ICON_IMPORT, "Conjunto de entrenamiento...", this, SLOT(importTrainingSetClick()));
+
+	//TODO: 16/4/15 implement this
+//	importMenu->addAction(ICON_IMPORT, "Conjunto de entrenamiento...", this, SLOT(importTrainingSetClick()));
 
 	getImportAction()->setMenu(importMenu);
 
@@ -123,8 +258,16 @@ void TrainingSetDialog::init(TrainingSet *ts)
 	addPatternButton->setPopupMode(QToolButton::MenuButtonPopup);
 	addPatternButton->setMenu(importMenu);
 
+	QMenu *delMenu = new QMenu("Eliminar");
+	QAction *defaultDelMenuAction;
+	actionDeleteRow = defaultDelMenuAction = delMenu->addAction(ICON_MINUS, "Eliminar fila", this, SLOT(deleteRows()));
+	actionDeleteCol = delMenu->addAction(ICON_MINUS, "Eliminar columna", this, SLOT(deleteColumns()));
+	delMenu->setDefaultAction(defaultDelMenuAction);
+
 	delPatternButton = new QToolButton();
 	delPatternButton->setIcon(ICON_MINUS);
+	delPatternButton->setPopupMode(QToolButton::MenuButtonPopup);
+	delPatternButton->setMenu(delMenu);
 
 	mainToolBar = new QToolBar();
 	mainToolBar->addWidget(addPatternButton);
@@ -138,6 +281,9 @@ void TrainingSetDialog::init(TrainingSet *ts)
 	inw->setMaxValueMinimum(-minRange);
 	inw->setThresholdValueMaximum(minRange);
 	inw->setThresholdValueMinimum(-minRange);
+
+	//FIXME: 25/4/16 this normalization should be fixed because it doesnt deliver correct values. It's temporaly hidden
+	inw->hideNormalization(Normalization(Normalization::MeanDistance));
 
 	tnw = new NormalizationWidget(this->ts->getTargetsNormalization(), QString::fromLatin1("Normalización de salidas"));
 	tnw->setMinValueMaximum(minRange);
@@ -162,28 +308,41 @@ void TrainingSetDialog::init(TrainingSet *ts)
 	tstTargets->setInputsVisible(false);
 
 	gbInputsRepresentation = new DataRepresentationBox(vector<double>(), this->ts->getInputsDataRepresentation());
-	gbInputsRepresentation->setTitle("Patron de entrada");
+	gbInputsRepresentation->setTitle(QString::fromLatin1("Patrón de entrada"));
 
 	gbTargetsRepresentation = new DataRepresentationBox(vector<double>(), this->ts->getTargetsDataRepresentation());
-	gbTargetsRepresentation->setTitle("Patron de salida");
+	gbTargetsRepresentation->setTitle(QString::fromLatin1("Patrón de salida"));
 
-	gridLayout->addWidget(inw, 0, 0);
-	gridLayout->addWidget(tnw, 0, 1);
-	gridLayout->addWidget(tstInputs, 1, 0);
-	gridLayout->addWidget(tstTargets, 1, 1);
-	gridLayout->addWidget(gbInputsRepresentation, 2, 0);
-	gridLayout->addWidget(gbTargetsRepresentation, 2, 1);
+	gridLayout->addWidget(lisbInputsSize, 0, 0);
+	gridLayout->addWidget(lisbTargetsSize, 0, 1);
+	gridLayout->addWidget(inw, 1, 0);
+	gridLayout->addWidget(tnw, 1, 1);
+	gridLayout->addWidget(tstInputs, 2, 0);
+	gridLayout->addWidget(tstTargets, 2, 1);
+	gridLayout->addWidget(gbInputsRepresentation, 3, 0);
+	gridLayout->addWidget(gbTargetsRepresentation, 3, 1);
 
 	mainLayout->addWidget(mainToolBar);
 	mainLayout->addLayout(gridLayout);
 
+	setWindowFlags(Qt::Window);
+
+	setEnableSaveAs(false);
+	setEnablePreferences(false);
+
 	//TODO: implementar UNDO
 	setEnableUnDoFramework(false);
+
+	setToolsMenuVisible(false);
+	setViewMenuVisible(false);
+	setHelpMenuVisible(false);
 
 	getAboutAction()->setVisible(false);
 	getCutAction()->setEnabled(false);
 
 	getMainWindow()->centralWidget()->setLayout(mainLayout);
+
+	isEditingTS = false;
 
 	initMsgBoxes();
 
@@ -193,7 +352,8 @@ void TrainingSetDialog::init(TrainingSet *ts)
 	connect(delPatternButton, SIGNAL(clicked()), SLOT(on_delPatternButton_clicked()));
 	connect(tstInputs, SIGNAL(clicked(QModelIndex)), SLOT(onInputsCellClicked(QModelIndex)));
 	connect(tstTargets, SIGNAL(clicked(QModelIndex)), SLOT(onTargetsCellClicked(QModelIndex)));
-
+	connect(lisbInputsSize->getIntegerSpinBox(), SIGNAL(valueChanged(int)), SLOT(onInputsSizeChanged(int)));
+	connect(lisbTargetsSize->getIntegerSpinBox(), SIGNAL(valueChanged(int)), SLOT(onTargetsSizeChanged(int)));
 }
 
 void TrainingSetDialog::initMsgBoxes()
@@ -224,11 +384,53 @@ void TrainingSetDialog::initMsgBoxes()
 
 void TrainingSetDialog::connectTrainingSetSignals()
 {
-	connect(this->ts, SIGNAL(inputChanged(int,int,double,double)), this, SLOT(onInputChanged(int,int,double,double)));
-	connect(this->ts, SIGNAL(targetChanged(int,int,double,double)), this, SLOT(onTargetChanged(int,int,double,double)));
+	connect(ts, SIGNAL(inputChanged(int,int,double,double)), this, SLOT(onInputChanged(int,int,double,double)));
+	connect(ts, SIGNAL(targetChanged(int,int,double,double)), this, SLOT(onTargetChanged(int,int,double,double)));
+//	connect(ts, SIGNAL(inputsNormalizationChanged(Normalization*)), this, SLOT(onInputsNormalizationChanged(Normalization*)));
+//	connect(ts, SIGNAL(targetsNormalizationChanged(Normalization*)), this, SLOT(onTargetsNormalizationChanged(Normalization*)));
+
+	connect(inw, SIGNAL(normalizationChanged(Normalization*)), SLOT(onInputsNormalizationChanged(Normalization*)));
+	connect(tnw, SIGNAL(normalizationChanged(Normalization*)), SLOT(onTargetsNormalizationChanged(Normalization*)));
 
 	connect(tstInputs->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(onTstInputsSelectionChanged(QItemSelection,QItemSelection)));
 	connect(tstTargets->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(onTstTargetsSelectionChanged(QItemSelection,QItemSelection)));
+}
+
+QMessageBox::StandardButton TrainingSetDialog::askForLosingInformation()
+{
+	QMessageBox msg;
+	msg.setWindowTitle(QString::fromLatin1("Conjunto de entranemiento en edición"));
+	msg.setIcon(QMessageBox::Warning);
+	msg.setText(QString::fromLatin1("Actualmente se encuentra en edición un conjunto de entrenamiento, ¿Desea perder esta información?"));
+	msg.setStandardButtons(QMessageBox::Ok | QMessageBox::No);
+
+	return (QMessageBox::StandardButton)msg.exec();
+}
+
+void TrainingSetDialog::beginOpenDialog()
+{
+	QString openDir = QFileDialog::getOpenFileName(this, //widget
+												  "Abrir conjunto de entrenamiento", //caption
+												  "/home/edixon/programacion/INSYDE/TrainingSets", //dir
+												  "Conjunto de entrenamiento (*.tsf)", //filter
+												  new QString("Conjunto de entrenamiento (*.tsf)"));
+
+	if(openDir == "") return;
+
+	TrainingSetFile::TSFResult tsFile = TrainingSetFile::fromFile(openDir);
+
+	if(tsFile.errnum == TrainingSetFile::NoError){
+
+		//Set the current file asociated to this TS
+		currentFile = tsFile.file;
+
+		//Se asigna el conjunto de entrenamiento
+		setTrainingSet(tsFile.file->getTrainingSet());
+
+	}else{
+		mbLoadFileError.setText("Ha ocurrido un mientras se abria el archivo:\n\r" + openDir + "\n\r" + "Con el mensaje de error: " + tsFile.errormsg + ".");
+		mbLoadFileError.exec();
+	}
 }
 
 void TrainingSetDialog::importInputsClick()
@@ -353,6 +555,7 @@ void TrainingSetDialog::appendVector(const vector<double> &vec)
 		tstInputs->clearSelection();
 		ts->appendPattern(vector<double>(ts->getInputsSize(), 0), vec);
 	}
+	isEditingTS = true;
 }
 
 void TrainingSetDialog::saveClick()
@@ -365,7 +568,13 @@ void TrainingSetDialog::saveClick()
 	if(path != ""){
 		TrainingSetFile tsf(ts, path);
 
-		if(!tsf.flush()){
+		if(tsf.open(QIODevice::OpenModeFlag::ReadWrite)){
+
+		   if(!tsf.flush()){
+			   //TODO: 25/4/16 saveClick should validate flushing. Currently always returns true but must be evaluated
+			   //if some problems are experimented during this flushing
+		   }
+		}else{
 			QMessageBox msg;
 			msg.setText(QString::fromLatin1("Ocurrio un error al guardar"));
 			msg.setInformativeText("Ocurrio un error desconocido mientras se guardaba el archivo. \nPor favor intente de nuevo.");
@@ -375,16 +584,23 @@ void TrainingSetDialog::saveClick()
 	}
 }
 
+void TrainingSetDialog::saveAsClick()
+{
+	//TODO: 26/4/16 saveAsClick implement
+}
+
 void TrainingSetDialog::onInputChanged(int pat, int index, double value, double curValue)
 {
 	(void)index; (void)value; (void)curValue;
 	gbInputsRepresentation->setInputs(ts->getInputs()[pat]);
+	isEditingTS = true;
 }
 
 void TrainingSetDialog::onTargetChanged(int pat, int index, double value, double curValue)
 {
 	(void)index; (void)value; (void)curValue;
 	gbTargetsRepresentation->setInputs(ts->getTargets()[pat]);
+	isEditingTS = true;
 }
 
 void TrainingSetDialog::onTstInputsSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
@@ -416,32 +632,13 @@ void TrainingSetDialog::onTstTargetsSelectionChanged(const QItemSelection &selec
 
 void TrainingSetDialog::openClick()
 {
-	QString openDir = QFileDialog::getOpenFileName(this, //widget
-												  "Abrir conjunto de entrenamiento", //caption
-												  "/home/edixon/programacion/INSYDE/TrainingSets", //dir
-												  "Conjunto de entrenamiento (*.tsf)", //filter
-												  new QString("Conjunto de entrenamiento (*.tsf)"));
-
-	if(openDir == "") return;
-
-	TrainingSetFile::TSFResult tsFile = TrainingSetFile::fromFile(openDir);
-
-	if(tsFile.errnum == TrainingSetFile::NoError){
-
-		//Se asigna el conjunto de entrenamiento
-		setTrainingSet(tsFile.ts);
-
-		//Se asigna el tipo de normalizacion
-		inw->setNormalization(ts->getInputsNormalization());
-		tnw->setNormalization(ts->getTargetsNormalization());
-
-		//Se asignan las representaciones
-		gbInputsRepresentation->setDataRepresentation(ts->getInputsDataRepresentation());
-		gbTargetsRepresentation->setDataRepresentation(ts->getTargetsDataRepresentation());
-
+	if(isEditingTS){
+		if(askForLosingInformation() == QMessageBox::Ok){
+			isEditingTS = false;
+			beginOpenDialog();
+		}
 	}else{
-		mbLoadFileError.setText("Ha ocurrido un error durante la lectura del archivo:\n\r" + openDir + "\n\r" + "Con el mensaje de error: " + tsFile.errormsg + ".");
-		mbLoadFileError.exec();
+		beginOpenDialog();
 	}
 }
 
@@ -461,14 +658,20 @@ void TrainingSetDialog::pasteClick()
 	}else if(tstTargets->hasFocus()){
 		tstTargets->pasteClick();
 	}
+	isEditingTS = true;
 }
 
 void TrainingSetDialog::newClick()
 {
-	//TODO: newClick must be implemented
+	if(isEditingTS){
+		if(askForLosingInformation() == QMessageBox::Ok){
+			setTrainingSet(new TrainingSet(ts->getInputsSize(), ts->getTargetsSize()));
+			isEditingTS = false;
+		}
+	}
 }
 
 void TrainingSetDialog::importTrainingSetClick()
 {
-	//TODO: importTrainingSetClicked must be implemented
+	//TODO: 6/4/15 importTrainingSetClicked must be implemented
 }

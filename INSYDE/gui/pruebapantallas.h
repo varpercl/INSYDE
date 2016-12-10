@@ -3,6 +3,7 @@
 
 #include <QtGui>
 
+#include "../core/graphicobjectpropertydialog.h"
 #include "../core/dotmatrixrepresentation.h"
 #include "../core/basicdialog.h"
 #include "../core/labeledcombobox.h"
@@ -11,17 +12,19 @@
 #include "../core/zoomcontrol.h"
 #include "../core/normalizationwidget.h"
 #include "../core/doubleminmaxvaluewidget.h"
+#include "../core/imageeffectpropertydialog.h"
 
 #include "../ann_gui/perceptronpage.h"
 #include "../ann_gui/anntrainingdialog.h"
-#include "../ann_gui/graphicmlpelement.h"
+#include "../ann_gui/mlpobject.h"
 #include "../ann_gui/weighteditordialog.h"
+#include "../ann_gui/trainingsettable.h"
 
-#include "../gui/newprojectwizard.h"
-#include "../gui/imageefectpropertydialog.h"
-#include "../gui/binaryoutputelement.h"
-#include "../gui/mainwindow.h"
-#include "../gui/visor.h"
+#include "newprojectwizard.h"
+#include "binaryoutputelement.h"
+#include "mainwindow.h"
+#include "view.h"
+#include "newmainwindow.h"
 
 
 namespace Ui {
@@ -35,7 +38,7 @@ namespace Ui {
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT PruebaPantalla : public QWidget
+class PruebaPantalla : public QWidget
 {
 	public:
 		explicit PruebaPantalla(QWidget *parent = 0);
@@ -54,7 +57,7 @@ class Q_DECL_EXPORT PruebaPantalla : public QWidget
 		void on_systemButton_clicked();
 		void onVisorClicked(QMouseEvent *event);
 
-		void on_MLPTrainingDialog_clicked();
+		void on_ANNTrainingDialog_clicked();
 
 		void on_TrainingSetDialogButton_clicked();
 
@@ -82,12 +85,16 @@ class Q_DECL_EXPORT PruebaPantalla : public QWidget
 
 		void on_DoubleMinMaxWidgetButton_clicked();
 
+		void on_NewMainWindowButton_clicked();
+
+		void on_GraphicObjectPropertyDialogButton_clicked();
+
 	private:
 		Q_OBJECT
 
 		SelectImageSegmentDialog *sisd;
 		MultilayerPerceptron *mlp;
-		Visor *visor;
+		View *visor;
 		Ui::PruebaPantalla *ui;
 };
 

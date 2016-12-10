@@ -5,6 +5,8 @@
 
 #include <vector>
 
+#include "share_core_lib.h"
+
 using namespace std;
 
 /*!
@@ -16,7 +18,7 @@ using namespace std;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT DataRepresentationWidget : public QWidget
+class CORE_LIB_IMPORT_EXPORT DataRepresentationWidget : public QWidget
 {
 	public:
 
@@ -38,6 +40,14 @@ class Q_DECL_EXPORT DataRepresentationWidget : public QWidget
 		 * \return
 		 */
 		vector<double> getInputs() const;
+
+	signals:
+
+		/*!
+		 * \brief imageSizeChanged
+		 * \param size
+		 */
+		void sizeChanged(const QSize &size);
 
 	private:
 		Q_OBJECT

@@ -1,6 +1,7 @@
 #ifndef RAWREPRESENTATIONWIDGET_H
 #define RAWREPRESENTATIONWIDGET_H
 
+#include "share_core_lib.h"
 #include "datarepresentationwidget.h"
 
 /*!
@@ -11,7 +12,7 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT RawRepresentationWidget :public DataRepresentationWidget
+class CORE_LIB_IMPORT_EXPORT RawRepresentationWidget :public DataRepresentationWidget
 {
 	public:
 		RawRepresentationWidget(const vector<double> &data, QWidget *parent = 0);

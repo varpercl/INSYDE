@@ -1,5 +1,4 @@
 #include "datarepresentation.h"
-using namespace ann_base;
 
 DataRepresentation::DataRepresentation()
 {
@@ -61,6 +60,7 @@ void DataRepresentation::setWidth(int value)
 		width = value;
 	}
 }
+
 int DataRepresentation::getHeight() const
 {
 	return height;

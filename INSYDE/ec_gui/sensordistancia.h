@@ -9,6 +9,7 @@
 #include <QtGui>
 #endif
 
+#include "share_ec_gui.h"
 #include "agent.h"
 #include "sensor.h"
 
@@ -29,7 +30,7 @@ typedef QPair<Agent*, double> DistanciaAgente;
   @see MovingActuator
 
   */
-class VisionSensor : public Sensor
+class EC_GUI_LIB_IMPORT_EXPORT VisionSensor : public Sensor
 {
 		Q_OBJECT
 

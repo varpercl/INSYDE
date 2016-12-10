@@ -4,6 +4,8 @@
 #include <QtGui>
 #include <QtWidgets>
 
+#include "share_ann_gui_lib.h"
+
 namespace Ui{
 	class AdalinePage;
 }
@@ -16,7 +18,7 @@ namespace Ui{
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT AdalinePage : public QWizardPage
+class ANN_GUI_LIB_IMPORT_EXPORT AdalinePage : public QWizardPage
 {
 	public:
 		AdalinePage();

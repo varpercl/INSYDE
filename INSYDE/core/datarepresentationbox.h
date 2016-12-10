@@ -5,6 +5,7 @@
 
 #include <vector>
 
+#include "share_core_lib.h"
 #include "datarepresentation.h"
 #include "dotmatrixrepresentation.h"
 #include "imagerepresentationwidget.h"
@@ -30,7 +31,7 @@ class ImageRepresentationWidget;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT DataRepresentationBox : public QGroupBox
+class CORE_LIB_IMPORT_EXPORT DataRepresentationBox : public QGroupBox
 {
 
 	public:
@@ -98,7 +99,7 @@ class Q_DECL_EXPORT DataRepresentationBox : public QGroupBox
 		 * \brief onImageSizeChanged
 		 * \param size
 		 */
-		void onImageSizeChanged(const QSize &size);
+		void onSizeChanged(const QSize &size);
 
 		/*!
 		 * \brief onImageFormatChanged

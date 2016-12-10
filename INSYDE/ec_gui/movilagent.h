@@ -4,6 +4,7 @@
 #include <QtCore>
 #include <QtGui>
 
+#include "share_ec_gui.h"
 #include "agent.h"
 #include "sensordistancia.h"
 #include "actuadormovimiento.h"
@@ -21,7 +22,7 @@ class MovingActuator;
   tenga un movimiento continuo.
 
   */
-class MovilAgent : public Agent
+class EC_GUI_LIB_IMPORT_EXPORT MovilAgent : public Agent
 {
 		/*
 		  Indica si se quiere visualizar el trayecto dentro del recuadro del objeto, esta variable es para uso

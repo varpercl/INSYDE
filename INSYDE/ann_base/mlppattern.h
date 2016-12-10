@@ -1,8 +1,9 @@
 #ifndef MULTILAYERPERCEPTRONPATTERN_H
 #define MULTILAYERPERCEPTRONPATTERN_H
 
+#include "share_ann_base_lib.h"
 #include "globals.h"
-#include "simplepattern.h"
+#include "simpleinputpattern.h"
 
 namespace ann_base{
 /*!
@@ -13,7 +14,7 @@ namespace ann_base{
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT MultilayerPerceptronPattern : public SimpleInputPattern
+class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptronPattern : public SimpleInputPattern
 {
 	public:
 		explicit MultilayerPerceptronPattern(int ninputs, int ntargets);

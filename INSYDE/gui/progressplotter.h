@@ -11,7 +11,7 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT ProgressPlotter : public QFrame
+class ProgressPlotter : public QFrame
 {
 	public:
 		explicit ProgressPlotter(QWidget *parent = 0);

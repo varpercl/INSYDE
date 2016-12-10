@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+#include "share_core_lib.h"
 #include "labeledcombobox.h"
 #include "labeleddoublespinbox.h"
 #include "doubleminmaxvaluewidget.h"
@@ -11,17 +12,19 @@
 #include <unordered_map>
 
 using namespace std;
-using namespace ann_base;
 
 /*!
  * \class
  *
- * \brief
+ * \brief NormalizationWidget whiwch stores as much Normalization objects can exist (ie, one object per normalization type).
+ * Each object stores its configuration and user can select it anytime, this will update all controls of the widget and values.
+ * The widget has a main Normalization object which is returned when needed, this object is rewritten each time user
+ * change the current selected normalization at the Combobox
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT NormalizationWidget : public QWidget
+class CORE_LIB_IMPORT_EXPORT NormalizationWidget : public QWidget
 {
 
 	public:
@@ -153,9 +156,28 @@ class Q_DECL_EXPORT NormalizationWidget : public QWidget
 		 */
 		Normalization *getNormalization() const;
 
+		/*!
+		 * \brief hideNormalization
+		 * \param currentNormalization
+		 */
 		void hideNormalization(Normalization currentNormalization);
 
+		void hideNormalization(Normalization::Type type);
+
+		void showNormalization(Normalization nor);
+
+		void showNormalization(Normalization::Type type);
+
+		/*!
+		 * \brief setDecimals
+		 * \param dec
+		 */
 		void setDecimals(int dec);
+
+		/*!
+		 * \brief getDecimals
+		 * \return
+		 */
 		int getDecimals() const;
 
 		void setEnableUpdateDelay(bool en);
@@ -236,6 +258,8 @@ class Q_DECL_EXPORT NormalizationWidget : public QWidget
 		void init(const QString &title, Normalization *currentNormalization);
 
 		void updateNormalizationList();
+
+		void updateNormalizationControls();
 };
 
 #endif // NORMALIZATIONWIDGET_H

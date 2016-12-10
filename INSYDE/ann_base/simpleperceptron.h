@@ -5,9 +5,11 @@
 #include <QtCore>
 #endif
 
+#include "share_ann_base_lib.h"
 #include "../core/common.h"
+#include "perceptrontrainingpattern.h"
 #include "trainingset.h"
-#include "simplepattern.h"
+#include "simpleinputpattern.h"
 #include "artificialneuralnetwork.h"
 
 #include <vector>
@@ -27,7 +29,7 @@ class PerceptronTrainingPattern;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT SimplePerceptron : public ArtificialNeuralNetwork
+class ANN_BASE_LIB_IMPORT_EXPORT SimplePerceptron : public ArtificialNeuralNetwork
 {
 
 	public:
@@ -356,35 +358,6 @@ class Q_DECL_EXPORT SimplePerceptron : public ArtificialNeuralNetwork
 
 };
 
-class Q_DECL_EXPORT PerceptronTrainingPattern : public SimpleInputPattern
-{
-	public:
-
-		/**
-		  Inicializa este patron con un numero inicial de entradas indicado por @code{ninputs}
-		  y la salida en @code{false}
-
-		  El vector de entradas se inicializa en cero
-
-		  @param int ninputs Numero de entradas que tendra este patron
-		  */
-		explicit PerceptronTrainingPattern(int ninputs = 1);
-
-		/**
-		  Inicializa este patron con un vector de entradas y un valor de salida
-
-		  @param vector<double> &inputs Vector de entradas del patron
-		  @param bool output Salida deseada para este patron de entrenamiento
-		  */
-		explicit PerceptronTrainingPattern(const vector<double> &inputs, bool output);
-
-		void setOutput(bool out);
-
-		bool getOutput() const;
-
-	private:
-		bool output;
-};
 }
 
-#endif // SIMPLEPERCEPTRON_COPY_H
+#endif

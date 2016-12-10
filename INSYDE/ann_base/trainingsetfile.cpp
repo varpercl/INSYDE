@@ -36,14 +36,12 @@ TrainingSetFile::TrainingSetFile() :
 TrainingSetFile::TrainingSetFile(const QString &path) :
 	QFile(path)
 {
-	//TODO: Check this
 	init(new TrainingSet());
 }
 
 TrainingSetFile::TrainingSetFile(TrainingSet *ts, const QString &path) :
 	QFile(path)
 {
-	//TODO: Implement
 	init(ts);
 }
 
@@ -216,7 +214,7 @@ QString TrainingSetFile::getVersion() const
 TrainingSetFile::TSFResult TrainingSetFile::load()
 {
 	TrainingSetFile::TSFResult result = fromFile(*this);
-	ts = result.ts;
+	ts = result.file->getTrainingSet();
 	return result;
 }
 
@@ -240,7 +238,11 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 	QXmlStreamReader::TokenType tt;
 	QStringList textElements;
 	QXmlStreamAttributes attributes;
-	TSFResult res = {new TrainingSet(), true, NoError, "", 0};
+
+	TrainingSetFile *retTSF = new TrainingSetFile();
+	TSFResult res = {retTSF, true, NoError, "", 0};
+
+	TrainingSet *ts = retTSF->getTrainingSet();
 
 	int
 			lastPatternIndex = 0,
@@ -258,8 +260,8 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 			targets;
 
 	DataRepresentation
-			*idr = res.ts->getInputsDataRepresentation(),
-			*tdr = res.ts->getTargetsDataRepresentation();
+			*idr = ts->getInputsDataRepresentation(),
+			*tdr = ts->getTargetsDataRepresentation();
 
 	if(file.open(QIODevice::ReadOnly)){
 		tsReadXML.setDevice(&file);
@@ -268,7 +270,7 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 
 			if(tsReadXML.hasError()){
 				file.close();
-				return {NULL, false, toTSFError(tsReadXML.error()), tsReadXML.errorString(), tsReadXML.lineNumber()};
+				return {retTSF, false, toTSFError(tsReadXML.error()), tsReadXML.errorString(), tsReadXML.lineNumber()};
 			}
 
 			if(tt == QXmlStreamReader::StartDocument){
@@ -290,7 +292,7 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 					}else{
 						file.close();
 						return {
-							NULL, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_PATTERNSIZE + ", " + STR_INPUTSSIZE + ", " + STR_TARGETSSIZE + ") on tag " + STR_TRAININGSET, tsReadXML.lineNumber()
+							retTSF, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_PATTERNSIZE + ", " + STR_INPUTSSIZE + ", " + STR_TARGETSSIZE + ") on tag " + STR_TRAININGSET, tsReadXML.lineNumber()
 						};
 					}
 				}else if(name == STR_PROPERTIES){
@@ -301,7 +303,7 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 						file.close();
 						return
 						{
-							NULL, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_VERSION + ") on tag " + STR_PROPERTIES, tsReadXML.lineNumber()
+							retTSF, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_VERSION + ") on tag " + STR_PROPERTIES, tsReadXML.lineNumber()
 						};
 					}
 				}else if(name == STR_INPUTSDATAREPRESENTATION){
@@ -319,7 +321,7 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 						file.close();
 						return
 						{
-							NULL, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_NAME + ", " + STR_WIDTH + ", " + STR_HEIGHT + ", " + STR_FORMAT + ") on tag " + STR_INPUTSDATAREPRESENTATION, tsReadXML.lineNumber()
+							retTSF, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_NAME + ", " + STR_WIDTH + ", " + STR_HEIGHT + ", " + STR_FORMAT + ") on tag " + STR_INPUTSDATAREPRESENTATION, tsReadXML.lineNumber()
 						};
 					}
 				}else if(name == STR_TARGETSDATAREPRESENTATION){
@@ -337,7 +339,7 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 						file.close();
 						return
 						{
-							NULL, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_NAME + ", " + STR_WIDTH + ", " + STR_HEIGHT + ", " + STR_FORMAT + ") on tag " + STR_TARGETSDATAREPRESENTATION, tsReadXML.lineNumber()
+							retTSF, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_NAME + ", " + STR_WIDTH + ", " + STR_HEIGHT + ", " + STR_FORMAT + ") on tag " + STR_TARGETSDATAREPRESENTATION, tsReadXML.lineNumber()
 						};
 					}
 				}else if(name == STR_INPUTSNORMALIZATION){
@@ -359,7 +361,7 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 						file.close();
 						return
 						{
-							NULL, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_TYPE + ", " + STR_MAXVALUE + ", " + STR_MINVALUE + ", " + STR_THRESHOLD + ", " + STR_ELONGATION + ") on tag " + STR_INPUTSNORMALIZATION, tsReadXML.lineNumber()
+							retTSF, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_TYPE + ", " + STR_MAXVALUE + ", " + STR_MINVALUE + ", " + STR_THRESHOLD + ", " + STR_ELONGATION + ") on tag " + STR_INPUTSNORMALIZATION, tsReadXML.lineNumber()
 						};
 					}
 				}else if(name == STR_TARGETSNORMALIZATION){
@@ -381,7 +383,7 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 						file.close();
 						return
 						{
-							NULL, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_TYPE + ", " + STR_MAXVALUE + ", " + STR_MINVALUE + ", " + STR_THRESHOLD + ", " + STR_ELONGATION + ") on tag " + STR_TARGETSNORMALIZATION, tsReadXML.lineNumber()
+							retTSF, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_TYPE + ", " + STR_MAXVALUE + ", " + STR_MINVALUE + ", " + STR_THRESHOLD + ", " + STR_ELONGATION + ") on tag " + STR_TARGETSNORMALIZATION, tsReadXML.lineNumber()
 						};
 					}
 				}else if(name == STR_PATTERN){
@@ -393,7 +395,7 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 						file.close();
 						return
 						{
-							NULL, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_INDEX + ") on tag " + STR_PATTERN, tsReadXML.lineNumber()
+							retTSF, false, NotWellFormedError, "NotWellFormedError: Missing attributes (" + STR_INDEX + ") on tag " + STR_PATTERN, tsReadXML.lineNumber()
 						};
 					}
 				}else if(name == STR_INPUTS){
@@ -408,7 +410,7 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 						file.close();
 						return
 						{
-							NULL, false, NotWellFormedError, "NotWellFormedError: Incongruence between reported input size with found inputs elements", tsReadXML.lineNumber()
+							retTSF, false, NotWellFormedError, "NotWellFormedError: Incongruence between reported input size with found inputs elements", tsReadXML.lineNumber()
 						};
 					}
 				}else if(name == STR_TARGETS){
@@ -423,19 +425,23 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 						file.close();
 						return
 						{
-							NULL, false, NotWellFormedError, "NotWellFormedError: Incongruence between reported target size with found target elements", tsReadXML.lineNumber()
+							retTSF, false, NotWellFormedError, "NotWellFormedError: Incongruence between reported target size with found target elements", tsReadXML.lineNumber()
 						};
 					}
 				}
 			}
 		}
-		res.ts->setPatternCount(pSize);
-		res.ts->setInputs(inputs, iSize);
-		res.ts->setTargets(targets, tSize);
-		res.ts->setInputsNormalization(inor);
-		res.ts->setTargetsNormalization(tnor);
-		res.ts->setInputsDataRepresentation(idr);
-		res.ts->setTargetsDataRepresentation(tdr);
+
+		retTSF->setFileName(file.fileName());
+		res.file = retTSF;
+
+		ts->setPatternCount(pSize);
+		ts->setInputs(inputs, iSize);
+		ts->setTargets(targets, tSize);
+		ts->setInputsNormalization(inor);
+		ts->setTargetsNormalization(tnor);
+		ts->setInputsDataRepresentation(idr);
+		ts->setTargetsDataRepresentation(tdr);
 
 		res.sucess = true;
 		res.errnum = toTSFError(QXmlStreamReader::NoError);
@@ -448,7 +454,7 @@ TrainingSetFile::TSFResult TrainingSetFile::fromFile(QFile &file)
 		file.close();
 		return
 		{
-			NULL, false, toTSFError(file.error()), file.errorString(), -1
+			retTSF, false, toTSFError(file.error()), file.errorString(), -1
 		};
 	}
 }

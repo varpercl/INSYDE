@@ -4,9 +4,10 @@
 #include <QtCore>
 
 #include <math.h>
+
+#include "share_ec_gui.h"
 #include "actuador.h"
-//#include <agent.h>
-#include "../gui/vector2d.h"
+#include "../core/vector2d.h"
 #include "movilagent.h"
 #include "pheromoneitem.h"
 //#include <signal.h>
@@ -28,7 +29,7 @@ class MovilAgent;
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  */
-class MovingActuator : public Actuator
+class EC_GUI_LIB_IMPORT_EXPORT MovingActuator : public Actuator
 {
 		Q_OBJECT
 

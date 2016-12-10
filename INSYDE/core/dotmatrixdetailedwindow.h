@@ -2,7 +2,9 @@
 #define DOTMATRIXELEMENTDETAILEDWINDOW_H
 
 #include <QtGui>
+#include <QtWidgets>
 
+#include "share_core_lib.h"
 #include "detailedwindow.h"
 #include "dotmatrix.h"
 #include "interfaces.h"
@@ -17,7 +19,7 @@ class DotMatrix;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class DotMatrixDetailedWindow : public DetailedWindow, public Resizable
+class CORE_LIB_IMPORT_EXPORT DotMatrixDetailedWindow : public DetailedWindow, public ResizableF
 {
 	public:
 
@@ -26,7 +28,14 @@ class DotMatrixDetailedWindow : public DetailedWindow, public Resizable
 		 * \param data
 		 * \param parent
 		 */
-		DotMatrixDetailedWindow(const vector<double> &data = vector<double>(1), QWidget *parent = 0);
+		explicit DotMatrixDetailedWindow(const vector<double> &data = vector<double>(1), QWidget *parent = 0);
+
+		/*!
+		 * \brief DotMatrixDetailedWindow
+		 * \param dm
+		 * \param parent
+		 */
+		explicit DotMatrixDetailedWindow(DotMatrix *dm, QWidget *parent =0);
 
 		~DotMatrixDetailedWindow();
 
@@ -46,37 +55,37 @@ class DotMatrixDetailedWindow : public DetailedWindow, public Resizable
 		 * \brief setSize
 		 * \param size
 		 */
-		void setSize(const QSize &size);
+		void setSize(const QSizeF &size) override;
 
 		/*!
 		 * \brief getSize
 		 * \return
 		 */
-		QSize getSize() const;
+		QSizeF getSize() const override;
 
 		/*!
 		 * \brief setWidth
 		 * \param w
 		 */
-		void setWidth(int w);
+		void setWidth(double w) override;
 
 		/*!
 		 * \brief getWidth
 		 * \return
 		 */
-		int getWidth() const;
+		double getWidth() const override;
 
 		/*!
 		 * \brief setHeight
 		 * \param h
 		 */
-		void setHeight(int h);
+		void setHeight(double h) override;
 
 		/*!
 		 * \brief getHeight
 		 * \return
 		 */
-		int getHeight() const;
+		double getHeight() const override;
 
 		/*!
 		 * \brief setEnableEdit
@@ -107,6 +116,14 @@ class DotMatrixDetailedWindow : public DetailedWindow, public Resizable
 		 * \param data
 		 */
 		void init(const vector<double> &data);
+
+		/*!
+		 * \brief init
+		 * \param dm
+		 */
+		void init(DotMatrix *dm);
+
+		void setupUI();
 
 };
 

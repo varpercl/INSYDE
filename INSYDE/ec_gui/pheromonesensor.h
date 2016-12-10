@@ -1,6 +1,7 @@
 #ifndef PHEROMONESENSOR_H
 #define PHEROMONESENSOR_H
 
+#include "share_ec_gui.h"
 #include "sensor.h"
 
 /**
@@ -12,7 +13,7 @@
   Se usa por lo general cuando hay agentes en el ambiente que depositan feromonas.
 
   */
-class PheromoneSensor : public Sensor
+class EC_GUI_LIB_IMPORT_EXPORT PheromoneSensor : public Sensor
 {
 	public:
 		explicit PheromoneSensor();

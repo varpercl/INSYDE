@@ -1,5 +1,6 @@
 #include "trainingset.h"
-using namespace ann_base;
+
+namespace ann_base{
 
 TrainingSet::TrainingSet() :
 	QAbstractTableModel()
@@ -70,7 +71,7 @@ TrainingSet::TrainingSet(const QString &path) :
 
 	if(tsf.errnum == 0){
 
-		*this = *tsf.ts;
+		*this = *(tsf.file->getTrainingSet());
 	}
 }
 
@@ -98,14 +99,20 @@ void TrainingSet::setInputsSize(int is, double fill)
 	if(is != ls){
 		inputsSize = is;
 		resizeVectorSet(inputs, inputsSize, fill);
-		resizeVectorSet(normalizedInputs, inputsSize, 0);
 
 		updateNormalizedInputs();
 
+		if(ls < is){
+			beginInsertColumns(QModelIndex(), ls, is - 1);
+			endInsertColumns();
+
+		}else{
+			beginRemoveColumns(QModelIndex(), is, ls - 1);
+			endRemoveColumns();
+		}
+
 		emit inputsSizeChanged(is);
 		emit inputsSizeChanged(ls, is);
-
-		//TODO: se debe probar si es necesario emitir dataChanged
 	}
 }
 
@@ -116,20 +123,33 @@ int TrainingSet::getInputsSize() const
 
 void TrainingSet::setTargetsSize(int ts, double fill)
 {
+	//TODO: 12/4/16 setTargetsSize havent tested yet
 	int ls = getTargetsSize();
 
 	//Si realmente cambio el tamaño del patron de salidas
 	if(ls != ts){
 		targetsSize = ts;
 		resizeVectorSet(targets, targetsSize, fill);
-		resizeVectorSet(normalizedTargets, targetsSize, fill);
 
 		updateNormalizedTargets();
+
+		if(ls < ts){
+			beginInsertColumns(QModelIndex(), inputsSize + ls, inputsSize + ts - 1);
+			endInsertColumns();
+
+		}else{
+			beginRemoveColumns(QModelIndex(), inputsSize + ts, inputsSize + ls - 1);
+			endRemoveColumns();
+		}
 
 		emit targetsSizeChanged(ts);
 		emit targetsSizeChanged(ls, ts);
 
-		//TODO: se debe probar si es necesario emitir dataChanged
+//		emit headerDataChanged(Qt::Horizontal, inputsSize, inputsSize + targetsSize - 1);
+//		emit dataChanged(QModelIndex(), QModelIndex());
+
+//		emit headerDataChanged(Qt::Horizontal, inputsSize, inputsSize + targetsSize - 1);
+//		emit dataChanged(createIndex(0, inputsSize), createIndex(patternCount - 1, inputsSize + targetsSize - 1));
 	}
 }
 
@@ -140,10 +160,10 @@ int TrainingSet::getTargetsSize() const
 
 bool TrainingSet::insertPattern(int i)
 {
-	return insertPattern(vector<double> (getInputsSize(), 0), vector<double>(getTargetsSize(), 0), i);
+	return insertRows(i, 1);
 }
 
-bool TrainingSet::insertPattern(const vector<double> &inputs, const vector<double> &targets, int i)
+bool TrainingSet::insertPattern(const vector<double> &inputs, const vector<double> &targets, int row)
 {
 	vector<vector<double> >::iterator it;
 
@@ -151,6 +171,7 @@ bool TrainingSet::insertPattern(const vector<double> &inputs, const vector<doubl
 			cinputs = inputs,
 			ctargets = targets;
 
+	//Resize inputs and targets if their sizes dont match
 	if(cinputs.size() != (size_t)inputsSize){
 		cinputs.resize(inputsSize, 0);
 	}
@@ -158,65 +179,39 @@ bool TrainingSet::insertPattern(const vector<double> &inputs, const vector<doubl
 		ctargets.resize(targetsSize, 0);
 	}
 
-	beginInsertRows(QModelIndex(), i, i + 1);
+	beginInsertRows(QModelIndex(), row, row);
 
 	it = this->inputs.begin();
-	this->inputs.insert(it + i, cinputs);
-	normalizedInputs.insert(it + i, normalizedVector(cinputs, getInputsNormalization()));
+	this->inputs.insert(it + row, cinputs);
+	normalizedInputs.insert(it + row, normalizedVector(cinputs, getInputsNormalization()));
 
 	it = this->targets.begin();
-	this->targets.insert(it + i, ctargets);
-	normalizedTargets.insert(it + i, normalizedVector(ctargets, getTargetsNormalization()));
+	this->targets.insert(it + row, ctargets);
+	normalizedTargets.insert(it + row, normalizedVector(ctargets, getTargetsNormalization()));
 
 	endInsertRows();
 
-	emit patternInserted(inputs, targets, i);
+	emit patternInserted(inputs, targets, row);
 
-	emit dataChanged(QModelIndex(), QModelIndex());
 	return true;
 }
 
-bool TrainingSet::insertPattern(const vector<int> &inputs, const vector<int> &targets, int i)
+bool TrainingSet::insertPattern(const vector<int> &inputs, const vector<int> &targets, int row)
 {
 	vector<double>
 			newInputs = vector<double>(inputs.begin(), inputs.end()),
 			newTargets = vector<double>(targets.begin(), targets.end());
-	return insertPattern(newInputs, newTargets, i);
+	return insertPattern(newInputs, newTargets, row);
 }
 
 bool TrainingSet::removePattern(int i)
 {
-	if(i >= 0 && i < patternCount){
-		vector<vector<double> >::iterator
-				inputPattern,
-				targetPattern;
-
-		beginRemoveRows(QModelIndex(), i, i);
-		inputPattern = inputs.erase(inputs.begin() + i);
-
-		normalizedInputs.erase(normalizedInputs.begin() + i);
-
-		targetPattern = targets.erase(targets.begin() + i);
-
-		normalizedTargets.erase(normalizedTargets.begin() + i);
-
-		patternCount--;
-
-		endRemoveRows();
-
-		emit patternDeleted(*inputPattern, *targetPattern, i);
-
-		emit dataChanged(QModelIndex(), QModelIndex());
-
-		return true;
-	}
-	return false;
+	return removeRows(i, 1);
 }
 
 void TrainingSet::setInputs(const vector<vector<double> > &inputs, int size)
 {
-
-	//TODO: validar el correcto funcionamiento
+	//TODO: 12/4/16 setInputs validar el correcto funcionamiento
 
 	if(size <= 0) return;
 
@@ -225,6 +220,7 @@ void TrainingSet::setInputs(const vector<vector<double> > &inputs, int size)
 
 	this->inputs = inputs;
 
+	//FIXME: 12/4/16 setInputs havent validated updating targets if sizes are different
 	if(this->inputs.size() != (size_t)patternCount){
 		this->inputs.resize(patternCount);
 		normalizedInputs.resize(patternCount);
@@ -240,7 +236,7 @@ void TrainingSet::setInputs(const vector<vector<double> > &inputs, int size)
 		resizeVectorSet(normalizedInputs, inputsSize, 0);
 
 		emit inputsSizeChanged(inputsSize);
-		emit inputsSizeChanged(li.size(), inputsSize);
+		emit inputsSizeChanged((int)li.size(), inputsSize);
 	}
 
 	updateNormalizedInputs();
@@ -249,7 +245,8 @@ void TrainingSet::setInputs(const vector<vector<double> > &inputs, int size)
 		emit inputsChanged(inputs);
 		emit inputsChanged(li, inputs);
 
-		emit dataChanged(QModelIndex(), QModelIndex());
+		//NOTE: 12/4/16 setInputs first, test correct function of this method to correct this signal
+		emit dataChanged(createIndex(0, 0), createIndex(patternCount - 1, inputsSize - 1));
 	}
 }
 
@@ -260,7 +257,7 @@ void TrainingSet::setInputs(const vector<vector<int> > &inputs, int size)
 
 void TrainingSet::setTargets(const vector<vector<double> > &targets, int size)
 {
-	//FIXME: validar el correcto funcionamiento
+	//TODO: 12/4/16 setTargets validar el correcto funcionamiento
 
 	if(size <= 0) return;
 
@@ -269,6 +266,7 @@ void TrainingSet::setTargets(const vector<vector<double> > &targets, int size)
 
 	this->targets = targets;
 
+	//FIXME: 12/4/16 setTargets havent validated updating inputs if sizes are different
 	if(this->targets.size() != (size_t)patternCount){
 		this->targets.resize(patternCount);
 		normalizedTargets.resize(patternCount);
@@ -284,7 +282,7 @@ void TrainingSet::setTargets(const vector<vector<double> > &targets, int size)
 		resizeVectorSet(normalizedTargets, targetsSize, 0);
 
 		emit targetsSizeChanged(targetsSize);
-		emit targetsSizeChanged(lt.size(), targetsSize);
+		emit targetsSizeChanged((int)lt.size(), targetsSize);
 	}
 
 	updateNormalizedTargets();
@@ -293,7 +291,8 @@ void TrainingSet::setTargets(const vector<vector<double> > &targets, int size)
 		emit targetsChanged(targets);
 		emit targetsChanged(lt, targets);
 
-		emit dataChanged(QModelIndex(), QModelIndex());
+		//NOTE: 12/4/16 setInputs first, test correct function of this method to correct this signal
+		emit dataChanged(createIndex(0, inputsSize), createIndex(patternCount - 1, inputsSize + targetsSize - 1));
 	}
 }
 
@@ -441,7 +440,7 @@ int ann_base::TrainingSet::getPatternCount() const
 
 TrainingSet &TrainingSet::operator=(const TrainingSet &ts)
 {
-	//FIXME: asignar la normalizacion
+	//FIXME: 12/4/16 operator= asignar la normalizacion
 	setPatternCount(ts.getPatternCount());
 	setInputs(ts.getInputs(), ts.getInputsSize());
 	setTargets(ts.getTargets(), ts.getTargetsSize());
@@ -522,8 +521,48 @@ void ann_base::TrainingSet::appendPattern(const vector<double> &inputs, const ve
 	endInsertRows();
 
 	emit patternAppend(cinputs, ctargets);
+}
 
-	emit dataChanged(index(patternCount - 1, 0), index(patternCount - 1, inputsSize + targetsSize - 1));
+void TrainingSet::appendInputs(double value, int count)
+{
+	int colIndex = inputsSize;
+
+	beginInsertColumns(QModelIndex(), colIndex, colIndex + count - 1);
+
+	for(int i = 0; i < patternCount; i++){
+		for(int j = 0; j < count; j++){
+			inputs[i].push_back(value);
+		}
+	}
+	inputsSize+=count;
+
+	updateNormalizedTargets();
+
+	endInsertColumns();
+
+	//FIXME: 12/4/15 insertColumns fix this signal
+	emit columnInserted(inputsSize);
+}
+
+void TrainingSet::appendTarget(double value, int count)
+{
+	int colIndex = targetsSize + inputsSize;
+
+	beginInsertColumns(QModelIndex(), colIndex, colIndex + count - 1);
+
+	for(int i = 0; i < patternCount; i++){
+		for(int j = 0; j < count; j++){
+			targets[i].push_back(value);
+		}
+	}
+	targetsSize+=count;
+
+	updateNormalizedTargets();
+
+	endInsertColumns();
+
+	//FIXME: 12/4/15 insertColumns fix this signal
+	emit columnInserted(inputsSize + targetsSize);
 }
 
 void TrainingSet::setInputsNormalization(Normalization *in)
@@ -545,7 +584,7 @@ void TrainingSet::setInputsNormalization(Normalization *in)
 		connect(in, SIGNAL(typeChanged(int)), SLOT(onInputsNormalizationTypeChanged(int)));
 	}
 
-	emit dataChanged(QModelIndex(), QModelIndex());
+	emit dataChanged(createIndex(0, 0), createIndex(patternCount - 1, inputsSize - 1));
 }
 
 Normalization *TrainingSet::getInputsNormalization() const
@@ -572,7 +611,7 @@ void TrainingSet::setTargetsNormalization(Normalization *tn)
 		connect(tn, SIGNAL(typeChanged(int)), SLOT(onTargetsNormalizationTypeChanged(int)));
 	}
 
-	emit dataChanged(QModelIndex(), QModelIndex());
+	emit dataChanged(createIndex(0, inputsSize), createIndex(patternCount - 1, inputsSize + targetsSize - 1));
 }
 
 Normalization *TrainingSet::getTargetsNormalization() const
@@ -580,7 +619,7 @@ Normalization *TrainingSet::getTargetsNormalization() const
 	return targetsNormalization;
 }
 
-ann_base::DataRepresentation *ann_base::TrainingSet::getInputsDataRepresentation() const
+DataRepresentation *ann_base::TrainingSet::getInputsDataRepresentation() const
 {
 	return inputsDataRepresentation;
 }
@@ -598,6 +637,74 @@ DataRepresentation *TrainingSet::getTargetsDataRepresentation() const
 void TrainingSet::setTargetsDataRepresentation(DataRepresentation *value)
 {
 	targetsDataRepresentation = value;
+}
+
+bool TrainingSet::removeInput(int index)
+{
+	if(index < inputsSize && index >= 0){
+		return removeColumns(index, 1);
+	}
+
+	return false;
+}
+
+bool TrainingSet::removeTarget(int index)
+{
+	if(index < targetsSize && index >= 0){
+		return removeColumns(inputsSize + index, 1);
+	}
+
+	return false;
+}
+
+bool TrainingSet::removeColumn(int column, const QModelIndex &parent)
+{
+	return removeColumns(column, 1, parent);
+}
+
+bool TrainingSet::removeColumns(int column, int count, const QModelIndex &parent)
+{
+	(void) parent;
+
+	//FIXME: 12/4/16 removeColumns should be validated count being in a correct range. An incorrect range could result unknow behavior
+
+	vector<double>::iterator beginPointer;
+
+	if(column >= 0 && column < (int)inputsSize){
+
+		beginRemoveColumns(QModelIndex(), column, column + count - 1);
+
+		for(int i = 0; i < patternCount; i++){
+			beginPointer = inputs[i].begin();
+			inputs[i].erase(beginPointer + column, beginPointer + column + count);
+		}
+		inputsSize -= count;
+
+		updateNormalizedInputs();
+
+		endRemoveColumns();
+
+		return true;
+	}else if(column < inputsSize + targetsSize){
+		int index = column - inputsSize;
+
+		beginRemoveColumns(QModelIndex(), column, column + count - 1);
+
+		for(int i = 0; i < patternCount; i++){
+			beginPointer = targets[i].begin();
+			targets[i].erase(beginPointer + index, beginPointer + index + count);
+		}
+		targetsSize -= count;
+
+		updateNormalizedTargets();
+
+		endRemoveColumns();
+
+		return true;
+	}else{
+		return false;
+	}
+	return false;
 }
 
 int TrainingSet::rowCount(const QModelIndex &parent) const
@@ -627,12 +734,16 @@ bool TrainingSet::setData(const QModelIndex &index, const QVariant &value, int r
 	if(row < rowCount() && row >= 0 && col >= 0 && col < columnCount()){
 		if(col < inputsSize){
 			if(inputsNormalization->getType() == Normalization::Nothing){
+				//dataChanged is emited inside setInput
 				setInput(row, col, dblValue);
+
 				return true;
 			}
 		}else{
 			if(targetsNormalization->getType() == Normalization::Nothing){
+				//dataChanged is emited inside setTarget
 				setTarget(row, col - inputsSize, dblValue);
+
 				return true;
 			}
 		}
@@ -676,7 +787,7 @@ QVariant TrainingSet::headerData(int section, Qt::Orientation orientation, int r
 	}
 
 	if(orientation == Qt::Horizontal){
-		if(section >= 0 && section < inputsSize + targetsSize){
+		if(/*section >= 0 &&*/ section < inputsSize + targetsSize){
 			if(section < inputsSize){
 				return "in[" + QString::number(section) + "]";
 			}else{
@@ -718,15 +829,136 @@ Qt::ItemFlags TrainingSet::flags(const QModelIndex &index) const
 
 bool TrainingSet::removeRow(int row, const QModelIndex &parent)
 {
-	(void)parent;
-	return removePattern(row);
+	return removeRows(row, 1, parent);
+}
+
+bool TrainingSet::removeRows(int row, int count, const QModelIndex &parent)
+{
+	(void) parent;
+
+	//FIXME: 12/4/16 removeRows validate if count is between a correct range
+	if(row >= 0 && row < patternCount){
+		vector<vector<double> >::iterator
+				inputPattern,
+				targetPattern;
+
+		beginRemoveRows(QModelIndex(), row, row + count - 1);
+
+		inputPattern = inputs.erase(inputs.begin() + row, inputs.begin() + row + count);
+		normalizedInputs.erase(normalizedInputs.begin() + row, normalizedInputs.begin() + row + count);
+
+		targetPattern = targets.erase(targets.begin() + row, targets.begin() + row + count);
+		normalizedTargets.erase(normalizedTargets.begin() + row, normalizedTargets.begin() + row + count);
+
+		patternCount-= count;
+
+		endRemoveRows();
+
+		//FIXME: 12/4/16 removeRows this signal should be fixed
+		emit patternDeleted(*inputPattern, *targetPattern, row);
+
+		return true;
+	}
+	return false;
 }
 
 bool TrainingSet::insertRow(int row, const QModelIndex &parent)
 {
+	return insertRows(row, 1, parent);
+}
+
+bool TrainingSet::insertRows(int row, int count, const QModelIndex &parent)
+{
 	(void)parent;
-	insertPattern(row);
+
+	beginInsertRows(QModelIndex(), row, row + count - 1);
+
+	if(row < patternCount){
+		inputs.insert(inputs.begin() + row, count, vector<double>(inputsSize, 0));
+		targets.insert(targets.begin() + row, count, vector<double>(targetsSize, 0));
+	}else{
+		for(int i = 0; i < count; i++){
+			inputs.push_back(vector<double>(inputsSize, 0));
+			targets.push_back(vector<double>(targetsSize, 0));
+		}
+	}
+
+	patternCount += count;
+
+	updateNormalizedInputs();
+	updateNormalizedTargets();
+
+	endInsertRows();
+
 	return true;
+}
+
+bool TrainingSet::insertColumn(int column, const QModelIndex &parent)
+{
+	return insertColumns(column, 1, parent);
+}
+
+bool TrainingSet::insertColumns(int column, int count, const QModelIndex &parent)
+{
+	(void) parent;
+
+	if(column >= 0 && column < inputsSize){
+
+		beginInsertColumns(QModelIndex(), column, column + count - 1);
+
+		for(int i = 0; i < patternCount; i++){
+			inputs[i].insert(inputs[i].begin() + column, count, 0);
+		}
+		inputsSize+=count;
+
+		updateNormalizedInputs();
+
+		endInsertColumns();
+
+		//FIXME: 12/4/15 insertColumns fix this signal
+		emit columnInserted(column);
+
+		return true;
+	}else if(column < inputsSize + targetsSize){
+		int index = column - inputsSize;
+
+		beginInsertColumns(QModelIndex(), column, column + count - 1);
+
+		for(int i = 0; i < patternCount; i++){
+			targets[i].insert(targets[i].begin() + index, count, 0);
+		}
+		targetsSize+=count;
+
+		updateNormalizedTargets();
+
+		endInsertColumns();
+
+		//FIXME: 12/4/15 insertColumns fix this signal
+		emit columnInserted(column);
+
+		return true;
+	}else{
+		int colIndex = targetsSize + inputsSize;
+
+		beginInsertColumns(QModelIndex(), colIndex, colIndex + count - 1);
+
+		for(int i = 0; i < patternCount; i++){
+			for(int j = 0; j < count; j++){
+				targets[i].push_back(0);
+			}
+		}
+		targetsSize+=count;
+
+		updateNormalizedTargets();
+
+		endInsertColumns();
+
+		//FIXME: 12/4/15 insertColumns fix this signal
+		emit columnInserted(column);
+
+		return true;
+	}
+	return false;
 }
 
 void TrainingSet::onInputsNormalizationParamChanged(double val)
@@ -734,7 +966,7 @@ void TrainingSet::onInputsNormalizationParamChanged(double val)
 	(void) val;
 	updateNormalizedInputs();
 
-	emit dataChanged(QModelIndex(), QModelIndex());
+	emit dataChanged(createIndex(0, 0), createIndex(patternCount - 1, inputsSize - 1));
 }
 
 void TrainingSet::onInputsNormalizationTypeChanged(int val)
@@ -742,15 +974,15 @@ void TrainingSet::onInputsNormalizationTypeChanged(int val)
 	(void) val;
 	updateNormalizedInputs();
 
-	emit dataChanged(QModelIndex(), QModelIndex());
+	emit dataChanged(createIndex(0, 0), createIndex(patternCount - 1, inputsSize - 1));
 }
 
 void TrainingSet::onTargetsNormalizationParamChanged(double val)
 {
 	(void) val;
-	updateNormalizedInputs();
+	updateNormalizedTargets();
 
-	emit dataChanged(QModelIndex(), QModelIndex());
+	emit dataChanged(createIndex(0, inputsSize), createIndex(patternCount - 1, inputsSize + targetsSize - 1));
 }
 
 void TrainingSet::onTargetsNormalizationTypeChanged(int val)
@@ -758,7 +990,7 @@ void TrainingSet::onTargetsNormalizationTypeChanged(int val)
 	(void) val;
 	updateNormalizedTargets();
 
-	emit dataChanged(QModelIndex(), QModelIndex());
+	emit dataChanged(createIndex(0, inputsSize), createIndex(patternCount - 1, inputsSize + targetsSize - 1));
 }
 
 void TrainingSet::updateNormalizedTargets()
@@ -844,6 +1076,7 @@ void TrainingSet::updateNormalizedInputs()
 
 void TrainingSet::setInput(int pat, int index, double value)
 {
+	//NOTE: 12/4/16 setInput havent tested yet
 	double prevVal = inputs[pat][index];
 	if(prevVal != value){
 		inputs[pat][index] = value;
@@ -853,7 +1086,7 @@ void TrainingSet::setInput(int pat, int index, double value)
 		emit inputChanged(pat, index, value);
 		emit inputChanged(pat, index, prevVal, value);
 
-		emit dataChanged(QModelIndex(), QModelIndex());
+		emit dataChanged(createIndex(pat, index), createIndex(pat, index));
 	}
 }
 
@@ -864,6 +1097,7 @@ double TrainingSet::getInput(int pat, int index) const
 
 void TrainingSet::setTarget(int pattern, int index, double value)
 {
+	//TODO: 12/4/16 setTarget havent tested yet
 	double prevVal = targets[pattern][index];
 	if(prevVal != value){
 		targets[pattern][index] = value;
@@ -873,7 +1107,7 @@ void TrainingSet::setTarget(int pattern, int index, double value)
 		emit targetChanged(pattern, index, value);
 		emit targetChanged(pattern, index, prevVal, value);
 
-		emit dataChanged(QModelIndex(), QModelIndex());
+		emit dataChanged(createIndex(pattern, inputsSize + index), createIndex(pattern, inputsSize + index));
 	}
 }
 
@@ -884,6 +1118,7 @@ double TrainingSet::getTarget(int pat, int index) const
 
 void TrainingSet::setPattern(int index, const vector<double> &inputs, const vector<double> &targets)
 {
+	//TODO: 12/4/16 setPattern havent tested yet
 	vector<double>
 			prevInputs = this->inputs[index],
 			prevTargets = this->targets[index];
@@ -894,7 +1129,7 @@ void TrainingSet::setPattern(int index, const vector<double> &inputs, const vect
 		emit patternChanged(index, inputs, targets);
 		emit patternChanged(index, prevInputs, inputs, prevTargets, targets);
 
-		emit dataChanged(QModelIndex(), QModelIndex());
+		emit dataChanged(createIndex(index, 0), createIndex(index, inputsSize + targetsSize - 1));
 	}
 }
 
@@ -925,7 +1160,7 @@ void TrainingSet::init(const vector<vector<double> > &inputs,
 
 	inputsSize = is;
 	targetsSize = ts;
-	patternCount = cinputs.size();
+	patternCount = (int)cinputs.size();
 
 	setInputsDataRepresentation(idr);
 	setTargetsDataRepresentation(tdr);
@@ -974,3 +1209,8 @@ vector<double> TrainingSet::normalizedVector(const vector<double> &vec, Normaliz
 			return vec;
 	}
 }
+
+
+}
+
+

@@ -3,6 +3,7 @@
 
 #include <QtGui>
 
+#include "share_core_lib.h"
 #include "datarepresentationwidget.h"
 #include "dotmatrixdetailedwindow.h"
 #include "integersizewidget.h"
@@ -19,7 +20,7 @@ class DotMatrixDetailedWindow;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT DotMatrixRepresentation : public DataRepresentationWidget, public Resizable
+class CORE_LIB_IMPORT_EXPORT DotMatrixRepresentation : public DataRepresentationWidget, public Resizable
 {
 	public:
 
@@ -48,37 +49,37 @@ class Q_DECL_EXPORT DotMatrixRepresentation : public DataRepresentationWidget, p
 		 * \brief setSize
 		 * \param size
 		 */
-		void setSize(const QSize &size);
+		void setSize(const QSize &size) override;
 
 		/*!
 		 * \brief getSize
 		 * \return
 		 */
-		QSize getSize() const;
+		QSize getSize() const override;
 
 		/*!
 		 * \brief setWidth
 		 * \param w
 		 */
-		void setWidth(int w);
+		void setWidth(int w) override;
 
 		/*!
 		 * \brief getWidth
 		 * \return
 		 */
-		int getWidth() const;
+		int getWidth() const override;
 
 		/*!
 		 * \brief setHeight
 		 * \param h
 		 */
-		void setHeight(int h);
+		void setHeight(int h) override;
 
 		/*!
 		 * \brief getHeight
 		 * \return
 		 */
-		int getHeight() const;
+		int getHeight() const override;
 
 		/*!
 		 * \brief setDotMatrixObject
@@ -94,9 +95,9 @@ class Q_DECL_EXPORT DotMatrixRepresentation : public DataRepresentationWidget, p
 
 	signals:
 
-		void sizeChanged(const QSize &size);
-		void heightChanged(int h);
-		void widthChanged(int w);
+		void sizeChanged(const QSizeF &size);
+		void heightChanged(double h);
+		void widthChanged(double w);
 
 	private slots:
 		void onWidgetSizeChanged(const QSize &s);

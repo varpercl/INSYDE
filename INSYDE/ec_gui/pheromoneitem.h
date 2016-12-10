@@ -2,16 +2,18 @@
 #define PHEROMONEITEM_H
 
 #include <QtCore>
-#include <QFontMetricsF>
-#include <QPainter>
+#include <QtWidgets>
 
-#if QT_VERSION > 0x050000
-#include <QtWidgets/QStyleOptionGraphicsItem>
-#include <QtWidgets/QGraphicsObject>
-#include <QtWidgets/QGraphicsScene>
-#else
-#include <QtGui>
-#endif
+//#if QT_VERSION > 0x050000
+//#include <QtWidgets/QStyleOptionGraphicsItem>
+//#include <QtWidgets/QGraphicsObject>
+//#include <QtWidgets/QGraphicsScene>
+//#else
+//#include <QtGui>
+//#endif
+
+
+#include "share_ec_gui.h"
 
 /**
   @class PheromoneItem
@@ -23,7 +25,7 @@
   el punto de saturacion entre otros.
 
   */
-class PheromoneItem : public QGraphicsObject
+class EC_GUI_LIB_IMPORT_EXPORT PheromoneItem : public QGraphicsObject
 {
 		Q_OBJECT
 

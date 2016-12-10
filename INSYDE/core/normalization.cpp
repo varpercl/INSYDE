@@ -1,5 +1,4 @@
 #include "normalization.h"
-using namespace ann_base;
 
 Normalization::Normalization() :
 	QObject()

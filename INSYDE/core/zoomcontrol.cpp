@@ -1,5 +1,5 @@
 #include "zoomcontrol.h"
-#include "icons.h"
+#include "definitions.h"
 
 ZoomControl::ZoomControl(QWidget *parent) :
 	QToolBar(parent)
@@ -60,6 +60,8 @@ void ZoomControl::onEditZoomChanged(int val)
 
 void ZoomControl::init()
 {
+	Q_INIT_RESOURCE(core_media);
+
 	layout()->setMargin(0);
 
 	btnZoomIn = new QToolButton();

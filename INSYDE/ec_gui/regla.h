@@ -3,6 +3,8 @@
 
 #include <QtCore>
 
+#include "share_ec_gui.h"
+
 typedef void* Action;
 typedef QMap<QString, void*> Parameters;
 
@@ -15,7 +17,7 @@ typedef QMap<QString, void*> Parameters;
   generar un comportamiento en los agentes.
 
   */
-class Rule
+class EC_GUI_LIB_IMPORT_EXPORT Rule
 {
 	private:
 		Action (*ac)(Parameters par);

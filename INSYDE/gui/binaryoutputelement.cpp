@@ -109,7 +109,7 @@ void BinaryOutputElement::propertyClick()
 
 }
 
-void BinaryOutputElement::openClick()
+void BinaryOutputElement::openOnWindowClick()
 {
 }
 
@@ -148,8 +148,8 @@ void BinaryOutputElement::setThreshold(double threshold)
 void BinaryOutputElement::setInputElement(GraphicObject *ge)
 {
 	switch(ge->type()){
-		case GraphicMLPElement::GraphicMLPElementType:
-			GraphicMLPElement *gmlpe = dynamic_cast<GraphicMLPElement*>(ge);
+		case GraphicObject::gotMLP:
+			MLPObject *gmlpe = dynamic_cast<MLPObject*>(ge);
 			gmlpe->setOutputElement(this);
 			connect(gmlpe, SIGNAL(outputChanged(QVector<double>)), SLOT(onInputChanged(QVector<double>)));
 			break;

@@ -1,6 +1,6 @@
 #include "basicdialog.h"
 
-#include "icons.h"
+#include "definitions.h"
 
 BasicDialog::BasicDialog(QWidget *parent) :
 	QDialog(parent)
@@ -16,6 +16,18 @@ BasicDialog::~BasicDialog()
 QMainWindow *BasicDialog::getMainWindow() const
 {
 	return mw;
+}
+
+void BasicDialog::setEnablePreferences(bool b)
+{
+	if(enablePreferences != b){
+		enablePreferences = b;
+
+		preferencesAction->setVisible(b);
+		preferencesAction->setEnabled(b);
+
+		updateActionsVisibility();
+	}
 }
 
 void BasicDialog::setEnableNew(bool b)
@@ -61,6 +73,18 @@ void BasicDialog::setEnableSave(bool save)
 
 		saveAction->setVisible(save);
 		saveAction->setEnabled(save);
+
+		updateActionsVisibility();
+	}
+}
+
+void BasicDialog::setEnableSaveAs(bool saveas)
+{
+	if(enableSaveAs != saveas){
+		enableSaveAs = saveas;
+
+		saveAsAction->setVisible(saveas);
+		saveAsAction->setEnabled(saveas);
 
 		updateActionsVisibility();
 	}
@@ -216,6 +240,11 @@ QMenu *BasicDialog::getEditMenu() const
 	return editMenu;
 }
 
+QMenu *BasicDialog::getViewMenu() const
+{
+	return viewMenu;
+}
+
 QMenu *BasicDialog::getToolsMenu() const
 {
 	return toolsMenu;
@@ -233,22 +262,44 @@ void BasicDialog::addMenu(QMenu *menu)
 
 void BasicDialog::setFileMenuVisible(bool vis)
 {
-	fileMenu->setVisible(vis);
+	visibleFileMenu = vis;
+	fileMenu->menuAction()->setVisible(vis);
 }
 
 void BasicDialog::setEditMenuVisible(bool vis)
 {
-	editMenu->setVisible(vis);
+	visibleEditMenu = vis;
+	editMenu->menuAction()->setVisible(vis);
+}
+
+void BasicDialog::setViewMenuVisible(bool vis)
+{
+	viewMenu->menuAction()->setVisible(vis);
 }
 
 void BasicDialog::setToolsMenuVisible(bool vis)
 {
-	toolsMenu->setVisible(vis);
+	toolsMenu->menuAction()->setVisible(vis);
 }
 
 void BasicDialog::setHelpMenuVisible(bool vis)
 {
-	helpMenu->setVisible(vis);
+	helpMenu->menuAction()->setVisible(vis);
+}
+
+void BasicDialog::setApplyButtonVisible(bool en)
+{
+	btnApply->setVisible(en);
+}
+
+bool BasicDialog::getApplyButtonVisible() const
+{
+	return btnApply->isVisible();
+}
+
+QToolBar *BasicDialog::getMainToolbar() const
+{
+	return mainToolbar;
 }
 
 void BasicDialog::newClick()
@@ -266,6 +317,11 @@ void BasicDialog::saveClick()
 
 }
 
+void BasicDialog::saveAsClick()
+{
+
+}
+
 void BasicDialog::importClick()
 {
 
@@ -276,12 +332,12 @@ void BasicDialog::exportClick()
 
 }
 
-void BasicDialog::unDoClick()
+void BasicDialog::undoClick()
 {
 
 }
 
-void BasicDialog::reDoClick()
+void BasicDialog::redoClick()
 {
 
 }
@@ -316,20 +372,54 @@ void BasicDialog::pasteClick()
 
 }
 
+void BasicDialog::onAlwaysOnTopClicked(bool checked)
+{
+	if(checked){
+		setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint | Qt::Window/* | Qt::BypassWindowManagerHint*/	);
+	}else{
+		setWindowFlags(windowFlags() & ~Qt::WindowStaysOnTopHint);
+	}
+	show();
+}
+
+void BasicDialog::onApplyClicked()
+{
+
+}
+
 void BasicDialog::init()
 {
-	setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
-	mainLayout = new QGridLayout();
-	mainLayout->setMargin(0);
+	visibleFileMenu = true;
+	visibleEditMenu = true;
 
+	//Initialize QMenu
+	saveMenu = new QMenu();
+
+	//Initialize QGridLayout
+	mainLayout = new QGridLayout();
+
+	//Initialize QMainWindow
 	mw = new QMainWindow();
+
+	//Initialize QToolButton
+	saveButton = new QToolButton();
+
+	//Initialize QPushButton
+	btnAccept = new QPushButton(ICON_OK, "Aceptar");
+	btnReject = new QPushButton(ICON_CLOSE, "Cancelar");
+	btnHelp = new QPushButton(ICON_HELP, QString::fromLatin1("Ayúda"));
+	btnApply = new QPushButton(ICON_APPLY, "Aplicar");
+
 	mw->setCentralWidget(new QWidget());
+
+	mainLayout->setMargin(0);
 
 	menuBar = mw->menuBar();
 	fileMenu = menuBar->addMenu("Archivo");
 	newAction = fileMenu->addAction(ICON_NEW, "Nuevo", this, SLOT(newClick()));
 	openAction = fileMenu->addAction(ICON_OPEN, "Abrir...", this, SLOT(openClick()));
-	saveAction = fileMenu->addAction(ICON_SAVE, "Guardar...", this, SLOT(saveClick()));
+	saveAction = fileMenu->addAction(ICON_SAVE, "Guardar", this, SLOT(saveClick()));
+	saveAsAction = fileMenu->addAction(ICON_SAVE, "Guardar como...", this, SLOT(saveAsClick()));
 	fileMenu->addSeparator();
 	importAction = fileMenu->addAction(ICON_IMPORT, "Importar...", this, SLOT(importClick()));
 	exportAction = fileMenu->addAction(ICON_EXPORT, "Exportar...", this, SLOT(exportClick()));
@@ -337,12 +427,16 @@ void BasicDialog::init()
 	closeAction = fileMenu->addAction(ICON_CLOSE, "Salir", this, SLOT(close()));
 
 	editMenu = menuBar->addMenu(QIcon(), QString::fromLatin1("Edición"));
-	setUndoAction(editMenu->addAction(ICON_UNDO, "Deshacer", this, SLOT(unDoClick())));
-	setRedoAction(editMenu->addAction(ICON_REDO, "Rehacer", this, SLOT(reDoClick())));
+	setUndoAction(editMenu->addAction(ICON_UNDO, "Deshacer", this, SLOT(undoClick())));
+	setRedoAction(editMenu->addAction(ICON_REDO, "Rehacer", this, SLOT(redoClick())));
 	editMenu->addSeparator();
 	setCopyAction(editMenu->addAction(ICON_COPY, "Copiar", this, SLOT(copyClick())));
 	setCutAction(editMenu->addAction(ICON_CUT, "Cortar", this, SLOT(cutClick())));
 	setPasteAction(editMenu->addAction(ICON_PASTE, "Pegar", this, SLOT(pasteClick())));
+
+	viewMenu = menuBar->addMenu(QIcon(), "Ver");
+	alwaysOnTopAction = viewMenu->addAction("Siempre al frente");
+	alwaysOnTopAction->setCheckable(true);
 
 	toolsMenu = menuBar->addMenu(QIcon(), "Herramientas");
 	preferencesAction = toolsMenu->addAction(ICON_PREFERENCES, "Preferencias", this, SLOT(preferencesClick()));
@@ -351,10 +445,20 @@ void BasicDialog::init()
 	aboutAction = helpMenu->addAction(ICON_ABOUT, "Acerca de...", this, SLOT(aboutClick()));
 	helpAction = helpMenu->addAction(ICON_HELP, QString::fromLatin1("Ayúda"), this, SLOT(helpClick()));
 
+	saveMenu->addAction(saveAction);
+	saveMenu->addAction(saveAsAction);
+
+	saveButton->setPopupMode(QToolButton::MenuButtonPopup);
+	saveButton->setIcon(saveAction->icon());
+//	saveButton->setDefaultAction(saveAction);
+	saveButton->setMenu(saveMenu);
+	saveButton->setAutoRaise(true);
+	saveButton->raise();
+
 	mainToolbar = new QToolBar();
 	mainToolbar->addAction(newAction);
 	mainToolbar->addAction(openAction);
-	mainToolbar->addAction(saveAction);
+	saveButtonAction = mainToolbar->addWidget(saveButton);
 	mainToolbar->addSeparator();
 	mainToolbar->addAction(getCopyAction());
 	mainToolbar->addAction(getCutAction());
@@ -370,9 +474,6 @@ void BasicDialog::init()
 	mw->addToolBar(mainToolbar);
 	mw->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
-	btnAccept = new QPushButton(ICON_OK, "Aceptar");
-	btnReject = new QPushButton(ICON_CLOSE, "Cancelar");
-	btnHelp = new QPushButton(ICON_HELP, "Ayuda");
 
 	hlyButtons = new QHBoxLayout();
 //	hlyButtons->setDirection(QBoxLayout::RightToLeft);
@@ -380,24 +481,30 @@ void BasicDialog::init()
 	hlyButtons->addStretch(10);
 	hlyButtons->addWidget(btnAccept);
 	hlyButtons->addWidget(btnReject);
+	hlyButtons->addWidget(btnApply);
 	hlyButtons->addWidget(btnHelp);
 
 	mainLayout->addWidget(mw, 1, 1);
 	mainLayout->addLayout(hlyButtons, 2, 1);
 
 	setLayout(mainLayout);
+	setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
 
 	enableNew = true;
 	enableExport = true;
 	enableImport = true;
 	enableUndo = true;
 	enableSave = true;
+	enableSaveAs = true;
 	enableOpen = true;
 	enableClipboard = true;
+	enablePreferences = true;
 
 	connect(btnAccept, SIGNAL(clicked()), SLOT(accept()));
 	connect(btnReject, SIGNAL(clicked()), SLOT(close()));
+	connect(btnApply, SIGNAL(clicked()), SLOT(onApplyClicked()));
 	connect(btnHelp, SIGNAL(clicked()), SLOT(helpClick()));
+	connect(alwaysOnTopAction, SIGNAL(triggered(bool)), SLOT(onAlwaysOnTopClicked(bool)));
 }
 
 void BasicDialog::updateActionsVisibility()
@@ -418,8 +525,16 @@ void BasicDialog::updateActionsVisibility()
 	bool enSep6 = enableExport || enableImport;
 	fileMenu->actions()[6]->setVisible(enSep6);
 
-	fileMenu->menuAction()->setVisible(enSep3 || enSep6 || closeAction->isVisible());
+	bool enSep12 = enablePreferences;
+	mainToolbar->actions()[12]->setVisible(enSep12);
 
-	editMenu->menuAction()->setVisible(enableUndo || enableClipboard);
+	saveMenu->menuAction()->setVisible(saveAction->isVisible() || saveAsAction->isVisible());
+
+//	saveButtonAction->setVisible(false);
+	saveButtonAction->setVisible(saveAction->isVisible() || saveAsAction->isVisible());
+
+	fileMenu->menuAction()->setVisible(visibleFileMenu && (enSep3 || enSep6 || closeAction->isVisible()));
+
+	editMenu->menuAction()->setVisible(visibleEditMenu && (enableUndo || enableClipboard));
 }
 

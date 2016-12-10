@@ -3,6 +3,8 @@
 
 #include <QtWidgets>
 
+#include "share_core_lib.h"
+
 /*!
  * \class
  *
@@ -11,9 +13,25 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class LabeledWidget : public QWidget
+class CORE_LIB_IMPORT_EXPORT LabeledWidget : public QWidget
 {
 	public:
+
+		//TODO: 16/4/15 should add volume, time units.
+		enum Units{
+			Nothing,
+			Pixels,
+			Dots,
+			Points,
+			Milimeters,
+			Centimeters,
+			Kilometers,
+			Meters,
+			Inches,
+			Feets,
+			Miles,
+			Percentaje
+		};
 
 		enum Position{
 			Top,
@@ -35,13 +53,19 @@ class LabeledWidget : public QWidget
 		void setLabel(QLabel *lbl);
 		QLabel *getLabel() const;
 
+		virtual void setUnits(Units unit);
+		Units getUnits() const;
+
 	protected:
 		QLabel *label;
 
 	private:
 		Q_OBJECT
 
+		Units units;
+
 		Position labelPosition;
+
 		QGridLayout *mainLayout;
 
 		void init(const QString &str, const Position &pos);

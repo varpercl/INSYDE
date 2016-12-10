@@ -1,5 +1,5 @@
 
-QT += opengl
+QT += widgets opengl
 
 CONFIG += qt shared
 
@@ -10,8 +10,8 @@ TARGET = ga_gui
 
 TEMPLATE = lib
 
-MOC_DIR = moc
-UI_DIR = ui
-OBJECTS_DIR = obj
-RCC_DIR = res
-DESTDIR = ..
+#MOC_DIR = moc
+#UI_DIR = ui
+#OBJECTS_DIR = obj
+#RCC_DIR = res
+#DESTDIR = ..

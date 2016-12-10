@@ -2,7 +2,9 @@
 #define ZOOMCONTROL_H
 
 #include <QtWidgets>
-#include "icons.h"
+
+#include "share_core_lib.h"
+#include "definitions.h"
 
 /*!
  * \class
@@ -12,7 +14,7 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT ZoomControl : public QToolBar
+class CORE_LIB_IMPORT_EXPORT ZoomControl : public QToolBar
 {
 	public:
 

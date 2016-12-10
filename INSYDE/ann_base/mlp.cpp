@@ -40,6 +40,8 @@ void MultilayerPerceptron::init(int ninputs, int noutputs, const vector<int> &hi
 	nInputs = ninputs;
 	training = false;
 
+	setDefaultRandomRange(-1, 1);
+
 	blockSignals(true);
 	setSaveTrainingResults(false);
 
@@ -151,9 +153,20 @@ void MultilayerPerceptron::addLayer(int nElements)
 	QMutex mutex;
 	QMutexLocker locker(&mutex);
 
+	int last = (int)layerWeights.size();
 	layerWeights.push_back(vector<vector<double> >(nElements, vector<double>(getInputsSize() + 1)));
 
-	randomizeWeights();
+	randomizeWeights(defaultRandomMinimum, defaultRandomMaximum);
+
+	emit layerCountChanged(last, layerWeights.size());
+	emit layerCountChanged();
+}
+
+void MultilayerPerceptron::insertLayer(int after, int elements)
+{
+	//TODO: 05/04/16 insertLayer implement
+	(void)after;
+	(void)elements;
 }
 
 void MultilayerPerceptron::removeLayer(unsigned int l)
@@ -163,8 +176,10 @@ void MultilayerPerceptron::removeLayer(unsigned int l)
 
 	if(layerWeights.size() > 1){
 		layerWeights.erase(layerWeights.begin() + l);
-		randomizeWeights();
+		randomizeWeights(defaultRandomMinimum, defaultRandomMaximum);
 	}
+
+	emit layerRemoved(l);
 }
 
 bool MultilayerPerceptron::isTraining()
@@ -220,6 +235,11 @@ ArtificialNeuralNetwork::Type MultilayerPerceptron::getType() const
 	return ArtificialNeuralNetwork::MultilayerPerceptron;
 }
 
+QString MultilayerPerceptron::getName() const
+{
+	return "MLP";
+}
+
 void MultilayerPerceptron::setSaturationRange(double min, double max)
 {
 	//TODO: 3/9/15 implement setEnableSaturationRange method. Implement this method on every assigment.
@@ -236,6 +256,37 @@ vector<vector<vector<double> > > MultilayerPerceptron::getWeights() const
 	out.push_back(outputWeights);
 
 	return out;
+}
+
+void MultilayerPerceptron::setDefaultRandomRange(double min, double max)
+{
+	defaultRandomMinimum = min;
+	defaultRandomMaximum = max;
+}
+
+pair<double, double> MultilayerPerceptron::getDefaultRandomRange() const
+{
+	return make_pair(defaultRandomMinimum, defaultRandomMaximum);
+}
+
+void MultilayerPerceptron::setDefaultRandomMinimum(double min)
+{
+	defaultRandomMinimum = min;
+}
+
+double MultilayerPerceptron::getDefaultRandomMinimum() const
+{
+	return defaultRandomMinimum;
+}
+
+void MultilayerPerceptron::setDefaultRandomMaximum(double max)
+{
+	defaultRandomMaximum = max;
+}
+
+double MultilayerPerceptron::getDefaultRandonMaximum() const
+{
+	return defaultRandomMaximum;
 }
 
 double MultilayerPerceptron::getNewMSE(const vector<vector<vector<double> > > &lweights, const vector<vector<double> > &oweights, const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
@@ -255,7 +306,9 @@ double MultilayerPerceptron::getNewMSE(const vector<vector<vector<double> > > &l
 
 void MultilayerPerceptron::setLayerSize(unsigned int layer, int size)
 {
-	size_t nLayers = layerWeights.size();
+	size_t
+			nLayers = layerWeights.size(),
+			lastSize = layerWeights[layer].size();
 
 	layerWeights[layer].resize(size);
 
@@ -263,48 +316,71 @@ void MultilayerPerceptron::setLayerSize(unsigned int layer, int size)
 		if(layer == nLayers - 1){//when layer is penultimate
 			size_t nNeurons = outputWeights.size();
 			for(size_t i = 0; i < nNeurons; i++){
-				outputWeights[i] = math::getRandomValues(size + 1);
+				outputWeights[i] = math::getRandomValues(size + 1, defaultRandomMinimum, defaultRandomMaximum);
 			}
 		}else if(layer <= nLayers - 2){
 			size_t nNeurons = layerWeights[layer+1].size();
-			for(size_t i = 0; i < nNeurons; i++){
-				layerWeights[layer+1][i] = math::getRandomValues(size + 1);
+			for(size_t n = 0; n < nNeurons; n++){
+				layerWeights[layer+1][n] = math::getRandomValues(size + 1, defaultRandomMinimum, defaultRandomMaximum);
 			}
 		}
 	}else{
 		size_t nNeurons = outputWeights.size();
 		for(size_t i = 0; i < nNeurons; i++){
-			outputWeights[i] = math::getRandomValues(size+1);
+			outputWeights[i] = math::getRandomValues(size + 1, defaultRandomMinimum, defaultRandomMaximum);
 		}
+
+	}
+	if(layer == 0){
+		for(size_t n = 0; n < layerWeights[layer].size(); n++){
+			layerWeights[layer][n] = math::getRandomValues(getInputsSize() + 1, defaultRandomMinimum, defaultRandomMaximum);
+		}
+	}else{
+		for(size_t n = 0; n < layerWeights[layer].size(); n++){
+			layerWeights[layer][n] = math::getRandomValues(layerWeights[layer - 1].size() + 1, defaultRandomMinimum, defaultRandomMaximum);
+		}
+	}
+
+	if(lastSize != layerWeights[layer].size()){
+		emit layerSizeChanged(layer, lastSize, layerWeights[layer].size());
+		emit layerSizeChanged(layer);
 	}
 	emit weightsChanged();
 }
 
 int MultilayerPerceptron::getLayerSize(unsigned int layer) const
 {
-	return layerWeights[layer].size();
+	return (int)layerWeights[layer].size();
 }
 
 void MultilayerPerceptron::setLayerSizes(const vector<int> &sizes)
 {
-	size_t nLayers = sizes.size();
+	size_t
+			nLayers = sizes.size(),
+			lSize = layerWeights.size();
 
 	layerWeights = vector<vector<vector<double> > >(nLayers);
 	for(size_t l = 0; l < nLayers; l++){
 		layerWeights[l] = vector<vector<double > >(sizes[l]);
 		for(int n = 0; n < sizes[l]; n++){
 			if(l == 0){
-				layerWeights[l][n] = math::getRandomValues(nInputs + 1);
+				layerWeights[l][n] = math::getRandomValues(nInputs + 1, defaultRandomMinimum, defaultRandomMaximum);
 			}else{
-				layerWeights[l][n] = math::getRandomValues(sizes[l - 1] + 1);
+				layerWeights[l][n] = math::getRandomValues(sizes[l - 1] + 1, defaultRandomMinimum, defaultRandomMaximum);
 			}
 		}
 	}
 	size_t nOutputWeights = layerWeights[layerWeights.size()-1].size();
 	size_t sOutputs = outputWeights.size();
 	for(size_t i = 0; i < sOutputs; i++){
-		outputWeights[i] = math::getRandomValues(nOutputWeights + 1);
+		outputWeights[i] = math::getRandomValues((int)(nOutputWeights + 1), defaultRandomMinimum, defaultRandomMaximum);
 	}
+
+	if(lSize != nLayers){
+		emit layerCountChanged(lSize, nLayers);
+		emit layerCountChanged();
+	}
+
 	emit weightsChanged();
 }
 
@@ -313,38 +389,46 @@ vector<int> MultilayerPerceptron::getLayerSizes() const
 	size_t nLayers = layerWeights.size();
 	vector<int> lsizes(nLayers);
 	for(size_t i = 0; i < nLayers; i++){
-		lsizes[i] = (layerWeights[i].size());
+		lsizes[i] = (int)layerWeights[i].size();
 	}
 	return lsizes;
 }
 
-int MultilayerPerceptron::getLayerCount() const
+int MultilayerPerceptron::getHiddenLayerCount() const
 {
 	return (int) layerWeights.size();
 }
 
-void MultilayerPerceptron::setOutputSize(size_t size)
+void MultilayerPerceptron::setOutputSize(int size)
 {
+	int lastSize = outputWeights.size();
+
 	outputWeights.resize(size);
-	size_t nOutputWeights = layerWeights[layerWeights.size()-1].size();
-	for(size_t i = 0; i < size; i++){
-		outputWeights[i] = math::getRandomValues(nOutputWeights + 1);
+	int nOutputWeights = (int)layerWeights[layerWeights.size()-1].size();
+	for(int i = 0; i < size; i++){
+		outputWeights[i] = math::getRandomValues(nOutputWeights + 1, defaultRandomMinimum, defaultRandomMaximum);
+	}
+	if(lastSize != (int)outputWeights.size()){
+		emit outputSizeChanged();
+		emit outputSizeChanged(lastSize, outputWeights.size());
 	}
 	emit weightsChanged();
 }
 
 int MultilayerPerceptron::getOutputsSize()
 {
-	return outputWeights.size();
+	return (int)outputWeights.size();
 }
 
 void MultilayerPerceptron::setInputSize(int size)
 {
 	nInputs = size;
-	int sNeurons = layerWeights[0].size();
+	int sNeurons = (int)layerWeights[0].size();
 
 	for(int i = 0; i < sNeurons; i++){
-		layerWeights[0][i] = math::getRandomValues(nInputs + 1);
+		//NOTE: this line was write to solve a problem when resizing inputs after a training process. It should be validated
+//		layerWeights[0][i].reserve(nInputs+1);
+		layerWeights[0][i] = math::getRandomValues(nInputs + 1, defaultRandomMinimum, defaultRandomMaximum);
 	}
 	emit weightsChanged();
 }
@@ -497,12 +581,12 @@ void MultilayerPerceptron::randomizeWeights(double min, double max)
 	for(layer = 0; layer < nLayers; layer++){
 		nNeurons = layerWeights[layer].size();
 		for(neuron = 0; neuron < nNeurons; neuron++){
-			layerWeights[layer][neuron] = (layer == 0 ? math::getRandomValues(getInputsSize()+1, min, max) : math::getRandomValues(layerWeights[layer-1].size()+1, min, max));
+			layerWeights[layer][neuron] = (layer == 0 ? math::getRandomValues(getInputsSize()+1, min, max) : math::getRandomValues((int)(layerWeights[layer-1].size()+1), min, max));
 		}
 	}
 	nOutputs = outputWeights.size();
 	for(size_t i = 0; i < nOutputs; i++){
-		outputWeights[i] = math::getRandomValues(layerWeights[nLayers-1].size() + 1, min, max);
+		outputWeights[i] = math::getRandomValues((int)(layerWeights[nLayers-1].size() + 1), min, max);
 	}
 
 	emit weightsChanged();
@@ -742,13 +826,13 @@ void MultilayerPerceptron::run()
 
 	queue<double> errors;
 
-	//NOTE: 23/12/14 es estrictamente necesario que esta variable sea concurrente
+	//NOTE: 23/12/14 this variable is strictly necessary to be concurrent. Dont know why this yet.
 	concurrent_vector<concurrent_vector<double> >
 			deltaHidden(layerWeights.size(), concurrent_vector<double>(layerWeights[0].size(), 0));
 
 	vector<vector<double> >
-			tsInputs = ts->getInputs(),
-			tsTargets = ts->getTargets();
+			tsInputs = ts->getNormalizedInputs(),
+			tsTargets = ts->getNormalizedTargets();
 
 	StopCondition
 			//BP parameters
@@ -852,7 +936,7 @@ void MultilayerPerceptron::run()
 
 			for(int layer = nLayers; layer >= 0; layer--){
 				nNeurons = (layer == nLayers ? outputWeights.size() : layerWeights[layer].size());
-				for(size_t neuron = 0; neuron <= nNeurons; neuron++){
+				for(size_t neuron = 0; neuron < nNeurons; neuron++){
 
 					//Se inicia el calculo de todos los deltas
 					if(layer == nLayers){ //Si es la capa de salida
@@ -951,7 +1035,7 @@ void MultilayerPerceptron::run()
 
 						deltaE = eNew - eOld;
 						Pa = exp(-deltaE/T);
-						rnd = math::randomNumber(0,1);
+						rnd = math::randomNumber(0, 1);
 
 						if(/*deltaE < 0 || */rnd <= Pa){
 							layerWeights = ns.newWeights;
@@ -994,8 +1078,8 @@ void MultilayerPerceptron::run()
 			tres->setTime(double(clock() - t_ini)/CLOCKS_PER_SEC);
 		}
 
-		//NOTE: se debe revisar ya que no se ha validado su correcto funcionamiento
-		//Emite el evento elapsedEpochs
+		//NOTE: should be validated
+		//emits event elapsedEpochs
 		if(condEpochs > 0){
 			if(condEpochs % epochsTriggerInterval == 0 && epochsTriggerEnabled){
 				emit elapsedEpochs(*tres);

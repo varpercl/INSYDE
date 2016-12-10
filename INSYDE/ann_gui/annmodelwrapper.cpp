@@ -24,32 +24,48 @@ void ANNModelWrapper::setArtificialNeuralNetwork(ArtificialNeuralNetwork *ann)
 
 	switch(ann->getType()){
 		case ann_base::ArtificialNeuralNetwork::NoType:
+
 			break;
 		case ann_base::ArtificialNeuralNetwork::Adaline:
+			adaline = (Adaline*)ann;
+
+			//TODO: 27/4/16 put connections here
 			break;
 		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
+			sp = (SimplePerceptron*)ann;
+
+			//TODO: 27/4/16 put connections here
 			break;
 		case ann_base::ArtificialNeuralNetwork::MultilayerPerceptron:
 			mlp = (MultilayerPerceptron*)ann;
 
-			setupTree(mlp->getWeights());
-
 			connect(mlp, SIGNAL(weightsChanged()), SLOT(onWeightsChanged()));
-			connect(mlp, SIGNAL(trainingAboutStart()), SLOT(onTrainingAboutStart()));
-			connect(mlp, SIGNAL(trainingFinished()), SLOT(onTrainingFinished()));
+//			connect(mlp, SIGNAL(trainingAboutStart()), SLOT(onTrainingAboutStart()));
+//			connect(mlp, SIGNAL(trainingFinished()), SLOT(onTrainingFinished()));
+			connect(mlp, SIGNAL(layerCountChanged(int, int)), SLOT(onLayerCountChanged(int, int)));
+			connect(mlp, SIGNAL(layerRemoved(int)), SLOT(onLayerRemoved(int)));
+			connect(mlp, SIGNAL(layerSizeChanged(int, int, int)), SLOT(onLayerSizeChanged(int, int, int)));
 			break;
 		case ann_base::ArtificialNeuralNetwork::Hopfiel:
+			hopfield = (Hopfield*)ann;
+
+			//TODO: 27/4/16 put connections here
 			break;
 		case ann_base::ArtificialNeuralNetwork::Kohonen:
+			kohonen = (Kohonen*)ann;
+
+			//TODO: 27/4/16 put connections here
 			break;
 
 	}
+
+	setupTree();
 }
 
 QVariant ANNModelWrapper::data(const QModelIndex &index, int role) const
 {
 	//Rechaza en caso de que el indice no sea valido o el rol no sea para mostrar o editar
-	if(!index.isValid()){
+	if(!index.isValid() || !(role == Qt::DisplayRole || role == Qt::EditRole || Qt::DecorationRole)){
 		return QVariant();
 	}
 
@@ -57,25 +73,57 @@ QVariant ANNModelWrapper::data(const QModelIndex &index, int role) const
 
 		case ann_base::ArtificialNeuralNetwork::MultilayerPerceptron:
 		{
-			TreeItem *item = getItem(index);
+			ANNModelTree *item = getItem(index);
 
 			switch(role){
 				case Qt::DisplayRole:
-				case Qt::EditRole:
-					return item->getData(index.column());
+					switch(item->getType()){
+						case ANNModelTree::Layer:
+							if(index.column() == 0){
+								return item->getData(index.column());
+							}else{
+								if(item->getLayer() == mlp->getHiddenLayerCount()){
+									return QString::number(item->getData(index.column()).toInt()) + " outputs";
+								}else{
+									return QString::number(item->getData(index.column()).toInt()) + " neurons";
+								}
+							}
+						case ANNModelTree::Neuron:
+							if(index.column() == 0){
+								return item->getData(index.column());
+							}else{
+								return QString::number(item->getData(index.column()).toInt()) + " weights";
+							}
+						case ANNModelTree::Weight:
+							return item->getData(index.column());
 
+						case ANNModelTree::Root:
+							return QVariant();
+					}
+
+				case Qt::EditRole:
+					switch(item->getType()){
+						case ANNModelTree::Root:
+						case ANNModelTree::Neuron:
+							return QVariant();
+
+						case ANNModelTree::Layer:
+						case ANNModelTree::Weight:
+							return item->getData(index.column());
+
+					}
 				case Qt::DecorationRole:
 					switch(item->getType()){
-						case TreeItem::Weight:
+						case ANNModelTree::Weight:
 							if(index.column() == 0){
-								return getWeightColor(item->getData(1).toDouble(), item->parent()->getChildren());
+								return getWeightColor(item->getData(1).toDouble(), *item->getParent()->getChildren());
 							}else{
 								return QVariant();
 							}
 
-						case TreeItem::Root:
-						case TreeItem::Layer:
-						case TreeItem::Neuron:
+						case ANNModelTree::Root:
+						case ANNModelTree::Layer:
+						case ANNModelTree::Neuron:
 						default:
 							return QVariant();
 					}
@@ -101,19 +149,27 @@ bool ANNModelWrapper::setData(const QModelIndex &index, const QVariant &value, i
 	}
 
 	if(index.column() == 1){
-		TreeItem *item = getItem(index);
+		ANNModelTree *item = getItem(index);
 
 		switch(item->getType()){
-			case TreeItem::Root:
-			case TreeItem::Neuron:
+			case ANNModelTree::Root:
+			case ANNModelTree::Neuron:
 				return false;
 
-			case TreeItem::Layer:
-				mlp->setLayerSize(index.row(), value.toInt());
-				emit dataChanged(index, index);
+			case ANNModelTree::Layer:
+				if(item->getData(1) != value){
+					if(index.row() < mlp->getHiddenLayerCount()){
+						mlp->setLayerSize(index.row(), value.toInt());
+					}else{
+						mlp->setOutputSize(value.toInt());
+					}
+					emit dataChanged(index, index);
+					return true;
+				}else{
+					return false;
+				}
 
-				return true;
-			case TreeItem::Weight:
+			case ANNModelTree::Weight:
 				mlp->setWeight(index.parent().parent().row(), index.parent().row(), index.row(), value.toDouble());
 				emit dataChanged(index, index);
 
@@ -155,23 +211,21 @@ Qt::ItemFlags ANNModelWrapper::flags(const QModelIndex &index) const
 	if (!index.isValid())
 		return 0;
 
-	TreeItem *item = getItem(index);
+	ANNModelTree *item = getItem(index);
 
 	return item->getFlags(index.column());
 }
 
 QModelIndex ANNModelWrapper::index(int row, int column, const QModelIndex &parent) const
 {
-	if (parent.isValid() && parent.column() != 0)
-		return QModelIndex();
+	ANNModelTree *parentItem = getItem(parent);
 
-	TreeItem *parentItem = getItem(parent);
-
-	TreeItem *childItem = parentItem->child(row);
-	if (childItem)
+	ANNModelTree *childItem = parentItem->getChild(row);
+	if (childItem){
 		return createIndex(row, column, childItem);
-	else
+	}else{
 		return QModelIndex();
+	}
 }
 
 QModelIndex ANNModelWrapper::parent(const QModelIndex &child) const
@@ -179,13 +233,16 @@ QModelIndex ANNModelWrapper::parent(const QModelIndex &child) const
 	if (!child.isValid())
 		return QModelIndex();
 
-	TreeItem *childItem = getItem(child);
-	TreeItem *parentItem = childItem->parent();
+	ANNModelTree *childItem = getItem(child);
+	ANNModelTree *parentItem = childItem->getParent();
 
-	if (parentItem == rootItem)
+//	if (parentItem == 0)
+//		return QModelIndex();
+	if (parentItem == rootItem || parentItem == 0)
 		return QModelIndex();
 
-	return createIndex(parentItem->childNumber(), 0, parentItem);
+
+	return createIndex(parentItem->childIndex(), child.column(), parentItem);
 }
 
 bool ANNModelWrapper::hasChildren(const QModelIndex &parent) const
@@ -199,9 +256,27 @@ bool ANNModelWrapper::hasChildren(const QModelIndex &parent) const
 			break;
 		case ann_base::ArtificialNeuralNetwork::MultilayerPerceptron:
 		{
-			TreeItem *item = getItem(parent);
+			ANNModelTree *item = getItem(parent);
 
-			return item->childCount() > 0;
+			switch(item->getType()){
+				case ANNModelTree::Root:
+					return item->getChildrenCount() > 0;
+				case ANNModelTree::Layer:
+					if(visibleNeurons){
+						return item->getChildrenCount() > 0;
+					}else{
+						return false;
+					}
+				case ANNModelTree::Neuron:
+					if(visibleWeightValues){
+						return item->getChildrenCount() > 0;
+					}else{
+						return false;
+					}
+				case ANNModelTree::Weight:
+					return false;
+			}
+
 		}
 		case ann_base::ArtificialNeuralNetwork::Hopfiel:
 			break;
@@ -225,9 +300,22 @@ int ANNModelWrapper::rowCount(const QModelIndex &parent) const
 			break;
 		case ann_base::ArtificialNeuralNetwork::MultilayerPerceptron:
 		{
-			TreeItem *item = getItem(parent);
+			ANNModelTree *item = getItem(parent);
 
-			return item->childCount();
+			switch(item->getType()){
+				case ANNModelTree::Root:
+					if(visibleOutputLayer){
+						return item->getChildrenCount();
+					}else{
+						return item->getChildrenCount() - 1;
+					}
+				case ANNModelTree::Layer:
+				case ANNModelTree::Neuron:
+				case ANNModelTree::Weight:
+					return item->getChildrenCount();
+
+			}
+
 		}
 		case ann_base::ArtificialNeuralNetwork::Hopfiel:
 			break;
@@ -241,6 +329,16 @@ int ANNModelWrapper::rowCount(const QModelIndex &parent) const
 int ANNModelWrapper::columnCount(const QModelIndex &) const
 {
 	return 2;
+}
+
+void ANNModelWrapper::setVisibleOutputLayer(bool b)
+{
+	visibleOutputLayer = b;
+}
+
+bool ANNModelWrapper::getVisibleOutputLayer() const
+{
+	return visibleOutputLayer;
 }
 
 void ANNModelWrapper::setVisibleWeightValues(bool b)
@@ -295,149 +393,292 @@ void ANNModelWrapper::setViewType(ANNModelWrapper::ViewType type)
 
 void ANNModelWrapper::onWeightsChanged()
 {
+	updateTree();
 	emit dataChanged(QModelIndex(), QModelIndex());
 }
 
-void ANNModelWrapper::onTrainingFinished()
+void ANNModelWrapper::onLayerCountChanged(int lastCount, int newCount)
 {
-	emit trainingFinished();
+	//TODO: 29/4/16 onLayerCountChanged check if can improve this. Try to implement "begin" and "end" methods
+	//inside updateTree. I think it could be better, it could update row insertion and removing depending on layer count
+	//neuron count, weights, etc.
+
+	updateTree();
+
+	if(lastCount <= newCount){
+		beginInsertRows(QModelIndex(), lastCount + 1, newCount);
+		endInsertRows();
+	}else{
+		beginRemoveRows(QModelIndex(), newCount + 1, lastCount);
+		endRemoveRows();
+	}
 }
 
-void ANNModelWrapper::onTrainingAboutStart()
+void ANNModelWrapper::onLayerRemoved(int index)
 {
-	emit trainingAboutStart();
+	updateTree();
+
+	beginRemoveRows(createIndex(-1, -1), index, index);
+	endRemoveRows();
+}
+
+void ANNModelWrapper::onLayerSizeChanged(int layer, int lastSize, int newSize)
+{
+	(void)layer;
+
+	updateTree();
+
+	if(lastSize <= newSize){
+		beginInsertRows(createIndex(layer, 0, rootItem->getChildren()->operator [](layer)), lastSize, newSize - 1);
+		endInsertRows();
+	}else{
+		beginRemoveRows(createIndex(layer, 0, rootItem->getChildren()->operator [](layer)), newSize, lastSize - 1);
+		endRemoveRows();
+	}
 }
 
 void ANNModelWrapper::init(ArtificialNeuralNetwork *ann)
 {
 	if(ann == 0) return;
 
-	rootItem = 0;
-
 	canEditLayerSize = true;
 	canEditWeights = true;
 	visibleNeurons = true;
 	visibleWeightValues = true;
+	visibleOutputLayer = true;
 
 	setArtificialNeuralNetwork(ann);
 	setViewType(Tree);
 }
 
-void ANNModelWrapper::setupTree(const vector<vector<vector<double> > > &weights)
+void ANNModelWrapper::setupTree()
 {
-	if(!rootItem){
-		switch(ann->getType()){
-			case ann_base::ArtificialNeuralNetwork::NoType:
-				break;
-			case ann_base::ArtificialNeuralNetwork::Adaline:
-				break;
-			case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
-				break;
-			case ann_base::ArtificialNeuralNetwork::MultilayerPerceptron:
-			{
-				int
-						lCount = weights.size(),
-						nCount = 0,
-						wCount = 0;
-				QVector<QVariant> data(2);
-				QVector<Qt::ItemFlags> flags(2);
-				TreeItem
-						*layerItem,
-						*neuronItem,
-						*weightItem;
+	switch(ann->getType()){
+		case ann_base::ArtificialNeuralNetwork::NoType:
+			break;
+		case ann_base::ArtificialNeuralNetwork::Adaline:
+			break;
+		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
+			break;
+		case ann_base::ArtificialNeuralNetwork::MultilayerPerceptron:
+		{
+			vector<vector<vector<double> > > weights = mlp->getWeights();
 
-				rootItem = new TreeItem(QVector<QVariant>(), QVector<Qt::ItemFlags>(), TreeItem::Root, 0);
+			int
+					lCount = (int)weights.size(),
+					nCount = 0,
+					wCount = 0;
+			QVector<QVariant> data(2);
+			QVector<Qt::ItemFlags> flags(2);
+			ANNModelTree
+					*layerItem,
+					*neuronItem,
+					*weightItem;
 
-				for(int l = 0; l < lCount; l++){
-					nCount = weights[l].size();
-					data[0] = l == lCount - 1 ?  "Output layer" : "Layer: " + QString::number(l);
-					data[1] = nCount;
-					flags[0] = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
-					flags[1] = getCanEditLayerSize() ? Qt::ItemIsEnabled | Qt::ItemIsEditable | Qt::ItemIsSelectable : Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+			rootItem = new ANNModelTree(QVector<QVariant>(2), QVector<Qt::ItemFlags>(2), ANNModelTree::Root, 0);
 
-					layerItem = new TreeItem(data, flags, TreeItem::Layer, rootItem);
-					rootItem->addChildItem(layerItem);
+			for(int l = 0; l < lCount; l++){
+				nCount = (int)weights[l].size();
+				data[0] = l == lCount - 1 ?  "Output layer" : "Layer: " + QString::number(l);
+				data[1] = nCount;
+				flags[0] = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+				flags[1] = getCanEditLayerSize() ? Qt::ItemIsEnabled | Qt::ItemIsEditable | Qt::ItemIsSelectable : Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 
-					if(getVisibleNeurons()){
-						for(int n = 0; n < nCount; n++){
-							wCount = weights[l][n].size();
-							data[0] = "Neuron: " + QString::number(n);
-							data[1] = wCount;
-							flags[0] = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
-							flags[1] = flags[0];
+				layerItem = new ANNModelTree(data, flags, ANNModelTree::Layer, rootItem);
+				layerItem->setIndex(l, -1, -1);
 
-							neuronItem = new TreeItem(data, flags, TreeItem::Neuron, layerItem);
-							layerItem->addChildItem(neuronItem);
+				rootItem->addChildItem(layerItem);
 
-							if(getVisibleWeightValues()){
-								for(int w = 0; w < wCount; w++){
-									data[0] = "w: " + QString::number(w);
-									data[1] = weights[l][n][w];
-									flags[0] = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
-									flags[1] = getCanEditWeights() ? Qt::ItemIsEnabled | Qt::ItemIsEditable | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren : Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren;
+				if(getVisibleNeurons()){
+					for(int n = 0; n < nCount; n++){
+						wCount = (int)weights[l][n].size();
+						data[0] = "Neuron: " + QString::number(n);
+						data[1] = wCount;
+						flags[0] = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+						flags[1] = flags[0];
 
-									weightItem = new TreeItem(data, flags, TreeItem::Weight, neuronItem);
-									neuronItem->addChildItem(weightItem);
-								}
+						neuronItem = new ANNModelTree(data, flags, ANNModelTree::Neuron, layerItem);
+						neuronItem->setIndex(l, n, -1);
+
+						layerItem->addChildItem(neuronItem);
+
+						if(getVisibleWeightValues()){
+							for(int w = 0; w < wCount; w++){
+								data[0] = "w: " + QString::number(w);
+								data[1] = weights[l][n][w];
+								flags[0] = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+								flags[1] = getCanEditWeights() ? Qt::ItemIsEnabled | Qt::ItemIsEditable | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren : Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren;
+
+								weightItem = new ANNModelTree(data, flags, ANNModelTree::Weight, neuronItem);
+								weightItem->setIndex(l, n, w);
+
+								neuronItem->addChildItem(weightItem);
 							}
 						}
 					}
 				}
-				break;
 			}
-			case ann_base::ArtificialNeuralNetwork::Hopfiel:
-				break;
-			case ann_base::ArtificialNeuralNetwork::Kohonen:
-				break;
-
+			break;
 		}
+		case ann_base::ArtificialNeuralNetwork::Hopfiel:
+			break;
+		case ann_base::ArtificialNeuralNetwork::Kohonen:
+			break;
+
 	}
 }
 
-int ANNModelWrapper::getDeepLevel(const QModelIndex &index) const
+void ANNModelWrapper::updateTree()
 {
-	if(!index.isValid()) return 0;
-	QStringList data = static_cast<QString*>(index.internalPointer())->split(":");
-	return data.size();
+	switch(ann->getType()){
+		case ann_base::ArtificialNeuralNetwork::NoType:
+			break;
+		case ann_base::ArtificialNeuralNetwork::Adaline:
+			break;
+		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
+			break;
+		case ann_base::ArtificialNeuralNetwork::MultilayerPerceptron:
+		{
+			vector<vector<vector<double> > > weights = mlp->getWeights();
+
+			int
+					lCount = (int)weights.size(),
+					nCount = 0,
+					wCount = 0;
+			QVector<QVariant> data(2);
+			QVector<Qt::ItemFlags> flags(2);
+			ANNModelTree
+					*lItem,
+					*nItem,
+					*wItem;
+			int lastSize;
+
+			QVector<ANNModelTree*>
+					*rChildren = rootItem->getChildren(),
+					*lChildren,
+					*nChildren;
+
+			if(lCount != rChildren->size()){
+
+				lastSize = rChildren->size();
+
+				//Dont use resize to fill vector with new TreeItems because it will create new items with a value
+				//pointing the same address. At least that's what I believe. Probe it
+				rChildren->resize(lCount);
+
+				//this ensures each item is pointing to a diferent address
+				if(lastSize < lCount){
+					for(int i = lastSize; i < lCount; i++){
+						rChildren->operator [](i) = new ANNModelTree(QVector<QVariant>(2), QVector<Qt::ItemFlags>(2), ANNModelTree::Layer, 0);
+					}
+				}
+			}
+
+			for(int l = 0; l < lCount; l++){
+				nCount = (int)weights[l].size();
+				data[0] = l == lCount - 1 ?  "Output layer" : "Layer: " + QString::number(l);
+				data[1] = nCount;
+				flags[0] = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+				flags[1] = getCanEditLayerSize() ? Qt::ItemIsEnabled | Qt::ItemIsEditable | Qt::ItemIsSelectable : Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+
+				lItem = rootItem->getChildren()->operator [](l);
+
+				lItem->setData(data);
+				lItem->setFlags(flags);
+				lItem->setType(ANNModelTree::Layer);
+				lItem->setParent(rootItem);
+				lItem->setIndex(l, -1, -1);
+
+				if(getVisibleNeurons()){
+
+					lChildren = lItem->getChildren();
+
+					if(nCount != lChildren->size()){
+
+						lastSize = lItem->getChildren()->size();
+
+						lChildren->resize(nCount);
+
+						if(lastSize < nCount){
+							for(int i = lastSize; i < nCount; i++){
+								lChildren->operator [](i) = new ANNModelTree(QVector<QVariant>(2), QVector<Qt::ItemFlags>(2), ANNModelTree::Neuron, 0);
+							}
+						}
+					}
+					for(int n = 0; n < nCount; n++){
+						wCount = (int)weights[l][n].size();
+						data[0] = "Neuron: " + QString::number(n);
+						data[1] = wCount;
+						flags[0] = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+						flags[1] = flags[0];
+
+						nItem = lChildren->operator [](n);
+
+						nItem->setData(data);
+						nItem->setFlags(flags);
+						nItem->setType(ANNModelTree::Neuron);
+						nItem->setParent(lItem);
+						nItem->setIndex(l, n, -1);
+
+						if(getVisibleWeightValues()){
+
+							nChildren = nItem->getChildren();
+
+							if(wCount != nChildren->size()){
+
+								lastSize = nChildren->size();
+
+								nChildren->resize(wCount);
+
+								if(lastSize < wCount){
+									for(int i = lastSize; i < wCount; i++){
+										nItem->getChildren()->operator [](i) = new ANNModelTree(QVector<QVariant>(2), QVector<Qt::ItemFlags>(2), ANNModelTree::Weight, 0);
+									}
+								}
+							}
+							for(int w = 0; w < wCount; w++){
+								data[0] = "w: " + QString::number(w);
+								data[1] = weights[l][n][w];
+								flags[0] = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+								flags[1] = getCanEditWeights() ? Qt::ItemIsEnabled | Qt::ItemIsEditable | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren : Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren;
+
+								wItem = nItem->getChildren()->operator [](w);
+
+								wItem->setData(data);
+								wItem->setFlags(flags);
+								wItem->setType(ANNModelTree::Weight);
+								wItem->setParent(nItem);
+								wItem->setIndex(l, n, w);
+							}
+						}
+					}
+				}
+			}
+			break;
+		}
+		case ann_base::ArtificialNeuralNetwork::Hopfiel:
+			break;
+		case ann_base::ArtificialNeuralNetwork::Kohonen:
+			break;
+
+	}
 }
 
-QColor ANNModelWrapper::getWeightColor(double value, const vector<double> &vec) const
+QColor ANNModelWrapper::getWeightColor(double value, const QVector<ANNModelTree *> &sibling) const
 {
-	double
-			maxW = *max_element(vec.begin(), vec.end()),
-			minW = *min_element(vec.begin(), vec.end()),
-			nValue = fabs((value - minW)/(maxW - minW));
+	vector<double> vec(sibling.size());
 
-	int
-			rComponent = nValue <= 0.5 ? 255 : 512 * (1 - nValue),
-			gComponent = nValue <= 0.5 ? 512 * nValue : 255;
-
-	return QColor(rComponent, gComponent, 0);
-}
-QColor ANNModelWrapper::getWeightColor(double value, const QList<TreeItem *> &child) const
-{
-	vector<double> vec(child.size());
-
-	for(int i = 0; i < child.size(); i++){
-		vec[i] = child[i]->getData(1).toDouble();
+	for(int i = 0; i < sibling.size(); i++){
+		vec[i] = sibling[i]->getData(1).toDouble();
 	}
 
-	double
-			maxW = *max_element(vec.begin(), vec.end()),
-			minW = *min_element(vec.begin(), vec.end()),
-			nValue = fabs((value - minW)/(maxW - minW));
-
-	int
-			rComponent = nValue <= 0.5 ? 255 : 512 * (1 - nValue),
-			gComponent = nValue <= 0.5 ? 512 * nValue : 255;
-
-	return QColor(rComponent, gComponent, 0);
+	return getHeatColor(value, vec);
 }
 
-TreeItem *ANNModelWrapper::getItem(const QModelIndex &index) const
+ANNModelTree *ANNModelWrapper::getItem(const QModelIndex &index) const
 {
 	if (index.isValid()) {
-		TreeItem *item = static_cast<TreeItem*>(index.internalPointer());
+		ANNModelTree *item = static_cast<ANNModelTree*>(index.internalPointer());
 		if (item)
 			return item;
 	}

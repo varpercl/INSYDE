@@ -1,7 +1,10 @@
 #ifndef DEFINERULEDIALOG_H
 #define DEFINERULEDIALOG_H
 
-#include <QDialog>
+#include <QtWidgets>
+
+#include "share_ec_gui.h"
+
 
 namespace Ui {
 	class DefineRuleDialog;
@@ -16,7 +19,7 @@ namespace Ui {
   el uso de reglas es vital a la hora de crear un comportamiento en los agentes.
   */
 
-class DefineRuleDialog : public QDialog
+class EC_GUI_LIB_IMPORT_EXPORT DefineRuleDialog : public QDialog
 {
 		Q_OBJECT
 

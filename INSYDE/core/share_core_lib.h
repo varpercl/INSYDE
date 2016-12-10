@@ -1,0 +1,10 @@
+#ifndef IMPORT_H
+#define IMPORT_H
+
+#ifdef EXPORT_CORE_LIB
+#  define CORE_LIB_IMPORT_EXPORT Q_DECL_EXPORT
+#else
+#  define CORE_LIB_IMPORT_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // IMPORT_H

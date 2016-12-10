@@ -3,6 +3,7 @@
 
 #include <QtGui>
 
+#include "share_ann_gui_lib.h"
 #include "../ann_base/satrainingsettings.h"
 #include "../core/labeledintegerspinbox.h"
 #include "../core/labeleddoublespinbox.h"
@@ -17,7 +18,7 @@ using namespace ann_base;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT SimulatedAnnealingWidget : public QWidget
+class ANN_GUI_LIB_IMPORT_EXPORT SimulatedAnnealingWidget : public QWidget
 {
 	public:
 		explicit SimulatedAnnealingWidget(QWidget *parent = 0);

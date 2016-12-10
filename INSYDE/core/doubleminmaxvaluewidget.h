@@ -3,13 +3,17 @@
 
 #include <QtWidgets>
 
+#include "share_core_lib.h"
+#include "labeleddoublespinbox.h"
+
+
 /*!
  * \brief The DoubleMinMaxValueWidget class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class DoubleMinMaxWidget : public QWidget
+class CORE_LIB_IMPORT_EXPORT DoubleMinMaxWidget : public QWidget
 {
 	public:
 		explicit DoubleMinMaxWidget(QWidget *parent = 0);
@@ -45,8 +49,19 @@ class DoubleMinMaxWidget : public QWidget
 		void setMinDoubleSpinBox(QDoubleSpinBox *sb);
 		QDoubleSpinBox *getMinDoubleSpinBox() const;
 
+		void setAligment(Qt::Orientation alig);
+		Qt::Orientation getAlignment() const;
+
 	private:
 		Q_OBJECT
+
+		Qt::Orientation alignment;
+
+		LabeledDoubleSpinBox
+		*ldsbMin,
+		*ldsbMax;
+
+		QGridLayout *mainLayout;
 
 		void init(double min, double max);
 };

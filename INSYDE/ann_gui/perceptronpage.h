@@ -3,6 +3,7 @@
 
 #include <QtWidgets>
 
+#include "share_ann_gui_lib.h"
 #include "weighteditordialog.h"
 #include "../core/common.h"
 #include "trainingsetdialog.h"
@@ -23,7 +24,7 @@ class PerceptronDisplay;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT PerceptronPage : public QWizardPage
+class ANN_GUI_LIB_IMPORT_EXPORT PerceptronPage : public QWizardPage
 {
 
 	public:

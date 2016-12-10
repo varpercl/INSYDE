@@ -1,6 +1,7 @@
 #ifndef LABELEDINTEGERSPINBOXWIDGET_H
 #define LABELEDINTEGERSPINBOXWIDGET_H
 
+#include "share_core_lib.h"
 #include "labeledwidget.h"
 
 /*!
@@ -11,7 +12,7 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class LabeledIntegerSpinBox : public LabeledWidget
+class CORE_LIB_IMPORT_EXPORT LabeledIntegerSpinBox : public LabeledWidget
 {
 
 	public:
@@ -32,6 +33,10 @@ class LabeledIntegerSpinBox : public LabeledWidget
 		void setIntegerSpinBox(QSpinBox *sb);
 		QSpinBox *getIntegerSpinBox() const;
 
+		//TODO: 16/4/15 must implement set/get aligment
+
+		void setUnits(Units unit) Q_DECL_OVERRIDE;
+
 	signals:
 		void valueChanged(int val);
 
@@ -45,7 +50,6 @@ class LabeledIntegerSpinBox : public LabeledWidget
 		QSpinBox *sbValue;
 
 		void init(double value);
-
 };
 
 #endif // LABELEDINTEGERSPINBOXWIDGET_H

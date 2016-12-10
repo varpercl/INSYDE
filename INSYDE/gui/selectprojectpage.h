@@ -17,7 +17,7 @@ namespace Ui {
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT SelectProjectPage : public QWizardPage
+class SelectProjectPage : public QWizardPage
 {
 	public:
 

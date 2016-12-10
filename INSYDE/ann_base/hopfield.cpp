@@ -157,6 +157,18 @@ ArtificialNeuralNetwork::Type Hopfield::getType() const
 	return ArtificialNeuralNetwork::Hopfiel;
 }
 
+QString Hopfield::getName() const
+{
+	return "Hopfield";
+}
+
+void Hopfield::randomizeWeights(double min, double max)
+{
+	(void)min;
+	(void)max;
+	//TODO: 25/4/16 randomizeWeights implement
+}
+
 //void PropagateNet(NET* Net)
 //{
 //    int Iteration, IterationOfLastChange;

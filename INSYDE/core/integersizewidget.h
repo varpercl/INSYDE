@@ -3,6 +3,7 @@
 
 #include <QtWidgets>
 
+#include "share_core_lib.h"
 #include "labeledintegerspinbox.h"
 #include "interfaces.h"
 
@@ -13,11 +14,19 @@
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
+ *
+ * TODO: 16/4/16 upgrade this class to implement comonly used controls developed in this project (labeled-boxes)
  */
-class IntegerSizeWidget : public QWidget, public Resizable
+class CORE_LIB_IMPORT_EXPORT IntegerSizeWidget : public QWidget, public Resizable
 {
 	public:
 
+		enum Measure{
+			Width,
+			Height
+		};
+
+		//TODO: 16/4/15 should add volume, time units.
 		enum Units{
 			Nothing,
 			Pixels,
@@ -36,21 +45,33 @@ class IntegerSizeWidget : public QWidget, public Resizable
 		explicit IntegerSizeWidget(int width, int height, const QPair<Units, Units> &units = QPair<Units, Units>(Nothing, Nothing), QWidget *parent = 0);
 		~IntegerSizeWidget();
 
-		void setSize(const QSize &size);
-		QSize getSize() const;
+		void setSize(const QSize &size) override;
+		QSize getSize() const override;
 
 		void setUnits(const QPair<Units, Units> &units);
 		void setUnits(Units widthUnit, Units heightUnit);
 		QPair<Units, Units> getUnits() const;
 
-		void setWidth(int width);
+		void setWidth(int width) override;
 		int getWidth() const;
 
-		void setHeight(int height);
-		int getHeight() const;
+		void setHeight(int height) override;
+		int getHeight() const override;
 
 		void setLabelAlignment(const Qt::Alignment &al);
 		Qt::Alignment getLabelAlignment() const;
+
+		void setMinimumSizeValues(const QSize &min);
+		QSize getMinimumnSizeValues() const;
+
+		void setMinimumSizeValues(int w, int h);
+
+		void setMaximumSizeValues(const QSize &max);
+		QSize getMaximumSizeValues() const;
+
+		void setMaximumSizeValues(int w, int h);
+
+		LabeledIntegerSpinBox *getLabeledIntegerSpinBox(Measure dimention);
 
 	signals:
 

@@ -7,12 +7,13 @@
 #include <QGLWidget>
 #endif
 
-#include "imageeffect.h"
+#include "../core/imageeffect.h"
 #include "../core/image.h"
 #include "../ann_gui/addnewmlpdialog.h"
-#include "adddotmatrixdialog.h"
-#include "visor.h"
-#include "statusanimation.h"
+#include "../ann_gui/mlpobject.h"
+#include "../core/adddotmatrixdialog.h"
+#include "view.h"
+#include "simulationcontrol.h"
 #include "../ec_gui/addagentsdialog.h"
 #include "newprojectwizard.h"
 #include <math.h>
@@ -41,7 +42,7 @@ enum Render{
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT MainWindow : public QMainWindow
+class MainWindow : public QMainWindow
 {
 	private:
 		Q_OBJECT
@@ -69,10 +70,11 @@ class Q_DECL_EXPORT MainWindow : public QMainWindow
 		AddAgentsDialog *dlgAddAgents;
 
 		//Control del estado de la animacion
-		StatusAnimationControl *sta;
+		SimulationControl *sta;
 
+		View *view;
 		//Visor actual de la simulacion
-		Visor *visor;
+		QGraphicsView *visor;
 
 		//Estado actual de renderizacion
 		Render actualRender;

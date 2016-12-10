@@ -1,27 +1,21 @@
 #include "image.h"
 
-const QString Image::STR_IMAGE = "image";
-const QString Image::STR_IMAGE_DATA = "imagedata";
-
-const QString hola = "hola";
-
 Image::Image() :
 	GraphicObject()
 {
-	init(QImage());
+	init(new QImage());
 }
 
-Image::Image(const QImage &img) :
+Image::Image(QImage *img) :
 	GraphicObject()
 {
 	init(img);
 }
 
 Image::Image(const QString &imgpath) :
-	GraphicObject()
+    GraphicObject()
 {
-
-	init(QImage(imgpath));
+	init(imgpath);
 }
 
 Image::~Image()
@@ -30,35 +24,54 @@ Image::~Image()
 
 void Image::setImage(const QString &path)
 {
-	image = QImage(path);
+	*image = QImage(path);
+	this->path = path;
 
-	if(!image.isNull()){
-		snapshot = this->image.scaled(50, 50);
+	if(image->isNull()){
+		setContainerRect(QRectF(0, 0, thumbnailSize.width(), thumbnailSize.height()));
 	}else{
-		snapshot = QImage();
+		setContainerRect(showOnlyThumbnail ? getThumbnail(this->image)->rect() : this->image->rect());
 	}
 
-	setContainerRect(this->image.rect());
+	if(image->isNull()){
+		getOpenAction()->setEnabled(false);
+		getSaveAction()->setEnabled(false);
+		copyImageAction->setEnabled(false);
+	}else{
+		getPropertiesAction()->setEnabled(true);
+		getOpenAction()->setEnabled(true);
+		getSaveAction()->setEnabled(true);
+		copyImageAction->setEnabled(true);
+	}
 
-	emit imageChange(image);
+	emit imageChange(*image);
 }
 
-void Image::setImage(const QImage &image)
+void Image::setImage(QImage *image)
 {
 	this->image = image;
-
-	if(!image.isNull()){
-		snapshot = this->image.scaled(50, 50);
+	path = "";
+	if(image->isNull()){
+		setContainerRect(QRectF(0, 0, thumbnailSize.width(), thumbnailSize.height()));
 	}else{
-		snapshot = QImage();
+		setContainerRect(showOnlyThumbnail ? getThumbnail(this->image)->rect() : this->image->rect());
 	}
 
-	setContainerRect(this->image.rect());
+	if(image->isNull()){
+		getOpenAction()->setEnabled(false);
+		getSaveAction()->setEnabled(false);
+		copyImageAction->setEnabled(false);
+	}else{
+		getPropertiesAction()->setEnabled(true);
+		getOpenAction()->setEnabled(true);
+		getSaveAction()->setEnabled(true);
+		copyImageAction->setEnabled(true);
+	}
 
-	emit imageChange(this->image);
+	emit imageChange(*(this->image));
 }
 
-QImage Image::getImage() const
+QImage *Image::getImage() const
 {
 	return image;
 }
@@ -66,46 +79,46 @@ QImage Image::getImage() const
 void Image::setInputElement(GraphicObject *ge)
 {
 	switch(ge->type()){
-		case DotMatrix::DotMatrixObject:{
+		case GraphicObject::gotDotMatrix:{
 			DotMatrix *dm = dynamic_cast<DotMatrix*>(ge);
 			dm->setOutputElement(this);
 			connect(dm, SIGNAL(statusChanged(QVector<int>)), SLOT(onDotMatrixStatusChanged(QVector<int>)));
 			break;
 		}
-		case GraphicMLPElement::GraphicMLPElementType:{
-			GraphicMLPElement *mlpe = dynamic_cast<GraphicMLPElement*>(ge);
-			mlpe->setOutputElement(this);
-			connect(mlpe, SIGNAL(outputChanged(QVector<double>)), SLOT(onMLPOutputChanged(QVector<double>)));
-			break;
-		}
+//		case GraphicMLPElement::GraphicMLPElementType:{
+//			GraphicMLPElement *mlpe = dynamic_cast<GraphicMLPElement*>(ge);
+//			mlpe->setOutputElement(this);
+//			connect(mlpe, SIGNAL(outputChanged(QVector<double>)), SLOT(onMLPOutputChanged(QVector<double>)));
+//			break;
+//		}
 	}
 	inputElement = ge;
 }
 
 int Image::type() const
 {
-	return ImageObjectType;
+	return gotImage;
 }
 
 void Image::setSelectionRectVisible(bool rv)
 {
-	rectVisible = rv;
+	visibleSelRect = rv;
 }
 
 bool Image::getSelectionRectVisible() const
 {
-	return rectVisible;
+	return visibleSelRect;
 }
 
 void Image::setSelectionRect(const QRect &sr)
 {
-	rect = sr;
+	selRect = sr;
 	update();
 }
 
 QRect Image::getSelectionRect() const
 {
-	return rect;
+	return selRect;
 }
 
 void Image::setSelectionRectColor(const QColor &color)
@@ -120,37 +133,37 @@ QColor Image::getSelectionRectColor() const
 
 QImage Image::getImageSelection() const
 {
-	return image.copy(rect);
+	return image->copy(selRect);
 }
 
-void Image::setSize(const QSize &size)
+void Image::setImageSize(const QSize &size)
 {
-	image = image.scaled(size);
+	*image = image->scaled(size);
 }
 
-QSize Image::getSize() const
+QSize Image::getImageSize() const
 {
-	return image.size();
+	return image->size();
 }
 
-void Image::setWidth(int w)
+void Image::setImageWidth(int w)
 {
-	image = image.scaled(w, image.height());
+	*image = image->scaledToWidth(w, Qt::SmoothTransformation);
 }
 
-int Image::getWidth() const
+int Image::getImageWidth() const
 {
-	return image.width();
+	return image->width();
 }
 
-void Image::setHeight(int h)
+void Image::setImageHeight(int h)
 {
-	image = image.scaled(image.width(), h);
+	*image = image->scaledToHeight(h, Qt::SmoothTransformation);
 }
 
-int Image::getHeight() const
+int Image::getImageHeight() const
 {
-	return image.height();
+	return image->height();
 }
 
 void Image::setEnableCopyImage(bool enable)
@@ -163,105 +176,82 @@ bool Image::getEnableCopyImage() const
 	return copyImageAction->isVisible();
 }
 
+void Image::setThumbnailSize(const QSize &size)
+{
+	thumbnailSize = size;
+}
+
+QSize Image::getThumbnailSize() const
+{
+	return thumbnailSize;
+}
+
 void Image::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
 	GraphicObject::mousePressEvent(event);
-	mouseMoveEvent(event);
+
+	if(visibleSelRect){
+		updateSelRect(event->pos());
+		update();
+	}
 }
 
 void Image::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
 	GraphicObject::mouseMoveEvent(event);
 
-	if(event->buttons() & Qt::LeftButton){
-		int
-				imageW = image.width(),
-				imageH = image.height();
+	if(visibleSelRect){
+		if(flags() & QGraphicsItem::ItemIsMovable) return;
 
-		double
-				mouseX = event->pos().x(),
-				mouseY = event->pos().y(),
-				rectW = rect.width(),
-				rectH = rect.height(),
-				midRectW = rectW / 2,
-				midRectH = rectH / 2;
+		updateSelRect(event->pos());
+		update();
+	}
+}
 
-		//En primera instancia se verifica que el recuadro se encuentre en la region interna de la imagen
-		if(mouseX <= imageW - midRectW &&
-		   mouseX >= midRectW &&
-		   mouseY <= imageH - midRectH &&
-		   mouseY >= midRectH){
+void Image::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+{
+	GraphicObject::hoverMoveEvent(event);
 
-			rect.moveTopLeft(QPoint(mouseX - midRectW, mouseY - midRectH));
-
-			//Se verifica si el puntero se encuentra en la esquina superior izquierda
-		}else if(mouseX < midRectW && mouseY < midRectH){
-
-			rect.moveTopLeft(QPoint(0, 0));
-
-			//Se verifica si el puntero se encuentra en la esquina superior derecha
-		}else if(mouseX > imageW - midRectW && mouseY < midRectH){
-
-			rect.moveTopRight(QPoint(imageW, 0));
-
-			//Se verifica si el puntero se encuentra en la esquina inferior izquierda
-		}else if(mouseX < midRectW && mouseY > imageH - midRectH){
-
-			rect.moveBottomLeft(QPoint(0, imageH));
-
-			//Se verifica si el puntero se encuentra en la esquina inferior derecha
-		}else if(mouseX > imageW - midRectW && mouseY > imageH - midRectH){
-
-			rect.moveBottomRight(QPoint(imageW, imageH));
-
-			//Se verifica si el puntero se encuentra en la banda derecha
-		}else if(mouseX > imageW - midRectW){
-
-			rect.moveTopLeft(QPoint(imageW - rectW, mouseY - midRectH));
-
-			//Se verifica si el puntero se encuentra en la banda izquierda
-		}else if(mouseX < midRectW){
-
-			rect.moveTopLeft(QPoint(0, mouseY - midRectH));
-
-			//Se verifica si el puntero se encuentra en la banda inferior
-		}else if(mouseY > imageH - midRectH){
-
-			rect.moveTopLeft(QPoint(mouseX - midRectW, imageH - rectW));
-
-			//Se verifica si el puntero se encuentra en la banda superior
-		}else if(mouseY < midRectH){
-
-			rect.moveTopLeft(QPoint(mouseX - midRectW, 0));
-
+	if(visibleSelRect){
+		if(selRect.contains(event->pos().toPoint())){
+			mouseIsOverSelectionRect = true;
+		}else{
+			mouseIsOverSelectionRect = false;
 		}
-	}
 
-	if(rect.contains(event->pos().toPoint())){
-		mouseIsOverSelectionRect = true;
-	}else{
-		mouseIsOverSelectionRect = false;
+		update();
 	}
-
-	update();
 }
 
 void Image::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	GraphicObject::paint(painter, option, widget);
 
-	painter->save();
+    painter->save();
 
-	painter->drawImage(QPoint(0,0), image);
-	if(mouseIsOverSelectionRect){
-		painter->setOpacity(0.2);
+	if(image->isNull()){
+		const int iconSize = 32;
+
+		QRectF rect = getContainerRect();
+		QPointF iconPoint = rect.center();
+
+		painter->fillRect(rect, Qt::white);
+		painter->drawPixmap(iconPoint.x() - (iconSize / 2), iconPoint.y() - (iconSize / 2), ICON_NOIMAGE.pixmap(iconSize, iconSize));
 	}else{
-		painter->setOpacity(0.5);
-	}
-	painter->fillRect(rect, Qt::black);
-	painter->drawRect(rect);
+		painter->drawImage(0, 0, showOnlyThumbnail ? *getThumbnail(image) : *image);
 
-	painter->restore();
+		if(visibleSelRect && selRect.width() > 0 && selRect.height() > 0){
+			if(mouseIsOverSelectionRect){
+				painter->setOpacity(0.2);
+			}else{
+				painter->setOpacity(0.5);
+			}
+			painter->fillRect(selRect, Qt::black);
+			//		painter->drawRect(selRect);
+		}
+	}
+
+    painter->restore();
 }
 
 void Image::copyClick()
@@ -279,10 +269,9 @@ void Image::copyClick()
 
 void Image::copyImageClick()
 {
-	//NOTE: This method could be totaly replaced by copyClick
 	clip = QApplication::clipboard();
 
-	clip->setImage(image);
+	clip->setImage(*image);
 }
 
 void Image::cutClick()
@@ -306,30 +295,18 @@ void Image::saveClick()
 												"Imagen de mapa de bits (*.bmp) ;; Portable Network Graphics (*.png) ;; Imagen JPEG (*.jpg) ;; Imagen de intercambio grafico (*.gif)",
 												&selectedFilter);
 
-	QImage img = getImage();
+	QImage *img = getImage();
 
 	if(path != ""){
-		img.save(path);
+		img->save(path);
 	}
 }
 
 void Image::propertyClick()
 {
-	ImagePropertyDialog *giepd = new ImagePropertyDialog();
+	ImagePropertyDialog *ipd = new ImagePropertyDialog(this);
 
-	giepd->exec();
-}
-
-void Image::openClick()
-{
-	//TODO: implementar
-//	QGraphicsWidget *gw = (QGraphicsWidget*)this->scene()->parent();
-//	QWidget *qw = (QWidget*)gw->parent();
-
-//	QTabWidget *tw = (QTabWidget*)qw->parentWidget()->parentWidget();
-
-//	ImageDetailedWindow *giedw = new ImageDetailedWindow(image);
-//	tw->addTab(giedw, "Imagen");
+	ipd->exec();
 }
 
 void Image::onChangeImageClick()
@@ -340,7 +317,7 @@ void Image::onChangeImageClick()
 												"Mapa de bits (*.bmp);; Formato JPEG (*.jpg);; Portable Network Graphics (*.png);; Formato de Intercambio de Graficos (*.gif)");
 
 	if(path != ""){
-		this->setImage(QImage(path));
+		this->setImage(path);
 	}
 }
 
@@ -352,7 +329,7 @@ QString Image::getXML() const
 	QByteArray bytes;
 	QBuffer buffer(&bytes);
 	buffer.open(QIODevice::WriteOnly);
-	image.save(&buffer, "PNG");
+	image->save(&buffer, "PNG");
 
 	xmlWriter.setAutoFormatting(true);
 	xmlWriter.setAutoFormattingIndent(3);
@@ -368,13 +345,180 @@ QString Image::getXML() const
 	return output;
 }
 
-void Image::init(const QImage &img)
+void Image::setShowOnlyThumbnail(bool b)
 {
+	showOnlyThumbnail = b;
+//	scene()->setSceneRect(showOnlyThumbnail ? getThumbnail(image).rect() : image.rect());
+	setContainerRect(showOnlyThumbnail ? getThumbnail(image)->rect() : image->rect());
+	update();
+}
+
+bool Image::getShowOnlyThumbnail() const
+{
+	return showOnlyThumbnail;
+}
+
+
+QString Image::getFilePath() const
+{
+	return path;
+}
+
+QStringList Image::getFormats() const
+{
+	return QStringList() <<
+							"Mono" <<
+							"MonoLSB" <<
+							"Indexed8" <<
+							"RGB32" <<
+							"ARGB32" <<
+							"ARGB32 Premultiplied" <<
+							"RGB16" <<
+							"ARGB8565 Premultiplied" <<
+							"RGB666" <<
+							"ARGB6666 Premultiplied" <<
+							"RGB555" <<
+							"ARGB8555 Premultiplied" <<
+							"RGB888" <<
+							"RGB444" <<
+							"ARGB4444 Premultiplied" <<
+							"RGBX8888" <<
+							"RGBA8888" <<
+							"RGBA8888 Premultiplied" <<
+							"BGR30" <<
+							"A2BGR30 Premultiplied" <<
+							"RGB30" <<
+							"A2RGB30 Premultiplied";
+
+}
+
+void Image::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+	(void)event;
+	if(image->isNull()){
+		propertyClick();
+	}
+}
+
+void Image::init(QImage *img)
+{
+	image = img;
+
+	setup();
+
+	setImage(img);
+}
+
+void Image::init(const QString &path)
+{
+	image = new QImage(path);
+
+	setup();
+
+	setImage(path);
+}
+
+QImage *Image::getThumbnail(QImage *img)
+{
+	int
+			imgWidth = img->width(),
+			imgHeight = img->height(),
+			maxImgWidth = thumbnailSize.width(),
+			maxImgHeight = thumbnailSize.height();
+
+	if(imgWidth > maxImgWidth || imgHeight > maxImgHeight){
+
+		if(imgWidth >= imgHeight){
+			*thumbnail = image->scaled(maxImgWidth, imgHeight, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+		}else{
+			*thumbnail = image->scaled(imgWidth, maxImgHeight, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+		}
+
+		return thumbnail;
+	}else{
+		return image;
+	}
+}
+
+void Image::updateSelRect(const QPointF &pos)
+{
+	QImage *thumb = showOnlyThumbnail ? getThumbnail(image) : image;
+	int
+			imageW = thumb->width(),
+			imageH = thumb->height();
+
+	double
+			mouseX = pos.x(),
+			mouseY = pos.y(),
+			rectW = selRect.width(),
+			rectH = selRect.height(),
+			midRectW = rectW / 2,
+			midRectH = rectH / 2;
+
+	//En primera instancia se verifica que el recuadro se encuentre en la region interna de la imagen
+	if(mouseX <= imageW - midRectW &&
+	   mouseX >= midRectW &&
+	   mouseY <= imageH - midRectH &&
+	   mouseY >= midRectH){
+
+		selRect.moveCenter(pos.toPoint());
+//		selRect.moveTopLeft(QPoint(mouseX - midRectW, mouseY - midRectH));
+
+		//Se verifica si el puntero se encuentra en la esquina superior izquierda
+	}else if(mouseX < midRectW && mouseY < midRectH){
+
+		selRect.moveTopLeft(QPoint(0, 0));
+
+		//Se verifica si el puntero se encuentra en la esquina superior derecha
+	}else if(mouseX > imageW - midRectW && mouseY < midRectH){
+
+		selRect.moveTopRight(QPoint(imageW-2, 0));
+
+		//Se verifica si el puntero se encuentra en la esquina inferior izquierda
+	}else if(mouseX < midRectW && mouseY > imageH - midRectH){
+
+		selRect.moveBottomLeft(QPoint(1, imageH-2));
+
+		//Se verifica si el puntero se encuentra en la esquina inferior derecha
+	}else if(mouseX > imageW - midRectW && mouseY > imageH - midRectH){
+
+		selRect.moveBottomRight(QPoint(imageW-2, imageH-2));
+
+		//Se verifica si el puntero se encuentra en la banda derecha
+	}else if(mouseX > imageW - midRectW){
+
+		selRect.moveTopLeft(QPoint(imageW - rectW-1, mouseY - midRectH-1));
+
+		//Se verifica si el puntero se encuentra en la banda izquierda
+	}else if(mouseX < midRectW){
+
+		selRect.moveTopLeft(QPoint(0, mouseY - midRectH-1));
+
+		//Se verifica si el puntero se encuentra en la banda inferior
+	}else if(mouseY > imageH - midRectH){
+
+		selRect.moveTopLeft(QPoint(mouseX - midRectW-1, imageH - rectW-1));
+
+		//Se verifica si el puntero se encuentra en la banda superior
+	}else if(mouseY < midRectH){
+
+		selRect.moveTopLeft(QPoint(mouseX - midRectW-1, 0));
+
+	}
+}
+
+void Image::setup()
+{
+	thumbnail = new QImage();
+
 	copyImageAction = new QAction(QIcon(), "Copiar imagen", this);
 	contextMenu.insertAction(getCutAction(), copyImageAction);
 
-	setImage(img);
-	setSelectionRect(QRect());
+	thumbnailSize = QSize(100, 100);
+
+	showOnlyThumbnail = true;
+
+	setSelectionRect(QRect(0, 0, 15, 15));
 	setSelectionRectColor(qRgb(0, 0, 0));
 	setSelectionRectVisible(false);
 

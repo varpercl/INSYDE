@@ -11,11 +11,12 @@
 #include "../core/imagedetailedwindow.h"
 #include "../core/dotmatrix.h"
 #include "../core/common.h"
-#include "../core/icons.h"
+#include "../core/definitions.h"
 #include "../ann_base/trainingsetfile.h"
 #include "../ann_base/trainingset.h"
-#include "../gui/selectimagesegmentdialog.h"
+#include "../core/selectimagesegmentdialog.h"
 
+#include "share_ann_gui_lib.h"
 #include "trainingsettable.h"
 
 using namespace std;
@@ -33,7 +34,7 @@ class PerceptronTrainingPattern;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT TrainingSetDialog : public BasicDialog
+class ANN_GUI_LIB_IMPORT_EXPORT TrainingSetDialog : public BasicDialog
 {
 
 	public:
@@ -46,6 +47,8 @@ class Q_DECL_EXPORT TrainingSetDialog : public BasicDialog
 			MultipleInputsAndTargets,
 			MultipleInputsOneTarget
 		};
+
+		explicit TrainingSetDialog(QWidget *parent = 0);
 
 		//		explicit TrainingSetDialog(TrainingSetType type, QWidget *parent = 0);
 
@@ -75,6 +78,8 @@ class Q_DECL_EXPORT TrainingSetDialog : public BasicDialog
 		 */
 		explicit TrainingSetDialog(const vector<vector<double> > &inputs, int is, const vector<vector<double> > &targets, int ts, QWidget *parent = 0);
 
+		explicit TrainingSetDialog(ArtificialNeuralNetwork *ann, QWidget *parent = 0);
+
 		~TrainingSetDialog();
 
 		/*!
@@ -90,6 +95,11 @@ class Q_DECL_EXPORT TrainingSetDialog : public BasicDialog
 		TrainingSet *getTrainingSet() const;
 
 	public slots:
+
+		/*!
+		 * \brief onExportClick
+		 */
+		void onExportClick();
 
 		/*!
 		 * \brief onInputChanged
@@ -114,6 +124,8 @@ class Q_DECL_EXPORT TrainingSetDialog : public BasicDialog
 		 */
 		void saveClick();
 
+		void saveAsClick();
+
 		/*!
 		 * \brief openClick
 		 */
@@ -124,6 +136,7 @@ class Q_DECL_EXPORT TrainingSetDialog : public BasicDialog
 		void pasteClick();
 
 		void newClick();
+
 
 	private slots:
 
@@ -154,8 +167,26 @@ class Q_DECL_EXPORT TrainingSetDialog : public BasicDialog
 		void onTargetsWidthChanged(int width);
 		void onTargetsHeightChanged(int height);
 
+		void deleteRows();
+		void deleteColumns();
+
+		void onInputsSizeChanged(int val);
+		void onTargetsSizeChanged(int val);
+
+		void onInputsNormalizationChanged(Normalization *nor);
+		void onTargetsNormalizationChanged(Normalization *nor);
+
 	private:
 		Q_OBJECT
+
+		bool
+		isEditingTS;
+
+		TrainingSetFile *currentFile;
+
+		LabeledIntegerSpinBox
+		*lisbInputsSize,
+		*lisbTargetsSize;
 
 		TrainingSet
 		*ts;
@@ -171,7 +202,6 @@ class Q_DECL_EXPORT TrainingSetDialog : public BasicDialog
 		TrainingSetTable
 		//TrainingSetTable Inputs
 		*tstInputs,
-
 		//TrainingSetTable Targets
 		*tstTargets;
 
@@ -197,6 +227,10 @@ class Q_DECL_EXPORT TrainingSetDialog : public BasicDialog
 		*addPatternButton,
 		*delPatternButton;
 
+		QAction
+		*actionDeleteRow,
+		*actionDeleteCol;
+
 		QToolBar *mainToolBar;
 
 		bool importingInputs;
@@ -216,6 +250,10 @@ class Q_DECL_EXPORT TrainingSetDialog : public BasicDialog
 		 * \brief connectTrainingSetSignals
 		 */
 		void connectTrainingSetSignals();
+
+		QMessageBox::StandardButton askForLosingInformation();
+
+		void beginOpenDialog();
 
 };
 #endif // TRAININGSETDIALOG_H

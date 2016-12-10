@@ -1,16 +1,17 @@
 #include "adaline.h"
 
-using namespace ann_base;
 using namespace math;
 
-void Adaline::initADALINE(int ninputs, double *weights, TransferFunctionType ft){
+namespace ann_base{
+
+void Adaline::init(int ninputs, double *weights, TransferFunctionType ft){
 	setWeights(ninputs, weights);
 	setAlfa(1);
 	setThreshold(getRandomValues(1)[0]);
 	setTransferFunction(ft);
 }
 
-void Adaline::initADALINE(int ninputs, TransferFunctionType ft)
+void Adaline::init(int ninputs, TransferFunctionType ft)
 {
 	if(ninputs > 0){
 		setAlfa(1);
@@ -21,7 +22,7 @@ void Adaline::initADALINE(int ninputs, TransferFunctionType ft)
 	}
 }
 
-void Adaline::initADALINE(const vector<double> &weights, TransferFunctionType tf)
+void Adaline::init(const vector<double> &weights, TransferFunctionType tf)
 {
 	size_t sWeights = weights.size();
 	if(sWeights > 0){
@@ -36,24 +37,24 @@ void Adaline::initADALINE(const vector<double> &weights, TransferFunctionType tf
 
 Adaline::Adaline(int ninputs, TransferFunctionType tf)
 {
-	initADALINE(ninputs, tf);
+	init(ninputs, tf);
 }
 
 Adaline::Adaline(int ninputs, double *weights, Adaline::TransferFunctionType tf)
 {
-	initADALINE(ninputs, weights, tf);
+	init(ninputs, weights, tf);
 }
 
 
 Adaline::Adaline(const vector<double> &weights, TransferFunctionType tf)
 {
-	initADALINE(weights, tf);
+	init(weights, tf);
 }
 
 void Adaline::setNumberInputs(size_t n)
 {
 	if(n != weights.size()){
-		setWeights(getRandomValues(n));
+		setWeights(getRandomValues((int)n));
 		setThreshold(getRandomValues(1)[0]);
 	}else{
 		qWarning("No se realizo cambio alguno porque el numero de entradas no vario");
@@ -62,12 +63,12 @@ void Adaline::setNumberInputs(size_t n)
 
 int Adaline::getNumberInputs()
 {
-	return weights.size();
+	return (int)weights.size();
 }
 
 void Adaline::setWeights(double *w)
 {
-	int sInputs = weights.size();
+	int sInputs = (int)weights.size();
 	for(int i = 0; i < sInputs; i++){
 		weights.push_back(w[i]);
 	}
@@ -143,10 +144,10 @@ double Adaline::getOutput(const vector<double> &data)
 	return 0;
 }
 
-void Adaline::randomizeWeights()
+void Adaline::randomizeWeights(double min, double max)
 {
-	setWeights(getRandomValues(weights.size()));
-	threshold = getRandomValues(1)[0];
+	setWeights(getRandomValues((int)weights.size(), min, max));
+	threshold = getRandomValues(1, min, max)[0];
 }
 
 void Adaline::setAlfa(double value)
@@ -168,6 +169,11 @@ double Adaline::getAlfa()
 ArtificialNeuralNetwork::Type Adaline::getType() const
 {
 	return ArtificialNeuralNetwork::Adaline;
+}
+
+QString Adaline::getName() const
+{
+	return "Adaline";
 }
 
 Adaline::TrainResult Adaline::train(const vector<vector<double> > &inputs, const vector<double> &targets, double error, int nEpochs, double learningFactor, Adaline::WeightUpdateType wut)
@@ -248,7 +254,7 @@ Adaline::TrainResult Adaline::train(const vector<vector<double> > &inputs, const
 
 Adaline::TrainResult Adaline::train(vector<AdalineTrainingPattern> &ts, double error, int nEpochs, double learningFactor, Adaline::WeightUpdateType wut)
 {
-	Q_UNUSED(wut);
+	(void)wut;
 
 	size_t sTS = ts.size();
 	vector<vector<double> > inputs(sTS);
@@ -261,25 +267,4 @@ Adaline::TrainResult Adaline::train(vector<AdalineTrainingPattern> &ts, double e
 	return train(inputs, outputs, error, nEpochs, learningFactor);
 }
 
-AdalineTrainingPattern::AdalineTrainingPattern(int ninputs) :
-	SimpleInputPattern(ninputs)
-{
-	output = 0;
 }
-
-AdalineTrainingPattern::AdalineTrainingPattern(const vector<double> &inputs, double output) :
-	SimpleInputPattern(inputs)
-{
-	this->output = output;
-}
-
-void AdalineTrainingPattern::setOutput(double out)
-{
-	output = out;
-}
-
-double AdalineTrainingPattern::getOutput() const
-{
-	return output;
-}
-

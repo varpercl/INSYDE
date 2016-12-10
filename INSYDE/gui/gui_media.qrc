@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>media/icons/Pause-32.png</file>
+        <file>media/icons/Play1Disabled_32.png</file>
+        <file>media/icons/Play1Hot_32 (1).png</file>
+        <file>media/icons/Play1Normal_32.png</file>
+        <file>media/icons/Play-1-Hot-icon.png</file>
+        <file>media/icons/matriz.png</file>
+        <file>media/icons/pause_32.png</file>
+        <file>media/icons/puntos.jpg</file>
+        <file>media/icons/manzana-verde.jpg</file>
+        <file>media/icons/add_effect_icon.jpg</file>
+        <file>media/icons/conjuntos.gif</file>
+        <file>media/icons/Agent_icon.png</file>
+    </qresource>
+</RCC>

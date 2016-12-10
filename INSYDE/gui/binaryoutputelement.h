@@ -3,19 +3,21 @@
 
 #include <vector>
 #include "../core/graphicobject.h"
-#include "../ann_gui/graphicmlpelement.h"
+#include "../ann_gui/mlpobject.h"
 
 using namespace std;
 
-class GraphicMLPElement;
+class MLPObject;
 
 /*!
  * \brief The BinaryOutputElement class
  *
+ * \deprecated Replaced by DotMatrix
+ *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT BinaryOutputElement : public GraphicObject
+class BinaryOutputElement : public GraphicObject
 {
 	public:
 
@@ -64,7 +66,7 @@ class Q_DECL_EXPORT BinaryOutputElement : public GraphicObject
 
 		void onInputChanged(QVector<double> input);
 		void propertyClick();
-		void openClick();
+		void openOnWindowClick();
 
 	private:
 		Q_OBJECT

@@ -4,15 +4,13 @@
 #include <QStandardItemModel>
 #include <QFile>
 
-#include <../examples/tools/TableModel.h>
-
 /*!
  * \brief The PlotterData class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT PlotterData : public QStandardItemModel
+class PlotterData : public QStandardItemModel
 {
 	public:
 		PlotterData();

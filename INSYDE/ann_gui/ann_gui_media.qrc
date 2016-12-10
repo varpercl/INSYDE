@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>media/Multi-Layer_Neural_Network-Vector.png</file>
+        <file>media/adaline.gif</file>
+        <file>media/analytics-icon.png</file>
+        <file>media/artificial neural network.png</file>
+        <file>media/hopfield.jpg</file>
+        <file>media/perceptron.png</file>
+        <file>media/perceptron2.png</file>
+        <file>media/perceptron multicapa.png</file>
+    </qresource>
+</RCC>

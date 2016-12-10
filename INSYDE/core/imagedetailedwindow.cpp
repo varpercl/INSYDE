@@ -1,24 +1,34 @@
 #include "imagedetailedwindow.h"
 
-ImageDetailedWindow::ImageDetailedWindow(const QImage &image, QWidget *parent) :
+ImageDetailedWindow::ImageDetailedWindow(QWidget *parent) :
+	DetailedWindow(parent)
+{
+	init(new QImage());
+}
+
+ImageDetailedWindow::ImageDetailedWindow(QImage *image, QWidget *parent) :
 	DetailedWindow(parent)
 {
 	init(image);
 }
 
-void ImageDetailedWindow::setImage(const QImage &img)
+ImageDetailedWindow::~ImageDetailedWindow()
 {
-//	QGraphicsPixmapItem *pmItm = dynamic_cast<QGraphicsPixmapItem*>(itm);
-	pmItm->setImage(img);
-	rect->setRect(pmItm->boundingRect().adjusted(-1, -1, 0, 0));
-	getGraphicsView()->scene()->setSceneRect(pmItm->boundingRect());
-	getGraphicsView()->update();
-}//setImage
 
-QImage ImageDetailedWindow::getImage() const
+}
+
+void ImageDetailedWindow::setImage(QImage *img)
+{
+	pmItm->setImage(img);
+
+	getGraphicsDetailedView()->scene()->setSceneRect(pmItm->boundingRect().adjusted(-10, -10, 10, 10));
+	getGraphicsDetailedView()->update();
+}
+
+QImage *ImageDetailedWindow::getImage() const
 {
 	return pmItm->getImage();
-}//getImage
+}
 
 QImage ImageDetailedWindow::getImageSegment() const
 {
@@ -28,47 +38,47 @@ QImage ImageDetailedWindow::getImageSegment() const
 void ImageDetailedWindow::setImageObject(Image *pmitm)
 {
 	pmItm = pmitm;
-}//setGraphicsPixmapItem
+}
 
 Image *ImageDetailedWindow::getImageObject()
 {
 	return pmItm;
-}//getGraphicsPixmapItem
+}
 
-void ImageDetailedWindow::setBorderVisible(bool bv)
-{
-	rect->setVisible(bv);
-}//setBorderVisible
+//void ImageDetailedWindow::setBorderVisible(bool bv)
+//{
+//	pmItm->setBorder();
+//}
 
-bool ImageDetailedWindow::getBorderVisible() const
-{
-	return rect->isVisible();
-}//getBorderVisible
+//bool ImageDetailedWindow::getBorderVisible() const
+//{
+//	return rect->isVisible();
+//}
 
-void ImageDetailedWindow::setBorderColor(const QColor &color)
-{
-	rect->setPen(QPen(color));
-}//setBorderColor
+//void ImageDetailedWindow::setBorderColor(const QColor &color)
+//{
+//	rect->setPen(QPen(color));
+//}
 
-QColor ImageDetailedWindow::getBorderColor() const
-{
-	return rect->pen().color();
-}//getBorderColor
+//QColor ImageDetailedWindow::getBorderColor() const
+//{
+//	return rect->pen().color();
+//}
 
 void ImageDetailedWindow::setSelectionRectVisible(bool srv)
 {
 	pmItm->setSelectionRectVisible(srv);
-}//setSelectionRectVisible
+}
 
 bool ImageDetailedWindow::getSelectionRectVisible() const
 {
 	return pmItm->getSelectionRectVisible();
-}//getSelectionRectVisible
+}
 
 void ImageDetailedWindow::setSelectionRectColor(const QColor &color)
 {
 	pmItm->setSelectionRectColor(color);
-}//setSelectionRectColor
+}
 
 QColor ImageDetailedWindow::getSelectionRectColor() const
 {
@@ -85,19 +95,21 @@ QRect ImageDetailedWindow::getSelectionRect() const
 	return pmItm->getSelectionRect();
 }
 
-void ImageDetailedWindow::init(const QImage &img)
+void ImageDetailedWindow::init(QImage *img)
 {
-	pmItm = new Image();
+	pmItm = new Image(img);
 
-	rect = new QGraphicsRectItem();
+	getGraphicsDetailedView()->scene()->addItem(pmItm);
+
+	pmItm->getRemoveAction()->setVisible(false);
+	pmItm->getCutAction()->setVisible(false);
+	pmItm->getPasteAction()->setVisible(false);
+	pmItm->getOpenAction()->setVisible(false);
+	pmItm->setShowOnlyThumbnail(false);
+	pmItm->setFlag(Image::ItemIsMovable, false);
 
 	setImage(img);
 
-	getGraphicsView()->scene()->addItem(pmItm);
-	getGraphicsView()->scene()->addItem(rect);
-
-	pmItm->grabMouse();
-
 	setEnableZooming(true);
 
-}//initWindow
+}

@@ -3,10 +3,11 @@
 
 #include <QtWidgets>
 
+#include "share_core_lib.h"
 #include "interfaces.h"
-#include "icons.h"
+#include "definitions.h"
 
-class BasicTree : public QTreeView, public ClipboardInterface
+class CORE_LIB_IMPORT_EXPORT BasicTree : public QTreeView, public ClipboardInterface
 {
 	public:
 

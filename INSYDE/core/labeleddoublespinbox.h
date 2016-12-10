@@ -3,6 +3,7 @@
 
 #include <QtWidgets>
 
+#include "share_core_lib.h"
 #include "labeledwidget.h"
 
 /*!
@@ -13,7 +14,7 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class LabeledDoubleSpinBox : public LabeledWidget
+class CORE_LIB_IMPORT_EXPORT LabeledDoubleSpinBox : public LabeledWidget
 {
 
 	public:

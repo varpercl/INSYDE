@@ -1,9 +1,12 @@
 #ifndef SAMPLESDIALOG_H
 #define SAMPLESDIALOG_H
 
+#define IMPORT_ANN_BASE_LIB
+
 #include <QtGui>
 #include <QtWidgets>
 
+#include "share_ann_gui_lib.h"
 #include "../ann_base/mlp.h"
 
 using namespace ann_base;
@@ -20,7 +23,7 @@ namespace Ui {
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT SamplesDialog : public QDialog
+class ANN_GUI_LIB_IMPORT_EXPORT SamplesDialog : public QDialog
 {
 
 	public:

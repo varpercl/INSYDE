@@ -6,6 +6,12 @@ DotMatrixDetailedWindow::DotMatrixDetailedWindow(const vector<double> &data, QWi
 	init(data);
 }
 
+DotMatrixDetailedWindow::DotMatrixDetailedWindow(DotMatrix *dm, QWidget *parent) :
+	DetailedWindow(parent)
+{
+	init(dm);
+}
+
 DotMatrixDetailedWindow::~DotMatrixDetailedWindow()
 {
 
@@ -23,35 +29,35 @@ DotMatrix *DotMatrixDetailedWindow::getDotMatrixObject() const
 	return dm;
 }
 
-void DotMatrixDetailedWindow::setSize(const QSize &size)
+void DotMatrixDetailedWindow::setSize(const QSizeF &size)
 {
 	dm->setSize(size);
-	getGraphicsView()->setSceneRect(dm->boundingRect());
+	getGraphicsDetailedView()->setSceneRect(dm->boundingRect());
 }
 
-QSize DotMatrixDetailedWindow::getSize() const
+QSizeF DotMatrixDetailedWindow::getSize() const
 {
 	return dm->getSize();
 }
 
-void DotMatrixDetailedWindow::setWidth(int w)
+void DotMatrixDetailedWindow::setWidth(double w)
 {
 	dm->setCols(w);
-	getGraphicsView()->setSceneRect(dm->boundingRect());
+	getGraphicsDetailedView()->setSceneRect(dm->boundingRect());
 }
 
-int DotMatrixDetailedWindow::getWidth() const
+double DotMatrixDetailedWindow::getWidth() const
 {
 	return dm->getCols();
 }
 
-void DotMatrixDetailedWindow::setHeight(int h)
+void DotMatrixDetailedWindow::setHeight(double h)
 {
 	dm->setRows(h);
-	getGraphicsView()->setSceneRect(dm->boundingRect());
+	getGraphicsDetailedView()->setSceneRect(dm->boundingRect());
 }
 
-int DotMatrixDetailedWindow::getHeight() const
+double DotMatrixDetailedWindow::getHeight() const
 {
 	return dm->getRows();
 }
@@ -73,12 +79,30 @@ void DotMatrixDetailedWindow::save()
 
 void DotMatrixDetailedWindow::init(const vector<double> &data)
 {
-	pair<int, int> wh = common::getWidthHeight(data.size());
+	pair<int, int> wh = common::getWidthHeight((int)data.size());
 
 	dm = new DotMatrix(3, wh.first, wh.second);
-	dm->setFlag(QGraphicsItem::ItemIsMovable, false);
+
 	dm->setInputs(data);
 
-	getGraphicsView()->scene()->addItem(dm);
+	setupUI();
+}
+
+void DotMatrixDetailedWindow::init(DotMatrix *dm)
+{
+	this->dm = dm;
+
+	setupUI();
+}
+
+void DotMatrixDetailedWindow::setupUI()
+{
+	dm->setObjectLocked(true);
+	dm->getLockAction()->setVisible(false);
+//	dm->getPropertiesAction()->setEnabled(false);
+	dm->getOpenAction()->setVisible(false);
+	dm->getRemoveAction()->setVisible(false);
+
+	getGraphicsDetailedView()->scene()->addItem(dm);
 }
 

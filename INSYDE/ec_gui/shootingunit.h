@@ -3,6 +3,7 @@
 
 #include <QtCore>
 
+#include "share_ec_gui.h"
 #include "../core/common.h"
 #include "ofensiveunit.h"
 #include "shootingweapon.h"
@@ -29,7 +30,7 @@ class Unit;
   establecidos por el usuario, es la base de otros tipos de unidades.
 
   */
-class Q_DECL_EXPORT ShootingUnit : public OfensiveUnit
+class EC_GUI_LIB_IMPORT_EXPORT ShootingUnit : public OfensiveUnit
 {
 		Q_OBJECT
 

@@ -7,24 +7,29 @@
 #include <KDChart/KDChartPlotter>
 #include <KDChart/KDChartThreeDBarAttributes>
 
+#include "share_ann_gui_lib.h"
 #include "samplesdialog.h"
 #include "simulatedannealingwidget.h"
 #include "trainingsetdialog.h"
-#include "graphicmlpelement.h"
+#include "mlpobject.h"
 #include "weighteditordialog.h"
 
 #include "../core/labeledintegerspinbox.h"
 #include "../core/common.h"
-#include "../core/icons.h"
+#include "../core/definitions.h"
 #include "../core/basicdialog.h"
 #include "../core/labeledcombobox.h"
 #include "../core/labeledintegerspinbox.h"
 
 #include "../ann_base/mlp.h"
+#include "../ann_base/adaline.h"
+#include "../ann_base/hopfield.h"
+#include "../ann_base/kohonen.h"
+#include "../ann_base/simpleperceptron.h"
 
 
 class TrainingSetDialog;
-class GraphicMLPElement;
+class MLPObject;
 
 
 /*!
@@ -35,7 +40,7 @@ class GraphicMLPElement;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
+class ANN_GUI_LIB_IMPORT_EXPORT ANNTrainingDialog : public BasicDialog
 {
 	public:
 
@@ -50,9 +55,9 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 		/*!
 		 * \brief ANNTrainingDialog
 		 * \param mlp
-		 * \param ts
-		 * \param vs
-		 * \param testset
+		 * \param ts Training set
+		 * \param vs Validation set
+		 * \param testset Test set
 		 * \param parent
 		 */
 		explicit ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, TrainingSet *vs, TrainingSet *testset, QWidget *parent = 0);
@@ -63,9 +68,22 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 		 * \param gmlp
 		 * \param parent
 		 */
-		explicit ANNTrainingDialog(GraphicMLPElement *gmlp, QWidget *parent = 0);
+		explicit ANNTrainingDialog(MLPObject *gmlp, QWidget *parent = 0);
 
 		~ANNTrainingDialog();
+
+		/*!
+		 * \brief setUsingScrollArea This method stablish if want to show all graph and entire dialog inside a scroll
+		 * area. Is suitable when the dialog becomes too big and all controlls don't fit in the screen
+		 * \param u Indicate if you want or not to fit all controlls inside a scroll area
+		 */
+		void setUsingScrollArea(bool u);
+
+		/*!
+		 * \brief getUsingScrollArea Returns if is configured to fit all controlls inside a scroll area.
+		 * \return
+		 */
+		bool getUsingScrollArea() const;
 
 		void setTrainingSet(TrainingSet *ts);
 		TrainingSet *getTrainingSet() const;
@@ -76,7 +94,7 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 		void setTestSet(TrainingSet *ts);
 		TrainingSet *getTestSet() const;
 
-		void setMultilayerPerceptron(MultilayerPerceptron *mlp);
+		void setArtificialNeuralNetwork(MultilayerPerceptron *mlp);
 		MultilayerPerceptron *getMultilayerPerceptron() const;
 
 		void saveClick();
@@ -90,26 +108,65 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 		 *
 		 * TODO: 5/9/15 implement canChangeANNType
 		 */
-		void canEditANNType(bool b);
+		void setCanEditANNType(bool b);
+
+		/*!
+		 * \brief getCanEditANNType
+		 * \return
+		 */
+		bool getCanEditANNType() const;
 
 		/*!
 		 * \brief canEditInputSize Indicate if user can edit ANN input size. It's restrictive for some cases, for
 		 * example, SimplePerceptron, ADALINE, HOPFIELD, wich have particular output/input size properties.
 		 * \param b
 		 */
-		void canEditInputSize(bool b);
+		void setCanEditInputSize(bool b);
+
+		/*!
+		 * \brief getCanEditInputSize
+		 * \return
+		 */
+		bool getCanEditInputSize() const;
 
 		/*!
 		 * \brief canEditOutputSize Indicate if user can edit ANN output size. It's restrictive for some cases, for
 		 * example, SimplePerceptron, ADALINE, HOPFIELD, wich have particular output/input size properties.
 		 * \param b
 		 */
-		void canEditOutputSize(bool b);
+		void setCanEditOutputSize(bool b);
+
+		/*!
+		 * \brief getCanEditOutputSize
+		 * \return
+		 */
+		bool getCanEditOutputSize() const;
+
+		/*!
+		 * \brief setEnableMultipleTraining
+		 * \param b
+		 */
+		void setEnableMultipleTraining(bool b);
+
+		/*!
+		 * \brief getEnableMultipleTraining
+		 * \return
+		 */
+		bool getEnableMultipleTraining() const;
 
 	protected:
+
+		/*!
+		 * \brief closeEvent
+		 */
 		void closeEvent(QCloseEvent *);
 
 	private slots:
+
+		/*!
+		 * \brief onOuputSizeChanged
+		 */
+		void onOuputSizeChanged();
 
 		/**
 		 * @brief exportData Exporta los datos obtenidos durante el entrenamiento de la red neuronal
@@ -168,6 +225,16 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 
 		void generateReport();
 
+		void onANNInputChanged(int value);
+
+		void onANNOutputChanged(int value);
+
+		void onAnnTypeSelectionChanged(int index);
+
+		void onRndFromValueChanged(double value);
+
+		void onRndToValueChanged(double value);
+
 	private:
 		Q_OBJECT
 
@@ -179,6 +246,19 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 			Stopping,
 			Stopped
 		};
+
+		bool
+		usingScrollArea,
+		canEditInSize,
+		canEditOutSize,
+		canEditANN;
+
+		//Neural Networks
+		MultilayerPerceptron *mlp;
+		Adaline *adaline;
+		Hopfield *hopfield;
+		Kohonen *kohonen;
+		SimplePerceptron *sp;
 
 		WeightEditorDialog *weightEditor;
 
@@ -202,7 +282,8 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 
 		LabeledComboBox
 		*lcbAlgorithm,
-		*lcbTransferFunction;
+		*lcbTransferFunction,
+		*lcbANNType;
 
 		QVBoxLayout
 		*vlyMainScrollArea,
@@ -269,8 +350,7 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 		*actionStartTraining,
 		*actionStopTraining;
 
-		QMutex mutex;
-		//		MLPTrainingResult *trainingResults;
+//		QMutex mutex;
 
 		KDChart::Legend *legend;
 
@@ -312,10 +392,8 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 		*validationSet,
 		*testSet;
 
-		ANNModelWrapper *annModel;
-
-		//Objeto con la algoritmia para el entrenamiento del MLP
-		MultilayerPerceptron *mlp;
+		ANNModelWrapper
+		*annModel;
 
 		//Cuadro de dialogo del conjunto de entrenamiento
 		TrainingSetDialog
@@ -351,6 +429,9 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 		 */
 		void setBPEnabledControls(bool enabled);
 
+		/*!
+		 * \brief updateSAControls
+		 */
 		void updateSAControls();
 
 		/*!
@@ -366,9 +447,19 @@ class Q_DECL_EXPORT ANNTrainingDialog : public BasicDialog
 		 */
 		bool isValidTrainingSet(TrainingSet *ts);
 
+		/*!
+		 * \brief setTrainingStatus Establish the different status before, during or after training.
+		 * \param ts Current status to set
+		 */
 		void setTrainingStatus(TrainingStatus ts);
 
-		void updateTableLayers();
+		/*!
+		 * \brief updateControls Update all control positions and visibility according to ANN type
+		 * \param type
+		 */
+		void updateControls(ArtificialNeuralNetwork *ann);
+
+
 };
 
 #endif // MLPTRAININGDIALOG_H

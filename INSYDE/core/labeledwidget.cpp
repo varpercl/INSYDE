@@ -61,6 +61,16 @@ QLabel *LabeledWidget::getLabel() const
 	return label;
 }
 
+void LabeledWidget::setUnits(LabeledWidget::Units unit)
+{
+	units = unit;
+}
+
+LabeledWidget::Units LabeledWidget::getUnits() const
+{
+	return units;
+}
+
 void LabeledWidget::init(const QString &str, const Position &pos)
 {
 	label = new QLabel();

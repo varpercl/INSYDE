@@ -1,17 +1,16 @@
 
-
 TEMPLATE = subdirs
 
 #Esta configurado por defecto
-#CONFIG += ordered
+CONFIG += ordered
 
 SUBDIRS = \
 core \
 ann_base \
 ec_base \
-ga_base \
+#ga_base \
 ann_gui \
+#ga_gui \
 ec_gui \
-ga_gui \
+#erp \
 gui \
-    erp

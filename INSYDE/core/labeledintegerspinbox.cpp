@@ -55,6 +55,52 @@ QSpinBox *LabeledIntegerSpinBox::getIntegerSpinBox() const
 	return sbValue;
 }
 
+void LabeledIntegerSpinBox::setUnits(LabeledWidget::Units unit)
+{
+	LabeledWidget::setUnits(unit);
+
+	switch(unit){
+		case LabeledWidget::Percentaje:
+			sbValue->setSuffix(" %");
+			break;
+		case LabeledWidget::Pixels:
+			sbValue->setSuffix(" px");
+			break;
+		case LabeledWidget::Dots:
+			sbValue->setSuffix(" dots");
+			break;
+		case LabeledWidget::Points:
+			sbValue->setSuffix(" pt");
+			break;
+		case LabeledWidget::Milimeters:
+			sbValue->setSuffix(" mm");
+			break;
+		case LabeledWidget::Centimeters:
+			sbValue->setSuffix(" cm");
+			break;
+		case LabeledWidget::Kilometers:
+			sbValue->setSuffix(" Km");
+			break;
+		case LabeledWidget::Meters:
+			sbValue->setSuffix(" m");
+			break;
+		case LabeledWidget::Inches:
+			sbValue->setSuffix(" in");
+			break;
+		case LabeledWidget::Feets:
+			sbValue->setSuffix(" ft");
+			break;
+		case LabeledWidget::Miles:
+			sbValue->setSuffix(" mi");
+			break;
+
+		case LabeledWidget::Nothing:
+		default:
+			break;
+	}
+	sbValue->update();
+}
+
 void LabeledIntegerSpinBox::onValueChanged(int val)
 {
 	emit valueChanged(val);

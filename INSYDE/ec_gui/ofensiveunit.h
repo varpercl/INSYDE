@@ -5,6 +5,7 @@
 #include <QtGui>
 #include <qmath.h>
 
+#include "share_ec_gui.h"
 #include "unit.h"
 
 class Unit;
@@ -18,7 +19,7 @@ class Unit;
   por el usuario, es la base de otros tipos de unidades ofensivas mas especificas como MeleeUnit y ShootingUnit
 
   */
-class OfensiveUnit : public Unit
+class EC_GUI_LIB_IMPORT_EXPORT OfensiveUnit : public Unit
 {
 		Q_OBJECT
 

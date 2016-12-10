@@ -5,17 +5,18 @@
     #define _ISOC99_SOURCE
 #endif
 
-#ifdef WIN32
-	#ifndef NAN
-		static const unsigned long __nan[2] = {0xffffffff, 0x7fffffff};
-		#define NAN (*(const float *) __nan)
-	#endif
-#endif
+//#ifdef WIN32
+//	#ifndef NAN
+//		static const unsigned long __nan[2] = {0xffffffff, 0x7fffffff};
+//		#define NAN (*(const float *) __nan)
+//	#endif
+//#endif
 
 #include <QtCore>
 #include <stdlib.h>
 #include <math.h>
 
+#include "share_ec_gui.h"
 #include "actuador.h"
 #include "shootingunit.h"
 #include <signal.h>
@@ -35,7 +36,7 @@ class Unit;
   de pistola.
 
   */
-class ShootingWeapon : public Actuator
+class EC_GUI_LIB_IMPORT_EXPORT ShootingWeapon : public Actuator
 {
 		Q_OBJECT
 

@@ -4,7 +4,8 @@
 #include <QtCore>
 #include <QtGui>
 #include <math.h>
-//#include <agent.h>
+
+#include "share_ec_gui.h"
 
 class Agent;
 
@@ -22,7 +23,7 @@ class Agent;
   @see Actuator
 
   */
-class Sensor : public QObject{
+class EC_GUI_LIB_IMPORT_EXPORT Sensor : public QObject{
 
 		Q_OBJECT
 

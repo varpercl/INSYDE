@@ -2,28 +2,19 @@
 #include "ui_addnewmlpdialog.h"
 
 AddNewMLPDialog::AddNewMLPDialog(QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::addNewMLPDialog)
+	BasicDialog(parent)
 {
-	ui->setupUi(this);
-
-	QStringList headers;
-	headers.append("Capa");
-	headers.append("Elementos");
-
-	ui->tblLayers->setHorizontalHeaderLabels(headers);
+	init();
 }
 
 AddNewMLPDialog::~AddNewMLPDialog()
 {
-	delete ui;
+
 }
-
-
 
 MultilayerPerceptron::TransferFunctionType AddNewMLPDialog::getTransferFunction()
 {
-	switch(ui->cbTrasnferFunction->currentIndex()){
+	switch(lcbTrasnferFunction->getComboBox()->currentIndex()){
 		case 0:
 			return MultilayerPerceptron::Sigmoid;
 		case 1:
@@ -34,33 +25,33 @@ MultilayerPerceptron::TransferFunctionType AddNewMLPDialog::getTransferFunction(
 
 int AddNewMLPDialog::getInputSize()
 {
-	return ui->sbInputSize->value();
+	return lisbInputSize->getValue();
 }
 
 int AddNewMLPDialog::getOutputSize()
 {
-	return ui->sbOutputSize->value();
+	return lisbOutputSize->getValue();
 }
 
 double AddNewMLPDialog::getSlope()
 {
-	return ui->sbSlope->value();
+	return ldsbSlope->getValue();
 }
 
 vector<int> AddNewMLPDialog::getLayerSizes()
 {
 	vector<int> sizes;
-	int rows = ui->tblLayers->rowCount();
+	int rows = tblLayers->rowCount();
 	for(int i = 0; i < rows; i++){
-		sizes.push_back(ui->tblLayers->item(i, 1)->text().toInt());
+		sizes.push_back(tblLayers->item(i, 1)->text().toInt());
 	}
 	return sizes;
 }
 
-void AddNewMLPDialog::on_buttonBox_accepted()
+void AddNewMLPDialog::accept()
 {
 	if(checkLayers()){
-		accept();
+		done(1);
 	}else{
 		QMessageBox msgBox;
 		msgBox.setIcon(QMessageBox::Critical);
@@ -71,39 +62,28 @@ void AddNewMLPDialog::on_buttonBox_accepted()
 		msgBox.setDefaultButton(connectButton);
 		int ret = msgBox.exec();
 		if(ret == QMessageBox::Cancel){
-			reject();
+			done(0);
 		}
 	}
 }
 
 void AddNewMLPDialog::on_btnAddLayer_clicked()
 {
-	bool ok = false;
-	QString val = QString::number(QInputDialog::getInt(this,
-													   "Numero de elementos",
-													   "Neuronas",
-													   10,
-													   1,
-													   999999,
-													   1,
-													   &ok));
-	if(ok){
-		ui->tblLayers->setRowCount(ui->tblLayers->rowCount() + 1);
-//		ui->tblLayers->setItem(ui->tblLayers->rowCount()-1, 1, new QTableWidgetItem(val));
+	tblLayers->setRowCount(tblLayers->rowCount() + 1);
+	//		tblLayers->setItem(tblLayers->rowCount()-1, 1, new QTableWidgetItem(val));
 
-		QTableWidgetItem *layerNumberCell = new QTableWidgetItem(QString::number(ui->tblLayers->rowCount()));
-		layerNumberCell->setFlags(Qt::ItemIsEnabled);
-		layerNumberCell->setTextAlignment(Qt::AlignHCenter);
-		ui->tblLayers->setItem(ui->tblLayers->rowCount()-1, 0, layerNumberCell);
-		QTableWidgetItem *nElementsCell = new QTableWidgetItem(val);
-		nElementsCell->setTextAlignment(Qt::AlignHCenter);
-		ui->tblLayers->setItem(ui->tblLayers->rowCount()-1, 1, nElementsCell);
-	}
+	QTableWidgetItem *layerNumberCell = new QTableWidgetItem(QString::number(tblLayers->rowCount()));
+	layerNumberCell->setFlags(Qt::ItemIsEnabled);
+	layerNumberCell->setTextAlignment(Qt::AlignHCenter);
+	tblLayers->setItem(tblLayers->rowCount()-1, 0, layerNumberCell);
+	QTableWidgetItem *nElementsCell = new QTableWidgetItem("20");
+	nElementsCell->setTextAlignment(Qt::AlignHCenter);
+	tblLayers->setItem(tblLayers->rowCount()-1, 1, nElementsCell);
 }
 
 void AddNewMLPDialog::on_btnDeleteLayer_clicked()
 {
-	ui->tblLayers->setRowCount(ui->tblLayers->rowCount() - 1);
+	tblLayers->setRowCount(tblLayers->rowCount() - 1);
 }
 
 void AddNewMLPDialog::on_buttonBox_rejected()
@@ -111,12 +91,86 @@ void AddNewMLPDialog::on_buttonBox_rejected()
 	reject();
 }
 
+void AddNewMLPDialog::init()
+{
+	//QVBoxLayout
+	mainLayout = new QVBoxLayout();
+	vlyBtnLayout = new QVBoxLayout();
+
+	//QHBoxLayout
+	hlyLayers = new QHBoxLayout();
+
+	//LabeledIntegerSpinBox
+	lisbInputSize = new LabeledIntegerSpinBox("Entradas", 20);
+	lisbOutputSize = new LabeledIntegerSpinBox("Salidas", 10);
+
+	//QTableWidget
+	tblLayers = new QTableWidget();
+
+	btnAddLayer = new QToolButton();
+	btnDeleteLayer = new QToolButton();
+
+	lcbTrasnferFunction = new LabeledComboBox(QString::fromLatin1("Función de transferencia"), QStringList()<< "Sigmoide" << "Tangente hiperbolica");
+
+
+	QStringList headers;
+	headers.append("Capa");
+	headers.append("Elementos");
+
+	tblLayers->setEditTriggers(QAbstractItemView::DoubleClicked|QAbstractItemView::SelectedClicked);
+	tblLayers->setAlternatingRowColors(true);
+	tblLayers->setColumnCount(2);
+	tblLayers->horizontalHeader()->setCascadingSectionResizes(false);
+//    tblLayers->horizontalHeader()->setDefaultSectionSize(74);
+//    tblLayers->horizontalHeader()->setMinimumSectionSize(27);
+//    tblLayers->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
+	tblLayers->horizontalHeader()->setStretchLastSection(false);
+	tblLayers->horizontalHeader()->setVisible(true);
+	tblLayers->verticalHeader()->setVisible(false);
+	tblLayers->setHorizontalHeaderLabels(headers);
+
+	hlyLayers->addWidget(tblLayers);
+
+	btnAddLayer->setIcon(ICON_PLUS);
+	btnAddLayer->setText("Add layer");
+
+	btnDeleteLayer->setIcon(ICON_MINUS);
+	btnDeleteLayer->setText("Remove layer");
+
+	vlyBtnLayout->addWidget(btnAddLayer);
+	vlyBtnLayout->addWidget(btnDeleteLayer);
+	vlyBtnLayout->addStretch(1);
+
+	hlyLayers->addLayout(vlyBtnLayout);
+
+	mainLayout->addWidget(lisbInputSize);
+	mainLayout->addWidget(lisbOutputSize);
+	mainLayout->addLayout(hlyLayers);
+	mainLayout->addWidget(lcbTrasnferFunction);
+
+	getMainWindow()->centralWidget()->setLayout(mainLayout);
+
+	setApplyButtonVisible(false);
+	setHelpButtonVisible(false);
+	getMainWindow()->menuBar()->hide();
+	getMainToolbar()->hide();
+
+	on_btnAddLayer_clicked();
+
+	connect(btnAddLayer, SIGNAL(clicked()), SLOT(on_btnAddLayer_clicked()));
+	connect(btnDeleteLayer, SIGNAL(clicked()), SLOT(on_btnDeleteLayer_clicked()));
+	getAcceptButton()->disconnect(SIGNAL(clicked()));
+	connect(getAcceptButton(), SIGNAL(clicked()), SLOT(accept()));
+}
+
 bool AddNewMLPDialog::checkLayers()
 {
-	if(ui->sbInputSize->value() > 0 && ui->sbOutputSize->value() > 0){
-		if(ui->tblLayers->rowCount() > 0){
-			for(int i = 0; i < ui->tblLayers->rowCount(); i++){
-				if(ui->tblLayers->item(i, 1)->text().toInt() == 0){
+	if(lisbInputSize->getValue() > 0 && lisbOutputSize->getValue() > 0){
+		if(tblLayers->rowCount() > 0){
+			for(int i = 0; i < tblLayers->rowCount(); i++){
+				QString txtItem(tblLayers->item(i, 1)->text());
+				int value = txtItem.toInt();
+				if(value == 0){
 					return false;
 				}
 			}

@@ -3,6 +3,16 @@
 
 #include <QtWidgets>
 
+#include "share_core_lib.h"
+#include "basicdialog.h"
+#include "integersizewidget.h"
+#include "labeledintegerspinbox.h"
+#include "dotmatrix.h"
+#include "labeledcombobox.h"
+#include "graphicobjectpropertydialog.h"
+
+class DotMatrix;
+
 /*!
  * \class
  *
@@ -11,25 +21,57 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class Q_DECL_EXPORT DotMatrixPropertyDialog : public QDialog
+class CORE_LIB_IMPORT_EXPORT DotMatrixPropertyDialog : public GraphicObjectPropertyDialog
 {
 
 	public:
+
 		/*!
 		 * \brief DotMatrixPropertyDialog
+		 * \param dm
 		 * \param parent
 		 */
-		explicit DotMatrixPropertyDialog(QWidget *parent = 0);
+		explicit DotMatrixPropertyDialog(DotMatrix *dm, QWidget *parent = 0);
 
 		~DotMatrixPropertyDialog();
+
+	public slots:
+
+		/*!
+		 * \brief onApplyClicked Throwed when user clicks apply button
+		 */
+		void onApplyClicked();
+
+		void accept();
 
 	private:
 		Q_OBJECT
 
+		DotMatrix *dm;
+
+		LabeledComboBox
+		*lcbDataTypes;
+
+		IntegerSizeWidget
+		*iswSize;
+
+		LabeledIntegerSpinBox
+		*lisbDotSize,
+		*lisbInputSize;
+
+		QVBoxLayout
+		*mainLayout,
+		*vlyGBConfig,
+		*vlyGBView;
+
+		QGroupBox
+		*gbConfig,
+		*gbView;
+
 		/*!
 		 * \brief init
 		 */
-		void init();
+		void init(DotMatrix *dm);
 };
 
 #endif // DOTMATRIXELEMENTPROPERTYDIALOG_H

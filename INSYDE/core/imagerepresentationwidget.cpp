@@ -16,7 +16,8 @@ void ImageRepresentationWidget::setInputs(const vector<double> &datainput)
 	DataRepresentationWidget::setInputs(datainput);
 
 	if(updatesEnabled()){
-		giedw->setImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs()));
+
+		giedw->setImage(new QImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs())));
 	}
 }
 
@@ -24,10 +25,10 @@ void ImageRepresentationWidget::setWidth(int w)
 {
 	isw->setWidth(w);
 	if(updatesEnabled()){
-		giedw->setImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs()));
+		giedw->setImage(new QImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs())));
 	}
 
-	emit imageSizeChanged(QSize(w, isw->getHeight()));
+	emit sizeChanged(QSize(w, isw->getHeight()));
 }
 
 int ImageRepresentationWidget::getWidth() const
@@ -39,10 +40,10 @@ void ImageRepresentationWidget::setHeight(int h)
 {
 	isw->setHeight(h);
 	if(updatesEnabled()){
-		giedw->setImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs()));
+		giedw->setImage(new QImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs())));
 	}
 
-	emit imageSizeChanged(QSize(isw->getWidth(), h));
+	emit sizeChanged(QSize(isw->getWidth(), h));
 }
 
 int ImageRepresentationWidget::getHeight() const
@@ -54,10 +55,10 @@ void ImageRepresentationWidget::setSize(const QSize &size)
 {
 	isw->setSize(size);
 	if(updatesEnabled()){
-		giedw->setImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs()));
+		giedw->setImage(new QImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs())));
 	}
 
-	emit imageSizeChanged(size);
+	emit sizeChanged(size);
 }
 
 QSize ImageRepresentationWidget::getSize() const
@@ -74,10 +75,10 @@ void ImageRepresentationWidget::onSizeValueChanged(const QSize &size)
 {
 	(void) size;
 	if(updatesEnabled()){
-		giedw->setImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs()));
+		giedw->setImage(new QImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs())));
 	}
 
-	emit imageSizeChanged(size);
+	emit sizeChanged(size);
 }
 
 void ImageRepresentationWidget::on_cbImageFormat_currentIndexChanged(int index)
@@ -113,10 +114,10 @@ void ImageRepresentationWidget::setImageFormat(const QImage::Format &value)
 {
 	imageFormat = value;
 
-	cbImageFormat->getComboBox()->setCurrentIndex((int)(value) - 1);
+	lcbImageFormat->getComboBox()->setCurrentIndex((int)(value) - 1);
 
 	if(updatesEnabled()){
-		giedw->setImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs()));
+		giedw->setImage(new QImage(imageFromData(isw->getWidth(), isw->getHeight(), getInputs())));
 	}
 
 	emit imageFormatChanged(value);
@@ -140,14 +141,15 @@ void ImageRepresentationWidget::init()
 
 	horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-	pair<int, int> wh = getWidthHeight(getInputs().size());
+	pair<int, int> wh = getWidthHeight((int)getInputs().size());
 	isw = new IntegerSizeWidget(QSize(wh.first, wh.second),
 								QPair<IntegerSizeWidget::Units, IntegerSizeWidget::Units>(IntegerSizeWidget::Pixels, IntegerSizeWidget::Pixels));
+	isw->setMinimumSizeValues(0, 0);
 
-	cbImageFormat = new LabeledComboBox("Formato");
+	lcbImageFormat = new LabeledComboBox("Formato");
 
 	frmLayout = new QHBoxLayout();
-	frmLayout->addWidget(cbImageFormat);
+	frmLayout->addWidget(lcbImageFormat);
 	frmLayout->addWidget(cbxIgnoreAlpha);
 //	frmLayout->addItem(horizontalSpacer);
 
@@ -160,7 +162,7 @@ void ImageRepresentationWidget::init()
 	gbDimentions->setLayout(gbVLayout);
 
 
-	cbImageFormat->getComboBox()->addItems(QStringList()
+	lcbImageFormat->getComboBox()->addItems(QStringList()
 								<< "Mono"
 								<< "MonoLSB"
 								<< "Indexed8"
@@ -180,13 +182,13 @@ void ImageRepresentationWidget::init()
 								<< "RGBA8888"
 								<< "RGBA8888 Premultiplied");
 
-	cbImageFormat->getComboBox()->setCurrentIndex(4);
+	lcbImageFormat->getComboBox()->setCurrentIndex(4);
 	imageFormat = (QImage::Format_ARGB32);
 	emit imageFormatChanged(imageFormat);
 
-	giedw = new ImageDetailedWindow(QImage(isw->getWidth(), isw->getHeight(), imageFormat));
+	giedw = new ImageDetailedWindow(new QImage(isw->getWidth(), isw->getHeight(), imageFormat));
 	giedw->setWindowTitle(QString::fromLatin1("Visualización"));
-	giedw->setBorderColor(qRgb(127, 127, 127));
+//	giedw->setBorderColor(qRgb(127, 127, 127));
 
 	layout()->addWidget(gbDimentions);
 	layout()->addWidget(giedw);
