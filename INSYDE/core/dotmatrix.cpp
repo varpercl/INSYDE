@@ -26,7 +26,7 @@ DotMatrix::DotMatrix(int dotsize, int rows, int cols, const DotMatrix::DataType 
 	init(dotsize, rows, cols, dt);
 }
 
-DotMatrix::DotMatrix(QVector<DotMatrix::Dot> *dotList, int dotsize, int rows, int cols, const DotMatrix::DataType &dt)
+DotMatrix::DotMatrix(QVector<Dot> *dotList, int dotsize, int rows, int cols, const DotMatrix::DataType &dt)
 {
 	//QVector
 	ptsList = dotList;
@@ -429,7 +429,7 @@ bool DotMatrix::getEnableEraserPen() const
 	return enableEraser;
 }
 
-void DotMatrix::setDotList(QVector<DotMatrix::Dot> *dots)
+void DotMatrix::setDotList(QVector<Dot> *dots)
 {
 	ptsList = dots;
 	update(getContainerRect());
@@ -563,9 +563,14 @@ void DotMatrix::updateMouseRectangle(const QPointF &pos)
 void DotMatrix::updateCurRowAndColIndexes(const QPointF &pos)
 {
 	int
-			row = pos.x() / size,
-			col = pos.y() / size;
+            row = pos.x() / size,
+            col = pos.y() / size;
 
 	curRowIndex = row < rows ? row : rows - 1;
 	curColIndex = col < cols ? col : cols - 1;
+}
+
+bool operator ==(const DotMatrix::Dot &dotleft, const DotMatrix::Dot &dotright)
+{
+    return dotleft.row == dotright.row && dotright.col == dotleft.col;
 }

@@ -6,7 +6,6 @@ CONFIG += qt thread shared_and_static
 #CONFIG(release, debug|release):message("Staring RELEASE build for ann_base sources") #will print
 #CONFIG(debug, debug|release):message("Staring DEBUG build for ann_base sources") #no print
 
-TARGET = ann_base
 
 TEMPLATE = lib
 
@@ -59,21 +58,55 @@ hopfield.cpp \
     adalinetrainingpattern.cpp \
     kohonen.cpp
 
-LIBS += \
--L$$DESTDIR -lcore \
+win32:contains(QMAKE_HOST.arch, x86_64):{
+	message("Host is 64bit")
 
+}
 win32:{
 
-    CONFIG(release, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-    }
-    CONFIG(debug, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
-    }
+#	QMAKE_LFLAGS += /MACHINE:X64
+
+	CONFIG(release, debug|release):{#RELEASE
+		message("Building release binaries for ann_base module");
+
+		QMAKE_CXXFLAGS += /MD
+
+		TARGET = ann_base
+
+		contains(QMAKE_HOST.arch, x86): {
+
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchart2 \
+		}
+
+		contains(QMAKE_HOST.arch, x64): {
+
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchart2 \
+		}
+
+		LIBS += -L$$DESTDIR -lcore \
+	}else{ #DEBUG
+		message("Building debug binaries for ann_core module");
+
+		QMAKE_CXXFLAGS += /MDd
+
+		TARGET = ann_base_debug
+		contains(QMAKE_HOST.arch, x86): {
+			message("ann_base module platform is x86");
+
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb_debug \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
+		}
+		contains(QMAKE_HOST.arch, x64): {
+			message("ann_base module platform is x64");
+
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
+		}
+		LIBS += -L$$DESTDIR -lcore_debug \
+
+	}
 
     INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
     DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include

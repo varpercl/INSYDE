@@ -1,0 +1,37 @@
+﻿  Moc'ing mlp.h...
+  Moc'ing mlptrainingresult.h...
+  Moc'ing trainingresult.h...
+  Moc'ing trainingset.h...
+  Moc'ing trainingsetfile.h...
+  adaline.cpp
+  adalinetrainingpattern.cpp
+  artificialneuralnetwork.cpp
+  bptrainingsettings.cpp
+  hopfield.cpp
+  kohonen.cpp
+  mlp.cpp
+mlp.cpp(161): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+mlp.cpp(340): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+mlp.cpp(345): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+mlp.cpp(380): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+mlp.cpp(404): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+mlp.cpp(413): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  mlppattern.cpp
+  mlptrainingresult.cpp
+  moc_mlp.cpp
+  moc_mlptrainingresult.cpp
+  moc_trainingresult.cpp
+  moc_trainingset.cpp
+  moc_trainingsetfile.cpp
+  perceptrontrainingpattern.cpp
+  satrainingsettings.cpp
+  simplepattern.cpp
+  simpleperceptron.cpp
+  simpleperceptronfile.cpp
+  trainingresult.cpp
+  Generating Code...
+  Compiling...
+  trainingset.cpp
+  trainingsetfile.cpp
+  Generating Code...
+  ann_base.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE\INSYDE\ann_base\..\ann_base.lib

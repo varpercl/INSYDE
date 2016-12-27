@@ -6,7 +6,6 @@ CONFIG += qt shared_and_static
 #CONFIG(release, debug|release):message("Staring RELEASE build for ec_gui sources") #will print
 #CONFIG(debug, debug|release):message("Staring DEBUG build for ec_gui sources") #no print
 
-TARGET = ec_gui
 
 TEMPLATE = lib
 
@@ -69,20 +68,23 @@ FORMS += \
     defineruledialog.ui
 
 
-LIBS += \
--L$$DESTDIR -lcore \
 
 win32:{
+#	QMAKE_LFLAGS += /MACHINE:X64
 
     CONFIG(release, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-    }
-    CONFIG(debug, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
+		TARGET = ec_gui
+
+		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb \
+				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
+				-L$$DESTDIR -lcore \
+	}else
+	{
+		TARGET = ec_gui_debug
+
+		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
+				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
+				-L$$DESTDIR -lcore_debug \
     }
 
     INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include

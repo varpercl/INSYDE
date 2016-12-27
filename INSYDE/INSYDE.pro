@@ -4,6 +4,8 @@ TEMPLATE = subdirs
 #Esta configurado por defecto
 CONFIG += ordered
 
+QMAKE_LINK += /MACHINE:X64
+
 SUBDIRS = \
 core \
 ann_base \

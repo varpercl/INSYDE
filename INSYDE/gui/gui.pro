@@ -59,24 +59,33 @@ FORMS += \
 RESOURCES += \
     gui_media.qrc
 
-LIBS += \
--L$$DESTDIR -lcore \
--L$$DESTDIR -lann_base \
--L$$DESTDIR -lann_gui\
--L$$DESTDIR -lec_base \
--L$$DESTDIR -lec_gui \
+#LIBS += \
+#-L$$DESTDIR -lcore \
+#-L$$DESTDIR -lann_base \
+#-L$$DESTDIR -lann_gui\
+#-L$$DESTDIR -lec_base \
+#-L$$DESTDIR -lec_gui \
 
 win32:{
+#	QMAKE_LFLAGS += /MACHINE:X64
 
     CONFIG(release, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-    }
-    CONFIG(debug, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
+#message("release")
+		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb \
+				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
+				-L$$DESTDIR -lcore \
+				-L$$DESTDIR -lann_base \
+				-L$$DESTDIR -lann_gui\
+				-L$$DESTDIR -lec_base \
+				-L$$DESTDIR -lec_gui \
+	}else{
+		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
+				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
+				-L$$DESTDIR -lcore_debug \
+				-L$$DESTDIR -lann_base_debug \
+				-L$$DESTDIR -lann_gui_debug \
+				-L$$DESTDIR -lec_base_debug \
+				-L$$DESTDIR -lec_gui_debug \
     }
 
     INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include

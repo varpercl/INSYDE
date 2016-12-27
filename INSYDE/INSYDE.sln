@@ -1,0 +1,71 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "core\core.vcxproj", "{FFADDF9F-5324-3A43-88A7-0C8B6FB75694}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ann_base", "ann_base\ann_base.vcxproj", "{223FC089-8D1D-30B8-AABC-055B90134A5E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFADDF9F-5324-3A43-88A7-0C8B6FB75694} = {FFADDF9F-5324-3A43-88A7-0C8B6FB75694}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ec_base", "ec_base\ec_base.vcxproj", "{F39852B5-CB92-35AB-AB7A-E0D75050ED49}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ann_gui", "ann_gui\ann_gui.vcxproj", "{EAAE09C3-7BCF-3812-8C6B-9CF3CC782D04}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFADDF9F-5324-3A43-88A7-0C8B6FB75694} = {FFADDF9F-5324-3A43-88A7-0C8B6FB75694}
+		{223FC089-8D1D-30B8-AABC-055B90134A5E} = {223FC089-8D1D-30B8-AABC-055B90134A5E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ec_gui", "ec_gui\ec_gui.vcxproj", "{D00B18B8-36B2-3A43-9D4A-32FCCDE558F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFADDF9F-5324-3A43-88A7-0C8B6FB75694} = {FFADDF9F-5324-3A43-88A7-0C8B6FB75694}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "INSYDE", "gui\INSYDE.vcxproj", "{9ED658DA-AE9A-3496-9FF8-B17C24EC24A2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFADDF9F-5324-3A43-88A7-0C8B6FB75694} = {FFADDF9F-5324-3A43-88A7-0C8B6FB75694}
+		{223FC089-8D1D-30B8-AABC-055B90134A5E} = {223FC089-8D1D-30B8-AABC-055B90134A5E}
+		{EAAE09C3-7BCF-3812-8C6B-9CF3CC782D04} = {EAAE09C3-7BCF-3812-8C6B-9CF3CC782D04}
+		{F39852B5-CB92-35AB-AB7A-E0D75050ED49} = {F39852B5-CB92-35AB-AB7A-E0D75050ED49}
+		{D00B18B8-36B2-3A43-9D4A-32FCCDE558F8} = {D00B18B8-36B2-3A43-9D4A-32FCCDE558F8}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFADDF9F-5324-3A43-88A7-0C8B6FB75694}.Debug|x64.ActiveCfg = Debug|x64
+		{FFADDF9F-5324-3A43-88A7-0C8B6FB75694}.Debug|x64.Build.0 = Debug|x64
+		{FFADDF9F-5324-3A43-88A7-0C8B6FB75694}.Release|x64.ActiveCfg = Release|x64
+		{FFADDF9F-5324-3A43-88A7-0C8B6FB75694}.Release|x64.Build.0 = Release|x64
+		{223FC089-8D1D-30B8-AABC-055B90134A5E}.Debug|x64.ActiveCfg = SharedDebug|x64
+		{223FC089-8D1D-30B8-AABC-055B90134A5E}.Debug|x64.Build.0 = SharedDebug|x64
+		{223FC089-8D1D-30B8-AABC-055B90134A5E}.Release|x64.ActiveCfg = StaticRelease|x64
+		{223FC089-8D1D-30B8-AABC-055B90134A5E}.Release|x64.Build.0 = StaticRelease|x64
+		{F39852B5-CB92-35AB-AB7A-E0D75050ED49}.Debug|x64.ActiveCfg = SharedDebug|x64
+		{F39852B5-CB92-35AB-AB7A-E0D75050ED49}.Debug|x64.Build.0 = SharedDebug|x64
+		{F39852B5-CB92-35AB-AB7A-E0D75050ED49}.Release|x64.ActiveCfg = StaticRelease|x64
+		{F39852B5-CB92-35AB-AB7A-E0D75050ED49}.Release|x64.Build.0 = StaticRelease|x64
+		{EAAE09C3-7BCF-3812-8C6B-9CF3CC782D04}.Debug|x64.ActiveCfg = SharedDebug|x64
+		{EAAE09C3-7BCF-3812-8C6B-9CF3CC782D04}.Debug|x64.Build.0 = SharedDebug|x64
+		{EAAE09C3-7BCF-3812-8C6B-9CF3CC782D04}.Release|x64.ActiveCfg = StaticRelease|x64
+		{EAAE09C3-7BCF-3812-8C6B-9CF3CC782D04}.Release|x64.Build.0 = StaticRelease|x64
+		{D00B18B8-36B2-3A43-9D4A-32FCCDE558F8}.Debug|x64.ActiveCfg = SharedDebug|x64
+		{D00B18B8-36B2-3A43-9D4A-32FCCDE558F8}.Debug|x64.Build.0 = SharedDebug|x64
+		{D00B18B8-36B2-3A43-9D4A-32FCCDE558F8}.Release|x64.ActiveCfg = StaticRelease|x64
+		{D00B18B8-36B2-3A43-9D4A-32FCCDE558F8}.Release|x64.Build.0 = StaticRelease|x64
+		{9ED658DA-AE9A-3496-9FF8-B17C24EC24A2}.Debug|x64.ActiveCfg = Debug|x64
+		{9ED658DA-AE9A-3496-9FF8-B17C24EC24A2}.Debug|x64.Build.0 = Debug|x64
+		{9ED658DA-AE9A-3496-9FF8-B17C24EC24A2}.Release|x64.ActiveCfg = Release|x64
+		{9ED658DA-AE9A-3496-9FF8-B17C24EC24A2}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		Qt5Version = Qt5.7.0
+	EndGlobalSection
+EndGlobal

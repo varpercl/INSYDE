@@ -6,7 +6,6 @@ CONFIG += qt shared_and_static
 #CONFIG(release, debug|release):message("Staring RELEASE build for ann_gui sources") #will print
 #CONFIG(debug, debug|release):message("Staring DEBUG build for ann_gui sources") #no print
 
-TARGET = ann_gui
 
 TEMPLATE = lib
 
@@ -69,21 +68,32 @@ FORMS += \
     perceptronpage.ui \
     samplesdialog.ui
 
-LIBS += \
--L$$DESTDIR -lcore \
--L$$DESTDIR -lann_base
+
 
 win32:{
 
+#	QMAKE_LFLAGS += /MACHINE:X64
+
     CONFIG(release, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-    }
-    CONFIG(debug, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
+		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
+				-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
+				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
+				-L$$DESTDIR -lcore \
+				-L$$DESTDIR -lann_base
+
+		TARGET = ann_gui
+
+	}else
+	{
+
+		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb_debug \
+				-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb_debug \
+				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
+				-L$$DESTDIR -lcore_debug \
+				-L$$DESTDIR -lann_base_debug
+
+		TARGET = ann_gui_debug
+
     }
 
     INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include

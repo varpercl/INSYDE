@@ -1,0 +1,105 @@
+﻿  adddotmatrixdialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  common.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  connector.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  datarepresentationbox.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  detailedwindow.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  dotmatrix.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  dotmatrixdetailedwindow.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  dotmatrixpropertydialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  dotmatrixrepresentation.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  enviroment.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  graphiccursorelement.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  graphicdetailedview.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  graphicobject.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  graphicobjectpropertydialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  graphicpointer.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  image.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  imagedetailedwindow.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  imageeffect.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  imageeffectpropertydialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  imagepropertydialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  Generating Code...
+  Compiling...
+  imagerepresentationwidget.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  imath.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\imath.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_adddotmatrixdialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_connector.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_datarepresentationbox.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_detailedwindow.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_dotmatrix.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_dotmatrixdetailedwindow.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_dotmatrixpropertydialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_dotmatrixrepresentation.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_enviroment.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_graphiccursorelement.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_graphicdetailedview.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_graphicobject.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_graphicobjectpropertydialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_image.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_imagedetailedwindow.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_imageeffect.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_imageeffectpropertydialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_imagepropertydialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  Generating Code...
+  Compiling...
+  moc_imagerepresentationwidget.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_normalization.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_normalizationwidget.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_selectimagesegmentdialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  moc_simulation.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  normalization.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  normalizationwidget.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  selectimagesegmentdialog.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\../core/common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  simulation.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  vector2d.cpp
+c:\users\edixon vargas\documents\github\insyde\insyde\core\common.h(11): fatal error C1083: Cannot open include file: 'tbb/concurrent_vector.h': No such file or directory
+  Generating Code...
