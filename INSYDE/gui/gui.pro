@@ -80,7 +80,7 @@ win32:{
 				-L$$DESTDIR -lec_gui \
 	}else{
 		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
+				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
 				-L$$DESTDIR -lcore_debug \
 				-L$$DESTDIR -lann_base_debug \
 				-L$$DESTDIR -lann_gui_debug \

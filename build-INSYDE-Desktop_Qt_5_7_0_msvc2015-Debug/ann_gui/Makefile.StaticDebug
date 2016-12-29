@@ -7697,7 +7697,21 @@ obj\adalinepage.obj: ..\..\INSYDE\ann_gui\adalinepage.cpp ../../INSYDE/ann_gui/a
 		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qtoolbutton.h \
 		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qtwidgetsversion.h \
 		../../INSYDE/ann_gui/share_ann_gui_lib.h \
-		ui\ui_adalinepage.h
+		ui\ui_adalinepage.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QAction \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QApplication \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QButtonGroup \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QComboBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QFormLayout \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QFrame \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QGraphicsView \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QHeaderView \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QLabel \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QLineEdit \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QPushButton \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QSpinBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QVBoxLayout \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QWizardPage
 
 obj\addnewmlpdialog.obj: ..\..\INSYDE\ann_gui\addnewmlpdialog.cpp ../../INSYDE/ann_gui/addnewmlpdialog.h \
 		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QtWidgets \
@@ -8200,7 +8214,23 @@ obj\addnewmlpdialog.obj: ..\..\INSYDE\ann_gui\addnewmlpdialog.cpp ../../INSYDE/a
 		..\..\INSYDE\ann_base\mlptrainingresult.h \
 		..\..\INSYDE\ann_base\trainingresult.h \
 		..\..\INSYDE\ann_base\artificialneuralnetwork.h \
-		ui\ui_addnewmlpdialog.h
+		ui\ui_addnewmlpdialog.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QAction \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QApplication \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QButtonGroup \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QComboBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QDialog \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QFormLayout \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QGroupBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QHBoxLayout \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QHeaderView \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QLabel \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QSpacerItem \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QSpinBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QTableWidget \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QToolButton \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QVBoxLayout
 
 obj\perceptrondisplay.obj: ..\..\INSYDE\ann_gui\perceptrondisplay.cpp ../../INSYDE/ann_gui/perceptrondisplay.h \
 		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtGui\QtGui \
@@ -9247,7 +9277,23 @@ obj\perceptronpage.obj: ..\..\INSYDE\ann_gui\perceptronpage.cpp ../../INSYDE/ann
 		../../INSYDE/ann_gui/perceptrondisplay.h \
 		../../INSYDE/ann_gui/weightline.h \
 		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QGraphicsLineItem \
-		ui\ui_perceptronpage.h
+		ui\ui_perceptronpage.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QAction \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QApplication \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QButtonGroup \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QComboBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QFormLayout \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QFrame \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QGraphicsView \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QHBoxLayout \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QHeaderView \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QLabel \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QLineEdit \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QPushButton \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QSpacerItem \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QSpinBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QVBoxLayout \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QWizardPage
 
 obj\samplesdialog.obj: ..\..\INSYDE\ann_gui\samplesdialog.cpp ../../INSYDE/ann_gui/samplesdialog.h \
 		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtGui\QtGui \
@@ -9744,7 +9790,19 @@ obj\samplesdialog.obj: ..\..\INSYDE\ann_gui\samplesdialog.cpp ../../INSYDE/ann_g
 		..\..\INSYDE\ann_base\mlptrainingresult.h \
 		..\..\INSYDE\ann_base\trainingresult.h \
 		..\..\INSYDE\ann_base\artificialneuralnetwork.h \
-		ui\ui_samplesdialog.h
+		ui\ui_samplesdialog.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QAction \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QApplication \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QButtonGroup \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QCheckBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QDialog \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QFormLayout \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QHeaderView \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QLabel \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QSpacerItem \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QSpinBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QVBoxLayout
 
 obj\simulatedannealingwidget.obj: ..\..\INSYDE\ann_gui\simulatedannealingwidget.cpp ../../INSYDE/ann_gui/simulatedannealingwidget.h \
 		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtGui\QtGui \
@@ -14905,7 +14963,32 @@ obj\mlpobjectpropertydialog.obj: ..\..\INSYDE\ann_gui\mlpobjectpropertydialog.cp
 		..\..\INSYDE\external\tbb44_20160128oss_win_0\include\tbb\internal\_tbb_strings.h \
 		..\..\INSYDE\core\share_core_lib.h \
 		..\..\INSYDE\core\imath.h \
-		ui\ui_graphicmlpelementpropertydialog.h
+		ui\ui_graphicmlpelementpropertydialog.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtCore\QVariant \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QAction \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qaction.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qactiongroup.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QApplication \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qapplication.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QButtonGroup \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\QHeaderView \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qheaderview.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qframe.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qstyleoption.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qslider.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qabstractslider.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qstyle.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qtabbar.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qtabwidget.h \
+		C:\Qt\Qt5.7.0_32\5.7\msvc2015\include\QtWidgets\qrubberband.h
 
 obj\qrc_ann_gui_media.obj: res\qrc_ann_gui_media.cpp 
 

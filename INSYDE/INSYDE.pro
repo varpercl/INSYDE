@@ -4,7 +4,7 @@ TEMPLATE = subdirs
 #Esta configurado por defecto
 CONFIG += ordered
 
-QMAKE_LINK += /MACHINE:X64
+#QMAKE_LINK += /MACHINE:X64
 
 SUBDIRS = \
 core \
