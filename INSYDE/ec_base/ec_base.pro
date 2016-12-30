@@ -40,12 +40,35 @@ win32:{
 				-L$$DESTDIR -lcore \
 
 	}else
-	{
+	{#DEBUG
+
+		message("Building debug binaries for ec_base module");
+
 		TARGET = ec_base_debug
 
-		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
-				-L$$DESTDIR -lcore_debug \
+		QMAKE_CXXFLAGS += /MDd
+
+#       if x86
+		contains(QMAKE_TARGET.arch, x86): {
+
+			message("ec_base module platform is x86");
+
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb_debug \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
+					-L$$DESTDIR -lcore_debug \
+		}
+
+#       if x64
+		contains(QMAKE_TARGET.arch, x86_64): {
+
+			message("ec_base module platform is x86_64");
+
+			QMAKE_LFLAGS += /MACHINE:X64
+
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
+					-L$$DESTDIR -lcore_debug \
+		}
     }
 
     INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include

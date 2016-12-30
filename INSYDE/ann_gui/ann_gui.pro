@@ -85,13 +85,33 @@ win32:{
 
 	}else
 	{
-
-		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb_debug \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
-				-L$$DESTDIR -lcore_debug \
-				-L$$DESTDIR -lann_base_debug
+		message("Building debug binaries for ann_gui module");
 
 		TARGET = ann_gui_debug
+
+		QMAKE_CXXFLAGS += /MDd
+
+		contains(QMAKE_TARGET.arch, x86): {
+
+			message("ann_gui module platform is x86");
+
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb_debug \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
+					-L$$DESTDIR -lcore_debug \
+					-L$$DESTDIR -lann_base_debug
+		}
+
+		contains(QMAKE_TARGET.arch, x86_64): {
+
+			message("ann_gui module platform is x86_64");
+
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
+					-L$$DESTDIR -lcore_debug \
+					-L$$DESTDIR -lann_base_debug
+		}
+
+
 
     }
 
@@ -100,6 +120,56 @@ win32:{
 
     INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
     DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
+}
+
+win32-g++:{
+
+#	QMAKE_LFLAGS += /MACHINE:X64
+
+	CONFIG(release, debug|release):{
+		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
+				-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
+				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
+				-L$$DESTDIR -lcore \
+				-L$$DESTDIR -lann_base
+
+		TARGET = ann_gui
+
+	}else
+	{
+		message("Building debug binaries for ann_gui module");
+
+		TARGET = ann_gui_debug
+
+		contains(QMAKE_TARGET.arch, x86): {
+
+			message("ann_gui module platform is x86");
+
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb_debug \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
+					-L$$DESTDIR -lcore_debug \
+					-L$$DESTDIR -lann_base_debug
+		}
+
+		contains(QMAKE_TARGET.arch, x86_64): {
+
+			message("ann_gui module platform is x86_64");
+
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
+					-L$$DESTDIR -lcore_debug \
+					-L$$DESTDIR -lann_base_debug
+		}
+
+
+
+	}
+
+	INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
+	DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
+
+	INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
+	DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
 }
 
 unix:{

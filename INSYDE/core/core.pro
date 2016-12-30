@@ -138,9 +138,6 @@ win32-g++:{
 win32:{
 	CONFIG += windows c++11
 
-#	QMAKE_LFLAGS_WINDOWS = /MACHINE:X64
-
-#	QMAKE_LFLAGS += /MACHINE:X64
 	CONFIG(release, debug|release):{
 		message("Building release binaries for core module");
 #	QMAKE_LFLAGS_WINDOWS_DLL += "/MACHINE:X64"
@@ -168,24 +165,105 @@ win32:{
 		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb \
 		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
 
-	}else{
+	}else{ #DEBUG
 
 		message("Building debug binaries for core module");
+#message($$QMAKE_TARGET.arch);
 		TARGET = core_debug
 
 		QMAKE_CXXFLAGS += /MDd
 
 #       if x86
-		contains(QMAKE_HOST.arch, x86): {
+		contains(QMAKE_TARGET.arch, x86): {
 
 			message("core module platform is x86");
 			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb_debug \
 					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
 		}
 #       if x64
-		contains(QMAKE_HOST.arch, x64): {
+		contains(QMAKE_TARGET.arch, x86_64): {
+
+			message("core module platform is x86_64");
+
+#	QMAKE_LFLAGS_WINDOWS = /MACHINE:X64
+
+			QMAKE_LFLAGS += /MACHINE:X64
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
+		}
+
+#	lib.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/core/lib/win64/debug"
+#	lib.files = $$OUT_PWD/../core_debug.*
+
+#	includes.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/core/include"
+#	includes.files = $$PWD/*.h
+
+#	tbb_lib.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/tbb/lib"
+#	tbb_lib.files = $$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/tbb_debug.* \
+#			$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/tbb_debug.*
+
+#	tbb_include.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/tbb"
+#	tbb_include.files = $$PWD/../external/tbb44_20160128oss_win_0/include
+
+#	INSTALLS += lib includes tbb_lib tbb_include
+	}
+		INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include \
+						$$PWD/../external/tbb44_20160128oss_win_0/include
+
+		DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include \
+						$$PWD/../external/tbb44_20160128oss_win_0/include
+
+}
+
+
+win32-g++:{
+	CONFIG += windows c++11
+
+	CONFIG(release, debug|release):{
+		message("Building release binaries for core module");
+#	QMAKE_LFLAGS_WINDOWS_DLL += "/MACHINE:X64"
+#		QMAKE_LFLAGS_RELEASE += /MACHINE:X64 # -nologo -Zm200 -Zc:wchar_t -FS -O2 -MD -Zc:strictStrings- -GR -W3 -w34100 -w34189 -EHsc
+
+		TARGET = core
+
+		lib.path = $$PWD/../../custom_libs/insyde/core/lib/win64/nodebug
+		lib.files = $$OUT_PWD/../core.*
+
+		includes.path = $$PWD/../../custom_libs/insyde/core/include
+		includes.files = $$PWD/*.h
+
+		tbb_lib.path = $$PWD/../../custom_libs/insyde/tbb/lib
+		tbb_lib.files = $$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/tbb.*
+
+		tbb_include.path = $$PWD/../../custom_libs/insyde/tbb
+		tbb_include.files = $$PWD/../external/tbb44_20160128oss_win_0/include
+
+		INSTALLS += lib includes tbb_lib tbb_include
+
+		LIBS += \
+##		"C:/Users/Edixon/Google Drive/Programacion/C++/Qt/INSYDE/external/tbb44_20160128oss_win_0/lib/intel64/vc12/tbb.dll" \
+		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb \
+		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
+
+	}else{ #DEBUG
+
+		message("Building debug binaries for core module");
+#message($$QMAKE_TARGET.arch);
+		TARGET = core_debug
+
+#       if x86
+		contains(QMAKE_TARGET.arch, x86): {
 
 			message("core module platform is x86");
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb_debug \
+					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
+		}
+#       if x64
+		contains(QMAKE_TARGET.arch, x86_64): {
+
+			message("core module platform is x86_64");
+
+#	QMAKE_LFLAGS_WINDOWS = /MACHINE:X64
 
 			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
 					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
