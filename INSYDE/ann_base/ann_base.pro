@@ -58,7 +58,7 @@ hopfield.cpp \
     adalinetrainingpattern.cpp \
     kohonen.cpp
 
-win32:{
+win32&!win-g++{
 
 #	QMAKE_LFLAGS += /MACHINE:X64
 

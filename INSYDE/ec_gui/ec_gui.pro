@@ -69,7 +69,7 @@ FORMS += \
 
 
 
-win32:{
+win32&!win-g++{
 #	QMAKE_LFLAGS += /MACHINE:X64
 
     CONFIG(release, debug|release):{

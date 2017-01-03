@@ -131,11 +131,7 @@ FORMS += \
 RESOURCES += \
 	core_media.qrc
 
-win32-g++:{
-
-}
-
-win32:{
+win32&!win-g++{
 	CONFIG += windows c++11
 
 	CONFIG(release, debug|release):{
@@ -162,8 +158,8 @@ win32:{
 
 		LIBS += \
 ##		"C:/Users/Edixon/Google Drive/Programacion/C++/Qt/INSYDE/external/tbb44_20160128oss_win_0/lib/intel64/vc12/tbb.dll" \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
+				-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb \
+				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
 
 	}else{ #DEBUG
 
@@ -192,29 +188,17 @@ win32:{
 					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
 		}
 
-#	lib.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/core/lib/win64/debug"
-#	lib.files = $$OUT_PWD/../core_debug.*
-
-#	includes.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/core/include"
-#	includes.files = $$PWD/*.h
-
-#	tbb_lib.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/tbb/lib"
-#	tbb_lib.files = $$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/tbb_debug.* \
-#			$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/tbb_debug.*
-
-#	tbb_include.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/tbb"
-#	tbb_include.files = $$PWD/../external/tbb44_20160128oss_win_0/include
-
-#	INSTALLS += lib includes tbb_lib tbb_include
 	}
-		INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include \
-						$$PWD/../external/tbb44_20160128oss_win_0/include
+	INCLUDEPATH +=  $$PWD/../external/kdchart-2.5.1-source-win/include \
+					$$PWD/../external/tbb44_20160128oss_win_0/include
 
-		DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include \
-						$$PWD/../external/tbb44_20160128oss_win_0/include
+	DEPENDPATH +=  $$PWD/../external/kdchart-2.5.1-source-win/include \
+					$$PWD/../external/tbb44_20160128oss_win_0/include
+
 
 }
 
+message($$INCLUDEPATH)
 
 win32-g++:{
 	CONFIG += windows c++11
@@ -246,28 +230,29 @@ win32-g++:{
 		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
 
 	}else{ #DEBUG
-
-		message("Building debug binaries for core module");
+message($$QMAKE_HOST.arch)
+		message("Building debug binaries asfdasfd for core module");
 #message($$QMAKE_TARGET.arch);
 		TARGET = core_debug
 
 #       if x86
-		contains(QMAKE_TARGET.arch, x86): {
+#		contains(QMAKE_TARGET.arch, x86): {
+#			message("core module platform is x86");
+			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc10/ -ltbb_debug \
+#					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
+#			message($$LIBS.absolute_path());
 
-			message("core module platform is x86");
-			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb_debug \
-					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
-		}
+#		}
 #       if x64
-		contains(QMAKE_TARGET.arch, x86_64): {
+#		contains(QMAKE_TARGET.arch, x86_64): {
 
-			message("core module platform is x86_64");
+#			message("core module platform is x86_64");
 
-#	QMAKE_LFLAGS_WINDOWS = /MACHINE:X64
+##	QMAKE_LFLAGS_WINDOWS = /MACHINE:X64
 
-			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
-					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
-		}
+#			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
+#					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
+#		}
 
 #	lib.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/core/lib/win64/debug"
 #	lib.files = $$OUT_PWD/../core_debug.*
@@ -284,6 +269,8 @@ win32-g++:{
 
 #	INSTALLS += lib includes tbb_lib tbb_include
 	}
+
+
 		INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include \
 						$$PWD/../external/tbb44_20160128oss_win_0/include
 
