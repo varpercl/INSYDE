@@ -28,54 +28,29 @@ HEADERS += \
 	acosolver.h \
 	ant.h
 
-win32&!win-g++{
-#	QMAKE_LFLAGS += /MACHINE:X64
-
+win32:{
     CONFIG(release, debug|release):{
 		TARGET = ec_base
 
-		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
-				-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-				-L$$DESTDIR -lcore \
+		QMAKE_CXXFLAGS += /MD
 
-	}else
-	{#DEBUG
+		LIBS += -L$$DESTDIR -lcore \
+
+	}else:{#DEBUG
 
 		message("Building debug binaries for ec_base module");
 
 		TARGET = ec_base_debug
 
 		QMAKE_CXXFLAGS += /MDd
+		LIBS += -L$$DESTDIR -lcore_debug \
 
-#       if x86
-		contains(QMAKE_TARGET.arch, x86): {
-
-			message("ec_base module platform is x86");
-
-			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb_debug \
-					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
-					-L$$DESTDIR -lcore_debug \
-		}
-
-#       if x64
-		contains(QMAKE_TARGET.arch, x86_64): {
-
-			message("ec_base module platform is x86_64");
-
-			QMAKE_LFLAGS += /MACHINE:X64
-
-			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
-					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
-					-L$$DESTDIR -lcore_debug \
-		}
     }
 
-    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-
-    INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
-    DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
+#   if x86_64
+	contains(QMAKE_TARGET.arch, x86_64): {
+		QMAKE_LFLAGS += /MACHINE:X64
+	}
 }
 
 unix:{

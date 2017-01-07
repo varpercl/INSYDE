@@ -1,3 +1,4 @@
+include(../external/tbb.pri)
 
 QT += gui core widgets opengl
 
@@ -69,17 +70,19 @@ FORMS += \
 
 
 
-win32&!win-g++{
-#	QMAKE_LFLAGS += /MACHINE:X64
+win32:{
+	CONFIG += windows c++11
 
     CONFIG(release, debug|release):{
+		message("Building release binaries for ec_gui module");
+
 		TARGET = ec_gui
 
-		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-				-L$$DESTDIR -lcore \
-	}else
-	{#DEBUG
+		QMAKE_CXXFLAGS += /MD
+
+		LIBS += -L$$DESTDIR -lcore
+
+	}else:{#DEBUG
 
 		message("Building debug binaries for ec_gui module");
 
@@ -87,35 +90,13 @@ win32&!win-g++{
 
 		QMAKE_CXXFLAGS += /MDd
 
-#       if x86
-		contains(QMAKE_TARGET.arch, x86): {
-			message("ec_gui module platform is x86");
-
-			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/ia32/vc14/ -ltbb_debug \
-					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
-					-L$$DESTDIR -lcore_debug \
-		}
-
-#       if x64
-		contains(QMAKE_TARGET.arch, x86_64): {
-
-			message("ec_gui module platform is x86_64");
-
-			QMAKE_LFLAGS += /MACHINE:X64
-
-			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
-					-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
-					-L$$DESTDIR -lcore_debug \
-		}
-
+		LIBS += -L$$DESTDIR -lcore_debug
 
     }
-
-    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-
-    INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
-    DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
+#   if x86_64
+	contains(QMAKE_TARGET.arch, x86_64): {
+		QMAKE_LFLAGS += /MACHINE:X64
+	}
 }
 
 unix:{

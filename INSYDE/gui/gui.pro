@@ -1,13 +1,12 @@
 
-#message("Compiling gui sources")
+include(../external/kdchart2.pri)
+include(../external/tbb.pri)
 
 QT += core gui widgets xml opengl
 
 CONFIG += qt opengl
 
 TEMPLATE = app
-
-TARGET = INSYDE
 
 DEFINES += \
 #WINDOW_HEIGH=31 \
@@ -59,126 +58,41 @@ FORMS += \
 RESOURCES += \
     gui_media.qrc
 
-#LIBS += \
-#-L$$DESTDIR -lcore \
-#-L$$DESTDIR -lann_base \
-#-L$$DESTDIR -lann_gui\
-#-L$$DESTDIR -lec_base \
-#-L$$DESTDIR -lec_gui \
-
-win32&!win-g++{
-#	QMAKE_LFLAGS += /MACHINE:X64
+win32:{
+	CONFIG += windows c++11
 
     CONFIG(release, debug|release):{
-#message("release")
-		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-				-L$$DESTDIR -lcore \
+		message("Building release binaries for gui module");
+
+		QMAKE_CXXFLAGS += /MD
+
+		TARGET = INSYDE
+
+		LIBS += -L$$DESTDIR -lcore \
 				-L$$DESTDIR -lann_base \
 				-L$$DESTDIR -lann_gui\
 				-L$$DESTDIR -lec_base \
-				-L$$DESTDIR -lec_gui \
-	}else{#DEBUG
+				-L$$DESTDIR -lec_gui
+
+	}else:{#DEBUG
 
 		message("Building debug binaries for gui module");
+
+		TARGET = INSYDE_debug
 
 		QMAKE_CXXFLAGS += /MDd
 
-#       if x86
-		contains(QMAKE_TARGET.arch, x86): {
-			message("gui module platform is x86");
-
-			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
-				-L$$DESTDIR -lcore_debug \
+		LIBS += -L$$DESTDIR -lcore_debug \
 				-L$$DESTDIR -lann_base_debug \
 				-L$$DESTDIR -lann_gui_debug \
 				-L$$DESTDIR -lec_base_debug \
-				-L$$DESTDIR -lec_gui_debug \
-		}
-
-
-#       if x64
-		contains(QMAKE_TARGET.arch, x86_64): {
-			message("gui module platform is x86_64");
-
-			QMAKE_LFLAGS += /MACHINE:X64
-
-			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
-				-L$$DESTDIR -lcore_debug \
-				-L$$DESTDIR -lann_base_debug \
-				-L$$DESTDIR -lann_gui_debug \
-				-L$$DESTDIR -lec_base_debug \
-				-L$$DESTDIR -lec_gui_debug \
-		}
-
-
+				-L$$DESTDIR -lec_gui_debug
 
     }
-
-    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-
-    INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
-    DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
-}
-
-win32-g++:{
-#	QMAKE_LFLAGS += /MACHINE:X64
-
-	CONFIG(release, debug|release):{
-#message("release")
-		LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-				-L$$DESTDIR -lcore \
-				-L$$DESTDIR -lann_base \
-				-L$$DESTDIR -lann_gui\
-				-L$$DESTDIR -lec_base \
-				-L$$DESTDIR -lec_gui \
-	}else{#DEBUG
-
-		message("Building debug binaries for gui module");
-
-
-#       if x86
-		contains(QMAKE_TARGET.arch, x86): {
-			message("gui module platform is x86");
-
-			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchartd2 \
-				-L$$DESTDIR -lcore_debug \
-				-L$$DESTDIR -lann_base_debug \
-				-L$$DESTDIR -lann_gui_debug \
-				-L$$DESTDIR -lec_base_debug \
-				-L$$DESTDIR -lec_gui_debug \
-		}
-
-
-#       if x64
-		contains(QMAKE_TARGET.arch, x86_64): {
-			message("gui module platform is x86_64");
-
-			QMAKE_LFLAGS += /MACHINE:X64
-
-			LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc14/ -ltbb_debug \
-				-L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchartd2 \
-				-L$$DESTDIR -lcore_debug \
-				-L$$DESTDIR -lann_base_debug \
-				-L$$DESTDIR -lann_gui_debug \
-				-L$$DESTDIR -lec_base_debug \
-				-L$$DESTDIR -lec_gui_debug \
-		}
-
-
-
+#   if x86_64
+	contains(QMAKE_TARGET.arch, x86_64): {
+		QMAKE_LFLAGS += /MACHINE:X64
 	}
-
-	INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-	DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-
-	INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
-	DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
 }
 
 unix:{
@@ -190,7 +104,7 @@ unix:{
 	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
 		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
 		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
-    }else{
+	}else:{
 	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
 		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
 		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
