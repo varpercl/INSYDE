@@ -404,7 +404,7 @@ void MultilayerPerceptron::setOutputSize(int size)
 	int lastSize = (int) outputWeights.size();
 
 	outputWeights.resize(size);
-	int nOutputWeights = (int)layerWeights[layerWeights.size()-1].size();
+	int nOutputWeights = (int)layerWeights[layerWeights.size() - 1].size();
 	for(int i = 0; i < size; i++){
 		outputWeights[i] = math::getRandomValues(nOutputWeights + 1, defaultRandomMinimum, defaultRandomMaximum);
 	}
