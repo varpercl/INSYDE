@@ -1,7 +1,13 @@
 #include "imageeffectpropertydialog.h"
 #include "ui_graphicimageeffectelementpropertydialog.h"
 
-ImageEffectPropertyDialog::ImageEffectPropertyDialog(ImageEffect *giee, QWidget *parent) :
+core::ImageEffectPropertyDialog::ImageEffectPropertyDialog(QWidget *parent) :
+	QDialog(parent)
+{
+
+}
+
+core::ImageEffectPropertyDialog::ImageEffectPropertyDialog(ImageEffect *giee, QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::GraphicImageEffectElementPropertyDialog)
 {
@@ -10,14 +16,14 @@ ImageEffectPropertyDialog::ImageEffectPropertyDialog(ImageEffect *giee, QWidget 
 	initGIEEPD(giee);
 }
 
-ImageEffectPropertyDialog::~ImageEffectPropertyDialog()
+core::ImageEffectPropertyDialog::~ImageEffectPropertyDialog()
 {
 	delete ui;
 }
 
-QVector<Effect *> ImageEffectPropertyDialog::getEffectList()
+QVector<core::Effect *> core::ImageEffectPropertyDialog::getEffectList()
 {
-	QVector<Effect*> effects;
+    QVector<core::Effect*> effects;
 
 	int sList = ui->lwEffects->count();
 	for(int i = 0; i < sList; i++){
@@ -41,37 +47,37 @@ QVector<Effect *> ImageEffectPropertyDialog::getEffectList()
 	return effects;
 }
 
-void ImageEffectPropertyDialog::setGraphicImageEffectElement(ImageEffect *giee)
+void core::ImageEffectPropertyDialog::setGraphicImageEffectElement(ImageEffect *giee)
 {
 	this->giee = giee;
 }
 
-ImageEffect *ImageEffectPropertyDialog::setGraphicImageEffectElement()
+core::ImageEffect *core::ImageEffectPropertyDialog::setGraphicImageEffectElement()
 {
 	return this->giee;
 }
 
-void ImageEffectPropertyDialog::setBNEffectChecked(bool chk)
+void core::ImageEffectPropertyDialog::setBNEffectChecked(bool chk)
 {
 	ui->lwEffects->item(0)->setCheckState(chk? Qt::Checked : Qt::Unchecked);
 }
 
-bool ImageEffectPropertyDialog::getBNEffectChecked()
+bool core::ImageEffectPropertyDialog::getBNEffectChecked()
 {
 	return ui->lwEffects->item(0)->checkState();
 }
 
-QWidget *ImageEffectPropertyDialog::getSubWidget()
+QWidget *core::ImageEffectPropertyDialog::getSubWidget()
 {
 	return ui->hlDivision->itemAt(1)->widget();
 }
 
-void ImageEffectPropertyDialog::on_lwEffects_currentRowChanged(int currentRow)
+void core::ImageEffectPropertyDialog::on_lwEffects_currentRowChanged(int currentRow)
 {
 	updateConfigWidget(currentRow);
 }
 
-void ImageEffectPropertyDialog::initGIEEPD(ImageEffect *giee)
+void core::ImageEffectPropertyDialog::initGIEEPD(ImageEffect *giee)
 {
 	QListWidgetItem* item;
 	int sList = ui->lwEffects->count();
@@ -88,7 +94,7 @@ void ImageEffectPropertyDialog::initGIEEPD(ImageEffect *giee)
 	updateConfigWidget(0);
 }
 
-void ImageEffectPropertyDialog::updateConfigWidget(int i)
+void core::ImageEffectPropertyDialog::updateConfigWidget(int i)
 {
 	ui->hlDivision->removeItem(ui->hlDivision->itemAt(1));
 	switch(i){

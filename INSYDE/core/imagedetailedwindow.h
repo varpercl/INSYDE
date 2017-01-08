@@ -11,6 +11,8 @@
 
 class Image;
 
+namespace core{
+
 /*!
  * \class
  *
@@ -23,6 +25,10 @@ class CORE_LIB_IMPORT_EXPORT ImageDetailedWindow : public DetailedWindow
 {
 	public:
 
+		/*!
+		 * \brief ImageDetailedWindow
+		 * \param parent
+		 */
 		explicit ImageDetailedWindow(QWidget *parent = 0);
 		explicit ImageDetailedWindow(QImage *image, QWidget *parent = 0);
 
@@ -36,11 +42,11 @@ class CORE_LIB_IMPORT_EXPORT ImageDetailedWindow : public DetailedWindow
 		void setImageObject(Image *pmitm);
 		Image *getImageObject();
 
-//		void setBorderVisible(bool bv);
-//		bool getBorderVisible() const;
+		//		void setBorderVisible(bool bv);
+		//		bool getBorderVisible() const;
 
-//		void setBorderColor(const QColor &color);
-//		QColor getBorderColor() const;
+		//		void setBorderColor(const QColor &color);
+		//		QColor getBorderColor() const;
 
 		void setSelectionRectVisible(bool srv);
 		bool getSelectionRectVisible() const;
@@ -58,5 +64,5 @@ class CORE_LIB_IMPORT_EXPORT ImageDetailedWindow : public DetailedWindow
 
 		void init(QImage *img);
 };
-
+}
 #endif

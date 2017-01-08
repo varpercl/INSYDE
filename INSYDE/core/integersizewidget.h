@@ -7,6 +7,8 @@
 #include "labeledintegerspinbox.h"
 #include "interfaces.h"
 
+namespace core{
+
 /*!
  * \class
  *
@@ -102,5 +104,5 @@ class CORE_LIB_IMPORT_EXPORT IntegerSizeWidget : public QWidget, public Resizabl
 		void init(const QSize &size, const QPair<Units, Units> &units);
 
 };
-
+}
 #endif // SIZEWIDGET_H

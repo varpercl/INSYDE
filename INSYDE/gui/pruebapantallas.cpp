@@ -6,8 +6,6 @@ PruebaPantalla::PruebaPantalla(QWidget *parent) :
 	ui(new Ui::PruebaPantalla)
 {
 	ui->setupUi(this);
-
-
 }
 
 PruebaPantalla::~PruebaPantalla()
@@ -194,7 +192,7 @@ void PruebaPantalla::on_DotMatrixRepresentationButton_clicked()
 
 	TrainingSet *ts = new TrainingSet(openDir);
 
-	DotMatrixRepresentation *dmr = new DotMatrixRepresentation(ts->getInputs()[0]);
+    core::DotMatrixRepresentation *dmr = new core::DotMatrixRepresentation(ts->getInputs()[0]);
 
 	dmr->show();
 }

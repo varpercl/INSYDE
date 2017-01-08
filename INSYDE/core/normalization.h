@@ -8,6 +8,7 @@
 #include "share_core_lib.h"
 #include "common.h"
 
+namespace core{
 
 /*!
  * \class
@@ -100,5 +101,5 @@ class CORE_LIB_IMPORT_EXPORT Normalization : public QObject
 
 		void init(Type nt, double max, double min, double threshold, double amp, double elong);
 };
-
+}
 #endif // NORMALIZATION_H

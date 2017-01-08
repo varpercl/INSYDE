@@ -1,38 +1,38 @@
 #include "adddotmatrixdialog.h"
 
-AddDotMatrixDialog::AddDotMatrixDialog(int rows, int cols, QWidget *parent) :
+core::AddDotMatrixDialog::AddDotMatrixDialog(int rows, int cols, QWidget *parent) :
 	BasicDialog(parent)
 {
 	init(rows, cols);
 }
 
-AddDotMatrixDialog::~AddDotMatrixDialog()
+core::AddDotMatrixDialog::~AddDotMatrixDialog()
 {
 
 }
 
-int AddDotMatrixDialog::getRows()
+int core::AddDotMatrixDialog::getRows()
 {
 	return iswSize->getHeight();
 }
 
-int AddDotMatrixDialog::getCols()
+int core::AddDotMatrixDialog::getCols()
 {
 	return iswSize->getWidth();
 }
 
-DotMatrix::DataType AddDotMatrixDialog::getDataType()
+core::DotMatrix::DataType core::AddDotMatrixDialog::getDataType()
 {
 	switch(lcbDataType->getComboBox()->currentIndex()){
 		case 1:
-			return DotMatrix::Bipolar;
+            return core::DotMatrix::Bipolar;
 		case 0:
 		default:
-			return DotMatrix::Unipolar;
+            return core::DotMatrix::Unipolar;
 	}
 }
 
-void AddDotMatrixDialog::init(int rows, int cols)
+void core::AddDotMatrixDialog::init(int rows, int cols)
 {
 	//Initialize IntegerSizeWidget
 	iswSize = new IntegerSizeWidget(rows, cols, qMakePair(IntegerSizeWidget::Dots, IntegerSizeWidget::Dots));

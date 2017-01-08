@@ -1,23 +1,23 @@
 #include "imagedetailedwindow.h"
 
-ImageDetailedWindow::ImageDetailedWindow(QWidget *parent) :
+core::ImageDetailedWindow::ImageDetailedWindow(QWidget *parent) :
 	DetailedWindow(parent)
 {
 	init(new QImage());
 }
 
-ImageDetailedWindow::ImageDetailedWindow(QImage *image, QWidget *parent) :
+core::ImageDetailedWindow::ImageDetailedWindow(QImage *image, QWidget *parent) :
 	DetailedWindow(parent)
 {
 	init(image);
 }
 
-ImageDetailedWindow::~ImageDetailedWindow()
+core::ImageDetailedWindow::~ImageDetailedWindow()
 {
 
 }
 
-void ImageDetailedWindow::setImage(QImage *img)
+void core::ImageDetailedWindow::setImage(QImage *img)
 {
 	pmItm->setImage(img);
 
@@ -25,22 +25,22 @@ void ImageDetailedWindow::setImage(QImage *img)
 	getGraphicsDetailedView()->update();
 }
 
-QImage *ImageDetailedWindow::getImage() const
+QImage *core::ImageDetailedWindow::getImage() const
 {
 	return pmItm->getImage();
 }
 
-QImage ImageDetailedWindow::getImageSegment() const
+QImage core::ImageDetailedWindow::getImageSegment() const
 {
 	return pmItm->getImageSelection();
 }
 
-void ImageDetailedWindow::setImageObject(Image *pmitm)
+void core::ImageDetailedWindow::setImageObject(core::Image *pmitm)
 {
 	pmItm = pmitm;
 }
 
-Image *ImageDetailedWindow::getImageObject()
+core::Image *core::ImageDetailedWindow::getImageObject()
 {
 	return pmItm;
 }
@@ -65,37 +65,37 @@ Image *ImageDetailedWindow::getImageObject()
 //	return rect->pen().color();
 //}
 
-void ImageDetailedWindow::setSelectionRectVisible(bool srv)
+void core::ImageDetailedWindow::setSelectionRectVisible(bool srv)
 {
 	pmItm->setSelectionRectVisible(srv);
 }
 
-bool ImageDetailedWindow::getSelectionRectVisible() const
+bool core::ImageDetailedWindow::getSelectionRectVisible() const
 {
 	return pmItm->getSelectionRectVisible();
 }
 
-void ImageDetailedWindow::setSelectionRectColor(const QColor &color)
+void core::ImageDetailedWindow::setSelectionRectColor(const QColor &color)
 {
 	pmItm->setSelectionRectColor(color);
 }
 
-QColor ImageDetailedWindow::getSelectionRectColor() const
+QColor core::ImageDetailedWindow::getSelectionRectColor() const
 {
 	return pmItm->getSelectionRectColor();
 }
 
-void ImageDetailedWindow::setSelectionRect(const QRect &rect)
+void core::ImageDetailedWindow::setSelectionRect(const QRect &rect)
 {
 	pmItm->setSelectionRect(rect);
 }
 
-QRect ImageDetailedWindow::getSelectionRect() const
+QRect core::ImageDetailedWindow::getSelectionRect() const
 {
 	return pmItm->getSelectionRect();
 }
 
-void ImageDetailedWindow::init(QImage *img)
+void core::ImageDetailedWindow::init(QImage *img)
 {
 	pmItm = new Image(img);
 

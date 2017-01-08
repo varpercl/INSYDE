@@ -9,6 +9,7 @@
 *.pdb
 #*.[Dd]ebug
 #*.[Rd]elease
+build*/
 
 #################
 ## Eclipse

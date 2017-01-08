@@ -11,6 +11,8 @@
 #include "../core/blackwhiteeffect.h"
 #include "imageeffectpropertydialog.h"
 
+namespace core{
+
 /*!
  * \brief The GraphicImageEffectElement class
  *
@@ -165,5 +167,5 @@ class CORE_LIB_IMPORT_EXPORT ImageEffect : public Cursor
 		void applyEffects();
 
 };
-
+}
 #endif // GRAPHICIMAGEEFFECTELEMENT_H

@@ -5,6 +5,8 @@
 
 #include "share_core_lib.h"
 
+namespace core{
+
 /*!
  * \class
  *
@@ -70,5 +72,5 @@ class CORE_LIB_IMPORT_EXPORT LabeledWidget : public QWidget
 
 		void init(const QString &str, const Position &pos);
 };
-
+}
 #endif // LABELEDWIDGET_H

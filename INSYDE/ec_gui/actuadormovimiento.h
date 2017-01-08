@@ -12,6 +12,8 @@
 #include "pheromoneitem.h"
 //#include <signal.h>
 
+using namespace core;
+
 class MovilAgent;
 
 //void signalController(int val);

@@ -112,7 +112,7 @@ Hopfield::OutputResult Hopfield::getOutput(const vector<double> &inputs, const P
 		counter++;
 		switch(pt){
 			case Random:
-				if (propagateUnit(math::randomNumber(0, neuronNumber-1))){
+                if (propagateUnit(core::math::randomNumber(0, neuronNumber-1))){
 					lastChangeIteration = counter;
 				}
 				breakCond = (counter - lastChangeIteration) < (10*neuronNumber);

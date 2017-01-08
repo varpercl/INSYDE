@@ -7,6 +7,7 @@
 #include "../core/common.h"
 #include "../core/dotmatrix.h"
 
+namespace core{
 /*!
  * \brief The AddDotMatrixDialog class
  *
@@ -35,5 +36,5 @@ class CORE_LIB_IMPORT_EXPORT AddDotMatrixDialog : public BasicDialog
 
 		void init(int rows, int cols);
 };
-
+}
 #endif // ADDDOTMATRIXDIALOG_H

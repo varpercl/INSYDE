@@ -8,6 +8,8 @@
 #include "basicdialog.h"
 #include "graphicobject.h"
 
+namespace core{
+
 class CORE_LIB_IMPORT_EXPORT GraphicObjectPropertyDialog : public BasicDialog
 {
 	public:
@@ -21,5 +23,5 @@ class CORE_LIB_IMPORT_EXPORT GraphicObjectPropertyDialog : public BasicDialog
 
 		void init(GraphicObject *obj);
 };
-
+}
 #endif // PROPERTYDIALOG_H

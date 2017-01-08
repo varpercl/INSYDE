@@ -9,6 +9,8 @@
 #include "integersizewidget.h"
 #include "interfaces.h"
 
+namespace core{
+
 class DotMatrix;
 class DotMatrixDetailedWindow;
 
@@ -112,5 +114,5 @@ class CORE_LIB_IMPORT_EXPORT DotMatrixRepresentation : public DataRepresentation
 
 		void init();
 };
-
+}
 #endif // DOTMATRIZREPRESENTATION_H

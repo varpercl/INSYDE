@@ -1,25 +1,25 @@
 #include "datarepresentationbox.h"
 
-DataRepresentationBox::DataRepresentationBox(QWidget *parent) :
+core::DataRepresentationBox::DataRepresentationBox(QWidget *parent) :
 	QGroupBox(parent)
 {
 	init(vector<double>(1, 0), new DataRepresentation);
 }
 
-DataRepresentationBox::DataRepresentationBox(const vector<double> &inputdata, DataRepresentation *dr, QWidget *parent) :
+core::DataRepresentationBox::DataRepresentationBox(const vector<double> &inputdata, DataRepresentation *dr, QWidget *parent) :
 	QGroupBox(parent)
 {
 	init(inputdata, dr);
 }//GraphicRepresentation
 
-DataRepresentationBox::~DataRepresentationBox()
+core::DataRepresentationBox::~DataRepresentationBox()
 {
 	delete rrw;
 	delete irw;
 	delete dmrw;
 }
 
-void DataRepresentationBox::setInputs(const vector<double> &inputs)
+void core::DataRepresentationBox::setInputs(const vector<double> &inputs)
 {
 	this->inputs = inputs;
 
@@ -44,22 +44,22 @@ void DataRepresentationBox::setInputs(const vector<double> &inputs)
 
 }
 
-vector<double> DataRepresentationBox::getInputs() const
+vector<double> core::DataRepresentationBox::getInputs() const
 {
 	return inputs;
 }
 
-DataRepresentationWidget *DataRepresentationBox::getDataRepresentationWidget() const
+core::DataRepresentationWidget *core::DataRepresentationBox::getDataRepresentationWidget() const
 {
 	return currentRepWidget;
 }
 
-DataRepresentation *DataRepresentationBox::getDataRepresentation() const
+core::DataRepresentation *core::DataRepresentationBox::getDataRepresentation() const
 {
 	return dataRepresentation;
 }
 
-void DataRepresentationBox::setDataRepresentation(DataRepresentation *value)
+void core::DataRepresentationBox::setDataRepresentation(DataRepresentation *value)
 {
 	if(dataRepresentation != value){
 		dataRepresentation = value;
@@ -67,7 +67,7 @@ void DataRepresentationBox::setDataRepresentation(DataRepresentation *value)
 	}
 }
 
-void DataRepresentationBox::update()
+void core::DataRepresentationBox::update()
 {
 	QGroupBox::update();
 
@@ -128,7 +128,7 @@ void DataRepresentationBox::update()
 
 }
 
-void DataRepresentationBox::changeDataRepresentation(int index)
+void core::DataRepresentationBox::changeDataRepresentation(int index)
 {
 	switch(index){
 		case DataRepresentation::Raw:
@@ -156,19 +156,19 @@ void DataRepresentationBox::changeDataRepresentation(int index)
 	update();
 }
 
-void DataRepresentationBox::onSizeChanged(const QSize &size)
+void core::DataRepresentationBox::onSizeChanged(const QSize &size)
 {
 	dataRepresentation->setSize(size);
 //	dataRepresentation->setWidth(size.width());
 //	dataRepresentation->setHeight(size.height());
 }
 
-void DataRepresentationBox::onImageFormatChanged(const QImage::Format &format)
+void core::DataRepresentationBox::onImageFormatChanged(const QImage::Format &format)
 {
 	dataRepresentation->setImageFormat(format);
 }
 
-void DataRepresentationBox::init(const vector<double> &inputdata, DataRepresentation *dr)
+void core::DataRepresentationBox::init(const vector<double> &inputdata, DataRepresentation *dr)
 {
 
 	repType = new LabeledComboBox(QString::fromLatin1("Representación"),

@@ -9,10 +9,9 @@
 #include "common.h"
 #include "dotmatrixpropertydialog.h"
 #include "graphicobject.h"
-//#include "../ann_gui/graphicmlpelement.h"
-//#include "interfaces.h"
 
-//class GraphicMLPElement;
+
+namespace core{
 
 /*!
  * \class
@@ -27,16 +26,13 @@ class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 //		struct Dot;
 
 	public:
-		struct Dot{
-			public:
-				int
-				row,
-				col;
+        struct Dot{
+            public:
+                int
+                row,
+                col;
 
-//				bool operator==(const Dot &dot){
-//					return dot.row == row && dot.col == col;
-//				}
-		};
+        };
 
 		enum DataType{
 			Unipolar,
@@ -483,8 +479,6 @@ class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 
 };
 
-bool operator==(const DotMatrix::Dot &dotleft, const DotMatrix::Dot &dotright){
-	return dotleft.col == dotright.col && dotleft.row == dotleft.col;
+bool operator ==(const DotMatrix::Dot &dotleft, const DotMatrix::Dot &dotright);
 }
-
 #endif // DOTMATRIX_H

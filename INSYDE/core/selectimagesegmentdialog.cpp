@@ -1,44 +1,44 @@
 #include "selectimagesegmentdialog.h"
 #include "ui_selectimagesegmentdialog.h"
 
-SelectImageSegmentDialog::SelectImageSegmentDialog(const QImage &img, const QRect &selrect, QWidget *parent) :
+core::SelectImageSegmentDialog::SelectImageSegmentDialog(const QImage &img, const QRect &selrect, QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::SelectImageSegmentDialog)
 {
 	init(img, selrect);
 }
 
-SelectImageSegmentDialog::~SelectImageSegmentDialog()
+core::SelectImageSegmentDialog::~SelectImageSegmentDialog()
 {
 	delete ui;
 }
 
-void SelectImageSegmentDialog::setSelectionRect(const QRect &rect)
+void core::SelectImageSegmentDialog::setSelectionRect(const QRect &rect)
 {
 	giedw->setSelectionRect(rect);
 }
 
-QRect SelectImageSegmentDialog::getSelectionRect() const
+QRect core::SelectImageSegmentDialog::getSelectionRect() const
 {
 	return giedw->getSelectionRect();
 }
 
-QImage SelectImageSegmentDialog::getImageSegment() const
+QImage core::SelectImageSegmentDialog::getImageSegment() const
 {
 	return giedw->getImageSegment();
 }
 
-void SelectImageSegmentDialog::setIntegerSizeWidget(IntegerSizeWidget *isw)
+void core::SelectImageSegmentDialog::setIntegerSizeWidget(IntegerSizeWidget *isw)
 {
 	this->isw = isw;
 }
 
-IntegerSizeWidget *SelectImageSegmentDialog::getIntegerSizeWidget() const
+core::IntegerSizeWidget *core::SelectImageSegmentDialog::getIntegerSizeWidget() const
 {
 	return isw;
 }
 
-void SelectImageSegmentDialog::init(const QImage &img, const QRect &selrect)
+void core::SelectImageSegmentDialog::init(const QImage &img, const QRect &selrect)
 {
 	ui->setupUi(this);
 
@@ -60,14 +60,14 @@ void SelectImageSegmentDialog::init(const QImage &img, const QRect &selrect)
 	connect(isw, SIGNAL(heightChanged(int)), SLOT(onHeightChanged(int)));
 }
 
-void SelectImageSegmentDialog::onWidthChanged(int width)
+void core::SelectImageSegmentDialog::onWidthChanged(int width)
 {
 	QRect tmpRect = giedw->getSelectionRect();
 	tmpRect.setWidth(width);
 	giedw->setSelectionRect(tmpRect);
 }
 
-void SelectImageSegmentDialog::onHeightChanged(int height)
+void core::SelectImageSegmentDialog::onHeightChanged(int height)
 {
 	QRect tmpRect = giedw->getSelectionRect();
 	tmpRect.setHeight(height);

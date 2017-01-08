@@ -13,6 +13,8 @@
 
 using namespace std;
 
+namespace core{
+
 /*!
  * \class
  *
@@ -261,5 +263,5 @@ class CORE_LIB_IMPORT_EXPORT NormalizationWidget : public QWidget
 
 		void updateNormalizationControls();
 };
-
+}
 #endif // NORMALIZATIONWIDGET_H

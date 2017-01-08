@@ -18,6 +18,7 @@
 #include "newprojectwizard.h"
 #include <math.h>
 
+using namespace core;
 
 namespace Ui {
 	class MainWindow;

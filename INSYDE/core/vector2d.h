@@ -6,9 +6,16 @@
 
 #include <QtCore>
 
+
+namespace core{
+
+/*!
+ * \brief The Direction enum
+ * Indicates the spin direction.
+ */
 enum Direction{
-	ClockWise,
-	CounterClockWise
+    ClockWise,
+    CounterClockWise
 };
 
 /*!
@@ -61,5 +68,5 @@ class CORE_LIB_IMPORT_EXPORT Vector2D
 		Vector2D &operator+(const Vector2D &vector1);
 		Vector2D &operator-(const Vector2D &vector1);
 };
-
+}
 #endif // VECTORR2_H

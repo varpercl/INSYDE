@@ -1,29 +1,29 @@
 #include "simulation.h"
 
-Simulation::Simulation() :
+core::Simulation::Simulation() :
 	QThread()
 {
 
 }
 
-void Simulation::add(GraphicObject *obj)
+void core::Simulation::add(GraphicObject *obj)
 {
 	setAutomaticObjectName(obj);
 	objects.push_back(obj);
 	obj->setSimulation(this);
 }
 
-void Simulation::remove(GraphicObject *obj)
+void core::Simulation::remove(GraphicObject *obj)
 {
 	objects.remove(objects.indexOf(obj));
 }
 
-void Simulation::run()
+void core::Simulation::run()
 {
 
 }
 
-void Simulation::setAutomaticObjectName(GraphicObject *obj)
+void core::Simulation::setAutomaticObjectName(GraphicObject *obj)
 {
 	switch(obj->type()){
 		case GraphicObject::gotADALINE:
@@ -65,12 +65,12 @@ void Simulation::setAutomaticObjectName(GraphicObject *obj)
 	}
 }
 
-void Simulation::init()
+void core::Simulation::init()
 {
 
 }
 
-QString Simulation::getNamePrivateHelper(const QString &suffix) const
+QString core::Simulation::getNamePrivateHelper(const QString &suffix) const
 {
 	QString name = suffix.simplified();
 	int index = 0;

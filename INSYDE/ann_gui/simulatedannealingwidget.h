@@ -8,6 +8,7 @@
 #include "../core/labeledintegerspinbox.h"
 #include "../core/labeleddoublespinbox.h"
 
+using namespace core;
 using namespace ann_base;
 
 /*!

@@ -23,6 +23,8 @@ class DotMatrixDetailedWindow;
 class DotMatrixRepresentation;
 class ImageRepresentationWidget;
 
+namespace core{
+
 /*!
  * \class
  *
@@ -129,5 +131,5 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentationBox : public QGroupBox
 		void init(const vector<double> &inputdata, DataRepresentation *dr);
 
 };
-
+}
 #endif // GBGRAPHICREPRESENTATION_H

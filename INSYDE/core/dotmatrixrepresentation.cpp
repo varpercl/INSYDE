@@ -1,22 +1,22 @@
 #include "dotmatrixrepresentation.h"
 
-DotMatrixRepresentation::DotMatrixRepresentation(const vector<double> &inputs, QWidget *parent) :
+core::DotMatrixRepresentation::DotMatrixRepresentation(const vector<double> &inputs, QWidget *parent) :
 	DataRepresentationWidget(inputs, parent)
 {
 	init();
 }
 
-DotMatrixRepresentation::~DotMatrixRepresentation()
+core::DotMatrixRepresentation::~DotMatrixRepresentation()
 {
 	//	delete isw;
 }
 
-void DotMatrixRepresentation::setInputs(const vector<double> &inputs)
+void core::DotMatrixRepresentation::setInputs(const vector<double> &inputs)
 {
 	dmWidget->getDotMatrixObject()->setInputs(inputs);
 }
 
-vector<double> DotMatrixRepresentation::getInputs() const
+vector<double> core::DotMatrixRepresentation::getInputs() const
 {
 	//TODO: corregir esto
 //	return dmWidget->getDotMatrix()->getInputs();
@@ -24,7 +24,7 @@ vector<double> DotMatrixRepresentation::getInputs() const
 	return vector<double>();
 }
 
-void DotMatrixRepresentation::setSize(const QSize &size)
+void core::DotMatrixRepresentation::setSize(const QSize &size)
 {
 	if(isw->getSize() != size){
 		isw->blockSignals(true);
@@ -40,12 +40,12 @@ void DotMatrixRepresentation::setSize(const QSize &size)
 	}
 }
 
-QSize DotMatrixRepresentation::getSize() const
+QSize core::DotMatrixRepresentation::getSize() const
 {
 	return isw->getSize();
 }
 
-void DotMatrixRepresentation::setWidth(int w)
+void core::DotMatrixRepresentation::setWidth(int w)
 {
 	if(isw->getWidth() != w){
 		isw->blockSignals(true);
@@ -58,12 +58,12 @@ void DotMatrixRepresentation::setWidth(int w)
 	}
 }
 
-int DotMatrixRepresentation::getWidth() const
+int core::DotMatrixRepresentation::getWidth() const
 {
 	return isw->getWidth();
 }
 
-void DotMatrixRepresentation::setHeight(int h)
+void core::DotMatrixRepresentation::setHeight(int h)
 {
 	if(isw->getHeight() != h){
 		isw->blockSignals(true);
@@ -76,29 +76,29 @@ void DotMatrixRepresentation::setHeight(int h)
 	}
 }
 
-int DotMatrixRepresentation::getHeight() const
+int core::DotMatrixRepresentation::getHeight() const
 {
 	return isw->getHeight();
 }
 
-void DotMatrixRepresentation::setDotMatrixObject(DotMatrix *obj)
+void core::DotMatrixRepresentation::setDotMatrixObject(core::DotMatrix *obj)
 {
 	dmWidget->setDotMatrixObject(obj);
 }
 
-DotMatrix *DotMatrixRepresentation::getDotMatrixObject() const
+core::DotMatrix *core::DotMatrixRepresentation::getDotMatrixObject() const
 {
 	return dmWidget->getDotMatrixObject();
 }
 
-void DotMatrixRepresentation::onWidgetSizeChanged(const QSize &s)
+void core::DotMatrixRepresentation::onWidgetSizeChanged(const QSize &s)
 {
 	dmWidget->setSize(s);
 
 	emit sizeChanged(s);
 }
 
-void DotMatrixRepresentation::init()
+void core::DotMatrixRepresentation::init()
 {
 	dmWidget = new DotMatrixDetailedWindow(getInputs());
 	DotMatrix *dm = dmWidget->getDotMatrixObject();

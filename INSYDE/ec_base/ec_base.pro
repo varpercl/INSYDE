@@ -6,7 +6,6 @@ CONFIG += qt opengl shared_and_static
 #CONFIG(release, debug|release):message("Staring RELEASE build for ec_base sources")
 #CONFIG(debug, debug|release):message("Staring DEBUG build for ec_base sources")
 
-TARGET = ec_base
 
 TEMPLATE = lib
 
@@ -30,23 +29,28 @@ HEADERS += \
 	ant.h
 
 win32:{
-
     CONFIG(release, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-    }
-    CONFIG(debug, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
+		TARGET = ec_base
+
+		QMAKE_CXXFLAGS += /MD
+
+		LIBS += -L$$DESTDIR -lcore \
+
+	}else:{#DEBUG
+
+		message("Building debug binaries for ec_base module");
+
+		TARGET = ec_base_debug
+
+		QMAKE_CXXFLAGS += /MDd
+		LIBS += -L$$DESTDIR -lcore_debug \
+
     }
 
-    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-
-    INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
-    DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
+#   if x86_64
+	contains(QMAKE_TARGET.arch, x86_64): {
+		QMAKE_LFLAGS += /MACHINE:X64
+	}
 }
 
 unix:{

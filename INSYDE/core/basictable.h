@@ -7,6 +7,8 @@
 #include "interfaces.h"
 #include "definitions.h"
 
+namespace core{
+
 /*!
  * \class BasicTable
  *
@@ -146,5 +148,5 @@ class CORE_LIB_IMPORT_EXPORT BasicTable : public QTableView, public ClipboardInt
 
 		void init();
 };
-
+}
 #endif // BASICTABLE_H

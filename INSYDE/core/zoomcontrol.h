@@ -6,6 +6,8 @@
 #include "share_core_lib.h"
 #include "definitions.h"
 
+namespace core{
+
 /*!
  * \class
  *
@@ -52,5 +54,5 @@ class CORE_LIB_IMPORT_EXPORT ZoomControl : public QToolBar
 
 		void init();
 };
-
+}
 #endif // ZOOMCONTROL_H

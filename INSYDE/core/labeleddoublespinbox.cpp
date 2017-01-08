@@ -1,82 +1,82 @@
 #include "labeleddoublespinbox.h"
 
-LabeledDoubleSpinBox::LabeledDoubleSpinBox(const QString &label, double value, const LabeledWidget::Position &pos, QWidget *parent) :
+core::LabeledDoubleSpinBox::LabeledDoubleSpinBox(const QString &label, double value, const LabeledWidget::Position &pos, QWidget *parent) :
 	LabeledWidget(label, pos, parent)
 {
 	init(value);
 }
 
-LabeledDoubleSpinBox::~LabeledDoubleSpinBox()
+core::LabeledDoubleSpinBox::~LabeledDoubleSpinBox()
 {
 }
 
-void LabeledDoubleSpinBox::setValue(double val)
+void core::LabeledDoubleSpinBox::setValue(double val)
 {
 	sbValue->setValue(val);
 }
 
-double LabeledDoubleSpinBox::getValue() const
+double core::LabeledDoubleSpinBox::getValue() const
 {
 	return sbValue->value();
 }
 
-void LabeledDoubleSpinBox::setMaximumValue(double val)
+void core::LabeledDoubleSpinBox::setMaximumValue(double val)
 {
 	sbValue->setMaximum(val);
 }
 
-double LabeledDoubleSpinBox::getMaximumValue() const
+double core::LabeledDoubleSpinBox::getMaximumValue() const
 {
 	return sbValue->maximum();
 }
 
-void LabeledDoubleSpinBox::setMinimumValue(double val)
+void core::LabeledDoubleSpinBox::setMinimumValue(double val)
 {
 	sbValue->setMinimum(val);
 }
 
-double LabeledDoubleSpinBox::getMinimumValue() const
+double core::LabeledDoubleSpinBox::getMinimumValue() const
 {
 	return sbValue->minimum();
 }
 
-void LabeledDoubleSpinBox::setDecimals(int dec)
+void core::LabeledDoubleSpinBox::setDecimals(int dec)
 {
 	sbValue->setDecimals(dec);
 	sbValue->setSingleStep(1/pow(10, dec));
 }
 
-int LabeledDoubleSpinBox::getDecimals() const
+int core::LabeledDoubleSpinBox::getDecimals() const
 {
 	return sbValue->decimals();
 }
 
-void LabeledDoubleSpinBox::setLabelVisible(bool vis)
+void core::LabeledDoubleSpinBox::setLabelVisible(bool vis)
 {
 	label->setVisible(vis);
 }
 
-bool LabeledDoubleSpinBox::getLabelVisible() const
+bool core::LabeledDoubleSpinBox::getLabelVisible() const
 {
 	return label->isVisible();
 }
 
-void LabeledDoubleSpinBox::setDoubleSpinBox(QDoubleSpinBox *sb)
+void core::LabeledDoubleSpinBox::setDoubleSpinBox(QDoubleSpinBox *sb)
 {
 	sbValue = sb;
 }
 
-QDoubleSpinBox *LabeledDoubleSpinBox::getDoubleSpinBox() const
+QDoubleSpinBox *core::LabeledDoubleSpinBox::getDoubleSpinBox() const
 {
 	return sbValue;
 }
 
-void LabeledDoubleSpinBox::onValueChanged(double val)
+void core::LabeledDoubleSpinBox::onValueChanged(double val)
 {
 	emit valueChanged(val);
 }
 
-void LabeledDoubleSpinBox::init(double value)
+void core::LabeledDoubleSpinBox::init(double value)
 {
 	sbValue = new QDoubleSpinBox();
 	sbValue->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);

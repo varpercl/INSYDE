@@ -1,17 +1,17 @@
 #include "labeledintegerspinbox.h"
 
-LabeledIntegerSpinBox::LabeledIntegerSpinBox(const QString &label, int value, const Position &pos, QWidget *parent) :
+core::LabeledIntegerSpinBox::LabeledIntegerSpinBox(const QString &label, int value, const Position &pos, QWidget *parent) :
 	LabeledWidget(label, pos, parent)
 {
 	init(value);
 }
 
-LabeledIntegerSpinBox::~LabeledIntegerSpinBox()
+core::LabeledIntegerSpinBox::~LabeledIntegerSpinBox()
 {
 	delete sbValue;
 }
 
-void LabeledIntegerSpinBox::setValue(int val)
+void core::LabeledIntegerSpinBox::setValue(int val)
 {
 	if(sbValue->value() != val){
 		sbValue->setValue(val);
@@ -20,42 +20,42 @@ void LabeledIntegerSpinBox::setValue(int val)
 	}
 }
 
-int LabeledIntegerSpinBox::getValue() const
+int core::LabeledIntegerSpinBox::getValue() const
 {
 	return sbValue->value();
 }
 
-void LabeledIntegerSpinBox::setMaximumValue(int val)
+void core::LabeledIntegerSpinBox::setMaximumValue(int val)
 {
 	sbValue->setMaximum(val);
 }
 
-int LabeledIntegerSpinBox::getMaximumValue() const
+int core::LabeledIntegerSpinBox::getMaximumValue() const
 {
 	return sbValue->maximum();
 }
 
-void LabeledIntegerSpinBox::setMinimumValue(int val)
+void core::LabeledIntegerSpinBox::setMinimumValue(int val)
 {
 	sbValue->setMinimum(val);
 }
 
-int LabeledIntegerSpinBox::getMinimumValue() const
+int core::LabeledIntegerSpinBox::getMinimumValue() const
 {
 	return sbValue->minimum();
 }
 
-void LabeledIntegerSpinBox::setIntegerSpinBox(QSpinBox *sb)
+void core::LabeledIntegerSpinBox::setIntegerSpinBox(QSpinBox *sb)
 {
 	sbValue = sb;
 }
 
-QSpinBox *LabeledIntegerSpinBox::getIntegerSpinBox() const
+QSpinBox *core::LabeledIntegerSpinBox::getIntegerSpinBox() const
 {
 	return sbValue;
 }
 
-void LabeledIntegerSpinBox::setUnits(LabeledWidget::Units unit)
+void core::LabeledIntegerSpinBox::setUnits(LabeledWidget::Units unit)
 {
 	LabeledWidget::setUnits(unit);
 
@@ -101,12 +101,12 @@ void LabeledIntegerSpinBox::setUnits(LabeledWidget::Units unit)
 	sbValue->update();
 }
 
-void LabeledIntegerSpinBox::onValueChanged(int val)
+void core::LabeledIntegerSpinBox::onValueChanged(int val)
 {
 	emit valueChanged(val);
 }
 
-void LabeledIntegerSpinBox::init(double value)
+void core::LabeledIntegerSpinBox::init(double value)
 {
 
 	sbValue = new QSpinBox();

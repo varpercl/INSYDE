@@ -1,13 +1,12 @@
 
-#message("Compiling gui sources")
+include(../external/kdchart2.pri)
+include(../external/tbb.pri)
 
 QT += core gui widgets xml opengl
 
 CONFIG += qt opengl
 
 TEMPLATE = app
-
-TARGET = INSYDE
 
 DEFINES += \
 #WINDOW_HEIGH=31 \
@@ -59,31 +58,41 @@ FORMS += \
 RESOURCES += \
     gui_media.qrc
 
-LIBS += \
--L$$DESTDIR -lcore \
--L$$DESTDIR -lann_base \
--L$$DESTDIR -lann_gui\
--L$$DESTDIR -lec_base \
--L$$DESTDIR -lec_gui \
-
 win32:{
+	CONFIG += windows c++11
 
     CONFIG(release, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-    }
-    CONFIG(debug, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
-    }
+		message("Building release binaries for gui module");
 
-    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
+		QMAKE_CXXFLAGS += /MD
 
-    INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
-    DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
+		TARGET = INSYDE
+
+		LIBS += -L$$DESTDIR -lcore \
+				-L$$DESTDIR -lann_base \
+				-L$$DESTDIR -lann_gui\
+				-L$$DESTDIR -lec_base \
+				-L$$DESTDIR -lec_gui
+
+	}else:{#DEBUG
+
+		message("Building debug binaries for gui module");
+
+		TARGET = INSYDE_debug
+
+		QMAKE_CXXFLAGS += /MDd
+
+		LIBS += -L$$DESTDIR -lcore_debug \
+				-L$$DESTDIR -lann_base_debug \
+				-L$$DESTDIR -lann_gui_debug \
+				-L$$DESTDIR -lec_base_debug \
+				-L$$DESTDIR -lec_gui_debug
+
+    }
+#   if x86_64
+	contains(QMAKE_TARGET.arch, x86_64): {
+		QMAKE_LFLAGS += /MACHINE:X64
+	}
 }
 
 unix:{
@@ -95,7 +104,7 @@ unix:{
 	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
 		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
 		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
-    }else{
+	}else:{
 	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
 		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
 		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart

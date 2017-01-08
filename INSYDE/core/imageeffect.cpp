@@ -1,17 +1,17 @@
 #include "imageeffect.h"
 
-ImageEffect::ImageEffect() :
+core::ImageEffect::ImageEffect() :
 	Cursor(0, 0, 0, 0)
 {
 }
 
-ImageEffect::ImageEffect(GraphicObject *input) :
+core::ImageEffect::ImageEffect(GraphicObject *input) :
 	Cursor(0, 0, 0, 0)
 {
 	init(input);
 }
 
-void ImageEffect::setInputElement(GraphicObject *ge)
+void core::ImageEffect::setInputElement(GraphicObject *ge)
 {
 	switch(ge->type()){
 //		case DotMatrix::DotMatrixType:{
@@ -31,17 +31,17 @@ void ImageEffect::setInputElement(GraphicObject *ge)
 	inputElement = ge;
 }
 
-void ImageEffect::setOutputElement(GraphicObject *ge)
+void core::ImageEffect::setOutputElement(GraphicObject *ge)
 {
 	outputElement = ge;
 }
 
-int ImageEffect::type() const
+int core::ImageEffect::type() const
 {
 	return gotImageEffect;
 }
 
-QMenu *ImageEffect::getContextMenu(QMenu *menu)
+QMenu *core::ImageEffect::getContextMenu(QMenu *menu)
 {
 	menu->addAction("Abrir", this, SLOT(openOnWindowClick()));
 	menu->addAction("Borrar", this, SLOT(removeClick()));
@@ -49,88 +49,88 @@ QMenu *ImageEffect::getContextMenu(QMenu *menu)
 	return menu;
 }
 
-QImage ImageEffect::getOutput()
+QImage core::ImageEffect::getOutput()
 {
 	return modImage;
 }
 
-QImage ImageEffect::getImage()
+QImage core::ImageEffect::getImage()
 {
 	return modImage;
 }
 
-QImage ImageEffect::getWindow(int x, int y, int w, int h)
+QImage core::ImageEffect::getWindow(int x, int y, int w, int h)
 {
 	return modImage.copy(x, y, w, h);
 }
 
-QImage ImageEffect::getWindow(const QRect &rect)
+QImage core::ImageEffect::getWindow(const QRect &rect)
 {
 	return modImage.copy(rect);
 }
 
-void ImageEffect::setWindowWidth(int w)
+void core::ImageEffect::setWindowWidth(int w)
 {
 	windowWidth = w;
 }
 
-int ImageEffect::getWindowWidth()
+int core::ImageEffect::getWindowWidth()
 {
 	return windowWidth;
 }
 
-int ImageEffect::getImageWidth()
+int core::ImageEffect::getImageWidth()
 {
 	return modImage.width();
 }
 
-int ImageEffect::getImageHeight()
+int core::ImageEffect::getImageHeight()
 {
 	return modImage.height();
 }
 
-void ImageEffect::setSampledImage(const QImage &img)
+void core::ImageEffect::setSampledImage(const QImage &img)
 {
 	minImage = img;
 }
 
-void ImageEffect::setSampledImage(const QString &path)
+void core::ImageEffect::setSampledImage(const QString &path)
 {
 	minImage = QImage(path);
 }
 
-QImage ImageEffect::getSampledImage()
+QImage core::ImageEffect::getSampledImage()
 {
 	return minImage;
 }
 
-QString ImageEffect::getXML() const
+QString core::ImageEffect::getXML() const
 {
 	//TODO:
 	return "";
 }
 
-void ImageEffect::copyClick()
+void core::ImageEffect::copyClick()
 {
 
 }
 
-void ImageEffect::cutClick()
+void core::ImageEffect::cutClick()
 {
 
 }
 
-void ImageEffect::pasteClick()
+void core::ImageEffect::pasteClick()
 {
 
 }
 
-void ImageEffect::saveClick()
+void core::ImageEffect::saveClick()
 {
 
 }
 
-void ImageEffect::propertyClick()
+void core::ImageEffect::propertyClick()
 {
 	ImageEffectPropertyDialog *gieepd = new ImageEffectPropertyDialog(this);
 	if(gieepd->exec() == QDialog::Accepted){
@@ -144,7 +144,7 @@ void ImageEffect::propertyClick()
 	}
 }
 
-void ImageEffect::openOnWindowClick()
+void core::ImageEffect::openOnWindowClick()
 {
 	QGraphicsWidget *gw = (QGraphicsWidget*)this->scene()->parent();
 	QWidget *qw = (QWidget*)gw->parent();
@@ -155,7 +155,7 @@ void ImageEffect::openOnWindowClick()
 	tw->addTab(giedw, "Imagen");
 }
 
-void ImageEffect::onInputImageChanged(const QImage &img)
+void core::ImageEffect::onInputImageChanged(const QImage &img)
 {
 	modImage = img;
 
@@ -169,7 +169,7 @@ void ImageEffect::onInputImageChanged(const QImage &img)
 	updateImage();
 }
 
-void ImageEffect::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void core::ImageEffect::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	GraphicObject::paint(painter, option, widget);
 
@@ -177,19 +177,19 @@ void ImageEffect::paint(QPainter *painter, const QStyleOptionGraphicsItem *optio
 }
 
 
-void ImageEffect::init(GraphicObject *input)
+void core::ImageEffect::init(GraphicObject *input)
 {
 	setInputElement(input);
 }
 
-void ImageEffect::updateImage()
+void core::ImageEffect::updateImage()
 {
 	minImage = modImage.scaled(50, 50, Qt::KeepAspectRatio/*, Qt::SmoothTransformation*/);
 	setContainerRect(minImage.rect());
 	update();
 }
 
-void ImageEffect::applyEffects()
+void core::ImageEffect::applyEffects()
 {
 //	QImage final = img;
 	int sEffects = effects.size();

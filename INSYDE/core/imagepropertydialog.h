@@ -11,7 +11,11 @@
 #include "fileeditline.h"
 #include "labeledcombobox.h"
 
+
+namespace core{
+
 class Image;
+
 /*!
  * \class
  *
@@ -70,5 +74,5 @@ class CORE_LIB_IMPORT_EXPORT ImagePropertyDialog : public GraphicObjectPropertyD
 
 		void enableControls(bool b, const QImage &tempImage);
 };
-
+}
 #endif // GRAPHICIMAGEELEMENTPROPERTYDIALOG_H

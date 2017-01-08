@@ -1,45 +1,45 @@
 #include "zoomcontrol.h"
 #include "definitions.h"
 
-ZoomControl::ZoomControl(QWidget *parent) :
+core::ZoomControl::ZoomControl(QWidget *parent) :
 	QToolBar(parent)
 {
 	init();
 }
 
-ZoomControl::~ZoomControl()
+core::ZoomControl::~ZoomControl()
 {
 	delete btnZoomIn;
 	delete btnZoomOut;
 	delete sbZoom;
 }
 
-void ZoomControl::setMinZoom(int min)
+void core::ZoomControl::setMinZoom(int min)
 {
 	sbZoom->setMinimum(min);
 }
 
-int ZoomControl::getMinZoom() const
+int core::ZoomControl::getMinZoom() const
 {
 	return sbZoom->minimum();
 }
 
-void ZoomControl::setMaxZoom(int max)
+void core::ZoomControl::setMaxZoom(int max)
 {
 	sbZoom->setMaximum(max);
 }
 
-int ZoomControl::getMaxZoom() const
+int core::ZoomControl::getMaxZoom() const
 {
 	return sbZoom->maximum();
 }
 
-void ZoomControl::setZoomRange(int min, int max)
+void core::ZoomControl::setZoomRange(int min, int max)
 {
 	sbZoom->setRange(min, max);
 }
 
-void ZoomControl::setZoom(int percentaje)
+void core::ZoomControl::setZoom(int percentaje)
 {
 	if(sbZoom->value() != percentaje){
 		sbZoom->setValue(percentaje);
@@ -48,17 +48,17 @@ void ZoomControl::setZoom(int percentaje)
 	}
 }
 
-int ZoomControl::getZoom() const
+int core::ZoomControl::getZoom() const
 {
 	return sbZoom->value();
 }
 
-void ZoomControl::onEditZoomChanged(int val)
+void core::ZoomControl::onEditZoomChanged(int val)
 {
 	emit zoomChanged(val);
 }
 
-void ZoomControl::init()
+void core::ZoomControl::init()
 {
 	Q_INIT_RESOURCE(core_media);
 

@@ -7,7 +7,7 @@
 #include "share_core_lib.h"
 #include "common.h"
 
-using namespace common;
+namespace core{
 
 /*!
  * \brief La clase @code{Enviroment} define un entorno en el que se ubicaran los agentes y demas objetos que formaran
@@ -75,5 +75,5 @@ class CORE_LIB_IMPORT_EXPORT Enviroment : public QGraphicsScene
 
 		void init();
 };
-
+}
 #endif // MAPA_H

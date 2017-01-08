@@ -1,6 +1,6 @@
 #include "graphiccursorelement.h"
 
-Cursor::Cursor(const QRect &rect) :
+core::Cursor::Cursor(const QRect &rect) :
 	GraphicObject()
 {
 	grect = new QGraphicsRectItem(rect, this);
@@ -8,7 +8,7 @@ Cursor::Cursor(const QRect &rect) :
 	setCursorVisible(false);
 }
 
-Cursor::Cursor(int x, int y, int w, int h)
+core::Cursor::Cursor(int x, int y, int w, int h)
 {
 	grect = new QGraphicsRectItem(QRect(x, y, w, h), this);
 	setCursorRect(QRect(x, y, w, h));
@@ -16,17 +16,17 @@ Cursor::Cursor(int x, int y, int w, int h)
 }
 
 
-void Cursor::setCursorRect(const QRect &rect)
+void core::Cursor::setCursorRect(const QRect &rect)
 {
 	grect->setRect(rect);
 }
 
-void Cursor::setCursorRect(int x, int y, int w, int h)
+void core::Cursor::setCursorRect(int x, int y, int w, int h)
 {
 	grect->setRect(QRect(x, y, w, h));
 }
 
-void Cursor::setCursorVisible(bool vis)
+void core::Cursor::setCursorVisible(bool vis)
 {
 	grect->setVisible(vis);
 }

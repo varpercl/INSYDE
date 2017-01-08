@@ -5,6 +5,8 @@
 
 #include "share_core_lib.h"
 
+namespace core{
+
 class CORE_LIB_IMPORT_EXPORT RestrictedLineF : public QLineF
 {
 	public:
@@ -64,5 +66,5 @@ class CORE_LIB_IMPORT_EXPORT RestrictedLineF : public QLineF
 		Constrain lineConstrain;
 
 };
-
+}
 #endif // RESTRICTEDPOINTF_H

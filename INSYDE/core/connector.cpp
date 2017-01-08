@@ -1,28 +1,28 @@
 #include "connector.h"
 
-Connector::Connector() :
+core::Connector::Connector() :
 	GraphicObject()
 {
 	init(0, 0);
 }
 
-Connector::Connector(GraphicObject *begin, GraphicObject *end) :
+core::Connector::Connector(GraphicObject *begin, GraphicObject *end) :
 	GraphicObject()
 {
 	init(begin, end);
 }
 
-Connector::~Connector()
+core::Connector::~Connector()
 {
 
 }
 
-int Connector::type() const
+int core::Connector::type() const
 {
 	return gotConnector;
 }
 
-void Connector::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void core::Connector::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	(void)option;
 	(void)widget;
@@ -44,7 +44,7 @@ void Connector::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 	painter->drawRect(boundingRect());
 }
 
-bool Connector::eventFilter(QObject *sender, QEvent *event)
+bool core::Connector::eventFilter(QObject *sender, QEvent *event)
 {
 //	qDebug () << event->type();
 	if(event->type() == QEvent::MouseMove){
@@ -87,46 +87,46 @@ bool Connector::eventFilter(QObject *sender, QEvent *event)
 	return GraphicObject::eventFilter(sender, event);
 }
 
-QRectF Connector::boundingRect() const
+QRectF core::Connector::boundingRect() const
 {
 	return shapeForm.boundingRect();
 }
 
-QPainterPath Connector::shape() const
+QPainterPath core::Connector::shape() const
 {
 	QPainterPath path;
 	path.addPolygon(shapeForm);
 	return path;
 }
 
-QSizeF Connector::getSize() const
+QSizeF core::Connector::getSize() const
 {
 	return getContainerRect().size();
 }
 
-double Connector::getWidth() const
+double core::Connector::getWidth() const
 {
 	return getContainerRect().width();
 }
 
-double Connector::getHeight() const
+double core::Connector::getHeight() const
 {
 	return getContainerRect().height();
 }
 
-void Connector::setInputElement(GraphicObject *ge)
+void core::Connector::setInputElement(GraphicObject *ge)
 {
 	(void)ge;
 	//TODO: 05/24/16 setInputElement must be implemented
 }
 
-QString Connector::getXML() const
+QString core::Connector::getXML() const
 {
 	//TODO: 05/19/16 getXML must be implemented
 	return "";
 }
 
-void Connector::setBeginObject(GraphicObject *begin)
+void core::Connector::setBeginObject(GraphicObject *begin)
 {
 	if(!begin){
 		isBuildingConector = false;
@@ -145,7 +145,7 @@ void Connector::setBeginObject(GraphicObject *begin)
 //	connect(begin, SIGNAL())
 }
 
-void Connector::setEndObject(GraphicObject *end)
+void core::Connector::setEndObject(GraphicObject *end)
 {
 	if(!end) return;
 
@@ -178,12 +178,12 @@ void Connector::setEndObject(GraphicObject *end)
 	setContainerRect(container);
 }
 
-void Connector::propertyClick()
+void core::Connector::propertyClick()
 {
 	//TODO: 14/5/16 propertyClick must be implemented
 }
 
-void Connector::init(GraphicObject *begin, GraphicObject *end)
+void core::Connector::init(GraphicObject *begin, GraphicObject *end)
 {
 	clearance = 10;
 
@@ -202,7 +202,7 @@ void Connector::init(GraphicObject *begin, GraphicObject *end)
 	setObjectLocked(true);
 }
 
-void Connector::updateConectorLine(const QPointF &begin, const QPointF &end)
+void core::Connector::updateConectorLine(const QPointF &begin, const QPointF &end)
 {
 
 	const double MIN_LENGHT = 10;
@@ -407,7 +407,7 @@ void Connector::updateConectorLine(const QPointF &begin, const QPointF &end)
 //	composedLine.push_back(QLineF(midPoint, correctedEnd));
 }
 
-QList<QGraphicsItem *> Connector::removeIgnoredObjects(const QList<QGraphicsItem *> &list) const
+QList<QGraphicsItem *> core::Connector::removeIgnoredObjects(const QList<QGraphicsItem *> &list) const
 {
 	GraphicObject *obj;
 	QList<QGraphicsItem*> returnedList = list;
@@ -424,7 +424,7 @@ QList<QGraphicsItem *> Connector::removeIgnoredObjects(const QList<QGraphicsItem
 	return returnedList;
 }
 
-QList<GraphicObject *> Connector::removeIgnoredObjects(const QList<GraphicObject *> &list) const
+QList<core::GraphicObject *> core::Connector::removeIgnoredObjects(const QList<GraphicObject *> &list) const
 {
 	GraphicObject *obj;
 	QList<GraphicObject*> returnedList = list;
@@ -441,7 +441,7 @@ QList<GraphicObject *> Connector::removeIgnoredObjects(const QList<GraphicObject
 	return returnedList;
 }
 
-QGraphicsItem *Connector::closerItemPerif(const QPointF &pos, Port side, const QList<QGraphicsItem *> &list)
+QGraphicsItem *core::Connector::closerItemPerif(const QPointF &pos, Port side, const QList<QGraphicsItem *> &list)
 {
 	double
 			minDistance = INFINITY,
@@ -482,7 +482,7 @@ QGraphicsItem *Connector::closerItemPerif(const QPointF &pos, Port side, const Q
 	return list[choosenIndex];
 }
 
-QList<Connector::CollidingResult> Connector::collidingObjects(const QVector<RestrictedLineF *> &lines) const
+QList<core::Connector::CollidingResult> core::Connector::collidingObjects(const QVector<RestrictedLineF *> &lines) const
 {
 	QList<Connector::CollidingResult> result;
 
@@ -522,7 +522,7 @@ QList<Connector::CollidingResult> Connector::collidingObjects(const QVector<Rest
 	return result;
 }
 
-QVector<RestrictedLineF *> Connector::convertRect(const QRectF &rect) const
+QVector<core::RestrictedLineF *> core::Connector::convertRect(const QRectF &rect) const
 {
 	QVector<RestrictedLineF*> result;
 	RestrictedLineF
@@ -558,5 +558,7 @@ QVector<RestrictedLineF *> Connector::convertRect(const QRectF &rect) const
 	result.push_back(bottomLine);
 	result.push_back(leftLine);
 
-	return result;
+    return result;
 }
+
+

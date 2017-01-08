@@ -4,6 +4,7 @@
 #include <QtCore>
 
 #include "share_ann_base_lib.h"
+#include "settings.h"
 #include "globals.h"
 
 namespace ann_base{
@@ -16,7 +17,7 @@ namespace ann_base{
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class ANN_BASE_LIB_IMPORT_EXPORT BackpropagationSettings
+class ANN_BASE_LIB_IMPORT_EXPORT BackpropagationSettings : public Settings
 {
 	public:
 
@@ -26,8 +27,29 @@ class ANN_BASE_LIB_IMPORT_EXPORT BackpropagationSettings
 		//			ClasificationError
 		//		};
 
+		/*!
+		 * \brief BackpropagationSettings
+		 */
 		explicit BackpropagationSettings();
+
+		/*!
+		 * \brief BackpropagationSettings
+		 * \param epochs
+		 * \param MSEmin
+		 * \param RMSEmin
+		 * \param CEmin
+		 * \param learningRate
+		 * \param sp
+		 */
 		explicit BackpropagationSettings(unsigned int epochs, double MSEmin, double RMSEmin, double CEmin, double learningRate, StopCondition sp);
+
+		/*!
+		 * \brief BackpropagationSettings
+		 * \param epochs
+		 * \param em
+		 * \param emValue
+		 * \param learningRate
+		 */
 		explicit BackpropagationSettings(unsigned int epochs, StopCondition em, double emValue, double learningRate);
 
 		void setMaxEpochs(unsigned int epochs);

@@ -1,22 +1,22 @@
 #include "imagepropertydialog.h"
 
-ImagePropertyDialog::ImagePropertyDialog(Image *img, QWidget *parent) :
+core::ImagePropertyDialog::ImagePropertyDialog(Image *img, QWidget *parent) :
 	GraphicObjectPropertyDialog(img, parent)
 {
 	init(img);
 }
 
-ImagePropertyDialog::~ImagePropertyDialog()
+core::ImagePropertyDialog::~ImagePropertyDialog()
 {
 }
 
-void ImagePropertyDialog::accept()
+void core::ImagePropertyDialog::accept()
 {
 	onApplyClicked();
 	close();
 }
 
-void ImagePropertyDialog::onApplyClicked()
+void core::ImagePropertyDialog::onApplyClicked()
 {
 	if(img->getFilePath() != felPath->getFilePath()){
 		img->setImage(felPath->getFilePath());
@@ -94,7 +94,7 @@ void ImagePropertyDialog::onApplyClicked()
 	img->update();
 }
 
-void ImagePropertyDialog::onFilePathChanged(const QString &path)
+void core::ImagePropertyDialog::onFilePathChanged(const QString &path)
 {
 	QImage tmpImage(path);
 
@@ -105,7 +105,7 @@ void ImagePropertyDialog::onFilePathChanged(const QString &path)
 	}
 }
 
-void ImagePropertyDialog::init(Image *img)
+void core::ImagePropertyDialog::init(Image *img)
 {
 	this->img = img;
 
@@ -140,7 +140,7 @@ void ImagePropertyDialog::init(Image *img)
 	connect(felPath->getLineEdit(), SIGNAL(textChanged(QString)), SLOT(onFilePathChanged(QString)));
 }
 
-void ImagePropertyDialog::enableControls(bool b, const QImage &tempImage)
+void core::ImagePropertyDialog::enableControls(bool b, const QImage &tempImage)
 {
 	lcbImageFormats->setEnabled(b);
 	if(tempImage.isNull()){

@@ -26,6 +26,7 @@
 #include "view.h"
 #include "newmainwindow.h"
 
+using namespace core;
 
 namespace Ui {
 	class PruebaPantalla;

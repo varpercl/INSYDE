@@ -11,14 +11,14 @@
 #include "integersizewidget.h"
 #include "interfaces.h"
 
-using namespace common;
-
 namespace Ui {
 	class ImageRepresentationWidget;
 }
 
 class Image;
 class ImageDetailedWindow;
+
+namespace core{
 
 /*!
  * \class
@@ -197,5 +197,5 @@ class CORE_LIB_IMPORT_EXPORT ImageRepresentationWidget : public DataRepresentati
 		 */
 		QImage imageFromData(int w, int h, const vector<double> &data) const;
 };
-
+}
 #endif // IMAGEREPRESENTATIONWIDGET_H

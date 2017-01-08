@@ -14,6 +14,8 @@ namespace Ui {
 
 class ImageDetailedWindow;
 
+namespace core{
+
 /*!
  * \brief Esta clase genera un cuadro de dialogo que permite al usuario seleccionar grafica e intuitivamente un
  * segmento de dimension ajustable de una imagen preseleccionada.
@@ -51,5 +53,5 @@ class CORE_LIB_IMPORT_EXPORT SelectImageSegmentDialog : public QDialog
 		void onWidthChanged(int width);
 		void onHeightChanged(int height);
 };
-
+}
 #endif // SELECTIMAGESEGMENTDIALOG_H

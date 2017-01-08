@@ -158,7 +158,7 @@ void MultilayerPerceptron::addLayer(int nElements)
 
 	randomizeWeights(defaultRandomMinimum, defaultRandomMaximum);
 
-	emit layerCountChanged(last, layerWeights.size());
+	emit layerCountChanged(last, (int)layerWeights.size());
 	emit layerCountChanged();
 }
 
@@ -337,12 +337,12 @@ void MultilayerPerceptron::setLayerSize(unsigned int layer, int size)
 		}
 	}else{
 		for(size_t n = 0; n < layerWeights[layer].size(); n++){
-			layerWeights[layer][n] = math::getRandomValues(layerWeights[layer - 1].size() + 1, defaultRandomMinimum, defaultRandomMaximum);
+			layerWeights[layer][n] = math::getRandomValues((int)layerWeights[layer - 1].size() + 1, defaultRandomMinimum, defaultRandomMaximum);
 		}
 	}
 
 	if(lastSize != layerWeights[layer].size()){
-		emit layerSizeChanged(layer, lastSize, layerWeights[layer].size());
+		emit layerSizeChanged(layer, lastSize, (int)layerWeights[layer].size());
 		emit layerSizeChanged(layer);
 	}
 	emit weightsChanged();
@@ -377,7 +377,7 @@ void MultilayerPerceptron::setLayerSizes(const vector<int> &sizes)
 	}
 
 	if(lSize != nLayers){
-		emit layerCountChanged(lSize, nLayers);
+		emit layerCountChanged((int) lSize, (int) nLayers);
 		emit layerCountChanged();
 	}
 
@@ -401,16 +401,16 @@ int MultilayerPerceptron::getHiddenLayerCount() const
 
 void MultilayerPerceptron::setOutputSize(int size)
 {
-	int lastSize = outputWeights.size();
+	int lastSize = (int) outputWeights.size();
 
 	outputWeights.resize(size);
-	int nOutputWeights = (int)layerWeights[layerWeights.size()-1].size();
+	int nOutputWeights = (int)layerWeights[layerWeights.size() - 1].size();
 	for(int i = 0; i < size; i++){
 		outputWeights[i] = math::getRandomValues(nOutputWeights + 1, defaultRandomMinimum, defaultRandomMaximum);
 	}
 	if(lastSize != (int)outputWeights.size()){
 		emit outputSizeChanged();
-		emit outputSizeChanged(lastSize, outputWeights.size());
+		emit outputSizeChanged(lastSize, (int) outputWeights.size());
 	}
 	emit weightsChanged();
 }

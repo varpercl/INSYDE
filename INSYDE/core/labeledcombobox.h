@@ -4,6 +4,8 @@
 #include "share_core_lib.h"
 #include "labeledwidget.h"
 
+namespace core{
+
 /*!
  * \class
  *
@@ -61,7 +63,7 @@ class CORE_LIB_IMPORT_EXPORT LabeledComboBox : public LabeledWidget
 		/*!
 		 * \brief connectCBSignals
 		 */
-		void connectCBSignals();
+		void connectSignals();
 };
-
+}
 #endif // LABELEDCOMBOBOX_H

@@ -1,29 +1,29 @@
 #include "normalization.h"
 
-Normalization::Normalization() :
+core::Normalization::Normalization() :
 	QObject()
 {
 	init(Nothing, 999999999, -999999999, 0, 1, 1);
 }
 
-Normalization::Normalization(Type nt, double max, double min, double threshold, double amp, double elong) :
+core::Normalization::Normalization(Type nt, double max, double min, double threshold, double amp, double elong) :
 	QObject()
 {
 	init(nt, max, min, threshold, amp, elong);
 }
 
-Normalization::Normalization(const Normalization &nor) :
+core::Normalization::Normalization(const Normalization &nor) :
 	QObject()
 {
 	*this = nor;
 }
 
-Normalization::~Normalization()
+core::Normalization::~Normalization()
 {
 
 }
 
-void Normalization::setType(Normalization::Type nt)
+void core::Normalization::setType(Normalization::Type nt)
 {
 	if(norType != nt){
 		norType = nt;
@@ -32,12 +32,12 @@ void Normalization::setType(Normalization::Type nt)
 	}
 }
 
-Normalization::Type Normalization::getType() const
+core::Normalization::Type core::Normalization::getType() const
 {
 	return norType;
 }
 
-void Normalization::setMaxValue(double max)
+void core::Normalization::setMaxValue(double max)
 {
 	if(maxValue != max){
 		maxValue = max;
@@ -46,12 +46,12 @@ void Normalization::setMaxValue(double max)
 	}
 }
 
-double Normalization::getMaxValue() const
+double core::Normalization::getMaxValue() const
 {
 	return maxValue;
 }
 
-void Normalization::setMinValue(double min)
+void core::Normalization::setMinValue(double min)
 {
 	if(minValue != min){
 		minValue = min;
@@ -60,12 +60,12 @@ void Normalization::setMinValue(double min)
 	}
 }
 
-double Normalization::getMinValue() const
+double core::Normalization::getMinValue() const
 {
 	return minValue;
 }
 
-void Normalization::setThreshold(double threshold)
+void core::Normalization::setThreshold(double threshold)
 {
 	if(this->threshold != threshold){
 		this->threshold = threshold;
@@ -74,12 +74,12 @@ void Normalization::setThreshold(double threshold)
 	}
 }
 
-double Normalization::getThreshold() const
+double core::Normalization::getThreshold() const
 {
 	return threshold;
 }
 
-void Normalization::setAmplitude(double amp)
+void core::Normalization::setAmplitude(double amp)
 {
 	if(amplitude != amp){
 		amplitude = amp;
@@ -88,12 +88,12 @@ void Normalization::setAmplitude(double amp)
 	}
 }
 
-double Normalization::getAmplitude() const
+double core::Normalization::getAmplitude() const
 {
 	return amplitude;
 }
 
-void Normalization::setElongation(double elong)
+void core::Normalization::setElongation(double elong)
 {
 	if(elongation != elong){
 		elongation = elong;
@@ -102,12 +102,12 @@ void Normalization::setElongation(double elong)
 	}
 }
 
-double Normalization::getElongation() const
+double core::Normalization::getElongation() const
 {
 	return elongation;
 }
 
-QString Normalization::getName() const
+QString core::Normalization::getName() const
 {
 	switch(norType){
 		default:
@@ -134,7 +134,7 @@ QString Normalization::getName() const
 	}
 }
 
-Normalization &Normalization::operator=(const Normalization &nor)
+core::Normalization &core::Normalization::operator=(const Normalization &nor)
 {
 	if(this != &nor){
 		setMaxValue(nor.getMaxValue());
@@ -147,7 +147,7 @@ Normalization &Normalization::operator=(const Normalization &nor)
 	return *this;
 }
 
-bool Normalization::operator==(const Normalization &param1)
+bool core::Normalization::operator==(const Normalization &param1)
 {
 	return (param1.getMaxValue() == this->getMaxValue() &&
 			param1.getMinValue() == this->getMinValue() &&
@@ -158,7 +158,7 @@ bool Normalization::operator==(const Normalization &param1)
 			param1.getName() == this->getName());
 }
 
-bool Normalization::operator!=(const Normalization &param1)
+bool core::Normalization::operator!=(const Normalization &param1)
 {
 	return !(param1.getMaxValue() == this->getMaxValue() &&
 			 param1.getMinValue() == this->getMinValue() &&
@@ -169,7 +169,7 @@ bool Normalization::operator!=(const Normalization &param1)
 			 param1.getName() == this->getName());
 }
 
-void Normalization::init(Normalization::Type nt, double max, double min, double threshold, double amp, double elong)
+void core::Normalization::init(Normalization::Type nt, double max, double min, double threshold, double amp, double elong)
 {
 	setType(nt);
 	setMaxValue(max);

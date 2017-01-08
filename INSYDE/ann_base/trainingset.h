@@ -17,11 +17,11 @@
 #include "globals.h"
 #include "trainingsetfile.h"
 
-
-namespace ann_base{
-
 using namespace std;
 using namespace tbb;
+using namespace core;
+
+namespace ann_base{
 
 class TrainingSetFile;
 class MultilayerPerceptron;

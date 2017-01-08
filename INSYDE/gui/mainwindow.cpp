@@ -180,7 +180,7 @@ void MainWindow::onVisorClicked(QMouseEvent *event)
 																"Todas las imagenes (*.png *.jpg *.gif *.bmp);; Mapa de bits (*.bmp);; Formato JPEG (*.jpg);; Portable Network Graphics (*.png);; Formato de Intercambio de Graficos (*.gif)");
 
 					if(path != ""){
-						Image *gie = new Image(path);
+                        core::Image *gie = new core::Image(path);
 						tmpInputElement = gie;
 						gie->setPos(visor->mapToScene(event->pos()));
 						sce->addItem(gie);

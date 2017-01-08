@@ -6,6 +6,8 @@
 #include "share_core_lib.h"
 #include "interfaces.h"
 
+namespace core{
+
 /*!
  * \class
  *
@@ -166,5 +168,5 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentation : public Resizable
 			 */
 		void init(const Type &type, const QImage::Format &imgFormat, int w, int h);
 };
-
+}
 #endif // DATAREPRESENTATION_H

@@ -9,6 +9,8 @@
 
 using namespace std;
 
+namespace core{
+
 /*!
  * \class
  *
@@ -62,5 +64,5 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentationWidget : public QWidget
 		 */
 		virtual void init(const vector<double> &inputs);
 };
-
+}
 #endif // REPRESENTATIONWIDGET_H

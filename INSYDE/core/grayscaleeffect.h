@@ -4,6 +4,8 @@
 #include "share_core_lib.h"
 #include "effect.h"
 
+namespace core{
+
 /*!
  * \brief The GrayScaleEffect class
  *
@@ -24,5 +26,5 @@ class CORE_LIB_IMPORT_EXPORT GrayScaleEffect : public Effect
 
 		void init(const QImage &img);
 };
-
+}
 #endif // GRAYSCALEEFFECT_H

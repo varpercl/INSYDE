@@ -1,10 +1,10 @@
+include(../external/tbb.pri)
 
 QT += gui widgets opengl xml
 
 CONFIG +=  qt shared
 
-#CONFIG(release, debug|release):message("Staring RELEASE build for core sources") #will print
-#CONFIG(debug, debug|release):message("Staring DEBUG build for core sources") #no print
+
 #TODO: implement labeled color editor
 
 TEMPLATE = lib
@@ -133,64 +133,34 @@ RESOURCES += \
 
 win32:{
 	CONFIG += windows c++11
+
 	CONFIG(release, debug|release):{
+		message("Building release binaries for core module");
 
-	TARGET = core
+		QMAKE_CXXFLAGS += /MD
+		TARGET = core
 
-	LIBS += \
-		"C:/Users/Edixon/Google Drive/Programacion/C++/Qt/INSYDE/external/tbb44_20160128oss_win_0/lib/intel64/vc12/tbb.dll" \
-#		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
+	}else:{ #DEBUG
 
-	lib.path = $$PWD/../../custom_libs/insyde/core/lib/win64/nodebug
-	lib.files = $$OUT_PWD/../core.*
+		message("Building debug binaries for core module");
 
-	includes.path = $$PWD/../../custom_libs/insyde/core/include
-	includes.files = $$PWD/*.h
+		TARGET = core_debug
 
-	tbb_lib.path = $$PWD/../../custom_libs/insyde/tbb/lib
-	tbb_lib.files = $$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/tbb.*
+		QMAKE_CXXFLAGS += /MDd
 
-	tbb_include.path = $$PWD/../../custom_libs/insyde/tbb
-	tbb_include.files = $$PWD/../external/tbb44_20160128oss_win_0/include
 
-	INSTALLS += lib includes tbb_lib tbb_include
-	}else{
-	TARGET = core_debug
-
-	LIBS += \
-#		-L"C:/Users/Edixon/Google Drive/Programacion/C++/Qt/INSYDE/external/tbb44_20160128oss_win_0/bin/intel64/vc12/" -ltbb \
-		"C:/Users/Edixon/Google Drive/Programacion/C++/Qt/INSYDE/external/tbb44_20160128oss_win_0/bin/intel64/vc12/tbb_debug.dll" \
-		"C:/Users/Edixon/Google Drive/Programacion/C++/Qt/INSYDE/external/kdchart-2.5.1-source-win/lib/kdchartd2.lib"
-
-#	lib.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/core/lib/win64/debug"
-#	lib.files = $$OUT_PWD/../core_debug.*
-
-#	includes.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/core/include"
-#	includes.files = $$PWD/*.h
-
-#	tbb_lib.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/tbb/lib"
-#	tbb_lib.files = $$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/tbb_debug.* \
-#			$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/tbb_debug.*
-
-#	tbb_include.path = "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/custom_libs/insyde/tbb"
-#	tbb_include.files = $$PWD/../external/tbb44_20160128oss_win_0/include
-
-#	INSTALLS += lib includes tbb_lib tbb_include
 	}
-	INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-	DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-
-	INCLUDEPATH += "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/INSYDE/external/tbb44_20160128oss_win_0/include"
-	DEPENDPATH += "C:/Users/Edixon/Google Drive/Programacion/C++/Qt/INSYDE/external/tbb44_20160128oss_win_0/include"
+#   if x86_64
+	contains(QMAKE_TARGET.arch, x86_64): {
+		QMAKE_LFLAGS += /MACHINE:X64
+	}
 }
 
 unix:{
 
-	QMAKE_CXX += -std=c++11
-
 	CONFIG(release, debug|release):{
-	QMAKE_CXX += -O3
+
+		QMAKE_CXX += -O3 -std=c++11
 
 	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
 		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \

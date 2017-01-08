@@ -7,6 +7,8 @@
 #include "interfaces.h"
 #include "definitions.h"
 
+namespace core{
+
 class CORE_LIB_IMPORT_EXPORT BasicTree : public QTreeView, public ClipboardInterface
 {
 	public:
@@ -32,5 +34,5 @@ class CORE_LIB_IMPORT_EXPORT BasicTree : public QTreeView, public ClipboardInter
 		void init();
 
 };
-
+}
 #endif // BASICTREE_H

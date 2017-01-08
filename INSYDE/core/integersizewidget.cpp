@@ -1,39 +1,39 @@
 #include "integersizewidget.h"
 
-IntegerSizeWidget::IntegerSizeWidget(QWidget *parent) :
+core::IntegerSizeWidget::IntegerSizeWidget(QWidget *parent) :
 	QWidget(parent)
 {
 	init(QSize(0,0),
 			QPair<IntegerSizeWidget::Units, IntegerSizeWidget::Units>(IntegerSizeWidget::Pixels, IntegerSizeWidget::Pixels));
 }
 
-IntegerSizeWidget::IntegerSizeWidget(const QSize &size, const QPair<Units, Units> &units, QWidget *parent) :
+core::IntegerSizeWidget::IntegerSizeWidget(const QSize &size, const QPair<Units, Units> &units, QWidget *parent) :
 	QWidget(parent)
 {
 	init(size, units);
 }
 
-IntegerSizeWidget::IntegerSizeWidget(int width, int height, const QPair<Units, Units> &units, QWidget *parent) :
+core::IntegerSizeWidget::IntegerSizeWidget(int width, int height, const QPair<Units, Units> &units, QWidget *parent) :
 	QWidget(parent)
 {
 	init(QSize(width, height), units);
 }
 
-IntegerSizeWidget::~IntegerSizeWidget()
+core::IntegerSizeWidget::~IntegerSizeWidget()
 {
 }
 
-QSize IntegerSizeWidget::getSize() const
+QSize core::IntegerSizeWidget::getSize() const
 {
 	return QSize(widthField->getValue(), heightField->getValue());
 }
 
-QPair<IntegerSizeWidget::Units, IntegerSizeWidget::Units> IntegerSizeWidget::getUnits() const
+QPair<core::IntegerSizeWidget::Units, core::IntegerSizeWidget::Units> core::IntegerSizeWidget::getUnits() const
 {
 	return units;
 }
 
-void IntegerSizeWidget::setWidth(int width)
+void core::IntegerSizeWidget::setWidth(int width)
 {
 	if(widthField->getValue() != width){
 		widthField->setValue(width);
@@ -43,12 +43,12 @@ void IntegerSizeWidget::setWidth(int width)
 	}
 }
 
-int IntegerSizeWidget::getWidth() const
+int core::IntegerSizeWidget::getWidth() const
 {
 	return widthField->getValue();
 }
 
-void IntegerSizeWidget::setHeight(int height)
+void core::IntegerSizeWidget::setHeight(int height)
 {
 	if(heightField->getValue() != height){
 		heightField->setValue(height);
@@ -58,56 +58,56 @@ void IntegerSizeWidget::setHeight(int height)
 	}
 }
 
-int IntegerSizeWidget::getHeight() const
+int core::IntegerSizeWidget::getHeight() const
 {
 	return heightField->getValue();
 }
 
-void IntegerSizeWidget::setLabelAlignment(const Qt::Alignment &al)
+void core::IntegerSizeWidget::setLabelAlignment(const Qt::Alignment &al)
 {
 	mainLayout->setLabelAlignment(al);
 }
 
-Qt::Alignment IntegerSizeWidget::getLabelAlignment() const
+Qt::Alignment core::IntegerSizeWidget::getLabelAlignment() const
 {
 	return mainLayout->labelAlignment();
 }
 
-void IntegerSizeWidget::setMinimumSizeValues(const QSize &min)
+void core::IntegerSizeWidget::setMinimumSizeValues(const QSize &min)
 {
 	widthField->setMinimumValue(min.width());
 	heightField->setMinimumValue(min.height());
 }
 
-QSize IntegerSizeWidget::getMinimumnSizeValues() const
+QSize core::IntegerSizeWidget::getMinimumnSizeValues() const
 {
 	return QSize(widthField->getMinimumValue(), heightField->getMinimumValue());
 }
 
-void IntegerSizeWidget::setMinimumSizeValues(int w, int h)
+void core::IntegerSizeWidget::setMinimumSizeValues(int w, int h)
 {
 	widthField->setMinimumValue(w);
 	heightField->setMinimumValue(h);
 }
 
-void IntegerSizeWidget::setMaximumSizeValues(const QSize &max)
+void core::IntegerSizeWidget::setMaximumSizeValues(const QSize &max)
 {
 	widthField->setMaximumValue(max.width());
 	heightField->setMaximumValue(max.height());
 }
 
-QSize IntegerSizeWidget::getMaximumSizeValues() const
+QSize core::IntegerSizeWidget::getMaximumSizeValues() const
 {
 	return QSize(widthField->getMaximumValue(), heightField->getMaximumValue());
 }
 
-void IntegerSizeWidget::setMaximumSizeValues(int w, int h)
+void core::IntegerSizeWidget::setMaximumSizeValues(int w, int h)
 {
 	widthField->setMaximumValue(w);
 	heightField->setMaximumValue(h);
 }
 
-LabeledIntegerSpinBox *IntegerSizeWidget::getLabeledIntegerSpinBox(IntegerSizeWidget::Measure dimention)
+core::LabeledIntegerSpinBox *core::IntegerSizeWidget::getLabeledIntegerSpinBox(IntegerSizeWidget::Measure dimention)
 {
 	switch(dimention){
 		case IntegerSizeWidget::Width:
@@ -119,7 +119,7 @@ LabeledIntegerSpinBox *IntegerSizeWidget::getLabeledIntegerSpinBox(IntegerSizeWi
 	}
 }
 
-void IntegerSizeWidget::setSize(const QSize &size)
+void core::IntegerSizeWidget::setSize(const QSize &size)
 {
 	QSize sizeValue(widthField->getValue(), heightField->getValue());
 	if (sizeValue != size) {
@@ -137,7 +137,7 @@ void IntegerSizeWidget::setSize(const QSize &size)
 	}
 }
 
-void IntegerSizeWidget::setUnits(const QPair<Units, Units> &units)
+void core::IntegerSizeWidget::setUnits(const QPair<Units, Units> &units)
 {
 	this->units = units;
 	switch(this->units.first){
@@ -211,12 +211,12 @@ void IntegerSizeWidget::setUnits(const QPair<Units, Units> &units)
 	emit unitsChanged(units);
 }
 
-void IntegerSizeWidget::setUnits(IntegerSizeWidget::Units widthUnit, IntegerSizeWidget::Units heightUnit)
+void core::IntegerSizeWidget::setUnits(IntegerSizeWidget::Units widthUnit, IntegerSizeWidget::Units heightUnit)
 {
 	setUnits(QPair<Units, Units>(widthUnit, heightUnit));
 }
 
-void IntegerSizeWidget::init(const QSize &size, const QPair<Units, Units> &units)
+void core::IntegerSizeWidget::init(const QSize &size, const QPair<Units, Units> &units)
 {
 
 	widthLabel = new QLabel("Width");
@@ -245,13 +245,13 @@ void IntegerSizeWidget::init(const QSize &size, const QPair<Units, Units> &units
 	connect(heightField, SIGNAL(valueChanged(int)), SLOT(onHeightChanged(int)));
 }
 
-void IntegerSizeWidget::onHeightChanged(int val)
+void core::IntegerSizeWidget::onHeightChanged(int val)
 {
 	emit sizeChanged(QSize(widthField->getValue(), val));
 	emit heightChanged(val);
 }
 
-void IntegerSizeWidget::onWidthChanged(int val)
+void core::IntegerSizeWidget::onWidthChanged(int val)
 {
 	emit sizeChanged(QSize(val, heightField->getValue()));
 	emit widthChanged(val);

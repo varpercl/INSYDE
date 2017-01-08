@@ -1,48 +1,48 @@
 #include "basictable.h"
 
-const QString BasicTable::STR_TABLE = "table";
-const QString BasicTable::STR_ITEM = "item";
-const QString BasicTable::STR_ROW = "row";
-const QString BasicTable::STR_COL= "col";
-const QString BasicTable::STR_DATA = "data";
+const QString core::BasicTable::STR_TABLE = "table";
+const QString core::BasicTable::STR_ITEM = "item";
+const QString core::BasicTable::STR_ROW = "row";
+const QString core::BasicTable::STR_COL= "col";
+const QString core::BasicTable::STR_DATA = "data";
 
-BasicTable::BasicTable(QWidget *parent) :
+core::BasicTable::BasicTable(QWidget *parent) :
 	QTableView(parent)
 {
 	init();
 }
 
-BasicTable::~BasicTable()
+core::BasicTable::~BasicTable()
 {
 //	delete cellContextMenu;
 //	delete horizontalHeaderContextMenu;
 //	delete verticalHeaderContextMenu;
 }
 
-void BasicTable::contextMenuEvent(QContextMenuEvent *event)
+void core::BasicTable::contextMenuEvent(QContextMenuEvent *event)
 {
 	cellContextMenu->exec(viewport()->mapToGlobal(event->pos()));
 }
 
-void BasicTable::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+void core::BasicTable::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
 	QTableView::selectionChanged(selected, deselected);
 
 	emit selectedItemsChanged(selected, deselected);
 }
 
-void BasicTable::onHorizontalHeaderContextMenu(const QPoint pt)
+void core::BasicTable::onHorizontalHeaderContextMenu(const QPoint pt)
 {
 //	qDebug() << "on right click: " << pt;
 	horizontalHeaderContextMenu->exec(horizontalHeader()->viewport()->mapToGlobal(pt));
 }
 
-void BasicTable::onVerticalHeaderContextMenu(const QPoint pt)
+void core::BasicTable::onVerticalHeaderContextMenu(const QPoint pt)
 {
 	verticalHeaderContextMenu->exec(verticalHeader()->viewport()->mapToGlobal(pt));
 }
 
-void BasicTable::copyClick()
+void core::BasicTable::copyClick()
 {
 	if(!getCopyAction()->isEnabled() || !getCopyAction()->isVisible()) return;
 
@@ -71,7 +71,7 @@ void BasicTable::copyClick()
 	}
 }
 
-void BasicTable::cutClick()
+void core::BasicTable::cutClick()
 {
 	if(!getCutAction()->isEnabled() || !getCutAction()->isVisible()) return;
 
@@ -102,7 +102,7 @@ void BasicTable::cutClick()
 	}
 }
 
-void BasicTable::pasteClick()
+void core::BasicTable::pasteClick()
 {
 	if(!getPasteAction()->isEnabled() || !getPasteAction()->isVisible()) return;
 
@@ -171,7 +171,7 @@ void BasicTable::pasteClick()
 
 }
 
-void BasicTable::onInsertRightColumnTriggered()
+void core::BasicTable::onInsertRightColumnTriggered()
 {
 	//There's not known (by me) way to insert one right column at the end of the table using only methods from QAbstractItemModel
 	//User should reimplement this slot in order get the expected behavior
@@ -179,32 +179,32 @@ void BasicTable::onInsertRightColumnTriggered()
 	model()->insertColumns(horizontalHeader()->logicalIndexAt(horizontalHeader()->viewport()->mapFromGlobal(horizontalHeaderContextMenu->pos())) + 1, 1);
 }
 
-void BasicTable::onInsertLeftColumnTriggered()
+void core::BasicTable::onInsertLeftColumnTriggered()
 {
 	model()->insertColumns(horizontalHeader()->logicalIndexAt(horizontalHeader()->viewport()->mapFromGlobal(horizontalHeaderContextMenu->pos())), 1);
 }
 
-void BasicTable::onRemoveColumnTriggered()
+void core::BasicTable::onRemoveColumnTriggered()
 {
 	model()->removeColumns(horizontalHeader()->logicalIndexAt(horizontalHeader()->viewport()->mapFromGlobal(horizontalHeaderContextMenu->pos())), 1);
 }
 
-void BasicTable::onInsertUpRowTriggered()
+void core::BasicTable::onInsertUpRowTriggered()
 {
 	model()->insertRows(verticalHeader()->logicalIndexAt(verticalHeader()->viewport()->mapFromGlobal(verticalHeaderContextMenu->pos())), 1);
 }
 
-void BasicTable::onInsertDownRowTriggered()
+void core::BasicTable::onInsertDownRowTriggered()
 {
 	model()->insertRows(verticalHeader()->logicalIndexAt(verticalHeader()->viewport()->mapFromGlobal(verticalHeaderContextMenu->pos())) + 1, 1);
 }
 
-void BasicTable::onRemoveRowTriggered()
+void core::BasicTable::onRemoveRowTriggered()
 {
 	model()->removeRows(verticalHeader()->logicalIndexAt(verticalHeader()->viewport()->mapFromGlobal(verticalHeaderContextMenu->pos())), 1);
 }
 
-void BasicTable::init()
+void core::BasicTable::init()
 {
 	cellContextMenu = new QMenu();
 	horizontalHeaderContextMenu = new QMenu();

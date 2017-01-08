@@ -9,6 +9,8 @@ namespace Ui {
 class BNSubWidget;
 }
 
+namespace core{
+
 /*!
  * \brief The BNSubWidget class
  *
@@ -31,5 +33,5 @@ class CORE_LIB_IMPORT_EXPORT BNSubWidget : public QWidget
 
 		void init(double threshold);
 };
-
+}
 #endif // BNSUBWIDGET_H

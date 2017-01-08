@@ -1,3 +1,4 @@
+include(../external/tbb.pri)
 
 QT += gui core widgets opengl
 
@@ -6,7 +7,6 @@ CONFIG += qt shared_and_static
 #CONFIG(release, debug|release):message("Staring RELEASE build for ec_gui sources") #will print
 #CONFIG(debug, debug|release):message("Staring DEBUG build for ec_gui sources") #no print
 
-TARGET = ec_gui
 
 TEMPLATE = lib
 
@@ -69,27 +69,34 @@ FORMS += \
     defineruledialog.ui
 
 
-LIBS += \
--L$$DESTDIR -lcore \
 
 win32:{
+	CONFIG += windows c++11
 
     CONFIG(release, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-    }
-    CONFIG(debug, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
-    }
+		message("Building release binaries for ec_gui module");
 
-    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
+		TARGET = ec_gui
 
-    INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
-    DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
+		QMAKE_CXXFLAGS += /MD
+
+		LIBS += -L$$DESTDIR -lcore
+
+	}else:{#DEBUG
+
+		message("Building debug binaries for ec_gui module");
+
+		TARGET = ec_gui_debug
+
+		QMAKE_CXXFLAGS += /MDd
+
+		LIBS += -L$$DESTDIR -lcore_debug
+
+    }
+#   if x86_64
+	contains(QMAKE_TARGET.arch, x86_64): {
+		QMAKE_LFLAGS += /MACHINE:X64
+	}
 }
 
 unix:{

@@ -6,6 +6,8 @@
 #include "share_core_lib.h"
 #include "graphicobject.h"
 
+namespace core{
+
 /*!
  * \brief The GraphicCursorElement class
  *
@@ -36,5 +38,5 @@ class CORE_LIB_IMPORT_EXPORT Cursor : public GraphicObject
 
 		QGraphicsRectItem *grect;
 };
-
+}
 #endif // GRAPHICCURSORELEMENT_H

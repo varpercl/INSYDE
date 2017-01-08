@@ -1,17 +1,17 @@
 #include "imagerepresentationwidget.h"
 
-ImageRepresentationWidget::ImageRepresentationWidget(const vector<double> &data, QWidget *parent) :
+core::ImageRepresentationWidget::ImageRepresentationWidget(const vector<double> &data, QWidget *parent) :
 	DataRepresentationWidget(data, parent)
 {
 	init();
 }
 
-ImageRepresentationWidget::~ImageRepresentationWidget()
+core::ImageRepresentationWidget::~ImageRepresentationWidget()
 {
 
 }
 
-void ImageRepresentationWidget::setInputs(const vector<double> &datainput)
+void core::ImageRepresentationWidget::setInputs(const vector<double> &datainput)
 {
 	DataRepresentationWidget::setInputs(datainput);
 
@@ -21,7 +21,7 @@ void ImageRepresentationWidget::setInputs(const vector<double> &datainput)
 	}
 }
 
-void ImageRepresentationWidget::setWidth(int w)
+void core::ImageRepresentationWidget::setWidth(int w)
 {
 	isw->setWidth(w);
 	if(updatesEnabled()){
@@ -31,12 +31,12 @@ void ImageRepresentationWidget::setWidth(int w)
 	emit sizeChanged(QSize(w, isw->getHeight()));
 }
 
-int ImageRepresentationWidget::getWidth() const
+int core::ImageRepresentationWidget::getWidth() const
 {
 	return isw->getWidth();
 }
 
-void ImageRepresentationWidget::setHeight(int h)
+void core::ImageRepresentationWidget::setHeight(int h)
 {
 	isw->setHeight(h);
 	if(updatesEnabled()){
@@ -46,12 +46,12 @@ void ImageRepresentationWidget::setHeight(int h)
 	emit sizeChanged(QSize(isw->getWidth(), h));
 }
 
-int ImageRepresentationWidget::getHeight() const
+int core::ImageRepresentationWidget::getHeight() const
 {
 	return isw->getHeight();
 }
 
-void ImageRepresentationWidget::setSize(const QSize &size)
+void core::ImageRepresentationWidget::setSize(const QSize &size)
 {
 	isw->setSize(size);
 	if(updatesEnabled()){
@@ -61,17 +61,17 @@ void ImageRepresentationWidget::setSize(const QSize &size)
 	emit sizeChanged(size);
 }
 
-QSize ImageRepresentationWidget::getSize() const
+QSize core::ImageRepresentationWidget::getSize() const
 {
 	return isw->getSize();
 }
 
-QImage ImageRepresentationWidget::getImage() const
+QImage core::ImageRepresentationWidget::getImage() const
 {
 	return imageFromData(isw->getSize(), getInputs());
 }
 
-void ImageRepresentationWidget::onSizeValueChanged(const QSize &size)
+void core::ImageRepresentationWidget::onSizeValueChanged(const QSize &size)
 {
 	(void) size;
 	if(updatesEnabled()){
@@ -81,12 +81,12 @@ void ImageRepresentationWidget::onSizeValueChanged(const QSize &size)
 	emit sizeChanged(size);
 }
 
-void ImageRepresentationWidget::on_cbImageFormat_currentIndexChanged(int index)
+void core::ImageRepresentationWidget::on_cbImageFormat_currentIndexChanged(int index)
 {
 	emit imageFormatChanged((QImage::Format)(index+1));
 }
 
-void ImageRepresentationWidget::onIgnoreAlphaChannelToogled(bool ac)
+void core::ImageRepresentationWidget::onIgnoreAlphaChannelToogled(bool ac)
 {
 	(void) ac;
 	//TODO: implementar
@@ -105,12 +105,12 @@ void ImageRepresentationWidget::onIgnoreAlphaChannelToogled(bool ac)
 	//	}
 }
 
-QImage::Format ImageRepresentationWidget::getImageFormat() const
+QImage::Format core::ImageRepresentationWidget::getImageFormat() const
 {
 	return imageFormat;
 }
 
-void ImageRepresentationWidget::setImageFormat(const QImage::Format &value)
+void core::ImageRepresentationWidget::setImageFormat(const QImage::Format &value)
 {
 	imageFormat = value;
 
@@ -123,17 +123,17 @@ void ImageRepresentationWidget::setImageFormat(const QImage::Format &value)
 	emit imageFormatChanged(value);
 }
 
-void ImageRepresentationWidget::setImageObject(Image *img)
+void core::ImageRepresentationWidget::setImageObject(Image *img)
 {
 	giedw->setImageObject(img);
 }
 
-Image *ImageRepresentationWidget::getImageObject() const
+core::Image *core::ImageRepresentationWidget::getImageObject() const
 {
 	return giedw->getImageObject();
 }
 
-void ImageRepresentationWidget::init()
+void core::ImageRepresentationWidget::init()
 {
 
 	cbxIgnoreAlpha = new QCheckBox();
@@ -141,7 +141,7 @@ void ImageRepresentationWidget::init()
 
 	horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-	pair<int, int> wh = getWidthHeight((int)getInputs().size());
+    pair<int, int> wh = core::common::getWidthHeight((int)getInputs().size());
 	isw = new IntegerSizeWidget(QSize(wh.first, wh.second),
 								QPair<IntegerSizeWidget::Units, IntegerSizeWidget::Units>(IntegerSizeWidget::Pixels, IntegerSizeWidget::Pixels));
 	isw->setMinimumSizeValues(0, 0);
@@ -203,12 +203,12 @@ void ImageRepresentationWidget::init()
 	connect(cbxIgnoreAlpha, SIGNAL(toggled(bool)), SLOT(onIgnoreAlphaChannelToogled(bool)));
 }
 
-QImage ImageRepresentationWidget::imageFromData(const QSize &size, const vector<double> &data) const
+QImage core::ImageRepresentationWidget::imageFromData(const QSize &size, const vector<double> &data) const
 {
 	return imageFromData(size.width(), size.height(), data);
 }
 
-QImage ImageRepresentationWidget::imageFromData(int w, int h, const vector<double> &data) const
+QImage core::ImageRepresentationWidget::imageFromData(int w, int h, const vector<double> &data) const
 {
 	QImage img(w, h, QImage::Format_RGB32);
 	int inputsIndex;

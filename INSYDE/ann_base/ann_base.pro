@@ -1,17 +1,14 @@
 
+include(../external/kdchart2.pri)
+include(../external/tbb.pri)
+
 QT += core xml opengl
 
-CONFIG += qt thread shared_and_static
-
-#CONFIG(release, debug|release):message("Staring RELEASE build for ann_base sources") #will print
-#CONFIG(debug, debug|release):message("Staring DEBUG build for ann_base sources") #no print
-
-TARGET = ann_base
+CONFIG += qt thread shared
 
 TEMPLATE = lib
 
 DEFINES += EXPORT_ANN_BASE_LIB
-
 
 MOC_DIR = moc
 UI_DIR = ui
@@ -38,7 +35,8 @@ globals.h \
     share_ann_base_lib.h \
     adalinetrainingpattern.h \
     simpleinputpattern.h \
-    kohonen.h
+    kohonen.h \
+    settings.h
 
 SOURCES += \
 trainingset.cpp \
@@ -57,29 +55,36 @@ artificialneuralnetwork.cpp \
 hopfield.cpp \
     perceptrontrainingpattern.cpp \
     adalinetrainingpattern.cpp \
-    kohonen.cpp
-
-LIBS += \
--L$$DESTDIR -lcore \
+    kohonen.cpp \
+    settings.cpp
 
 win32:{
 
-    CONFIG(release, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchart2 \
-    }
-    CONFIG(debug, debug|release):{
-	LIBS += -L$$PWD/../external/tbb44_20160128oss_win_0/bin/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/tbb44_20160128oss_win_0/lib/intel64/vc12/ -ltbb_debug \
-		-L$$PWD/../external/kdchart-2.5.1-source-win/lib/ -lkdchartd2 \
-    }
+	CONFIG += windows c++11
 
-    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
-    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
+	CONFIG(release, debug|release):{#RELEASE
+		message("Building release binaries for ann_base module");
 
-    INCLUDEPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
-    DEPENDPATH += $$PWD/../external/tbb44_20160128oss_win_0/include
+		QMAKE_CXXFLAGS += /MD
+
+		TARGET = ann_base
+
+		LIBS += -L$$DESTDIR -lcore
+
+	}else:{ #DEBUG
+		message("Building debug binaries for ann_core module");
+
+		QMAKE_CXXFLAGS += /MDd
+
+		TARGET = ann_base_debug
+
+		LIBS += -L$$DESTDIR -lcore_debug \
+	}
+
+#   if x86_64
+	contains(QMAKE_TARGET.arch, x86_64): {
+		QMAKE_LFLAGS += /MACHINE:X64
+	}
 }
 
 unix:{

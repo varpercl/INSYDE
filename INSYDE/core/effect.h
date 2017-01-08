@@ -5,6 +5,8 @@
 
 #include "share_core_lib.h"
 
+namespace core{
+
 /*!
  * \brief The Effect class
  *
@@ -29,5 +31,5 @@ class CORE_LIB_IMPORT_EXPORT Effect
 	private:
 
 };
-
+}
 #endif // EFFECT_H

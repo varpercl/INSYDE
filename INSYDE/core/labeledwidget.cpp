@@ -1,28 +1,28 @@
 #include "labeledwidget.h"
 
-LabeledWidget::LabeledWidget(const QString &str, const LabeledWidget::Position &pos, QWidget *parent) :
+core::LabeledWidget::LabeledWidget(const QString &str, const LabeledWidget::Position &pos, QWidget *parent) :
 	QWidget(parent)
 {
 	init(str, pos);
 }
 
-LabeledWidget::~LabeledWidget()
+core::LabeledWidget::~LabeledWidget()
 {
 	delete label;
 }
 
 
-void LabeledWidget::setLabelText(const QString &text)
+void core::LabeledWidget::setLabelText(const QString &text)
 {
 	label->setText(text);
 }
 
-QString LabeledWidget::getLabelText() const
+QString core::LabeledWidget::getLabelText() const
 {
 	return label->text();
 }
 
-void LabeledWidget::setLabelPosition(const LabeledWidget::Position &pos)
+void core::LabeledWidget::setLabelPosition(const LabeledWidget::Position &pos)
 {
 	if(labelPosition != pos){
 
@@ -46,32 +46,32 @@ void LabeledWidget::setLabelPosition(const LabeledWidget::Position &pos)
 	}
 }
 
-LabeledWidget::Position LabeledWidget::getLabelPosition() const
+core::LabeledWidget::Position core::LabeledWidget::getLabelPosition() const
 {
 	return labelPosition;
 }
 
-void LabeledWidget::setLabel(QLabel *lbl)
+void core::LabeledWidget::setLabel(QLabel *lbl)
 {
 	label = lbl;
 }
 
-QLabel *LabeledWidget::getLabel() const
+QLabel *core::LabeledWidget::getLabel() const
 {
 	return label;
 }
 
-void LabeledWidget::setUnits(LabeledWidget::Units unit)
+void core::LabeledWidget::setUnits(LabeledWidget::Units unit)
 {
 	units = unit;
 }
 
-LabeledWidget::Units LabeledWidget::getUnits() const
+core::LabeledWidget::Units core::LabeledWidget::getUnits() const
 {
 	return units;
 }
 
-void LabeledWidget::init(const QString &str, const Position &pos)
+void core::LabeledWidget::init(const QString &str, const Position &pos)
 {
 	label = new QLabel();
 	label->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);

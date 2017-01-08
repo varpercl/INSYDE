@@ -11,13 +11,17 @@ namespace ann_base{
 		public:
 
 			/**
-	  Inicializa este patron con un numero inicial de entradas indicado por @code{ninputs}
+			  Inicializa este patron con un numero inicial de entradas indicado por @code{ninputs}
 	  y la salida en @code{false}
 
 	  El vector de entradas se inicializa en cero
 
 	  @param int ninputs Numero de entradas que tendra este patron
 	  */
+			/*!
+			 * \brief AdalineTrainingPattern
+			 * \param ninputs
+			 */
 			explicit AdalineTrainingPattern(int ninputs);
 
 			/**
