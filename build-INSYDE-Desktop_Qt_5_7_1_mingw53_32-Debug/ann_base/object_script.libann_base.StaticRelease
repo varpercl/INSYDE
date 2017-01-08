@@ -1,0 +1,24 @@
+CREATE ..\libann_base.a
+ADDMOD obj\trainingset.o
+ADDMOD obj\simpleperceptron.o
+ADDMOD obj\simplepattern.o
+ADDMOD obj\adaline.o
+ADDMOD obj\trainingsetfile.o
+ADDMOD obj\simpleperceptronfile.o
+ADDMOD obj\trainingresult.o
+ADDMOD obj\mlptrainingresult.o
+ADDMOD obj\mlp.o
+ADDMOD obj\mlppattern.o
+ADDMOD obj\bptrainingsettings.o
+ADDMOD obj\satrainingsettings.o
+ADDMOD obj\artificialneuralnetwork.o
+ADDMOD obj\hopfield.o
+ADDMOD obj\perceptrontrainingpattern.o
+ADDMOD obj\adalinetrainingpattern.o
+ADDMOD obj\kohonen.o
+ADDMOD obj\moc_trainingset.o
+ADDMOD obj\moc_trainingsetfile.o
+ADDMOD obj\moc_trainingresult.o
+ADDMOD obj\moc_mlptrainingresult.o
+ADDMOD obj\moc_mlp.o
+SAVE
