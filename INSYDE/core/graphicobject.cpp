@@ -1,24 +1,23 @@
 #include "graphicobject.h"
 
-GraphicObject::GraphicObject() :
+core::GraphicObject::GraphicObject() :
 	QGraphicsObject()
 {
 	init(QRect(0,0,50,50), 1);
 }
 
-
-GraphicObject::GraphicObject(const QRectF &rect, int border) :
+core::GraphicObject::GraphicObject(const QRectF &rect, int border) :
 	QGraphicsObject()
 {
 	init(rect, border);
 }
 
-GraphicObject::~GraphicObject()
+core::GraphicObject::~GraphicObject()
 {
 
 }
 
-void GraphicObject::setContainerRect(const QRectF &rect)
+void core::GraphicObject::setContainerRect(const QRectF &rect)
 {
 	containerRect = rect;
 
@@ -46,27 +45,27 @@ void GraphicObject::setContainerRect(const QRectF &rect)
 	update();
 }
 
-void GraphicObject::setContainerRect(const QRect &rect)
+void core::GraphicObject::setContainerRect(const QRect &rect)
 {
 	setContainerRect(QRectF(rect));
 }
 
-QRectF GraphicObject::getContainerRect() const
+QRectF core::GraphicObject::getContainerRect() const
 {
 	return containerRect;
 }
 
-void GraphicObject::setInputs(const vector<double> &vec)
+void core::GraphicObject::setInputs(const vector<double> &vec)
 {
 	inputs = vec;
 }
 
-vector<double> GraphicObject::getInputs() const
+vector<double> core::GraphicObject::getInputs() const
 {
 	return inputs;
 }
 
-void GraphicObject::setInputsSize(int size)
+void core::GraphicObject::setInputsSize(int size)
 {
 	if(inputsSize != size){
 		inputsSize = size;
@@ -76,47 +75,47 @@ void GraphicObject::setInputsSize(int size)
 	}
 }
 
-int GraphicObject::getInputsSize() const
+int core::GraphicObject::getInputsSize() const
 {
 	return inputsSize;
 }
 
-void GraphicObject::setInputElement(GraphicObject *ge)
+void core::GraphicObject::setInputElement(GraphicObject *ge)
 {
 	inputElement = ge;
 }
 
-GraphicObject *GraphicObject::getInputElement() const
+core::GraphicObject *core::GraphicObject::getInputElement() const
 {
 	return inputElement;
 }
 
-void GraphicObject::setOutputElement(GraphicObject *ge)
+void core::GraphicObject::setOutputElement(GraphicObject *ge)
 {
 	outputElement = ge;
 }
 
-GraphicObject *GraphicObject::getOutputElement() const
+core::GraphicObject *core::GraphicObject::getOutputElement() const
 {
 	return outputElement;
 }
 
-int GraphicObject::type() const
+int core::GraphicObject::type() const
 {
 	return gotGraphicObject;
 }
 
-QPen GraphicObject::getBorder() const
+QPen core::GraphicObject::getBorder() const
 {
 	return border;
 }
 
-void GraphicObject::setBorder(const QPen &pen)
+void core::GraphicObject::setBorder(const QPen &pen)
 {
 	border = pen;
 }
 
-QRectF GraphicObject::boundingRect() const
+QRectF core::GraphicObject::boundingRect() const
 {
 	int border = this->border.width();
 
@@ -127,27 +126,27 @@ QRectF GraphicObject::boundingRect() const
 	}
 }
 
-QAction *GraphicObject::getOpenAction() const
+QAction *core::GraphicObject::getOpenAction() const
 {
 	return openAction;
 }
 
-QAction *GraphicObject::getSaveAction() const
+QAction *core::GraphicObject::getSaveAction() const
 {
 	return saveAction;
 }
 
-QAction *GraphicObject::getRemoveAction() const
+QAction *core::GraphicObject::getRemoveAction() const
 {
 	return removeAction;
 }
 
-QAction *GraphicObject::getPropertiesAction() const
+QAction *core::GraphicObject::getPropertiesAction() const
 {
 	return propertiesAction;
 }
 
-void GraphicObject::setObjectLocked(bool locked)
+void core::GraphicObject::setObjectLocked(bool locked)
 {
 	setFlag(QGraphicsItem::ItemIsMovable, !locked);
 	lockAction->blockSignals(true);
@@ -156,27 +155,27 @@ void GraphicObject::setObjectLocked(bool locked)
 	objectLocked = locked;
 }
 
-bool GraphicObject::getObjectLocked() const
+bool core::GraphicObject::getObjectLocked() const
 {
 	return objectLocked;
 }
 
-void GraphicObject::setSimulation(Simulation *sim)
+void core::GraphicObject::setSimulation(Simulation *sim)
 {
 	simulation = sim;
 }
 
-Simulation *GraphicObject::getSimulation() const
+core::Simulation *core::GraphicObject::getSimulation() const
 {
 	return simulation;
 }
 
-QAction *GraphicObject::getLockAction() const
+QAction *core::GraphicObject::getLockAction() const
 {
 	return lockAction;
 }
 
-GraphicObject::Port GraphicObject::getCurrentPort()
+core::GraphicObject::Port core::GraphicObject::getCurrentPort()
 {
 	if(nearPort(portTop)){
 		return portTop;
@@ -191,12 +190,12 @@ GraphicObject::Port GraphicObject::getCurrentPort()
 	}
 }
 
-GraphicObject::Port GraphicObject::getCurrentPort(const QPoint &pos)
+core::GraphicObject::Port core::GraphicObject::getCurrentPort(const QPoint &pos)
 {
 	return getCurrentPort(QPointF(pos));
 }
 
-GraphicObject::Port GraphicObject::getCurrentPort(const QPointF &pos)
+core::GraphicObject::Port core::GraphicObject::getCurrentPort(const QPointF &pos)
 {
 	if(nearPort(pos, portTop)){
 		return portTop;
@@ -211,7 +210,7 @@ GraphicObject::Port GraphicObject::getCurrentPort(const QPointF &pos)
 	}
 }
 
-QPointF GraphicObject::getCurrentPortPos()
+QPointF core::GraphicObject::getCurrentPortPos()
 {
 	QPointF center = containerRect.center();
 
@@ -228,7 +227,7 @@ QPointF GraphicObject::getCurrentPortPos()
 	}
 }
 
-QPointF GraphicObject::getCurrentPortPos(const QPointF &pos)
+QPointF core::GraphicObject::getCurrentPortPos(const QPointF &pos)
 {
 	QPointF center = containerRect.center();
 
@@ -245,17 +244,17 @@ QPointF GraphicObject::getCurrentPortPos(const QPointF &pos)
 	}
 }
 
-QPointF GraphicObject::getCurrentPortPos(const QPoint &pos)
+QPointF core::GraphicObject::getCurrentPortPos(const QPoint &pos)
 {
 	return getCurrentPortPos(QPointF(pos));
 }
 
-void GraphicObject::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
+void core::GraphicObject::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 {
 	contextMenu.exec(event->screenPos());
 }
 
-void GraphicObject::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void core::GraphicObject::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	(void)widget;
 	painter->save();
@@ -321,7 +320,7 @@ void GraphicObject::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
 	painter->restore();
 }
 
-void GraphicObject::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+void core::GraphicObject::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
 {
 //	QGraphicsObject::hoverEnterEvent(event;
 	currentMousePos = event->pos();
@@ -329,7 +328,7 @@ void GraphicObject::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
 	update();
 }
 
-bool GraphicObject::nearPort(const QPointF &pos, GraphicObject::Port reference) const
+bool core::GraphicObject::nearPort(const QPointF &pos, GraphicObject::Port reference) const
 {
 	QPointF center = containerRect.center();
 
@@ -354,7 +353,7 @@ bool GraphicObject::nearPort(const QPointF &pos, GraphicObject::Port reference) 
 	}
 }
 
-void GraphicObject::removeClick()
+void core::GraphicObject::removeClick()
 {
 	scene()->removeItem(this);
 
@@ -363,12 +362,12 @@ void GraphicObject::removeClick()
 	emit objectRemoved(this);
 }
 
-void GraphicObject::openOnWindowClick()
+void core::GraphicObject::openOnWindowClick()
 {
 	emit openOnWindowRequest(this);
 }
 
-void GraphicObject::init(const QRectF &rect, int border)
+void core::GraphicObject::init(const QRectF &rect, int border)
 {
 	setAcceptHoverEvents(true);
 
@@ -405,7 +404,7 @@ void GraphicObject::init(const QRectF &rect, int border)
 	setContainerRect(rect);
 }
 
-bool GraphicObject::nearPort(Port reference) const
+bool core::GraphicObject::nearPort(Port reference) const
 {
 	QPointF center = containerRect.center();
 
@@ -432,46 +431,46 @@ bool GraphicObject::nearPort(Port reference) const
 }
 
 
-void GraphicObject::setSize(const QSizeF &size)
+void core::GraphicObject::setSize(const QSizeF &size)
 {
 	containerRect.setSize(size);
 	update();
 }
 
-QSizeF GraphicObject::getSize() const
+QSizeF core::GraphicObject::getSize() const
 {
 	return containerRect.size();
 }
 
-void GraphicObject::setWidth(double w)
+void core::GraphicObject::setWidth(double w)
 {
 	containerRect.setWidth(w);
 	update();
 }
 
-double GraphicObject::getWidth() const
+double core::GraphicObject::getWidth() const
 {
 	return containerRect.width();
 }
 
-void GraphicObject::setHeight(double h)
+void core::GraphicObject::setHeight(double h)
 {
 	containerRect.setHeight(h);
 	update();
 }
 
-double GraphicObject::getHeight() const
+double core::GraphicObject::getHeight() const
 {
 	return containerRect.height();
 }
 
-void GraphicObject::setResizeRectSize(double size)
+void core::GraphicObject::setResizeRectSize(double size)
 {
 	resizeRectSize = size;
 	update();
 }
 
-void GraphicObject::setPortSensitivity(double sensitivity)
+void core::GraphicObject::setPortSensitivity(double sensitivity)
 {
 	portSensitivity = sensitivity;
 }

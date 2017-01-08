@@ -1,9 +1,8 @@
 #include "imath.h"
 
-namespace math{
+using namespace core;
 
-
-vector<vector<double> > toDouble(const vector<vector<int> > &vec)
+vector<vector<double> > math::toDouble(const vector<vector<int> > &vec)
 {
 	size_t sVec= vec.size();
 	vector<vector<double> > result(sVec);
@@ -14,12 +13,12 @@ vector<vector<double> > toDouble(const vector<vector<int> > &vec)
 	return result;
 }
 
-double angle(const QPointF &p1, const QPointF &p2)
+double math::angle(const QPointF &p1, const QPointF &p2)
 {
 	return atan2(p2.y() - p1.y(), p2.x() - p1.x());
 }
 
-double distance(const QPointF &point, const QPointF &p1, const QPointF &p2)
+double math::distance(const QPointF &point, const QPointF &p1, const QPointF &p2)
 {
 	double
 			deltaY = p2.y() - p1.y(),
@@ -36,7 +35,7 @@ double distance(const QPointF &point, const QPointF &p1, const QPointF &p2)
 	}
 }
 
-double distance(const QPointF &point, const QLineF &line)
+double math::distance(const QPointF &point, const QLineF &line)
 {
 	double
 			deltaY = line.y2() - line.y1(),
@@ -54,18 +53,18 @@ double distance(const QPointF &point, const QLineF &line)
 
 }
 
-double distance(const QPointF &pt1, const QPointF &pt2)
+double math::distance(const QPointF &pt1, const QPointF &pt2)
 {
 	return hypot(pt1.x() - pt2.x(), pt1.y() - pt2.y());
 }
 
-double trunkedMultiplo(double val, int multiplo){
+double math::trunkedMultiplo(double val, int multiplo){
 	double integer;
 	modf(val/multiplo, &integer);
 	return integer*multiplo;
 }
 
-double roundedMultiplo(double val, int multiplo){
+double math::roundedMultiplo(double val, int multiplo){
 #if _MSC_VER == 1600
 	return floor( (val/multiplo) + 0.5 )*multiplo;
 #else
@@ -73,7 +72,7 @@ double roundedMultiplo(double val, int multiplo){
 #endif
 }
 
-size_t mayor(const vector<double> &vec)
+size_t math::mayor(const vector<double> &vec)
 {
 	double ref = -99999999;
 	size_t
@@ -88,7 +87,7 @@ size_t mayor(const vector<double> &vec)
 	return index;
 }
 
-size_t mayor(const vector<int> &vec)
+size_t math::mayor(const vector<int> &vec)
 {
 	int ref = -99999999;
 	size_t
@@ -103,7 +102,7 @@ size_t mayor(const vector<int> &vec)
 	return index;
 }
 
-vector<vector<int> > toInt(const vector<vector<double> > &vec)
+vector<vector<int> > math::toInt(const vector<vector<double> > &vec)
 {
 	size_t sVec= vec.size();
 	vector<vector<int> > result(sVec);
@@ -114,17 +113,17 @@ vector<vector<int> > toInt(const vector<vector<double> > &vec)
 	return result;
 }
 
-int getMin(const QVector<int> &vec)
+int math::getMin(const QVector<int> &vec)
 {
 	return *min_element(vec.begin(), vec.end());
 }
 
-double getMin(const vector<double> &vec)
+double math::getMin(const vector<double> &vec)
 {
 	return *min_element(vec.begin(), vec.end());
 }
 
-double getMin(const vector<vector<double> > &matrix)
+double math::getMin(const vector<vector<double> > &matrix)
 {
 	size_t sMatrix = matrix.size();
 	vector<double> minvec(sMatrix);
@@ -134,17 +133,17 @@ double getMin(const vector<vector<double> > &matrix)
 	return *min_element(minvec.begin(), minvec.end());
 }
 
-int getMax(const QVector<int> &vec)
+int math::getMax(const QVector<int> &vec)
 {
 	return *max_element(vec.begin(), vec.end());
 }
 
-double getMax(const vector<double> &vec)
+double math::getMax(const vector<double> &vec)
 {
 	return *max_element(vec.begin(), vec.end());
 }
 
-double getMax(const vector<vector<double> > &matrix)
+double math::getMax(const vector<vector<double> > &matrix)
 {
 	size_t sMatrix = matrix.size();
 	vector<double> maxvec(sMatrix);
@@ -154,7 +153,7 @@ double getMax(const vector<vector<double> > &matrix)
 	return *max_element(maxvec.begin(), maxvec.end());
 }
 
-double getMean(const vector<double> &vec){
+double math::getMean(const vector<double> &vec){
 	size_t sVec = vec.size();
 	double sum = 0;
 	for(size_t i = 0; i < sVec; i++){
@@ -163,18 +162,18 @@ double getMean(const vector<double> &vec){
 	return sum/sVec;
 }
 
-double getStandardDeviation(const vector<double> &a)
+double math::getStandardDeviation(const vector<double> &a)
 {
 	return sqrt(getVariance(a));
 }
 
-double getVariance(const vector<double> &vec)
+double math::getVariance(const vector<double> &vec)
 {
 	size_t sVec = vec.size();
 	double
 			sum = 0,
 			sum2 = 0,
-			mean = getMean(vec);
+            mean = getMean(vec);
 	for(size_t i = 0; i < sVec; i++){
 		sum = (vec[i] - mean);
 		sum2 += sum*sum;
@@ -182,14 +181,14 @@ double getVariance(const vector<double> &vec)
 	return sum2/(sVec-1);
 }
 
-double randomNumber(double min, double max){
+double math::randomNumber(double min, double max){
 	double rnd = (double(rand())/double(RAND_MAX));
 //	double fmin = min, fmax = max;
 	double d = (min + (max - min)*rnd);
 	return d;
 }
 
-double probNumbers(vector<pair<double, double> > pairs){
+double math::probNumbers(vector<pair<double, double> > pairs){
 	double rnd = (double(rand())/double(RAND_MAX));
 	size_t sPairs = pairs.size();
 	double sum = 0;
@@ -202,7 +201,7 @@ double probNumbers(vector<pair<double, double> > pairs){
 	return pairs[sPairs-1].first;
 }
 
-vector<double> getRandomValues(int nvalues)
+vector<double> math::getRandomValues(int nvalues)
 {
 	vector<double> values;
 
@@ -213,7 +212,7 @@ vector<double> getRandomValues(int nvalues)
 	return values;
 }
 
-vector<double> getRandomValues(int nvalues, double min, double max)
+vector<double> math::getRandomValues(int nvalues, double min, double max)
 {
 	vector<double> values(nvalues);
 	for(int i = 0; i < nvalues; i++){
@@ -222,7 +221,7 @@ vector<double> getRandomValues(int nvalues, double min, double max)
 	return values;
 }
 
-vector<double> addNoise(const vector<double> &vec, double min, double max)
+vector<double> math::addNoise(const vector<double> &vec, double min, double max)
 {
 	vector<double> cVec = vec;
 	size_t sVec = cVec.size();
@@ -233,7 +232,7 @@ vector<double> addNoise(const vector<double> &vec, double min, double max)
 	return cVec;
 }
 
-concurrent_vector<double> concAddNoise(const concurrent_vector<double> &vec, double min, double max)
+concurrent_vector<double> math::concAddNoise(const concurrent_vector<double> &vec, double min, double max)
 {
 	concurrent_vector<double> cVec = vec;
 	size_t sVec = cVec.size();
@@ -244,7 +243,7 @@ concurrent_vector<double> concAddNoise(const concurrent_vector<double> &vec, dou
 	return cVec;
 }
 
-vector<int> toUnipolar(const vector<double> &vec, double threshold)
+vector<int> math::toUnipolar(const vector<double> &vec, double threshold)
 {
 	size_t sVec = vec.size();
 	vector<int> cVec(sVec);
@@ -255,7 +254,7 @@ vector<int> toUnipolar(const vector<double> &vec, double threshold)
 	return cVec;
 }
 
-vector<int> toBipolar(const vector<double> &vec, double threshold)
+vector<int> math::toBipolar(const vector<double> &vec, double threshold)
 {
 	size_t sVec = vec.size();
 	vector<int> cVec(sVec);
@@ -266,7 +265,7 @@ vector<int> toBipolar(const vector<double> &vec, double threshold)
 	return cVec;
 }
 
-vector<double> normalizeBipolarFixedThreshold(const vector<double> &vec, double threshold)
+vector<double> math::normalizeBipolarFixedThreshold(const vector<double> &vec, double threshold)
 {
 	size_t sVec = vec.size();
 
@@ -278,7 +277,7 @@ vector<double> normalizeBipolarFixedThreshold(const vector<double> &vec, double 
 	return output;
 }
 
-vector<vector<double> > normalizeBipolarFixedThreshold(const vector<vector<double> > &vec, double threshold)
+vector<vector<double> > math::normalizeBipolarFixedThreshold(const vector<vector<double> > &vec, double threshold)
 {
 	size_t sVec = vec.size();
 	vector<vector<double> > output(sVec);
@@ -289,7 +288,7 @@ vector<vector<double> > normalizeBipolarFixedThreshold(const vector<vector<doubl
 	return output;
 }
 
-vector<double> normalizeBipolarAutoThreshold(const vector<double> &vec, double *threshold)
+vector<double> math::normalizeBipolarAutoThreshold(const vector<double> &vec, double *threshold)
 {
 	size_t sVec = vec.size();
 
@@ -305,7 +304,7 @@ vector<double> normalizeBipolarAutoThreshold(const vector<double> &vec, double *
 	return output;
 }
 
-vector<vector<double> > normalizeBipolarAutoThreshold(const vector<vector<double> > &vec, double *threshold)
+vector<vector<double> > math::normalizeBipolarAutoThreshold(const vector<vector<double> > &vec, double *threshold)
 {
 	size_t sVec = vec.size();
 	vector<vector<double> > output(sVec);
@@ -320,7 +319,7 @@ vector<vector<double> > normalizeBipolarAutoThreshold(const vector<vector<double
 	return output;
 }
 
-vector<double> normalizeUnipolarFixedThreshold(const vector<double> &vec, double threshold)
+vector<double> math::normalizeUnipolarFixedThreshold(const vector<double> &vec, double threshold)
 {
 	size_t sVec = vec.size();
 
@@ -332,7 +331,7 @@ vector<double> normalizeUnipolarFixedThreshold(const vector<double> &vec, double
 	return output;
 }
 
-vector<vector<double> > normalizeUnipolarFixedThreshold(const vector<vector<double> > &vec, double threshold)
+vector<vector<double> > math::normalizeUnipolarFixedThreshold(const vector<vector<double> > &vec, double threshold)
 {
 	size_t sVec = vec.size();
 	vector<vector<double> > output(sVec);
@@ -343,7 +342,7 @@ vector<vector<double> > normalizeUnipolarFixedThreshold(const vector<vector<doub
 	return output;
 }
 
-vector<double> normalizeUnipolarAutoThreshold(const vector<double> &vec, double *threshold)
+vector<double> math::normalizeUnipolarAutoThreshold(const vector<double> &vec, double *threshold)
 {
 	size_t sVec = vec.size();
 
@@ -359,7 +358,7 @@ vector<double> normalizeUnipolarAutoThreshold(const vector<double> &vec, double 
 	return output;
 }
 
-vector<vector<double> > normalizeUnipolarAutoThreshold(const vector<vector<double> > &vec, double *threshold)
+vector<vector<double> > math::normalizeUnipolarAutoThreshold(const vector<vector<double> > &vec, double *threshold)
 {
 	size_t sVec = vec.size();
 	vector<vector<double> > output(sVec);
@@ -374,7 +373,7 @@ vector<vector<double> > normalizeUnipolarAutoThreshold(const vector<vector<doubl
 	return output;
 }
 
-vector<double> normalizeLinearFixedRange(const vector<double> &vec, double min, double max)
+vector<double> math::normalizeLinearFixedRange(const vector<double> &vec, double min, double max)
 {
 	size_t sVec = vec.size();
 
@@ -397,7 +396,7 @@ vector<double> normalizeLinearFixedRange(const vector<double> &vec, double min, 
 	return output;
 }
 
-vector<vector<double> > normalizeLinearFixedRange(const vector<vector<double> > &vec, double min, double max)
+vector<vector<double> > math::normalizeLinearFixedRange(const vector<vector<double> > &vec, double min, double max)
 {
 	size_t sVec = vec.size();
 	vector<vector<double> > output(sVec);
@@ -408,7 +407,7 @@ vector<vector<double> > normalizeLinearFixedRange(const vector<vector<double> > 
 	return output;
 }
 
-vector<double> normalizeLinearAutoRange(const vector<double> &vec, double *min, double *max)
+vector<double> math::normalizeLinearAutoRange(const vector<double> &vec, double *min, double *max)
 {
 	size_t sVec = vec.size();
 
@@ -426,7 +425,7 @@ vector<double> normalizeLinearAutoRange(const vector<double> &vec, double *min, 
 	return output;
 }
 
-vector<vector<double> > normalizeLinearAutoRange(const vector<vector<double> > &vec, double *min, double *max)
+vector<vector<double> > math::normalizeLinearAutoRange(const vector<vector<double> > &vec, double *min, double *max)
 {
 	size_t sVec = vec.size();
 	vector<vector<double> > output(sVec);
@@ -445,7 +444,7 @@ vector<vector<double> > normalizeLinearAutoRange(const vector<vector<double> > &
 	return output;
 }
 
-vector<double> normalizeTanh(const vector<double> &vec, double amplitude, double elongation)
+vector<double> math::normalizeTanh(const vector<double> &vec, double amplitude, double elongation)
 {
 	size_t sVec = vec.size();
 	vector<double> output(sVec, 0);
@@ -455,7 +454,7 @@ vector<double> normalizeTanh(const vector<double> &vec, double amplitude, double
 	return output;
 }
 
-vector<vector<double> > normalizeTanh(const vector<vector<double> > &vec, double amplitude, double elongation)
+vector<vector<double> > math::normalizeTanh(const vector<vector<double> > &vec, double amplitude, double elongation)
 {
 	size_t sVec = vec.size();
 	vector<vector<double> > output(sVec);
@@ -465,7 +464,7 @@ vector<vector<double> > normalizeTanh(const vector<vector<double> > &vec, double
 	return output;
 }
 
-vector<double> normalizeSigmoid(const vector<double> &vec, double amp, double elong)
+vector<double> math::normalizeSigmoid(const vector<double> &vec, double amp, double elong)
 {
 	size_t sVec = vec.size();
 	vector<double> output(sVec);
@@ -475,7 +474,7 @@ vector<double> normalizeSigmoid(const vector<double> &vec, double amp, double el
 	return output;
 }
 
-vector<vector<double> > normalizeSigmoid(const vector<vector<double> > &vec, double amp, double elong)
+vector<vector<double> > math::normalizeSigmoid(const vector<vector<double> > &vec, double amp, double elong)
 {
 	size_t sVec = vec.size();
 	vector<vector<double> > output(sVec);
@@ -486,7 +485,7 @@ vector<vector<double> > normalizeSigmoid(const vector<vector<double> > &vec, dou
 	return output;
 }
 
-vector<double> normalizeMeanDistance(const vector<double> &vec)
+vector<double> math::normalizeMeanDistance(const vector<double> &vec)
 {
 	size_t sVec = vec.size();
 	vector<double> output(sVec);
@@ -504,7 +503,7 @@ vector<double> normalizeMeanDistance(const vector<double> &vec)
 	return output;
 }
 
-vector<vector<double> > normalizeMeanDistance(const vector<vector<double> > &vec)
+vector<vector<double> > math::normalizeMeanDistance(const vector<vector<double> > &vec)
 {
 	size_t sVec = vec.size();
 	vector<vector<double> > output(sVec);
@@ -514,6 +513,6 @@ vector<vector<double> > normalizeMeanDistance(const vector<vector<double> > &vec
 	}
 	return output;
 }
-}
+
 
 

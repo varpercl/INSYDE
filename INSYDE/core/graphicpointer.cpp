@@ -1,18 +1,18 @@
 #include "graphicpointer.h"
 
-GraphicPointer::GraphicPointer(){
+core::GraphicPointer::GraphicPointer(){
     iniciarApuntador(40, 80);
 }
 
-GraphicPointer::GraphicPointer(double width){
+core::GraphicPointer::GraphicPointer(double width){
 	iniciarApuntador(width, width*2);
 }
 
-GraphicPointer::~GraphicPointer()
+core::GraphicPointer::~GraphicPointer()
 {
 }
 
-void GraphicPointer::iniciarApuntador(double width, double height){
+void core::GraphicPointer::iniciarApuntador(double width, double height){
     lineWidth = 4;
     curShape.lineTo(QPointF(width, 0));
     curShape.lineTo(QPointF(width*0.7, -height*0.1));
@@ -22,7 +22,7 @@ void GraphicPointer::iniciarApuntador(double width, double height){
     curShape.lineTo(QPointF(0, height/2));
 }
 
-void GraphicPointer::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
+void core::GraphicPointer::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     Q_UNUSED(widget);
     Q_UNUSED(option);
     QColor color;
@@ -34,13 +34,19 @@ void GraphicPointer::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
     painter->save();
     painter->setPen(pen);
     painter->drawPath(curShape);
-    painter->restore();
+	painter->restore();
 }
 
-QPainterPath GraphicPointer::shape() const{
+QString core::GraphicPointer::getXML() const
+{
+	//TODO: implement
+	return "";
+}
+
+QPainterPath core::GraphicPointer::shape() const{
     return curShape;
 }
-QRectF GraphicPointer::boundingRect() const{
+QRectF core::GraphicPointer::boundingRect() const{
     QRectF rect = curShape.controlPointRect();
     rect.adjust(-lineWidth, -lineWidth, lineWidth, lineWidth);
     return rect;

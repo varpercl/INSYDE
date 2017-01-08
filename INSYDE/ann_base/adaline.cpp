@@ -1,6 +1,6 @@
 #include "adaline.h"
 
-using namespace math;
+using namespace core::math;
 
 namespace ann_base{
 

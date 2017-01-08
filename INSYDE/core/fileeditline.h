@@ -6,6 +6,7 @@
 #include "definitions.h"
 #include "share_core_lib.h"
 
+namespace core{
 
 class CORE_LIB_IMPORT_EXPORT FileEditLine : public QWidget
 {
@@ -117,5 +118,5 @@ class CORE_LIB_IMPORT_EXPORT FileEditLine : public QWidget
 		 */
 		void init(const QString &path);
 };
-
+}
 #endif // FILEEDITLINE_H

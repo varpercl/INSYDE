@@ -6,6 +6,8 @@
 #include "share_core_lib.h"
 #include "graphicobject.h"
 
+namespace core{
+
 class GraphicObject;
 
 class CORE_LIB_IMPORT_EXPORT Simulation : public QThread
@@ -64,5 +66,5 @@ class CORE_LIB_IMPORT_EXPORT Simulation : public QThread
 
 		QString getNamePrivateHelper(const QString &suffix) const;
 };
-
+}
 #endif // SIMULATION_H

@@ -10,8 +10,9 @@
 #include "../core/datarepresentation.h"
 #include "../core/normalization.h"
 
+using namespace core;
 
-class Normalization;
+//class Normalization;
 
 namespace ann_base{
 

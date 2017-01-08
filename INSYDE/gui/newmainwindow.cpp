@@ -159,7 +159,7 @@ void NewMainWindow::onGDVMousePressed(QMouseEvent *event)
 													DIR_SAMPLES,
 													"All image formats (*.bmp *.png *.jpg *.gif);; Bitmap BMP (*.bmp);; Portable Network Graphic PNG (*.png);; JPEG image (*.jpg);; GIF image (*.gif)");
 
-		Image *gie = new Image(path);
+        core::Image *gie = new core::Image(path);
 
 		gie->setPos(gdv->mapToScene(event->pos()));
 
@@ -299,9 +299,9 @@ void NewMainWindow::onOpenOnNewWindowRequest(GraphicObject *obj)
 	}else{
 		switch(obj->type()){
 			case GraphicObject::gotImage:{
-				Image *img = (Image*)obj;
+                core::Image *img = (core::Image*)obj;
 
-				mainTab->setCurrentIndex(mainTab->addTab(new ImageDetailedWindow(img->getImage()), obj->objectName()));
+                mainTab->setCurrentIndex(mainTab->addTab(new core::ImageDetailedWindow(img->getImage()), obj->objectName()));
 
 				break;
 			}
@@ -316,7 +316,7 @@ void NewMainWindow::onOpenOnNewWindowRequest(GraphicObject *obj)
 											   );
 				ddm->setInputsSize(dm->getInputsSize());
 
-				mainTab->setCurrentIndex(mainTab->addTab(new DotMatrixDetailedWindow(ddm), dm->objectName()));
+                mainTab->setCurrentIndex(mainTab->addTab(new core::DotMatrixDetailedWindow(ddm), dm->objectName()));
 
 				connect(dm, SIGNAL(inputsSizeChanged(int)), ddm, SLOT(setInputsSize(int)));
 				connect(ddm, SIGNAL(inputsSizeChanged(int)), dm, SLOT(setInputsSize(int)));
@@ -330,15 +330,13 @@ void NewMainWindow::onOpenOnNewWindowRequest(GraphicObject *obj)
 				break;
 			}
 			case GraphicObject::gotMLP:{
-				MLPObject *mlpe = (MLPObject*)obj;
-
-
+			//TODO: implement
+//				MLPObject *mlpe = (MLPObject*)obj;
 				break;
 			}
 			case GraphicObject::gotImageEffect:{
-				ImageEffect *ie = (ImageEffect*)obj;
-
-
+			//TODO: implement
+//				ImageEffect *ie = (ImageEffect*)obj;
 				break;
 			}
 			default:

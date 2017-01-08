@@ -6,6 +6,7 @@
 #include "share_core_lib.h"
 #include "labeleddoublespinbox.h"
 
+namespace core{
 
 /*!
  * \brief The DoubleMinMaxValueWidget class
@@ -65,5 +66,5 @@ class CORE_LIB_IMPORT_EXPORT DoubleMinMaxWidget : public QWidget
 
 		void init(double min, double max);
 };
-
+}
 #endif // MINMAXVALUEWIDGET_H

@@ -1,18 +1,18 @@
 #include "normalizationwidget.h"
 
-NormalizationWidget::NormalizationWidget(Normalization *nor, const QString &title, QWidget *parent) :
+core::NormalizationWidget::NormalizationWidget(Normalization *nor, const QString &title, QWidget *parent) :
 	QWidget(parent)
 {
 	init(title, nor);
 }
 
-NormalizationWidget::NormalizationWidget(const QString &title, QWidget *parent) :
+core::NormalizationWidget::NormalizationWidget(const QString &title, QWidget *parent) :
 	QWidget(parent)
 {
 	init(title, new Normalization());
 }
 
-NormalizationWidget::~NormalizationWidget()
+core::NormalizationWidget::~NormalizationWidget()
 {
 	delete lcbNormalization;
 	delete lsbwAmplitude;
@@ -21,117 +21,117 @@ NormalizationWidget::~NormalizationWidget()
 	delete mmvw;
 }
 
-void NormalizationWidget::setMinValue(double val)
+void core::NormalizationWidget::setMinValue(double val)
 {
 	mmvw->setMinValue(val);
 }
 
-double NormalizationWidget::getMinValue() const
+double core::NormalizationWidget::getMinValue() const
 {
 	return mmvw->getMinValue();
 }
 
-void NormalizationWidget::setMinValueMaximum(double val)
+void core::NormalizationWidget::setMinValueMaximum(double val)
 {
 	mmvw->setMinValueMaximum(val);
 }
 
-double NormalizationWidget::getMinValueMaximum() const
+double core::NormalizationWidget::getMinValueMaximum() const
 {
 	return mmvw->getMinValueMaximum();
 }
 
-void NormalizationWidget::setMinValueMinimum(double val)
+void core::NormalizationWidget::setMinValueMinimum(double val)
 {
 	mmvw->setMinValueMinimum(val);
 }
 
-double NormalizationWidget::getMinValueMinimum() const
+double core::NormalizationWidget::getMinValueMinimum() const
 {
 	return mmvw->getMinValueMinimum();
 }
 
-void NormalizationWidget::setMaxValue(double val)
+void core::NormalizationWidget::setMaxValue(double val)
 {
 	mmvw->setMaxValue(val);
 }
 
-double NormalizationWidget::getMaxValue() const
+double core::NormalizationWidget::getMaxValue() const
 {
 	return mmvw->getMaxValue();
 }
 
-void NormalizationWidget::setMaxValueMaximum(double val)
+void core::NormalizationWidget::setMaxValueMaximum(double val)
 {
 	mmvw->setMaxValueMaximum(val);
 }
 
-double NormalizationWidget::getMaxValueMaximum() const
+double core::NormalizationWidget::getMaxValueMaximum() const
 {
 	return mmvw->getMaxValueMaximum();
 }
 
-void NormalizationWidget::setMaxValueMinimum(double val)
+void core::NormalizationWidget::setMaxValueMinimum(double val)
 {
 	mmvw->setMaxValueMinimum(val);
 }
 
-double NormalizationWidget::getMaxValueMinimum() const
+double core::NormalizationWidget::getMaxValueMinimum() const
 {
 	return mmvw->getMaxValueMinimum();
 }
 
-void NormalizationWidget::setThresholdValue(double val)
+void core::NormalizationWidget::setThresholdValue(double val)
 {
 	lsbwThreshold->setValue(val);
 }
 
-double NormalizationWidget::getThresholdValue() const
+double core::NormalizationWidget::getThresholdValue() const
 {
 	return lsbwThreshold->getValue();
 }
 
-void NormalizationWidget::setThresholdValueMaximum(double val)
+void core::NormalizationWidget::setThresholdValueMaximum(double val)
 {
 	lsbwThreshold->setMaximumValue(val);
 }
 
-double NormalizationWidget::getThresholdValueMaximum() const
+double core::NormalizationWidget::getThresholdValueMaximum() const
 {
 	return lsbwThreshold->getMaximumValue();
 }
 
-void NormalizationWidget::setThresholdValueMinimum(double val)
+void core::NormalizationWidget::setThresholdValueMinimum(double val)
 {
 	lsbwThreshold->setMinimumValue(val);
 }
 
-double NormalizationWidget::getThresholdValueMinimum() const
+double core::NormalizationWidget::getThresholdValueMinimum() const
 {
 	return lsbwThreshold->getMinimumValue();
 }
 
-void NormalizationWidget::setAmplitudeValue(double amp)
+void core::NormalizationWidget::setAmplitudeValue(double amp)
 {
 	lsbwAmplitude->setValue(amp);
 }
 
-double NormalizationWidget::getAmplitudeValue() const
+double core::NormalizationWidget::getAmplitudeValue() const
 {
 	return lsbwAmplitude->getValue();
 }
 
-void NormalizationWidget::setElongationValue(double elong)
+void core::NormalizationWidget::setElongationValue(double elong)
 {
 	lsbwElongation->setValue(elong);
 }
 
-double NormalizationWidget::getElongationValue() const
+double core::NormalizationWidget::getElongationValue() const
 {
 	return lsbwElongation->getValue();
 }
 
-void NormalizationWidget::setNormalization(Normalization *no)
+void core::NormalizationWidget::setNormalization(Normalization *no)
 {
 
 	QComboBox *cb = lcbNormalization->getComboBox();
@@ -164,7 +164,7 @@ void NormalizationWidget::setNormalization(Normalization *no)
 	emit normalizationChanged(currentNormalization);
 }
 
-void NormalizationWidget::setNormalization(Normalization::Type nt)
+void core::NormalizationWidget::setNormalization(Normalization::Type nt)
 {
 	QComboBox *cb = lcbNormalization->getComboBox();
 
@@ -178,12 +178,12 @@ void NormalizationWidget::setNormalization(Normalization::Type nt)
 	currentNormalization->setType(nt);
 }
 
-Normalization *NormalizationWidget::getNormalization() const
+core::Normalization *core::NormalizationWidget::getNormalization() const
 {
 	return currentNormalization;
 }
 
-void NormalizationWidget::hideNormalization(Normalization nor)
+void core::NormalizationWidget::hideNormalization(Normalization nor)
 {
 	foreach(NormProp np, normList){
 		if(np.norm->getType() == nor.getType()){
@@ -193,28 +193,28 @@ void NormalizationWidget::hideNormalization(Normalization nor)
 	updateNormalizationList();
 }
 
-void NormalizationWidget::hideNormalization(Normalization::Type type)
+void core::NormalizationWidget::hideNormalization(Normalization::Type type)
 {
 	(void)type;
 
 	//TODO: 30/4/16 hideNormalization implement
 }
 
-void NormalizationWidget::showNormalization(Normalization nor)
+void core::NormalizationWidget::showNormalization(Normalization nor)
 {
 	(void)nor;
 
 	//TODO 30/4/16 showNormalization: implement
 }
 
-void NormalizationWidget::showNormalization(Normalization::Type type)
+void core::NormalizationWidget::showNormalization(Normalization::Type type)
 {
 	(void)type;
 
 	//TODO: 30/4/16 showNormalization: implement
 }
 
-void NormalizationWidget::setDecimals(int dec)
+void core::NormalizationWidget::setDecimals(int dec)
 {
 	decimals = dec;
 	lsbwAmplitude->setDecimals(dec);
@@ -223,32 +223,32 @@ void NormalizationWidget::setDecimals(int dec)
 	mmvw->setDecimals(dec);
 }
 
-int NormalizationWidget::getDecimals() const
+int core::NormalizationWidget::getDecimals() const
 {
 	return decimals;
 }
 
-void NormalizationWidget::setEnableUpdateDelay(bool en)
+void core::NormalizationWidget::setEnableUpdateDelay(bool en)
 {
 	enableUpdateDelay = en;
 }
 
-bool NormalizationWidget::getEnableUpdateDelay() const
+bool core::NormalizationWidget::getEnableUpdateDelay() const
 {
 	return enableUpdateDelay;
 }
 
-void NormalizationWidget::setUpdateDelay(int delay)
+void core::NormalizationWidget::setUpdateDelay(int delay)
 {
 	updateDelay = delay;
 }
 
-int NormalizationWidget::getUpdateDelay() const
+int core::NormalizationWidget::getUpdateDelay() const
 {
 	return updateDelay;
 }
 
-void NormalizationWidget::amplitudeTimeout()
+void core::NormalizationWidget::amplitudeTimeout()
 {
 	double val = lsbwAmplitude->getValue();
 	normList[getNormalization()->getType()].norm->setAmplitude(val);
@@ -257,7 +257,7 @@ void NormalizationWidget::amplitudeTimeout()
 	emit amplitudeValueChanged(val);
 }
 
-void NormalizationWidget::elongationTimeout()
+void core::NormalizationWidget::elongationTimeout()
 {
 	double val = lsbwElongation->getValue();
 	normList[getNormalization()->getType()].norm->setElongation(val);
@@ -266,7 +266,7 @@ void NormalizationWidget::elongationTimeout()
 	emit elongationValueChanged(val);
 }
 
-void NormalizationWidget::maxValueTimeout()
+void core::NormalizationWidget::maxValueTimeout()
 {
 	double val = mmvw->getMaxValue();
 	normList[getNormalization()->getType()].norm->setMaxValue(val);
@@ -275,7 +275,7 @@ void NormalizationWidget::maxValueTimeout()
 	emit maxValueChanged(val);
 }
 
-void NormalizationWidget::minValueTimeout()
+void core::NormalizationWidget::minValueTimeout()
 {
 	double val = mmvw->getMinValue();
 	normList[getNormalization()->getType()].norm->setMinValue(val);
@@ -284,7 +284,7 @@ void NormalizationWidget::minValueTimeout()
 	emit minValueChanged(val);
 }
 
-void NormalizationWidget::thresholdTimeout()
+void core::NormalizationWidget::thresholdTimeout()
 {
 	double val = lsbwThreshold->getValue();
 	normList[getNormalization()->getType()].norm->setThreshold(val);
@@ -293,7 +293,7 @@ void NormalizationWidget::thresholdTimeout()
 	emit thresholdValueChanged(val);
 }
 
-void NormalizationWidget::init(const QString &title, Normalization *nor)
+void core::NormalizationWidget::init(const QString &title, Normalization *nor)
 {
 	enableUpdateDelay = false;
 
@@ -373,7 +373,7 @@ void NormalizationWidget::init(const QString &title, Normalization *nor)
 	connect(mmvw->getMinDoubleSpinBox(), SIGNAL(valueChanged(double)), SLOT(onMinValueChanged(double)));
 }
 
-void NormalizationWidget::updateNormalizationList()
+void core::NormalizationWidget::updateNormalizationList()
 {
 	QComboBox *cb = lcbNormalization->getComboBox();
 
@@ -408,7 +408,7 @@ void NormalizationWidget::updateNormalizationList()
 	cb->blockSignals(false);
 }
 
-void NormalizationWidget::updateNormalizationControls()
+void core::NormalizationWidget::updateNormalizationControls()
 {
 	Normalization::Type type = currentNormalization->getType();
 
@@ -512,7 +512,7 @@ void NormalizationWidget::updateNormalizationControls()
 	}
 }
 
-void NormalizationWidget::cbNormalizationIndexChanged(int index)
+void core::NormalizationWidget::cbNormalizationIndexChanged(int index)
 {
 	Normalization *curSel = 0;
 
@@ -535,7 +535,7 @@ void NormalizationWidget::cbNormalizationIndexChanged(int index)
 	emit normalizationChanged(curSel);
 }
 
-void NormalizationWidget::onAmplitudeValueChanged(double val)
+void core::NormalizationWidget::onAmplitudeValueChanged(double val)
 {
 	(void)val;
 	if(enableUpdateDelay){
@@ -545,7 +545,7 @@ void NormalizationWidget::onAmplitudeValueChanged(double val)
 	}
 }
 
-void NormalizationWidget::onElongationValueChanged(double val)
+void core::NormalizationWidget::onElongationValueChanged(double val)
 {
 	(void)val;
 	if(enableUpdateDelay){
@@ -555,7 +555,7 @@ void NormalizationWidget::onElongationValueChanged(double val)
 	}
 }
 
-void NormalizationWidget::onThresholdChanged(double val)
+void core::NormalizationWidget::onThresholdChanged(double val)
 {
 	(void)val;
 	if(enableUpdateDelay){
@@ -565,7 +565,7 @@ void NormalizationWidget::onThresholdChanged(double val)
 	}
 }
 
-void NormalizationWidget::onMinValueChanged(double val)
+void core::NormalizationWidget::onMinValueChanged(double val)
 {
 	(void)val;
 	if(enableUpdateDelay){
@@ -575,7 +575,7 @@ void NormalizationWidget::onMinValueChanged(double val)
 	}
 }
 
-void NormalizationWidget::onMaxValueChanged(double val)
+void core::NormalizationWidget::onMaxValueChanged(double val)
 {
 	(void)val;
 	if(enableUpdateDelay){

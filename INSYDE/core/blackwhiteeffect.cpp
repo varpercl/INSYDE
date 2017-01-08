@@ -1,11 +1,11 @@
 #include "blackwhiteeffect.h"
 
-BlackWhiteEffect::BlackWhiteEffect()
+core::BlackWhiteEffect::BlackWhiteEffect()
 {
 
 }
 
-BlackWhiteEffect::BlackWhiteEffect(const QImage &img, ConvertionFormat cf, double threshold)
+core::BlackWhiteEffect::BlackWhiteEffect(const QImage &img, ConvertionFormat cf, double threshold)
 {
 	initBWE(img, cf, threshold);
 //	setImage(img);
@@ -13,17 +13,17 @@ BlackWhiteEffect::BlackWhiteEffect(const QImage &img, ConvertionFormat cf, doubl
 //	setThreshold(threshold);
 }
 
-BlackWhiteEffect::~BlackWhiteEffect()
+core::BlackWhiteEffect::~BlackWhiteEffect()
 {
 
 }
 
-void BlackWhiteEffect::setConvertionFormat(BlackWhiteEffect::ConvertionFormat fc)
+void core::BlackWhiteEffect::setConvertionFormat(BlackWhiteEffect::ConvertionFormat fc)
 {
 	cf = fc;
 }
 
-QImage BlackWhiteEffect::getImage()
+QImage core::BlackWhiteEffect::getImage()
 {
 	switch(cf){
 		case Threshold:{
@@ -75,7 +75,7 @@ QImage BlackWhiteEffect::getImage()
 	}
 }
 
-void BlackWhiteEffect::setThreshold(double ts)
+void core::BlackWhiteEffect::setThreshold(double ts)
 {
 	if(ts > 1){
 		threshold = 1;
@@ -86,17 +86,17 @@ void BlackWhiteEffect::setThreshold(double ts)
 	}
 }
 
-double BlackWhiteEffect::getThreshold()
+double core::BlackWhiteEffect::getThreshold()
 {
 	return threshold;
 }
 
-int BlackWhiteEffect::getType()
+int core::BlackWhiteEffect::getType()
 {
 	return BNEffectType;
 }
 
-void BlackWhiteEffect::initBWE(const QImage &img, BlackWhiteEffect::ConvertionFormat fc, double threshold)
+void core::BlackWhiteEffect::initBWE(const QImage &img, BlackWhiteEffect::ConvertionFormat fc, double threshold)
 {
 	setImage(img);
 	setConvertionFormat(fc);

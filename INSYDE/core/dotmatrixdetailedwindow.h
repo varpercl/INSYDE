@@ -9,6 +9,8 @@
 #include "dotmatrix.h"
 #include "interfaces.h"
 
+namespace core{
+
 class DotMatrix;
 
 /*!
@@ -126,5 +128,5 @@ class CORE_LIB_IMPORT_EXPORT DotMatrixDetailedWindow : public DetailedWindow, pu
 		void setupUI();
 
 };
-
+}
 #endif // DOTMATRIXELEMENTDETAILEDWINDOW_H

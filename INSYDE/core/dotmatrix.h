@@ -9,10 +9,9 @@
 #include "common.h"
 #include "dotmatrixpropertydialog.h"
 #include "graphicobject.h"
-//#include "../ann_gui/graphicmlpelement.h"
-//#include "interfaces.h"
 
-//class GraphicMLPElement;
+
+namespace core{
 
 /*!
  * \class
@@ -481,5 +480,5 @@ class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 };
 
 bool operator ==(const DotMatrix::Dot &dotleft, const DotMatrix::Dot &dotright);
-
+}
 #endif // DOTMATRIX_H

@@ -1,28 +1,28 @@
 #include "image.h"
 
-Image::Image() :
+core::Image::Image() :
 	GraphicObject()
 {
 	init(new QImage());
 }
 
-Image::Image(QImage *img) :
+core::Image::Image(QImage *img) :
 	GraphicObject()
 {
 	init(img);
 }
 
-Image::Image(const QString &imgpath) :
+core::Image::Image(const QString &imgpath) :
     GraphicObject()
 {
 	init(imgpath);
 }
 
-Image::~Image()
+core::Image::~Image()
 {
 }
 
-void Image::setImage(const QString &path)
+void core::Image::setImage(const QString &path)
 {
 	*image = QImage(path);
 	this->path = path;
@@ -47,7 +47,7 @@ void Image::setImage(const QString &path)
 	emit imageChange(*image);
 }
 
-void Image::setImage(QImage *image)
+void core::Image::setImage(QImage *image)
 {
 	this->image = image;
 	path = "";
@@ -71,12 +71,12 @@ void Image::setImage(QImage *image)
 	emit imageChange(*(this->image));
 }
 
-QImage *Image::getImage() const
+QImage *core::Image::getImage() const
 {
 	return image;
 }
 
-void Image::setInputElement(GraphicObject *ge)
+void core::Image::setInputElement(GraphicObject *ge)
 {
 	switch(ge->type()){
 		case GraphicObject::gotDotMatrix:{
@@ -95,98 +95,98 @@ void Image::setInputElement(GraphicObject *ge)
 	inputElement = ge;
 }
 
-int Image::type() const
+int core::Image::type() const
 {
 	return gotImage;
 }
 
-void Image::setSelectionRectVisible(bool rv)
+void core::Image::setSelectionRectVisible(bool rv)
 {
 	visibleSelRect = rv;
 }
 
-bool Image::getSelectionRectVisible() const
+bool core::Image::getSelectionRectVisible() const
 {
 	return visibleSelRect;
 }
 
-void Image::setSelectionRect(const QRect &sr)
+void core::Image::setSelectionRect(const QRect &sr)
 {
 	selRect = sr;
 	update();
 }
 
-QRect Image::getSelectionRect() const
+QRect core::Image::getSelectionRect() const
 {
 	return selRect;
 }
 
-void Image::setSelectionRectColor(const QColor &color)
+void core::Image::setSelectionRectColor(const QColor &color)
 {
 	rectColor = color;
 }
 
-QColor Image::getSelectionRectColor() const
+QColor core::Image::getSelectionRectColor() const
 {
 	return rectColor;
 }
 
-QImage Image::getImageSelection() const
+QImage core::Image::getImageSelection() const
 {
 	return image->copy(selRect);
 }
 
-void Image::setImageSize(const QSize &size)
+void core::Image::setImageSize(const QSize &size)
 {
 	*image = image->scaled(size);
 }
 
-QSize Image::getImageSize() const
+QSize core::Image::getImageSize() const
 {
 	return image->size();
 }
 
-void Image::setImageWidth(int w)
+void core::Image::setImageWidth(int w)
 {
 	*image = image->scaledToWidth(w, Qt::SmoothTransformation);
 }
 
-int Image::getImageWidth() const
+int core::Image::getImageWidth() const
 {
 	return image->width();
 }
 
-void Image::setImageHeight(int h)
+void core::Image::setImageHeight(int h)
 {
 	*image = image->scaledToHeight(h, Qt::SmoothTransformation);
 }
 
-int Image::getImageHeight() const
+int core::Image::getImageHeight() const
 {
 	return image->height();
 }
 
-void Image::setEnableCopyImage(bool enable)
+void core::Image::setEnableCopyImage(bool enable)
 {
 	copyImageAction->setVisible(enable);
 }
 
-bool Image::getEnableCopyImage() const
+bool core::Image::getEnableCopyImage() const
 {
 	return copyImageAction->isVisible();
 }
 
-void Image::setThumbnailSize(const QSize &size)
+void core::Image::setThumbnailSize(const QSize &size)
 {
 	thumbnailSize = size;
 }
 
-QSize Image::getThumbnailSize() const
+QSize core::Image::getThumbnailSize() const
 {
 	return thumbnailSize;
 }
 
-void Image::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void core::Image::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
 	GraphicObject::mousePressEvent(event);
 
@@ -196,7 +196,7 @@ void Image::mousePressEvent(QGraphicsSceneMouseEvent *event)
 	}
 }
 
-void Image::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void core::Image::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
 	GraphicObject::mouseMoveEvent(event);
 
@@ -208,7 +208,7 @@ void Image::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 	}
 }
 
-void Image::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+void core::Image::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
 {
 	GraphicObject::hoverMoveEvent(event);
 
@@ -223,7 +223,7 @@ void Image::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
 	}
 }
 
-void Image::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void core::Image::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	GraphicObject::paint(painter, option, widget);
 
@@ -254,7 +254,7 @@ void Image::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
     painter->restore();
 }
 
-void Image::copyClick()
+void core::Image::copyClick()
 {
 	clip = QApplication::clipboard();
 
@@ -267,24 +267,24 @@ void Image::copyClick()
 }
 
 
-void Image::copyImageClick()
+void core::Image::copyImageClick()
 {
 	clip = QApplication::clipboard();
 
 	clip->setImage(*image);
 }
 
-void Image::cutClick()
+void core::Image::cutClick()
 {
 	//TODO: implementar
 }
 
-void Image::pasteClick()
+void core::Image::pasteClick()
 {
 	//TODO: implementar
 }
 
-void Image::saveClick()
+void core::Image::saveClick()
 {
 	//TODO: Image can be saved but you must write complete name (including extension), if not, it won't save.
 	QString
@@ -302,14 +302,14 @@ void Image::saveClick()
 	}
 }
 
-void Image::propertyClick()
+void core::Image::propertyClick()
 {
 	ImagePropertyDialog *ipd = new ImagePropertyDialog(this);
 
 	ipd->exec();
 }
 
-void Image::onChangeImageClick()
+void core::Image::onChangeImageClick()
 {
 	QString path = QFileDialog::getOpenFileName(0,
 												"Abrir archivo",
@@ -321,7 +321,7 @@ void Image::onChangeImageClick()
 	}
 }
 
-QString Image::getXML() const
+QString core::Image::getXML() const
 {
 	QString output;
 	QXmlStreamWriter xmlWriter(&output);
@@ -345,7 +345,7 @@ QString Image::getXML() const
 	return output;
 }
 
-void Image::setShowOnlyThumbnail(bool b)
+void core::Image::setShowOnlyThumbnail(bool b)
 {
 	showOnlyThumbnail = b;
 //	scene()->setSceneRect(showOnlyThumbnail ? getThumbnail(image).rect() : image.rect());
@@ -353,18 +353,18 @@ void Image::setShowOnlyThumbnail(bool b)
 	update();
 }
 
-bool Image::getShowOnlyThumbnail() const
+bool core::Image::getShowOnlyThumbnail() const
 {
 	return showOnlyThumbnail;
 }
 
 
-QString Image::getFilePath() const
+QString core::Image::getFilePath() const
 {
 	return path;
 }
 
-QStringList Image::getFormats() const
+QStringList core::Image::getFormats() const
 {
 	return QStringList() <<
 							"Mono" <<
@@ -392,7 +392,7 @@ QStringList Image::getFormats() const
 
 }
 
-void Image::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+void core::Image::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
 	(void)event;
 	if(image->isNull()){
@@ -400,7 +400,7 @@ void Image::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 	}
 }
 
-void Image::init(QImage *img)
+void core::Image::init(QImage *img)
 {
 	image = img;
 
@@ -409,7 +409,7 @@ void Image::init(QImage *img)
 	setImage(img);
 }
 
-void Image::init(const QString &path)
+void core::Image::init(const QString &path)
 {
 	image = new QImage(path);
 
@@ -418,7 +418,7 @@ void Image::init(const QString &path)
 	setImage(path);
 }
 
-QImage *Image::getThumbnail(QImage *img)
+QImage *core::Image::getThumbnail(QImage *img)
 {
 	int
 			imgWidth = img->width(),
@@ -440,7 +440,7 @@ QImage *Image::getThumbnail(QImage *img)
 	}
 }
 
-void Image::updateSelRect(const QPointF &pos)
+void core::Image::updateSelRect(const QPointF &pos)
 {
 	QImage *thumb = showOnlyThumbnail ? getThumbnail(image) : image;
 	int
@@ -507,7 +507,7 @@ void Image::updateSelRect(const QPointF &pos)
 	}
 }
 
-void Image::setup()
+void core::Image::setup()
 {
 	thumbnail = new QImage();
 

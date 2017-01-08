@@ -11,6 +11,8 @@
 #include "imath.h"
 
 
+namespace core{
+
 class Simulation;
 
 /*!
@@ -511,5 +513,5 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		void init(const QRectF &rect, int border);
 
 };
-
+}
 #endif // GRAPHICELEMENT_H

@@ -1,15 +1,13 @@
 #include "common.h"
 
-namespace common{
-
-QString getFileExtension(const QString &path)
+QString core::common::getFileExtension(const QString &path)
 {
 	QFileInfo fi(path);
 
 	return fi.suffix();
 }
 
-QImage base64ToImage(const QByteArray &base64)
+QImage core::common::base64ToImage(const QByteArray &base64)
 {
 	//TODO: 06/17/2016 base64ToImage This routine has never been tested
 	QImage result;
@@ -19,7 +17,7 @@ QImage base64ToImage(const QByteArray &base64)
 	return result;
 }
 
-QImage base64ToImage(char *base64)
+QImage core::common::base64ToImage(char *base64)
 {
 	//TODO: 06/17/2016 base64ToImage This routine has never been tested
 	QImage result;
@@ -29,7 +27,7 @@ QImage base64ToImage(char *base64)
 	return result;
 }
 
-QImage base64ToImage(const QString &base64)
+QImage core::common::base64ToImage(const QString &base64)
 {
 	//TODO: 06/17/2016 base64ToImage This routine has never been tested
 	QImage result;
@@ -38,7 +36,7 @@ QImage base64ToImage(const QString &base64)
 	return result;
 }
 
-QString imageToBase64(const QImage &img)
+QString core::common::imageToBase64(const QImage &img)
 {
 	QByteArray bytes;
 	QBuffer buffer(&bytes);
@@ -49,31 +47,31 @@ QString imageToBase64(const QImage &img)
 	return output;
 }
 
-QString imageToBase64(const QPixmap &img)
+QString core::common::imageToBase64(const QPixmap &img)
 {
 	//TODO: 06/17/2016 imageToBase64 Must be implemented
 	(void)img;
 	return "";
 }
 
-QString imageToBase64(const QBitmap &img)
+QString core::common::imageToBase64(const QBitmap &img)
 {
 //TODO: 06/17/2016 imageToBase64 Must be implemented
 	(void)img;
 	return "";
 }
 
-bool nearTo(const QPoint &p1, const QPoint &p2, int clearance)
+bool core::common::nearTo(const QPoint &p1, const QPoint &p2, int clearance)
 {
 	return math::distance(p1, p2) <= clearance;
 }
 
-bool nearTo(const QPointF &p1, const QPointF &p2, int clearance)
+bool core::common::nearTo(const QPointF &p1, const QPointF &p2, int clearance)
 {
 	return math::distance(p1, p2) <= clearance;
 }
 
-bool nearTo(const QPoint &pos, const QRect &rect, int clearance)
+bool core::common::nearTo(const QPoint &pos, const QRect &rect, int clearance)
 {
 	QRect
 			outerRect = rect.adjusted(-clearance/2, -clearance/2, clearance/2, clearance/2),
@@ -82,26 +80,26 @@ bool nearTo(const QPoint &pos, const QRect &rect, int clearance)
 	return outerRect.contains(pos) && !innerRect.contains(pos);
 }
 
-bool nearTo(const QPointF &pos, const QRectF &rect, double clearance)
+bool core::common::nearTo(const QPointF &pos, const QRectF &rect, double clearance)
 {
-	QRectF
-			outerRect = rect.adjusted(-clearance/2, -clearance/2, clearance/2, clearance/2),
-			innerRect = rect.adjusted(clearance/2, clearance/2, -clearance/2, -clearance/2);
+    QRectF
+            outerRect = rect.adjusted(-clearance/2, -clearance/2, clearance/2, clearance/2),
+            innerRect = rect.adjusted(clearance/2, clearance/2, -clearance/2, -clearance/2);
 
-	return outerRect.contains(pos) && !innerRect.contains(pos);
+    return outerRect.contains(pos) && !innerRect.contains(pos);
 }
 
-bool nearTo(const QPointF &pos, const QLineF &line, int clearance)
+bool core::common::nearTo(const QPointF &pos, const QLineF &line, int clearance)
 {
 	return math::distance(pos, line) <= clearance;
 }
 
-bool nearTo(const QPointF &pos, const QPointF &p1, const QPointF &p2, int clearance)
+bool core::common::nearTo(const QPointF &pos, const QPointF &p1, const QPointF &p2, int clearance)
 {
 	return math::distance(pos, p1, p2) <= clearance;
 }
 
-QCursor getCursor(const QPoint &pos, const QRect &rect, int clearance, const QCursor &defCursor, bool ignoreCorners)
+QCursor core::common::getCursor(const QPoint &pos, const QRect &rect, int clearance, const QCursor &defCursor, bool ignoreCorners)
 {
 	double
 			distTopLeft = math::distance(pos, rect.topLeft()),
@@ -128,7 +126,7 @@ QCursor getCursor(const QPoint &pos, const QRect &rect, int clearance, const QCu
 }
 
 
-vector<long> imageToIntVector(
+vector<long> core::common::imageToIntVector(
 		const QImage &img,
 		IntegerTypes it,
 		double threshold)
@@ -175,7 +173,7 @@ vector<long> imageToIntVector(
 
 	return out;
 }
-vector<unsigned int> imageToUIntVector(const QImage &img)
+vector<unsigned int> core::common::imageToUIntVector(const QImage &img)
 {
 	vector<unsigned int> out;
 
@@ -192,7 +190,7 @@ vector<unsigned int> imageToUIntVector(const QImage &img)
 	return out;
 }
 
-pair<int, int> getWidthHeight(int value)
+pair<int, int> core::common::getWidthHeight(int value)
 {
 	int width, height;
 	if(value >= 1){
@@ -203,7 +201,7 @@ pair<int, int> getWidthHeight(int value)
 	}
 }
 
-QVector<QVector<int> > toQVector(const vector<vector<int> > &vec)
+QVector<QVector<int> > core::common::toQVector(const vector<vector<int> > &vec)
 {
 	QVector<QVector<int> > output;
 	for(size_t i = 0; i < vec.size(); i++){
@@ -212,7 +210,7 @@ QVector<QVector<int> > toQVector(const vector<vector<int> > &vec)
 	return output;
 }
 
-vector<vector<int> > toMatrix(const vector<int> &data, int rows, int cols)
+vector<vector<int> > core::common::toMatrix(const vector<int> &data, int rows, int cols)
 {
 	vector<vector<int> > output(rows, vector<int>(cols, 0));
 	vector<int>::const_iterator it = data.begin();
@@ -225,7 +223,7 @@ vector<vector<int> > toMatrix(const vector<int> &data, int rows, int cols)
 	return output;
 }
 
-QColor getHeatColor(double value, const vector<double> &vec)
+QColor core::common::getHeatColor(double value, const vector<double> &vec)
 {
 	double
 			maxW = *max_element(vec.begin(), vec.end()),
@@ -239,7 +237,7 @@ QColor getHeatColor(double value, const vector<double> &vec)
 	return QColor(rComponent, gComponent, 0);
 }
 
-Sides nearToSide(const QPoint &pos, const QRect &rect, int clearance, bool ignoreCorners)
+core::common::Sides core::common::nearToSide(const QPoint &pos, const QRect &rect, int clearance, bool ignoreCorners)
 {
 	double
 			distTopLeft = math::distance(pos, rect.topLeft()),
@@ -271,8 +269,6 @@ Sides nearToSide(const QPoint &pos, const QRect &rect, int clearance, bool ignor
 	}else{
 		return None;
 	}
-
-}
 
 }
 

@@ -11,8 +11,9 @@
 #include "labeledcombobox.h"
 #include "graphicobjectpropertydialog.h"
 
-class DotMatrix;
+namespace core{
 
+class DotMatrix;
 /*!
  * \class
  *
@@ -73,5 +74,5 @@ class CORE_LIB_IMPORT_EXPORT DotMatrixPropertyDialog : public GraphicObjectPrope
 		 */
 		void init(DotMatrix *dm);
 };
-
+}
 #endif // DOTMATRIXELEMENTPROPERTYDIALOG_H

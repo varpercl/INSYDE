@@ -11,6 +11,8 @@
 #include "graphicobject.h"
 #include "interfaces.h"
 
+namespace core{
+
 /*!
  * \class
  *
@@ -329,5 +331,5 @@ class CORE_LIB_IMPORT_EXPORT Image : public GraphicObject
 		void setup();
 
 };
-
+}
 #endif // GRAPHICIMAGEELEMENT_H

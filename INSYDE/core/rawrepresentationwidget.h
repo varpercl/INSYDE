@@ -4,6 +4,8 @@
 #include "share_core_lib.h"
 #include "datarepresentationwidget.h"
 
+namespace core{
+
 /*!
  * \class
  *
@@ -24,5 +26,5 @@ class CORE_LIB_IMPORT_EXPORT RawRepresentationWidget :public DataRepresentationW
 
 		void init(const vector<double> &inputs);
 };
-
+}
 #endif // RAWREPRESENTATIONWIDGET_H

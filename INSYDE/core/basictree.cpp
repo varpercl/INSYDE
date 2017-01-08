@@ -1,36 +1,36 @@
 #include "basictree.h"
 
-BasicTree::BasicTree(QWidget *parent) :
+core::BasicTree::BasicTree(QWidget *parent) :
 	QTreeView(parent)
 {
 	init();
 }
 
-BasicTree::~BasicTree()
+core::BasicTree::~BasicTree()
 {
 
 }
 
-void BasicTree::copyClick()
+void core::BasicTree::copyClick()
 {
 
 }
 
-void BasicTree::cutClick()
+void core::BasicTree::cutClick()
 {
 
 }
 
-void BasicTree::pasteClick()
+void core::BasicTree::pasteClick()
 {
 
 }
 
-void BasicTree::contextMenuEvent(QContextMenuEvent *)
+void core::BasicTree::contextMenuEvent(QContextMenuEvent *)
 {
 }
 
-void BasicTree::init()
+void core::BasicTree::init()
 {
 
 }

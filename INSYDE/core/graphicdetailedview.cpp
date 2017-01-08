@@ -1,23 +1,23 @@
 #include "graphicdetailedview.h"
 
-GraphicDetailedView::GraphicDetailedView(QWidget *parent) :
+core::GraphicDetailedView::GraphicDetailedView(QWidget *parent) :
 	QGraphicsView(parent)
 {
 	init(new Enviroment());
 }
 
-GraphicDetailedView::GraphicDetailedView(Enviroment *env, QWidget *parent) :
+core::GraphicDetailedView::GraphicDetailedView(Enviroment *env, QWidget *parent) :
 	QGraphicsView(parent)
 {
 	init(env);
 }
 
-GraphicDetailedView::~GraphicDetailedView()
+core::GraphicDetailedView::~GraphicDetailedView()
 {
 
 }
 
-void GraphicDetailedView::contextMenuEvent(QContextMenuEvent *event)
+void core::GraphicDetailedView::contextMenuEvent(QContextMenuEvent *event)
 {
 	QMenu *cntxMenu;
 
@@ -37,7 +37,7 @@ void GraphicDetailedView::contextMenuEvent(QContextMenuEvent *event)
 	QGraphicsView::contextMenuEvent(event);
 }
 
-void GraphicDetailedView::mousePressEvent(QMouseEvent *event)
+void core::GraphicDetailedView::mousePressEvent(QMouseEvent *event)
 {
 
 	QList<QGraphicsItem*> itemsSeleccionados = scene()->selectedItems();
@@ -85,7 +85,7 @@ void GraphicDetailedView::mousePressEvent(QMouseEvent *event)
 	emit mousePressed(event);
 }
 
-void GraphicDetailedView::mouseMoveEvent(QMouseEvent *event)
+void core::GraphicDetailedView::mouseMoveEvent(QMouseEvent *event)
 {
 	QGraphicsView::mouseMoveEvent(event);
 	QList<QGraphicsItem*> itemsSeleccionados = scene()->selectedItems();
@@ -118,7 +118,7 @@ void GraphicDetailedView::mouseMoveEvent(QMouseEvent *event)
 	event->ignore();
 }
 
-void GraphicDetailedView::mouseReleaseEvent(QMouseEvent *event)
+void core::GraphicDetailedView::mouseReleaseEvent(QMouseEvent *event)
 {
 	QGraphicsView::mouseReleaseEvent(event);
 
@@ -226,27 +226,27 @@ void GraphicDetailedView::mouseReleaseEvent(QMouseEvent *event)
 	//	}
 }
 
-void GraphicDetailedView::setGridVisible(bool b)
+void core::GraphicDetailedView::setGridVisible(bool b)
 {
 	enviroment->setGridVisible(b);
 }
 
-bool GraphicDetailedView::getGridVisible() const
+bool core::GraphicDetailedView::getGridVisible() const
 {
 	return enviroment->getGridVisible();
 }
 
-void GraphicDetailedView::setCenterMarkerVisible(bool b)
+void core::GraphicDetailedView::setCenterMarkerVisible(bool b)
 {
 	enviroment->setCenterMarkerVisible(b);
 }
 
-bool GraphicDetailedView::getCenterMarkerVisible() const
+bool core::GraphicDetailedView::getCenterMarkerVisible() const
 {
 	return enviroment->getCenterMarkerVisible();
 }
 
-void GraphicDetailedView::removeSelected()
+void core::GraphicDetailedView::removeSelected()
 {
 	QList<QGraphicsItem*> itemsSeleccionados = scene()->selectedItems();
 	foreach(QGraphicsItem *item, itemsSeleccionados){
@@ -255,7 +255,7 @@ void GraphicDetailedView::removeSelected()
 	}
 }
 
-void GraphicDetailedView::init(Enviroment *env)
+void core::GraphicDetailedView::init(Enviroment *env)
 {
 	apuntador = 0;
 
@@ -266,7 +266,7 @@ void GraphicDetailedView::init(Enviroment *env)
 	setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
 }
 
-void GraphicDetailedView::showPointer(double angle)
+void core::GraphicDetailedView::showPointer(double angle)
 {
 	if(apuntador == NULL){
 		apuntador = new GraphicPointer();
@@ -278,7 +278,7 @@ void GraphicDetailedView::showPointer(double angle)
 	apuntador->setVisible(true);
 }
 
-void GraphicDetailedView::removePointer()
+void core::GraphicDetailedView::removePointer()
 {
 	if(apuntador != 0){
 		//        delete apuntador;
@@ -290,7 +290,7 @@ void GraphicDetailedView::removePointer()
 	}
 }
 
-bool GraphicDetailedView::areDifferentTypes(const QList<QGraphicsItem *> &list)
+bool core::GraphicDetailedView::areDifferentTypes(const QList<QGraphicsItem *> &list)
 {
 	int sList = list.size();
 	for(int i = 1; i < sList; i++){

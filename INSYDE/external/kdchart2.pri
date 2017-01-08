@@ -7,7 +7,7 @@ win32:{
 			LIBS += -L$$PWD/../external/kdchart-2.5.1-source-win/lib/x86/ -lkdchart2 \
 		}
 
-		contains(QMAKE_TARGET.arch, x86_64): {
+		contains(QMAKE_TARGET.arch, x86_64):{
 #			QMAKE_LFLAGS += /MACHINE:X64
 			LIBS += -L$$PWD/../external/kdchart-2.5.1-source-win/lib/x64/ -lkdchart2 \
 		}

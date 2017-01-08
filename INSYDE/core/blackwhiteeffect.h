@@ -9,6 +9,8 @@
 #include "share_core_lib.h"
 #include "effect.h"
 
+namespace core{
+
 /*!
  * \brief The BlackWhiteEffect class
  *
@@ -46,5 +48,5 @@ class CORE_LIB_IMPORT_EXPORT BlackWhiteEffect : public Effect
 
 		void initBWE(const QImage &img, ConvertionFormat fc = Threshold, double threshold = 0.5);
 };
-
+}
 #endif // BLACKWHITEEFFECT_H

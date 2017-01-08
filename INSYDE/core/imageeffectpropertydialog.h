@@ -21,6 +21,8 @@ namespace Ui {
 class GraphicImageEffectElementPropertyDialog;
 }
 
+namespace core{
+
 class ImageEffect;
 
 /*!
@@ -34,6 +36,18 @@ class CORE_LIB_IMPORT_EXPORT ImageEffectPropertyDialog : public QDialog
 		Q_OBJECT
 
 	public:
+
+		/*!
+		 * \brief ImageEffectPropertyDialog
+		 * \param parent
+		 */
+		explicit ImageEffectPropertyDialog(QWidget *parent = 0);
+
+		/*!
+		 * \brief ImageEffectPropertyDialog
+		 * \param giee
+		 * \param parent
+		 */
 		explicit ImageEffectPropertyDialog(ImageEffect *giee, QWidget *parent = 0);
 		~ImageEffectPropertyDialog();
 
@@ -61,5 +75,5 @@ class CORE_LIB_IMPORT_EXPORT ImageEffectPropertyDialog : public QDialog
 
 		void updateConfigWidget(int i);
 };
-
+}
 #endif // GRAPHICIMAGEEFFECTELEMENTPROPERTYDIALOG_H

@@ -14,7 +14,7 @@ namespace ann_base{
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class ANN_BASE_LIB_IMPORT_EXPORT SimplePerceptronFile
+class ANN_BASE_LIB_IMPORT_EXPORT SimplePerceptronFile : public QFile
 {
 	public:
 		SimplePerceptronFile();

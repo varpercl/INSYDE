@@ -10,6 +10,8 @@
 #include "zoomcontrol.h"
 #include "definitions.h"
 
+namespace core{
+
 /*!
  * \class
  *
@@ -100,5 +102,5 @@ class CORE_LIB_IMPORT_EXPORT DetailedWindow : public QWidget
 		void init();
 
 };
-
+}
 #endif // GRAPHICELEMENTDETAILEDWINDOW_H

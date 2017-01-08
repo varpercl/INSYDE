@@ -1,22 +1,22 @@
 #include "datarepresentationwidget.h"
 
-DataRepresentationWidget::DataRepresentationWidget(const vector<double> &datainput, QWidget *parent) :
+core::DataRepresentationWidget::DataRepresentationWidget(const vector<double> &datainput, QWidget *parent) :
 	QWidget(parent)
 {
 	init(datainput);
 }
 
-void DataRepresentationWidget::setInputs(const vector<double> &datainput)
+void core::DataRepresentationWidget::setInputs(const vector<double> &datainput)
 {
 	inputs = datainput;
 }
 
-vector<double> DataRepresentationWidget::getInputs() const
+vector<double> core::DataRepresentationWidget::getInputs() const
 {
 	return inputs;
 }
 
-void DataRepresentationWidget::init(const vector<double> &dataInput)
+void core::DataRepresentationWidget::init(const vector<double> &dataInput)
 {
 	setInputs(dataInput);
 

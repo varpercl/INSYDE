@@ -1,17 +1,17 @@
 #include "dotmatrixpropertydialog.h"
 
-DotMatrixPropertyDialog::DotMatrixPropertyDialog(DotMatrix *dm, QWidget *parent) :
+core::DotMatrixPropertyDialog::DotMatrixPropertyDialog(DotMatrix *dm, QWidget *parent) :
 	GraphicObjectPropertyDialog(dm, parent)
 {
 	init(dm);
 }
 
-DotMatrixPropertyDialog::~DotMatrixPropertyDialog()
+core::DotMatrixPropertyDialog::~DotMatrixPropertyDialog()
 {
 
 }
 
-void DotMatrixPropertyDialog::onApplyClicked()
+void core::DotMatrixPropertyDialog::onApplyClicked()
 {
     dm->setMatrixSize(QSize(iswSize->getSize()));
 	dm->setDotSize(lisbDotSize->getValue());
@@ -28,7 +28,7 @@ void DotMatrixPropertyDialog::onApplyClicked()
 
 }
 
-void DotMatrixPropertyDialog::accept()
+void core::DotMatrixPropertyDialog::accept()
 {
 	onApplyClicked();
 
@@ -36,7 +36,7 @@ void DotMatrixPropertyDialog::accept()
 //	GraphicObjectPropertyDialog::accept(); //infinite loop
 }
 
-void DotMatrixPropertyDialog::init(DotMatrix *dm)
+void core::DotMatrixPropertyDialog::init(DotMatrix *dm)
 {
 	//Initialize QVBoxLayout
 	mainLayout = new QVBoxLayout();

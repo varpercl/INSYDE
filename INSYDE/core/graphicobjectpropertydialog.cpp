@@ -1,13 +1,13 @@
 #include "graphicobjectpropertydialog.h"
 
-GraphicObjectPropertyDialog::GraphicObjectPropertyDialog(GraphicObject *obj, QWidget *parent) :
+core::GraphicObjectPropertyDialog::GraphicObjectPropertyDialog(GraphicObject *obj, QWidget *parent) :
 	BasicDialog(parent)
 
 {
 	init(obj);
 }
 
-void GraphicObjectPropertyDialog::init(GraphicObject *obj)
+void core::GraphicObjectPropertyDialog::init(GraphicObject *obj)
 {
 	(void)obj;
 

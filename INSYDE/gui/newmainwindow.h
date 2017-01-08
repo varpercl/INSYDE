@@ -14,6 +14,8 @@
 #include "icons.h"
 #include "view.h"
 
+using namespace core;
+
 class NewMainWindow : public BasicDialog
 {
 	public:

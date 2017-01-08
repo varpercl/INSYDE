@@ -5,6 +5,9 @@
 #include <QtWidgets>
 
 #include "../core/common.h"
+#include "graphicobject.h"
+
+namespace core{
 
 /*!
  * \brief La clase @code{GraphicPointer} consiste en una flecha que indicara la direccion final en la que se quiere
@@ -13,7 +16,7 @@
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class GraphicPointer : public QGraphicsItem
+class GraphicPointer : public GraphicObject
 {
 	private:
 //        qreal width;
@@ -50,6 +53,8 @@ class GraphicPointer : public QGraphicsItem
 
 		~GraphicPointer();
 
+		QString getXML() const;
+
 	protected:
 
 		/**
@@ -66,6 +71,7 @@ class GraphicPointer : public QGraphicsItem
 		  Heredada de @code{QGraphicsItem}, vease documentacion para mayor informacion
 		  */
 		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-};
 
+};
+}
 #endif // APUNTADOR_H

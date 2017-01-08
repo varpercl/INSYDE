@@ -17,6 +17,8 @@
 using namespace tbb;
 using namespace std;
 
+namespace core{
+
 /*!
  * \namespace math
  *
@@ -221,5 +223,5 @@ CORE_LIB_IMPORT_EXPORT vector<double> normalizeMeanDistance(const vector<double>
 CORE_LIB_IMPORT_EXPORT vector<vector<double> > normalizeMeanDistance(const vector<vector<double> > &vec);
 
 }
-
+}
 #endif // MATH_H

@@ -4,6 +4,8 @@
 #include "share_core_lib.h"
 #include "labeledwidget.h"
 
+namespace core{
+
 /*!
  * \class
  *
@@ -51,5 +53,5 @@ class CORE_LIB_IMPORT_EXPORT LabeledIntegerSpinBox : public LabeledWidget
 
 		void init(double value);
 };
-
+}
 #endif // LABELEDINTEGERSPINBOXWIDGET_H

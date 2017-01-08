@@ -10,6 +10,8 @@
 
 using namespace std;
 
+namespace core{
+
 /*!
  * \interface
  *
@@ -252,6 +254,6 @@ class Q_DECL_EXPORT UnDoInterface{
 		*undoAction,
 		*redoAction;
 };
-
+}
 #endif // RESIZABLE
 

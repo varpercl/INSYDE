@@ -18,6 +18,8 @@
 using namespace tbb;
 using namespace std;
 
+namespace core{
+
 /*!
  * Este espacio de nombres define una serie de funciones de uso general
  *
@@ -26,7 +28,7 @@ using namespace std;
  * \date 08-06-2012
  */
 
- namespace common /*CORE_LIB_IMPORT_EXPORT*/ {
+namespace common /*CORE_LIB_IMPORT_EXPORT*/ {
 
 	enum IntegerTypes{
 		Unipolar,
@@ -109,7 +111,7 @@ using namespace std;
 	 */
 	CORE_LIB_IMPORT_EXPORT bool nearTo(const QPoint &pos, const QRect &rect, int clearance);
 
-	CORE_LIB_IMPORT_EXPORT bool nearTo(const QPointF &pos, const QRectF &rect, int clearance);
+    CORE_LIB_IMPORT_EXPORT bool nearTo(const QPointF &pos, const QRectF &rect, double clearance);
 
 	/*!
 	 * \brief near Determines if referenced point \code{pos} is near to \code{line}. This is done
@@ -182,4 +184,5 @@ using namespace std;
 
 }
 
+}
 #endif // INSYDECOMMON_GLOBAL_H

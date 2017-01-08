@@ -10,6 +10,8 @@
 #include "actuador.h"
 #include "regla.h"
 
+using namespace core;
+
 class Sensor;
 class Actuator;
 

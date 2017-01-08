@@ -20,10 +20,11 @@
 #include "trainingsettable.h"
 
 using namespace std;
+using namespace core;
 
-class SelectImageSegmentDialog;
-class DataRepresentationBox;
-class DotMatrix;
+//class SelectImageSegmentDialog;
+//class DataRepresentationBox;
+//class DotMatrix;
 class PerceptronTrainingPattern;
 
 /*!

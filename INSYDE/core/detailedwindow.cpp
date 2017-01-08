@@ -1,29 +1,29 @@
 #include "detailedwindow.h"
 #include "definitions.h"
 
-DetailedWindow::DetailedWindow(QWidget *parent) :
+core::DetailedWindow::DetailedWindow(QWidget *parent) :
 	QWidget(parent)
 {
 	init();
 }
 
-DetailedWindow::~DetailedWindow()
+core::DetailedWindow::~DetailedWindow()
 {
 	delete mainLayout;
 	delete mainToolbar;
 }
 
-void DetailedWindow::connectGVSignals()
+void core::DetailedWindow::connectGVSignals()
 {
 
 }
 
-void DetailedWindow::setVisibleToolbar(bool vtb)
+void core::DetailedWindow::setVisibleToolbar(bool vtb)
 {
 	mainToolbar->setVisible(vtb);
 }
 
-void DetailedWindow::setEnableZooming(bool zoom)
+void core::DetailedWindow::setEnableZooming(bool zoom)
 {
 	if(zooming != zoom){
 		if(zoom){
@@ -36,22 +36,22 @@ void DetailedWindow::setEnableZooming(bool zoom)
 	}
 }
 
-bool DetailedWindow::getEnableZooming() const
+bool core::DetailedWindow::getEnableZooming() const
 {
 	return zooming;
 }
 
-void DetailedWindow::setToolbar(QToolBar *tb)
+void core::DetailedWindow::setToolbar(QToolBar *tb)
 {
 	mainToolbar = tb;
 }
 
-QToolBar *DetailedWindow::getToolbar()
+QToolBar *core::DetailedWindow::getToolbar()
 {
 	return mainToolbar;
 }
 
-void DetailedWindow::setGraphicDetailedView(GraphicDetailedView *gv)
+void core::DetailedWindow::setGraphicDetailedView(GraphicDetailedView *gv)
 {
 	if(this->gdv != gv){
 		this->gdv = gv;
@@ -60,12 +60,12 @@ void DetailedWindow::setGraphicDetailedView(GraphicDetailedView *gv)
 	}
 }
 
-GraphicDetailedView *DetailedWindow::getGraphicsDetailedView() const
+core::GraphicDetailedView *core::DetailedWindow::getGraphicsDetailedView() const
 {
 	return gdv;
 }
 
-void DetailedWindow::onZoomChanged(int zoom)
+void core::DetailedWindow::onZoomChanged(int zoom)
 {
 	double
 			newZoom = double(zoom)/100,
@@ -78,7 +78,7 @@ void DetailedWindow::onZoomChanged(int zoom)
 
 }
 
-void DetailedWindow::init()
+void core::DetailedWindow::init()
 {
 	gdv = new GraphicDetailedView(new Enviroment());
 	gdv->setAlignment(Qt::AlignCenter);

@@ -1,83 +1,83 @@
 #include "dotmatrixdetailedwindow.h"
 
-DotMatrixDetailedWindow::DotMatrixDetailedWindow(const vector<double> &data, QWidget *parent) :
+core::DotMatrixDetailedWindow::DotMatrixDetailedWindow(const vector<double> &data, QWidget *parent) :
 	DetailedWindow(parent)
 {
 	init(data);
 }
 
-DotMatrixDetailedWindow::DotMatrixDetailedWindow(DotMatrix *dm, QWidget *parent) :
+core::DotMatrixDetailedWindow::DotMatrixDetailedWindow(DotMatrix *dm, QWidget *parent) :
 	DetailedWindow(parent)
 {
 	init(dm);
 }
 
-DotMatrixDetailedWindow::~DotMatrixDetailedWindow()
+core::DotMatrixDetailedWindow::~DotMatrixDetailedWindow()
 {
 
 }
 
-void DotMatrixDetailedWindow::setDotMatrixObject(DotMatrix *dm)
+void core::DotMatrixDetailedWindow::setDotMatrixObject(DotMatrix *dm)
 {
 	if(this->dm != dm){
 		this->dm = dm;
 	}
 }
 
-DotMatrix *DotMatrixDetailedWindow::getDotMatrixObject() const
+core::DotMatrix *core::DotMatrixDetailedWindow::getDotMatrixObject() const
 {
 	return dm;
 }
 
-void DotMatrixDetailedWindow::setSize(const QSizeF &size)
+void core::DotMatrixDetailedWindow::setSize(const QSizeF &size)
 {
 	dm->setSize(size);
 	getGraphicsDetailedView()->setSceneRect(dm->boundingRect());
 }
 
-QSizeF DotMatrixDetailedWindow::getSize() const
+QSizeF core::DotMatrixDetailedWindow::getSize() const
 {
 	return dm->getSize();
 }
 
-void DotMatrixDetailedWindow::setWidth(double w)
+void core::DotMatrixDetailedWindow::setWidth(double w)
 {
 	dm->setCols(w);
 	getGraphicsDetailedView()->setSceneRect(dm->boundingRect());
 }
 
-double DotMatrixDetailedWindow::getWidth() const
+double core::DotMatrixDetailedWindow::getWidth() const
 {
 	return dm->getCols();
 }
 
-void DotMatrixDetailedWindow::setHeight(double h)
+void core::DotMatrixDetailedWindow::setHeight(double h)
 {
 	dm->setRows(h);
 	getGraphicsDetailedView()->setSceneRect(dm->boundingRect());
 }
 
-double DotMatrixDetailedWindow::getHeight() const
+double core::DotMatrixDetailedWindow::getHeight() const
 {
 	return dm->getRows();
 }
 
-void DotMatrixDetailedWindow::setEnableEdit(bool edit)
+void core::DotMatrixDetailedWindow::setEnableEdit(bool edit)
 {
 	dm->setEnableEdit(edit);
 }
 
-bool DotMatrixDetailedWindow::getEnableEdit() const
+bool core::DotMatrixDetailedWindow::getEnableEdit() const
 {
 	return dm->getEnableEdit();
 }
 
-void DotMatrixDetailedWindow::save()
+void core::DotMatrixDetailedWindow::save()
 {
 
 }
 
-void DotMatrixDetailedWindow::init(const vector<double> &data)
+void core::DotMatrixDetailedWindow::init(const vector<double> &data)
 {
 	pair<int, int> wh = common::getWidthHeight((int)data.size());
 
@@ -88,14 +88,14 @@ void DotMatrixDetailedWindow::init(const vector<double> &data)
 	setupUI();
 }
 
-void DotMatrixDetailedWindow::init(DotMatrix *dm)
+void core::DotMatrixDetailedWindow::init(DotMatrix *dm)
 {
 	this->dm = dm;
 
 	setupUI();
 }
 
-void DotMatrixDetailedWindow::setupUI()
+void core::DotMatrixDetailedWindow::setupUI()
 {
 	dm->setObjectLocked(true);
 	dm->getLockAction()->setVisible(false);

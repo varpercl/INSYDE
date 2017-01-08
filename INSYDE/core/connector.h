@@ -8,6 +8,8 @@
 #include "graphicdetailedview.h"
 #include "restrictedlinef.h"
 
+namespace core{
+
 /*!
  * \brief The Connector class
  */
@@ -190,6 +192,7 @@ class CORE_LIB_IMPORT_EXPORT Connector : public GraphicObject
 		QList<CollidingResult> collidingObjects(const QVector<RestrictedLineF*> &lines) const;
 
 		QVector<RestrictedLineF*> convertRect(const QRectF &rect) const;
-};
 
+};
+}
 #endif // CONNECTOR_H

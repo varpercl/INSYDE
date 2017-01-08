@@ -7,11 +7,13 @@
 #include "interfaces.h"
 #include "definitions.h"
 
+namespace core{
 
 /*!
  * \class BasicDialog
  *
- * \brief Un cuadro de dialogo basico que contiene menus de edicion, gestion de propiedades y herramientas, ayuda,
+ * \brief BasicDialog
+ * Un cuadro de dialogo basico que contiene menus de edicion, gestion de propiedades y herramientas, ayuda,
  * importar/exportar archivos, entre otros.
  *
  * Es muy util cuando se quiere tener un cuadro de dialogo avanzado que incorpore todas estas funciones sin que el
@@ -455,5 +457,5 @@ class CORE_LIB_IMPORT_EXPORT BasicDialog
 		void updateActionsVisibility();
 
 };
-
+}
 #endif // BASICDIALOG_H

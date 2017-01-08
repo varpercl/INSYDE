@@ -10,7 +10,6 @@ TEMPLATE = lib
 
 DEFINES += EXPORT_ANN_BASE_LIB
 
-
 MOC_DIR = moc
 UI_DIR = ui
 OBJECTS_DIR = obj
@@ -36,7 +35,8 @@ globals.h \
     share_ann_base_lib.h \
     adalinetrainingpattern.h \
     simpleinputpattern.h \
-    kohonen.h
+    kohonen.h \
+    settings.h
 
 SOURCES += \
 trainingset.cpp \
@@ -55,7 +55,8 @@ artificialneuralnetwork.cpp \
 hopfield.cpp \
     perceptrontrainingpattern.cpp \
     adalinetrainingpattern.cpp \
-    kohonen.cpp
+    kohonen.cpp \
+    settings.cpp
 
 win32:{
 

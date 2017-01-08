@@ -1,7 +1,6 @@
 #include "dotmatrix.h"
 
-
-DotMatrix::DotMatrix() :
+core::DotMatrix::DotMatrix() :
 	GraphicObject()
 {
 	//QVector
@@ -9,7 +8,7 @@ DotMatrix::DotMatrix() :
 	init(5, 10, 10, DotMatrix::Unipolar);
 }
 
-DotMatrix::DotMatrix(int rows, int cols, const DotMatrix::DataType &dt) :
+core::DotMatrix::DotMatrix(int rows, int cols, const DotMatrix::DataType &dt) :
 	GraphicObject()
 {
 	//QVector
@@ -18,7 +17,7 @@ DotMatrix::DotMatrix(int rows, int cols, const DotMatrix::DataType &dt) :
 	init(5, rows, cols, dt);
 }
 
-DotMatrix::DotMatrix(int dotsize, int rows, int cols, const DotMatrix::DataType &dt) :
+core::DotMatrix::DotMatrix(int dotsize, int rows, int cols, const DotMatrix::DataType &dt) :
 	GraphicObject()
 {
 	//QVector
@@ -26,14 +25,14 @@ DotMatrix::DotMatrix(int dotsize, int rows, int cols, const DotMatrix::DataType 
 	init(dotsize, rows, cols, dt);
 }
 
-DotMatrix::DotMatrix(QVector<Dot> *dotList, int dotsize, int rows, int cols, const DotMatrix::DataType &dt)
+core::DotMatrix::DotMatrix(QVector<Dot> *dotList, int dotsize, int rows, int cols, const DotMatrix::DataType &dt)
 {
 	//QVector
 	ptsList = dotList;
 	init(dotsize, rows, cols, dt);
 }
 
-void DotMatrix::setRows(int value)
+void core::DotMatrix::setRows(int value)
 {
 	if(rows != value){
 		rows = value;
@@ -46,12 +45,12 @@ void DotMatrix::setRows(int value)
 	}
 }
 
-int DotMatrix::getRows() const
+int core::DotMatrix::getRows() const
 {
 	return rows;
 }
 
-void DotMatrix::setCols(int value)
+void core::DotMatrix::setCols(int value)
 {
 	if(cols != value){
 		cols = value;
@@ -64,12 +63,12 @@ void DotMatrix::setCols(int value)
 	}
 }
 
-int DotMatrix::getCols() const
+int core::DotMatrix::getCols() const
 {
 	return cols;
 }
 
-void DotMatrix::setMatrixSize(const QSize &size)
+void core::DotMatrix::setMatrixSize(const QSize &size)
 {
 	if(rows != size.height() || cols != size.width()){
 		rows = size.height();
@@ -84,17 +83,17 @@ void DotMatrix::setMatrixSize(const QSize &size)
 	}
 }
 
-QSizeF DotMatrix::getSize() const
+QSizeF core::DotMatrix::getSize() const
 {
 	return getContainerRect().size();
 }
 
-void DotMatrix::setInputs(const vector<vector<int> > &matrix)
+void core::DotMatrix::setInputs(const vector<vector<int> > &matrix)
 {
 	setInputs(common::toQVector(matrix));
 }
 
-void DotMatrix::setInputs(const QVector<QVector<int> > &matrix)
+void core::DotMatrix::setInputs(const QVector<QVector<int> > &matrix)
 {
 	rows = matrix.size();
 	cols = matrix[0].size();
@@ -112,7 +111,7 @@ void DotMatrix::setInputs(const QVector<QVector<int> > &matrix)
 	emit statusChanged(matrix);
 }
 
-QVector<QVector<int> > DotMatrix::getInputs() const
+QVector<QVector<int> > core::DotMatrix::getInputs() const
 {
 	QVector<QVector<int> > matrix(QVector<QVector<int> >(rows, QVector<int>(cols, dataType == Unipolar? 0 : -1)));
 
@@ -123,7 +122,7 @@ QVector<QVector<int> > DotMatrix::getInputs() const
 	return matrix;
 }
 
-void DotMatrix::setInputs(const vector<double> &inputs)
+void core::DotMatrix::setInputs(const vector<double> &inputs)
 {
 	GraphicObject::setInputs(inputs);
 	setInputsSize((int)inputs.size());
@@ -139,61 +138,61 @@ void DotMatrix::setInputs(const vector<double> &inputs)
 	emit statusChanged(QVector<int>::fromStdVector(intInputs));
 }
 
-void DotMatrix::setInputs(const vector<double> &inputs, int rows, int cols)
+void core::DotMatrix::setInputs(const vector<double> &inputs, int rows, int cols)
 {
 	setRows(rows);
 	setCols(cols);
 	setInputs(inputs);
 }
 
-void DotMatrix::setInputs(const vector<int> &inputs)
+void core::DotMatrix::setInputs(const vector<int> &inputs)
 {
 	setInputs(vector<double>(inputs.begin(), inputs.end()));
 }
 
-void DotMatrix::setInputs(const vector<int> &inputs, int rows, int cols)
+void core::DotMatrix::setInputs(const vector<int> &inputs, int rows, int cols)
 {
 	setInputs(vector<double>(inputs.begin(), inputs.end()), rows, cols);
 }
 
-void DotMatrix::setInputs(const QVector<double> &inputs)
+void core::DotMatrix::setInputs(const QVector<double> &inputs)
 {
 	setInputs(inputs.toStdVector());
 }
 
-void DotMatrix::setInputs(const QVector<double> &inputs, int rows, int cols)
+void core::DotMatrix::setInputs(const QVector<double> &inputs, int rows, int cols)
 {
 	setInputs(inputs.toStdVector(), rows, cols);
 }
 
-void DotMatrix::setInputs(const QVector<int> &inputs)
+void core::DotMatrix::setInputs(const QVector<int> &inputs)
 {
 	vector<int> intInputs = inputs.toStdVector();
 	setInputs(vector<double>(intInputs.begin(), intInputs.end()));
 }
 
-void DotMatrix::setInputs(const QVector<int> &inputs, int rows, int cols)
+void core::DotMatrix::setInputs(const QVector<int> &inputs, int rows, int cols)
 {
 	vector<int> intInputs = inputs.toStdVector();
 	setInputs(vector<double>(intInputs.begin(), intInputs.end()), rows, cols);
 }
 
-void DotMatrix::setDataType(const DotMatrix::DataType &dt)
+void core::DotMatrix::setDataType(const DotMatrix::DataType &dt)
 {
 	dataType = dt;
 }
 
-DotMatrix::DataType DotMatrix::getDataType() const
+core::DotMatrix::DataType core::DotMatrix::getDataType() const
 {
 	return dataType;
 }
 
-int DotMatrix::type() const
+int core::DotMatrix::type() const
 {
 	return gotDotMatrix;
 }
 
-void DotMatrix::setInputElement(GraphicObject *ge)
+void core::DotMatrix::setInputElement(GraphicObject *ge)
 {
 	(void)ge;
 //	switch(ge->type()){
@@ -209,14 +208,14 @@ void DotMatrix::setInputElement(GraphicObject *ge)
 //	inputElement = ge;
 }
 
-void DotMatrix::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void core::DotMatrix::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
 	GraphicObject::mousePressEvent(event);
 
 	objectPosAtPress = pos();
 }
 
-void DotMatrix::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+void core::DotMatrix::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
 	GraphicObject::mouseReleaseEvent(event);
 
@@ -230,7 +229,7 @@ void DotMatrix::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
 }
 
-void DotMatrix::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void core::DotMatrix::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
 	GraphicObject::mouseMoveEvent(event);
 
@@ -250,7 +249,7 @@ void DotMatrix::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 	}
 }
 
-void DotMatrix::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+void core::DotMatrix::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
 {
 	GraphicObject::hoverMoveEvent(event);
 
@@ -264,7 +263,7 @@ void DotMatrix::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
 
 }
 
-void DotMatrix::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void core::DotMatrix::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	GraphicObject::paint(painter, option, widget);
 
@@ -320,41 +319,41 @@ void DotMatrix::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 
 }
 
-void DotMatrix::copyClick()
+void core::DotMatrix::copyClick()
 {
 
 }
 
-void DotMatrix::cutClick()
+void core::DotMatrix::cutClick()
 {
 
 }
 
-void DotMatrix::pasteClick()
+void core::DotMatrix::pasteClick()
 {
 
 }
 
-void DotMatrix::saveClick()
+void core::DotMatrix::saveClick()
 {
 
 }
 
-void DotMatrix::propertyClick()
+void core::DotMatrix::propertyClick()
 {
-	DotMatrixPropertyDialog *dmepd = new DotMatrixPropertyDialog(this);
+    DotMatrixPropertyDialog *dmepd = new DotMatrixPropertyDialog(this);
 
 	dmepd->show();
 }
 
-void DotMatrix::onClearClicked(bool checked)
+void core::DotMatrix::onClearClicked(bool checked)
 {
 	(void) checked;
 	ptsList->clear();
 	update();
 }
 
-void DotMatrix::onFillClicked(bool checked)
+void core::DotMatrix::onFillClicked(bool checked)
 {
 	(void)checked;
 
@@ -369,23 +368,23 @@ void DotMatrix::onFillClicked(bool checked)
 	update();
 }
 
-bool DotMatrix::getEnableEdit() const
+bool core::DotMatrix::getEnableEdit() const
 {
 	return enableEdit;
 }
 
-void DotMatrix::setEnableEdit(bool value)
+void core::DotMatrix::setEnableEdit(bool value)
 {
 	enableEdit = value;
 }
 
-QString DotMatrix::getXML() const
+QString core::DotMatrix::getXML() const
 {
 	//TODO:
 	return "";
 }
 
-void DotMatrix::setDotSize(int size)
+void core::DotMatrix::setDotSize(int size)
 {
 	if(this->size != size){
 		this->size = size;
@@ -398,12 +397,12 @@ void DotMatrix::setDotSize(int size)
 	}
 }
 
-int DotMatrix::getDotSize() const
+int core::DotMatrix::getDotSize() const
 {
 	return size;
 }
 
-void DotMatrix::setEnableContinuousDrawing(bool b)
+void core::DotMatrix::setEnableContinuousDrawing(bool b)
 {
 	continuousDrawingAction->blockSignals(true);
 	continuousDrawingAction->setChecked(b);
@@ -411,12 +410,12 @@ void DotMatrix::setEnableContinuousDrawing(bool b)
 	enableContinuousDrawing = b;
 }
 
-bool DotMatrix::getEnableContinuousDrawing() const
+bool core::DotMatrix::getEnableContinuousDrawing() const
 {
 	return enableContinuousDrawing;
 }
 
-void DotMatrix::setEnableEraserPen(bool b)
+void core::DotMatrix::setEnableEraserPen(bool b)
 {
 	eraserAction->blockSignals(true);
 	eraserAction->setChecked(b);
@@ -424,28 +423,28 @@ void DotMatrix::setEnableEraserPen(bool b)
 	enableEraser = b;
 }
 
-bool DotMatrix::getEnableEraserPen() const
+bool core::DotMatrix::getEnableEraserPen() const
 {
 	return enableEraser;
 }
 
-void DotMatrix::setDotList(QVector<Dot> *dots)
+void core::DotMatrix::setDotList(QVector<Dot> *dots)
 {
 	ptsList = dots;
 	update(getContainerRect());
 }
 
-QVector<DotMatrix::Dot> *DotMatrix::getDotList() const
+QVector<core::DotMatrix::Dot> *core::DotMatrix::getDotList() const
 {
 	return ptsList;
 }
 
-QSize DotMatrix::getMatrixSize() const
+QSize core::DotMatrix::getMatrixSize() const
 {
 	return QSize(rows, cols);
 }
 
-void DotMatrix::init(int dotSize, int rows, int cols, DataType dt)
+void core::DotMatrix::init(int dotSize, int rows, int cols, DataType dt)
 {
 	this->size = dotSize;
 
@@ -480,12 +479,12 @@ void DotMatrix::init(int dotSize, int rows, int cols, DataType dt)
 	connect(eraserAction, SIGNAL(triggered(bool)), SLOT(setEnableEraserPen(bool)));
 }
 
-QRectF DotMatrix::getContainer() const
+QRectF core::DotMatrix::getContainer() const
 {
 	return QRectF(0, 0, cols * size, rows * size);
 }
 
-void DotMatrix::updateDotList()
+void core::DotMatrix::updateDotList()
 {
 
 	if(inputs.empty()) return;
@@ -508,7 +507,7 @@ void DotMatrix::updateDotList()
 	}
 }
 
-bool DotMatrix::isValidDot(const QRectF &rect)
+bool core::DotMatrix::isValidDot(const QRectF &rect)
 {
 	if(rect.x() != -1 && rect.y() != -1){
 		int
@@ -523,7 +522,7 @@ bool DotMatrix::isValidDot(const QRectF &rect)
 	}
 }
 
-void DotMatrix::setDot(int row, int col, bool b)
+void core::DotMatrix::setDot(int row, int col, bool b)
 {
 	Dot toPush = {row, col};
 	if(col >= 0 &&
@@ -550,7 +549,7 @@ void DotMatrix::setDot(int row, int col, bool b)
 	}
 }
 
-void DotMatrix::updateMouseRectangle(const QPointF &pos)
+void core::DotMatrix::updateMouseRectangle(const QPointF &pos)
 {
 	QRectF container = getContainerRect();
 	if(container.contains(pos)){
@@ -560,7 +559,7 @@ void DotMatrix::updateMouseRectangle(const QPointF &pos)
 	}
 }
 
-void DotMatrix::updateCurRowAndColIndexes(const QPointF &pos)
+void core::DotMatrix::updateCurRowAndColIndexes(const QPointF &pos)
 {
 	int
             row = pos.x() / size,
@@ -570,7 +569,7 @@ void DotMatrix::updateCurRowAndColIndexes(const QPointF &pos)
 	curColIndex = col < cols ? col : cols - 1;
 }
 
-bool operator ==(const DotMatrix::Dot &dotleft, const DotMatrix::Dot &dotright)
+bool core::operator ==(const core::DotMatrix::Dot &dotleft, const core::DotMatrix::Dot &dotright)
 {
     return dotleft.row == dotright.row && dotright.col == dotleft.col;
 }

@@ -1,36 +1,36 @@
 #include "datarepresentation.h"
 
-DataRepresentation::DataRepresentation()
+core::DataRepresentation::DataRepresentation()
 {
 	init(Raw, QImage::Format_RGB32, 1, 1);
 }
 
-DataRepresentation::DataRepresentation(const DataRepresentation::Type &type, const QImage::Format &imgFormat, int w, int h)
+core::DataRepresentation::DataRepresentation(const core::DataRepresentation::Type &type, const QImage::Format &imgFormat, int w, int h)
 {
 	init(type, imgFormat, w, h);
 }
 
-DataRepresentation::DataRepresentation(const DataRepresentation &dr)
+core::DataRepresentation::DataRepresentation(const core::DataRepresentation &dr)
 {
 	*this = dr;
 }
 
-DataRepresentation::~DataRepresentation()
+core::DataRepresentation::~DataRepresentation()
 {
 
 }
 
-DataRepresentation::Type DataRepresentation::getType() const
+core::DataRepresentation::Type core::DataRepresentation::getType() const
 {
 	return type;
 }
 
-void DataRepresentation::setType(const DataRepresentation::Type &value)
+void core::DataRepresentation::setType(const DataRepresentation::Type &value)
 {
 	type = value;
 }
 
-QString DataRepresentation::getName() const
+QString core::DataRepresentation::getName() const
 {
 	switch (type) {
 		case DataRepresentation::Raw:
@@ -49,52 +49,52 @@ QString DataRepresentation::getName() const
 	return "";
 }
 
-int DataRepresentation::getWidth() const
+int core::DataRepresentation::getWidth() const
 {
 	return width;
 }
 
-void DataRepresentation::setWidth(int value)
+void core::DataRepresentation::setWidth(int value)
 {
 	if(value >= 0){
 		width = value;
 	}
 }
 
-int DataRepresentation::getHeight() const
+int core::DataRepresentation::getHeight() const
 {
 	return height;
 }
 
-void DataRepresentation::setHeight(int value)
+void core::DataRepresentation::setHeight(int value)
 {
 	if(value >= 0){
 		height = value;
 	}
 }
 
-void DataRepresentation::setSize(const QSize &size)
+void core::DataRepresentation::setSize(const QSize &size)
 {
 	height = size.height();
 	width = size.width();
 }
 
-QSize DataRepresentation::getSize() const
+QSize core::DataRepresentation::getSize() const
 {
 	return QSize(width, height);
 }
 
-QImage::Format DataRepresentation::getImageFormat() const
+QImage::Format core::DataRepresentation::getImageFormat() const
 {
 	return imageFormat;
 }
 
-void DataRepresentation::setImageFormat(const QImage::Format &value)
+void core::DataRepresentation::setImageFormat(const QImage::Format &value)
 {
 	imageFormat = value;
 }
 
-QString DataRepresentation::getImageFormatName() const
+QString core::DataRepresentation::getImageFormatName() const
 {
 	switch(imageFormat){
 		case QImage::Format_Invalid:
@@ -150,7 +150,7 @@ QString DataRepresentation::getImageFormatName() const
 	}
 }
 
-DataRepresentation &DataRepresentation::operator=(const DataRepresentation &dr)
+core::DataRepresentation &core::DataRepresentation::operator=(const DataRepresentation &dr)
 {
 	setType(dr.getType());
 	setImageFormat(dr.getImageFormat());
@@ -160,7 +160,7 @@ DataRepresentation &DataRepresentation::operator=(const DataRepresentation &dr)
 	return *this;
 }
 
-bool DataRepresentation::operator==(const DataRepresentation &dr)
+bool core::DataRepresentation::operator==(const DataRepresentation &dr)
 {
 	if(getType() == dr.getType() &&
 	   getImageFormat() == dr.getImageFormat() &&
@@ -171,7 +171,7 @@ bool DataRepresentation::operator==(const DataRepresentation &dr)
 	return false;
 }
 
-bool DataRepresentation::operator!=(const DataRepresentation &dr)
+bool core::DataRepresentation::operator!=(const DataRepresentation &dr)
 {
 	if(getType() == dr.getType() &&
 	   getImageFormat() == dr.getImageFormat() &&
@@ -182,7 +182,7 @@ bool DataRepresentation::operator!=(const DataRepresentation &dr)
 	return true;
 }
 
-void DataRepresentation::init(const Type &type, const QImage::Format &imgFormat, int w, int h)
+void core::DataRepresentation::init(const Type &type, const QImage::Format &imgFormat, int w, int h)
 {
 	setType(type);
 	setImageFormat(imgFormat);

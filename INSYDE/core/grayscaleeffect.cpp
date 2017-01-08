@@ -1,21 +1,21 @@
 #include "grayscaleeffect.h"
 
-GrayScaleEffect::GrayScaleEffect()
+core::GrayScaleEffect::GrayScaleEffect()
 {
 	init(QImage());
 }
 
-GrayScaleEffect::GrayScaleEffect(const QImage &img)
+core::GrayScaleEffect::GrayScaleEffect(const QImage &img)
 {
 	init(img);
 }
 
-int GrayScaleEffect::getType()
+int core::GrayScaleEffect::getType()
 {
 	return GrayScaleType;
 }
 
-void GrayScaleEffect::init(const QImage &img)
+void core::GrayScaleEffect::init(const QImage &img)
 {
 	(void)img;
 }

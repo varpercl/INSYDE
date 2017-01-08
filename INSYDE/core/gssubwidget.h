@@ -9,6 +9,8 @@ namespace Ui {
 class GSSubWidget;
 }
 
+namespace core{
+
 /*!
  * \brief The GSSubWidget class
  *
@@ -26,5 +28,5 @@ class CORE_LIB_IMPORT_EXPORT GSSubWidget : public QWidget
 	private:
 		Ui::GSSubWidget *ui;
 };
-
+}
 #endif // GSSUBWIDGET_H

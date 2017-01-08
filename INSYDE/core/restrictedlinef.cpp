@@ -1,12 +1,12 @@
 #include "restrictedlinef.h"
 
-RestrictedLineF::RestrictedLineF() :
+core::RestrictedLineF::RestrictedLineF() :
 	QLineF()
 {
 	lineConstrain = None;
 }
 
-RestrictedLineF::RestrictedLineF(const QPointF &p1, const QPointF &p2, Constrain lc)
+core::RestrictedLineF::RestrictedLineF(const QPointF &p1, const QPointF &p2, Constrain lc)
 //	QLineF(p1, p2)
 {
 	lineConstrain = lc;
@@ -14,7 +14,7 @@ RestrictedLineF::RestrictedLineF(const QPointF &p1, const QPointF &p2, Constrain
 	setP2(p2);
 }
 
-RestrictedLineF::RestrictedLineF(qreal x1, qreal y1, qreal x2, qreal y2, Constrain lc)
+core::RestrictedLineF::RestrictedLineF(qreal x1, qreal y1, qreal x2, qreal y2, Constrain lc)
 //	QLineF(x1, x2, y1, y2)
 {
 	lineConstrain = lc;
@@ -22,13 +22,12 @@ RestrictedLineF::RestrictedLineF(qreal x1, qreal y1, qreal x2, qreal y2, Constra
 	setP2(QPointF(x2, y2));
 }
 
-
-RestrictedLineF::~RestrictedLineF()
+core::RestrictedLineF::~RestrictedLineF()
 {
 	
 }
 
-void RestrictedLineF::setConstrain(RestrictedLineF::Constrain lc)
+void core::RestrictedLineF::setConstrain(RestrictedLineF::Constrain lc)
 {
 	lineConstrain = lc;
 	switch(lineConstrain){
@@ -49,12 +48,12 @@ void RestrictedLineF::setConstrain(RestrictedLineF::Constrain lc)
 	}
 }
 
-RestrictedLineF::Constrain RestrictedLineF::getConstrain() const
+core::RestrictedLineF::Constrain core::RestrictedLineF::getConstrain() const
 {
 	return lineConstrain;
 }
 
-void RestrictedLineF::setP1(const QPointF &p1)
+void core::RestrictedLineF::setP1(const QPointF &p1)
 {
 	switch(lineConstrain){
 		case RestrictedLineF::HorizontalLeft:
@@ -112,7 +111,7 @@ void RestrictedLineF::setP1(const QPointF &p1)
 	}
 }
 
-void RestrictedLineF::setP2(const QPointF &p2)
+void core::RestrictedLineF::setP2(const QPointF &p2)
 {
 	switch(lineConstrain){
 		case RestrictedLineF::HorizontalLeft:
@@ -161,7 +160,7 @@ void RestrictedLineF::setP2(const QPointF &p2)
 	}
 }
 
-QPointF RestrictedLineF::getCorrectedP2(const QPointF &p2)
+QPointF core::RestrictedLineF::getCorrectedP2(const QPointF &p2)
 {
 	switch(lineConstrain){
 		case RestrictedLineF::HorizontalLeft:
@@ -201,7 +200,7 @@ QPointF RestrictedLineF::getCorrectedP2(const QPointF &p2)
 	}
 }
 
-void RestrictedLineF::setPoints(const QPointF &p1, const QPointF &p2)
+void core::RestrictedLineF::setPoints(const QPointF &p1, const QPointF &p2)
 {
 	switch(lineConstrain){
 		case RestrictedLineF::HorizontalLeft:
@@ -247,7 +246,7 @@ void RestrictedLineF::setPoints(const QPointF &p1, const QPointF &p2)
 	}
 }
 
-bool RestrictedLineF::isHorizontal() const
+bool core::RestrictedLineF::isHorizontal() const
 {
 	qreal lineAngle = angle();
 	if(lineAngle == 0 || lineAngle == 180){
@@ -256,7 +255,7 @@ bool RestrictedLineF::isHorizontal() const
 	return false;
 }
 
-bool RestrictedLineF::isVertical() const
+bool core::RestrictedLineF::isVertical() const
 {
 	qreal lineAngle = angle();
 	if(lineAngle == 90 || lineAngle == 270){

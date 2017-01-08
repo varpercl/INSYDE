@@ -1,31 +1,31 @@
 #include "enviroment.h"
 
-Enviroment::Enviroment(QObject *parent) : QGraphicsScene(parent)
+core::Enviroment::Enviroment(QObject *parent) : QGraphicsScene(parent)
 {
 	init();
 }
 
-void Enviroment::setGridVisible(bool b)
+void core::Enviroment::setGridVisible(bool b)
 {
 	visibleGrid = b;
 }
 
-bool Enviroment::getGridVisible() const
+bool core::Enviroment::getGridVisible() const
 {
 	return visibleGrid;
 }
 
-void Enviroment::setCenterMarkerVisible(bool b)
+void core::Enviroment::setCenterMarkerVisible(bool b)
 {
 	visibleCenterMarker = b;
 }
 
-bool Enviroment::getCenterMarkerVisible() const
+bool core::Enviroment::getCenterMarkerVisible() const
 {
 	return visibleCenterMarker;
 }
 
-void Enviroment::drawBackground(QPainter *painter, const QRectF &rect)
+void core::Enviroment::drawBackground(QPainter *painter, const QRectF &rect)
 {
 	painter->save();
 
@@ -52,7 +52,7 @@ void Enviroment::drawBackground(QPainter *painter, const QRectF &rect)
 //	}
 //}
 
-void Enviroment::init()
+void core::Enviroment::init()
 {
 	visibleGrid = true;
 	visibleCenterMarker = true;

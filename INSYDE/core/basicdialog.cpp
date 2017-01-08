@@ -1,24 +1,22 @@
 #include "basicdialog.h"
 
-#include "definitions.h"
-
-BasicDialog::BasicDialog(QWidget *parent) :
+core::BasicDialog::BasicDialog(QWidget *parent) :
 	QDialog(parent)
 {
 	init();
 }
 
-BasicDialog::~BasicDialog()
+core::BasicDialog::~BasicDialog()
 {
 
 }
 
-QMainWindow *BasicDialog::getMainWindow() const
+QMainWindow *core::BasicDialog::getMainWindow() const
 {
 	return mw;
 }
 
-void BasicDialog::setEnablePreferences(bool b)
+void core::BasicDialog::setEnablePreferences(bool b)
 {
 	if(enablePreferences != b){
 		enablePreferences = b;
@@ -30,7 +28,7 @@ void BasicDialog::setEnablePreferences(bool b)
 	}
 }
 
-void BasicDialog::setEnableNew(bool b)
+void core::BasicDialog::setEnableNew(bool b)
 {
 	if(enableNew != b){
 		enableNew = b;
@@ -42,7 +40,7 @@ void BasicDialog::setEnableNew(bool b)
 	}
 }
 
-void BasicDialog::setEnableExport(bool b)
+void core::BasicDialog::setEnableExport(bool b)
 {
 	if(enableExport != b){
 		enableExport = b;
@@ -54,7 +52,7 @@ void BasicDialog::setEnableExport(bool b)
 	}
 }
 
-void BasicDialog::setEnableImport(bool b)
+void core::BasicDialog::setEnableImport(bool b)
 {
 	if(enableImport != b){
 		enableImport = b;
@@ -66,7 +64,7 @@ void BasicDialog::setEnableImport(bool b)
 	}
 }
 
-void BasicDialog::setEnableSave(bool save)
+void core::BasicDialog::setEnableSave(bool save)
 {
 	if(enableSave != save){
 		enableSave = save;
@@ -78,7 +76,7 @@ void BasicDialog::setEnableSave(bool save)
 	}
 }
 
-void BasicDialog::setEnableSaveAs(bool saveas)
+void core::BasicDialog::setEnableSaveAs(bool saveas)
 {
 	if(enableSaveAs != saveas){
 		enableSaveAs = saveas;
@@ -90,7 +88,7 @@ void BasicDialog::setEnableSaveAs(bool saveas)
 	}
 }
 
-void BasicDialog::setEnableOpen(bool open)
+void core::BasicDialog::setEnableOpen(bool open)
 {
 	if(enableOpen != open){
 		enableOpen = open;
@@ -102,7 +100,7 @@ void BasicDialog::setEnableOpen(bool open)
 	}
 }
 
-void BasicDialog::setEnableUnDoFramework(bool undo)
+void core::BasicDialog::setEnableUnDoFramework(bool undo)
 {
 	if(enableUndo != undo){
 		enableUndo = undo;
@@ -117,7 +115,7 @@ void BasicDialog::setEnableUnDoFramework(bool undo)
 	}
 }
 
-void BasicDialog::setEnableClipboardFramework(bool en)
+void core::BasicDialog::setEnableClipboardFramework(bool en)
 {
 	if(enableClipboard != en){
 		enableClipboard = en;
@@ -135,244 +133,244 @@ void BasicDialog::setEnableClipboardFramework(bool en)
 	}
 }
 
-bool BasicDialog::getEnableUnDo() const
+bool core::BasicDialog::getEnableUnDo() const
 {
 	return enableUndo;
 }
 
-QAction *BasicDialog::getNewAction() const
+QAction *core::BasicDialog::getNewAction() const
 {
 	return newAction;
 }
 
-QAction *BasicDialog::getOpenAction() const
+QAction *core::BasicDialog::getOpenAction() const
 {
 	return openAction;
 }
 
-QAction *BasicDialog::getSaveAction() const
+QAction *core::BasicDialog::getSaveAction() const
 {
 	return saveAction;
 }
 
-QAction *BasicDialog::getCloseAction() const
+QAction *core::BasicDialog::getCloseAction() const
 {
 	return closeAction;
 }
 
-QAction *BasicDialog::getImportAction() const
+QAction *core::BasicDialog::getImportAction() const
 {
 	return importAction;
 }
 
-QAction *BasicDialog::getExportAction() const
+QAction *core::BasicDialog::getExportAction() const
 {
 	return exportAction;
 }
 
-QAction *BasicDialog::getPreferencesAction() const
+QAction *core::BasicDialog::getPreferencesAction() const
 {
 	return preferencesAction;
 }
 
-QAction *BasicDialog::getAboutAction() const
+QAction *core::BasicDialog::getAboutAction() const
 {
 	return aboutAction;
 }
 
-QAction *BasicDialog::getHelpAction() const
+QAction *core::BasicDialog::getHelpAction() const
 {
 	return helpAction;
 }
 
-void BasicDialog::setAcceptButtonVisible(bool vis)
+void core::BasicDialog::setAcceptButtonVisible(bool vis)
 {
 	btnAccept->setVisible(vis);
 }
 
-QPushButton *BasicDialog::getAcceptButton() const
+QPushButton *core::BasicDialog::getAcceptButton() const
 {
 	return btnAccept;
 }
 
-void BasicDialog::setRejectButtonVisible(bool vis)
+void core::BasicDialog::setRejectButtonVisible(bool vis)
 {
 	btnReject->setVisible(vis);
 }
 
-QPushButton *BasicDialog::getRejectButton() const
+QPushButton *core::BasicDialog::getRejectButton() const
 {
 	return btnReject;
 }
 
-void BasicDialog::setHelpButtonVisible(bool vis)
+void core::BasicDialog::setHelpButtonVisible(bool vis)
 {
 	btnHelp->setVisible(vis);
 }
 
-QPushButton *BasicDialog::getHelptButton() const
+QPushButton *core::BasicDialog::getHelptButton() const
 {
 	return btnHelp;
 }
 
-void BasicDialog::addButton(QPushButton *btn)
+void core::BasicDialog::addButton(QPushButton *btn)
 {
 	hlyButtons->addWidget(btn);
 }
 
-void BasicDialog::insertButton(int index, QPushButton *btn)
+void core::BasicDialog::insertButton(int index, QPushButton *btn)
 {
 	hlyButtons->insertWidget(index, btn);
 }
 
-void BasicDialog::insertButton(int index, QToolButton *btn)
+void core::BasicDialog::insertButton(int index, QToolButton *btn)
 {
 	hlyButtons->insertWidget(index, btn);
 }
 
-QMenu *BasicDialog::getFileMenu() const
+QMenu *core::BasicDialog::getFileMenu() const
 {
 	return fileMenu;
 }
 
-QMenu *BasicDialog::getEditMenu() const
+QMenu *core::BasicDialog::getEditMenu() const
 {
 	return editMenu;
 }
 
-QMenu *BasicDialog::getViewMenu() const
+QMenu *core::BasicDialog::getViewMenu() const
 {
 	return viewMenu;
 }
 
-QMenu *BasicDialog::getToolsMenu() const
+QMenu *core::BasicDialog::getToolsMenu() const
 {
 	return toolsMenu;
 }
 
-QMenu *BasicDialog::getHelpMenu() const
+QMenu *core::BasicDialog::getHelpMenu() const
 {
 	return helpMenu;
 }
 
-void BasicDialog::addMenu(QMenu *menu)
+void core::BasicDialog::addMenu(QMenu *menu)
 {
 	mw->menuBar()->addMenu(menu);
 }
 
-void BasicDialog::setFileMenuVisible(bool vis)
+void core::BasicDialog::setFileMenuVisible(bool vis)
 {
 	visibleFileMenu = vis;
 	fileMenu->menuAction()->setVisible(vis);
 }
 
-void BasicDialog::setEditMenuVisible(bool vis)
+void core::BasicDialog::setEditMenuVisible(bool vis)
 {
 	visibleEditMenu = vis;
 	editMenu->menuAction()->setVisible(vis);
 }
 
-void BasicDialog::setViewMenuVisible(bool vis)
+void core::BasicDialog::setViewMenuVisible(bool vis)
 {
 	viewMenu->menuAction()->setVisible(vis);
 }
 
-void BasicDialog::setToolsMenuVisible(bool vis)
+void core::BasicDialog::setToolsMenuVisible(bool vis)
 {
 	toolsMenu->menuAction()->setVisible(vis);
 }
 
-void BasicDialog::setHelpMenuVisible(bool vis)
+void core::BasicDialog::setHelpMenuVisible(bool vis)
 {
 	helpMenu->menuAction()->setVisible(vis);
 }
 
-void BasicDialog::setApplyButtonVisible(bool en)
+void core::BasicDialog::setApplyButtonVisible(bool en)
 {
 	btnApply->setVisible(en);
 }
 
-bool BasicDialog::getApplyButtonVisible() const
+bool core::BasicDialog::getApplyButtonVisible() const
 {
 	return btnApply->isVisible();
 }
 
-QToolBar *BasicDialog::getMainToolbar() const
+QToolBar *core::BasicDialog::getMainToolbar() const
 {
 	return mainToolbar;
 }
 
-void BasicDialog::newClick()
+void core::BasicDialog::newClick()
 {
 
 }
 
-void BasicDialog::openClick()
+void core::BasicDialog::openClick()
 {
 
 }
 
-void BasicDialog::saveClick()
+void core::BasicDialog::saveClick()
 {
 
 }
 
-void BasicDialog::saveAsClick()
+void core::BasicDialog::saveAsClick()
 {
 
 }
 
-void BasicDialog::importClick()
+void core::BasicDialog::importClick()
 {
 
 }
 
-void BasicDialog::exportClick()
+void core::BasicDialog::exportClick()
 {
 
 }
 
-void BasicDialog::undoClick()
+void core::BasicDialog::undoClick()
 {
 
 }
 
-void BasicDialog::redoClick()
+void core::BasicDialog::redoClick()
 {
 
 }
 
-void BasicDialog::preferencesClick()
+void core::BasicDialog::preferencesClick()
 {
 
 }
 
-void BasicDialog::aboutClick()
+void core::BasicDialog::aboutClick()
 {
 
 }
 
-void BasicDialog::helpClick()
+void core::BasicDialog::helpClick()
 {
 
 }
 
-void BasicDialog::copyClick()
+void core::BasicDialog::copyClick()
 {
 
 }
 
-void BasicDialog::cutClick()
+void core::BasicDialog::cutClick()
 {
 
 }
 
-void BasicDialog::pasteClick()
+void core::BasicDialog::pasteClick()
 {
 
 }
 
-void BasicDialog::onAlwaysOnTopClicked(bool checked)
+void core::BasicDialog::onAlwaysOnTopClicked(bool checked)
 {
 	if(checked){
 		setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint | Qt::Window/* | Qt::BypassWindowManagerHint*/	);
@@ -382,12 +380,12 @@ void BasicDialog::onAlwaysOnTopClicked(bool checked)
 	show();
 }
 
-void BasicDialog::onApplyClicked()
+void core::BasicDialog::onApplyClicked()
 {
 
 }
 
-void BasicDialog::init()
+void core::BasicDialog::init()
 {
 	visibleFileMenu = true;
 	visibleEditMenu = true;
@@ -507,7 +505,7 @@ void BasicDialog::init()
 	connect(alwaysOnTopAction, SIGNAL(triggered(bool)), SLOT(onAlwaysOnTopClicked(bool)));
 }
 
-void BasicDialog::updateActionsVisibility()
+void core::BasicDialog::updateActionsVisibility()
 {
 	//Set separator after CLIPBOARD visible or not
 	mainToolbar->actions()[7]->setVisible(enableClipboard);

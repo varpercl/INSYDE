@@ -9,6 +9,8 @@
 #include "vector2d.h"
 #include "enviroment.h"
 
+namespace core{
+
 class CORE_LIB_IMPORT_EXPORT GraphicDetailedView : public QGraphicsView
 {
 	public:
@@ -111,5 +113,5 @@ class CORE_LIB_IMPORT_EXPORT GraphicDetailedView : public QGraphicsView
 
 		bool areDifferentTypes(const QList<QGraphicsItem*> &list);
 };
-
+}
 #endif // GRAPHICDETAILEDVIEW_H

@@ -1,7 +1,7 @@
 #include "bnsubwidget.h"
 #include "ui_bnsubwidget.h"
 
-BNSubWidget::BNSubWidget(double threshold, QWidget *parent) :
+core::BNSubWidget::BNSubWidget(double threshold, QWidget *parent) :
 	QWidget(parent),
 	ui(new Ui::BNSubWidget)
 {
@@ -10,27 +10,27 @@ BNSubWidget::BNSubWidget(double threshold, QWidget *parent) :
 	init(threshold);
 }
 
-BNSubWidget::~BNSubWidget()
+core::BNSubWidget::~BNSubWidget()
 {
 	delete ui;
 }
 
-void BNSubWidget::setThreshold(double ts)
+void core::BNSubWidget::setThreshold(double ts)
 {
 	if(ts > 1){
 		ts = 1;
 	}else if(ts < 0){
 		ts = 0;
 	}
-	ui->hsThreshold->setValue(ts*100);
+    ui->hsThreshold->setValue(ts * 100);
 }
 
-double BNSubWidget::getThreshold()
+double core::BNSubWidget::getThreshold()
 {
 	return ui->hsThreshold->value() / 100;
 }
 
-void BNSubWidget::init(double threshold)
+void core::BNSubWidget::init(double threshold)
 {
 	setThreshold(threshold);
 }
