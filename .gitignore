@@ -4,12 +4,22 @@
 
 #Makefile
 .autosave
-*.o
-.lib
-*.pdb
+
 #*.[Dd]ebug
 #*.[Rd]elease
-build*/
+#build*/
+
+#################
+## Binaries
+#################
+
+*.o
+*.exp
+#*.lib
+#*.pdb
+#*.dll
+#*.so
+#*.exe
 
 #################
 ## Eclipse

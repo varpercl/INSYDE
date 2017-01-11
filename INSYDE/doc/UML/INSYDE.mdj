@@ -15925,6 +15925,16 @@
 								"$ref": "AAAAAAFZPfzMt1JomXc="
 							},
 							"visibility": "public"
+						},
+						{
+							"_type": "UMLClassDiagram",
+							"_id": "AAAAAAFZgJKeWo0/44c=",
+							"_parent": {
+								"$ref": "AAAAAAFZPf0Ek1Jst2o="
+							},
+							"name": "Classes",
+							"visible": true,
+							"defaultDiagram": false
 						}
 					],
 					"visibility": "public"
@@ -16000,6 +16010,16 @@
 								"$ref": "AAAAAAFZPhtsqVJ4NxE="
 							},
 							"visibility": "public"
+						},
+						{
+							"_type": "UMLClassDiagram",
+							"_id": "AAAAAAFZgJJvho07JEs=",
+							"_parent": {
+								"$ref": "AAAAAAFZPhvP9VJ8ScU="
+							},
+							"name": "Classes",
+							"visible": true,
+							"defaultDiagram": false
 						}
 					],
 					"visibility": "public"
@@ -16399,7 +16419,7 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": -156,
+											"left": -124,
 											"top": -28,
 											"width": 0,
 											"height": 13,
@@ -16424,7 +16444,7 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 109,
+											"left": 125,
 											"top": 190,
 											"width": 63.55908203125,
 											"height": 13,
@@ -16450,7 +16470,7 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 109,
+											"left": 125,
 											"top": 205,
 											"width": 63.55908203125,
 											"height": 13,
@@ -16476,7 +16496,7 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": -156,
+											"left": -124,
 											"top": -28,
 											"width": 0,
 											"height": 13,
@@ -16496,7 +16516,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 104,
+									"left": 120,
 									"top": 183,
 									"width": 73.55908203125,
 									"height": 40,
@@ -16524,7 +16544,7 @@
 							"showShadow": true,
 							"containerChangeable": true,
 							"containerExtending": false,
-							"left": 104,
+							"left": 120,
 							"top": 168,
 							"width": 73.55908203125,
 							"height": 55,
@@ -17396,7 +17416,7 @@
 								"$ref": "AAAAAAFZfH8on13Qzp4="
 							},
 							"lineStyle": 1,
-							"points": "136:167;130:120"
+							"points": "148:167;133:120"
 						},
 						{
 							"_type": "UMLPackageView",
@@ -42697,7 +42717,7 @@
 					"visibility": "public"
 				}
 			],
-			"documentation": "Versions:\n- 5.7.0",
+			"documentation": "Versions:\n- 5.7.0 VC2015_64 bits\n- 5.7.1 mingw 32 bits\n",
 			"visibility": "public"
 		}
 	],

@@ -100,7 +100,7 @@ void PruebaPantalla::on_ANNTrainingDialog_clicked()
 
 //	MLPTrainingDialog *mlpTS = new MLPTrainingDialog(mlp, new TrainingSet(TrainingSetFile(":/samples/aprendizaje-de-letras-de-placas.tsf")));
 
-	mlptd->setWindowModality(Qt::NonModal);
+//	mlptd->setWindowModality(Qt::NonModal);
 
 	mlptd->show();
 }

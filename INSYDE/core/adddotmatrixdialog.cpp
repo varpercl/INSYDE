@@ -1,5 +1,11 @@
 #include "adddotmatrixdialog.h"
 
+core::AddDotMatrixDialog::AddDotMatrixDialog(QWidget *parent) :
+	BasicDialog(parent)
+{
+	init(10, 10);
+}
+
 core::AddDotMatrixDialog::AddDotMatrixDialog(int rows, int cols, QWidget *parent) :
 	BasicDialog(parent)
 {
