@@ -7,7 +7,7 @@
 
 #*.[Dd]ebug
 #*.[Rd]elease
-#build*/
+build*/
 
 #################
 ## Binaries
