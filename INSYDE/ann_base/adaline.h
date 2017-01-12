@@ -16,11 +16,11 @@
 namespace ann_base{
 
 using namespace std;
-
-	/*!
-	 * \class Adaline
+/*!
+ * \class Adaline
  *
- * \brief Las redes neuronales tipo ADALINE
+ * \brief The Adaline class represent one basic ANN topology which consist in one neuron with
+ * only one output with a transfer function that can be
  *
  * Contiene todas las implementaciones necesarias para realizar la simulacion
  * y entrenamiento de una red ADALINE.
@@ -32,18 +32,24 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 {
 	public:
 
-		/**
-		  Especifica la forma en que se actualizaran los pesos sinapticos.
+//		*
+//		  Especifica la forma en que se actualizaran los pesos sinapticos.
 
-		  @enum WeightUpdateType
+//		  @enum WeightUpdateType
 
-		  @param ContinuousUpdate Se actualizaran los pesos con cada presentacion de un par entrada/objetivo
-		  @param BatchUpdate Se actualizan los pesos una vez que se han pasado todos los pares del conjunto de entrenamiento
+//		  @param ContinuousUpdate Se actualizaran los pesos con cada presentacion de un par entrada/objetivo
+//		  @param BatchUpdate Se actualizan los pesos una vez que se han pasado todos los pares del conjunto de entrenamiento
 
-		  */
+
+		/*!
+		 * \brief The WeightUpdateType enum indicates the way the ADALINE weights are updated.
+		 * This influences the way the ADALINE is trained.
+		 *
+		 * \author Edixon V
+		 */
 		enum WeightUpdateType{
-			ContinuousUpdate,
-			BatchUpdate
+			ContinuousUpdate, /*!< Updates every weight everytime an input/target pair is presented */
+			BatchUpdate /*!< Updates all weights once all patterns have been passed to the training algorithm */
 		};
 
 		/**
