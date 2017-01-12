@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"structann__base_1_1_adaline_1_1_train_result.html#a379c5b1188105f9b8fd6384d78ad5859":[2,0,0,0,0,3],
+"structann__base_1_1_adaline_1_1_train_result.html#ad05ee3c92e6335d7fb6117a5baedab3a":[2,0,0,0,0,0],
 "structann__base_1_1_adaline_1_1_train_result.html#aeef050191a0121c65665867565b28e04":[2,0,0,0,0,1],
 "structann__base_1_1_hopfield_1_1_output_result.html":[2,0,0,4,0],
 "structann__base_1_1_hopfield_1_1_output_result.html#a0d229108c7d569d9762904d4df86d118":[2,0,0,4,0,2],
