@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['thresholdhistory',['thresholdHistory',['../structann__base_1_1_adaline_1_1_train_result.html#a31ad1357a6e0361dbe4a377f9d2fa6da',1,'ann_base::Adaline::TrainResult']]],
   ['trainingalgorithm',['TrainingAlgorithm',['../classann__base_1_1_multilayer_perceptron.html#a7305c5563df869dc9c28dd159aaed018',1,'ann_base::MultilayerPerceptron']]],
   ['trainingresult',['TrainingResult',['../classann__base_1_1_training_result.html',1,'ann_base']]],
   ['trainingset',['TrainingSet',['../classann__base_1_1_training_set.html',1,'ann_base::TrainingSet'],['../classann__base_1_1_training_set.html#a8e0ac7b3dfade0581d87c63213707bfd',1,'ann_base::TrainingSet::TrainingSet()']]],

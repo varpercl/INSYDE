@@ -12,10 +12,19 @@
 #include <vector>
 #include <time.h>
 
-
+/*!
+ * \namespace ann_base
+ *
+ * \brief The ann_base namespace stores all classes and methods to perform artificial neural
+ * network training algorithm.
+ *
+ * \author Edixon V
+ *
+ */
 namespace ann_base{
 
 using namespace std;
+
 /*!
  * \class Adaline
  *
@@ -31,15 +40,6 @@ using namespace std;
 class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 {
 	public:
-
-//		*
-//		  Especifica la forma en que se actualizaran los pesos sinapticos.
-
-//		  @enum WeightUpdateType
-
-//		  @param ContinuousUpdate Se actualizaran los pesos con cada presentacion de un par entrada/objetivo
-//		  @param BatchUpdate Se actualizan los pesos una vez que se han pasado todos los pares del conjunto de entrenamiento
-
 
 		/*!
 		 * \brief The WeightUpdateType enum indicates the way the ADALINE weights are updated.
@@ -58,11 +58,16 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 		  sinapticos, que lo hace ideal si queremos realizar graficas o analisis del
 		  avance de los mismos.
 		  */
+		/*!
+		 * \brief The TrainResult struct stores all information about a in-course or finished training,
+		 * information like epochs to finish the training, a weight history of every weight, this is
+		 * ideal if we want to graph or analyse how every weight runs over its training routine.
+		 */
 		struct TrainResult{
-				int epochs;
-				vector<double> errorHistory;
-				vector<vector<double> > weightHistory;
-				vector<double> thresholdHistory;
+				int epochs; /*!< Indicates the number of epochs until now */
+				vector<double> errorHistory; /*!< A history of the error through the training routine */
+				vector<vector<double> > weightHistory; /*!< The history of weight changes */
+				vector<double> thresholdHistory; /*!< The change history of the threshold */
 		};
 
 		/**
@@ -78,6 +83,9 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 		  @name Sigmoid Esta funcion es del tipo y = 1 / (1 + exp(-alpha*suminputs))
 		  @name Linear La funcion @code{Linear} es igual al valor de la sumatoria, es decir, y = suminputs
 		  */
+		/*!
+		 * \brief The TransferFunctionType enum
+		 */
 		enum TransferFunctionType{
 			Sigmoid,
 			Linear
