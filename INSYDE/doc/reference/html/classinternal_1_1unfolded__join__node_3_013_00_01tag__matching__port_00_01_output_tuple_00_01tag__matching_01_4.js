@@ -1,0 +1,7 @@
+var classinternal_1_1unfolded__join__node_3_013_00_01tag__matching__port_00_01_output_tuple_00_01tag__matching_01_4 =
+[
+    [ "input_ports_type", "classinternal_1_1unfolded__join__node_3_013_00_01tag__matching__port_00_01_output_tuple_00_01tag__matching_01_4.html#a77328997a1313c24619c81874919e28d", null ],
+    [ "output_type", "classinternal_1_1unfolded__join__node_3_013_00_01tag__matching__port_00_01_output_tuple_00_01tag__matching_01_4.html#aee63ece980f8abe5994208e4adbd8f0d", null ],
+    [ "unfolded_join_node", "classinternal_1_1unfolded__join__node_3_013_00_01tag__matching__port_00_01_output_tuple_00_01tag__matching_01_4.html#acd094ed64503d85bb870b6aaa365be84", null ],
+    [ "unfolded_join_node", "classinternal_1_1unfolded__join__node_3_013_00_01tag__matching__port_00_01_output_tuple_00_01tag__matching_01_4.html#af222ae7b6436205061879eb44e14eaf1", null ]
+];
