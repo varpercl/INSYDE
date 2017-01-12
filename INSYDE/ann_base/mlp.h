@@ -79,13 +79,13 @@ class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptron : public QThread, public A
 			Tanh
 		};
 
-		/**
-		 * @brief MultilayerPerceptron Instancia de una red multicapa. La red inicialmente se generara con valores aleatorios en sus pesos
+		/*!
+		 * \brief MultilayerPerceptron Instancia de una red multicapa. La red inicialmente se generara con valores aleatorios en sus pesos
 		 * sinapticos.
-		 * @param ninputs Numero de entradas
-		 * @param noutputs Numero de salidas
-		 * @param layersizes Tamaños de cada capa
-		 * @param tf Funcion de transferencia
+		 * \param [in] ninputs Numero de entradas
+		 * \param [in] noutputs Numero de salidas
+		 * \param [in] layersizes Tamaños de cada capa
+		 * \param [in] tf Funcion de transferencia
 		 */
 		explicit MultilayerPerceptron(int ninputs, int noutputs, const vector<int> &layersizes, const TransferFunctionType &tf = Sigmoid);
 

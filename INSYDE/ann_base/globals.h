@@ -14,16 +14,6 @@
 //using namespace std;
 //using namespace tbb;
 
-
-/*!
- * \namespace ann
- *
- * \brief
- *
- * \author Edixon Vargas <ingedixonvargas@gmail.com>
- * \date 03/02/2015
- */
-
 namespace ann_base {
 
 

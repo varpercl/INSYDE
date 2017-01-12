@@ -11,7 +11,6 @@ var searchData=
   ['addchilditem',['addChildItem',['../class_a_n_n_model_tree.html#ac049750e84184d5fdc0fef97420c2c46',1,'ANNModelTree']]],
   ['adddotmatrixdialog',['AddDotMatrixDialog',['../classcore_1_1_add_dot_matrix_dialog.html',1,'core::AddDotMatrixDialog'],['../class_add_dot_matrix_dialog.html',1,'AddDotMatrixDialog'],['../classcore_1_1_add_dot_matrix_dialog.html#aae03fbb61afbdf92fc6386d40903da0a',1,'core::AddDotMatrixDialog::AddDotMatrixDialog(QWidget *parent=0)'],['../classcore_1_1_add_dot_matrix_dialog.html#a0ac7a7e364ce108c2186f9e02fab8f5c',1,'core::AddDotMatrixDialog::AddDotMatrixDialog(int rows, int cols, QWidget *parent=0)']]],
   ['addnewmlpdialog',['AddNewMLPDialog',['../class_add_new_m_l_p_dialog.html',1,'AddNewMLPDialog'],['../class_add_new_m_l_p_dialog.html#a161ad592e8a5f9ac1c88d76d1243fa25',1,'AddNewMLPDialog::AddNewMLPDialog()']]],
-  ['ann',['ann',['../namespaceann.html',1,'']]],
   ['ann_5fbase',['ann_base',['../namespaceann__base.html',1,'']]],
   ['annmodeltree',['ANNModelTree',['../class_a_n_n_model_tree.html',1,'ANNModelTree'],['../class_a_n_n_model_tree.html#a0fc79f8570d566c47caae26752232b2e',1,'ANNModelTree::ANNModelTree()']]],
   ['annmodelwrapper',['ANNModelWrapper',['../class_a_n_n_model_wrapper.html',1,'ANNModelWrapper'],['../class_a_n_n_model_wrapper.html#aae4921803ffd10cd42ab0dc8aaf2627f',1,'ANNModelWrapper::ANNModelWrapper()'],['../class_a_n_n_model_wrapper.html#a628d88009169a5a6d690b477f49812d6',1,'ANNModelWrapper::ANNModelWrapper(ArtificialNeuralNetwork *ann, QObject *parent=0)']]],

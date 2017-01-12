@@ -9,6 +9,8 @@
 #*.[Rd]elease
 build*/
 
+doxygen*/
+
 #################
 ## Binaries
 #################

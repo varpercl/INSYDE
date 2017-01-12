@@ -31,7 +31,7 @@ var NAVTREEINDEX =
 "classcore_1_1_clipboard_interface.html#aa32a73262fd066143ed166a794d519e4",
 "classcore_1_1_image.html#a3c0ab59560f62ac139bfa208809e3a6b",
 "classcore_1_1_normalization_widget.html#a730d7d429f38f4552614822b34f3b557",
-"structann__base_1_1_adaline_1_1_train_result.html#a31ad1357a6e0361dbe4a377f9d2fa6da"
+"structann__base_1_1_adaline_1_1_train_result.html#a379c5b1188105f9b8fd6384d78ad5859"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
