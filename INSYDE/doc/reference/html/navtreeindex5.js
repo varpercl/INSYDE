@@ -116,7 +116,10 @@ var NAVTREEINDEX5 =
 "fileeditline_8h_source.html":[3,0,0,0,2,20],
 "files.html":[3,0],
 "functions.html":[2,3,0,0],
+<<<<<<< HEAD
 "functions.html":[2,3,0],
+=======
+>>>>>>> 5a80891754bc958e07c66864a6337f3bd51bd9c3
 "functions_0x7e.html":[2,3,0,19],
 "functions_b.html":[2,3,0,1],
 "functions_c.html":[2,3,0,2],
@@ -249,5 +252,10 @@ var NAVTREEINDEX5 =
 "simulation_8h_source.html":[3,0,0,0,2,48],
 "simulationcontrol_8h_source.html":[3,0,0,0,6,22],
 "statusanimation_8h_source.html":[3,0,0,0,6,23],
+<<<<<<< HEAD
 "structann__base_1_1_adaline_1_1_train_result.html":[2,0,0,0,0]
+=======
+"structann__base_1_1_adaline_1_1_train_result.html":[2,0,0,0,0],
+"structann__base_1_1_adaline_1_1_train_result.html#a31ad1357a6e0361dbe4a377f9d2fa6da":[2,0,0,0,0,2]
+>>>>>>> 5a80891754bc958e07c66864a6337f3bd51bd9c3
 };
