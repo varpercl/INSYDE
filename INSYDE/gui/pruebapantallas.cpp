@@ -20,12 +20,6 @@ void PruebaPantalla::on_newProjectButton_clicked()
 	npw->exec();
 }
 
-void PruebaPantalla::on_mainWindowButton_clicked()
-{
-	MainWindow *w = new MainWindow();
-	w->show();
-}
-
 void PruebaPantalla::on_perceptronButton_clicked()
 {
 	PerceptronPage *pp = new PerceptronPage();
@@ -244,7 +238,7 @@ void PruebaPantalla::on_DoubleMinMaxWidgetButton_clicked()
 
 void PruebaPantalla::on_NewMainWindowButton_clicked()
 {
-	NewMainWindow *mainWindow = new NewMainWindow;
+	MainWindow *mainWindow = new MainWindow;
 
 	mainWindow->show();
 }

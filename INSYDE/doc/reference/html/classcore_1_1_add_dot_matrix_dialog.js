@@ -1,9 +1,11 @@
 var classcore_1_1_add_dot_matrix_dialog =
 [
-    [ "AddDotMatrixDialog", "classcore_1_1_add_dot_matrix_dialog.html#aae03fbb61afbdf92fc6386d40903da0a", null ],
-    [ "AddDotMatrixDialog", "classcore_1_1_add_dot_matrix_dialog.html#a0ac7a7e364ce108c2186f9e02fab8f5c", null ],
-    [ "~AddDotMatrixDialog", "classcore_1_1_add_dot_matrix_dialog.html#ac3ef13d2658f467b59e5bcab7d3b3217", null ],
-    [ "getCols", "classcore_1_1_add_dot_matrix_dialog.html#a8ed73b2526391d3aedc61cf53cfab42e", null ],
-    [ "getDataType", "classcore_1_1_add_dot_matrix_dialog.html#a0ac7f921c49b7b3d4ceea92c34f2f145", null ],
-    [ "getRows", "classcore_1_1_add_dot_matrix_dialog.html#ac4a38031b261a7fea020efbcca3735e3", null ]
+    [ "AddDotMatrixDialog", "classcore_1_1_add_dot_matrix_dialog.html#afcc1ca05f351de2f6fa41688da387d3c", null ],
+    [ "AddDotMatrixDialog", "classcore_1_1_add_dot_matrix_dialog.html#a4f7b23fcc5fd51277c71e3a26c752007", null ],
+    [ "~AddDotMatrixDialog", "classcore_1_1_add_dot_matrix_dialog.html#ad0863f6d3860b8eeb07b899efb23a800", null ],
+    [ "getCols", "classcore_1_1_add_dot_matrix_dialog.html#a7ead3a822282434ca2a439255f673d4b", null ],
+    [ "getDataType", "classcore_1_1_add_dot_matrix_dialog.html#aef521556bb6da05d852ac326fad02406", null ],
+    [ "getRows", "classcore_1_1_add_dot_matrix_dialog.html#a5d554f5e1f11e6190a2d3a31b7cc8899", null ],
+    [ "setCols", "classcore_1_1_add_dot_matrix_dialog.html#a04b60b8c6ecfd3533d27f87f340a9a2d", null ],
+    [ "setRows", "classcore_1_1_add_dot_matrix_dialog.html#aac76962689855d5afbb599b972af1bf4", null ]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['learningrule',['LearningRule',['../classann__base_1_1_simple_perceptron.html#a5302d2f1b4fb5e272070b849c4ccbbba',1,'ann_base::SimplePerceptron']]]
+  ['dataformat',['DataFormat',['../classcore_1_1_dot_matrix.html#a30f34b9c057497d5a538256548f28be2',1,'core::DotMatrix']]],
+  ['direction',['Direction',['../namespacecore.html#a2b3c061a1acf881cd93cb9e8172c21a0',1,'core']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['mainwindow',['MainWindow',['../class_main_window.html',1,'']]],
+  ['mainwindow',['MainWindow',['../class_main_window.html',1,'MainWindow'],['../class_main_window.html#a34c4b4207b46d11a4100c9b19f0e81bb',1,'MainWindow::MainWindow()']]],
   ['math',['math',['../namespacemath.html',1,'']]],
   ['mlpobject',['MLPObject',['../class_m_l_p_object.html',1,'MLPObject'],['../class_m_l_p_object.html#a1b262e6b0a168a386238d7b2bc202df3',1,'MLPObject::MLPObject(MultilayerPerceptron *mlp)'],['../class_m_l_p_object.html#adc2e26ab00c69a7fbeea70089dc111b8',1,'MLPObject::MLPObject(MultilayerPerceptron *mlp, TrainingSet *trainingSet)']]],
   ['mlpobjectpropertydialog',['MLPObjectPropertyDialog',['../class_m_l_p_object_property_dialog.html',1,'']]],

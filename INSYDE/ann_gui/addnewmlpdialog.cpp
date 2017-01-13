@@ -1,18 +1,18 @@
 #include "addnewmlpdialog.h"
 #include "ui_addnewmlpdialog.h"
 
-AddNewMLPDialog::AddNewMLPDialog(QWidget *parent) :
+ann_gui::AddNewMLPDialog::AddNewMLPDialog(QWidget *parent) :
 	BasicDialog(parent)
 {
 	init();
 }
 
-AddNewMLPDialog::~AddNewMLPDialog()
+ann_gui::AddNewMLPDialog::~AddNewMLPDialog()
 {
 
 }
 
-MultilayerPerceptron::TransferFunctionType AddNewMLPDialog::getTransferFunction()
+MultilayerPerceptron::TransferFunctionType ann_gui::AddNewMLPDialog::getTransferFunction()
 {
 	switch(lcbTrasnferFunction->getComboBox()->currentIndex()){
 		case 0:
@@ -23,22 +23,22 @@ MultilayerPerceptron::TransferFunctionType AddNewMLPDialog::getTransferFunction(
 	}
 }
 
-int AddNewMLPDialog::getInputSize()
+int ann_gui::AddNewMLPDialog::getInputSize()
 {
 	return lisbInputSize->getValue();
 }
 
-int AddNewMLPDialog::getOutputSize()
+int ann_gui::AddNewMLPDialog::getOutputSize()
 {
 	return lisbOutputSize->getValue();
 }
 
-double AddNewMLPDialog::getSlope()
+double ann_gui::AddNewMLPDialog::getSlope()
 {
 	return ldsbSlope->getValue();
 }
 
-vector<int> AddNewMLPDialog::getLayerSizes()
+vector<int> ann_gui::AddNewMLPDialog::getLayerSizes()
 {
 	vector<int> sizes;
 	int rows = tblLayers->rowCount();
@@ -48,7 +48,7 @@ vector<int> AddNewMLPDialog::getLayerSizes()
 	return sizes;
 }
 
-void AddNewMLPDialog::accept()
+void ann_gui::AddNewMLPDialog::accept()
 {
 	if(checkLayers()){
 		done(1);
@@ -67,7 +67,7 @@ void AddNewMLPDialog::accept()
 	}
 }
 
-void AddNewMLPDialog::on_btnAddLayer_clicked()
+void ann_gui::AddNewMLPDialog::on_btnAddLayer_clicked()
 {
 	tblLayers->setRowCount(tblLayers->rowCount() + 1);
 	//		tblLayers->setItem(tblLayers->rowCount()-1, 1, new QTableWidgetItem(val));
@@ -81,17 +81,17 @@ void AddNewMLPDialog::on_btnAddLayer_clicked()
 	tblLayers->setItem(tblLayers->rowCount()-1, 1, nElementsCell);
 }
 
-void AddNewMLPDialog::on_btnDeleteLayer_clicked()
+void ann_gui::AddNewMLPDialog::on_btnDeleteLayer_clicked()
 {
 	tblLayers->setRowCount(tblLayers->rowCount() - 1);
 }
 
-void AddNewMLPDialog::on_buttonBox_rejected()
+void ann_gui::AddNewMLPDialog::on_buttonBox_rejected()
 {
 	reject();
 }
 
-void AddNewMLPDialog::init()
+void ann_gui::AddNewMLPDialog::init()
 {
 	//QVBoxLayout
 	mainLayout = new QVBoxLayout();
@@ -163,7 +163,7 @@ void AddNewMLPDialog::init()
 	connect(getAcceptButton(), SIGNAL(clicked()), SLOT(accept()));
 }
 
-bool AddNewMLPDialog::checkLayers()
+bool ann_gui::AddNewMLPDialog::checkLayers()
 {
 	if(lisbInputSize->getValue() > 0 && lisbOutputSize->getValue() > 0){
 		if(tblLayers->rowCount() > 0){

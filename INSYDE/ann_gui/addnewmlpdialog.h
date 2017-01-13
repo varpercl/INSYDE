@@ -15,9 +15,9 @@
 
 using namespace ann_base;
 
+namespace ann_gui {
+
 /*!
- * \class
- *
  * \brief The AddNewMLPDialog class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
@@ -119,5 +119,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT AddNewMLPDialog : public BasicDialog
 
 		bool checkLayers();
 };
-
+}
 #endif // ADDNEWMLPDIALOG_H

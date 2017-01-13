@@ -17,17 +17,27 @@ core::AddDotMatrixDialog::~AddDotMatrixDialog()
 
 }
 
-int core::AddDotMatrixDialog::getRows()
+int core::AddDotMatrixDialog::getRows() const
 {
 	return iswSize->getHeight();
 }
 
-int core::AddDotMatrixDialog::getCols()
+void core::AddDotMatrixDialog::setRows(int r)
+{
+	iswSize->setHeight(r);
+}
+
+void core::AddDotMatrixDialog::setCols(int c)
+{
+	iswSize->setWidth(c);
+}
+
+int core::AddDotMatrixDialog::getCols() const
 {
 	return iswSize->getWidth();
 }
 
-core::DotMatrix::DataType core::AddDotMatrixDialog::getDataType()
+core::DotMatrix::DataFormat core::AddDotMatrixDialog::getDataType()
 {
 	switch(lcbDataType->getComboBox()->currentIndex()){
 		case 1:

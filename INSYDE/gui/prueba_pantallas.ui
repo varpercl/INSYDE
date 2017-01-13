@@ -180,20 +180,6 @@
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
-      <item row="2" column="0">
-       <widget class="QPushButton" name="systemButton">
-        <property name="text">
-         <string>System</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="mainWindowButton">
-        <property name="text">
-         <string>Main Window</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="0">
        <widget class="QPushButton" name="NewMainWindowButton">
         <property name="text">
@@ -201,31 +187,38 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
+      <item row="3" column="0">
        <widget class="QPushButton" name="selectProjectButton">
         <property name="text">
          <string>Select project</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="newProjectButton">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="systemButton">
         <property name="text">
-         <string>New project</string>
+         <string>System</string>
         </property>
        </widget>
       </item>
       <item row="5" column="0">
+       <widget class="QPushButton" name="SimulationControlButton">
+        <property name="text">
+         <string>SimulationControl</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
        <widget class="QPushButton" name="chooseProjectNameButton">
         <property name="text">
          <string>Choose project name</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
-       <widget class="QPushButton" name="SimulationControlButton">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="newProjectButton">
         <property name="text">
-         <string>SimulationControl</string>
+         <string>New project</string>
         </property>
        </widget>
       </item>

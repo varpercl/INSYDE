@@ -1,6 +1,6 @@
 #include "acosolver.h"
 
-ACOSolver::ACOSolver()
+ec_base::ACOSolver::ACOSolver()
 {
 	TRACE ( printf("INITIALIZE TRIAL\n"); );
 
@@ -53,7 +53,7 @@ ACOSolver::ACOSolver()
 //    if (stat_report) fprintf(stat_report,"begin try %li \n",ntry);
 }
 
-void ACOSolver::construct_solutions(void)
+void ec_base::ACOSolver::construct_solutions(void)
 {
 	/*
 		  FUNCTION:       manage the solution construction phase
@@ -95,7 +95,7 @@ void ACOSolver::construct_solutions(void)
 	n_tours += n_ants;
 }
 
-void ACOSolver::ant_empty_memory(Ant *a)
+void ec_base::ACOSolver::ant_empty_memory(Ant *a)
 {
 	/*
 		  FUNCTION:       empty the ants's memory regarding visited cities
@@ -110,7 +110,7 @@ void ACOSolver::ant_empty_memory(Ant *a)
 	}
 }
 
-void ACOSolver::place_ant(Ant *a, long step)
+void ec_base::ACOSolver::place_ant(Ant *a, long step)
 {
 	/*
 		  FUNCTION:      place an ant on a randomly chosen initial city
@@ -125,7 +125,7 @@ void ACOSolver::place_ant(Ant *a, long step)
 	a->visited[rnd] = true;
 }
 
-void ACOSolver::neighbour_choose_and_move_to_next(Ant *a, long phase)
+void ec_base::ACOSolver::neighbour_choose_and_move_to_next(Ant *a, long phase)
 {
 	/*
 		  FUNCTION:      Choose for an ant probabilistically a next city among all
@@ -200,7 +200,7 @@ void ACOSolver::neighbour_choose_and_move_to_next(Ant *a, long phase)
 	}
 }
 
-void ACOSolver::local_acs_pheromone_update(Ant *a, long phase)
+void ec_base::ACOSolver::local_acs_pheromone_update(Ant *a, long phase)
 {
 	/*
 		  FUNCTION:      removes some pheromone on edge just passed by the ant
@@ -228,7 +228,7 @@ void ACOSolver::local_acs_pheromone_update(Ant *a, long phase)
 	total[j][h] = total[h][j];
 }
 
-long ACOSolver::compute_tour_length(long *t)
+long ec_base::ACOSolver::compute_tour_length(long *t)
 {
 	/*
 		  FUNCTION: compute the tour length of tour t
@@ -244,7 +244,7 @@ long ACOSolver::compute_tour_length(long *t)
 	return tour_length;
 }
 
-double ACOSolver::ran01(long *idum)
+double ec_base::ACOSolver::ran01(long *idum)
 {
 	/*
 			  FUNCTION:       generate a random number that is uniformly distributed in [0,1]
@@ -265,7 +265,7 @@ double ACOSolver::ran01(long *idum)
 
 }
 
-void ACOSolver::neighbour_choose_best_next(Ant *a, long phase)
+void ec_base::ACOSolver::neighbour_choose_best_next(Ant *a, long phase)
 {
 	/*
 		  FUNCTION:      chooses for an ant as the next city the one with
@@ -306,7 +306,7 @@ void ACOSolver::neighbour_choose_best_next(Ant *a, long phase)
 	}
 }
 
-void ACOSolver::choose_best_next(Ant *a, long phase)
+void ec_base::ACOSolver::choose_best_next(Ant *a, long phase)
 {
 	/*
 		  FUNCTION:      chooses for an ant as the next city the one with
@@ -339,7 +339,7 @@ void ACOSolver::choose_best_next(Ant *a, long phase)
 	a->visited[next_city] = 't';
 }
 
-void ACOSolver::start_timers()
+void ec_base::ACOSolver::start_timers()
 {
 	/*
 		  FUNCTION:       virtual and real time of day are computed and stored to
@@ -352,7 +352,7 @@ void ACOSolver::start_timers()
 	start_time = clock();
 }
 
-double ACOSolver::elapsed_time(TIMER_TYPE type)
+double ec_base::ACOSolver::elapsed_time(TIMER_TYPE type)
 {
 	Q_UNUSED(type);
 	/*
@@ -365,7 +365,7 @@ double ACOSolver::elapsed_time(TIMER_TYPE type)
 	return elapsed / CLOCKS_PER_SEC;
 }
 
-long ACOSolver::nn_tour()
+long ec_base::ACOSolver::nn_tour()
 {
 	/*
 		  FUNCTION:       generate some nearest neighbor tour and compute tour length
@@ -398,7 +398,7 @@ long ACOSolver::nn_tour()
 	return help;
 }
 
-void ACOSolver::init_pheromone_trails(double initial_trail)
+void ec_base::ACOSolver::init_pheromone_trails(double initial_trail)
 {
 	/*
 		  FUNCTION:      initialize pheromone trails
@@ -421,7 +421,7 @@ void ACOSolver::init_pheromone_trails(double initial_trail)
 	}
 }
 
-void ACOSolver::compute_total_information()
+void ec_base::ACOSolver::compute_total_information()
 {
 	/*
 		  FUNCTION: calculates heuristic info times pheromone for each arc
@@ -440,7 +440,7 @@ void ACOSolver::compute_total_information()
 	}
 }
 
-void ACOSolver::choose_closest_next(Ant *a, long phase)
+void ec_base::ACOSolver::choose_closest_next(Ant *a, long phase)
 {
 	/*
 		  FUNCTION:      Chooses for an ant the closest city as the next one
@@ -469,7 +469,7 @@ void ACOSolver::choose_closest_next(Ant *a, long phase)
 	a->visited[next_city] = 't';
 }
 
-void ACOSolver::two_opt_first(long *tour)
+void ec_base::ACOSolver::two_opt_first(long *tour)
 {
 	/*
 		  FUNCTION:       2-opt a tour
@@ -628,7 +628,7 @@ void ACOSolver::two_opt_first(long *tour)
 	free( pos );
 }
 
-long *ACOSolver::generate_random_permutation(long n)
+long *ec_base::ACOSolver::generate_random_permutation(long n)
 {
 	/*
 		  FUNCTION:       generate a random permutation of the integers 0 .. n-1

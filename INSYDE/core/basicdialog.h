@@ -7,18 +7,25 @@
 #include "interfaces.h"
 #include "definitions.h"
 
+/*!
+ * \brief The core namespace stores a lot of classes and helper function to perform
+ * from graphical functionalities to math calculations. Also stores some GUI classes
+ *
+ * \author Edixon Vargas <ingedixonvargas@gmail.com>
+ * \date 14/01/17
+ */
 namespace core{
 
 /*!
- * \class BasicDialog
+ * \brief The BasicDialog class represents an improved and with-basic-functionalities dialog. With this dialog
+ * you can perform actions like Undo and Redo, also it has a toolbar that has included some basic buttons like
+ * New, Save, Open, Copy, Cut, Paste, Tools, Help and allow user to add its own buttons and hide what doesn't need.
+ * This is a powerful dialog that is used by lots of specific dialogs in this project.
  *
- * \brief BasicDialog
- * Un cuadro de dialogo basico que contiene menus de edicion, gestion de propiedades y herramientas, ayuda,
- * importar/exportar archivos, entre otros.
+ * By default it has four buttons Accept, Cancel, Apply, Help. This buttons can be hidden anytime the user wants.
  *
- * Es muy util cuando se quiere tener un cuadro de dialogo avanzado que incorpore todas estas funciones sin que el
- * programador se tenga que preocupar por crearlas paso a paso, lo cual, por supuesto ahorra mucho tiempo y permite
- * la reutilizacion de codigo.
+ * This BasicDialog combines the basic functionalities of QDialog and the powerful QMainWindow. The QMainWindow
+ * is inside it and is the container for any control the user want to add later.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 07/02/2015
@@ -32,22 +39,25 @@ class CORE_LIB_IMPORT_EXPORT BasicDialog
 	public:
 
 		/*!
-		 * \brief BasicDialog
-		 * \param parent
+		 * \brief Construct a basic dialog with no special characteristics, it is basicly an empty dialog.
+		 *
+		 * \param[in] parent The parent of this object.
 		 */
 		explicit BasicDialog(QWidget *parent = 0);
 
 		~BasicDialog();
 
 		/*!
-		 * \brief getMainWindow
-		 * \return
+		 * \brief Obtains a pointer to the QMainWindow object inside this BasicDialog.
+		 * \return Return a QMainWindow pointer. This pointer is fully modifiable so user should act
+		 * as careful as possible.
 		 */
 		QMainWindow *getMainWindow() const;
 
 		/*!
-		 * \brief setEnableTools
-		 * \param b
+		 * \brief The user can specify if wants to show the preference button in the toolbar which is represented
+		 * by default by a gear.
+		 * \param b True if wants to show the button.4
 		 */
 		void setEnablePreferences(bool b);
 

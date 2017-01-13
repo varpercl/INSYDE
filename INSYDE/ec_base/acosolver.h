@@ -23,6 +23,15 @@
 
 #define LINE_BUF_LEN 50
 
+/*!
+ * \brief The ec_base namespace stores a variety of classes to perform Emergent Computing algorithms
+ * like Ant Colony Optimization, multiagent system, Particle Swarm Optimization and much more.
+ *
+ * \author Edixon V
+ * \date 12/01/17
+ */
+namespace ec_base{
+
 typedef enum type_timer {REAL, VIRTUAL} TIMER_TYPE;
 
 class ECFRAMEWORKSHARED_EXPORT Problem{
@@ -177,5 +186,5 @@ class ACOSolver
 
 
 };
-
+}
 #endif // ACOSOLVER_H

@@ -3,7 +3,11 @@ var NAVTREE =
   [ "INSYDE", "index.html", [
     [ "Deprecated List", "deprecated.html", null ],
     [ "Namespaces", null, [
-      [ "Namespace List", "namespaces.html", "namespaces" ]
+      [ "Namespace List", "namespaces.html", "namespaces" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -26,12 +30,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_effect.html#aa79a7efdd14bd17280a0a93658d44451",
-"class_weight_line.html#a8362e5e013cb69a4c7145b2911a45c39",
-"classcore_1_1_clipboard_interface.html#aa32a73262fd066143ed166a794d519e4",
-"classcore_1_1_image.html#a3c0ab59560f62ac139bfa208809e3a6b",
-"classcore_1_1_normalization_widget.html#a730d7d429f38f4552614822b34f3b557",
-"structann__base_1_1_adaline_1_1_train_result.html#a379c5b1188105f9b8fd6384d78ad5859"
+"class_image_effect.html#a098352f4c41ff11682bda08c9309d1d0",
+"classann__base_1_1_backpropagation_settings.html#a706acd7ec7ecd4ab74ab03ce051388dd",
+"classcore_1_1_data_representation.html#a2c6e47562295914882bc3f32c2d7ac8b",
+"classcore_1_1_image.html#ae09dc4f3d36ea482525316ef2709d750",
+"classcore_1_1_restricted_line_f.html#a5319c5b1a79482e559115940de518149a1a19a6bc6cd6c2a1a7ab0e8022f29e74",
+"structann__base_1_1_hopfield_1_1_output_result.html#a0d229108c7d569d9762904d4df86d118"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

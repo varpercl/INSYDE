@@ -1,0 +1,26 @@
+var dir_bd8e5b22fbb9c8078732c226e93f780c =
+[
+    [ "copia-seg", "dir_b2e88cd70166059ac246c690b11bb40a.html", "dir_b2e88cd70166059ac246c690b11bb40a" ],
+    [ "adalinepage.h", "adalinepage_8h_source.html", null ],
+    [ "addnewmlpdialog.h", "addnewmlpdialog_8h_source.html", null ],
+    [ "annmodeltree.h", "annmodeltree_8h_source.html", null ],
+    [ "annmodelwrapper.h", "annmodelwrapper_8h_source.html", null ],
+    [ "anntrainingdialog.h", "anntrainingdialog_8h_source.html", null ],
+    [ "annview.h", "annview_8h_source.html", null ],
+    [ "definitions.h", "ann__gui_2definitions_8h_source.html", null ],
+    [ "graphicmlpelement.h", "graphicmlpelement_8h_source.html", null ],
+    [ "graphicmlpelementpropertydialog.h", "graphicmlpelementpropertydialog_8h_source.html", null ],
+    [ "mlpobject.h", "mlpobject_8h_source.html", null ],
+    [ "mlpobjectpropertydialog.h", "mlpobjectpropertydialog_8h_source.html", null ],
+    [ "perceptrondisplay.h", "perceptrondisplay_8h_source.html", null ],
+    [ "perceptronpage.h", "perceptronpage_8h_source.html", null ],
+    [ "samplesdialog.h", "samplesdialog_8h_source.html", null ],
+    [ "share_ann_gui_lib.h", "share__ann__gui__lib_8h_source.html", null ],
+    [ "simulatedannealingwidget.h", "simulatedannealingwidget_8h_source.html", null ],
+    [ "trainingsetdialog.h", "trainingsetdialog_8h_source.html", null ],
+    [ "trainingsettable.h", "trainingsettable_8h_source.html", null ],
+    [ "treeitem.h", "treeitem_8h_source.html", null ],
+    [ "tsmodelwrapper.h", "tsmodelwrapper_8h_source.html", null ],
+    [ "weighteditordialog.h", "weighteditordialog_8h_source.html", null ],
+    [ "weightline.h", "weightline_8h_source.html", null ]
+];

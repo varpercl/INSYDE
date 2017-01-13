@@ -3,6 +3,8 @@
 
 #include "ECFramework_global.h"
 
+namespace ec_base {
+
 class ECFRAMEWORKSHARED_EXPORT Ant
 {
 	public:
@@ -12,5 +14,7 @@ class ECFRAMEWORKSHARED_EXPORT Ant
 
 		explicit Ant();
 };
+}
+
 
 #endif // ANT_H

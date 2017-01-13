@@ -2,12 +2,12 @@
 #include <QtCore>
 #include <QtWidgets>
 
-#include "newmainwindow.h"
+#include "mainwindow.h"
 #include "pruebapantallas.h"
 #include "../ann_base/mlp.h"
 #include "../ann_gui/anntrainingdialog.h"
 
-//#define TESTS
+#define TESTS
 
 //QPointer<PruebaPantalla> profscr;
 

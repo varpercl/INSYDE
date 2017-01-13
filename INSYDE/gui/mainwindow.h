@@ -1,235 +1,346 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef NEWMAINWINDOW_H
+#define NEWMAINWINDOW_H
 
-#include <QtGui>
-
-#ifndef QT_NO_OPENGL
-#include <QGLWidget>
-#endif
-
-#include "../core/imageeffect.h"
-#include "../core/image.h"
-#include "../ann_gui/addnewmlpdialog.h"
-#include "../ann_gui/mlpobject.h"
+#include "../core/definitions.h"
+#include "../core/basicdialog.h"
 #include "../core/adddotmatrixdialog.h"
+#include "../core/simulation.h"
+#include "../core/definitions.h"
+#include "../core/connector.h"
+
+#include "../ann_gui/definitions.h"
+#include "../ann_gui/addnewmlpdialog.h"
+
+#include "icons.h"
 #include "view.h"
-#include "simulationcontrol.h"
-#include "../ec_gui/addagentsdialog.h"
-#include "newprojectwizard.h"
-#include <math.h>
 
 using namespace core;
+using namespace ann_gui;
 
-namespace Ui {
-	class MainWindow;
-}
-
-enum Render{
-	OpenGL = 3,
-	Nativo
-};
-
-/**
-  @class MainWindow
-  @author Edixon Vargas
-  @date 08-06-2012
-
-
-  */
-/*!
- * \brief La clase @code{MainWindow} corresponde a la ventana principal del programa, alli se pueden realizar las
- * simulaciones de los agentes y demas operaciones.
- *
- * \author Edixon Vargas <ingedixonvargas@gmail.com>
- * \date 02/02/2015
- */
-class MainWindow : public QMainWindow
+class MainWindow : public BasicDialog
 {
+	public:
+		/*!
+		 * \brief NewMainWindow
+		 */
+		explicit MainWindow();
+
+		~MainWindow();
+
+	private slots:
+		/*!
+		 * \brief onCloseTabsToRight
+		 */
+		void onCloseTabsToRight();
+
+		/*!
+		 * \brief onCloseTabsToLeft
+		 */
+		void onCloseTabsToLeft();
+
+		/*!
+		 * \brief onCloseOtherTabs
+		 */
+		void onCloseOtherTabs();
+
+		/*!
+		 * \brief onCloseAllTabs
+		 */
+		void onCloseAllTabs();
+
+		/*!
+		 * \brief on10pxTriggered
+		 */
+		void on10pxTriggered();
+
+		/*!
+		 * \brief on20pxTriggered
+		 */
+		void on20pxTriggered();
+
+		/*!
+		 * \brief on50pxTriggered
+		 */
+		void on50pxTriggered();
+
+		/*!
+		 * \brief onCustomizeGrid
+		 */
+		void onCustomizeGrid();
+
+		/*!
+		 * \brief onNativeTriggered
+		 */
+		void onNativeTriggered();
+
+		/*!
+		 * \brief onOpenGLTriggered
+		 */
+		void onOpenGLTriggered();
+
+		/*!
+		 * \brief onAddAdalineClicked
+		 */
+		void onAddAdalineClicked();
+
+		/*!
+		 * \brief onAddAgentClicked
+		 */
+		void onAddAgentClicked();
+
+		/*!
+		 * \brief onAddDotMatrixClicked
+		 */
+		void onAddDotMatrixClicked();
+
+		/*!
+		 * \brief onAddHopfieldClicked
+		 */
+		void onAddHopfieldClicked();
+
+		/*!
+		 * \brief onAddImageClicked
+		 */
+		void onAddImageClicked();
+
+		/*!
+		 * \brief onAddMLPClicked
+		 */
+		void onAddMLPClicked();
+
+		/*!
+		 * \brief onAddSimplePerceptronClicked
+		 */
+		void onAddSimplePerceptronClicked();
+
+		/*!
+		 * \brief onAddRegionClicked
+		 */
+		void onAddRegionClicked();
+
+		/*!
+		 * \brief onAddEffectClicked
+		 */
+		void onAddEffectClicked();
+
+		/*!
+		 * \brief onGDVMousePressed Throwed when GraphicDetailedView clicked
+		 * \param event
+		 */
+		void onGDVMousePressed(QMouseEvent *event);
+
+		/*!
+		 * \brief onOpenOnNewWindowRequest
+		 * \param obj
+		 */
+		void onOpenOnNewWindowRequest(GraphicObject *obj);
+
+		/*!
+		 * \brief onObjectRemoved
+		 */
+		void onObjectRemoved(GraphicObject *obj);
+
+		/*!
+		 * \brief onTabCloseRequested
+		 * \param index
+		 */
+		void onTabCloseRequested(int index);
+
+		/*!
+		 * \brief onTabContextMenu
+		 * \param pos
+		 */
+		void onTabContextMenu(QPoint pos);
+
+		/*!
+		 * \brief newClick
+		 */
+		void newClick();
+
+		/*!
+		 * \brief openClick
+		 */
+		void openClick();
+
+		/*!
+		 * \brief saveClick
+		 */
+		void saveClick();
+
+		/*!
+		 * \brief saveAsClick
+		 */
+		void saveAsClick();
+
+		/*!
+		 * \brief importClick
+		 */
+		void importClick();
+
+		/*!
+		 * \brief exportClick
+		 */
+		void exportClick();
+
+		/*!
+		 * \brief undoClick
+		 */
+		void undoClick();
+
+		/*!
+		 * \brief redoClick
+		 */
+		void redoClick();
+
+		/*!
+		 * \brief copyClick
+		 */
+		void copyClick();
+
+		/*!
+		 * \brief cutClick
+		 */
+		void cutClick();
+
+		/*!
+		 * \brief pasteClick
+		 */
+		void pasteClick();
+
+		/*!
+		 * \brief preferencesClick
+		 */
+		void preferencesClick();
+
+		/*!
+		 * \brief helpClick
+		 */
+		void helpClick();
+
+		/*!
+		 * \brief aboutClick
+		 */
+		void aboutClick();
+
 	private:
 		Q_OBJECT
 
-		//Usada temporalmente
-		ImageEffect *giee;
+		GraphicObject
+		*clickedObject,
+		*beginObject,
+		*endObject;
 
-		GraphicObject *tmpInputElement;
+		Connector
+		*connector;
 
-		QList<QToolButton*> toolList;
+//		const QString STR_ADALINE = "ADALINE";
+//		const QString STR_AGENT = "AGENT";
+//		const QString STR_DOTMATRIX = "DOTMATRIX";
+//		const QString STR_HOPFIELD = "HOPFIELD";
+//		const QString STR_IMAGE = "IMAGE";
+//		const QString STR_MLP = "MLP";
+//		const QString STR_SIMPLEPERCEPTRON = "SIMPLEPERCEPTRON";
+//		const QString STR_REGION = "REGION";
+//		const QString STR_EFFECT = "EFFECT";
 
-		//Dialogo para algoritmos ACO
-//		ACO *acoDialog;
+		int
+//		dmIndex,
+//		mlpIndex,
+//		imgIndex,
+//		imgEffectIndex,
+//		hopfieldIndex,
+//		adalineIndex,
+//		spIndex,
+		currentTab;
 
-		//Ventana para crear un nuevo proyecto
-//        AssistantDialog *npd;
+		bool
+		lastChecked,
+		lookingForEndObject;
 
-		//Asistente para la creacion de un nuevo proyecto
-		NewProjectWizard *newProjectDialog;
+		View
+		*systemView;
 
-		//Timer que permite la actualizacion de la barra de estado
-		QTimer updateStatusTimer;
+		QButtonGroup
+		*generalBG;
 
-		//Cuadro de dialogo para agregar mas agentes
-		AddAgentsDialog *dlgAddAgents;
+		QActionGroup
+		*graphicsGroup,
+		*gridGroup;
 
-		//Control del estado de la animacion
-		SimulationControl *sta;
+		QToolButton
+		*lastToolChoosed,
+		*btnAddADALINE,
+		*btnAddAgent,
+		*btnAddDotMatrix,
+		*btnAddHopfield,
+		*btnAddImage,
+		*btnAddMLP,
+		*btnAddSimplePerceptron,
+		*btnAddRegion,
+		*btnAddEffect;
 
-		View *view;
-		//Visor actual de la simulacion
-		QGraphicsView *visor;
+		QToolBox
+		*mainToolBox;
 
-		//Estado actual de renderizacion
-		Render actualRender;
+		QDockWidget
+		*dwToolBox;
 
-		//Sub-Arbol de exploracion de agentes
-		QTreeWidgetItem *trAgentes;
+		QWidget
+		*systemWidget,
+		*generalTBWidget,
+		*annTBWidget,
+		*ecTBWidget;
 
-		//Arbol de exploracion de proyecto
-		QTreeWidgetItem *trProyecto;
+		QTabWidget
+		*mainTab;
 
-		//Widget para el puerto del visor
-		QWidget *viewPortWidget;
+		QMenu
+		*menuGrid,
+		*menuGraphics,
+		*menuTabs;
 
-		//Widget opengl para el puerto del visor
-		QGLWidget *glWidget;
+		QAction
+		*actionNative,
+		*actionOpenGL,
+		*action10px,
+		*action20px,
+		*action50px,
+		*actionCustomize,
+		*actionCloseOtherTabs,
+		*actionCloseTabsToRight,
+		*actionCloseTabsToLeft,
+		*actionCloseAllTabs;
 
-		/**
-		  Inicializa los componentes de la interfaz grafica de usuario
-		  */
-		void initGUI();
+		QVBoxLayout
+		*vlyGeneralToolBox,
+		*vlyANNToolBox,
+		*vlyECToolBox;
 
-		/**
-		  Conecta todos los eventos correspondientes a los controles de la interfaz
-		  */
-		void conectarEventos();
+		Simulation *simulation;
 
-		/**
-		  Actualiza los items hijos de un arbol padre
+		void init();
 
-		  @param *parent Arbol padre al cual se le actualizaran los sub-items
+		void setupUI();
 
-		  */
-		void updateChildItems(QTreeWidgetItem *parent);
+		void uncheckToolButton();
 
-
-		/**
-		 * @brief uncheckAllBut Deselecciona todas las herramientas menos @code{control}
-		 * @param control
+		/*!
+		 * \brief isOpenWindow Determines wether a determined \code{obj} has any detailed window already open.
+		 * \param obj
+		 * \return
 		 */
-		void uncheckAllBut(QToolButton *control);
+		bool isOpenWindow(GraphicObject *obj);
 
-		/**
-		 * @brief uncheckAllTools Desactiva todas las herramientas.
+		/*!
+		 * \brief getTabIndex Returns the index of a determined \code{obj} if this has any detailed window already open
+		 * \param obj Return integer value representing index of object. If no window is open it returns -1
+		 * \return
 		 */
-		void uncheckAllTools();
+		int getTabIndex(GraphicObject *obj);
 
-		void setEnabledAllTools(bool en);
-
-	public:
-		Ui::MainWindow *ui;
-
-		explicit MainWindow(QWidget *parent = 0);
-		~MainWindow();
-
-
-	protected:
-//        void closeEvent (QCloseEvent *event);
-
-	protected slots:
-
-		/**
-		  Esta funcion es llamada cuando se agregan agentes al entorno, se encarga de generar los nuevos agentes
-		  y asignarle las propiedades que el usuario especifique.
-		  */
-		void addAgents();
-
-		/**
-		  Comienza la simulacion de un proyecto si esta detenida o pausada.
-		  */
-		void runAnimation();
-
-		/**
-		  Pausa una animacion en caso de que se encuentre actualmente corriendo.
-		  */
-		void pauseAnimation();
-
-		/**
-		  Detiene una animacion que esta corriendo actualmente.
-		  */
-		void stopAnimation();
-
-		/**
-		  Este metodo se llama cuando se ha hecho click en el elemento "Salir" del menu Archivo
-		  */
-		void menuSalirClick();
-
-		/**
-		  Este metodo se llama cuando se cambia del modo grafico OpenGL al modo grafico Nativo del
-		  Sistema Operativo
-		  */
-		void menuNativoClick();
-
-		/**
-		  Este metodo activa el modo OpenGL para una mejor renderizacion y procesamiento de los graficos
-		  */
-		void menuOpenGLClick();
-
-		/**
-		  Se ejecuta cuando se hace click con el secundario sobre el visor de la animacion
-
-		  @param p Punto donde se hizo click
-		  */
-		void menuContextualListaObjetos(QPoint p);
-
-		/**
-		  Este metodo es llamado cuando se hace click en el boton Agregar agentes
-		  */
-		void btnAddAgentClick();
-
-		/**
-		  Se llama cuando se hace click en el boton Borrar agentes
-		  */
-		void btnDeleteAgentClick();
-
-		/**
-		  Cada vez que se llama imprime sobre la barra de estado la cantidad de agentes que se encuentran seleccionados
-		  */
-		void showSelectedAgents();
-
-		/**
-		  Se llama cada vez que se quiere refrescar la barra de estado de la ventana.
-		  */
-		void updateWindowStatus();
-
-	private slots:
-		void onCloseTab(int index);
-
-		/**
-		  Evento llamado cuando se hace click sobre el visor
-
-		  QMouseEvent *event Informacion sobre el evento del mouse
-		  */
-		void onVisorClicked(QMouseEvent *event);
-
-		/**
-		  Se ejecuta cada vez que se hace click sobre el boton
-		  */
-		void on_btnSearchMode_clicked();
-
-		/**
-		  Este evento se dispara cada vez que se quiere crear un nuevo proyecto.
-		  */
-		void onNewProyectTriggered(bool val);
-		void on_mainToolBox_currentChanged(int index);
-		void on_btnAddDotMatrix_clicked(bool checked);
-		void on_btnAddImage_clicked(bool checked);
-		void on_btnAddRegion_clicked(bool checked);
-		void on_btnAddADALINE_clicked(bool checked);
-		void on_btnAddHopfield_clicked(bool checked);
-		void on_btnAddMLP_clicked(bool checked);
-		void on_btnAddPerceptron_clicked(bool checked);
-		void on_btnAddAgent_clicked(bool checked);
-		void on_btnEffect_clicked(bool checked);
-		void on_horizontalSlider_valueChanged(int value);
+		//Temporary
+		QMessageBox underConstruction;
+		void showUnderConstructionMessage();
 };
 
-#endif // MAINWINDOW_H
+#endif // NEWMAINWINDOW_H

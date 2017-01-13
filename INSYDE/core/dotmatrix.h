@@ -14,8 +14,6 @@
 namespace core{
 
 /*!
- * \class
- *
  * \brief The DotMatrix class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
@@ -23,9 +21,12 @@ namespace core{
  */
 class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 {
-//		struct Dot;
 
 	public:
+
+		/*!
+		 * \brief The Dot struct
+		 */
         struct Dot{
             public:
                 int
@@ -34,7 +35,10 @@ class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 
         };
 
-		enum DataType{
+		/*!
+		 * \brief The DataFormat enum
+		 */
+		enum DataFormat{
 			Unipolar,
 			Bipolar
 		};
@@ -47,7 +51,7 @@ class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 		 * \param cols
 		 * \param dt
 		 */
-		explicit DotMatrix(int rows, int cols, const DataType &dt = Unipolar);
+		explicit DotMatrix(int rows, int cols, const DataFormat &dt = Unipolar);
 
 		/*!
 		 * \brief DotMatrix
@@ -56,14 +60,14 @@ class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 		 * \param cols
 		 * \param dt
 		 */
-		explicit DotMatrix(int dotsize, int rows, int cols, const DataType &dt = Unipolar);
+		explicit DotMatrix(int dotsize, int rows, int cols, const DataFormat &dt = Unipolar);
 
 		/*!
 		 * \brief DotMatrix
 		 * \param dotList
 		 * \param dt
 		 */
-		explicit DotMatrix(QVector<Dot> *dotList, int dotsize, int rows, int cols, const DataType &dt = Unipolar);
+		explicit DotMatrix(QVector<Dot> *dotList, int dotsize, int rows, int cols, const DataFormat &dt = Unipolar);
 
 
 		/*!
@@ -162,13 +166,13 @@ class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 		 * \brief setDataType
 		 * \param dt
 		 */
-		void setDataType(const DataType &dt);
+		void setDataType(const DataFormat &dt);
 
 		/*!
 		 * \brief getDataType
 		 * \return
 		 */
-		DataType getDataType() const;
+		DataFormat getDataType() const;
 
 		/*!
 		 * \brief setInputElement
@@ -414,7 +418,7 @@ class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 		enableContinuousDrawing,
 		enableEraser;
 
-		DataType dataType;
+		DataFormat dataType;
 
 		QVector<Dot > *ptsList;
 
@@ -438,7 +442,7 @@ class CORE_LIB_IMPORT_EXPORT DotMatrix : public GraphicObject
 		 * \param cols
 		 * \param dt
 		 */
-		void init(int size, int rows, int cols, DataType dt);
+		void init(int size, int rows, int cols, DataFormat dt);
 
 		/*!
 		 * \brief getContainer

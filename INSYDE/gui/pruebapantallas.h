@@ -22,9 +22,8 @@
 
 #include "newprojectwizard.h"
 #include "binaryoutputelement.h"
-#include "mainwindow.h"
 #include "view.h"
-#include "newmainwindow.h"
+#include "mainwindow.h"
 
 using namespace core;
 
@@ -53,7 +52,6 @@ class PruebaPantalla : public QWidget
 	private slots:
 
 		void on_newProjectButton_clicked();
-		void on_mainWindowButton_clicked();
 		void on_perceptronButton_clicked();
 		void on_systemButton_clicked();
 		void onVisorClicked(QMouseEvent *event);

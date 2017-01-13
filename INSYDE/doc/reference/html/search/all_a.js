@@ -5,5 +5,5 @@ var searchData=
   ['labeledintegerspinbox',['LabeledIntegerSpinBox',['../classcore_1_1_labeled_integer_spin_box.html',1,'core']]],
   ['labeledwidget',['LabeledWidget',['../classcore_1_1_labeled_widget.html',1,'core']]],
   ['learningrule',['LearningRule',['../classann__base_1_1_simple_perceptron.html#a5302d2f1b4fb5e272070b849c4ccbbba',1,'ann_base::SimplePerceptron']]],
-  ['local_5facs_5fpheromone_5fupdate',['local_acs_pheromone_update',['../class_a_c_o_solver.html#aec34128082cf92ec91abd2ce1bdd2295',1,'ACOSolver']]]
+  ['local_5facs_5fpheromone_5fupdate',['local_acs_pheromone_update',['../classec__base_1_1_a_c_o_solver.html#a5da947f3473ba4efa1456cc7e97c616d',1,'ec_base::ACOSolver']]]
 ];

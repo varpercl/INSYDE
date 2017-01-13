@@ -1,16 +1,16 @@
 var classcore_1_1_dot_matrix =
 [
     [ "Dot", "structcore_1_1_dot_matrix_1_1_dot.html", "structcore_1_1_dot_matrix_1_1_dot" ],
-    [ "DataType", "classcore_1_1_dot_matrix.html#a201e94e709ce21a12c10553a73da2afe", [
-      [ "Unipolar", "classcore_1_1_dot_matrix.html#a201e94e709ce21a12c10553a73da2afea822b47b0dfbae83f0d6606c0882921b6", null ],
-      [ "Bipolar", "classcore_1_1_dot_matrix.html#a201e94e709ce21a12c10553a73da2afea205615957da1bc5cc2200ff4b682ac35", null ]
+    [ "DataFormat", "classcore_1_1_dot_matrix.html#a30f34b9c057497d5a538256548f28be2", [
+      [ "Unipolar", "classcore_1_1_dot_matrix.html#a30f34b9c057497d5a538256548f28be2a822b47b0dfbae83f0d6606c0882921b6", null ],
+      [ "Bipolar", "classcore_1_1_dot_matrix.html#a30f34b9c057497d5a538256548f28be2a205615957da1bc5cc2200ff4b682ac35", null ]
     ] ],
     [ "DotMatrix", "classcore_1_1_dot_matrix.html#af18a426cbdd29da92268e4494368b31f", null ],
-    [ "DotMatrix", "classcore_1_1_dot_matrix.html#a0b55609948d4b0f80251b4f37e5f89de", null ],
-    [ "DotMatrix", "classcore_1_1_dot_matrix.html#ac5e33ac036234292fabd0642b33db7fe", null ],
-    [ "DotMatrix", "classcore_1_1_dot_matrix.html#af6d8ae3e3dc2918e735ee7b567036087", null ],
+    [ "DotMatrix", "classcore_1_1_dot_matrix.html#ac97341bd0a1455560d635f56d35a0200", null ],
+    [ "DotMatrix", "classcore_1_1_dot_matrix.html#a5f1c0475cb5e9a8358c8903ab5ca2db8", null ],
+    [ "DotMatrix", "classcore_1_1_dot_matrix.html#a7b7451246ed08e2fafe6e451e72c9a0f", null ],
     [ "getCols", "classcore_1_1_dot_matrix.html#a548443fdc29bcd60107cf187eb972c35", null ],
-    [ "getDataType", "classcore_1_1_dot_matrix.html#a8824ff8e6fee65362dfe46ac76f24d62", null ],
+    [ "getDataType", "classcore_1_1_dot_matrix.html#a9ec3a220ebe9dfd1f2f79975d541affa", null ],
     [ "getDotSize", "classcore_1_1_dot_matrix.html#ad7e195d947dc676ff39910638178b5a1", null ],
     [ "getEnableContinuousDrawing", "classcore_1_1_dot_matrix.html#abcce6864fff35789bc34e1d9966a699f", null ],
     [ "getEnableEdit", "classcore_1_1_dot_matrix.html#a852b47e4898b3004ad8a90bfef44be95", null ],
@@ -19,7 +19,7 @@ var classcore_1_1_dot_matrix =
     [ "getRows", "classcore_1_1_dot_matrix.html#a8adcd8779469a1e0e65fb8d26f707aaa", null ],
     [ "getSize", "classcore_1_1_dot_matrix.html#a874393b39b5d0d446495b1a76e0381f0", null ],
     [ "getXML", "classcore_1_1_dot_matrix.html#af197cecef57046584e89e2a035831b40", null ],
-    [ "setDataType", "classcore_1_1_dot_matrix.html#aad2361534c991924da30827489bd3063", null ],
+    [ "setDataType", "classcore_1_1_dot_matrix.html#af23412cf8a697c58b1eb787068e4c1db", null ],
     [ "setEnableEdit", "classcore_1_1_dot_matrix.html#a3f2f754a34668ccf9d2e6df074bf8974", null ],
     [ "setInputElement", "classcore_1_1_dot_matrix.html#a4f714d40199fd7fa365c36d808399205", null ],
     [ "setInputs", "classcore_1_1_dot_matrix.html#a9a3603ee4a76aedbc6b77b962d69726f", null ],

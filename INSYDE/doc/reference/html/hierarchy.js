@@ -1,10 +1,10 @@
 var hierarchy =
 [
-    [ "ACOSolver", "class_a_c_o_solver.html", null ],
+    [ "ec_base::ACOSolver", "classec__base_1_1_a_c_o_solver.html", null ],
     [ "AddAddAgentsDialog", "class_add_add_agents_dialog.html", null ],
     [ "ANNModelTree", "class_a_n_n_model_tree.html", null ],
     [ "ANNView", "class_a_n_n_view.html", null ],
-    [ "Ant", "class_ant.html", null ],
+    [ "ec_base::Ant", "classec__base_1_1_ant.html", null ],
     [ "ann_base::ArtificialNeuralNetwork", "classann__base_1_1_artificial_neural_network.html", [
       [ "ann_base::Adaline", "classann__base_1_1_adaline.html", null ],
       [ "ann_base::Hopfield", "classann__base_1_1_hopfield.html", null ],
@@ -14,14 +14,14 @@ var hierarchy =
     ] ],
     [ "core::ClipboardInterface", "classcore_1_1_clipboard_interface.html", [
       [ "core::BasicDialog", "classcore_1_1_basic_dialog.html", [
-        [ "AddNewMLPDialog", "class_add_new_m_l_p_dialog.html", null ],
+        [ "ann_gui::AddNewMLPDialog", "classann__gui_1_1_add_new_m_l_p_dialog.html", null ],
         [ "ANNTrainingDialog", "class_a_n_n_training_dialog.html", null ],
         [ "core::AddDotMatrixDialog", "classcore_1_1_add_dot_matrix_dialog.html", null ],
         [ "core::GraphicObjectPropertyDialog", "classcore_1_1_graphic_object_property_dialog.html", [
           [ "core::DotMatrixPropertyDialog", "classcore_1_1_dot_matrix_property_dialog.html", null ],
           [ "core::ImagePropertyDialog", "classcore_1_1_image_property_dialog.html", null ]
         ] ],
-        [ "NewMainWindow", "class_new_main_window.html", null ],
+        [ "MainWindow", "class_main_window.html", null ],
         [ "TrainingSetDialog", "class_training_set_dialog.html", null ],
         [ "WeightEditorDialog", "class_weight_editor_dialog.html", null ]
       ] ],
@@ -60,10 +60,9 @@ var hierarchy =
       ] ]
     ] ],
     [ "core::IOObject", "classcore_1_1_i_o_object.html", null ],
-    [ "MainWindow", "class_main_window.html", null ],
     [ "MovingActuator", "class_moving_actuator.html", null ],
     [ "ann_base::Hopfield::OutputResult", "structann__base_1_1_hopfield_1_1_output_result.html", null ],
-    [ "Problem", "class_problem.html", null ],
+    [ "ec_base::Problem", "classec__base_1_1_problem.html", null ],
     [ "QAbstractItemModel", null, [
       [ "ANNModelWrapper", "class_a_n_n_model_wrapper.html", null ],
       [ "ANNModelWrapper", "class_a_n_n_model_wrapper.html", null ]
@@ -79,7 +78,6 @@ var hierarchy =
     [ "QDialog", null, [
       [ "ACO", "class_a_c_o.html", null ],
       [ "AddAgentsDialog", "class_add_agents_dialog.html", null ],
-      [ "AddDotMatrixDialog", "class_add_dot_matrix_dialog.html", null ],
       [ "core::BasicDialog", "classcore_1_1_basic_dialog.html", null ],
       [ "core::ImageEffectPropertyDialog", "classcore_1_1_image_effect_property_dialog.html", null ],
       [ "core::SelectImageSegmentDialog", "classcore_1_1_select_image_segment_dialog.html", null ],
@@ -189,8 +187,8 @@ var hierarchy =
       [ "ann_base::MultilayerPerceptronPattern", "classann__base_1_1_multilayer_perceptron_pattern.html", null ],
       [ "ann_base::PerceptronTrainingPattern", "classann__base_1_1_perceptron_training_pattern.html", null ]
     ] ],
-    [ "ann_base::SimplePerceptron::TrainResult", "structann__base_1_1_simple_perceptron_1_1_train_result.html", null ],
     [ "ann_base::Adaline::TrainResult", "structann__base_1_1_adaline_1_1_train_result.html", null ],
+    [ "ann_base::SimplePerceptron::TrainResult", "structann__base_1_1_simple_perceptron_1_1_train_result.html", null ],
     [ "TreeItem", "class_tree_item.html", null ],
     [ "core::UnDoInterface", "classcore_1_1_un_do_interface.html", [
       [ "core::BasicDialog", "classcore_1_1_basic_dialog.html", null ]

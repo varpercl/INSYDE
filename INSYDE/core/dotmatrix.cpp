@@ -8,7 +8,7 @@ core::DotMatrix::DotMatrix() :
 	init(5, 10, 10, DotMatrix::Unipolar);
 }
 
-core::DotMatrix::DotMatrix(int rows, int cols, const DotMatrix::DataType &dt) :
+core::DotMatrix::DotMatrix(int rows, int cols, const DotMatrix::DataFormat &dt) :
 	GraphicObject()
 {
 	//QVector
@@ -17,7 +17,7 @@ core::DotMatrix::DotMatrix(int rows, int cols, const DotMatrix::DataType &dt) :
 	init(5, rows, cols, dt);
 }
 
-core::DotMatrix::DotMatrix(int dotsize, int rows, int cols, const DotMatrix::DataType &dt) :
+core::DotMatrix::DotMatrix(int dotsize, int rows, int cols, const DotMatrix::DataFormat &dt) :
 	GraphicObject()
 {
 	//QVector
@@ -25,7 +25,7 @@ core::DotMatrix::DotMatrix(int dotsize, int rows, int cols, const DotMatrix::Dat
 	init(dotsize, rows, cols, dt);
 }
 
-core::DotMatrix::DotMatrix(QVector<Dot> *dotList, int dotsize, int rows, int cols, const DotMatrix::DataType &dt)
+core::DotMatrix::DotMatrix(QVector<Dot> *dotList, int dotsize, int rows, int cols, const DotMatrix::DataFormat &dt)
 {
 	//QVector
 	ptsList = dotList;
@@ -177,12 +177,12 @@ void core::DotMatrix::setInputs(const QVector<int> &inputs, int rows, int cols)
 	setInputs(vector<double>(intInputs.begin(), intInputs.end()), rows, cols);
 }
 
-void core::DotMatrix::setDataType(const DotMatrix::DataType &dt)
+void core::DotMatrix::setDataType(const DotMatrix::DataFormat &dt)
 {
 	dataType = dt;
 }
 
-core::DotMatrix::DataType core::DotMatrix::getDataType() const
+core::DotMatrix::DataFormat core::DotMatrix::getDataType() const
 {
 	return dataType;
 }
@@ -444,7 +444,7 @@ QSize core::DotMatrix::getMatrixSize() const
 	return QSize(rows, cols);
 }
 
-void core::DotMatrix::init(int dotSize, int rows, int cols, DataType dt)
+void core::DotMatrix::init(int dotSize, int rows, int cols, DataFormat dt)
 {
 	this->size = dotSize;
 

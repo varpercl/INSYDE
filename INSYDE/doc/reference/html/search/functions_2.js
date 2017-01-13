@@ -7,7 +7,7 @@ var searchData=
   ['clear',['clear',['../class_a_n_n_model_tree.html#ac687916c7b90c7f33e29202afe81dda8',1,'ANNModelTree']]],
   ['closeevent',['closeEvent',['../class_a_n_n_training_dialog.html#a2c7088e20b12582c7a0dff2ff3f81f93',1,'ANNTrainingDialog']]],
   ['columncount',['columnCount',['../class_a_n_n_model_wrapper.html#a8195306650e92ce1a37fbb4a70b1b155',1,'ANNModelWrapper::columnCount()'],['../class_tree_item.html#a3314c3678d8ea4dee2f736c32f7b28b9',1,'TreeItem::columnCount()']]],
-  ['construct_5fsolutions',['construct_solutions',['../class_a_c_o_solver.html#a9c6d2d106e14831b5c402ec7108427e0',1,'ACOSolver']]],
+  ['construct_5fsolutions',['construct_solutions',['../classec__base_1_1_a_c_o_solver.html#a957754cb792a32facca4a52b90121da4',1,'ec_base::ACOSolver']]],
   ['contextmenuevent',['contextMenuEvent',['../classcore_1_1_basic_table.html#ada1626c0e09254386570c439585bda62',1,'core::BasicTable::contextMenuEvent()'],['../classcore_1_1_graphic_detailed_view.html#a1d68a01ca3a62bad07ff24fc57f5228c',1,'core::GraphicDetailedView::contextMenuEvent()']]],
   ['copyclick',['copyClick',['../classcore_1_1_basic_table.html#a78c633923208325cfda8a23d258de9dd',1,'core::BasicTable::copyClick()'],['../classcore_1_1_basic_tree.html#a8bb332f4de7a5ebce739cc92f466323b',1,'core::BasicTree::copyClick()'],['../classcore_1_1_image.html#a45163a89a7290b2dd71dec22b83af820',1,'core::Image::copyClick()'],['../classcore_1_1_clipboard_interface.html#aa32a73262fd066143ed166a794d519e4',1,'core::ClipboardInterface::copyClick()']]],
   ['copyimageclick',['copyImageClick',['../classcore_1_1_image.html#ac191f5cb63276777e7f38b8f47a943e1',1,'core::Image']]],

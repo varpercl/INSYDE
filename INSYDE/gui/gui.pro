@@ -29,7 +29,6 @@ SOURCES += \
     progressplotter.cpp \
     selectprojectpage.cpp \
     pruebapantallas.cpp \
-    newmainwindow.cpp \
     view.cpp \
     simulationcontrol.cpp
 
@@ -42,7 +41,6 @@ HEADERS += \
     progressplotter.h \
     selectprojectpage.h \
     pruebapantallas.h \
-    newmainwindow.h \
     icons.h \
     view.h \
     simulationcontrol.h

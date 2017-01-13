@@ -1,5 +1,5 @@
 #include "ant.h"
 
-Ant::Ant()
+ec_base::Ant::Ant()
 {
 }
