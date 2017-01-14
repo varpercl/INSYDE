@@ -11,6 +11,9 @@
 using namespace core;
 using namespace ann_base;
 
+namespace ann_gui
+{
+
 /*!
  * \class
  *
@@ -94,5 +97,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT SimulatedAnnealingWidget : public QWidget
 				  double maxNoise);
 
 };
-
+}
 #endif // SIMULATEDANNEALINGWIDGET_H

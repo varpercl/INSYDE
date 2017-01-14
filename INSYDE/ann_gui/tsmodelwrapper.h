@@ -6,7 +6,8 @@
 #include "share_ann_gui_lib.h"
 #include "../ann_base/trainingset.h"
 
-namespace ann_gui{
+namespace ann_gui
+{
 
 class TrainingSet;
 

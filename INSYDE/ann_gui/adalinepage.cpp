@@ -1,14 +1,14 @@
 #include "adalinepage.h"
 #include "ui_adalinepage.h"
 
-AdalinePage::AdalinePage() :
+ann_gui::AdalinePage::AdalinePage() :
     QWizardPage(),
     ui(new Ui::AdalinePage())
 {
     ui->setupUi(this);
 }
 
-int AdalinePage::nextId() const
+int ann_gui::AdalinePage::nextId() const
 {
     return 0;
 }

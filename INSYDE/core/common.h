@@ -21,13 +21,12 @@ using namespace std;
 namespace core{
 
 /*!
- * Este espacio de nombres define una serie de funciones de uso general
+ * \brief The common namespace involves a generic collection of
+ * classes and helper functions that are used along almost every part of the project
  *
- * \namespace common
- * \author Edixon Vargas
+ * \author Edixon V <ingedixonvargas@gmail.com>
  * \date 08-06-2012
  */
-
 namespace common /*CORE_LIB_IMPORT_EXPORT*/ {
 
 	enum IntegerTypes{

@@ -1,0 +1,36 @@
+<map id="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/ann_gui/perceptronpage.cpp" name="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/ann_gui/perceptronpage.cpp">
+<area shape="rect" id="node2" href="$perceptronpage_8h.html" title="perceptronpage.h" alt="" coords="1831,109,1953,136"/>
+<area shape="rect" id="node4" href="$share__ann__gui__lib_8h.html" title="share_ann_gui_lib.h" alt="" coords="94,408,231,435"/>
+<area shape="rect" id="node5" href="$weighteditordialog_8h.html" title="weighteditordialog.h" alt="" coords="1719,184,1855,211"/>
+<area shape="rect" id="node16" href="$simpleperceptron_8h.html" title="../ann_base/simpleperceptron.h" alt="" coords="1158,333,1362,360"/>
+<area shape="rect" id="node18" href="$common_8h.html" title="../core/common.h" alt="" coords="1502,557,1626,584"/>
+<area shape="rect" id="node38" href="$trainingsetdialog_8h.html" title="trainingsetdialog.h" alt="" coords="2322,333,2449,360"/>
+<area shape="rect" id="node46" href="$perceptrondisplay_8h.html" title="perceptrondisplay.h" alt="" coords="1979,184,2114,211"/>
+<area shape="rect" id="node6" href="$basicdialog_8h.html" title="../core/basicdialog.h" alt="" coords="2388,557,2527,584"/>
+<area shape="rect" id="node13" href="$basictree_8h.html" title="../core/basictree.h" alt="" coords="2237,557,2363,584"/>
+<area shape="rect" id="node14" href="$labeleddoublespinbox_8h.html" title="../core/labeleddoublespinbox.h" alt="" coords="2970,557,3169,584"/>
+<area shape="rect" id="node33" href="$annmodelwrapper_8h.html" title="../ann_gui/annmodelwrapper.h" alt="" coords="797,259,992,285"/>
+<area shape="rect" id="node7" href="$share__core__lib_8h.html" title="share_core_lib.h" alt="" coords="2480,707,2597,733"/>
+<area shape="rect" id="node8" href="$undo_8h.html" title="undo.h" alt="" coords="2140,632,2201,659"/>
+<area shape="rect" id="node10" href="$core_2definitions_8h.html" title="definitions.h" alt="" coords="2276,632,2367,659"/>
+<area shape="rect" id="node11" href="$clipboard_8h.html" title="clipboard.h" alt="" coords="2391,632,2476,659"/>
+<area shape="rect" id="node15" href="$labeledwidget_8h.html" title="labeledwidget.h" alt="" coords="2906,632,3017,659"/>
+<area shape="rect" id="node17" href="$share__ann__base__lib_8h.html" title="share_ann_base_lib.h" alt="" coords="479,557,627,584"/>
+<area shape="rect" id="node25" href="$perceptrontrainingpattern_8h.html" title="perceptrontrainingpattern.h" alt="" coords="485,408,661,435"/>
+<area shape="rect" id="node26" href="$simpleinputpattern_8h.html" title="simpleinputpattern.h" alt="" coords="681,483,820,509"/>
+<area shape="rect" id="node27" href="$trainingset_8h.html" title="trainingset.h" alt="" coords="1297,408,1391,435"/>
+<area shape="rect" id="node32" href="$artificialneuralnetwork_8h.html" title="artificialneuralnetwork.h" alt="" coords="95,483,252,509"/>
+<area shape="rect" id="node23" href="$imath_8h.html" title="imath.h" alt="" coords="1498,632,1563,659"/>
+<area shape="rect" id="node28" href="$normalization_8h.html" title="../core/normalization.h" alt="" coords="1653,483,1803,509"/>
+<area shape="rect" id="node29" href="$datarepresentation_8h.html" title="../core/datarepresentation.h" alt="" coords="2031,557,2212,584"/>
+<area shape="rect" id="node30" href="$mlp_8h.html" title="mlp.h" alt="" coords="895,483,950,509"/>
+<area shape="rect" id="node34" href="$annmodeltree_8h.html" title="annmodeltree.h" alt="" coords="107,333,218,360"/>
+<area shape="rect" id="node35" href="$adaline_8h.html" title="../ann_base/adaline.h" alt="" coords="1076,483,1223,509"/>
+<area shape="rect" id="node36" href="$hopfield_8h.html" title="../ann_base/hopfield.h" alt="" coords="685,408,835,435"/>
+<area shape="rect" id="node37" href="$kohonen_8h.html" title="../ann_base/kohonen.h" alt="" coords="307,408,461,435"/>
+<area shape="rect" id="node40" href="$normalizationwidget_8h.html" title="../core/normalizationwidget.h" alt="" coords="2621,408,2809,435"/>
+<area shape="rect" id="node45" href="$datarepresentationbox_8h.html" title="../core/datarepresentationbox.h" alt="" coords="2373,483,2576,509"/>
+<area shape="rect" id="node42" href="$labeledcombobox_8h.html" title="labeledcombobox.h" alt="" coords="2653,557,2787,584"/>
+<area shape="rect" id="node43" href="$doubleminmaxvaluewidget_8h.html" title="doubleminmaxvaluewidget.h" alt="" coords="2850,483,3033,509"/>
+<area shape="rect" id="node49" href="$weightline_8h.html" title="weightline.h" alt="" coords="1215,259,1305,285"/>
+</map>

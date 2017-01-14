@@ -1,7 +1,7 @@
 #include "addagentsdialog.h"
 #include "ui_addagentsdialog.h"
 
-AddAgentsDialog::AddAgentsDialog(QWidget *parent) :
+ec_gui::AddAgentsDialog::AddAgentsDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddAgentsDialog)
 {
@@ -11,67 +11,67 @@ AddAgentsDialog::AddAgentsDialog(QWidget *parent) :
 //    on_cmbAgentType_currentIndexChanged(ui->cmbAgentType->currentIndex());
 }
 
-AddAgentsDialog::~AddAgentsDialog()
+ec_gui::AddAgentsDialog::~AddAgentsDialog()
 {
 	delete ui;
 }
 
-int AddAgentsDialog::getMaxVitality()
+int ec_gui::AddAgentsDialog::getMaxVitality()
 {
 	return ui->sbMaxVitality->value();
 }
 
-int AddAgentsDialog::getInitialVitality()
+int ec_gui::AddAgentsDialog::getInitialVitality()
 {
 	return ui->sbInitialVitality->value();
 }
 
-int AddAgentsDialog::getMaxEnergy()
+int ec_gui::AddAgentsDialog::getMaxEnergy()
 {
 	return ui->sbMaxEnergy->value();
 }
 
-int AddAgentsDialog::getInitialEnergy()
+int ec_gui::AddAgentsDialog::getInitialEnergy()
 {
 	return ui->sbInitialEnergy->value();
 }
 
-int AddAgentsDialog::getSpeed()
+int ec_gui::AddAgentsDialog::getSpeed()
 {
 	return ui->sbSpeed->value();
 }
 
-int AddAgentsDialog::getVisualScope()
+int ec_gui::AddAgentsDialog::getVisualScope()
 {
 	return ui->sbVisualScope->value();
 }
 
-int AddAgentsDialog::getNumOfUnits()
+int ec_gui::AddAgentsDialog::getNumOfUnits()
 {
 	return ui->sbNumOfUnits->value();
 }
 
-int AddAgentsDialog::getCurrentController()
+int ec_gui::AddAgentsDialog::getCurrentController()
 {
 	return ui->cmbController->currentIndex();
 }
 
-int AddAgentsDialog::getCurrentColor()
+int ec_gui::AddAgentsDialog::getCurrentColor()
 {
 	return ui->cmbColorList->currentIndex();
 }
 
-int AddAgentsDialog::getCurrentAgentType()
+int ec_gui::AddAgentsDialog::getCurrentAgentType()
 {
 	return ui->cmbAgentType->currentIndex();
 }
 
-int AddAgentsDialog::getPowerValue()
+int ec_gui::AddAgentsDialog::getPowerValue()
 {
 	return ui->sbPowerValue->value();
 }
 
-int AddAgentsDialog::getRangeValue()
+int ec_gui::AddAgentsDialog::getRangeValue()
 {
 	return ui->sbRangeValue->value();
 }
@@ -84,7 +84,7 @@ int AddAgentsDialog::getRangeValue()
 //     QMainWindow::closeEvent(event);
 // }
 
-void AddAgentsDialog::on_cmbAgentType_currentIndexChanged(int index)
+void ec_gui::AddAgentsDialog::on_cmbAgentType_currentIndexChanged(int index)
 {
     switch(index){
         case 0:

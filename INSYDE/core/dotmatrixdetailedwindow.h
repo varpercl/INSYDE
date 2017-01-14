@@ -7,7 +7,7 @@
 #include "share_core_lib.h"
 #include "detailedwindow.h"
 #include "dotmatrix.h"
-#include "interfaces.h"
+#include "undo.h"
 
 namespace core{
 
@@ -21,7 +21,7 @@ class DotMatrix;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class CORE_LIB_IMPORT_EXPORT DotMatrixDetailedWindow : public DetailedWindow, public ResizableF
+class CORE_LIB_IMPORT_EXPORT DotMatrixDetailedWindow : public DetailedWindow, public IResizableF
 {
 	public:
 

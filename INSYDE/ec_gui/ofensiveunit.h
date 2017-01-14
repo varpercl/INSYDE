@@ -8,6 +8,8 @@
 #include "share_ec_gui.h"
 #include "unit.h"
 
+namespace ec_gui
+{
 class Unit;
 
 /**
@@ -177,5 +179,5 @@ class EC_GUI_LIB_IMPORT_EXPORT OfensiveUnit : public Unit
 //        QRectF boundingRect() const;
 //        void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 };
-
+}
 #endif // OFENSIVEUNIT_H

@@ -11,6 +11,9 @@ namespace Ui {
 	class SelectProjectPage;
 }
 
+namespace gui
+{
+
 /*!
  * \brief The SelectProjectPage class
  *
@@ -66,5 +69,5 @@ class SelectProjectPage : public QWizardPage
 		void connectEvents();
 
 };
-
+}
 #endif // SELECTPROJECTPAGE_H

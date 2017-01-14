@@ -12,6 +12,9 @@
 
 using namespace ann_base;
 
+namespace ann_gui
+{
+
 /*!
  * \class WeightEditorDialog
  *
@@ -93,5 +96,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT WeightEditorDialog : public BasicDialog
 
 		void setupUI();
 };
-
+}
 #endif // FRMWEIGHTSEDITOR_H

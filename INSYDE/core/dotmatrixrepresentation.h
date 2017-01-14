@@ -7,7 +7,7 @@
 #include "datarepresentationwidget.h"
 #include "dotmatrixdetailedwindow.h"
 #include "integersizewidget.h"
-#include "interfaces.h"
+#include "undo.h"
 
 namespace core{
 
@@ -22,7 +22,7 @@ class DotMatrixDetailedWindow;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class CORE_LIB_IMPORT_EXPORT DotMatrixRepresentation : public DataRepresentationWidget, public Resizable
+class CORE_LIB_IMPORT_EXPORT DotMatrixRepresentation : public DataRepresentationWidget, public IResizable
 {
 	public:
 

@@ -10,6 +10,9 @@ namespace Ui{
 	class AdalinePage;
 }
 
+namespace ann_gui
+{
+
 /*!
  * \class
  *
@@ -29,5 +32,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT AdalinePage : public QWizardPage
 	private:
 		Ui::AdalinePage *ui;
 };
-
+}
 #endif // ADALINEPAGE_H

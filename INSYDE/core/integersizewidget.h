@@ -5,7 +5,8 @@
 
 #include "share_core_lib.h"
 #include "labeledintegerspinbox.h"
-#include "interfaces.h"
+#include "undo.h"
+#include "iresizable.h"
 
 namespace core{
 
@@ -19,7 +20,7 @@ namespace core{
  *
  * TODO: 16/4/16 upgrade this class to implement comonly used controls developed in this project (labeled-boxes)
  */
-class CORE_LIB_IMPORT_EXPORT IntegerSizeWidget : public QWidget, public Resizable
+class CORE_LIB_IMPORT_EXPORT IntegerSizeWidget : public QWidget, public IResizable
 {
 	public:
 

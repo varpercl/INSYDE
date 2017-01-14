@@ -3,8 +3,10 @@
 
 #include "share_ec_gui.h"
 #include "agent.h"
-
-namespace ECFunctions {
+namespace ec_gui
+{
+namespace common
+{
 
 	/**
 	  Devuelve la distancia euclidea entre dos agentes.
@@ -16,5 +18,6 @@ namespace ECFunctions {
 	  */
 	EC_GUI_LIB_IMPORT_EXPORT double distanceBetweenUnits(const Agent &agent1, const Agent &agent2);
 
+}
 }
 #endif // ECFUNCTIONS_H

@@ -9,8 +9,7 @@
 
 #define TESTS
 
-//QPointer<PruebaPantalla> profscr;
-
+using namespace gui;
 
 int main(int argc, char *argv[])
 {

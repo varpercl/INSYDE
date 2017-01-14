@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['weighteditordialog',['WeightEditorDialog',['../class_weight_editor_dialog.html',1,'']]],
-  ['weighteditproxy',['WeightEditProxy',['../class_weight_edit_proxy.html',1,'']]],
-  ['weightline',['WeightLine',['../class_weight_line.html',1,'']]]
+  ['weighteditordialog',['WeightEditorDialog',['../classann__gui_1_1_weight_editor_dialog.html',1,'ann_gui']]],
+  ['weighteditproxy',['WeightEditProxy',['../classann__gui_1_1_weight_edit_proxy.html',1,'ann_gui']]],
+  ['weightline',['WeightLine',['../classann__gui_1_1_weight_line.html',1,'ann_gui']]]
 ];

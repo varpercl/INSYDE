@@ -9,7 +9,6 @@
 
 
 /*!
- * \namespace core
  * \brief The core namespace stores a lot of classes and helper function to perform
  * from graphical functionalities to math calculations. Also stores some GUI classes
  *

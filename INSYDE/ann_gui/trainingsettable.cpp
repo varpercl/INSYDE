@@ -1,13 +1,13 @@
 #include "trainingsettable.h"
 
-TrainingSetTable::TrainingSetTable(TrainingSet *ts, QWidget *parent) :
+ann_gui::TrainingSetTable::TrainingSetTable(TrainingSet *ts, QWidget *parent) :
 	BasicTable(parent),
 	ts(0)
 {
 	init(ts);
 }
 
-void TrainingSetTable::setTrainingSet(TrainingSet *ts)
+void ann_gui::TrainingSetTable::setTrainingSet(TrainingSet *ts)
 {
 	if(this->ts == 0 || this->ts != ts){
 		this->ts = ts;
@@ -23,32 +23,32 @@ void TrainingSetTable::setTrainingSet(TrainingSet *ts)
 	}
 }
 
-TrainingSet *TrainingSetTable::getTrainingSet() const
+TrainingSet *ann_gui::TrainingSetTable::getTrainingSet() const
 {
 	return ts;
 }
 
-void TrainingSetTable::setPrecision(int precision)
+void ann_gui::TrainingSetTable::setPrecision(int precision)
 {
 	decimalPrecision = precision;
 }
 
-int TrainingSetTable::getPrecision() const
+int ann_gui::TrainingSetTable::getPrecision() const
 {
 	return decimalPrecision;
 }
 
-void TrainingSetTable::setFormat(char format)
+void ann_gui::TrainingSetTable::setFormat(char format)
 {
 	this->format = format;
 }
 
-char TrainingSetTable::getFormat() const
+char ann_gui::TrainingSetTable::getFormat() const
 {
 	return format;
 }
 
-void TrainingSetTable::setInputsVisible(bool b)
+void ann_gui::TrainingSetTable::setInputsVisible(bool b)
 {
 	//TODO: 12/4/15 setInputsVisible verificar si se puede simplificar haciendo uso del objeto
 
@@ -57,12 +57,12 @@ void TrainingSetTable::setInputsVisible(bool b)
 	updateColumnVisibility();
 }
 
-bool TrainingSetTable::getInputsVisible() const
+bool ann_gui::TrainingSetTable::getInputsVisible() const
 {
 	return inputsVisible;
 }
 
-void TrainingSetTable::setTargetsVisible(bool b)
+void ann_gui::TrainingSetTable::setTargetsVisible(bool b)
 {
 	//TODO: 12/4/15 setTargetsVisible verificar si se puede simplificar haciendo uso del objeto ts
 
@@ -71,12 +71,12 @@ void TrainingSetTable::setTargetsVisible(bool b)
 	updateColumnVisibility();
 }
 
-bool TrainingSetTable::getTargetsVisible() const
+bool ann_gui::TrainingSetTable::getTargetsVisible() const
 {
 	return targetsVisible;
 }
 
-void TrainingSetTable::onInsertRightColumnTriggered()
+void ann_gui::TrainingSetTable::onInsertRightColumnTriggered()
 {
 	int index = horizontalHeader()->logicalIndexAt(horizontalHeader()->viewport()->mapFromGlobal(horizontalHeaderContextMenu->pos()));
 	if(index == ts->getInputsSize() - 1){
@@ -86,27 +86,27 @@ void TrainingSetTable::onInsertRightColumnTriggered()
 	}
 }
 
-void TrainingSetTable::onColumnInserted(int column)
+void ann_gui::TrainingSetTable::onColumnInserted(int column)
 {
 	(void)column;
 	updateColumnVisibility();
 }
 
-void TrainingSetTable::onInputsSizeChanged(int lsize, int nsize)
+void ann_gui::TrainingSetTable::onInputsSizeChanged(int lsize, int nsize)
 {
 	(void)lsize;
 	(void)nsize;
 	updateColumnVisibility();
 }
 
-void TrainingSetTable::onTargetsSizeChanged(int lsize, int nsize)
+void ann_gui::TrainingSetTable::onTargetsSizeChanged(int lsize, int nsize)
 {
 	(void)lsize;
 	(void)nsize;
 	updateColumnVisibility();
 }
 
-void TrainingSetTable::init(TrainingSet *ts)
+void ann_gui::TrainingSetTable::init(TrainingSet *ts)
 {
 //	getCutAction()->setVisible(false);
 	getCutAction()->setEnabled(false);
@@ -135,7 +135,7 @@ void TrainingSetTable::init(TrainingSet *ts)
 	connectTSSignals();
 }
 
-void TrainingSetTable::updateColumnVisibility()
+void ann_gui::TrainingSetTable::updateColumnVisibility()
 {
 	//TODO: 12/4/15 setTargetsVisible verificar si se puede simplificar haciendo uso del objeto ts
 
@@ -157,7 +157,7 @@ void TrainingSetTable::updateColumnVisibility()
 	}
 }
 
-void TrainingSetTable::connectTSSignals()
+void ann_gui::TrainingSetTable::connectTSSignals()
 {
 	connect(ts, SIGNAL(columnInserted(int)), SLOT(onColumnInserted(int)));
 	connect(ts, SIGNAL(inputsSizeChanged(int,int)), SLOT(onInputsSizeChanged(int,int)));

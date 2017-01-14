@@ -1,0 +1,12 @@
+<map id="core::Undo" name="core::Undo">
+<area shape="rect" id="node2" href="$classcore_1_1_basic_dialog.html" title="The BasicDialog class represents an improved and with&#45;basic&#45;functionalities dialog. With this dialog you can perform actions like Undo and Redo, also it has a toolbar that has included some basic buttons like New, Save, Open, Copy, Cut, Paste, Tools, Help and allow user to add its own buttons and hide what doesn&#39;t need. This is a powerful dialog that is used by lots of specific dialogs in this project. " alt="" coords="139,157,263,184"/>
+<area shape="rect" id="node3" href="$classann__gui_1_1_add_new_m_l_p_dialog.html" title="The AddNewMLPDialog class. " alt="" coords="311,5,497,32"/>
+<area shape="rect" id="node4" href="$classann__gui_1_1_a_n_n_training_dialog.html" title="ann_gui::ANNTrainingDialog" alt="" coords="313,56,495,83"/>
+<area shape="rect" id="node5" href="$classann__gui_1_1_training_set_dialog.html" title="ann_gui::TrainingSetDialog" alt="" coords="316,107,492,133"/>
+<area shape="rect" id="node6" href="$classann__gui_1_1_weight_editor_dialog.html" title="The WeightEditorDialog class. " alt="" coords="311,157,497,184"/>
+<area shape="rect" id="node7" href="$classcore_1_1_add_dot_matrix_dialog.html" title="The AddDotMatrixDialog class represents an specified dialog that allows user to add some DotMatrix ob..." alt="" coords="319,208,489,235"/>
+<area shape="rect" id="node8" href="$classcore_1_1_graphic_object_property_dialog.html" title="core::GraphicObjectProperty\lDialog" alt="" coords="311,259,497,301"/>
+<area shape="rect" id="node11" href="$classgui_1_1_main_window.html" title="gui::MainWindow" alt="" coords="343,325,465,352"/>
+<area shape="rect" id="node9" href="$classcore_1_1_dot_matrix_property_dialog.html" title="core::DotMatrixPropertyDialog" alt="" coords="545,241,741,268"/>
+<area shape="rect" id="node10" href="$classcore_1_1_image_property_dialog.html" title="core::ImagePropertyDialog" alt="" coords="556,292,731,319"/>
+</map>

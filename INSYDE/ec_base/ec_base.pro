@@ -82,3 +82,5 @@ unix:{
     INCLUDEPATH += $$PWD/../external/tbb42_20140416oss_lin/include
     DEPENDPATH += $$PWD/../external/tbb42_20140416oss_lin/include
 }
+
+FORMS +=

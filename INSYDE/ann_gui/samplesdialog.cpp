@@ -1,19 +1,19 @@
 #include "samplesdialog.h"
 #include "ui_samplesdialog.h"
 
-SamplesDialog::SamplesDialog(MLPTrainingResult *tr, QWidget *parent) :
+ann_gui::SamplesDialog::SamplesDialog(MLPTrainingResult *tr, QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::SamplesDialog)
 {
 	initDialog(tr);
 }
 
-SamplesDialog::~SamplesDialog()
+ann_gui::SamplesDialog::~SamplesDialog()
 {
 	delete ui;
 }
 
-int SamplesDialog::getSampleCount()
+int ann_gui::SamplesDialog::getSampleCount()
 {
 	if(ui->cbAllSamples->checkState() == Qt::Checked){
 		return tres->getMSESize();
@@ -22,7 +22,7 @@ int SamplesDialog::getSampleCount()
 	}
 }
 
-void SamplesDialog::initDialog(MLPTrainingResult *tr)
+void ann_gui::SamplesDialog::initDialog(MLPTrainingResult *tr)
 {
 	ui->setupUi(this);
 
@@ -33,7 +33,7 @@ void SamplesDialog::initDialog(MLPTrainingResult *tr)
 	ui->cbAllSamples->setChecked(true);
 }
 
-void SamplesDialog::on_cbAllSamples_toggled(bool checked)
+void ann_gui::SamplesDialog::on_cbAllSamples_toggled(bool checked)
 {
 	if(checked){
 		ui->sbNSamples->setEnabled(false);

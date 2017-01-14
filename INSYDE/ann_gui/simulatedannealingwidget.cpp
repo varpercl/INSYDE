@@ -1,98 +1,98 @@
 #include "simulatedannealingwidget.h"
 
-SimulatedAnnealingWidget::SimulatedAnnealingWidget(QWidget *parent) :
+ann_gui::SimulatedAnnealingWidget::SimulatedAnnealingWidget(QWidget *parent) :
 	QWidget(parent)
 {
 	init(0, 0, 0, 0, 0, 0, 0, 0);
 }
 
-SimulatedAnnealingWidget::SimulatedAnnealingWidget(double start, int samples, int changes, double minTemp, double fdec, double itemp, double minNoise, double maxNoise, QWidget *parent) :
+ann_gui::SimulatedAnnealingWidget::SimulatedAnnealingWidget(double start, int samples, int changes, double minTemp, double fdec, double itemp, double minNoise, double maxNoise, QWidget *parent) :
 	QWidget(parent)
 {
 	init(samples, start, changes, minTemp, fdec, itemp, minNoise, maxNoise);
 }
 
-void SimulatedAnnealingWidget::setSamples(int samples)
+void ann_gui::SimulatedAnnealingWidget::setSamples(int samples)
 {
 	lisbSamples->setValue(samples);
 }
 
-int SimulatedAnnealingWidget::getSamples() const
+int ann_gui::SimulatedAnnealingWidget::getSamples() const
 {
 	return lisbSamples->getValue();
 }
 
-void SimulatedAnnealingWidget::setStartCondition(double sc)
+void ann_gui::SimulatedAnnealingWidget::setStartCondition(double sc)
 {
 	startCondition->setValue(sc);
 }
 
-double SimulatedAnnealingWidget::getStartCondition() const
+double ann_gui::SimulatedAnnealingWidget::getStartCondition() const
 {
 	return startCondition->getValue();
 }
 
-void SimulatedAnnealingWidget::setNumberOfChanges(int noc)
+void ann_gui::SimulatedAnnealingWidget::setNumberOfChanges(int noc)
 {
 	nChanges->setValue(noc);
 }
 
-int SimulatedAnnealingWidget::getNumberOfChanges() const
+int ann_gui::SimulatedAnnealingWidget::getNumberOfChanges() const
 {
 	return nChanges->getValue();
 }
 
-void SimulatedAnnealingWidget::setMinTemperature(double mt)
+void ann_gui::SimulatedAnnealingWidget::setMinTemperature(double mt)
 {
 	minTemperature->setValue(mt);
 }
 
-double SimulatedAnnealingWidget::getMinTemperature() const
+double ann_gui::SimulatedAnnealingWidget::getMinTemperature() const
 {
 	return minTemperature->getValue();
 }
 
-void SimulatedAnnealingWidget::setDecTempFactor(double dtf)
+void ann_gui::SimulatedAnnealingWidget::setDecTempFactor(double dtf)
 {
 	decTempFactor->setValue(dtf);
 }
 
-double SimulatedAnnealingWidget::getDecTempFactor() const
+double ann_gui::SimulatedAnnealingWidget::getDecTempFactor() const
 {
 	return decTempFactor->getValue();
 }
 
-void SimulatedAnnealingWidget::setStartTemperature(double st)
+void ann_gui::SimulatedAnnealingWidget::setStartTemperature(double st)
 {
 	startTemperature->setValue(st);
 }
 
-double SimulatedAnnealingWidget::getStartTemperature() const
+double ann_gui::SimulatedAnnealingWidget::getStartTemperature() const
 {
 	return startTemperature->getValue();
 }
 
-void SimulatedAnnealingWidget::setMinNoise(double mn)
+void ann_gui::SimulatedAnnealingWidget::setMinNoise(double mn)
 {
 	minNoise->setValue(mn);
 }
 
-double SimulatedAnnealingWidget::getMinNoise() const
+double ann_gui::SimulatedAnnealingWidget::getMinNoise() const
 {
 	return minNoise->getValue();
 }
 
-void SimulatedAnnealingWidget::setMaxNoise(double mn)
+void ann_gui::SimulatedAnnealingWidget::setMaxNoise(double mn)
 {
 	maxNoise->setValue(mn);
 }
 
-double SimulatedAnnealingWidget::getMaxNoise() const
+double ann_gui::SimulatedAnnealingWidget::getMaxNoise() const
 {
 	return maxNoise->getValue();
 }
 
-void SimulatedAnnealingWidget::setSASettings(SimulatedAnnealingSettings *sats)
+void ann_gui::SimulatedAnnealingWidget::setSASettings(SimulatedAnnealingSettings *sats)
 {
 	startCondition->setValue(sats->getStartCondition());
 	nChanges->setValue(sats->getChanges());
@@ -103,7 +103,7 @@ void SimulatedAnnealingWidget::setSASettings(SimulatedAnnealingSettings *sats)
 	maxNoise->setValue(sats->getMaxNoise());
 }
 
-SimulatedAnnealingSettings *SimulatedAnnealingWidget::getSimulatedAnnealingSettings()
+SimulatedAnnealingSettings *ann_gui::SimulatedAnnealingWidget::getSimulatedAnnealingSettings()
 {
 	sats.setStartCondition(startCondition->getValue());
 	sats.setChanges(nChanges->getValue());
@@ -115,7 +115,7 @@ SimulatedAnnealingSettings *SimulatedAnnealingWidget::getSimulatedAnnealingSetti
 	return &sats;
 }
 
-void SimulatedAnnealingWidget::init(int samples, double start, int changes, double minTemp, double fdec, double itemp, double minNoise, double maxNoise)
+void ann_gui::SimulatedAnnealingWidget::init(int samples, double start, int changes, double minTemp, double fdec, double itemp, double minNoise, double maxNoise)
 {
 	const int decimals = 5;
 	mainLayout = new QVBoxLayout(this);

@@ -1,6 +1,6 @@
 var class_black_white_effect =
 [
-    [ "BNEffectType", "class_black_white_effect.html#adba772ae94f8863e81c4b0a47a5315b3a68aa3bb87449adad1d0f1aba62d1e81c", null ],
+    [ "BNEffectType", "class_black_white_effect.html#a32d2a38765b380a9fdc94d0caa9d1f32a68aa3bb87449adad1d0f1aba62d1e81c", null ],
     [ "ConvertionFormat", "class_black_white_effect.html#acd98a26de5f7a823ee9ef67cf76fe645", [
       [ "Threshold", "class_black_white_effect.html#acd98a26de5f7a823ee9ef67cf76fe645abcfa175493aed5f1de3a5d8fc9871a94", null ],
       [ "Mono", "class_black_white_effect.html#acd98a26de5f7a823ee9ef67cf76fe645a589d5d771256ad21b88ccd9ebab7b7e3", null ]

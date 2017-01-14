@@ -13,7 +13,10 @@
 #include "../ann_gui/mlpobject.h"
 #include "../ec_gui/shootingunit.h"
 
+using namespace ec_gui;
 
+namespace gui
+{
 
 class GraphicPointer;
 class Unit;
@@ -46,5 +49,5 @@ class View : public DetailedWindow
 		void init();
 
 };
-
+}
 #endif // MAPA_H

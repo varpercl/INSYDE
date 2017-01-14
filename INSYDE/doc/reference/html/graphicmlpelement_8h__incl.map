@@ -1,0 +1,34 @@
+<map id="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/ann_gui/graphicmlpelement.h" name="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/ann_gui/graphicmlpelement.h">
+<area shape="rect" id="node3" href="$common_8h.html" title="../core/common.h" alt="" coords="1185,423,1309,449"/>
+<area shape="rect" id="node13" href="$gui_2imageeffect_8h.html" title="../gui/imageeffect.h" alt="" coords="970,109,1102,136"/>
+<area shape="rect" id="node15" href="$graphicobject_8h.html" title="../core/graphicobject.h" alt="" coords="253,348,403,375"/>
+<area shape="rect" id="node23" href="$dotmatrix_8h.html" title="dotmatrix.h" alt="" coords="690,273,777,300"/>
+<area shape="rect" id="node29" href="$graphicmlpelementpropertydialog_8h.html" title="graphicmlpelementpropertydialog.h" alt="" coords="1406,109,1629,136"/>
+<area shape="rect" id="node31" href="$anntrainingdialog_8h.html" title="anntrainingdialog.h" alt="" coords="1899,109,2029,136"/>
+<area shape="rect" id="node37" href="$mlp_8h.html" title="../ann_base/mlp.h" alt="" coords="2143,273,2270,300"/>
+<area shape="rect" id="node10" href="$share__core__lib_8h.html" title="share_core_lib.h" alt="" coords="469,572,587,599"/>
+<area shape="rect" id="node11" href="$imath_8h.html" title="imath.h" alt="" coords="1335,497,1401,524"/>
+<area shape="rect" id="node14" href="$gui_2graphiccursorelement_8h.html" title="graphiccursorelement.h" alt="" coords="313,273,471,300"/>
+<area shape="rect" id="node22" href="$image_8h.html" title="../core/image.h" alt="" coords="779,191,888,218"/>
+<area shape="rect" id="node26" href="$imageefectpropertydialog_8h.html" title="imageefectpropertydialog.h" alt="" coords="1074,191,1251,218"/>
+<area shape="rect" id="node27" href="$gui_2effect_8h.html" title="effect.h" alt="" coords="1236,348,1300,375"/>
+<area shape="rect" id="node28" href="$gui_2blackwhiteeffect_8h.html" title="blackwhiteeffect.h" alt="" coords="1023,273,1148,300"/>
+<area shape="rect" id="node17" href="$undo_8h.html" title="undo.h" alt="" coords="745,497,807,524"/>
+<area shape="rect" id="node18" href="$core_2definitions_8h.html" title="definitions.h" alt="" coords="491,423,581,449"/>
+<area shape="rect" id="node19" href="$simulation_8h.html" title="simulation.h" alt="" coords="539,497,631,524"/>
+<area shape="rect" id="node20" href="$iresizablef_8h.html" title="iresizablef.h" alt="" coords="315,497,405,524"/>
+<area shape="rect" id="node21" href="$clipboard_8h.html" title="clipboard.h" alt="" coords="429,497,515,524"/>
+<area shape="rect" id="node25" href="$dotmatrixpropertydialog_8h.html" title="dotmatrixpropertydialog.h" alt="" coords="428,348,596,375"/>
+<area shape="rect" id="node35" href="$share__ann__gui__lib_8h.html" title="share_ann_gui_lib.h" alt="" coords="1578,273,1715,300"/>
+<area shape="rect" id="node36" href="$samplesdialog_8h.html" title="samplesdialog.h" alt="" coords="2279,191,2395,218"/>
+<area shape="rect" id="node48" href="$simulatedannealingwidget_8h.html" title="simulatedannealingwidget.h" alt="" coords="2572,191,2753,218"/>
+<area shape="rect" id="node49" href="$trainingsetdialog_8h.html" title="trainingsetdialog.h" alt="" coords="3005,273,3131,300"/>
+<area shape="rect" id="node50" href="$mlpobject_8h.html" title="mlpobject.h" alt="" coords="1569,191,1658,218"/>
+<area shape="rect" id="node41" href="$share__ann__base__lib_8h.html" title="share_ann_base_lib.h" alt="" coords="2207,423,2355,449"/>
+<area shape="rect" id="node42" href="$globals_8h.html" title="globals.h" alt="" coords="1932,423,2007,449"/>
+<area shape="rect" id="node43" href="$bptrainingsettings_8h.html" title="bptrainingsettings.h" alt="" coords="1797,348,1931,375"/>
+<area shape="rect" id="node44" href="$satrainingsettings_8h.html" title="satrainingsettings.h" alt="" coords="2389,348,2523,375"/>
+<area shape="rect" id="node45" href="$trainingset_8h.html" title="trainingset.h" alt="" coords="1679,348,1772,375"/>
+<area shape="rect" id="node46" href="$mlppattern_8h.html" title="mlppattern.h" alt="" coords="2007,348,2102,375"/>
+<area shape="rect" id="node47" href="$mlptrainingresult_8h.html" title="mlptrainingresult.h" alt="" coords="2599,348,2727,375"/>
+</map>

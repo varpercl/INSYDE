@@ -1,21 +1,21 @@
 #include "pheromoneitem.h"
 
-PheromoneItem::PheromoneItem()
+ec_gui::PheromoneItem::PheromoneItem()
 {
     iniciarItemPheromona(20, 0);
 }
 
-PheromoneItem::PheromoneItem(int cantidad)
+ec_gui::PheromoneItem::PheromoneItem(int cantidad)
 {
     iniciarItemPheromona(cantidad, 0);
 }
 
-PheromoneItem::PheromoneItem(int cantidad, double angle)
+ec_gui::PheromoneItem::PheromoneItem(int cantidad, double angle)
 {
     iniciarItemPheromona(cantidad, angle);
 }
 
-void PheromoneItem::iniciarItemPheromona(int cantidad, double angle)
+void ec_gui::PheromoneItem::iniciarItemPheromona(int cantidad, double angle)
 {
 //    setFlags(ItemIsSelectable);
     setAcceptHoverEvents(true);
@@ -33,7 +33,7 @@ void PheromoneItem::iniciarItemPheromona(int cantidad, double angle)
     connect(&tmrEvaporation, SIGNAL(timeout()), SLOT(evaporatePheromone()));
 }
 
-QRectF PheromoneItem::calculateTextRect(const QString &str, const QFont &font, const QRectF &referencia)
+QRectF ec_gui::PheromoneItem::calculateTextRect(const QString &str, const QFont &font, const QRectF &referencia)
 {
 //    QFont font("arial", 7);
     QFontMetricsF txtMetrics(font);
@@ -41,7 +41,7 @@ QRectF PheromoneItem::calculateTextRect(const QString &str, const QFont &font, c
     return tmpRect.translated(-tmpRect.width()/2, referencia.y() - tmpRect.height());
 }
 
-void PheromoneItem::setPheromoneValue(int val)
+void ec_gui::PheromoneItem::setPheromoneValue(int val)
 {
     if(val <= saturationValue && val >= 0)
         pheromoneValue = val;
@@ -51,22 +51,22 @@ void PheromoneItem::setPheromoneValue(int val)
         pheromoneValue = saturationValue;
 }
 
-int PheromoneItem::getPheromoneValue()
+int ec_gui::PheromoneItem::getPheromoneValue()
 {
     return pheromoneValue;
 }
 
-void PheromoneItem::setSaturationValue(int val)
+void ec_gui::PheromoneItem::setSaturationValue(int val)
 {
     saturationValue = val;
 }
 
-int PheromoneItem::getSaturationValue()
+int ec_gui::PheromoneItem::getSaturationValue()
 {
     return saturationValue;
 }
 
-void PheromoneItem::incrementPheromoneValue(int val)
+void ec_gui::PheromoneItem::incrementPheromoneValue(int val)
 {
     if(pheromoneValue + val < saturationValue){
         pheromoneValue += val;
@@ -75,7 +75,7 @@ void PheromoneItem::incrementPheromoneValue(int val)
     }
 }
 
-void PheromoneItem::decrementPheromoneValue(int val)
+void ec_gui::PheromoneItem::decrementPheromoneValue(int val)
 {
     if(pheromoneValue - val > 0){
         pheromoneValue -= val;
@@ -84,27 +84,27 @@ void PheromoneItem::decrementPheromoneValue(int val)
     }
 }
 
-void PheromoneItem::setAngle(double ang)
+void ec_gui::PheromoneItem::setAngle(double ang)
 {
     angle = ang;
 }
 
-double PheromoneItem::getAngle()
+double ec_gui::PheromoneItem::getAngle()
 {
     return angle;
 }
 
-void PheromoneItem::setEvaporationRate(int val)
+void ec_gui::PheromoneItem::setEvaporationRate(int val)
 {
     evaporationRate = val;
 }
 
-int PheromoneItem::getEvaporationRate()
+int ec_gui::PheromoneItem::getEvaporationRate()
 {
     return evaporationRate;
 }
 
-void PheromoneItem::addLastPheromone(PheromoneItem *pi)
+void ec_gui::PheromoneItem::addLastPheromone(PheromoneItem *pi)
 {
     if(pi){
 //        if(lastPheromones.count() > 0){
@@ -116,7 +116,7 @@ void PheromoneItem::addLastPheromone(PheromoneItem *pi)
     }
 }
 
-void PheromoneItem::deleteLastPheromone(PheromoneItem *pi)
+void ec_gui::PheromoneItem::deleteLastPheromone(PheromoneItem *pi)
 {
     if(lastPheromones.count() > 0){
         if(lastPheromones.contains(pi)){
@@ -125,12 +125,12 @@ void PheromoneItem::deleteLastPheromone(PheromoneItem *pi)
     }
 }
 
-QList<PheromoneItem *> PheromoneItem::getLastPheromones()
+QList<ec_gui::PheromoneItem *> ec_gui::PheromoneItem::getLastPheromones()
 {
     return lastPheromones;
 }
 
-PheromoneItem *PheromoneItem::getMostIntenseNeighbour()
+ec_gui::PheromoneItem *ec_gui::PheromoneItem::getMostIntenseNeighbour()
 {
     int minVal = 9999999;
     int piCount = lastPheromones.count();
@@ -151,7 +151,7 @@ PheromoneItem *PheromoneItem::getMostIntenseNeighbour()
 //    return (this == &pi1);
 //}
 
-void PheromoneItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+void ec_gui::PheromoneItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     Q_UNUSED(event);
 
@@ -159,14 +159,14 @@ void PheromoneItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
     update();
 }
 
-QPainterPath PheromoneItem::shape() const
+QPainterPath ec_gui::PheromoneItem::shape() const
 {
     QPainterPath path;
     path.addEllipse(circunferencia);
     return path;
 }
 
-QRectF PheromoneItem::boundingRect() const
+QRectF ec_gui::PheromoneItem::boundingRect() const
 {
     QPainterPath path;
     path.addRect(circunferencia);
@@ -174,7 +174,7 @@ QRectF PheromoneItem::boundingRect() const
     return path.controlPointRect();
 }
 
-void PheromoneItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void ec_gui::PheromoneItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option)
     Q_UNUSED(widget)
@@ -212,7 +212,7 @@ void PheromoneItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
     painter->restore();
 }
 
-void PheromoneItem::evaporatePheromone()
+void ec_gui::PheromoneItem::evaporatePheromone()
 {
     if(pheromoneValue - evaporationRate > 0){
         decrementPheromoneValue(evaporationRate);
@@ -230,7 +230,7 @@ void PheromoneItem::evaporatePheromone()
     }
 }
 
-void PheromoneItem::pheromoneHasDeleted(PheromoneItem *pi)
+void ec_gui::PheromoneItem::pheromoneHasDeleted(PheromoneItem *pi)
 {
     deleteLastPheromone(pi);
 }

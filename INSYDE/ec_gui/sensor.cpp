@@ -1,20 +1,20 @@
 #include "sensor.h"
 
-Sensor::Sensor(Agent *agent) : QObject(){
+ec_gui::Sensor::Sensor(Agent *agent) : QObject(){
     setAgent(agent);
 }
 
-void Sensor::setAgent(Agent *agent)
+void ec_gui::Sensor::setAgent(Agent *agent)
 {
     this->agent = agent;
 }
 
-Agent *Sensor::getAgent()
+ec_gui::Agent *ec_gui::Sensor::getAgent()
 {
     return this->agent;
 }
 
-QPainterPath Sensor::shape() const
+QPainterPath ec_gui::Sensor::shape() const
 {
     return QPainterPath();
 }

@@ -4,7 +4,8 @@
 #include <QtCore>
 
 #include "share_core_lib.h"
-#include "interfaces.h"
+#include "undo.h"
+#include "iresizable.h"
 
 namespace core{
 
@@ -18,7 +19,7 @@ namespace core{
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
  */
-class CORE_LIB_IMPORT_EXPORT DataRepresentation : public Resizable
+class CORE_LIB_IMPORT_EXPORT DataRepresentation : public IResizable
 {
 	public:
 

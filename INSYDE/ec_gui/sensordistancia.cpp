@@ -1,22 +1,22 @@
 #include "sensordistancia.h"
 
-VisionSensor::VisionSensor(Agent *agente) : Sensor(agente){
+ec_gui::VisionSensor::VisionSensor(Agent *agente) : Sensor(agente){
     iniciarSensor(agente, 80, 0, 360);
 }
 
-VisionSensor::VisionSensor(Agent *agente, double alcance) : Sensor(agente){
+ec_gui::VisionSensor::VisionSensor(Agent *agente, double alcance) : Sensor(agente){
     iniciarSensor(agente, alcance, 0, 360);
 }
 
-VisionSensor::VisionSensor(Agent *agente, double alcance, double angulo) : Sensor(agente){
+ec_gui::VisionSensor::VisionSensor(Agent *agente, double alcance, double angulo) : Sensor(agente){
     iniciarSensor(agente, alcance, angulo/2, 360 - (angulo/2));
 }
 
-VisionSensor::VisionSensor(Agent *agente, double alcance, double anginf, double angsup) : Sensor(agente){
+ec_gui::VisionSensor::VisionSensor(Agent *agente, double alcance, double anginf, double angsup) : Sensor(agente){
     iniciarSensor(agente, alcance, anginf, angsup);
 }
 
-void VisionSensor::iniciarSensor(Agent *agente, double alcance, double anginf, double angsup){
+void ec_gui::VisionSensor::iniciarSensor(Agent *agente, double alcance, double anginf, double angsup){
 //    angulo = modf(((i*360/inc) + anguloAgente)/360, new double)*360;
     this->scope = alcance;
     infAngle = anginf;
@@ -25,20 +25,20 @@ void VisionSensor::iniciarSensor(Agent *agente, double alcance, double anginf, d
 //    escena = agente->scene();
 }
 
-void VisionSensor::setVisionRange(double al){
+void ec_gui::VisionSensor::setVisionRange(double al){
     scope = al;
 }
 
-double VisionSensor::getVisionRange(){
+double ec_gui::VisionSensor::getVisionRange(){
     return scope;
 }
 
-void VisionSensor::setCoverAngle(double inf, double sup){
+void ec_gui::VisionSensor::setCoverAngle(double inf, double sup){
     infAngle = inf;
     supAngle = sup;
 }
 
-double VisionSensor::getAverageDistanceToAgents(){
+double ec_gui::VisionSensor::getAverageDistanceToAgents(){
     Agent *agente = getAgent();
     QList<QGraphicsItem*> items = agente->scene()->items(getCoverArea());
     double dist = 0;
@@ -52,7 +52,7 @@ double VisionSensor::getAverageDistanceToAgents(){
     return dist;
 }
 
-double VisionSensor::getAverageManhattanDistanceToAgents(){
+double ec_gui::VisionSensor::getAverageManhattanDistanceToAgents(){
     Agent *agente = getAgent();
     QList<QGraphicsItem*> items = agente->scene()->items(getCoverArea());
 //    QPointF dAg = agente->mapToScene(agente->pos());
@@ -67,7 +67,7 @@ double VisionSensor::getAverageManhattanDistanceToAgents(){
     return dist;
 }
 
-QList<DistanciaAgente*> VisionSensor::getDistanceToAgents(){
+QList<ec_gui::DistanciaAgente*> ec_gui::VisionSensor::getDistanceToAgents(){
     Agent *agente = getAgent();
     QList<QGraphicsItem*> items = agente->scene()->items(getCoverArea());
     QList<DistanciaAgente*> listpda;
@@ -89,7 +89,7 @@ QList<DistanciaAgente*> VisionSensor::getDistanceToAgents(){
 //    return distItem;
 //}
 
-QList<DistanciaAgente*> VisionSensor::getManhattanDistanceToAgents(){
+QList<ec_gui::DistanciaAgente*> ec_gui::VisionSensor::getManhattanDistanceToAgents(){
     Agent *agente = getAgent();
     QList<QGraphicsItem*> items = agente->scene()->items(getCoverArea());
     QList<DistanciaAgente*> listpda;
@@ -105,7 +105,7 @@ QList<DistanciaAgente*> VisionSensor::getManhattanDistanceToAgents(){
     return listpda;
 }
 
-double VisionSensor::getDistanceToAgent(Agent *ag){
+double ec_gui::VisionSensor::getDistanceToAgent(Agent *ag){
     double distItem;
     Agent *agente = getAgent();
     distItem = hypot(agente->x() - ag->x(), agente->y() - ag->y());
@@ -120,7 +120,7 @@ double VisionSensor::getDistanceToAgent(Agent *ag){
 //    return distItem;
 //}
 
-double VisionSensor::getManhattanDistanceToAgent(Agent *ag){
+double ec_gui::VisionSensor::getManhattanDistanceToAgent(Agent *ag){
     double distItem;
     Agent *agente = getAgent();
     distItem = (agente->x() - ag->x()) + (agente->y() - ag->y());
@@ -128,7 +128,7 @@ double VisionSensor::getManhattanDistanceToAgent(Agent *ag){
     return distItem;
 }
 
-QList<Agent *> VisionSensor::getAgents()
+QList<ec_gui::Agent *> ec_gui::VisionSensor::getAgents()
 {
     Agent *agente = getAgent();
     QList<QGraphicsItem*> items = agente->scene()->items(getCoverArea());
@@ -145,7 +145,7 @@ QList<Agent *> VisionSensor::getAgents()
     return agents;
 }
 
-QPainterPath VisionSensor::getCoverArea(){
+QPainterPath ec_gui::VisionSensor::getCoverArea(){
     Agent *agente = getAgent();
     double angulo = agente->rotation();
     QRectF rect(agente->x() - scope, agente->y() - scope, 2*scope, 2*scope);

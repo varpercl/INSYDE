@@ -7,6 +7,9 @@
 
 #include "share_ec_gui.h"
 
+namespace ec_gui
+{
+
 class Agent;
 
 /**
@@ -65,5 +68,5 @@ class EC_GUI_LIB_IMPORT_EXPORT Sensor : public QObject{
 		  */
 		virtual QPainterPath shape() const;
 };
-
+}
 #endif // SENSOR_H

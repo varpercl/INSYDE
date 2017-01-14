@@ -1,7 +1,7 @@
 #include "newprojectwizard.h"
 #include "ui_newprojectwizard.h"
 
-NewProjectWizard::NewProjectWizard(QWidget *parent) :
+gui::NewProjectWizard::NewProjectWizard(QWidget *parent) :
     QWizard(parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);

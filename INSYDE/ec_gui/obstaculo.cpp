@@ -1,5 +1,5 @@
 #include "obstaculo.h"
 
-Obstacle::Obstacle()
+ec_gui::Obstacle::Obstacle()
 {
 }

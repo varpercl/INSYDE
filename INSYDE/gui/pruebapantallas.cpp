@@ -1,32 +1,32 @@
 #include "pruebapantallas.h"
 #include "ui_prueba_pantallas.h"
 
-PruebaPantalla::PruebaPantalla(QWidget *parent) :
+gui::PruebaPantalla::PruebaPantalla(QWidget *parent) :
 	QWidget(parent),
 	ui(new Ui::PruebaPantalla)
 {
 	ui->setupUi(this);
 }
 
-PruebaPantalla::~PruebaPantalla()
+gui::PruebaPantalla::~PruebaPantalla()
 {
 	delete ui;
 }
 
-void PruebaPantalla::on_newProjectButton_clicked()
+void gui::PruebaPantalla::on_newProjectButton_clicked()
 {
 	NewProjectWizard *npw = new NewProjectWizard();
 	//    npw->hide();
 	npw->exec();
 }
 
-void PruebaPantalla::on_perceptronButton_clicked()
+void gui::PruebaPantalla::on_perceptronButton_clicked()
 {
 	PerceptronPage *pp = new PerceptronPage();
 	pp->show();
 }
 
-void PruebaPantalla::on_systemButton_clicked()
+void gui::PruebaPantalla::on_systemButton_clicked()
 {
 	//    ui->mainSystemLayout->addWidget(visor, Qt::Vertical);
 	visor = new View();
@@ -39,7 +39,7 @@ void PruebaPantalla::on_systemButton_clicked()
 	connect(visor, SIGNAL(clicked(QMouseEvent*)), SLOT(onVisorClicked(QMouseEvent*)));
 }
 
-void PruebaPantalla::onVisorClicked(QMouseEvent *event)
+void gui::PruebaPantalla::onVisorClicked(QMouseEvent *event)
 {
 
 	(void)event;
@@ -74,7 +74,7 @@ void PruebaPantalla::onVisorClicked(QMouseEvent *event)
 	//	}
 }
 
-void PruebaPantalla::on_ANNTrainingDialog_clicked()
+void gui::PruebaPantalla::on_ANNTrainingDialog_clicked()
 {
 
 	vector<int> sizes;
@@ -99,14 +99,14 @@ void PruebaPantalla::on_ANNTrainingDialog_clicked()
 	mlptd->show();
 }
 
-void PruebaPantalla::on_TrainingSetDialogButton_clicked()
+void gui::PruebaPantalla::on_TrainingSetDialogButton_clicked()
 {
 	QString path = "/home/edixon/programacion/INSYDE/samples/aprendizaje-de-letras-de-placas.tsf";
 	TrainingSetDialog *tsd1 = new TrainingSetDialog(new TrainingSet(path));
 	tsd1->exec();
 }
 
-void PruebaPantalla::on_DataRepresentationBoxButton_clicked()
+void gui::PruebaPantalla::on_DataRepresentationBoxButton_clicked()
 {
 	QString openDir = QFileDialog::getOpenFileName(this, //widget
 												  "Abrir conjunto de entrenamiento", //caption
@@ -122,7 +122,7 @@ void PruebaPantalla::on_DataRepresentationBoxButton_clicked()
 
 	drb->show();
 }
-void PruebaPantalla::on_LabeledIntegerSpinBoxButton_clicked()
+void gui::PruebaPantalla::on_LabeledIntegerSpinBoxButton_clicked()
 {
 	LabeledIntegerSpinBox *isb = new LabeledIntegerSpinBox("Valor", 0, LabeledWidget::Right);
 
@@ -131,7 +131,7 @@ void PruebaPantalla::on_LabeledIntegerSpinBoxButton_clicked()
 	isb->show();
 }
 
-void PruebaPantalla::on_IntegerSizeWidgetButton_clicked()
+void gui::PruebaPantalla::on_IntegerSizeWidgetButton_clicked()
 {
 	IntegerSizeWidget *isw = new IntegerSizeWidget();
 
@@ -139,7 +139,7 @@ void PruebaPantalla::on_IntegerSizeWidgetButton_clicked()
 	isw->show();
 }
 
-void PruebaPantalla::on_SelectImageSegmentButton_clicked()
+void gui::PruebaPantalla::on_SelectImageSegmentButton_clicked()
 {
 	//	QMessageBox msgBox;
 	QImage imageFile;
@@ -152,7 +152,7 @@ void PruebaPantalla::on_SelectImageSegmentButton_clicked()
 	sisd->exec();
 }
 
-void PruebaPantalla::on_LabeledComboBoxButton_clicked()
+void gui::PruebaPantalla::on_LabeledComboBoxButton_clicked()
 {
 	LabeledComboBox *lcb = new LabeledComboBox("Lista",
 											   QStringList()
@@ -167,14 +167,14 @@ void PruebaPantalla::on_LabeledComboBoxButton_clicked()
 	lcb->show();
 }
 
-void PruebaPantalla::on_BasicDialogButton_clicked()
+void gui::PruebaPantalla::on_BasicDialogButton_clicked()
 {
 	BasicDialog *bd = new BasicDialog();
 
 	bd->exec();
 }
 
-void PruebaPantalla::on_DotMatrixRepresentationButton_clicked()
+void gui::PruebaPantalla::on_DotMatrixRepresentationButton_clicked()
 {
 	QString openDir = QFileDialog::getOpenFileName(this, //widget
 												  "Abrir conjunto de entrenamiento", //caption
@@ -191,14 +191,14 @@ void PruebaPantalla::on_DotMatrixRepresentationButton_clicked()
 	dmr->show();
 }
 
-void PruebaPantalla::on_ZoomControlButton_clicked()
+void gui::PruebaPantalla::on_ZoomControlButton_clicked()
 {
 	ZoomControl *zc = new ZoomControl();
 
 	zc->show();
 }
 
-void PruebaPantalla::on_DetailedWindowButton_clicked()
+void gui::PruebaPantalla::on_DetailedWindowButton_clicked()
 {
 	DetailedWindow *dw = new DetailedWindow();
 
@@ -206,14 +206,14 @@ void PruebaPantalla::on_DetailedWindowButton_clicked()
 	dw->show();
 }
 
-void PruebaPantalla::on_NormalizationWidgetButton_clicked()
+void gui::PruebaPantalla::on_NormalizationWidgetButton_clicked()
 {
 	NormalizationWidget *nw = new NormalizationWidget();
 
 	nw->show();
 }
 
-void PruebaPantalla::on_WeightEditorDialogButton_clicked()
+void gui::PruebaPantalla::on_WeightEditorDialogButton_clicked()
 {
 	vector<int> sizes;
 	sizes.push_back(10);
@@ -225,7 +225,7 @@ void PruebaPantalla::on_WeightEditorDialogButton_clicked()
 
 	wed->exec();
 }
-void PruebaPantalla::on_DoubleMinMaxWidgetButton_clicked()
+void gui::PruebaPantalla::on_DoubleMinMaxWidgetButton_clicked()
 {
 	DoubleMinMaxWidget *dmmw = new DoubleMinMaxWidget(-2, 2);
 
@@ -236,14 +236,14 @@ void PruebaPantalla::on_DoubleMinMaxWidgetButton_clicked()
 }
 
 
-void PruebaPantalla::on_NewMainWindowButton_clicked()
+void gui::PruebaPantalla::on_NewMainWindowButton_clicked()
 {
 	MainWindow *mainWindow = new MainWindow;
 
 	mainWindow->show();
 }
 
-void PruebaPantalla::on_GraphicObjectPropertyDialogButton_clicked()
+void gui::PruebaPantalla::on_GraphicObjectPropertyDialogButton_clicked()
 {
 	DotMatrix *dm = new DotMatrix(10, 10, DotMatrix::Unipolar);
 

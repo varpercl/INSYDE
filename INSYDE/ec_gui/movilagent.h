@@ -9,6 +9,9 @@
 #include "sensordistancia.h"
 #include "actuadormovimiento.h"
 
+namespace ec_gui
+{
+
 class MovingActuator;
 //class SensorDistancia;
 
@@ -272,5 +275,5 @@ class EC_GUI_LIB_IMPORT_EXPORT MovilAgent : public Agent
 		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
 };
-
+}
 #endif // MOVILAGENT_H

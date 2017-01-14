@@ -20,20 +20,28 @@ using namespace std;
 namespace core{
 
 /*!
- * \namespace math
+ * \brief The math namespace stores a large collection of mathematical functions
+ * shared between different classes and different code snippets.
  *
  * \date 01/02/2015
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  */
 namespace math {
 
+/*!
+ * \brief angle
+ * \param p1
+ * \param p2
+ * \return
+ */
 CORE_LIB_IMPORT_EXPORT double angle(const QPointF &p1, const QPointF &p2);
 
 /*!
  * \brief distance Computes the distance between \code{point} and the line composed by points \code{p1} and \code{p2}
- *
- *
- * TODO: implement
+ * \param point
+ * \param p1
+ * \param p2
+ * \return
  */
 CORE_LIB_IMPORT_EXPORT double distance(const QPointF &point, const QPointF &p1, const QPointF &p2);
 

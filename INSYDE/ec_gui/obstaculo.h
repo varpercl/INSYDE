@@ -6,6 +6,8 @@
 
 #include "share_ec_gui.h"
 
+namespace ec_gui
+{
 /**
   @class Obstacle
   @author Edixon Vargas
@@ -29,5 +31,5 @@ class EC_GUI_LIB_IMPORT_EXPORT Obstacle : public QGraphicsPolygonItem
 	public slots:
 
 };
-
+}
 #endif // OBSTACULO_H

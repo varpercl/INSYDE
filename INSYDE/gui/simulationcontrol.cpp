@@ -1,11 +1,11 @@
 #include "simulationcontrol.h"
 
-SimulationControl::SimulationControl(QWidget *parent) : QFrame(parent)
+gui::SimulationControl::SimulationControl(QWidget *parent) : QFrame(parent)
 {
     iniciarStatusAnimation();
 }
 
-void SimulationControl::iniciarStatusAnimation()
+void gui::SimulationControl::iniciarStatusAnimation()
 {
     status = Stopped;
     normalPlayIcon = QIcon(":/imagenes/png/Play Normal.png");
@@ -32,7 +32,7 @@ void SimulationControl::iniciarStatusAnimation()
     connect(stopButton,SIGNAL(clicked()), this, SLOT(stopClick()));
 }
 
-void SimulationControl::playPauseClick()
+void gui::SimulationControl::playPauseClick()
 {
     Status past = status;
     switch(status){
@@ -52,7 +52,7 @@ void SimulationControl::playPauseClick()
     stopButton->setIcon(normalStopIcon);
 }
 
-void SimulationControl::stopClick()
+void gui::SimulationControl::stopClick()
 {
     Status past = status;
     status = Stopped;
@@ -62,7 +62,7 @@ void SimulationControl::stopClick()
     playPauseButton->setIcon(normalPlayIcon);
 }
 
-Status SimulationControl::getCurrentStatus()
+gui::Status gui::SimulationControl::getCurrentStatus()
 {
     return status;
 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weightupdatetype',['WeightUpdateType',['../classann__base_1_1_adaline.html#a5e831be8055a853deadbd65cb56e5256',1,'ann_base::Adaline']]]
+  ['learningrule',['LearningRule',['../classann__base_1_1_simple_perceptron.html#a5302d2f1b4fb5e272070b849c4ccbbba',1,'ann_base::SimplePerceptron']]]
 ];

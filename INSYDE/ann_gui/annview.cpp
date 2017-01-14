@@ -1,6 +1,6 @@
 #include "annview.h"
 
-ANNView::ANNView()
+ann_gui::ANNView::ANNView()
 {
 
 }

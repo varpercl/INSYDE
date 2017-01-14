@@ -1,31 +1,31 @@
 #include "actuador.h"
 
-Actuator::Actuator(Agent *agent)
+ec_gui::Actuator::Actuator(Agent *agent)
 {
     setAgent(agent);
 }
 
-void Actuator::setAgent(Agent *agent)
+void ec_gui::Actuator::setAgent(Agent *agent)
 {
     this->agent = agent;
 }
 
-Agent *Actuator::getAgent()
+ec_gui::Agent *ec_gui::Actuator::getAgent()
 {
     return agent;
 }
 
-void Actuator::setShape(const QPainterPath &shape)
+void ec_gui::Actuator::setShape(const QPainterPath &shape)
 {
     this->shape = shape;
 }
 
-QPainterPath Actuator::getShape() const
+QPainterPath ec_gui::Actuator::getShape() const
 {
     return shape;
 }
 
-void Actuator::secureStartTimer(int &id, int interval)
+void ec_gui::Actuator::secureStartTimer(int &id, int interval)
 {
     if(!id){
         id = startTimer(interval);
@@ -34,7 +34,7 @@ void Actuator::secureStartTimer(int &id, int interval)
     }
 }
 
-void Actuator::secureKillTimer(int &id)
+void ec_gui::Actuator::secureKillTimer(int &id)
 {
     if(id){
         killTimer(id);

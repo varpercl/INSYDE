@@ -17,6 +17,9 @@
 using namespace core;
 using namespace ann_gui;
 
+namespace gui
+{
+
 class MainWindow : public BasicDialog
 {
 	public:
@@ -342,5 +345,5 @@ class MainWindow : public BasicDialog
 		QMessageBox underConstruction;
 		void showUnderConstructionMessage();
 };
-
+}
 #endif // NEWMAINWINDOW_H

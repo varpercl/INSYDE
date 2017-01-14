@@ -1,0 +1,36 @@
+<map id="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/ann_gui/mlpobject.h" name="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/ann_gui/mlpobject.h">
+<area shape="rect" id="node4" href="$share__ann__gui__lib_8h.html" title="share_ann_gui_lib.h" alt="" coords="324,348,461,375"/>
+<area shape="rect" id="node5" href="$mlpobjectpropertydialog_8h.html" title="mlpobjectpropertydialog.h" alt="" coords="207,266,378,293"/>
+<area shape="rect" id="node7" href="$common_8h.html" title="../core/common.h" alt="" coords="1533,497,1657,524"/>
+<area shape="rect" id="node15" href="$anntrainingdialog_8h.html" title="anntrainingdialog.h" alt="" coords="822,184,953,211"/>
+<area shape="rect" id="node20" href="$mlp_8h.html" title="../ann_base/mlp.h" alt="" coords="984,348,1111,375"/>
+<area shape="rect" id="node34" href="$ann__gui_2definitions_8h.html" title="definitions.h" alt="" coords="1785,109,1875,136"/>
+<area shape="rect" id="node35" href="$core_2imageeffect_8h.html" title="../core/imageeffect.h" alt="" coords="2724,109,2864,136"/>
+<area shape="rect" id="node38" href="$graphicobject_8h.html" title="graphicobject.h" alt="" coords="2351,423,2461,449"/>
+<area shape="rect" id="node44" href="$dotmatrix_8h.html" title="dotmatrix.h" alt="" coords="2269,348,2356,375"/>
+<area shape="rect" id="node13" href="$share__core__lib_8h.html" title="share_core_lib.h" alt="" coords="2546,647,2663,673"/>
+<area shape="rect" id="node14" href="$imath_8h.html" title="imath.h" alt="" coords="1213,572,1279,599"/>
+<area shape="rect" id="node19" href="$samplesdialog_8h.html" title="samplesdialog.h" alt="" coords="1107,266,1223,293"/>
+<area shape="rect" id="node31" href="$simulatedannealingwidget_8h.html" title="simulatedannealingwidget.h" alt="" coords="901,266,1082,293"/>
+<area shape="rect" id="node33" href="$trainingsetdialog_8h.html" title="trainingsetdialog.h" alt="" coords="5,348,132,375"/>
+<area shape="rect" id="node24" href="$share__ann__base__lib_8h.html" title="share_ann_base_lib.h" alt="" coords="653,497,801,524"/>
+<area shape="rect" id="node25" href="$globals_8h.html" title="globals.h" alt="" coords="871,497,946,524"/>
+<area shape="rect" id="node26" href="$bptrainingsettings_8h.html" title="bptrainingsettings.h" alt="" coords="841,423,976,449"/>
+<area shape="rect" id="node27" href="$satrainingsettings_8h.html" title="satrainingsettings.h" alt="" coords="512,423,647,449"/>
+<area shape="rect" id="node28" href="$trainingset_8h.html" title="trainingset.h" alt="" coords="1001,423,1094,449"/>
+<area shape="rect" id="node29" href="$mlppattern_8h.html" title="mlppattern.h" alt="" coords="723,423,817,449"/>
+<area shape="rect" id="node30" href="$mlptrainingresult_8h.html" title="mlptrainingresult.h" alt="" coords="359,423,487,449"/>
+<area shape="rect" id="node32" href="$labeledintegerspinbox_8h.html" title="../core/labeledintegerspinbox.h" alt="" coords="2505,497,2704,524"/>
+<area shape="rect" id="node36" href="$image_8h.html" title="image.h" alt="" coords="2288,266,2356,293"/>
+<area shape="rect" id="node37" href="$core_2graphiccursorelement_8h.html" title="graphiccursorelement.h" alt="" coords="2715,348,2873,375"/>
+<area shape="rect" id="node47" href="$imagedetailedwindow_8h.html" title="imagedetailedwindow.h" alt="" coords="2245,184,2399,211"/>
+<area shape="rect" id="node48" href="$core_2effect_8h.html" title="../core/effect.h" alt="" coords="3153,572,3259,599"/>
+<area shape="rect" id="node49" href="$core_2blackwhiteeffect_8h.html" title="../core/blackwhiteeffect.h" alt="" coords="3033,497,3200,524"/>
+<area shape="rect" id="node50" href="$imageeffectpropertydialog_8h.html" title="imageeffectpropertydialog.h" alt="" coords="2932,423,3112,449"/>
+<area shape="rect" id="node39" href="$undo_8h.html" title="undo.h" alt="" coords="1943,572,2005,599"/>
+<area shape="rect" id="node40" href="$core_2definitions_8h.html" title="definitions.h" alt="" coords="2289,497,2379,524"/>
+<area shape="rect" id="node41" href="$simulation_8h.html" title="simulation.h" alt="" coords="2029,572,2121,599"/>
+<area shape="rect" id="node42" href="$iresizablef_8h.html" title="iresizablef.h" alt="" coords="2146,572,2237,599"/>
+<area shape="rect" id="node43" href="$clipboard_8h.html" title="clipboard.h" alt="" coords="2261,572,2346,599"/>
+<area shape="rect" id="node46" href="$dotmatrixpropertydialog_8h.html" title="dotmatrixpropertydialog.h" alt="" coords="2486,423,2654,449"/>
+</map>

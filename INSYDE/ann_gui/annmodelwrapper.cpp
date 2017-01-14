@@ -1,24 +1,24 @@
 #include "annmodelwrapper.h"
 
 
-ANNModelWrapper::ANNModelWrapper() :
+ann_gui::ANNModelWrapper::ANNModelWrapper() :
 	QAbstractItemModel()
 {
 	init(0);
 }
 
-ANNModelWrapper::ANNModelWrapper(ArtificialNeuralNetwork *ann, QObject *parent) :
+ann_gui::ANNModelWrapper::ANNModelWrapper(ArtificialNeuralNetwork *ann, QObject *parent) :
 	QAbstractItemModel(parent)
 {
 	init(ann);
 }
 
-ANNModelWrapper::~ANNModelWrapper()
+ann_gui::ANNModelWrapper::~ANNModelWrapper()
 {
 
 }
 
-void ANNModelWrapper::setArtificialNeuralNetwork(ArtificialNeuralNetwork *ann)
+void ann_gui::ANNModelWrapper::setArtificialNeuralNetwork(ArtificialNeuralNetwork *ann)
 {
 	this->ann = ann;
 
@@ -62,7 +62,7 @@ void ANNModelWrapper::setArtificialNeuralNetwork(ArtificialNeuralNetwork *ann)
 	setupTree();
 }
 
-QVariant ANNModelWrapper::data(const QModelIndex &index, int role) const
+QVariant ann_gui::ANNModelWrapper::data(const QModelIndex &index, int role) const
 {
 	//Rechaza en caso de que el indice no sea valido o el rol no sea para mostrar o editar
 	if(!index.isValid() || !(role == Qt::DisplayRole || role == Qt::EditRole || Qt::DecorationRole)){
@@ -142,7 +142,7 @@ QVariant ANNModelWrapper::data(const QModelIndex &index, int role) const
 	}
 }
 
-bool ANNModelWrapper::setData(const QModelIndex &index, const QVariant &value, int role)
+bool ann_gui::ANNModelWrapper::setData(const QModelIndex &index, const QVariant &value, int role)
 {
 	if(role != Qt::EditRole){
 		return false;
@@ -181,7 +181,7 @@ bool ANNModelWrapper::setData(const QModelIndex &index, const QVariant &value, i
 	return false;
 }
 
-QVariant ANNModelWrapper::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant ann_gui::ANNModelWrapper::headerData(int section, Qt::Orientation orientation, int role) const
 {
 	if(role != Qt::DisplayRole){
 		return QVariant();
@@ -206,7 +206,7 @@ QVariant ANNModelWrapper::headerData(int section, Qt::Orientation orientation, i
 	}
 }
 
-Qt::ItemFlags ANNModelWrapper::flags(const QModelIndex &index) const
+Qt::ItemFlags ann_gui::ANNModelWrapper::flags(const QModelIndex &index) const
 {
 	if (!index.isValid())
 		return 0;
@@ -216,7 +216,7 @@ Qt::ItemFlags ANNModelWrapper::flags(const QModelIndex &index) const
 	return item->getFlags(index.column());
 }
 
-QModelIndex ANNModelWrapper::index(int row, int column, const QModelIndex &parent) const
+QModelIndex ann_gui::ANNModelWrapper::index(int row, int column, const QModelIndex &parent) const
 {
 	ANNModelTree *parentItem = getItem(parent);
 
@@ -228,7 +228,7 @@ QModelIndex ANNModelWrapper::index(int row, int column, const QModelIndex &paren
 	}
 }
 
-QModelIndex ANNModelWrapper::parent(const QModelIndex &child) const
+QModelIndex ann_gui::ANNModelWrapper::parent(const QModelIndex &child) const
 {
 	if (!child.isValid())
 		return QModelIndex();
@@ -245,7 +245,7 @@ QModelIndex ANNModelWrapper::parent(const QModelIndex &child) const
 	return createIndex(parentItem->childIndex(), child.column(), parentItem);
 }
 
-bool ANNModelWrapper::hasChildren(const QModelIndex &parent) const
+bool ann_gui::ANNModelWrapper::hasChildren(const QModelIndex &parent) const
 {
 	switch(ann->getType()){
 		case ann_base::ArtificialNeuralNetwork::NoType:
@@ -288,7 +288,7 @@ bool ANNModelWrapper::hasChildren(const QModelIndex &parent) const
 	return false;
 }
 
-int ANNModelWrapper::rowCount(const QModelIndex &parent) const
+int ann_gui::ANNModelWrapper::rowCount(const QModelIndex &parent) const
 {
 
 	switch(ann->getType()){
@@ -326,78 +326,78 @@ int ANNModelWrapper::rowCount(const QModelIndex &parent) const
 	return 0;
 }
 
-int ANNModelWrapper::columnCount(const QModelIndex &) const
+int ann_gui::ANNModelWrapper::columnCount(const QModelIndex &) const
 {
 	return 2;
 }
 
-void ANNModelWrapper::setVisibleOutputLayer(bool b)
+void ann_gui::ANNModelWrapper::setVisibleOutputLayer(bool b)
 {
 	visibleOutputLayer = b;
 }
 
-bool ANNModelWrapper::getVisibleOutputLayer() const
+bool ann_gui::ANNModelWrapper::getVisibleOutputLayer() const
 {
 	return visibleOutputLayer;
 }
 
-void ANNModelWrapper::setVisibleWeightValues(bool b)
+void ann_gui::ANNModelWrapper::setVisibleWeightValues(bool b)
 {
 	visibleWeightValues = b;
 }
 
-bool ANNModelWrapper::getVisibleWeightValues() const
+bool ann_gui::ANNModelWrapper::getVisibleWeightValues() const
 {
 	return visibleWeightValues;
 }
 
-void ANNModelWrapper::setVisibleNeurons(bool b)
+void ann_gui::ANNModelWrapper::setVisibleNeurons(bool b)
 {
 	visibleNeurons = b;
 }
 
-bool ANNModelWrapper::getVisibleNeurons() const
+bool ann_gui::ANNModelWrapper::getVisibleNeurons() const
 {
 	return visibleNeurons;
 }
 
-void ANNModelWrapper::setCanEditLayerSize(bool b)
+void ann_gui::ANNModelWrapper::setCanEditLayerSize(bool b)
 {
 	canEditLayerSize = b;
 }
 
-bool ANNModelWrapper::getCanEditLayerSize() const
+bool ann_gui::ANNModelWrapper::getCanEditLayerSize() const
 {
 	return canEditLayerSize;
 }
 
-void ANNModelWrapper::setCanEditWeights(bool b)
+void ann_gui::ANNModelWrapper::setCanEditWeights(bool b)
 {
 	canEditWeights = b;
 }
 
-bool ANNModelWrapper::getCanEditWeights() const
+bool ann_gui::ANNModelWrapper::getCanEditWeights() const
 {
 	return canEditWeights;
 }
 
-void ANNModelWrapper::randomizeWeights(double min, double max)
+void ann_gui::ANNModelWrapper::randomizeWeights(double min, double max)
 {
 	ann->randomizeWeights(min, max);
 }
 
-void ANNModelWrapper::setViewType(ANNModelWrapper::ViewType type)
+void ann_gui::ANNModelWrapper::setViewType(ANNModelWrapper::ViewType type)
 {
 	vType = type;
 }
 
-void ANNModelWrapper::onWeightsChanged()
+void ann_gui::ANNModelWrapper::onWeightsChanged()
 {
 	updateTree();
 	emit dataChanged(QModelIndex(), QModelIndex());
 }
 
-void ANNModelWrapper::onLayerCountChanged(int lastCount, int newCount)
+void ann_gui::ANNModelWrapper::onLayerCountChanged(int lastCount, int newCount)
 {
 	//TODO: 29/4/16 onLayerCountChanged check if can improve this. Try to implement "begin" and "end" methods
 	//inside updateTree. I think it could be better, it could update row insertion and removing depending on layer count
@@ -414,7 +414,7 @@ void ANNModelWrapper::onLayerCountChanged(int lastCount, int newCount)
 	}
 }
 
-void ANNModelWrapper::onLayerRemoved(int index)
+void ann_gui::ANNModelWrapper::onLayerRemoved(int index)
 {
 	updateTree();
 
@@ -422,7 +422,7 @@ void ANNModelWrapper::onLayerRemoved(int index)
 	endRemoveRows();
 }
 
-void ANNModelWrapper::onLayerSizeChanged(int layer, int lastSize, int newSize)
+void ann_gui::ANNModelWrapper::onLayerSizeChanged(int layer, int lastSize, int newSize)
 {
 	(void)layer;
 
@@ -437,7 +437,7 @@ void ANNModelWrapper::onLayerSizeChanged(int layer, int lastSize, int newSize)
 	}
 }
 
-void ANNModelWrapper::init(ArtificialNeuralNetwork *ann)
+void ann_gui::ANNModelWrapper::init(ArtificialNeuralNetwork *ann)
 {
 	if(ann == 0) return;
 
@@ -451,7 +451,7 @@ void ANNModelWrapper::init(ArtificialNeuralNetwork *ann)
 	setViewType(Tree);
 }
 
-void ANNModelWrapper::setupTree()
+void ann_gui::ANNModelWrapper::setupTree()
 {
 	switch(ann->getType()){
 		case ann_base::ArtificialNeuralNetwork::NoType:
@@ -528,7 +528,7 @@ void ANNModelWrapper::setupTree()
 	}
 }
 
-void ANNModelWrapper::updateTree()
+void ann_gui::ANNModelWrapper::updateTree()
 {
 	switch(ann->getType()){
 		case ann_base::ArtificialNeuralNetwork::NoType:
@@ -664,7 +664,7 @@ void ANNModelWrapper::updateTree()
 	}
 }
 
-QColor ANNModelWrapper::getWeightColor(double value, const QVector<ANNModelTree *> &sibling) const
+QColor ann_gui::ANNModelWrapper::getWeightColor(double value, const QVector<ANNModelTree *> &sibling) const
 {
 	vector<double> vec(sibling.size());
 
@@ -675,7 +675,7 @@ QColor ANNModelWrapper::getWeightColor(double value, const QVector<ANNModelTree 
 	return getHeatColor(value, vec);
 }
 
-ANNModelTree *ANNModelWrapper::getItem(const QModelIndex &index) const
+ann_gui::ANNModelTree *ann_gui::ANNModelWrapper::getItem(const QModelIndex &index) const
 {
 	if (index.isValid()) {
 		ANNModelTree *item = static_cast<ANNModelTree*>(index.internalPointer());

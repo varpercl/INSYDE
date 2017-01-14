@@ -4,11 +4,13 @@
 #include <QtWidgets>
 
 #include "share_core_lib.h"
-#include "interfaces.h"
+#include "undo.h"
 #include "common.h"
 #include "definitions.h"
 #include "simulation.h"
 #include "imath.h"
+#include "iresizablef.h"
+#include "clipboard.h"
 
 
 namespace core{
@@ -23,7 +25,7 @@ class Simulation;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public ClipboardInterface, public ResizableF
+class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clipboard, public IResizableF
 {
 	public:
 		enum GraphicObjectTypes{

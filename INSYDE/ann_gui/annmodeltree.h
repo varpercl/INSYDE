@@ -5,6 +5,9 @@
 
 #include "share_ann_gui_lib.h"
 
+namespace ann_gui
+{
+
 class ANN_GUI_LIB_IMPORT_EXPORT ANNModelTree
 {
 	public:
@@ -220,5 +223,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT ANNModelTree
 
 		ANNModelTree *parentItem;
 };
-
+}
 #endif // TREEITEM_H

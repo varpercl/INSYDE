@@ -14,22 +14,16 @@
 
 using namespace core;
 
+namespace ec_gui
+{
 class MovilAgent;
 
-//void signalController(int val);
-
-/**
-  @class MovingActuator
-  @author Edixon Vargas
-  @date 08-06-2012
-
-
-  */
 /*!
  * \brief La clase @code{MovingActuator} asigna propiedades basicas de movimiento a un agente, esta clase se usa en
  * agentes moviles que se van a desplazar a lo largo de un escenario o ambiente.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
+ * \date 08-06-2012
  */
 class EC_GUI_LIB_IMPORT_EXPORT MovingActuator : public Actuator
 {
@@ -336,5 +330,5 @@ class EC_GUI_LIB_IMPORT_EXPORT MovingActuator : public Actuator
 		  */
 		void posChanged(QVariant valor);
 };
-
+}
 #endif // ACTUADORMOVIMIENTO_H

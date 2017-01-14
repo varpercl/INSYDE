@@ -1,5 +1,5 @@
 #include "pheromonesensor.h"
 
-PheromoneSensor::PheromoneSensor()
+ec_gui::PheromoneSensor::PheromoneSensor()
 {
 }

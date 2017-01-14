@@ -4,12 +4,13 @@
 #include <QtWidgets>
 
 #include "share_core_lib.h"
-#include "interfaces.h"
+#include "undo.h"
 #include "definitions.h"
+#include "clipboard.h"
 
 namespace core{
 
-class CORE_LIB_IMPORT_EXPORT BasicTree : public QTreeView, public ClipboardInterface
+class CORE_LIB_IMPORT_EXPORT BasicTree : public QTreeView, public Clipboard
 {
 	public:
 

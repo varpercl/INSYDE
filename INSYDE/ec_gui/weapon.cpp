@@ -1,5 +1,5 @@
 #include "weapon.h"
 
-Weapon::Weapon(OfensiveUnit *unit) : Actuator(unit)
+ec_gui::Weapon::Weapon(OfensiveUnit *unit) : Actuator(unit)
 {
 }

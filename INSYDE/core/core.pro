@@ -42,7 +42,6 @@ HEADERS += \
 	image.h \
 	basicdialog.h \
 	zoomcontrol.h \
-	interfaces.h \
 	graphicobject.h \
 	basictable.h \
 	datarepresentation.h \
@@ -71,7 +70,12 @@ HEADERS += \
 	fileeditline.h \
 	definitions.h \
 	simulation.h \
-	restrictedlinef.h
+	restrictedlinef.h \
+    iresizablef.h \
+    iresizable.h \
+    iioobject.h \
+    clipboard.h \
+    undo.h
 
 SOURCES += \
 	imath.cpp\

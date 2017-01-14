@@ -1,19 +1,19 @@
 #include "selectprojectpage.h"
 #include "ui_selectprojectpage.h"
 
-SelectProjectPage::SelectProjectPage(QWidget *parent) :
+gui::SelectProjectPage::SelectProjectPage(QWidget *parent) :
 	QWizardPage(parent),
 	ui(new Ui::SelectProjectPage)
 {
 	initializePage();
 }
 
-SelectProjectPage::~SelectProjectPage()
+gui::SelectProjectPage::~SelectProjectPage()
 {
 	delete ui;
 }
 
-int SelectProjectPage::nextId() const
+int gui::SelectProjectPage::nextId() const
 {
 	//    switch(ui->treeProjects->rootIndex().row()){
 	//        case 0:     //Redes neuronales
@@ -26,17 +26,17 @@ int SelectProjectPage::nextId() const
 	return ChooseProjectNameID;
 }//nextId
 
-void SelectProjectPage::setProjectType(int pt)
+void gui::SelectProjectPage::setProjectType(int pt)
 {
 	proType = pt;
 }
 
-int SelectProjectPage::projectType() const
+int gui::SelectProjectPage::projectType() const
 {
 	return proType;
 }
 
-void SelectProjectPage::currentItemProjectChanged(QTreeWidgetItem *current, QTreeWidgetItem *last)
+void gui::SelectProjectPage::currentItemProjectChanged(QTreeWidgetItem *current, QTreeWidgetItem *last)
 {
 	Q_UNUSED(last);
 
@@ -60,7 +60,7 @@ void SelectProjectPage::currentItemProjectChanged(QTreeWidgetItem *current, QTre
 	}
 }//currentItemProjectChanged
 
-void SelectProjectPage::initializePage()
+void gui::SelectProjectPage::initializePage()
 {
 	ui->setupUi(this);
 
@@ -70,12 +70,12 @@ void SelectProjectPage::initializePage()
 	connectEvents();
 }//initPage
 
-void SelectProjectPage::connectEvents()
+void gui::SelectProjectPage::connectEvents()
 {
 	connect(ui->treeProjects, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), SLOT(currentItemProjectChanged(QTreeWidgetItem*,QTreeWidgetItem*)));
 }//connectEvents
 
-void SelectProjectPage::on_treeProjects_itemDoubleClicked(QTreeWidgetItem *item, int column)
+void gui::SelectProjectPage::on_treeProjects_itemDoubleClicked(QTreeWidgetItem *item, int column)
 {
 	if(item->text(column).toLower() == "perceptron simple"){
 

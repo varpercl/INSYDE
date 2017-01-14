@@ -1,21 +1,21 @@
 #include "mlpobject.h"
 
-MLPObject::MLPObject(MultilayerPerceptron *mlp)
+ann_gui::MLPObject::MLPObject(MultilayerPerceptron *mlp)
 {
 	init(mlp, new TrainingSet(mlp->getInputsSize(), mlp->getOutputsSize()));
 }
 
-MLPObject::MLPObject(MultilayerPerceptron *mlp, TrainingSet *ts)
+ann_gui::MLPObject::MLPObject(MultilayerPerceptron *mlp, TrainingSet *ts)
 {
 	init(mlp, ts);
 }
 
-MLPObject::~MLPObject()
+ann_gui::MLPObject::~MLPObject()
 {
 
 }
 
-QMenu *MLPObject::getContextMenu(QMenu *cntxMenu)
+QMenu *ann_gui::MLPObject::getContextMenu(QMenu *cntxMenu)
 {
 	cntxMenu->addAction("Analizar", this, SLOT(onAnalizeClick()));
 	cntxMenu->addAction("Agregar al conjunto de entrenamiento", this, SLOT(onAddToTrainingSet()));
@@ -26,59 +26,59 @@ QMenu *MLPObject::getContextMenu(QMenu *cntxMenu)
 	return cntxMenu;
 }
 
-int MLPObject::type() const
+int ann_gui::MLPObject::type() const
 {
 	return gotMLP;
 }
 
-void MLPObject::setTrainingSet(TrainingSet *ts)
+void ann_gui::MLPObject::setTrainingSet(TrainingSet *ts)
 {
 	this->trainingSet = ts;
 }
 
-TrainingSet* MLPObject::getTrainingSet() const
+TrainingSet* ann_gui::MLPObject::getTrainingSet() const
 {
 	return trainingSet;
 }
 
-void MLPObject::setValidationSet(TrainingSet *valSet)
+void ann_gui::MLPObject::setValidationSet(TrainingSet *valSet)
 {
 	validationSet = valSet;
 }
 
-TrainingSet *MLPObject::getValidationSet() const
+TrainingSet *ann_gui::MLPObject::getValidationSet() const
 {
 	return validationSet;
 }
 
-void MLPObject::setTestSet(TrainingSet *testSet)
+void ann_gui::MLPObject::setTestSet(TrainingSet *testSet)
 {
 	this->testSet = testSet;
 }
 
-TrainingSet *MLPObject::getTestSet() const
+TrainingSet *ann_gui::MLPObject::getTestSet() const
 {
 	return testSet;
 }
 
-void MLPObject::setMultilayerPerceptron(MultilayerPerceptron *mlp)
+void ann_gui::MLPObject::setMultilayerPerceptron(MultilayerPerceptron *mlp)
 {
 	this->mlp = mlp;
 }
 
-MultilayerPerceptron *MLPObject::getMultilayerPerceptron() const
+MultilayerPerceptron *ann_gui::MLPObject::getMultilayerPerceptron() const
 {
 	return mlp;
 }
 
-QString MLPObject::getXML() const
+QString ann_gui::MLPObject::getXML() const
 {
 	//TODO:
 	return "";
 }
 
 
-void MLPObject::setInputElement(GraphicObject *ge)
+void ann_gui::MLPObject::setInputElement(GraphicObject *ge)
 {
 	//Determina cual es el tipo de elemento de entrada y lo conecta con los eventos correspondientes
 	switch(ge->type()){
@@ -91,14 +91,14 @@ void MLPObject::setInputElement(GraphicObject *ge)
 	inputElement = ge;
 }
 
-void MLPObject::onTrainClick()
+void ann_gui::MLPObject::onTrainClick()
 {
 	ANNTrainingDialog *mlptd = new ANNTrainingDialog(this);
 	mlptd->show();
 	//	mlptd->deleteLater();
 }
 
-void MLPObject::onAnalizeClick()
+void ann_gui::MLPObject::onAnalizeClick()
 {
 //	MultilayerPerceptron *mlp = getMultilayerPerceptron();
 //	ImageEffect* giee = (ImageEffect*)getInputElement();
@@ -223,7 +223,7 @@ void MLPObject::onAnalizeClick()
 //	update();
 }
 
-vector<double> MLPObject::filterMayorThan(vector<double> vec, double value)
+vector<double> ann_gui::MLPObject::filterMayorThan(vector<double> vec, double value)
 {
 	vector<double> indexes(vec.size(), 0);
 	size_t sVector = vec.size();
@@ -235,7 +235,7 @@ vector<double> MLPObject::filterMayorThan(vector<double> vec, double value)
 	return indexes;
 }
 
-void MLPObject::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void ann_gui::MLPObject::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	GraphicObject::paint(painter, option, widget);
 
@@ -250,27 +250,27 @@ void MLPObject::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 	painter->restore();
 }
 
-void MLPObject::copyClick()
+void ann_gui::MLPObject::copyClick()
 {
 
 }
 
-void MLPObject::cutClick()
+void ann_gui::MLPObject::cutClick()
 {
 
 }
 
-void MLPObject::pasteClick()
+void ann_gui::MLPObject::pasteClick()
 {
 
 }
 
-void MLPObject::saveClick()
+void ann_gui::MLPObject::saveClick()
 {
 
 }
 
-void MLPObject::propertyClick()
+void ann_gui::MLPObject::propertyClick()
 {
 	ANNTrainingDialog *anntd = new ANNTrainingDialog(mlp, this->getTrainingSet());
 
@@ -280,11 +280,11 @@ void MLPObject::propertyClick()
 //	gmlpepd->show();
 }
 
-void MLPObject::openOnWindowClick()
+void ann_gui::MLPObject::openOnWindowClick()
 {
 }
 
-void MLPObject::updateInputCursor(int pos)
+void ann_gui::MLPObject::updateInputCursor(int pos)
 {
 	(void) pos;
 	//TODO: 5/14/16 updateInputCursor check this
@@ -298,7 +298,7 @@ void MLPObject::updateInputCursor(int pos)
 //	}
 }
 
-void MLPObject::init(MultilayerPerceptron *mlp, TrainingSet *ts)
+void ann_gui::MLPObject::init(MultilayerPerceptron *mlp, TrainingSet *ts)
 {
 	Q_INIT_RESOURCE(ann_gui_media);
 
@@ -314,7 +314,7 @@ void MLPObject::init(MultilayerPerceptron *mlp, TrainingSet *ts)
 	setContainerRect(QRectF(0,0,80,80));
 }
 
-void MLPObject::onDotMatrixStatusChanged(QVector<int> outputs)
+void ann_gui::MLPObject::onDotMatrixStatusChanged(QVector<int> outputs)
 {
 	(void) outputs;
 	//NOTE: 17/12/14: redefine to handle concurrent_vector
@@ -323,7 +323,7 @@ void MLPObject::onDotMatrixStatusChanged(QVector<int> outputs)
 //	emit outputChanged(QVector<double>(out.begin(), out.end()));
 }
 
-void MLPObject::onDotMatrixStatusChanged(vector<int> outputs)
+void ann_gui::MLPObject::onDotMatrixStatusChanged(vector<int> outputs)
 {
 	//NOTE: 7/4/15 aparently there is no reason to to this code, it could be replaced by code below this commented fragment
 //	vector<double> out = mlp->getOutput(outputs);
@@ -336,7 +336,7 @@ void MLPObject::onDotMatrixStatusChanged(vector<int> outputs)
 	emit outputChanged(sig_out);
 }
 
-void MLPObject::onAddToTrainingSet()
+void ann_gui::MLPObject::onAddToTrainingSet()
 {
 //	TrainingSetDialog *tsMLP = new TrainingSetDialog(trainingSet);
 //	TrainingSetTable *tempTST = tsMLP->getTrainingSetTable();

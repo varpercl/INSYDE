@@ -22,6 +22,9 @@
 using namespace std;
 using namespace core;
 
+namespace ann_gui
+{
+
 //class SelectImageSegmentDialog;
 //class DataRepresentationBox;
 //class DotMatrix;
@@ -257,4 +260,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT TrainingSetDialog : public BasicDialog
 		void beginOpenDialog();
 
 };
+}
 #endif // TRAININGSETDIALOG_H

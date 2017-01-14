@@ -5,6 +5,8 @@
 
 #include "share_ec_gui.h"
 
+namespace ec_gui
+{
 typedef void* Action;
 typedef QMap<QString, void*> Parameters;
 
@@ -29,5 +31,5 @@ class EC_GUI_LIB_IMPORT_EXPORT Rule
 
 		void ejecutarRegla();
 };
-
+}
 #endif // REGLA_H

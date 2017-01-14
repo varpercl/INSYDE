@@ -1,16 +1,16 @@
 #include "movilagent.h"
 
-MovilAgent::MovilAgent()
+ec_gui::MovilAgent::MovilAgent()
 {
     iniciarAgenteMovil(50, 100);
 }
 
-MovilAgent::MovilAgent(double rapidez, double alcance)
+ec_gui::MovilAgent::MovilAgent(double rapidez, double alcance)
 {
     iniciarAgenteMovil(rapidez, alcance);
 }
 
-void MovilAgent::iniciarAgenteMovil(double rapidez, double alcance)
+void ec_gui::MovilAgent::iniciarAgenteMovil(double rapidez, double alcance)
 {
     visionSensor = new VisionSensor(this, alcance, 360);
     addSensor("vision", visionSensor);
@@ -30,38 +30,38 @@ void MovilAgent::iniciarAgenteMovil(double rapidez, double alcance)
     setShape(forma);
 }
 
-void MovilAgent::setVisualRange(double range)
+void ec_gui::MovilAgent::setVisualRange(double range)
 {
     VisionSensor *sd = (VisionSensor*)getSensor("vision");
     sd->setVisionRange(range);
 }
 
-void MovilAgent::setSpeed(double rapidez)
+void ec_gui::MovilAgent::setSpeed(double rapidez)
 {
     movingActuator->setRapidez(rapidez);
 }
 
-double MovilAgent::getSpeed()
+double ec_gui::MovilAgent::getSpeed()
 {
     return movingActuator->getRapidez();
 }
 
-void MovilAgent::addPoint(double x, double y)
+void ec_gui::MovilAgent::addPoint(double x, double y)
 {
     movingActuator->addPoint(x, y);
 }
 
-void MovilAgent::addPoint(const QPointF &pt)
+void ec_gui::MovilAgent::addPoint(const QPointF &pt)
 {
     movingActuator->addPoint(pt);
 }
 
-void MovilAgent::clearPoints()
+void ec_gui::MovilAgent::clearPoints()
 {
     movingActuator->clearPoints();
 }
 
-QRegion MovilAgent::getRegion(){ //Arreglar
+QRegion ec_gui::MovilAgent::getRegion(){ //Arreglar
     QPainterPath path;
     if(getVisibleJourney()){
         path.addPath(mapFromScene(movingActuator->getTrayectoria()));
@@ -76,7 +76,7 @@ QRegion MovilAgent::getRegion(){ //Arreglar
     return QRegion(path.toFillPolygon().toPolygon());
 }
 
-QRectF MovilAgent::boundingRect() const
+QRectF ec_gui::MovilAgent::boundingRect() const
 {
     QPainterPath path;
     if(getVisibleJourney() && includeJourney){
@@ -93,7 +93,7 @@ QRectF MovilAgent::boundingRect() const
     return path.controlPointRect().adjusted(-medioBorde, -medioBorde, medioBorde, medioBorde);
 }
 
-void MovilAgent::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void ec_gui::MovilAgent::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 //    painter->setClipRect(option->exposedRect);
     Agent::paint(painter, option, widget);
@@ -130,60 +130,60 @@ void MovilAgent::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     painter->restore();
 }
 
-double MovilAgent::getRadius()
+double ec_gui::MovilAgent::getRadius()
 {
     return Vector2D(forma.controlPointRect().center(), forma.controlPointRect().topLeft()).getModulo();
 }
 
-void MovilAgent::setDirection(double dir)
+void ec_gui::MovilAgent::setDirection(double dir)
 {
     theta = M_PI*dir/180;
     setRotation(-theta);
 }
 
-double MovilAgent::getDirection()
+double ec_gui::MovilAgent::getDirection()
 {
     return (theta*180)/M_PI;
 }
 
-void MovilAgent::setDirectionRads(double dir)
+void ec_gui::MovilAgent::setDirectionRads(double dir)
 {
     theta = dir;
 //    setRotation(-theta*180/M_PI);
 }
 
-double MovilAgent::getDirectionRads()
+double ec_gui::MovilAgent::getDirectionRads()
 {
     return theta;
 }
 
-void MovilAgent::stop()
+void ec_gui::MovilAgent::stop()
 {
     if(movingActuator != NULL)
         movingActuator->stop();
 }
 
-void MovilAgent::run()
+void ec_gui::MovilAgent::run()
 {
     movingActuator->run();
 }
 
-void MovilAgent::moverA(double x, double y)
+void ec_gui::MovilAgent::moverA(double x, double y)
 {
     movingActuator->moverA(x, y);
 }
 
-void MovilAgent::moverA(QPointF pt)
+void ec_gui::MovilAgent::moverA(QPointF pt)
 {
     movingActuator->moverA(pt);
 }
 
-void MovilAgent::moverA(QQueue<QPointF> posiciones)
+void ec_gui::MovilAgent::moverA(QQueue<QPointF> posiciones)
 {
     movingActuator->moverA(posiciones);
 }
 
-bool MovilAgent::isMoving()
+bool ec_gui::MovilAgent::isMoving()
 {
     return movingActuator->isMoving();
 }

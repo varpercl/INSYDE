@@ -9,8 +9,10 @@
 
 using namespace ann_base;
 
+namespace ann_gui
+{
+
 /*!
- * \class
  *
  * \brief La clase WeightLine representa las lineas que conectan el nucleo
  * con las entradas, estas lineas tienen propiedades especificas como el color,
@@ -78,5 +80,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT WeightLine : public QObject, public QGraphicsLin
 
 		void init(SimplePerceptron *sp, int index, double weight = 0, double maxW = 100, double minW = -100, int lineWidth = 2);
 };
-
+}
 #endif // WEIGHTLINE_H

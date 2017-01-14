@@ -1,15 +1,17 @@
 var searchData=
 [
-  ['onapplyclicked',['onApplyClicked',['../classcore_1_1_dot_matrix_property_dialog.html#a4cde1b085251d7d11b28a48c77cc292c',1,'core::DotMatrixPropertyDialog']]],
-  ['onchangeimageclick',['onChangeImageClick',['../classcore_1_1_image.html#a6444915e4ceac01b2646a56471bf7066',1,'core::Image']]],
-  ['onexportclick',['onExportClick',['../class_training_set_dialog.html#a40868c4ce19d516c2e603ffaa85ac8f4',1,'TrainingSetDialog']]],
-  ['oninputchanged',['onInputChanged',['../class_training_set_dialog.html#a8d550bce69b00c3caeee835320677b29',1,'TrainingSetDialog']]],
-  ['oninsertdownrowtriggered',['onInsertDownRowTriggered',['../classcore_1_1_basic_table.html#a137c75c31dbb0ef0113654221f069582',1,'core::BasicTable']]],
-  ['oninsertleftcolumntriggered',['onInsertLeftColumnTriggered',['../classcore_1_1_basic_table.html#a9b6f8baac4b5a59683f192dfd6e44a68',1,'core::BasicTable']]],
-  ['oninsertrightcolumntriggered',['onInsertRightColumnTriggered',['../classcore_1_1_basic_table.html#a553e93a1b5dc3c896ab58778038f7855',1,'core::BasicTable']]],
-  ['oninsertuprowtriggered',['onInsertUpRowTriggered',['../classcore_1_1_basic_table.html#a9caf921618206a2a52b811c1ecce218b',1,'core::BasicTable']]],
-  ['onremovecolumntriggered',['onRemoveColumnTriggered',['../classcore_1_1_basic_table.html#ab308575d956a7b4f00b7a8286aded28d',1,'core::BasicTable']]],
-  ['onremoverowtriggered',['onRemoveRowTriggered',['../classcore_1_1_basic_table.html#abac7594497f0c1e5fcc3de70f84fa000',1,'core::BasicTable']]],
-  ['ontargetchanged',['onTargetChanged',['../class_training_set_dialog.html#adc723737d4aaa3691b81e411fbba04ae',1,'TrainingSetDialog']]],
-  ['openclick',['openClick',['../class_training_set_dialog.html#a2e059796c5326f970cd5e0298f552882',1,'TrainingSetDialog']]]
+  ['main',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
+  ['mainwindow',['MainWindow',['../classgui_1_1_main_window.html#a7f38db99564755372647f7f30b1dd953',1,'gui::MainWindow']]],
+  ['maxvaluechanged',['maxValueChanged',['../classcore_1_1_normalization.html#a7f7cab08595a6d0c69aa7c3cc73612c5',1,'core::Normalization']]],
+  ['minvaluechanged',['minValueChanged',['../classcore_1_1_normalization.html#a5deb5b843937c5d60e76c2587480b426',1,'core::Normalization']]],
+  ['mlpobject',['MLPObject',['../classann__gui_1_1_m_l_p_object.html#afa452f6313d9b12de72cc49af324a18b',1,'ann_gui::MLPObject::MLPObject(MultilayerPerceptron *mlp)'],['../classann__gui_1_1_m_l_p_object.html#a35723fab9a1ad085d3221c5529813b80',1,'ann_gui::MLPObject::MLPObject(MultilayerPerceptron *mlp, TrainingSet *trainingSet)']]],
+  ['mlpobjectpropertydialog',['MLPObjectPropertyDialog',['../classann__gui_1_1_m_l_p_object_property_dialog.html#abfe4cd826fd301e9b4a632f25613d5bc',1,'ann_gui::MLPObjectPropertyDialog']]],
+  ['mlptrainingresult',['MLPTrainingResult',['../classann__base_1_1_m_l_p_training_result.html#a8f84bd66fe7aedc7926bac24f42106ba',1,'ann_base::MLPTrainingResult::MLPTrainingResult()'],['../classann__base_1_1_m_l_p_training_result.html#a25457482d69cd1d745643d07a470b33c',1,'ann_base::MLPTrainingResult::MLPTrainingResult(long long epochs, double mse, double rmse, double ce, double time)'],['../classann__base_1_1_m_l_p_training_result.html#ac5aa2b945c10afbedd2643c6668738cd',1,'ann_base::MLPTrainingResult::MLPTrainingResult(const MLPTrainingResult &amp;mlptr)'],['../class_m_l_p_training_result.html#a8f84bd66fe7aedc7926bac24f42106ba',1,'MLPTrainingResult::MLPTrainingResult()'],['../class_m_l_p_training_result.html#a25457482d69cd1d745643d07a470b33c',1,'MLPTrainingResult::MLPTrainingResult(long long epochs, double mse, double rmse, double ce, double time)'],['../class_m_l_p_training_result.html#ac5aa2b945c10afbedd2643c6668738cd',1,'MLPTrainingResult::MLPTrainingResult(const MLPTrainingResult &amp;mlptr)']]],
+  ['mousedoubleclickevent',['mouseDoubleClickEvent',['../classcore_1_1_image.html#a0a0dd4e03e95dc858a2e8662617ea8a2',1,'core::Image']]],
+  ['mousemoveevent',['mouseMoveEvent',['../classcore_1_1_graphic_detailed_view.html#ad18636eda40edc0765eddfd7995e47e5',1,'core::GraphicDetailedView::mouseMoveEvent()'],['../classcore_1_1_image.html#a43a759f77f338d2dfaccb30201d3a87b',1,'core::Image::mouseMoveEvent()']]],
+  ['mousepressed',['mousePressed',['../classcore_1_1_graphic_detailed_view.html#ab8ad69ed22dbace9faa07f2c710c06e7',1,'core::GraphicDetailedView']]],
+  ['mousepressevent',['mousePressEvent',['../classann__gui_1_1_weight_line.html#ae82f0d58dc37e6678000bd45fc5d8b36',1,'ann_gui::WeightLine::mousePressEvent()'],['../classcore_1_1_graphic_detailed_view.html#ae741905e92da321668abb0ea366cff52',1,'core::GraphicDetailedView::mousePressEvent()'],['../classcore_1_1_image.html#a9a5c01001cf78ef4faf43e8d8f613d51',1,'core::Image::mousePressEvent()']]],
+  ['mousereleaseevent',['mouseReleaseEvent',['../classcore_1_1_graphic_detailed_view.html#adffca608daa2d0b9501f18f4f2a2b76d',1,'core::GraphicDetailedView']]],
+  ['multilayerperceptron',['MultilayerPerceptron',['../classann__base_1_1_multilayer_perceptron.html#a956f672e8677b44c6ee71ee61469c8cd',1,'ann_base::MultilayerPerceptron']]],
+  ['multilayerperceptronpattern',['MultilayerPerceptronPattern',['../classann__base_1_1_multilayer_perceptron_pattern.html#a96676535793f83134d9c1a02385b4f24',1,'ann_base::MultilayerPerceptronPattern::MultilayerPerceptronPattern(int ninputs, int ntargets)'],['../classann__base_1_1_multilayer_perceptron_pattern.html#a2ef00d346523f222ac72edc75c860870',1,'ann_base::MultilayerPerceptronPattern::MultilayerPerceptronPattern(vector&lt; double &gt; inputs, vector&lt; double &gt; targets)'],['../classann__base_1_1_multilayer_perceptron_pattern.html#a34805c4fa5fc927b340f6da4340faa0b',1,'ann_base::MultilayerPerceptronPattern::MultilayerPerceptronPattern(double *inputs, size_t sinputs, double *targets, size_t stargets)']]]
 ];

@@ -1,55 +1,8 @@
-/****************************************************************************
-**
-** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
-** Contact: http://www.qt-project.org/legal
-**
-** This file is part of the examples of the Qt Toolkit.
-**
-** $QT_BEGIN_LICENSE:BSD$
-** You may use this file under the terms of the BSD license as follows:
-**
-** "Redistribution and use in source and binary forms, with or without
-** modification, are permitted provided that the following conditions are
-** met:
-**   * Redistributions of source code must retain the above copyright
-**     notice, this list of conditions and the following disclaimer.
-**   * Redistributions in binary form must reproduce the above copyright
-**     notice, this list of conditions and the following disclaimer in
-**     the documentation and/or other materials provided with the
-**     distribution.
-**   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
-**     of its contributors may be used to endorse or promote products derived
-**     from this software without specific prior written permission.
-**
-**
-** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-** "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
-
-/*
-	treeitem.cpp
-
-	A container for items of data supplied by the simple tree model.
-*/
-
 #include "annmodeltree.h"
 
 #include <QStringList>
 
-//! [0]
-ANNModelTree::ANNModelTree(const QVector<QVariant> &data, const QVector<Qt::ItemFlags> &flags, ItemType itemType, ANNModelTree *parent)
+ann_gui::ANNModelTree::ANNModelTree(const QVector<QVariant> &data, const QVector<Qt::ItemFlags> &flags, ItemType itemType, ANNModelTree *parent)
 {
 	childItems = new QVector<ANNModelTree*>();
 	parentItem = parent;
@@ -57,28 +10,28 @@ ANNModelTree::ANNModelTree(const QVector<QVariant> &data, const QVector<Qt::Item
 	itemFlags = flags;
 	this->itemType = itemType;
 }
-ANNModelTree::~ANNModelTree()
+ann_gui::ANNModelTree::~ANNModelTree()
 {
 //	qDeleteAll(childItems);
 	childItems->clear();
 }
 
-ANNModelTree *ANNModelTree::getChild(int number)
+ann_gui::ANNModelTree *ann_gui::ANNModelTree::getChild(int number)
 {
 	return childItems->operator [](number);
 }
 
-QVector<ANNModelTree *> *ANNModelTree::getChildren() const
+QVector<ann_gui::ANNModelTree *> *ann_gui::ANNModelTree::getChildren() const
 {
 	return childItems;
 }
 
-int ANNModelTree::getChildrenCount() const
+int ann_gui::ANNModelTree::getChildrenCount() const
 {
 	return childItems->size();
 }
 
-int ANNModelTree::childIndex() const
+int ann_gui::ANNModelTree::childIndex() const
 {
 	if (parentItem)
 //		return find(parentItem->childItems.begin(), parentItem->childItems.end(), const_cast<TreeItem*>(this)) - parentItem->childItems.begin();
@@ -87,12 +40,12 @@ int ANNModelTree::childIndex() const
 	return 0;
 }
 
-int ANNModelTree::getColumnCount() const
+int ann_gui::ANNModelTree::getColumnCount() const
 {
 	return itemData.count();
 }
 
-void ANNModelTree::clear()
+void ann_gui::ANNModelTree::clear()
 {
 //	for(int i = 0; i < childItems.size(); i++){
 //		childItems[i]->clear();
@@ -111,12 +64,12 @@ void ANNModelTree::clear()
 	childItems->clear();
 }
 
-ANNModelTree::ItemType ANNModelTree::getType() const
+ann_gui::ANNModelTree::ItemType ann_gui::ANNModelTree::getType() const
 {
 	return itemType;
 }
 
-Qt::ItemFlags ANNModelTree::getFlags(int column) const
+Qt::ItemFlags ann_gui::ANNModelTree::getFlags(int column) const
 {
 	if(column < itemFlags.size()){
 		return itemFlags[column];
@@ -124,12 +77,12 @@ Qt::ItemFlags ANNModelTree::getFlags(int column) const
 	return Qt::NoItemFlags;
 }
 
-QVariant ANNModelTree::getData(int column) const
+QVariant ann_gui::ANNModelTree::getData(int column) const
 {
 	return itemData[column];
 }
 
-bool ANNModelTree::addChildItem(ANNModelTree *child)
+bool ann_gui::ANNModelTree::addChildItem(ANNModelTree *child)
 {
 	if(child){
 		childItems->push_back(child);
@@ -140,7 +93,7 @@ bool ANNModelTree::addChildItem(ANNModelTree *child)
 //! [6]
 
 //! [7]
-bool ANNModelTree::insertChildren(int /*position*/, int /*count*/, int /*columns*/)
+bool ann_gui::ANNModelTree::insertChildren(int /*position*/, int /*count*/, int /*columns*/)
 {
 	//TODO: 20/9/15 insertChildren: evaluate if necesary this function
 //	if (position < 0 || position > childItems.size())
@@ -156,7 +109,7 @@ bool ANNModelTree::insertChildren(int /*position*/, int /*count*/, int /*columns
 	return false;
 }
 
-bool ANNModelTree::insertColumns(int position, int columns)
+bool ann_gui::ANNModelTree::insertColumns(int position, int columns)
 {
 	if (position < 0 || position > itemData.size())
 		return false;
@@ -170,12 +123,12 @@ bool ANNModelTree::insertColumns(int position, int columns)
 	return true;
 }
 
-ANNModelTree *ANNModelTree::getParent() const
+ann_gui::ANNModelTree *ann_gui::ANNModelTree::getParent() const
 {
 	return parentItem;
 }
 
-bool ANNModelTree::removeChildren(int position, int count)
+bool ann_gui::ANNModelTree::removeChildren(int position, int count)
 {
 	if (position < 0 || position + count > childItems->size())
 		return false;
@@ -188,7 +141,7 @@ bool ANNModelTree::removeChildren(int position, int count)
 	return true;
 }
 
-bool ANNModelTree::removeColumns(int position, int columns)
+bool ann_gui::ANNModelTree::removeColumns(int position, int columns)
 {
 	if (position < 0 || position + columns > itemData.size())
 		return false;
@@ -202,49 +155,49 @@ bool ANNModelTree::removeColumns(int position, int columns)
 	return true;
 }
 
-void ANNModelTree::setData(int column, const QVariant &value)
+void ann_gui::ANNModelTree::setData(int column, const QVariant &value)
 {
 	itemData[column] = value;
 }
 
-void ANNModelTree::setData(const QVector<QVariant> &value)
+void ann_gui::ANNModelTree::setData(const QVector<QVariant> &value)
 {
 	itemData = value;
 }
 
-void ANNModelTree::setFlags(int column, const Qt::ItemFlags &value)
+void ann_gui::ANNModelTree::setFlags(int column, const Qt::ItemFlags &value)
 {
 	itemFlags[column] = value;
 }
 
-void ANNModelTree::setFlags(const QVector<Qt::ItemFlags> &value)
+void ann_gui::ANNModelTree::setFlags(const QVector<Qt::ItemFlags> &value)
 {
 	itemFlags = value;
 }
 
-void ANNModelTree::setType(ANNModelTree::ItemType type)
+void ann_gui::ANNModelTree::setType(ANNModelTree::ItemType type)
 {
 	itemType = type;
 }
 
-void ANNModelTree::setParent(ANNModelTree *parent)
+void ann_gui::ANNModelTree::setParent(ANNModelTree *parent)
 {
 	parentItem = parent;
 }
 
-void ANNModelTree::setChildren(QVector<ANNModelTree *> *children)
+void ann_gui::ANNModelTree::setChildren(QVector<ANNModelTree *> *children)
 {
 	childItems = children;
 }
 
-void ANNModelTree::setIndex(int layer, int neuron, int weight)
+void ann_gui::ANNModelTree::setIndex(int layer, int neuron, int weight)
 {
 	this->layer = layer;
 	this->neuron = neuron;
 	this->weight = weight;
 }
 
-ANNModelTree &ANNModelTree::operator=(const ANNModelTree &item)
+ann_gui::ANNModelTree &ann_gui::ANNModelTree::operator=(const ANNModelTree &item)
 {
 	layer = item.getLayer();
 	neuron = item.getNeuron();

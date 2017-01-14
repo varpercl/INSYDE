@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['learningrule',['LearningRule',['../classann__base_1_1_simple_perceptron.html#a5302d2f1b4fb5e272070b849c4ccbbba',1,'ann_base::SimplePerceptron']]]
+  ['effectname',['EffectName',['../classcore_1_1_effect.html#a7e5ac43798803cbbbe8e1c70d09752cc',1,'core::Effect']]]
 ];

@@ -1,16 +1,16 @@
 #include "pheromonedepositor.h"
 
-PheromoneDepositor::PheromoneDepositor(MovilAgent *agent): Actuator(agent)
+ec_gui::PheromoneDepositor::PheromoneDepositor(MovilAgent *agent): Actuator(agent)
 {
 	initPDep(20);
 }
 
-PheromoneDepositor::PheromoneDepositor(MovilAgent *agent, int intensity) : Actuator(agent)
+ec_gui::PheromoneDepositor::PheromoneDepositor(MovilAgent *agent, int intensity) : Actuator(agent)
 {
 	initPDep(intensity);
 }
 
-void PheromoneDepositor::initPDep(int intensity){
+void ec_gui::PheromoneDepositor::initPDep(int intensity){
 	lastPheromoneItem = NULL;
 //    timerCheckDistance.start(500);
 	gridSpace = 50;
@@ -21,7 +21,7 @@ void PheromoneDepositor::initPDep(int intensity){
 	connect(&timerCheckDistance, SIGNAL(timeout()), SLOT(timerCheckDistanceEvent()));
 }
 
-void PheromoneDepositor::placePheromoneItem(int intensity)
+void ec_gui::PheromoneDepositor::placePheromoneItem(int intensity)
 {
 
 	Agent *ag = getAgent();
@@ -65,12 +65,12 @@ void PheromoneDepositor::placePheromoneItem(int intensity)
 //    placePheromoneItem(lastPheromoneItem);
 //}
 
-double PheromoneDepositor::distanceToLastPheromone()
+double ec_gui::PheromoneDepositor::distanceToLastPheromone()
 {
 	return lastPheromoneItem ? math::distance(lastPheromoneItem->pos(), getAgent()->pos()) : NAN;
 }
 
-void PheromoneDepositor::placePheromoneItem(PheromoneItem *pi)
+void ec_gui::PheromoneDepositor::placePheromoneItem(PheromoneItem *pi)
 {
 	Agent *ag = getAgent();
 	PheromoneItem *tmpPI;
@@ -106,37 +106,37 @@ void PheromoneDepositor::placePheromoneItem(PheromoneItem *pi)
 	}
 }
 
-void PheromoneDepositor::setIntensity(int intensity)
+void ec_gui::PheromoneDepositor::setIntensity(int intensity)
 {
 	pheromoneIntensity = intensity;
 }
 
-int PheromoneDepositor::getIntensity()
+int ec_gui::PheromoneDepositor::getIntensity()
 {
 	return pheromoneIntensity;
 }
 
-void PheromoneDepositor::setSaturationValue(int val)
+void ec_gui::PheromoneDepositor::setSaturationValue(int val)
 {
 	saturationValue = val;
 }
 
-int PheromoneDepositor::getSaturationValue()
+int ec_gui::PheromoneDepositor::getSaturationValue()
 {
 	return saturationValue;
 }
 
-void PheromoneDepositor::startPlacePheromone()
+void ec_gui::PheromoneDepositor::startPlacePheromone()
 {
 	timerCheckDistance.start(500);
 }
 
-void PheromoneDepositor::stopPlacePheromone()
+void ec_gui::PheromoneDepositor::stopPlacePheromone()
 {
 	timerCheckDistance.stop();
 }
 
-void PheromoneDepositor::timerCheckDistanceEvent()
+void ec_gui::PheromoneDepositor::timerCheckDistanceEvent()
 {
 	MovilAgent *ag = dynamic_cast<MovilAgent*>(getAgent());
 //    PheromoneItem *pi;

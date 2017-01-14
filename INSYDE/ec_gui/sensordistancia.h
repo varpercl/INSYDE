@@ -13,6 +13,8 @@
 #include "agent.h"
 #include "sensor.h"
 
+namespace ec_gui
+{
 class Agent;
 //class Sensor;
 
@@ -140,5 +142,5 @@ class EC_GUI_LIB_IMPORT_EXPORT VisionSensor : public Sensor
 //        void setAreaDeCovertura(QPainterPath *area);
 		QPainterPath getCoverArea();
 };
-
+}
 #endif // SENSORDISTANCIA_H
