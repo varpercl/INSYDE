@@ -1,5 +1,0 @@
-<map id="ann_base::SimpleInputPattern" name="ann_base::SimpleInputPattern">
-<area shape="rect" id="node2" href="$classann__base_1_1_adaline_training_pattern.html" title="ann_base::AdalineTraining\lPattern" alt="" coords="265,5,439,47"/>
-<area shape="rect" id="node3" href="$classann__base_1_1_multilayer_perceptron_pattern.html" title="ann_base::MultilayerPerceptron\lPattern" alt="" coords="249,71,455,112"/>
-<area shape="rect" id="node4" href="$classann__base_1_1_perceptron_training_pattern.html" title="ann_base::PerceptronTraining\lPattern" alt="" coords="255,136,449,177"/>
-</map>

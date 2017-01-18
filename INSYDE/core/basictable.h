@@ -1,6 +1,7 @@
 #ifndef BASICTABLE_H
 #define BASICTABLE_H
 
+#include <QtCore>
 #include <QtWidgets>
 
 #include "share_core_lib.h"
@@ -46,17 +47,24 @@ class CORE_LIB_IMPORT_EXPORT BasicTable : public QTableView, public Clipboard
 	public slots:
 
 		/*!
-		 * \reimp
+		 * \brief Performs a copy action to the clipboard, this function is pure virtual
+		 * and user must implement the right routines copy the right content.
+		 *
 		 */
 		void copyClick();
 
 		/*!
-		 * \brief cutClick
+		 * \brief Performs a cut action to the clipboard, this function is pure virtual
+		 * and user must implement the right routines cut the right content.
+		 *
 		 */
 		void cutClick();
 
 		/*!
-		 * \brief pasteClick
+		 * \brief Performs a paste action from the clipboard to this dialog, this
+		 * function is pure virtual and user must implement the right routines
+		 * paste the right content.
+		 *
 		 */
 		void pasteClick();
 
@@ -154,6 +162,9 @@ class CORE_LIB_IMPORT_EXPORT BasicTable : public QTableView, public Clipboard
 
 		QClipboard *clipboard;
 
+		/*!
+		 * \brief Initialize all controlls of this dialog. Sets the dimentions and scales of them.
+		 */
 		void init();
 };
 }

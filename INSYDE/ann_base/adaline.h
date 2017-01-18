@@ -344,17 +344,9 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 		  */
 		void init(const vector<double> &weights, TransferFunctionType tf);
 
-		//          class TrainThis : public QThread{
-		//              public:
-
-		//                  vector<double> weights;
-		//                  double threshold;
-
-		//                  void run();
-		//          };
-
 };
 
 }
 
 #endif // ADALINE_H
+

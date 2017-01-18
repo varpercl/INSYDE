@@ -40,15 +40,15 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_a_n_nglobal_8cpp.html",
-"class_select_image_segment_dialog.html#a99c2138af7757288c4aa2bde0fbe1c82",
-"classann__gui_1_1_a_n_n_training_dialog.html#a187bf7b5dc7e4268089e644a0811869e",
-"classcore_1_1_basic_table.html#ada1626c0e09254386570c439585bda62",
-"classcore_1_1_graphic_object.html#aca007c071f7ae0e7411f369380f6d352ab2bd34561743a4f8fbb34ad7aa81e707",
-"classcore_1_1_labeled_widget.html#aa7be7ed31c5f8989b9ad28e3d58d02e9ac896938cd42f599a00ddf757a4fa62eb",
-"core_2definitions_8h_source.html",
-"gui_2icons_8h.html#aed1a6945204aad08b1af2484800f2982",
-"share__ann__base__lib_8h.html#a3515acf60e20f363c8ef29249211b02a"
+"annotated.html",
+"d2/dab/classcore_1_1_image.html#a225b0e3911350b1e194aa05b76f28844",
+"d4/d5a/classcore_1_1_restricted_line_f.html#a5319c5b1a79482e559115940de518149af8887958381877b92369a655dcfb4350",
+"d5/df5/classcore_1_1_i_resizable_f.html#a082821210aff7e2b32e5811136cb864f",
+"d7/d66/classcore_1_1_image_detailed_window.html#a32c3c64deb19f7b34cb29a774edc778a",
+"d8/db6/classcore_1_1_basic_dialog.html#a5f12bcb4205573e3de35323f4f9c5099",
+"da/daa/mlp_8cpp.html",
+"dc/de3/core_2icons_8h_source.html",
+"df/d04/satrainingsettings_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

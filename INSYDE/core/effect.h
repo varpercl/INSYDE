@@ -16,7 +16,10 @@ namespace core{
 class CORE_LIB_IMPORT_EXPORT Effect
 {
 	public:
-		enum EffectName{Nothing = 0};
+		enum EffectType
+		{
+			Nothing
+		};
 
 		explicit Effect();
 		explicit Effect(const QImage &img);

@@ -1,7 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classann__base_1_1_training_result.html" title="ann_base::TrainingResult" alt="" coords="203,5,371,32"/>
-<area shape="rect" id="node4" href="$classann__base_1_1_training_set.html" title="ann_base::TrainingSet" alt="" coords="212,56,363,83"/>
-<area shape="rect" id="node5" href="$classann__gui_1_1_t_s_model_wrapper.html" title="ann_gui::TSModelWrapper" alt="" coords="200,107,375,133"/>
-<area shape="rect" id="node6" href="$class_m_l_p_training_result.html" title="MLPTrainingResult" alt="" coords="222,157,353,184"/>
-<area shape="rect" id="node3" href="$classann__base_1_1_m_l_p_training_result.html" title="ann_base::MLPTrainingResult" alt="" coords="423,5,617,32"/>
+<area shape="rect" id="node2" href="$d3/df2/classann__base_1_1_training_result.html" title="ann_base::TrainingResult" alt="" coords="203,5,371,32"/>
+<area shape="rect" id="node4" href="$db/dcc/classann__base_1_1_training_set.html" title="ann_base::TrainingSet" alt="" coords="212,56,363,83"/>
+<area shape="rect" id="node5" href="$d9/d37/classann__gui_1_1_t_s_model_wrapper.html" title="ann_gui::TSModelWrapper" alt="" coords="200,107,375,133"/>
+<area shape="rect" id="node6" href="$d9/dd7/class_m_l_p_training_result.html" title="MLPTrainingResult" alt="" coords="222,157,353,184"/>
+<area shape="rect" id="node3" href="$d8/da0/classann__base_1_1_m_l_p_training_result.html" title="ann_base::MLPTrainingResult" alt="" coords="423,5,617,32"/>
 </map>
