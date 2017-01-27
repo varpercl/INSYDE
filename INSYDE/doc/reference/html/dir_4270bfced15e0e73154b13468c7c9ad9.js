@@ -31,7 +31,8 @@ var dir_4270bfced15e0e73154b13468c7c9ad9 =
     [ "common.h", "dc/d54/common_8h.html", "dc/d54/common_8h" ],
     [ "connector.cpp", "de/db8/connector_8cpp.html", null ],
     [ "connector.h", "d9/d07/connector_8h.html", [
-      [ "Connector", "d7/dd1/classcore_1_1_connector.html", "d7/dd1/classcore_1_1_connector" ]
+      [ "Connector", "d7/dd1/classcore_1_1_connector.html", "d7/dd1/classcore_1_1_connector" ],
+      [ "CollidingResult", "dc/dd7/structcore_1_1_connector_1_1_colliding_result.html", "dc/dd7/structcore_1_1_connector_1_1_colliding_result" ]
     ] ],
     [ "datarepresentation.cpp", "d3/dc3/datarepresentation_8cpp.html", null ],
     [ "datarepresentation.h", "d8/d42/datarepresentation_8h.html", [

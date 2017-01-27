@@ -82,15 +82,17 @@ $(document).ready(function(){initNavTree('d7/dd1/classcore_1_1_connector.html','
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-slots">Protected Slots</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../dd/dab/classcore_1_1_connector-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">core::Connector Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="../../d7/dd1/classcore_1_1_connector.html" title="The Connector class. ">Connector</a> class.  
+<p>The <a class="el" href="../../d7/dd1/classcore_1_1_connector.html" title="The Connector class represents an interactive composed line which represents a graphic connection bet...">Connector</a> class represents an interactive composed line which represents a graphic connection between two GraphicObjects. A connector must have an origin and end.  
  <a href="../../d7/dd1/classcore_1_1_connector.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d9/d07/connector_8h_source.html">connector.h</a>&gt;</code></p>
@@ -115,15 +117,24 @@ Collaboration diagram for core::Connector:</div>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd7/structcore_1_1_connector_1_1_colliding_result.html">CollidingResult</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../dc/dd7/structcore_1_1_connector_1_1_colliding_result.html" title="The CollidingResult struct involves a determined line and the current points it is intersecting at...">CollidingResult</a> struct involves a determined line and the current points it is intersecting at. This members means <code>line</code> intersects  n <code>objects</code> at determined <code>points</code> (each point belongs to <code>line</code>)  <a href="../../dc/dd7/structcore_1_1_connector_1_1_colliding_result.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a73f30a9ebfc030c9af28ec9b47630067"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a73f30a9ebfc030c9af28ec9b47630067">Connector</a> ()</td></tr>
+<tr class="memdesc:a73f30a9ebfc030c9af28ec9b47630067"><td class="mdescLeft">&#160;</td><td class="mdescRight">The basic constructor, represents a null connector. This means a connector who has no origin object and no end object.  <a href="#a73f30a9ebfc030c9af28ec9b47630067">More...</a><br /></td></tr>
 <tr class="separator:a73f30a9ebfc030c9af28ec9b47630067"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ddb59bba155d83ff579ab7b282e4483"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a4ddb59bba155d83ff579ab7b282e4483">Connector</a> (<a class="el" href="../../db/dc8/classcore_1_1_graphic_object.html">GraphicObject</a> *begin, <a class="el" href="../../db/dc8/classcore_1_1_graphic_object.html">GraphicObject</a> *end)</td></tr>
+<tr class="memdesc:a4ddb59bba155d83ff579ab7b282e4483"><td class="mdescLeft">&#160;</td><td class="mdescRight">A connector who will start connected to <code>begin</code> and will end connected to <code>end</code> object respectively.  <a href="#a4ddb59bba155d83ff579ab7b282e4483">More...</a><br /></td></tr>
 <tr class="separator:a4ddb59bba155d83ff579ab7b282e4483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bed4a02167bc693acac4e3a980acc66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a3bed4a02167bc693acac4e3a980acc66">~Connector</a> ()</td></tr>
 <tr class="separator:a3bed4a02167bc693acac4e3a980acc66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2c05554f08080d96dc6a5892865ca77"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#ad2c05554f08080d96dc6a5892865ca77">type</a> () const override</td></tr>
+<tr class="memdesc:ad2c05554f08080d96dc6a5892865ca77"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of this object. In this case type will be <code>GraphicObjectTypes::gotConnector</code>.  <a href="#ad2c05554f08080d96dc6a5892865ca77">More...</a><br /></td></tr>
 <tr class="separator:ad2c05554f08080d96dc6a5892865ca77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f4f6e15d5d6e0fcb70a6ef295417dce"><td class="memItemLeft" align="right" valign="top">QSizeF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a3f4f6e15d5d6e0fcb70a6ef295417dce">getSize</a> () const override</td></tr>
 <tr class="memdesc:a3f4f6e15d5d6e0fcb70a6ef295417dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">getSize  <a href="#a3f4f6e15d5d6e0fcb70a6ef295417dce">More...</a><br /></td></tr>
@@ -139,10 +150,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a15e339abf55b0872ef3aa4722fb6ccea"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a15e339abf55b0872ef3aa4722fb6ccea">getXML</a> () const override</td></tr>
 <tr class="separator:a15e339abf55b0872ef3aa4722fb6ccea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a305d63084367187a2850d0317938f0d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a305d63084367187a2850d0317938f0d9">setBeginObject</a> (<a class="el" href="../../db/dc8/classcore_1_1_graphic_object.html">GraphicObject</a> *begin)</td></tr>
-<tr class="memdesc:a305d63084367187a2850d0317938f0d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">setBeginObject  <a href="#a305d63084367187a2850d0317938f0d9">More...</a><br /></td></tr>
+<tr class="memdesc:a305d63084367187a2850d0317938f0d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establish who will be the origin object the connector will start at.  <a href="#a305d63084367187a2850d0317938f0d9">More...</a><br /></td></tr>
 <tr class="separator:a305d63084367187a2850d0317938f0d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63f7ae8f1b1393686477c08a93897b74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a63f7ae8f1b1393686477c08a93897b74">setEndObject</a> (<a class="el" href="../../db/dc8/classcore_1_1_graphic_object.html">GraphicObject</a> *end)</td></tr>
-<tr class="memdesc:a63f7ae8f1b1393686477c08a93897b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">setEndObject  <a href="#a63f7ae8f1b1393686477c08a93897b74">More...</a><br /></td></tr>
+<tr class="memdesc:a63f7ae8f1b1393686477c08a93897b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establish who will be the end object the connector will end at.  <a href="#a63f7ae8f1b1393686477c08a93897b74">More...</a><br /></td></tr>
 <tr class="separator:a63f7ae8f1b1393686477c08a93897b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classcore_1_1_graphic_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classcore_1_1_graphic_object')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../db/dc8/classcore_1_1_graphic_object.html">core::GraphicObject</a></td></tr>
 <tr class="memitem:ae1b56ae4484ad120f5ba77c0b683a045 inherit pub_methods_classcore_1_1_graphic_object"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dc8/classcore_1_1_graphic_object.html#ae1b56ae4484ad120f5ba77c0b683a045">GraphicObject</a> ()</td></tr>
@@ -166,30 +177,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac66dec33de2636f1c194c5072191d923 inherit pub_methods_classcore_1_1_clipboard"><td class="memItemLeft" align="right" valign="top">QAction *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d60/classcore_1_1_clipboard.html#ac66dec33de2636f1c194c5072191d923">getPasteAction</a> () const</td></tr>
 <tr class="memdesc:ac66dec33de2636f1c194c5072191d923 inherit pub_methods_classcore_1_1_clipboard"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains a pointer to the current "cut" action.  <a href="../../db/d60/classcore_1_1_clipboard.html#ac66dec33de2636f1c194c5072191d923">More...</a><br /></td></tr>
 <tr class="separator:ac66dec33de2636f1c194c5072191d923 inherit pub_methods_classcore_1_1_clipboard"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac35cfb878690336c187d7ed3b2320b83 inherit pub_methods_classcore_1_1_clipboard"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d60/classcore_1_1_clipboard.html#ac35cfb878690336c187d7ed3b2320b83">copyClick</a> ()=0</td></tr>
-<tr class="memdesc:ac35cfb878690336c187d7ed3b2320b83 inherit pub_methods_classcore_1_1_clipboard"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a copy action to the clipboard, this function is pure virtual and user must implement the right routines copy the right content.  <a href="../../db/d60/classcore_1_1_clipboard.html#ac35cfb878690336c187d7ed3b2320b83">More...</a><br /></td></tr>
-<tr class="separator:ac35cfb878690336c187d7ed3b2320b83 inherit pub_methods_classcore_1_1_clipboard"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a487e2299d9467355a9cf5b433ecaf65d inherit pub_methods_classcore_1_1_clipboard"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d60/classcore_1_1_clipboard.html#a487e2299d9467355a9cf5b433ecaf65d">cutClick</a> ()=0</td></tr>
-<tr class="memdesc:a487e2299d9467355a9cf5b433ecaf65d inherit pub_methods_classcore_1_1_clipboard"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a cut action to the clipboard, this function is pure virtual and user must implement the right routines cut the right content.  <a href="../../db/d60/classcore_1_1_clipboard.html#a487e2299d9467355a9cf5b433ecaf65d">More...</a><br /></td></tr>
-<tr class="separator:a487e2299d9467355a9cf5b433ecaf65d inherit pub_methods_classcore_1_1_clipboard"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8921d64913c9c33e81269466471258bc inherit pub_methods_classcore_1_1_clipboard"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d60/classcore_1_1_clipboard.html#a8921d64913c9c33e81269466471258bc">pasteClick</a> ()=0</td></tr>
-<tr class="memdesc:a8921d64913c9c33e81269466471258bc inherit pub_methods_classcore_1_1_clipboard"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a paste action from the clipboard to this dialog, this function is pure virtual and user must implement the right routines paste the right content.  <a href="../../db/d60/classcore_1_1_clipboard.html#a8921d64913c9c33e81269466471258bc">More...</a><br /></td></tr>
-<tr class="separator:a8921d64913c9c33e81269466471258bc inherit pub_methods_classcore_1_1_clipboard"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classcore_1_1_i_resizable_f"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classcore_1_1_i_resizable_f')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d5/df5/classcore_1_1_i_resizable_f.html">core::IResizableF</a></td></tr>
-<tr class="memitem:afbae89e590a8612481df772c3302534c inherit pub_methods_classcore_1_1_i_resizable_f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df5/classcore_1_1_i_resizable_f.html#afbae89e590a8612481df772c3302534c">setSize</a> (const QSizeF &amp;size)=0</td></tr>
-<tr class="memdesc:afbae89e590a8612481df772c3302534c inherit pub_methods_classcore_1_1_i_resizable_f"><td class="mdescLeft">&#160;</td><td class="mdescRight">setSize  <a href="../../d5/df5/classcore_1_1_i_resizable_f.html#afbae89e590a8612481df772c3302534c">More...</a><br /></td></tr>
-<tr class="separator:afbae89e590a8612481df772c3302534c inherit pub_methods_classcore_1_1_i_resizable_f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a081d69a247271d561ab06af97ab2e7db inherit pub_methods_classcore_1_1_i_resizable_f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df5/classcore_1_1_i_resizable_f.html#a081d69a247271d561ab06af97ab2e7db">setWidth</a> (double w)=0</td></tr>
-<tr class="memdesc:a081d69a247271d561ab06af97ab2e7db inherit pub_methods_classcore_1_1_i_resizable_f"><td class="mdescLeft">&#160;</td><td class="mdescRight">setWidth  <a href="../../d5/df5/classcore_1_1_i_resizable_f.html#a081d69a247271d561ab06af97ab2e7db">More...</a><br /></td></tr>
-<tr class="separator:a081d69a247271d561ab06af97ab2e7db inherit pub_methods_classcore_1_1_i_resizable_f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92211da70412e4f128b2b9db5311ad36 inherit pub_methods_classcore_1_1_i_resizable_f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df5/classcore_1_1_i_resizable_f.html#a92211da70412e4f128b2b9db5311ad36">setHeight</a> (double h)=0</td></tr>
-<tr class="memdesc:a92211da70412e4f128b2b9db5311ad36 inherit pub_methods_classcore_1_1_i_resizable_f"><td class="mdescLeft">&#160;</td><td class="mdescRight">setHeight  <a href="../../d5/df5/classcore_1_1_i_resizable_f.html#a92211da70412e4f128b2b9db5311ad36">More...</a><br /></td></tr>
-<tr class="separator:a92211da70412e4f128b2b9db5311ad36 inherit pub_methods_classcore_1_1_i_resizable_f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-slots"></a>
 Protected Slots</h2></td></tr>
 <tr class="memitem:a1ff8c1c21cd1cc4f83b6030787af18f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a1ff8c1c21cd1cc4f83b6030787af18f7">propertyClick</a> () override</td></tr>
 <tr class="separator:a1ff8c1c21cd1cc4f83b6030787af18f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a70931dfde349e74601fdd955aaf2113c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a70931dfde349e74601fdd955aaf2113c">paint</a> (QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override</td></tr>
+<tr class="separator:a70931dfde349e74601fdd955aaf2113c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b2c19bbd4cf8437bfddd99ca298c22"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a42b2c19bbd4cf8437bfddd99ca298c22">eventFilter</a> (QObject *sender, QEvent *event) override</td></tr>
+<tr class="memdesc:a42b2c19bbd4cf8437bfddd99ca298c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">hoverMoveEvent  <a href="#a42b2c19bbd4cf8437bfddd99ca298c22">More...</a><br /></td></tr>
+<tr class="separator:a42b2c19bbd4cf8437bfddd99ca298c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6531c6ddc1ba847e392d833430dfd78b"><td class="memItemLeft" align="right" valign="top">QRectF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a6531c6ddc1ba847e392d833430dfd78b">boundingRect</a> () const override</td></tr>
+<tr class="separator:a6531c6ddc1ba847e392d833430dfd78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9531413b8a767d6690f0fdc11cc4ace3"><td class="memItemLeft" align="right" valign="top">QPainterPath&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/classcore_1_1_connector.html#a9531413b8a767d6690f0fdc11cc4ace3">shape</a> () const override</td></tr>
+<tr class="separator:a9531413b8a767d6690f0fdc11cc4ace3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -224,9 +228,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ab2eded62357da85bac931b79727ac282 inherit pub_types_classcore_1_1_graphic_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="../../d7/dd1/classcore_1_1_connector.html" title="The Connector class. ">Connector</a> class. </p>
+<div class="textblock"><p>The <a class="el" href="../../d7/dd1/classcore_1_1_connector.html" title="The Connector class represents an interactive composed line which represents a graphic connection bet...">Connector</a> class represents an interactive composed line which represents a graphic connection between two GraphicObjects. A connector must have an origin and end. </p>
+<dl class="section author"><dt>Author</dt><dd>Edixon Vargas <a href="#" onclick="location.href='mai'+'lto:'+'ing'+'ed'+'ixo'+'nv'+'arg'+'as'+'@gm'+'ai'+'l.c'+'om'; return false;">inged<span style="display: none;">.nosp@m.</span>ixon<span style="display: none;">.nosp@m.</span>varga<span style="display: none;">.nosp@m.</span>s@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d07/connector_8h_source.html#l00016">16</a> of file <a class="el" href="../../d9/d07/connector_8h_source.html">connector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d07/connector_8h_source.html#l00021">21</a> of file <a class="el" href="../../d9/d07/connector_8h_source.html">connector.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a73f30a9ebfc030c9af28ec9b47630067"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73f30a9ebfc030c9af28ec9b47630067">&#9670;&nbsp;</a></span>Connector() <span class="overload">[1/2]</span></h2>
@@ -250,6 +255,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The basic constructor, represents a null connector. This means a connector who has no origin object and no end object. </p>
+<p>This can be drawn depending on position where the connector is placed. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../de/db8/connector_8cpp_source.html#l00003">3</a> of file <a class="el" href="../../de/db8/connector_8cpp_source.html">connector.cpp</a>.</p>
 
@@ -289,6 +297,15 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>A connector who will start connected to <code>begin</code> and will end connected to <code>end</code> object respectively. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">begin</td><td>The begining object. </td></tr>
+    <tr><td class="paramname">end</td><td>The end object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="../../de/db8/connector_8cpp_source.html#l00009">9</a> of file <a class="el" href="../../de/db8/connector_8cpp_source.html">connector.cpp</a>.</p>
 
 </div>
@@ -313,6 +330,79 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6531c6ddc1ba847e392d833430dfd78b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6531c6ddc1ba847e392d833430dfd78b">&#9670;&nbsp;</a></span>boundingRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QRectF core::Connector::boundingRect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../de/db8/connector_8cpp_source.html#l00090">90</a> of file <a class="el" href="../../de/db8/connector_8cpp_source.html">connector.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a42b2c19bbd4cf8437bfddd99ca298c22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b2c19bbd4cf8437bfddd99ca298c22">&#9670;&nbsp;</a></span>eventFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool core::Connector::eventFilter </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QEvent *&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>hoverMoveEvent </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/db8/connector_8cpp_source.html#l00047">47</a> of file <a class="el" href="../../de/db8/connector_8cpp_source.html">connector.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a4c65b6f5268889f9ada0b9dbcb619518"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c65b6f5268889f9ada0b9dbcb619518">&#9670;&nbsp;</a></span>getHeight()</h2>
 
@@ -436,6 +526,50 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a70931dfde349e74601fdd955aaf2113c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70931dfde349e74601fdd955aaf2113c">&#9670;&nbsp;</a></span>paint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void core::Connector::paint </td>
+          <td>(</td>
+          <td class="paramtype">QPainter *&#160;</td>
+          <td class="paramname"><em>painter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QStyleOptionGraphicsItem *&#160;</td>
+          <td class="paramname"><em>option</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>widget</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../de/db8/connector_8cpp_source.html#l00025">25</a> of file <a class="el" href="../../de/db8/connector_8cpp_source.html">connector.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a1ff8c1c21cd1cc4f83b6030787af18f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ff8c1c21cd1cc4f83b6030787af18f7">&#9670;&nbsp;</a></span>propertyClick</h2>
 
@@ -479,10 +613,11 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>setBeginObject </p>
+<p>Establish who will be the origin object the connector will start at. </p>
+<dl class="section note"><dt>Note</dt><dd>This method doesn't delete the current begining object. So the user is responsible for memory administration.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">begin</td><td></td></tr>
+    <tr><td class="paramname">begin</td><td>The origin object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -507,10 +642,11 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>setEndObject </p>
+<p>Establish who will be the end object the connector will end at. </p>
+<dl class="section note"><dt>Note</dt><dd>This method doesn't delete the current ending object. So the user is responsible for memory administration.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">end</td><td></td></tr>
+    <tr><td class="paramname">end</td><td>The ending object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -547,6 +683,33 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a9531413b8a767d6690f0fdc11cc4ace3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9531413b8a767d6690f0fdc11cc4ace3">&#9670;&nbsp;</a></span>shape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPainterPath core::Connector::shape </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../de/db8/connector_8cpp_source.html#l00095">95</a> of file <a class="el" href="../../de/db8/connector_8cpp_source.html">connector.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ad2c05554f08080d96dc6a5892865ca77"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad2c05554f08080d96dc6a5892865ca77">&#9670;&nbsp;</a></span>type()</h2>
 
@@ -569,6 +732,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The type of this object. In this case type will be <code>GraphicObjectTypes::gotConnector</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>An integer representing the type of this object. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/db8/connector_8cpp_source.html#l00020">20</a> of file <a class="el" href="../../de/db8/connector_8cpp_source.html">connector.cpp</a>.</p>
 

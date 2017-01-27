@@ -229,24 +229,41 @@ CORE_LIB_IMPORT_EXPORT vector<unsigned int> imageToUIntVector(const QImage &img)
 CORE_LIB_IMPORT_EXPORT vector<long> imageToIntVector(const QImage &img, IntegerTypes it = NormalSigned, double threshold = 0.5);
 
 /*!
- * \brief getWidthHeight
- * \param value
- * \return
+ * \brief This function returns a pair of int values which correspont to a width and height, both are the same.
+ * Basicly this function is equivalent to a sqrt(value)
+ *
+ * \param value The value to be converted.
+ * \return A pair of values which correspond to the height and width.
  */
 CORE_LIB_IMPORT_EXPORT pair<int, int> getWidthHeight(int value);
 
 /*!
-	 * \brief toMatrix
-	 * \param data
-	 * \param rows
-	 * \param cols
-	 * \return
-	 */
+ * \brief Converts a linear vector to a MxN vector depending on \p rows and \p cols specified by the user.
+ *
+ * WARNING: its not clear which parameter has priority (rows or cols).
+ *
+ * \param data The data to be converted.
+ * \param rows The desired row in the returned data.
+ * \param cols The desired cols in the returned data.
+ * \return A \p rows x \p cols matrix.
+ */
 CORE_LIB_IMPORT_EXPORT vector<vector<int> > toMatrix(const vector<int> &data, int rows, int cols);
 
+/*!
+ * \brief This utility function returns a heat color in a range from green to red depending on the values
+ * contained in \p vec.
+ *
+ * \note This function evaluates which is the minimum and maximum value of \p vec. Then \p value is compared
+ * and the color is calculated based on the position the \p value parameter is.
+ *
+ * In case value is out of range then the taken value will be the closest.
+ *
+ * \param value
+ * \param vec
+ * \return
+ */
 CORE_LIB_IMPORT_EXPORT QColor getHeatColor(double value, const vector<double> &vec);
 
 }
-
 }
 #endif // INSYDECOMMON_GLOBAL_H

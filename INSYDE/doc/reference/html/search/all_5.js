@@ -24,5 +24,6 @@ var searchData=
   ['erp_5fglobal_2eh',['erp_global.h',['../d1/d20/erp__global_8h.html',1,'']]],
   ['erpshared_5fexport',['ERPSHARED_EXPORT',['../d1/d20/erp__global_8h.html#a7c25505182fa9b61f754132b2eefcbd8',1,'erp_global.h']]],
   ['errorhistory',['errorHistory',['../d4/d99/structann__base_1_1_adaline_1_1_train_result.html#aeef050191a0121c65665867565b28e04',1,'ann_base::Adaline::TrainResult']]],
+  ['eventfilter',['eventFilter',['../d7/dd1/classcore_1_1_connector.html#a42b2c19bbd4cf8437bfddd99ca298c22',1,'core::Connector']]],
   ['exportclick',['exportClick',['../d8/db6/classcore_1_1_basic_dialog.html#a7269562d2a240a2da8c799816ec9c031',1,'core::BasicDialog']]]
 ];

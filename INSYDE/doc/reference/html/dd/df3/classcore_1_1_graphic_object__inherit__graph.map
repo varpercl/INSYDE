@@ -1,6 +1,6 @@
 <map id="core::GraphicObject" name="core::GraphicObject">
 <area shape="rect" id="node5" href="$d6/d55/classann__gui_1_1_m_l_p_object.html" title="ann_gui::MLPObject" alt="" coords="364,5,504,32"/>
-<area shape="rect" id="node6" href="$d7/dd1/classcore_1_1_connector.html" title="The Connector class. " alt="" coords="377,56,491,83"/>
+<area shape="rect" id="node6" href="$d7/dd1/classcore_1_1_connector.html" title="The Connector class represents an interactive composed line which represents a graphic connection bet..." alt="" coords="377,56,491,83"/>
 <area shape="rect" id="node7" href="$d5/d0f/classcore_1_1_cursor.html" title="The GraphicCursorElement class. " alt="" coords="387,107,481,133"/>
 <area shape="rect" id="node9" href="$d3/d6e/classcore_1_1_dot_matrix.html" title="The DotMatrix class. " alt="" coords="379,157,489,184"/>
 <area shape="rect" id="node10" href="$d2/dab/classcore_1_1_image.html" title="core::Image" alt="" coords="389,208,479,235"/>

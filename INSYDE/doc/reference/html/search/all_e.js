@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['objects',['objects',['../dc/dd7/structcore_1_1_connector_1_1_colliding_result.html#a7b81f93183a6bc11d2fe573f61e2686c',1,'core::Connector::CollidingResult']]],
   ['obstaculo_2ecpp',['obstaculo.cpp',['../de/dd8/obstaculo_8cpp.html',1,'']]],
   ['obstaculo_2eh',['obstaculo.h',['../db/da2/obstaculo_8h.html',1,'']]],
   ['ofensiveunit_2ecpp',['ofensiveunit.cpp',['../d1/d2f/ofensiveunit_8cpp.html',1,'']]],

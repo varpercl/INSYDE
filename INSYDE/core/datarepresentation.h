@@ -10,9 +10,7 @@
 namespace core{
 
 /*!
- * \class
- *
- * \brief The DataRepresentation class contains all the information of the type of representation user wants to use
+ * \brief The DataRepresentation class contains all the information of the type of representation the user wants to use
  * when data is imported from some data source. This class is not graphic, only contains data that could help to get a
  * graphical representation.
  *
@@ -33,97 +31,97 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentation : public IResizable
 		};
 
 		/*!
-			 * \brief DataRepresentation
-			 */
+		 * \brief DataRepresentation
+		 */
 		explicit DataRepresentation();
 
 		/*!
-			 * \brief DataRepresentation
-			 * \param type
-			 * \param imgFormat
-			 * \param w
-			 * \param h
-			 */
+		 * \brief DataRepresentation
+		 * \param type
+		 * \param imgFormat
+		 * \param w
+		 * \param h
+		 */
 		explicit DataRepresentation(const Type &type, const QImage::Format &imgFormat, int w, int h);
 
 		/*!
-			 * \brief DataRepresentation
-			 * \param dr
-			 */
+		 * \brief DataRepresentation
+		 * \param dr
+		 */
 		DataRepresentation(const DataRepresentation &dr);
 
 		~DataRepresentation();
 
 		/*!
-			 * \brief getType
-			 * \return
-			 */
+		 * \brief getType
+		 * \return
+		 */
 		Type getType() const;
 
 		/*!
-			 * \brief setType
-			 * \param value
-			 */
+		 * \brief setType
+		 * \param value
+		 */
 		void setType(const Type &value);
 
 		/*!
-			 * \brief getName
-			 * \return
-			 */
+		 * \brief getName
+		 * \return
+		 */
 		QString getName() const;
 
 		/*!
-			 * \brief getWidth
-			 * \return
-			 */
+		 * \brief getWidth
+		 * \return
+		 */
 		int getWidth() const override;
 
 		/*!
-			 * \brief setWidth
-			 * \param value
-			 */
+		 * \brief setWidth
+		 * \param value
+		 */
 		void setWidth(int value) override;
 
 		/*!
-			 * \brief getHeight
-			 * \return
-			 */
+		 * \brief getHeight
+		 * \return
+		 */
 		int getHeight() const override;
 
 		/*!
-			 * \brief setHeight
-			 * \param value
-			 */
+		 * \brief setHeight
+		 * \param value
+		 */
 		void setHeight(int value) override;
 
 		/*!
-			 * \brief setSize
-			 * \param size
-			 */
+		 * \brief setSize
+		 * \param size
+		 */
 		void setSize(const QSize &size) override;
 
 		/*!
-			 * \brief getSize
-			 * \return
-			 */
+		 * \brief getSize
+		 * \return
+		 */
 		QSize getSize() const override;
 
 		/*!
-			 * \brief getImageFormat
-			 * \return
-			 */
+		 * \brief getImageFormat
+		 * \return
+		 */
 		QImage::Format getImageFormat() const;
 
 		/*!
-			 * \brief setImageFormat
-			 * \param value
-			 */
+		 * \brief setImageFormat
+		 * \param value
+		 */
 		void setImageFormat(const QImage::Format &value);
 
 		/*!
-			 * \brief getImageFormatName
-			 * \return
-			 */
+		 * \brief getImageFormatName
+		 * \return
+		 */
 		QString getImageFormatName() const;
 
 		DataRepresentation &operator=(const DataRepresentation &dr);
@@ -161,12 +159,12 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentation : public IResizable
 		height;
 
 		/*!
-			 * \brief init
-			 * \param type
-			 * \param imgFormat
-			 * \param w
-			 * \param h
-			 */
+		 * \brief init
+		 * \param type
+		 * \param imgFormat
+		 * \param w
+		 * \param h
+		 */
 		void init(const Type &type, const QImage::Format &imgFormat, int w, int h);
 };
 }

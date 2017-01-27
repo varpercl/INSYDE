@@ -1,5 +1,9 @@
 var NAVTREEINDEX5 =
 {
+"d8/db6/classcore_1_1_basic_dialog.html#a512abdf0720e85935ab4193aff6be817":[1,0,2,1,54],
+"d8/db6/classcore_1_1_basic_dialog.html#a548a4498aa4b769a4b23abc18305b929":[1,0,2,1,46],
+"d8/db6/classcore_1_1_basic_dialog.html#a550b4f5ee79e42444d148f5772c7039e":[1,0,2,1,32],
+"d8/db6/classcore_1_1_basic_dialog.html#a5ab7d26e44dd43cb7fbb49488bf19adc":[1,0,2,1,40],
 "d8/db6/classcore_1_1_basic_dialog.html#a5f12bcb4205573e3de35323f4f9c5099":[1,0,2,1,41],
 "d8/db6/classcore_1_1_basic_dialog.html#a60e7ef7e6725c82ffa53bd87387434e4":[1,0,2,1,39],
 "d8/db6/classcore_1_1_basic_dialog.html#a66850472cc9901a5f701b20b6296a66e":[1,0,2,1,8],
@@ -91,8 +95,8 @@ var NAVTREEINDEX5 =
 "d9/d07/connector_8h_source.html":[2,0,2,16],
 "d9/d0e/progressplotter_8cpp.html":[2,0,6,30],
 "d9/d0e/progressplotter_8cpp_source.html":[2,0,6,30],
-"d9/d0f/namespacecore.html":[1,0,2],
 "d9/d0f/namespacecore.html":[0,0,2],
+"d9/d0f/namespacecore.html":[1,0,2],
 "d9/d14/core_2imageeffect_8h.html":[2,0,2,63],
 "d9/d14/core_2imageeffect_8h_source.html":[2,0,2,63],
 "d9/d18/graphicobjectpropertydialog_8cpp.html":[2,0,2,48],
@@ -245,9 +249,5 @@ var NAVTREEINDEX5 =
 "da/d96/classcore_1_1_labeled_double_spin_box.html#ab5c34abdb4453d1386d56d32ae592d75":[1,0,2,35,11],
 "da/d96/classcore_1_1_labeled_double_spin_box.html#ab9bf14736c9f4e8f2141541583a697cc":[1,0,2,35,9],
 "da/d96/classcore_1_1_labeled_double_spin_box.html#ac170d61714af7deb94a62a727173af29":[1,0,2,35,6],
-"da/d96/classcore_1_1_labeled_double_spin_box.html#ad62b956a33b64f4fbe93bc0783ffd8f3":[1,0,2,35,3],
-"da/d96/classcore_1_1_labeled_double_spin_box.html#afdb999af2b30a50116f08bd39163fabc":[1,0,2,35,8],
-"da/d96/classcore_1_1_labeled_double_spin_box.html#aff67d8e33f01c14615b5a1491e59d1e6":[1,0,2,35,12],
-"da/da2/datarepresentationbox_8h.html":[2,0,2,20],
-"da/da2/datarepresentationbox_8h_source.html":[2,0,2,20]
+"da/d96/classcore_1_1_labeled_double_spin_box.html#ad62b956a33b64f4fbe93bc0783ffd8f3":[1,0,2,35,3]
 };

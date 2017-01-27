@@ -1,3 +1,55 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$da/d44/classcore_1_1_zoom_control.html" title="core::ZoomControl" alt="" coords="129,5,257,32"/>
+<area shape="rect" id="node1" href="$db/d60/classcore_1_1_clipboard.html" title="Contiene los metodos basicos para aquellos objetos que trabajen directamente con el portapapeles..." alt="" coords="280,587,389,613"/>
+<area shape="rect" id="node2" href="$d8/db6/classcore_1_1_basic_dialog.html" title="The BasicDialog class represents an improved and with&#45;basic&#45;functionalities dialog. With this dialog you can perform actions like Undo and Redo, also it has a toolbar that has included some basic buttons like New, Save, Open, Copy, Cut, Paste, Tools, Help and allow user to add its own buttons and hide what doesn&#39;t need. This is a powerful dialog that is used by lots of specific dialogs in this project. " alt="" coords="527,473,651,500"/>
+<area shape="rect" id="node12" href="$da/ddc/classcore_1_1_basic_table.html" title="The BasicTable class encloses an extended QTableView table which includes extended menus and clipboar..." alt="" coords="529,561,648,588"/>
+<area shape="rect" id="node13" href="$da/dd7/classcore_1_1_basic_tree.html" title="The BasicTree class provides all basic functionalities of a tree view. This basic tree has functional..." alt="" coords="532,625,645,652"/>
+<area shape="rect" id="node14" href="$db/dc8/classcore_1_1_graphic_object.html" title="core::GraphicObject" alt="" coords="519,752,658,779"/>
+<area shape="rect" id="node3" href="$de/d06/classann__gui_1_1_add_new_m_l_p_dialog.html" title="The AddNewMLPDialog class. " alt="" coords="739,499,925,525"/>
+<area shape="rect" id="node4" href="$d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html" title="ann_gui::ANNTrainingDialog" alt="" coords="741,549,923,576"/>
+<area shape="rect" id="node5" href="$d8/d69/classann__gui_1_1_training_set_dialog.html" title="ann_gui::TrainingSetDialog" alt="" coords="744,600,920,627"/>
+<area shape="rect" id="node6" href="$d7/dd6/classann__gui_1_1_weight_editor_dialog.html" title="The WeightEditorDialog class. " alt="" coords="739,280,925,307"/>
+<area shape="rect" id="node7" href="$d6/db8/classcore_1_1_add_dot_matrix_dialog.html" title="The AddDotMatrixDialog class represents an specified dialog that allows user to add some DotMatrix ob..." alt="" coords="747,331,917,357"/>
+<area shape="rect" id="node8" href="$d5/dc9/classcore_1_1_graphic_object_property_dialog.html" title="core::GraphicObjectProperty\lDialog" alt="" coords="739,382,925,423"/>
+<area shape="rect" id="node11" href="$df/d15/classgui_1_1_main_window.html" title="gui::MainWindow" alt="" coords="771,448,893,475"/>
+<area shape="rect" id="node9" href="$dc/d18/classcore_1_1_dot_matrix_property_dialog.html" title="core::DotMatrixPropertyDialog" alt="" coords="973,415,1169,441"/>
+<area shape="rect" id="node10" href="$d7/da0/classcore_1_1_image_property_dialog.html" title="core::ImagePropertyDialog" alt="" coords="984,364,1159,391"/>
+<area shape="rect" id="node15" href="$d6/d55/classann__gui_1_1_m_l_p_object.html" title="ann_gui::MLPObject" alt="" coords="762,803,902,829"/>
+<area shape="rect" id="node16" href="$d7/dd1/classcore_1_1_connector.html" title="The Connector class represents an interactive composed line which represents a graphic connection bet..." alt="" coords="775,853,889,880"/>
+<area shape="rect" id="node17" href="$d5/d0f/classcore_1_1_cursor.html" title="The GraphicCursorElement class. " alt="" coords="785,904,879,931"/>
+<area shape="rect" id="node19" href="$d3/d6e/classcore_1_1_dot_matrix.html" title="The DotMatrix class. " alt="" coords="777,651,887,677"/>
+<area shape="rect" id="node20" href="$d2/dab/classcore_1_1_image.html" title="core::Image" alt="" coords="787,701,877,728"/>
+<area shape="rect" id="node21" href="$dd/d38/class_graphic_m_l_p_element.html" title="GraphicMLPElement" alt="" coords="761,752,903,779"/>
+<area shape="rect" id="node18" href="$d2/dfe/classcore_1_1_image_effect.html" title="The GraphicImageEffectElement class. " alt="" coords="1010,904,1133,931"/>
+<area shape="rect" id="node23" href="$da/d47/classcore_1_1_dot_matrix_representation.html" title="core::DotMatrixRepresentation" alt="" coords="235,945,434,972"/>
+<area shape="rect" id="node24" href="$d8/df0/classcore_1_1_image_representation_widget.html" title="core::ImageRepresentation\lWidget" alt="" coords="246,879,423,921"/>
+<area shape="rect" id="node25" href="$d7/d01/classcore_1_1_raw_representation_widget.html" title="core::RawRepresentationWidget" alt="" coords="231,996,439,1023"/>
+<area shape="rect" id="node26" href="$db/d9f/classcore_1_1_i_resizable.html" title="core::IResizable" alt="" coords="37,891,151,917"/>
+<area shape="rect" id="node27" href="$d6/d03/classcore_1_1_data_representation.html" title="core::DataRepresentation" alt="" coords="250,828,419,855"/>
+<area shape="rect" id="node28" href="$d5/d2b/classcore_1_1_integer_size_widget.html" title="core::IntegerSizeWidget" alt="" coords="254,1047,415,1073"/>
+<area shape="rect" id="node29" href="$d5/df5/classcore_1_1_i_resizable_f.html" title="core::IResizableF" alt="" coords="273,777,396,804"/>
+<area shape="rect" id="node30" href="$dd/df9/classcore_1_1_dot_matrix_detailed_window.html" title="core::DotMatrixDetailedWindow" alt="" coords="487,1013,691,1040"/>
+<area shape="rect" id="node32" href="$de/d83/classann__gui_1_1_m_l_p_object_property_dialog.html" title="ann_gui::MLPObjectProperty\lDialog" alt="" coords="494,107,683,149"/>
+<area shape="rect" id="node33" href="$d6/d89/classann__gui_1_1_samples_dialog.html" title="ann_gui::SamplesDialog" alt="" coords="507,173,670,200"/>
+<area shape="rect" id="node34" href="$d3/d99/classcore_1_1_image_effect_property_dialog.html" title="The GraphicImageEffectElementPropertyDialog class. " alt="" coords="503,225,675,266"/>
+<area shape="rect" id="node35" href="$df/dc4/classcore_1_1_select_image_segment_dialog.html" title="Esta clase genera un cuadro de dialogo que permite al usuario seleccionar grafica e intuitivamente un..." alt="" coords="499,290,678,331"/>
+<area shape="rect" id="node36" href="$df/d2e/classec__gui_1_1_add_agents_dialog.html" title="The AddAgentsDialog class represents a dialog with all basic properties of a basic agent the user wil..." alt="" coords="505,356,673,383"/>
+<area shape="rect" id="node37" href="$d8/d76/class_graphic_m_l_p_element_property_dialog.html" title="GraphicMLPElementProperty\lDialog" alt="" coords="493,407,684,449"/>
+<area shape="rect" id="node38" href="$d3/d32/class_image_effect_property_dialog.html" title="The GraphicImageEffectElementPropertyDialog class. " alt="" coords="501,5,676,32"/>
+<area shape="rect" id="node39" href="$d0/da8/class_select_image_segment_dialog.html" title="Esta clase genera un cuadro de dialogo que permite al usuario seleccionar grafica e intuitivamente un..." alt="" coords="497,56,680,83"/>
+<area shape="rect" id="node44" href="$de/d70/classann__gui_1_1_simulated_annealing_widget.html" title="ann_gui::SimulatedAnnealing\lWidget" alt="" coords="239,1301,430,1342"/>
+<area shape="rect" id="node45" href="$d6/d57/class_b_n_sub_widget.html" title="The BNSubWidget class. " alt="" coords="283,1367,387,1393"/>
+<area shape="rect" id="node46" href="$db/d2d/classcore_1_1_b_n_sub_widget.html" title="The BNSubWidget class encloses a widget with all necessary controls to handle a black and white effec..." alt="" coords="266,1417,403,1444"/>
+<area shape="rect" id="node47" href="$dd/d0d/classcore_1_1_detailed_window.html" title="core::DetailedWindow" alt="" coords="261,1249,409,1276"/>
+<area shape="rect" id="node49" href="$dd/d54/classcore_1_1_double_min_max_widget.html" title="The DoubleMinMaxValueWidget class. " alt="" coords="243,1468,426,1495"/>
+<area shape="rect" id="node50" href="$d7/dac/classcore_1_1_file_edit_line.html" title="core::FileEditLine" alt="" coords="273,1519,396,1545"/>
+<area shape="rect" id="node51" href="$d4/d9e/classcore_1_1_g_s_sub_widget.html" title="The GSSubWidget class. " alt="" coords="265,1569,404,1596"/>
+<area shape="rect" id="node52" href="$d8/d5e/classcore_1_1_labeled_widget.html" title="core::LabeledWidget" alt="" coords="264,1620,405,1647"/>
+<area shape="rect" id="node56" href="$dd/d4a/classcore_1_1_normalization_widget.html" title="core::NormalizationWidget" alt="" coords="247,1097,422,1124"/>
+<area shape="rect" id="node57" href="$d5/d61/class_g_s_sub_widget.html" title="The GSSubWidget class. " alt="" coords="282,1148,387,1175"/>
+<area shape="rect" id="node58" href="$d3/da7/classgui_1_1_prueba_pantalla.html" title="PruebaPantalla brinda la posibilidad de visualizar todas las ventanas u objetos ejecutandolas solamen..." alt="" coords="267,1199,402,1225"/>
+<area shape="rect" id="node48" href="$d7/d66/classcore_1_1_image_detailed_window.html" title="core::ImageDetailedWindow" alt="" coords="497,1249,680,1276"/>
+<area shape="rect" id="node53" href="$d9/d65/classcore_1_1_labeled_combo_box.html" title="core::LabeledComboBox" alt="" coords="507,1569,671,1596"/>
+<area shape="rect" id="node54" href="$da/d96/classcore_1_1_labeled_double_spin_box.html" title="core::LabeledDoubleSpinBox" alt="" coords="494,1620,683,1647"/>
+<area shape="rect" id="node55" href="$de/d72/classcore_1_1_labeled_integer_spin_box.html" title="core::LabeledIntegerSpinBox" alt="" coords="495,1671,683,1697"/>
+<area shape="rect" id="node59" href="$d4/d7a/classcore_1_1_undo.html" title="core::Undo" alt="" coords="292,473,377,500"/>
 </map>

@@ -175,6 +175,7 @@ var searchData=
   ['setwindowwidth',['setWindowWidth',['../d2/dfe/classcore_1_1_image_effect.html#aba95e36f33163a788b2718cf304ef97e',1,'core::ImageEffect::setWindowWidth()'],['../d4/d99/class_image_effect.html#aba95e36f33163a788b2718cf304ef97e',1,'ImageEffect::setWindowWidth()']]],
   ['setzoom',['setZoom',['../da/d44/classcore_1_1_zoom_control.html#ad0135987923ef5fb792c4f25e76d1b7a',1,'core::ZoomControl']]],
   ['setzoomrange',['setZoomRange',['../da/d44/classcore_1_1_zoom_control.html#a8970ce263df923211dffed18d317bad0',1,'core::ZoomControl']]],
+  ['shape',['shape',['../d7/dd1/classcore_1_1_connector.html#a9531413b8a767d6690f0fdc11cc4ace3',1,'core::Connector']]],
   ['simpleinputpattern',['SimpleInputPattern',['../da/d70/classann__base_1_1_simple_input_pattern.html#a2a852f3c10ab6dd49a124f1070e2cbf5',1,'ann_base::SimpleInputPattern']]],
   ['simpleperceptronfile',['SimplePerceptronFile',['../da/d94/classann__base_1_1_simple_perceptron_file.html#a495bb03ff094490f82001723676fd44a',1,'ann_base::SimplePerceptronFile']]],
   ['simulatedannealingsettings',['SimulatedAnnealingSettings',['../df/da4/classann__base_1_1_simulated_annealing_settings.html#a0eac300f5b976449427596ca36cc6276',1,'ann_base::SimulatedAnnealingSettings::SimulatedAnnealingSettings()'],['../df/da4/classann__base_1_1_simulated_annealing_settings.html#acd63050aaf057d4c40994c42ddb6d0a7',1,'ann_base::SimulatedAnnealingSettings::SimulatedAnnealingSettings(double minTemperature, int samples, int numberOfChanges, double sCondition, double To, double minNoise, double maxNoise, double tdf)']]],

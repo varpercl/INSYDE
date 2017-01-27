@@ -170,12 +170,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:a3de020b9caec647fd1a2da025efb23a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a convertion from an image <code>img</code> to a vector of binary values depending on threshold, the values will be stored on a vector depending on parameter <code>it</code>.  <a href="#a3de020b9caec647fd1a2da025efb23a4">More...</a><br /></td></tr>
 <tr class="separator:a3de020b9caec647fd1a2da025efb23a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a490ca1892bd17da4bb4e9434c24bd512"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d43/share__core__lib_8h.html#ad52f773f02a3b34172072d7cdf57faf1">CORE_LIB_IMPORT_EXPORT</a> pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d84/namespacecore_1_1common.html#a490ca1892bd17da4bb4e9434c24bd512">getWidthHeight</a> (int value)</td></tr>
-<tr class="memdesc:a490ca1892bd17da4bb4e9434c24bd512"><td class="mdescLeft">&#160;</td><td class="mdescRight">getWidthHeight  <a href="#a490ca1892bd17da4bb4e9434c24bd512">More...</a><br /></td></tr>
+<tr class="memdesc:a490ca1892bd17da4bb4e9434c24bd512"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns a pair of int values which correspont to a width and height, both are the same. Basicly this function is equivalent to a sqrt(value)  <a href="#a490ca1892bd17da4bb4e9434c24bd512">More...</a><br /></td></tr>
 <tr class="separator:a490ca1892bd17da4bb4e9434c24bd512"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb77265ae4f07914aff500f9c42ba6c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d43/share__core__lib_8h.html#ad52f773f02a3b34172072d7cdf57faf1">CORE_LIB_IMPORT_EXPORT</a> vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d84/namespacecore_1_1common.html#aeb77265ae4f07914aff500f9c42ba6c6">toMatrix</a> (const vector&lt; int &gt; &amp;data, int rows, int cols)</td></tr>
-<tr class="memdesc:aeb77265ae4f07914aff500f9c42ba6c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">toMatrix  <a href="#aeb77265ae4f07914aff500f9c42ba6c6">More...</a><br /></td></tr>
+<tr class="memdesc:aeb77265ae4f07914aff500f9c42ba6c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a linear vector to a MxN vector depending on <code>rows</code> and <code>cols</code> specified by the user.  <a href="#aeb77265ae4f07914aff500f9c42ba6c6">More...</a><br /></td></tr>
 <tr class="separator:aeb77265ae4f07914aff500f9c42ba6c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1061fccb65697972fde26cb3f36fc964"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d43/share__core__lib_8h.html#ad52f773f02a3b34172072d7cdf57faf1">CORE_LIB_IMPORT_EXPORT</a> QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d84/namespacecore_1_1common.html#a1061fccb65697972fde26cb3f36fc964">getHeatColor</a> (double value, const vector&lt; double &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a1061fccb65697972fde26cb3f36fc964"><td class="mdescLeft">&#160;</td><td class="mdescRight">This utility function returns a heat color in a range from green to red depending on the values contained in <code>vec</code>.  <a href="#a1061fccb65697972fde26cb3f36fc964">More...</a><br /></td></tr>
 <tr class="separator:a1061fccb65697972fde26cb3f36fc964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -456,6 +457,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>This utility function returns a heat color in a range from green to red depending on the values contained in <code>vec</code>. </p>
+<dl class="section note"><dt>Note</dt><dd>This function evaluates which is the minimum and maximum value of <code>vec</code>. Then <code>value</code> is compared and the color is calculated based on the position the <code>value</code> parameter is.</dd></dl>
+<p>In case value is out of range then the taken value will be the closest.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">vec</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="../../d9/df9/common_8cpp_source.html#l00226">226</a> of file <a class="el" href="../../d9/df9/common_8cpp_source.html">common.cpp</a>.</p>
 
 </div>
@@ -476,14 +489,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>getWidthHeight </p>
+<p>This function returns a pair of int values which correspont to a width and height, both are the same. Basicly this function is equivalent to a sqrt(value) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">value</td><td>The value to be converted. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair of values which correspond to the height and width. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d9/df9/common_8cpp_source.html#l00193">193</a> of file <a class="el" href="../../d9/df9/common_8cpp_source.html">common.cpp</a>.</p>
 
@@ -979,16 +992,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>toMatrix </p>
+<p>Converts a linear vector to a MxN vector depending on <code>rows</code> and <code>cols</code> specified by the user. </p>
+<p>WARNING: its not clear which parameter has priority (rows or cols).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td></td></tr>
-    <tr><td class="paramname">rows</td><td></td></tr>
-    <tr><td class="paramname">cols</td><td></td></tr>
+    <tr><td class="paramname">data</td><td>The data to be converted. </td></tr>
+    <tr><td class="paramname">rows</td><td>The desired row in the returned data. </td></tr>
+    <tr><td class="paramname">cols</td><td>The desired cols in the returned data. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>rows</code> x <code>cols</code> matrix. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d9/df9/common_8cpp_source.html#l00213">213</a> of file <a class="el" href="../../d9/df9/common_8cpp_source.html">common.cpp</a>.</p>
 

@@ -37,6 +37,7 @@ var hierarchy =
         [ "GraphicMLPElement", "dd/d38/class_graphic_m_l_p_element.html", null ]
       ] ]
     ] ],
+    [ "core::Connector::CollidingResult", "dc/dd7/structcore_1_1_connector_1_1_colliding_result.html", null ],
     [ "DataRepresentationWidget", null, [
       [ "core::DotMatrixRepresentation", "da/d47/classcore_1_1_dot_matrix_representation.html", null ],
       [ "core::ImageRepresentationWidget", "d8/df0/classcore_1_1_image_representation_widget.html", null ],
@@ -182,8 +183,8 @@ var hierarchy =
       [ "ann_base::MultilayerPerceptronPattern", "d7/d2a/classann__base_1_1_multilayer_perceptron_pattern.html", null ],
       [ "ann_base::PerceptronTrainingPattern", "d4/dc9/classann__base_1_1_perceptron_training_pattern.html", null ]
     ] ],
-    [ "ann_base::Adaline::TrainResult", "d4/d99/structann__base_1_1_adaline_1_1_train_result.html", null ],
     [ "ann_base::SimplePerceptron::TrainResult", "d5/d8b/structann__base_1_1_simple_perceptron_1_1_train_result.html", null ],
+    [ "ann_base::Adaline::TrainResult", "d4/d99/structann__base_1_1_adaline_1_1_train_result.html", null ],
     [ "TreeItem", "dd/db5/class_tree_item.html", null ],
     [ "core::Undo", "d4/d7a/classcore_1_1_undo.html", [
       [ "core::BasicDialog", "d8/db6/classcore_1_1_basic_dialog.html", null ]
