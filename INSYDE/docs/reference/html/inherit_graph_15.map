@@ -1,4 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$d0/d0e/classann__gui_1_1_weight_line.html" title="La clase WeightLine representa las lineas que conectan el nucleo con las entradas, estas lineas tienen propiedades especificas como el color, que varia en funcion de su peso sinaptico correspondiente. Asimismo, poseen un indice que permite identificar a que peso sinaptico corresponde en la red neuronal. " alt="" coords="187,5,327,32"/>
-<area shape="rect" id="node4" href="$d0/d96/classcore_1_1_normalization.html" title="This class is intendet to be a Normalization Model which can save all information about a Normalizati..." alt="" coords="189,56,324,83"/>
-</map>
