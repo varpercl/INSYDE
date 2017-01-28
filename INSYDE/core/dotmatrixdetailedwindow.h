@@ -14,8 +14,6 @@ namespace core{
 class DotMatrix;
 
 /*!
- * \class
- *
  * \brief The DotMatrixElementDetailedWindow class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

@@ -19,7 +19,9 @@ enum Direction{
 };
 
 /*!
- * \brief Un objeto \code{Vector2D} permite utilizar todas las operaciones de vectores, ideal para el uso en un entorno
+ * \brief The Vector2D class
+ *
+ * Un objeto \code{Vector2D} permite utilizar todas las operaciones de vectores, ideal para el uso en un entorno
  * grafico porque brinda acceso al modulo, al angulo y permite no solo devolverlos como valor sino tambien asignarlos.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

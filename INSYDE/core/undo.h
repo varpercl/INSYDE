@@ -8,7 +8,6 @@
 namespace core
 {
 /*!
- * \class
  * \brief The UnDoInterface class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

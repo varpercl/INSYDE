@@ -38,11 +38,6 @@ var hierarchy =
       ] ]
     ] ],
     [ "core::Connector::CollidingResult", "dc/dd7/structcore_1_1_connector_1_1_colliding_result.html", null ],
-    [ "DataRepresentationWidget", null, [
-      [ "core::DotMatrixRepresentation", "da/d47/classcore_1_1_dot_matrix_representation.html", null ],
-      [ "core::ImageRepresentationWidget", "d8/df0/classcore_1_1_image_representation_widget.html", null ],
-      [ "core::RawRepresentationWidget", "d7/d01/classcore_1_1_raw_representation_widget.html", null ]
-    ] ],
     [ "core::DotMatrix::Dot", "d4/dd7/structcore_1_1_dot_matrix_1_1_dot.html", null ],
     [ "Effect", "d6/d58/class_effect.html", [
       [ "BlackWhiteEffect", "de/d14/class_black_white_effect.html", null ],
@@ -148,6 +143,11 @@ var hierarchy =
       [ "ann_gui::SimulatedAnnealingWidget", "de/d70/classann__gui_1_1_simulated_annealing_widget.html", null ],
       [ "BNSubWidget", "d6/d57/class_b_n_sub_widget.html", null ],
       [ "core::BNSubWidget", "db/d2d/classcore_1_1_b_n_sub_widget.html", null ],
+      [ "core::DataRepresentationWidget", "d4/d63/classcore_1_1_data_representation_widget.html", [
+        [ "core::DotMatrixRepresentation", "da/d47/classcore_1_1_dot_matrix_representation.html", null ],
+        [ "core::ImageRepresentationWidget", "d8/df0/classcore_1_1_image_representation_widget.html", null ],
+        [ "core::RawRepresentationWidget", "d7/d01/classcore_1_1_raw_representation_widget.html", null ]
+      ] ],
       [ "core::DetailedWindow", "dd/d0d/classcore_1_1_detailed_window.html", [
         [ "core::DotMatrixDetailedWindow", "dd/df9/classcore_1_1_dot_matrix_detailed_window.html", null ],
         [ "core::ImageDetailedWindow", "d7/d66/classcore_1_1_image_detailed_window.html", null ]
@@ -183,8 +183,8 @@ var hierarchy =
       [ "ann_base::MultilayerPerceptronPattern", "d7/d2a/classann__base_1_1_multilayer_perceptron_pattern.html", null ],
       [ "ann_base::PerceptronTrainingPattern", "d4/dc9/classann__base_1_1_perceptron_training_pattern.html", null ]
     ] ],
-    [ "ann_base::SimplePerceptron::TrainResult", "d5/d8b/structann__base_1_1_simple_perceptron_1_1_train_result.html", null ],
     [ "ann_base::Adaline::TrainResult", "d4/d99/structann__base_1_1_adaline_1_1_train_result.html", null ],
+    [ "ann_base::SimplePerceptron::TrainResult", "d5/d8b/structann__base_1_1_simple_perceptron_1_1_train_result.html", null ],
     [ "TreeItem", "dd/db5/class_tree_item.html", null ],
     [ "core::Undo", "d4/d7a/classcore_1_1_undo.html", [
       [ "core::BasicDialog", "d8/db6/classcore_1_1_basic_dialog.html", null ]

@@ -13,8 +13,6 @@
 namespace core{
 
 /*!
- * \class
- *
  * \brief The ElementDetailedWindow class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

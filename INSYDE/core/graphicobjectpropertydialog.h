@@ -9,7 +9,11 @@
 #include "graphicobject.h"
 
 namespace core{
-
+/*!
+ * \brief The GraphicObjectPropertyDialog class
+ *
+ * \author Edixon Vargas <ingedixonvargas@gmail.com>
+ */
 class CORE_LIB_IMPORT_EXPORT GraphicObjectPropertyDialog : public BasicDialog
 {
 	public:

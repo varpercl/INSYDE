@@ -17,8 +17,6 @@ namespace core{
 class Image;
 
 /*!
- * \class
- *
  * \brief The GraphicImageElementPropertyDialog class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

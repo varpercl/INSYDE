@@ -15,8 +15,6 @@ class DotMatrix;
 class DotMatrixDetailedWindow;
 
 /*!
- * \class
- *
  * \brief The DotMatrixRepresentation class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

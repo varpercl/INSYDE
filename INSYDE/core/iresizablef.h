@@ -8,9 +8,8 @@
 namespace core{
 
 /*!
- * \interface
- *
- * \brief La interfaz Resizable define todos aquellos objetos que tienen medidas de ancho y de alto y que
+ * \brief The IResizableF interface
+ * La interfaz Resizable define todos aquellos objetos que tienen medidas de ancho y de alto y que
  * como minimo tienen que tener los metodos de redimensionamiento
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

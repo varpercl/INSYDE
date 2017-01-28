@@ -6,7 +6,7 @@ var classcore_1_1_data_representation_box =
     [ "getDataRepresentation", "d1/d39/classcore_1_1_data_representation_box.html#a7c83d6ac2402678f7fb2bbb1266f1c45", null ],
     [ "getDataRepresentationWidget", "d1/d39/classcore_1_1_data_representation_box.html#adbe4d8818133be0aa23c4158171320a3", null ],
     [ "getInputs", "d1/d39/classcore_1_1_data_representation_box.html#a8a1a7272483a156fdc41e0830dcffc28", null ],
-    [ "setDataRepresentation", "d1/d39/classcore_1_1_data_representation_box.html#ad3890b6e766ae8f37b48df040a0419d5", null ],
+    [ "setDataRepresentation", "d1/d39/classcore_1_1_data_representation_box.html#ad5abde3cd69e8b3eca1c72cf800adae7", null ],
     [ "setInputs", "d1/d39/classcore_1_1_data_representation_box.html#a556ba6ef85d77c7c97360baae14f9f85", null ],
     [ "update", "d1/d39/classcore_1_1_data_representation_box.html#a491de1f432dee566227f4978ec754ee7", null ]
 ];

@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$d1/d1c/classann__base_1_1_settings.html" title="The Settings class. " alt="" coords="5,46,140,73"/>
 <area shape="rect" id="node2" href="$db/df6/classann__base_1_1_backpropagation_settings.html" title="The BackpropagationSettings class. " alt="" coords="197,5,380,47"/>
-<area shape="rect" id="node3" href="$df/da4/classann__base_1_1_simulated_annealing_settings.html" title="ann_base::SimulatedAnnealing\lSettings" alt="" coords="188,71,389,112"/>
+<area shape="rect" id="node3" href="$df/da4/classann__base_1_1_simulated_annealing_settings.html" title="The SimulatedAnnealingSettings class. " alt="" coords="188,71,389,112"/>
 </map>

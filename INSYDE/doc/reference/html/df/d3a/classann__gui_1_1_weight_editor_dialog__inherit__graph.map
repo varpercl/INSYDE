@@ -1,5 +1,5 @@
 <map id="ann_gui::WeightEditorDialog" name="ann_gui::WeightEditorDialog">
 <area shape="rect" id="node2" href="$d8/db6/classcore_1_1_basic_dialog.html" title="The BasicDialog class represents an improved and with&#45;basic&#45;functionalities dialog. With this dialog you can perform actions like Undo and Redo, also it has a toolbar that has included some basic buttons like New, Save, Open, Copy, Cut, Paste, Tools, Help and allow user to add its own buttons and hide what doesn&#39;t need. This is a powerful dialog that is used by lots of specific dialogs in this project. " alt="" coords="91,80,215,107"/>
 <area shape="rect" id="node4" href="$db/d60/classcore_1_1_clipboard.html" title="Contiene los metodos basicos para aquellos objetos que trabajen directamente con el portapapeles..." alt="" coords="98,5,207,32"/>
-<area shape="rect" id="node5" href="$d4/d7a/classcore_1_1_undo.html" title="core::Undo" alt="" coords="231,5,317,32"/>
+<area shape="rect" id="node5" href="$d4/d7a/classcore_1_1_undo.html" title="The UnDoInterface class. " alt="" coords="231,5,317,32"/>
 </map>

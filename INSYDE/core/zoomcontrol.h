@@ -9,8 +9,6 @@
 namespace core{
 
 /*!
- * \class
- *
  * \brief The ZoomControl class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

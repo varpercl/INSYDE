@@ -8,9 +8,9 @@
 namespace core
 {
 /*!
- * \interface
+ * \brief The IIOObject interface
  *
- * \brief La interfaz IOObject define todos aquellos objetos que poseen (obligatoriamente) entradas y salidas
+ * La interfaz IOObject define todos aquellos objetos que poseen (obligatoriamente) entradas y salidas
  *
  * NOTE: no se ha implementado todavia, se esta evaluando si es factible aplicarla a las clases
  *

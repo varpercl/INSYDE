@@ -12,8 +12,6 @@ using namespace std;
 
 namespace ann_base{
 /*!
- * \class
- *
  * \brief TrainingResult es una clase base para resultados de entrenamiento de redes neuronales. Almacena informacion
  * basica sobre los resultados de las redes neuronales durante su etapa de entrenamiento.
  *

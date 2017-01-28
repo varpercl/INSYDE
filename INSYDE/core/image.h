@@ -14,8 +14,6 @@
 namespace core{
 
 /*!
- * \class
- *
  * \brief The GraphicImageElement class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

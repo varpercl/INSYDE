@@ -5,8 +5,8 @@
 <area shape="rect" id="node5" href="$d8/d69/classann__gui_1_1_training_set_dialog.html" title="ann_gui::TrainingSetDialog" alt="" coords="316,107,492,133"/>
 <area shape="rect" id="node6" href="$d7/dd6/classann__gui_1_1_weight_editor_dialog.html" title="The WeightEditorDialog class. " alt="" coords="311,157,497,184"/>
 <area shape="rect" id="node7" href="$d6/db8/classcore_1_1_add_dot_matrix_dialog.html" title="The AddDotMatrixDialog class represents an specified dialog that allows user to add some DotMatrix ob..." alt="" coords="319,208,489,235"/>
-<area shape="rect" id="node8" href="$d5/dc9/classcore_1_1_graphic_object_property_dialog.html" title="core::GraphicObjectProperty\lDialog" alt="" coords="311,259,497,301"/>
+<area shape="rect" id="node8" href="$d5/dc9/classcore_1_1_graphic_object_property_dialog.html" title="The GraphicObjectPropertyDialog class. " alt="" coords="311,259,497,301"/>
 <area shape="rect" id="node11" href="$df/d15/classgui_1_1_main_window.html" title="gui::MainWindow" alt="" coords="343,325,465,352"/>
-<area shape="rect" id="node9" href="$dc/d18/classcore_1_1_dot_matrix_property_dialog.html" title="core::DotMatrixPropertyDialog" alt="" coords="545,241,741,268"/>
-<area shape="rect" id="node10" href="$d7/da0/classcore_1_1_image_property_dialog.html" title="core::ImagePropertyDialog" alt="" coords="556,292,731,319"/>
+<area shape="rect" id="node9" href="$dc/d18/classcore_1_1_dot_matrix_property_dialog.html" title="The DotMatrixElementPropertyDialog class. " alt="" coords="545,241,741,268"/>
+<area shape="rect" id="node10" href="$d7/da0/classcore_1_1_image_property_dialog.html" title="The GraphicImageElementPropertyDialog class. " alt="" coords="556,292,731,319"/>
 </map>

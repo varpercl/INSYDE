@@ -1,7 +1,7 @@
 var searchData=
 [
   ['samplesdialog',['SamplesDialog',['../d6/d89/classann__gui_1_1_samples_dialog.html',1,'ann_gui']]],
-  ['selectimagesegmentdialog',['SelectImageSegmentDialog',['../d0/da8/class_select_image_segment_dialog.html',1,'SelectImageSegmentDialog'],['../df/dc4/classcore_1_1_select_image_segment_dialog.html',1,'core::SelectImageSegmentDialog']]],
+  ['selectimagesegmentdialog',['SelectImageSegmentDialog',['../df/dc4/classcore_1_1_select_image_segment_dialog.html',1,'core::SelectImageSegmentDialog'],['../d0/da8/class_select_image_segment_dialog.html',1,'SelectImageSegmentDialog']]],
   ['selectprojectpage',['SelectProjectPage',['../d0/dd9/classgui_1_1_select_project_page.html',1,'gui']]],
   ['settings',['Settings',['../d1/d1c/classann__base_1_1_settings.html',1,'ann_base']]],
   ['simpleinputpattern',['SimpleInputPattern',['../da/d70/classann__base_1_1_simple_input_pattern.html',1,'ann_base']]],

@@ -35,7 +35,7 @@ var searchData=
   ['trainingsettable_2ecpp',['trainingsettable.cpp',['../df/dab/trainingsettable_8cpp.html',1,'']]],
   ['trainingsettable_2eh',['trainingsettable.h',['../d2/de5/trainingsettable_8h.html',1,'']]],
   ['trainingsettype',['TrainingSetType',['../d8/d69/classann__gui_1_1_training_set_dialog.html#abc8455a7ea8d4f2de510b9830ff5e400',1,'ann_gui::TrainingSetDialog']]],
-  ['trainresult',['TrainResult',['../d5/d8b/structann__base_1_1_simple_perceptron_1_1_train_result.html',1,'ann_base::SimplePerceptron::TrainResult'],['../d4/d99/structann__base_1_1_adaline_1_1_train_result.html',1,'ann_base::Adaline::TrainResult']]],
+  ['trainresult',['TrainResult',['../d4/d99/structann__base_1_1_adaline_1_1_train_result.html',1,'ann_base::Adaline::TrainResult'],['../d5/d8b/structann__base_1_1_simple_perceptron_1_1_train_result.html',1,'ann_base::SimplePerceptron::TrainResult']]],
   ['transferfunctiontype',['TransferFunctionType',['../d4/dba/classann__base_1_1_multilayer_perceptron.html#a1a889af8e749b3055df3106193941a3a',1,'ann_base::MultilayerPerceptron']]],
   ['tree',['Tree',['../d4/d81/classann__gui_1_1_a_n_n_model_wrapper.html#a88108b77f2e9eab21fc45ae059bee07da76c4b0c020824d1b058516f96ded4d6a',1,'ann_gui::ANNModelWrapper']]],
   ['treeitem',['TreeItem',['../dd/db5/class_tree_item.html',1,'TreeItem'],['../dd/db5/class_tree_item.html#a60356ae071943f3f5ae1130b4679d3f1',1,'TreeItem::TreeItem()']]],

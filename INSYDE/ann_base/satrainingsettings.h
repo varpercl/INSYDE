@@ -7,8 +7,6 @@
 
 namespace ann_base{
 /*!
- * \class
- *
  * \brief The SimulatedAnnealingSettings class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

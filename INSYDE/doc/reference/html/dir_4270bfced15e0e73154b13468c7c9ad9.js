@@ -43,7 +43,9 @@ var dir_4270bfced15e0e73154b13468c7c9ad9 =
       [ "DataRepresentationBox", "d1/d39/classcore_1_1_data_representation_box.html", "d1/d39/classcore_1_1_data_representation_box" ]
     ] ],
     [ "datarepresentationwidget.cpp", "d8/dbb/datarepresentationwidget_8cpp.html", null ],
-    [ "datarepresentationwidget.h", "d6/d0a/datarepresentationwidget_8h.html", null ],
+    [ "datarepresentationwidget.h", "d6/d0a/datarepresentationwidget_8h.html", [
+      [ "DataRepresentationWidget", "d4/d63/classcore_1_1_data_representation_widget.html", "d4/d63/classcore_1_1_data_representation_widget" ]
+    ] ],
     [ "definitions.h", "d7/d2d/core_2definitions_8h.html", "d7/d2d/core_2definitions_8h" ],
     [ "detailedwindow.cpp", "d3/d09/detailedwindow_8cpp.html", null ],
     [ "detailedwindow.h", "df/d67/detailedwindow_8h.html", [

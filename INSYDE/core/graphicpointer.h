@@ -10,7 +10,9 @@
 namespace core{
 
 /*!
- * \brief La clase @code{GraphicPointer} consiste en una flecha que indicara la direccion final en la que se quiere
+ * \brief The GraphicPointer class
+ *
+ * La clase @code{GraphicPointer} consiste en una flecha que indicara la direccion final en la que se quiere
  * que los agentes queden apuntando al llegar al destino final asignado.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

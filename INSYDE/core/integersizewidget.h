@@ -11,8 +11,6 @@
 namespace core{
 
 /*!
- * \class
- *
  * \brief The IntegerSizeWidget class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

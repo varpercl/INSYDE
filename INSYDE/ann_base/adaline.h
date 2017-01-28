@@ -26,13 +26,8 @@ namespace ann_base{
 using namespace std;
 
 /*!
- * \class Adaline
- *
  * \brief The Adaline class represent one basic ANN topology which consist in one neuron with
- * only one output with a transfer function that can be
- *
- * Contiene todas las implementaciones necesarias para realizar la simulacion
- * y entrenamiento de una red ADALINE.
+ * only one output with a transfer function that can be.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015

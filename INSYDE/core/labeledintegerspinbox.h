@@ -7,8 +7,6 @@
 namespace core{
 
 /*!
- * \class
- *
  * \brief The LabeledIntegerSpinBox class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

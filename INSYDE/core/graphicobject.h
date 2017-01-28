@@ -18,7 +18,9 @@ namespace core{
 class Simulation;
 
 /*!
- * \class GraphicObject esta clase es la base para todos los objetos que necesitan ser representado en un sistema.
+ * \brief The GraphicObject class
+ *
+ * esta clase es la base para todos los objetos que necesitan ser representado en un sistema.
  *
  * Se encarga de dibujar un marco con los contactos necesarios para conectar dos o mas Objetos.
  *

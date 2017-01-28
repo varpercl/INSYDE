@@ -21,8 +21,6 @@ class ImageDetailedWindow;
 namespace core{
 
 /*!
- * \class
- *
  * \brief The ImageRepresentationWidget class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

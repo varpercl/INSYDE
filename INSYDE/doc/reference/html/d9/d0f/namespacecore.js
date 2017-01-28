@@ -11,6 +11,7 @@ var namespacecore =
     [ "Cursor", "d5/d0f/classcore_1_1_cursor.html", "d5/d0f/classcore_1_1_cursor" ],
     [ "DataRepresentation", "d6/d03/classcore_1_1_data_representation.html", "d6/d03/classcore_1_1_data_representation" ],
     [ "DataRepresentationBox", "d1/d39/classcore_1_1_data_representation_box.html", "d1/d39/classcore_1_1_data_representation_box" ],
+    [ "DataRepresentationWidget", "d4/d63/classcore_1_1_data_representation_widget.html", "d4/d63/classcore_1_1_data_representation_widget" ],
     [ "DetailedWindow", "dd/d0d/classcore_1_1_detailed_window.html", "dd/d0d/classcore_1_1_detailed_window" ],
     [ "DotMatrix", "d3/d6e/classcore_1_1_dot_matrix.html", "d3/d6e/classcore_1_1_dot_matrix" ],
     [ "DotMatrixDetailedWindow", "dd/df9/classcore_1_1_dot_matrix_detailed_window.html", "dd/df9/classcore_1_1_dot_matrix_detailed_window" ],

@@ -10,8 +10,6 @@ using namespace std;
 
 namespace ann_base{
 /*!
- * \class
- *
  * \brief The SimpleInputPattern class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

@@ -30,8 +30,6 @@ class MultilayerPerceptron;
 //NOTE: evaluar la posibilidad de usar una sola matriz MxN en lugar de dos matrices (uno para las entradas y uno para las salidas)
 
 /*!
- * \class
- *
  * \brief La clase TrainingSet es basica para entrenar cualquier red neuronal
  * consiste basicamente en un arreglo (vector) de pares de entrenamiento
  * (TrainingPair) estos pares de entrenamiento a su vez son un vector V = <I, T> donde I

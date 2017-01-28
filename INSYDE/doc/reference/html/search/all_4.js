@@ -8,6 +8,7 @@ var searchData=
   ['datarepresentationbox',['DataRepresentationBox',['../d1/d39/classcore_1_1_data_representation_box.html',1,'core::DataRepresentationBox'],['../d1/d39/classcore_1_1_data_representation_box.html#aea6a5682a458ac75f9ff0650b9e17b65',1,'core::DataRepresentationBox::DataRepresentationBox(QWidget *parent=0)'],['../d1/d39/classcore_1_1_data_representation_box.html#a4e86923b6d8814a4ab5b12693d97671a',1,'core::DataRepresentationBox::DataRepresentationBox(const vector&lt; double &gt; &amp;inputdata, DataRepresentation *dr, QWidget *parent=0)']]],
   ['datarepresentationbox_2ecpp',['datarepresentationbox.cpp',['../d3/d8d/datarepresentationbox_8cpp.html',1,'']]],
   ['datarepresentationbox_2eh',['datarepresentationbox.h',['../da/da2/datarepresentationbox_8h.html',1,'']]],
+  ['datarepresentationwidget',['DataRepresentationWidget',['../d4/d63/classcore_1_1_data_representation_widget.html',1,'core::DataRepresentationWidget'],['../d4/d63/classcore_1_1_data_representation_widget.html#a07dcacf1dd07e99e542061e2e037e6ab',1,'core::DataRepresentationWidget::DataRepresentationWidget()']]],
   ['datarepresentationwidget_2ecpp',['datarepresentationwidget.cpp',['../d8/dbb/datarepresentationwidget_8cpp.html',1,'']]],
   ['datarepresentationwidget_2eh',['datarepresentationwidget.h',['../d6/d0a/datarepresentationwidget_8h.html',1,'']]],
   ['debug',['DEBUG',['../d8/df7/acosolver_8h.html#a3dfa58b1c5c2943dd49d8aa1981d377d',1,'acosolver.h']]],

@@ -43,12 +43,12 @@ var NAVTREEINDEX =
 "annotated.html",
 "d2/dab/classcore_1_1_image.html#a225b0e3911350b1e194aa05b76f28844",
 "d4/d5a/classcore_1_1_restricted_line_f.html#a5319c5b1a79482e559115940de518149af8887958381877b92369a655dcfb4350",
-"d5/df5/classcore_1_1_i_resizable_f.html#a082821210aff7e2b32e5811136cb864f",
-"d7/d66/classcore_1_1_image_detailed_window.html#a32c3c64deb19f7b34cb29a774edc778a",
-"d8/db6/classcore_1_1_basic_dialog.html#a512abdf0720e85935ab4193aff6be817",
-"da/d96/classcore_1_1_labeled_double_spin_box.html#afdb999af2b30a50116f08bd39163fabc",
-"dc/de3/core_2icons_8h.html#aba12df7a097359e46c063e7cb5a79f95",
-"de/dd8/obstaculo_8cpp.html"
+"d5/dc9/classcore_1_1_graphic_object_property_dialog.html#ab60e572034d0d3ff7d3e78e2e64e3477",
+"d7/d66/classcore_1_1_image_detailed_window.html",
+"d8/db6/classcore_1_1_basic_dialog.html#a2a499c3fda225fa6e524635dc44d6d25",
+"da/d96/classcore_1_1_labeled_double_spin_box.html#a85d5bcb0a943dc83e98af7865ecfaa46",
+"dc/de3/core_2icons_8h.html#aa33c71c26993f40248609a51b3f2518c",
+"de/dcc/classann__base_1_1_training_set_file.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

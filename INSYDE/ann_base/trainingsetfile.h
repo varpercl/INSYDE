@@ -18,16 +18,15 @@ namespace ann_base{
 
 	class TrainingSet;
 
-	/*!
- * \class
- *
- * \brief Maneja archivos del tipo .tsf los cuales contienen conjuntos de entrenamiento estructurados.
+/*!
+ * \brief The TrainingSetFile class
+ * Maneja archivos del tipo .tsf los cuales contienen conjuntos de entrenamiento estructurados.
  *
  * Es indispensable para almacenar y cargar la informacion hacia y desde el disco duro o cualquier otro medio de
  * almacenamiento de modo que esta pueda persistir en un archivo XML comprimido.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
- * \date 023/02/2015
+ * \date 23/02/2015
  */
 class ANN_BASE_LIB_IMPORT_EXPORT TrainingSetFile : public QFile
 {

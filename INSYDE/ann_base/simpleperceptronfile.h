@@ -7,8 +7,6 @@
 
 namespace ann_base{
 /*!
- * \class
- *
  * \brief The SimplePerceptronFile class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

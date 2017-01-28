@@ -17,7 +17,8 @@ class ImageDetailedWindow;
 namespace core{
 
 /*!
- * \brief Esta clase genera un cuadro de dialogo que permite al usuario seleccionar grafica e intuitivamente un
+ * \brief The SelectImageSegmentDialog class
+ * Esta clase genera un cuadro de dialogo que permite al usuario seleccionar grafica e intuitivamente un
  * segmento de dimension ajustable de una imagen preseleccionada.
  * Este segmento puede ser utilizado en otras clases para su posterior procesamiento como por ejemplo el procesamiento
  * por barrido de una imagen completa en una red neuronal.

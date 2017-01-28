@@ -7,8 +7,6 @@
 
 namespace ann_base{
 /*!
- * \class ArtificialNeuralNetwork
- *
  * \brief The ArtificialNeuralNetwork class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
