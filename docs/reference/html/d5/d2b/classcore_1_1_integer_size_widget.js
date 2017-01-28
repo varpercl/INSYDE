@@ -1,0 +1,45 @@
+var classcore_1_1_integer_size_widget =
+[
+    [ "Measure", "d5/d2b/classcore_1_1_integer_size_widget.html#a143717b7ccb39d5cd95bdfa1e9ba1b70", [
+      [ "Width", "d5/d2b/classcore_1_1_integer_size_widget.html#a143717b7ccb39d5cd95bdfa1e9ba1b70aa3088844aab3480ce7d2b1b480d49e19", null ],
+      [ "Height", "d5/d2b/classcore_1_1_integer_size_widget.html#a143717b7ccb39d5cd95bdfa1e9ba1b70a6d7ec41eb581a14c675c9d7af6df1605", null ]
+    ] ],
+    [ "Units", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665b", [
+      [ "Nothing", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665ba272708426bdaa3c5524cb9943581bab3", null ],
+      [ "Pixels", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665ba2bdb897bd15f88cef4f0e6921c37c7fb", null ],
+      [ "Dots", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665ba150c5a98940c97b09ff8f19953222237", null ],
+      [ "Milimeters", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665ba085764f034bf82a5085300b4fc82dfa2", null ],
+      [ "Centimeters", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665ba9d813acd65536e8c9c62904fc0b69a9e", null ],
+      [ "Kilometers", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665ba09444254e0532f471ec95c98880acccb", null ],
+      [ "Meters", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665bab3119281f1c3a9f0d014ece2006f1ce7", null ],
+      [ "Inches", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665baaa6588bb8571fb316d93a160a4f5298e", null ],
+      [ "Feets", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665ba183cf8734a84622b1d24d688e6be8617", null ],
+      [ "Miles", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665bad64b1e392cc2788d7e1341fd3bb5e146", null ]
+    ] ],
+    [ "IntegerSizeWidget", "d5/d2b/classcore_1_1_integer_size_widget.html#a76771358b88b09b453b541b41f2339b0", null ],
+    [ "IntegerSizeWidget", "d5/d2b/classcore_1_1_integer_size_widget.html#aa0f0dcc3e782b065a231f4f3608b899a", null ],
+    [ "IntegerSizeWidget", "d5/d2b/classcore_1_1_integer_size_widget.html#a735262746bebf102d330d8ed034017dc", null ],
+    [ "~IntegerSizeWidget", "d5/d2b/classcore_1_1_integer_size_widget.html#ab20f3573286ed11fe6a5096a21cf203c", null ],
+    [ "getHeight", "d5/d2b/classcore_1_1_integer_size_widget.html#a114fa5bc51fd0745b0248f0f268d963d", null ],
+    [ "getLabelAlignment", "d5/d2b/classcore_1_1_integer_size_widget.html#a7deff2dbef37d6864dacdc6f93589564", null ],
+    [ "getLabeledIntegerSpinBox", "d5/d2b/classcore_1_1_integer_size_widget.html#a0673582383ccaa6c4f75d1f616a05965", null ],
+    [ "getMaximumSizeValues", "d5/d2b/classcore_1_1_integer_size_widget.html#ae4ebd51c7fd9de3746c5b57dde575b27", null ],
+    [ "getMinimumnSizeValues", "d5/d2b/classcore_1_1_integer_size_widget.html#aea57c3814848189414c7aa2082ed9a68", null ],
+    [ "getSize", "d5/d2b/classcore_1_1_integer_size_widget.html#aee35f69a141aeb4c7746f8727d5408be", null ],
+    [ "getUnits", "d5/d2b/classcore_1_1_integer_size_widget.html#af147f4a4ede63e6bddc723327ed23b2a", null ],
+    [ "getWidth", "d5/d2b/classcore_1_1_integer_size_widget.html#af21d37a554cdadbe26aa84bd0c39ced3", null ],
+    [ "heightChanged", "d5/d2b/classcore_1_1_integer_size_widget.html#a13d9ce3a947a8aaaab84afbd20c2b09c", null ],
+    [ "setHeight", "d5/d2b/classcore_1_1_integer_size_widget.html#ac7d832124295f909d8a476bee6963a9f", null ],
+    [ "setLabelAlignment", "d5/d2b/classcore_1_1_integer_size_widget.html#a424e8f6988c7c5c570f14b40a4238c4a", null ],
+    [ "setMaximumSizeValues", "d5/d2b/classcore_1_1_integer_size_widget.html#a1a8be7db6153578d72f3daed7cd48dc8", null ],
+    [ "setMaximumSizeValues", "d5/d2b/classcore_1_1_integer_size_widget.html#a253a844ec1178aa223ff4b1b4b19764e", null ],
+    [ "setMinimumSizeValues", "d5/d2b/classcore_1_1_integer_size_widget.html#a45c730cc49de17c94cbda5d9632e93a6", null ],
+    [ "setMinimumSizeValues", "d5/d2b/classcore_1_1_integer_size_widget.html#a8b5d6a1764729f804bb0a720019a80e9", null ],
+    [ "setSize", "d5/d2b/classcore_1_1_integer_size_widget.html#a178f03cfdc50a4ba5c2eee2bb3981382", null ],
+    [ "setUnits", "d5/d2b/classcore_1_1_integer_size_widget.html#a7941c8eacbf9a7bb53e818cf0582770c", null ],
+    [ "setUnits", "d5/d2b/classcore_1_1_integer_size_widget.html#af1b4db909f66cee86ba3cc08bade14bd", null ],
+    [ "setWidth", "d5/d2b/classcore_1_1_integer_size_widget.html#aafe707bd6b69f082b93536756b0c8597", null ],
+    [ "sizeChanged", "d5/d2b/classcore_1_1_integer_size_widget.html#a2ce0ea7c380375c421c46bfb8051ca44", null ],
+    [ "unitsChanged", "d5/d2b/classcore_1_1_integer_size_widget.html#add9453771b9c2d1019bc36d4e1f611a6", null ],
+    [ "widthChanged", "d5/d2b/classcore_1_1_integer_size_widget.html#a86be09de97902fd767a514ba288e53e1", null ]
+];

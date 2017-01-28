@@ -1,0 +1,36 @@
+<map id="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/gui/newprojectwizard.cpp" name="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/gui/newprojectwizard.cpp">
+<area shape="rect" id="node2" href="$de/d4a/newprojectwizard_8h.html" title="newprojectwizard.h" alt="" coords="1981,109,2113,136"/>
+<area shape="rect" id="node4" href="$dc/d54/common_8h.html" title="../core/common.h" alt="" coords="1977,557,2101,584"/>
+<area shape="rect" id="node13" href="$d3/d28/selectprojectpage_8h.html" title="selectprojectpage.h" alt="" coords="2085,184,2219,211"/>
+<area shape="rect" id="node39" href="$d1/de4/chooseprojectnamepage_8h.html" title="chooseprojectnamepage.h" alt="" coords="2243,184,2418,211"/>
+<area shape="rect" id="node40" href="$d4/d49/perceptronpage_8h.html" title="../ann_gui/perceptronpage.h" alt="" coords="1237,184,1419,211"/>
+<area shape="rect" id="node49" href="$de/d66/adalinepage_8h.html" title="../ann_gui/adalinepage.h" alt="" coords="144,408,307,435"/>
+<area shape="rect" id="node10" href="$d8/d43/share__core__lib_8h.html" title="share_core_lib.h" alt="" coords="649,707,767,733"/>
+<area shape="rect" id="node11" href="$de/d40/imath_8h.html" title="imath.h" alt="" coords="2050,632,2115,659"/>
+<area shape="rect" id="node16" href="$d8/d9d/weighteditordialog_8h.html" title="../ann_gui/weighteditordialog.h" alt="" coords="1353,259,1551,285"/>
+<area shape="rect" id="node17" href="$d0/d9f/share__ann__gui__lib_8h.html" title="share_ann_gui_lib.h" alt="" coords="1606,483,1743,509"/>
+<area shape="rect" id="node18" href="$d6/db3/basicdialog_8h.html" title="../core/basicdialog.h" alt="" coords="245,557,384,584"/>
+<area shape="rect" id="node23" href="$d6/ddb/basictree_8h.html" title="../core/basictree.h" alt="" coords="409,557,535,584"/>
+<area shape="rect" id="node24" href="$d0/d9f/labeleddoublespinbox_8h.html" title="../core/labeleddoublespinbox.h" alt="" coords="766,483,965,509"/>
+<area shape="rect" id="node26" href="$d5/d12/simpleperceptron_8h.html" title="../ann_base/simpleperceptron.h" alt="" coords="1266,408,1470,435"/>
+<area shape="rect" id="node34" href="$d0/dae/annmodelwrapper_8h.html" title="../ann_gui/annmodelwrapper.h" alt="" coords="1928,333,2123,360"/>
+<area shape="rect" id="node20" href="$d2/da4/undo_8h.html" title="undo.h" alt="" coords="355,632,416,659"/>
+<area shape="rect" id="node21" href="$d7/d2d/core_2definitions_8h.html" title="definitions.h" alt="" coords="491,632,581,659"/>
+<area shape="rect" id="node22" href="$d5/da7/clipboard_8h.html" title="clipboard.h" alt="" coords="245,632,331,659"/>
+<area shape="rect" id="node25" href="$d8/dae/labeledwidget_8h.html" title="labeledwidget.h" alt="" coords="763,557,874,584"/>
+<area shape="rect" id="node27" href="$d4/d86/share__ann__base__lib_8h.html" title="share_ann_base_lib.h" alt="" coords="1573,632,1721,659"/>
+<area shape="rect" id="node28" href="$d2/d52/perceptrontrainingpattern_8h.html" title="perceptrontrainingpattern.h" alt="" coords="1405,483,1581,509"/>
+<area shape="rect" id="node29" href="$df/dba/simpleinputpattern_8h.html" title="simpleinputpattern.h" alt="" coords="1328,557,1467,584"/>
+<area shape="rect" id="node30" href="$dc/df4/trainingset_8h.html" title="trainingset.h" alt="" coords="1819,483,1912,509"/>
+<area shape="rect" id="node33" href="$d0/dc6/artificialneuralnetwork_8h.html" title="artificialneuralnetwork.h" alt="" coords="2328,557,2485,584"/>
+<area shape="rect" id="node31" href="$de/d7e/mlp_8h.html" title="mlp.h" alt="" coords="1643,557,1698,584"/>
+<area shape="rect" id="node35" href="$d7/d13/annmodeltree_8h.html" title="annmodeltree.h" alt="" coords="2131,408,2242,435"/>
+<area shape="rect" id="node36" href="$d9/d35/adaline_8h.html" title="../ann_base/adaline.h" alt="" coords="2541,483,2688,509"/>
+<area shape="rect" id="node37" href="$d7/da1/hopfield_8h.html" title="../ann_base/hopfield.h" alt="" coords="2317,483,2467,509"/>
+<area shape="rect" id="node38" href="$d4/d56/kohonen_8h.html" title="../ann_base/kohonen.h" alt="" coords="2088,483,2243,509"/>
+<area shape="rect" id="node41" href="$d7/d79/trainingsetdialog_8h.html" title="trainingsetdialog.h" alt="" coords="569,333,695,360"/>
+<area shape="rect" id="node45" href="$d9/d80/perceptrondisplay_8h.html" title="perceptrondisplay.h" alt="" coords="947,259,1082,285"/>
+<area shape="rect" id="node43" href="$db/d8c/normalizationwidget_8h.html" title="../core/normalizationwidget.h" alt="" coords="473,408,661,435"/>
+<area shape="rect" id="node44" href="$da/da2/datarepresentationbox_8h.html" title="../core/datarepresentationbox.h" alt="" coords="949,557,1152,584"/>
+<area shape="rect" id="node48" href="$d8/d8f/weightline_8h.html" title="weightline.h" alt="" coords="1323,333,1413,360"/>
+</map>
