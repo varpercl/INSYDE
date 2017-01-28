@@ -1,21 +1,21 @@
 #include "progressplotter.h"
 
-ProgressPlotter::ProgressPlotter(QWidget *parent) :
+gui::ProgressPlotter::ProgressPlotter(QWidget *parent) :
 	QFrame(parent)
 {
 }
 
-void ProgressPlotter::setChart(KDChart::Chart *chart)
+void gui::ProgressPlotter::setChart(KDChart::Chart *chart)
 {
 	mainChart = chart;
 }
 
-KDChart::Chart *ProgressPlotter::getChart() const
+KDChart::Chart *gui::ProgressPlotter::getChart() const
 {
 	return mainChart;
 }
 
-void ProgressPlotter::init()
+void gui::ProgressPlotter::init()
 {
 	mainLayout = new QVBoxLayout(this);
 

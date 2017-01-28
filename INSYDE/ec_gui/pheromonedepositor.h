@@ -23,8 +23,10 @@
 #include "../core/common.h"
 #include "../core/imath.h"
 
-using namespace ECFunctions;
+using namespace common;
 
+namespace ec_gui
+{
 /**
   @class PheromoneDepositor
   @author Edixon Vargas
@@ -176,5 +178,5 @@ class EC_GUI_LIB_IMPORT_EXPORT PheromoneDepositor : public Actuator
 		  */
 		void timerCheckDistanceEvent();
 };
-
+}
 #endif // PHEROMONEDEPOSITOR_H

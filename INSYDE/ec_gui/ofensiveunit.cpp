@@ -1,10 +1,11 @@
 #include "ofensiveunit.h"
 
-OfensiveUnit::OfensiveUnit() : Unit(Human, Blue, None, 100, 100, 0, 0, 100, 70)
+ec_gui::OfensiveUnit::OfensiveUnit() : Unit(Human, Blue, None, 100, 100, 0, 0, 100, 70)
 {
     initUnit(10, 1, 1);
 }
-OfensiveUnit::OfensiveUnit(PlayerType tj,
+
+ec_gui::OfensiveUnit::OfensiveUnit(PlayerType tj,
                            PlayerColor cr,
                            PlayerTeam eq,
                            int vitalidadMaxima,
@@ -17,7 +18,7 @@ OfensiveUnit::OfensiveUnit(PlayerType tj,
     initUnit(10, 1, 1);
 }
 
-OfensiveUnit::OfensiveUnit(int attack, int defense, int attackVelocity, PlayerType tj,
+ec_gui::OfensiveUnit::OfensiveUnit(int attack, int defense, int attackVelocity, PlayerType tj,
                            PlayerColor cr,
                            PlayerTeam eq,
                            int vitalidadMaxima,
@@ -30,7 +31,7 @@ OfensiveUnit::OfensiveUnit(int attack, int defense, int attackVelocity, PlayerTy
     initUnit(attack, defense, attackVelocity);
 }
 
-void OfensiveUnit::initUnit(int attack, int defense, int attackVelocity){
+void ec_gui::OfensiveUnit::initUnit(int attack, int defense, int attackVelocity){
     Q_UNUSED(attack)
     Q_UNUSED(attackVelocity)
 
@@ -54,21 +55,21 @@ void OfensiveUnit::initUnit(int attack, int defense, int attackVelocity){
 //    return attack;
 //}
 
-void OfensiveUnit::setDefense(int defense)
+void ec_gui::OfensiveUnit::setDefense(int defense)
 {
     this->defense = defense;
 }
 
-int OfensiveUnit::getDefense()
+int ec_gui::OfensiveUnit::getDefense()
 {
     return defense;
 }
 
-void OfensiveUnit::startAttackMode()
+void ec_gui::OfensiveUnit::startAttackMode()
 {
 }
 
-void OfensiveUnit::unitHasKilled(Unit *un)
+void ec_gui::OfensiveUnit::unitHasKilled(Unit *un)
 {
     Q_UNUSED(un)
 }

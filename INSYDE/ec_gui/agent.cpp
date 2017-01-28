@@ -1,14 +1,14 @@
 #include "agent.h"
 
-Agent::Agent(){
+ec_gui::Agent::Agent(){
     iniciarTodo(10);
 }
 
-Agent::Agent(double radio){
+ec_gui::Agent::Agent(double radio){
     iniciarTodo(radio);
 }
 
-void Agent::iniciarTodo(double radio){
+void ec_gui::Agent::iniciarTodo(double radio){
     forma.addEllipse(QRectF(-radio, -radio, radio*2, radio*2));
     radioAgente = radio;
     setBorderWidth(2);
@@ -22,7 +22,7 @@ void Agent::iniciarTodo(double radio){
     setColor(QColor(127, 127, 255));
 }
 
-void Agent::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
+void ec_gui::Agent::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     Q_UNUSED(widget);
 
     if(figuraAbstractaVisible){
@@ -55,7 +55,7 @@ void Agent::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
 //    painter->drawRect(boundingRect());
 }
 
-QRectF Agent::boundingRect() const{
+QRectF ec_gui::Agent::boundingRect() const{
     double medioBorde = borderWidth/2;
     QPainterPath path;
     path.addPath(forma);
@@ -67,7 +67,7 @@ QRectF Agent::boundingRect() const{
     return path.controlPointRect().adjusted(-medioBorde, -medioBorde, medioBorde, medioBorde);
 }
 
-QPainterPath Agent::shape() const{
+QPainterPath ec_gui::Agent::shape() const{
     QPainterPath path(forma);
 //    foreach(Actuador *actuador, actuadores){
 //        path.addPath(actuador->getShape());
@@ -75,7 +75,7 @@ QPainterPath Agent::shape() const{
     return path;
 }
 
-QPainterPath Agent::radialShape() const
+QPainterPath ec_gui::Agent::radialShape() const
 {
     QPainterPath circulo;
     double radio = Vector2D(forma.controlPointRect().center(), forma.controlPointRect().topLeft()).getModulo();
@@ -93,24 +93,24 @@ QPainterPath Agent::radialShape() const
 //    return updateInterval;
 //}
 
-void Agent::setBorderWidth(int w)
+void ec_gui::Agent::setBorderWidth(int w)
 {
     borderWidth = w;
 }
 
-int Agent::getBorderWidth() const
+int ec_gui::Agent::getBorderWidth() const
 {
     return borderWidth;
 }
 
-void Agent::secureStartTimer(int &id, int interval)
+void ec_gui::Agent::secureStartTimer(int &id, int interval)
 {
     if(id == 0){
         id = startTimer(interval);
     }
 }
 
-void Agent::secureKillTimer(int &id)
+void ec_gui::Agent::secureKillTimer(int &id)
 {
     if(id != 0){
         killTimer(id);
@@ -123,42 +123,42 @@ void Agent::secureKillTimer(int &id)
 //    color = col;
 //}
 
-void Agent::setRadius(double rad){
+void ec_gui::Agent::setRadius(double rad){
     radioAgente = rad;
 }
 
-void Agent::setAbstractFigureVisible(bool vis)
+void ec_gui::Agent::setAbstractFigureVisible(bool vis)
 {
     figuraAbstractaVisible = vis;
 }
 
-bool Agent::getAbstractFigureVisible()
+bool ec_gui::Agent::getAbstractFigureVisible()
 {
     return figuraAbstractaVisible;
 }
 
-void Agent::setActuatorsShapeVisible(bool vis)
+void ec_gui::Agent::setActuatorsShapeVisible(bool vis)
 {
     actuatorsShapeVisible = vis;
 }
 
-bool Agent::getActuatorsShapeVisible()
+bool ec_gui::Agent::getActuatorsShapeVisible()
 {
     return actuatorsShapeVisible;
 }
 
-void Agent::addSensor(QString nombre, Sensor *sensor){
+void ec_gui::Agent::addSensor(QString nombre, Sensor *sensor){
     if(!sensores.contains(nombre))
         sensores.insert(nombre, sensor);
 }
 
-void Agent::deleteSensor(QString nombre)
+void ec_gui::Agent::deleteSensor(QString nombre)
 {
     if(!sensores.contains(nombre)) return;
         sensores.remove(nombre);
 }
 
-Sensor *Agent::getSensor(QString nombre)
+ec_gui::Sensor *ec_gui::Agent::getSensor(QString nombre)
 {
     if(sensores.contains(nombre))
         return sensores.value(nombre);
@@ -166,16 +166,16 @@ Sensor *Agent::getSensor(QString nombre)
         return NULL;
 }
 
-void Agent::setSensors(QMap<QString, Sensor *> sensores)
+void ec_gui::Agent::setSensors(QMap<QString, Sensor *> sensores)
 {
     this->sensores = sensores;
 }
 
-QMap<QString, Sensor*> &Agent::getSensors(){
+QMap<QString, ec_gui::Sensor*> &ec_gui::Agent::getSensors(){
     return sensores;
 }
 
-void Agent::addActuator(QString nombre, Actuator *actuador)
+void ec_gui::Agent::addActuator(QString nombre, Actuator *actuador)
 {
     if(!actuadores.contains(nombre))
         actuadores.insert(nombre, actuador);
@@ -183,42 +183,42 @@ void Agent::addActuator(QString nombre, Actuator *actuador)
         qWarning() << "La clave: " << nombre << " ya existe";
 }
 
-void Agent::deleteActuator(QString nombre)
+void ec_gui::Agent::deleteActuator(QString nombre)
 {
     if(actuadores.contains(nombre))
         actuadores.remove(nombre);
 }
 
-Actuator *Agent::getActuator(QString nombre)
+ec_gui::Actuator *ec_gui::Agent::getActuator(QString nombre)
 {
     if(actuadores.contains(nombre))
         return actuadores.value(nombre);
     else return NULL;
 }
 
-void Agent::setActuators(QMap<QString, Actuator *> actuadores)
+void ec_gui::Agent::setActuators(QMap<QString, Actuator *> actuadores)
 {
     this->actuadores = actuadores;
 }
 
-QMap<QString, Actuator *> &Agent::getActuators()
+QMap<QString, ec_gui::Actuator *> &ec_gui::Agent::getActuators()
 {
     return actuadores;
 }
 
-void Agent::setShape(const QPainterPath &fig)
+void ec_gui::Agent::setShape(const QPainterPath &fig)
 {
     forma = fig;
 }
 
-void Agent::setName(QString nombre){
+void ec_gui::Agent::setName(QString nombre){
     Q_UNUSED(nombre);
 }
 
-QString Agent::getName(){
+QString ec_gui::Agent::getName(){
     return "";
 }
 
-void Agent::checkRules(){
+void ec_gui::Agent::checkRules(){
 
 }

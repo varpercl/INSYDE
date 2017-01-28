@@ -7,6 +7,9 @@ namespace Ui {
 	class ChooseProjectNamePage;
 }
 
+namespace gui
+{
+
 /*!
  * \brief The ChooseProjectNamePage class
  *
@@ -36,6 +39,5 @@ class ChooseProjectNamePage : public QWizardPage
 //        void show();
 
 };
-
-
+}
 #endif // CHOOSEPROJECTNAMEPAGE_H

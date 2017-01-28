@@ -11,21 +11,44 @@
 namespace core{
 
 /*!
- * \brief The Connector class
+ * \brief The Connector class represents an interactive composed line which represents
+ * a graphic connection between two GraphicObjects.
+ * A connector must have an origin and end.
+ *
+ * \author Edixon Vargas <ingedixonvargas@gmail.com>
+ *
  */
 class CORE_LIB_IMPORT_EXPORT Connector : public GraphicObject
 {
 
 	public:
 
+		/*!
+		 * \brief The basic constructor, represents a null connector. This means
+		 * a connector who has no origin object and no end object.
+		 *
+		 * This can be drawn depending on position where the connector is placed.
+		 *
+		 */
 		explicit Connector();
 
+		/*!
+		 * \brief A connector who will start connected to \p begin and will end connected to
+		 * \p end object respectively.
+		 *
+		 * \param begin The begining object.
+		 * \param end The end object.
+		 */
 		explicit Connector(GraphicObject *begin, GraphicObject *end);
 
 		~Connector();
 
+		/*!
+		 * \brief The type of this object. In this case type will be \c GraphicObjectTypes::gotConnector.
+		 *
+		 * \return An integer representing the type of this object.
+		 */
 		int type() const override;
-
 
 		QSizeF getSize() const override;
 		double getWidth() const override;
@@ -36,14 +59,22 @@ class CORE_LIB_IMPORT_EXPORT Connector : public GraphicObject
 		QString getXML() const override;
 
 		/*!
-		 * \brief setBeginObject
-		 * \param begin
+		 * \brief Establish who will be the origin object the connector will start at.
+		 *
+		 * \note This method doesn't delete the current begining object. So the user is
+		 * responsible for memory administration.
+		 *
+		 * \param begin The origin object.
 		 */
 		void setBeginObject(GraphicObject *begin);
 
 		/*!
-		 * \brief setEndObject
-		 * \param end
+		 * \brief Establish who will be the end object the connector will end at.
+		 *
+		 * \note This method doesn't delete the current ending object. So the user is
+		 * responsible for memory administration.
+		 *
+		 * \param end The ending object.
 		 */
 		void setEndObject(GraphicObject *end);
 
@@ -55,7 +86,8 @@ class CORE_LIB_IMPORT_EXPORT Connector : public GraphicObject
 
 		/*!
 		 * \brief The CollidingResult struct involves a determined line and the current points it is intersecting at.
-		 * This members means \code{line} intersects n \code{objects} at determined \code{points} (each point belongs to \code{line})
+		 * This members means \c line intersects \c n  objects  at determined \c points  (each point belongs to
+		 * \c line)
 		 */
 		struct CollidingResult{
 			public:
@@ -65,32 +97,10 @@ class CORE_LIB_IMPORT_EXPORT Connector : public GraphicObject
 				QList<GraphicObject*> objects;
 		};
 
-		/*!
-		 * \brief paint
-		 * \param painter
-		 * \param option
-		 * \param widget
-		 */
 		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
-		/*!
-		 * \brief hoverMoveEvent
-		 * \param event
-		 */
-//		void hoverMoveEvent(QGraphicsSceneHoverEvent *event) override;
-
-		/*!
-		 * \brief eventFilter
-		 * \param sender
-		 * \param event
-		 * \return
-		 */
 		bool eventFilter(QObject *sender, QEvent *event) override;
 
-		/*!
-		 * \brief boundingRect
-		 * \return
-		 */
 		QRectF boundingRect() const override;
 
 		QPainterPath shape() const override;
@@ -98,9 +108,9 @@ class CORE_LIB_IMPORT_EXPORT Connector : public GraphicObject
 	private:
 		Q_OBJECT
 
-		bool isBuildingConector;
+		bool isBuildingConector; /**< Holds the current status of the connector. If it's being built this variable will be true */
 
-		QPolygonF shapeForm;
+		QPolygonF shapeForm; /**< The shape of this connector, this is used to perform collition detections */
 
 		double clearance;
 		
@@ -116,81 +126,69 @@ class CORE_LIB_IMPORT_EXPORT Connector : public GraphicObject
 
 		void init(GraphicObject *begin, GraphicObject *end);
 
-		//Temporary this object can not be clipboarded. Studying this for future
+		//Temporarily this object can not be clipboarded. Studying this for future
 
-		/*!
-		 * \brief copyClick
-		 */
 		void copyClick() override {}
-
-		/*!
-		 * \brief cutClick
-		 */
 		void cutClick() override {}
-
-		/*!
-		 * \brief pasteClick
-		 */
 		void pasteClick() override {}
 
 
 		//This inherited method are now private and user can not use it to resize a conector object because it will
 		//Resize itself by user mouse entry
 
-		/*!
-		 * \brief setSize
-		 * \param size
-		 */
 		void setSize(const QSizeF &size) override {(void)size;}
-
-		/*!
-		 * \brief setWidth
-		 * \param w
-		 */
 		void setWidth(double w) override {(void)w;}
-
-		/*!
-		 * \brief setHeight
-		 * \param h
-		 */
 		void setHeight(double h) override {(void)h;}
 
 		/*!
-		 * \brief updateConectorLine Generates a set of lines that compose a conector with an origin and end.
-		 * \param pos
+		 * \brief Generates a set of lines that compose a conector with an origin and end.
+		 * \param begin The point where the connector will start at.
+		 * \param end The point where the connector will end at.
 		 */
 		void updateConectorLine(const QPointF &begin, const QPointF &end);
 
 		/*!
-		 * \brief removeConectors Removes the conector itself and the \code{beginObject}
-		 * \param list
-		 * \return
+		 * \brief This helper function will remove ignored objects during colition detection.
+		 *
+		 * \param list The list of items that will be scanned.
+		 * \return A cleaned items list without the ignored items.
+		 *
 		 */
 		QList<QGraphicsItem *> removeIgnoredObjects(const QList<QGraphicsItem*> &list) const;
 
 		/*!
-		 * \brief removeIgnoredObjects Removes the conector itself and the \code{beginObject]
-		 * \param list
-		 * \return
+		 * \overload
 		 */
 		QList<GraphicObject *> removeIgnoredObjects(const QList<GraphicObject*> &list) const;
 
 		/*!
-		 * \brief closerItemPerif
-		 * \param pos
-		 * \param side
-		 * \param list
-		 * \return
+		 * \brief Returns the closer item to \p pos located on the container \p list.
+		 * This function basicly checks the perimeter of each item in \p list and performs calculus
+		 * to determine which is closer.
+		 *
+		 * \param pos The position to be compared.
+		 * \param side The side of the items the user wants to check.
+		 * \param list The list of items to be checked.
+		 * \return A pointer to the closer item.
 		 */
 		QGraphicsItem *closerItemPerif(const QPointF &pos, Port side, const QList<QGraphicsItem*> &list);
 
 		/*!
-		 * \brief collidingItems
-		 * \param mode
-		 * \return
+		 * \brief Gets a list of all objects in colition with a set of \p lines.
+		 *
+		 * \param lines The set of lines to be analyzed.
+		 *
+		 * \return A list of items that colides with the set of \p lines.
 		 */
 		QList<CollidingResult> collidingObjects(const QVector<RestrictedLineF*> &lines) const;
 
+		/*!
+		 * \brief Performs a convertion from a basic QRectF to a set of RestrictedLineFs.
+		 *
+		 * \param rect The rectangle to be converted.
+		 *
+		 * \return A set of four lines which represents the converted \p rect.
+		 */
 		QVector<RestrictedLineF*> convertRect(const QRectF &rect) const;
 
 };

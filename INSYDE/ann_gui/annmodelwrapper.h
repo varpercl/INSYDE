@@ -18,6 +18,9 @@
 using namespace common;
 using namespace ann_base;
 
+namespace ann_gui
+{
+
 /*!
  * \brief The ANNModelWrapper class is intended to be an intermediate class between MLP and Model/View.
  * This class wraps a MLP to be used as a Model into any View. You will can show, edit and remove weights and
@@ -302,5 +305,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT ANNModelWrapper : public QAbstractItemModel
 		 */
 		ANNModelTree *getItem(const QModelIndex &index) const;
 };
-
+}
 #endif // ANNMODELVIEWWRAPPER_H

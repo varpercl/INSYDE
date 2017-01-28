@@ -1,19 +1,19 @@
 #include "chooseprojectnamepage.h"
 #include "ui_chooseprojectnamepage.h"
 
-ChooseProjectNamePage::ChooseProjectNamePage(QWidget *parent) :
+gui::ChooseProjectNamePage::ChooseProjectNamePage(QWidget *parent) :
     QWizardPage(parent),
     ui(new Ui::ChooseProjectNamePage)
 {
     ui->setupUi(this);
 }
 
-ChooseProjectNamePage::~ChooseProjectNamePage()
+gui::ChooseProjectNamePage::~ChooseProjectNamePage()
 {
     delete ui;
 }
 
-int ChooseProjectNamePage::nextId() const
+int gui::ChooseProjectNamePage::nextId() const
 {
     return field("projectType").toInt();
 //    treeWidget->selectedItems();

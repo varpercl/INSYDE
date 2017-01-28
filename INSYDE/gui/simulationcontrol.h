@@ -5,6 +5,9 @@
 
 #include "../core/common.h"
 
+namespace gui
+{
+
 enum Status{
 	Running,
 	Paused,
@@ -66,5 +69,5 @@ class SimulationControl : public QFrame
 
 		void iniciarStatusAnimation();
 };
-
+}
 #endif // STATUSANIMATION_H

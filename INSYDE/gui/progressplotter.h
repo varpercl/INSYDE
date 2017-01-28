@@ -5,6 +5,9 @@
 
 #include <KDChart/KDChart>
 
+namespace gui
+{
+
 /*!
  * \brief The ProgressPlotter class
  *
@@ -37,5 +40,5 @@ class ProgressPlotter : public QFrame
 
 		void init();
 };
-
+}
 #endif // PROGRESSPLOTTER_H

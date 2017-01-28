@@ -21,6 +21,8 @@
 #include "shootingunit.h"
 #include <signal.h>
 
+namespace ec_gui
+{
 //class Actuador;
 class ShootingUnit;
 class Unit;
@@ -274,5 +276,5 @@ class EC_GUI_LIB_IMPORT_EXPORT ShootingWeapon : public Actuator
 		//Heredado de QObject
 		void timerEvent(QTimerEvent * event);
 };
-
+}
 #endif // SHOOTINGWEAPON_H

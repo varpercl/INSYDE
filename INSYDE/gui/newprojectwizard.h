@@ -9,16 +9,21 @@
 #include "../ann_gui/perceptronpage.h"
 #include "../ann_gui/adalinepage.h"
 
+using namespace ann_gui;
+
+namespace Ui{
+	class NewProjectWizard;
+}
+
+namespace gui
+{
+
 enum Pages{
 	SelectProjectID,
 	ChooseProjectNameID,
 	PerceptronPageID,
 	AdalinePageID
 };
-
-namespace Ui{
-	class NewProjectWizard;
-}
 
 /*!
  * \brief The NewProjectWizard class
@@ -43,5 +48,5 @@ class NewProjectWizard : public QWizard
 	public slots:
 
 };
-
+}
 #endif // NEWPROJECTWIZARD_H

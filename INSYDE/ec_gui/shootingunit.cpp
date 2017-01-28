@@ -1,17 +1,17 @@
 #include "shootingunit.h"
 
-ShootingUnit::ShootingUnit() : OfensiveUnit(Human, Blue, None, 100, 100, 0, 0, 100, 70)
+ec_gui::ShootingUnit::ShootingUnit() : OfensiveUnit(Human, Blue, None, 100, 100, 0, 0, 100, 70)
 {
 	initSU(10, 90);
 
 }
 
-ShootingUnit::ShootingUnit(int power, int range) : OfensiveUnit(Human, Blue, None, 100, 100, 0, 0, 100, 70)
+ec_gui::ShootingUnit::ShootingUnit(int power, int range) : OfensiveUnit(Human, Blue, None, 100, 100, 0, 0, 100, 70)
 {
 	initSU(power, range);
 }
 
-ShootingUnit::ShootingUnit(PlayerType tj,
+ec_gui::ShootingUnit::ShootingUnit(PlayerType tj,
 						   PlayerColor cr,
 						   PlayerTeam eq,
 						   int vitalidadMaxima,
@@ -24,7 +24,7 @@ ShootingUnit::ShootingUnit(PlayerType tj,
 	initSU(10, 90);
 }
 
-ShootingUnit::ShootingUnit(int power,
+ec_gui::ShootingUnit::ShootingUnit(int power,
 						   int range,
 						   PlayerType tj,
 						   PlayerColor cr,
@@ -39,7 +39,7 @@ ShootingUnit::ShootingUnit(int power,
 	initSU(power, range);
 }
 
-ShootingUnit::~ShootingUnit(){
+ec_gui::ShootingUnit::~ShootingUnit(){
 	QMap<QString, Actuator*> actuadores = getActuators();
 
 	foreach(Actuator *act, actuadores){
@@ -50,7 +50,7 @@ ShootingUnit::~ShootingUnit(){
 	unitToFire = NULL;
 }
 
-void ShootingUnit::initSU(int power, int range){
+void ec_gui::ShootingUnit::initSU(int power, int range){
 //    reachUnitTimerID = 0;
 	reachUnitTimerInterval = 200;
 //    attackFrequencyTimerID = 0;
@@ -88,7 +88,7 @@ void ShootingUnit::initSU(int power, int range){
 //    }
 }
 
-void ShootingUnit::attackTo(Unit *ag)
+void ec_gui::ShootingUnit::attackTo(Unit *ag)
 {
 //    unitToReach = ag;
 //    if(ag){
@@ -106,7 +106,7 @@ void ShootingUnit::attackTo(Unit *ag)
 //    }
 }
 
-void ShootingUnit::attackTo(const QPointF &pt)
+void ec_gui::ShootingUnit::attackTo(const QPointF &pt)
 {
 //    if(timerID == 0){
 //        timerID = startTimer(200);
@@ -116,31 +116,31 @@ void ShootingUnit::attackTo(const QPointF &pt)
 //    }
 }
 
-bool ShootingUnit::isInRange(Unit *ag)
+bool ec_gui::ShootingUnit::isInRange(Unit *ag)
 {
 	int len = (int)hypot(this->x() - ag->x(), this->y() - ag->y());
 	return (len < weapon->getRange() ? true : false);
 }
 
-bool ShootingUnit::isInRange(const QPointF &pt)
+bool ec_gui::ShootingUnit::isInRange(const QPointF &pt)
 {
 	int len = (int)hypot(this->x() - pt.x(), this->y() - pt.y());
 	return (len < weapon->getRange() ? true : false);
 }
 
-bool ShootingUnit::canAttack(Unit *un)
+bool ec_gui::ShootingUnit::canAttack(Unit *un)
 {
 	return (getDiplomacyTo(un->getUnitColor()) == Enemy && un->getColor() != getColor() ? true : false);
 }
 
-bool ShootingUnit::canAttack(const QPointF &pt)
+bool ec_gui::ShootingUnit::canAttack(const QPointF &pt)
 {
 	Q_UNUSED(pt);
 
 	return true;
 }
 
-void ShootingUnit::addPoint(double x, double y)
+void ec_gui::ShootingUnit::addPoint(double x, double y)
 {
 	if(attacking){
 		stopAttack();
@@ -148,7 +148,7 @@ void ShootingUnit::addPoint(double x, double y)
 	OfensiveUnit::addPoint(x, y);
 }
 
-void ShootingUnit::addPoint(const QPointF &pt)
+void ec_gui::ShootingUnit::addPoint(const QPointF &pt)
 {
 	if(attacking){
 		stopAttack();
@@ -156,22 +156,22 @@ void ShootingUnit::addPoint(const QPointF &pt)
 	OfensiveUnit::addPoint(pt);
 }
 
-bool ShootingUnit::isAttacking()
+bool ec_gui::ShootingUnit::isAttacking()
 {
 	return attacking;
 }
 
-void ShootingUnit::setPheromonePlacing(bool act)
+void ec_gui::ShootingUnit::setPheromonePlacing(bool act)
 {
 	pheromonePlacing = act;
 }
 
-bool ShootingUnit::getPheromonePlacing()
+bool ec_gui::ShootingUnit::getPheromonePlacing()
 {
 	return pheromonePlacing;
 }
 
-bool ShootingUnit::canPlacePheromone()
+bool ec_gui::ShootingUnit::canPlacePheromone()
 {
 	if(getPlayerType() == Computer){
 		return true;
@@ -180,26 +180,26 @@ bool ShootingUnit::canPlacePheromone()
 	}
 }
 
-void ShootingUnit::setHealth(int vitalidad)
+void ec_gui::ShootingUnit::setHealth(int vitalidad)
 {
 	stopAttack();
 	OfensiveUnit::setHealth(vitalidad);
 }
 
-void ShootingUnit::decrementHealth(int decrement)
+void ec_gui::ShootingUnit::decrementHealth(int decrement)
 {
 	stopAttack();
 	OfensiveUnit::decrementHealth(decrement);
 }
 
-void ShootingUnit::startFleeMode()
+void ec_gui::ShootingUnit::startFleeMode()
 {
 	stopAttack();
 	pheromoneDepositor->startPlacePheromone();
 	OfensiveUnit::startFleeMode();
 }
 
-void ShootingUnit::startAttackMode()
+void ec_gui::ShootingUnit::startAttackMode()
 {
 	clearPoints();
 	PheromoneItem *maxPI = getMaxPheromone(pheromoneList);
@@ -213,7 +213,7 @@ void ShootingUnit::startAttackMode()
 	currentMode = Attack;
 }
 
-PheromoneItem *ShootingUnit::getMaxPheromone(const QList<PheromoneItem *> &list)
+ec_gui::PheromoneItem *ec_gui::ShootingUnit::getMaxPheromone(const QList<PheromoneItem *> &list)
 {
 	int pherCount = list.count();
 	int maxPheromone = 0;
@@ -231,7 +231,7 @@ PheromoneItem *ShootingUnit::getMaxPheromone(const QList<PheromoneItem *> &list)
 	return maxPi;
 }
 
-void ShootingUnit::reach(Orders order, Unit *un){
+void ec_gui::ShootingUnit::reach(Orders order, Unit *un){
 	if(un){
 		if(!isInRange(un)){
 			moverA(un->pos());
@@ -247,7 +247,7 @@ void ShootingUnit::reach(Orders order, Unit *un){
 	}
 }
 
-void ShootingUnit::reach(Orders order, const QPointF &pt){
+void ec_gui::ShootingUnit::reach(Orders order, const QPointF &pt){
 	Q_UNUSED(order)
 	if(!isInRange(pt)){
 		moverA(pt);
@@ -259,11 +259,11 @@ void ShootingUnit::reach(Orders order, const QPointF &pt){
 	}
 }
 
-void ShootingUnit::timerReachEvent(){
+void ec_gui::ShootingUnit::timerReachEvent(){
 	reach(lastOrders, unitToReach);
 }
 
-void ShootingUnit::enemyHasSighted(QList<Unit*> aliedList, QList<Unit *> enemies)
+void ec_gui::ShootingUnit::enemyHasSighted(QList<Unit*> aliedList, QList<Unit *> enemies)
 {
 	QPointer<Unit> unitToAttack;
 
@@ -304,7 +304,7 @@ void ShootingUnit::enemyHasSighted(QList<Unit*> aliedList, QList<Unit *> enemies
 
 }
 
-void ShootingUnit::enemyHasKilled(Unit *unit)
+void ec_gui::ShootingUnit::enemyHasKilled(Unit *unit)
 {
 	Q_UNUSED(unit);
 	stopAttack();
@@ -344,7 +344,7 @@ void ShootingUnit::enemyHasKilled(Unit *unit)
 	}
 }
 
-void ShootingUnit::checkPointReached(const QPointF &point)
+void ec_gui::ShootingUnit::checkPointReached(const QPointF &point)
 {
 	QPointF tmpPos;
 	PheromoneItem *next = NULL;
@@ -383,12 +383,12 @@ void ShootingUnit::checkPointReached(const QPointF &point)
 
 }
 
-void ShootingUnit::checkAll()
+void ec_gui::ShootingUnit::checkAll()
 {
 	OfensiveUnit::checkAll(pos());
 }
 
-void ShootingUnit::pheromoneHasBeenDetected(QList<PheromoneItem *> pheromoneList)
+void ec_gui::ShootingUnit::pheromoneHasBeenDetected(QList<PheromoneItem *> pheromoneList)
 {
 	switch(currentMode){
 		case Attack:
@@ -404,12 +404,12 @@ void ShootingUnit::pheromoneHasBeenDetected(QList<PheromoneItem *> pheromoneList
 	}
 }
 
-void ShootingUnit::pointHasReached(const QPointF &pt)
+void ec_gui::ShootingUnit::pointHasReached(const QPointF &pt)
 {
 	weapon->startFire(pt);
 }
 
-double ShootingUnit::calculateTotalHealth(const QList<Unit *> &units)
+double ec_gui::ShootingUnit::calculateTotalHealth(const QList<Unit *> &units)
 {
 	int unitCount = units.count();
 	double acumHealth = 0;
@@ -419,7 +419,7 @@ double ShootingUnit::calculateTotalHealth(const QList<Unit *> &units)
 	return acumHealth;
 }
 
-Unit *ShootingUnit::getWeakestUnit(const QList<Unit *> &units)
+ec_gui::Unit *ec_gui::ShootingUnit::getWeakestUnit(const QList<Unit *> &units)
 {
 	int numUnits = units.count();
 	int minHealth = 99999999;
@@ -435,14 +435,14 @@ Unit *ShootingUnit::getWeakestUnit(const QList<Unit *> &units)
 	return unitToReturn;
 }
 
-Unit *ShootingUnit::getNearestUnit(const QList<Unit *> &units)
+ec_gui::Unit *ec_gui::ShootingUnit::getNearestUnit(const QList<Unit *> &units)
 {
 	int numUnits = units.count();
 	int minDist= 99999999;
 	Unit *unitToReturn = NULL;
 	double currDist;
 	for(int i = 0; i < numUnits; i++){
-		currDist = distanceBetweenUnits(*this, *units[i]);
+		currDist = ec_gui::common::distanceBetweenUnits(*this, *units[i]);
 		if(currDist < minDist){
 			unitToReturn = units[i];
 			minDist = currDist;
@@ -451,7 +451,7 @@ Unit *ShootingUnit::getNearestUnit(const QList<Unit *> &units)
 	return unitToReturn;
 }
 
-Unit *ShootingUnit::getBetterUnitToAttack(const QList<Unit *> &enemies)
+ec_gui::Unit *ec_gui::ShootingUnit::getBetterUnitToAttack(const QList<Unit *> &enemies)
 {
 	Q_UNUSED(enemies);
 
@@ -467,7 +467,7 @@ Unit *ShootingUnit::getBetterUnitToAttack(const QList<Unit *> &enemies)
 	return NULL;
 }
 
-void ShootingUnit::unitHasReached(Orders order, Unit *un)
+void ec_gui::ShootingUnit::unitHasReached(Orders order, Unit *un)
 {
 	switch(order){
 		case DoNothing:
@@ -484,7 +484,7 @@ void ShootingUnit::unitHasReached(Orders order, Unit *un)
 	}
 }
 
-void ShootingUnit::stopAttack(){
+void ec_gui::ShootingUnit::stopAttack(){
 	weapon->stopFire();
 	timerAttack.stop();
 	timerReach.stop();
@@ -496,7 +496,7 @@ void ShootingUnit::stopAttack(){
 	update();
 }
 
-void ShootingUnit::attackTimerEvent(){
+void ec_gui::ShootingUnit::attackTimerEvent(){
 	if(unitToFire && unitToFire->getHealth() != 0){
 		if(!isInRange(unitToFire)){
 			reach(lastOrders, unitToFire);

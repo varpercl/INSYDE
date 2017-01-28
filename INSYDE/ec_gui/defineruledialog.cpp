@@ -1,14 +1,14 @@
 #include "defineruledialog.h"
 #include "ui_defineruledialog.h"
 
-DefineRuleDialog::DefineRuleDialog(QWidget *parent) :
+ec_gui::DefineRuleDialog::DefineRuleDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DefineRuleDialog)
 {
     ui->setupUi(this);
 }
 
-DefineRuleDialog::~DefineRuleDialog()
+ec_gui::DefineRuleDialog::~DefineRuleDialog()
 {
     delete ui;
 }

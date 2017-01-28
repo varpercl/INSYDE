@@ -11,11 +11,13 @@ namespace Ui {
 	class AddAgentsDialog;
 }
 
-/**
-  La clase @class AddAddAgentsDialog crea un cuadro de dialogo que especifica las propiedades
-  iniciales de los agentes que se van a ingresar en un entorno virtual grafico.
-  */
+namespace ec_gui
+{
 
+/*!
+ * \brief The AddAgentsDialog class represents a dialog with all basic properties
+ * of a basic agent the user will add to the enviroment.
+ */
 class EC_GUI_LIB_IMPORT_EXPORT AddAgentsDialog : public QDialog
 {
 
@@ -46,5 +48,5 @@ class EC_GUI_LIB_IMPORT_EXPORT AddAgentsDialog : public QDialog
 		Q_OBJECT
 		Ui::AddAgentsDialog *ui;
 };
-
+}
 #endif // ADDAGENTSDIALOG_H

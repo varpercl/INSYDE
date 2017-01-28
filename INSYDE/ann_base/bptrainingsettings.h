@@ -10,8 +10,6 @@
 namespace ann_base{
 
 /*!
- * \class BackpropagationSettings
- *
  * \brief The BackpropagationSettings class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

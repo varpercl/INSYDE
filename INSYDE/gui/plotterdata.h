@@ -4,6 +4,10 @@
 #include <QStandardItemModel>
 #include <QFile>
 
+namespace gui
+{
+
+
 /*!
  * \brief The PlotterData class
  *
@@ -39,5 +43,5 @@ class PlotterData : public QStandardItemModel
 
 		void init(int nSeries = 1);
 };
-
+}
 #endif // PLOTTERMODEL_H

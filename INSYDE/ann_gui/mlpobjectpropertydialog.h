@@ -10,6 +10,9 @@ namespace Ui {
 class GraphicMLPElementPropertyDialog;
 }
 
+namespace ann_gui
+{
+
 /*!
  * \class
  *
@@ -30,5 +33,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT MLPObjectPropertyDialog : public QDialog
 	Q_OBJECT
 	Ui::GraphicMLPElementPropertyDialog *ui;
 };
-
+}
 #endif // GRAPHICMLPELEMENTPROPERTYDIALOG_H

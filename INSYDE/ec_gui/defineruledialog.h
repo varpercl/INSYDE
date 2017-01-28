@@ -10,6 +10,8 @@ namespace Ui {
 	class DefineRuleDialog;
 }
 
+namespace ec_gui
+{
 /**
   @class DefineRuleDialog
   @author Edixon Vargas
@@ -39,5 +41,5 @@ class EC_GUI_LIB_IMPORT_EXPORT DefineRuleDialog : public QDialog
 	private:
 		Ui::DefineRuleDialog *ui;
 };
-
+}
 #endif // DEFINERULEDIALOG_H

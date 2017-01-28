@@ -22,8 +22,6 @@ using namespace std;
 
 class PerceptronTrainingPattern;
 /*!
- * \class
- *
  * \brief Es uno de los modelos mas simples de redes neuronales
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

@@ -12,6 +12,8 @@
 
 using namespace core;
 
+namespace ec_gui
+{
 class Sensor;
 class Actuator;
 
@@ -384,5 +386,5 @@ class EC_GUI_LIB_IMPORT_EXPORT Agent : public QGraphicsObject
 		void checkRules();
 //        void timeout();
 };
-
+}
 #endif // UNIDAD_H

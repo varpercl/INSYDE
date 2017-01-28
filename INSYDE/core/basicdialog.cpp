@@ -64,25 +64,25 @@ void core::BasicDialog::setEnableImport(bool b)
 	}
 }
 
-void core::BasicDialog::setEnableSave(bool save)
+void core::BasicDialog::setEnableSave(bool s)
 {
-	if(enableSave != save){
-		enableSave = save;
+	if(enableSave != s){
+		enableSave = s;
 
-		saveAction->setVisible(save);
-		saveAction->setEnabled(save);
+		saveAction->setVisible(s);
+		saveAction->setEnabled(s);
 
 		updateActionsVisibility();
 	}
 }
 
-void core::BasicDialog::setEnableSaveAs(bool saveas)
+void core::BasicDialog::setEnableSaveAs(bool sa)
 {
-	if(enableSaveAs != saveas){
-		enableSaveAs = saveas;
+	if(enableSaveAs != sa){
+		enableSaveAs = sa;
 
-		saveAsAction->setVisible(saveas);
-		saveAsAction->setEnabled(saveas);
+		saveAsAction->setVisible(sa);
+		saveAsAction->setEnabled(sa);
 
 		updateActionsVisibility();
 	}
@@ -133,7 +133,7 @@ void core::BasicDialog::setEnableClipboardFramework(bool en)
 	}
 }
 
-bool core::BasicDialog::getEnableUnDo() const
+bool core::BasicDialog::isEnabledUnDoFramework() const
 {
 	return enableUndo;
 }
@@ -290,7 +290,7 @@ void core::BasicDialog::setApplyButtonVisible(bool en)
 	btnApply->setVisible(en);
 }
 
-bool core::BasicDialog::getApplyButtonVisible() const
+bool core::BasicDialog::isApplyButtonVisible() const
 {
 	return btnApply->isVisible();
 }

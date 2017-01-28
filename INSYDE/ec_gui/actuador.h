@@ -6,6 +6,14 @@
 #include "share_ec_gui.h"
 #include "agent.h"
 
+/*!
+ * \brief The ec_gui namespace enclose a lot of classes to handle graphic interpretation of
+ * emerging computing algorithm, this namespace is almost totally dependent from ec_base
+ * which means the core functionalities of this namespace.
+ */
+namespace ec_gui
+{
+
 class Agent;
 
 /**
@@ -97,5 +105,5 @@ class EC_GUI_LIB_IMPORT_EXPORT Actuator : public QObject
 		  */
 		virtual void secureKillTimer(int &id);
 };
-
+}
 #endif // ACTUADOR_H

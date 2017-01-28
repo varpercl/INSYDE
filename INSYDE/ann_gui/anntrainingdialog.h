@@ -27,11 +27,11 @@
 #include "../ann_base/kohonen.h"
 #include "../ann_base/simpleperceptron.h"
 
+namespace ann_gui
+{
 
 class TrainingSetDialog;
 class MLPObject;
-
-
 /*!
  * \class
  *
@@ -461,6 +461,6 @@ class ANN_GUI_LIB_IMPORT_EXPORT ANNTrainingDialog : public BasicDialog
 
 
 };
-
+}
 #endif // MLPTRAININGDIALOG_H
 

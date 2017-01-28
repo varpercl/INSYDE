@@ -11,8 +11,6 @@
 namespace core{
 
 /*!
- * \class
- *
  * \brief This class is intendet to be a Normalization Model which can save all information about a Normalization
  * Normalization is important in many algorithms due to dificulties when it try to converge at any point, it's common to
  * see normalized values or set of values between 0 and 1 or -1 and 1.

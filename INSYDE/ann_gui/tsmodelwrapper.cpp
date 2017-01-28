@@ -1,17 +1,17 @@
 #include "tsmodelwrapper.h"
 namespace ann_gui{
 
-TSModelWrapper::TSModelWrapper(TrainingSet *ts)
+ann_gui::TSModelWrapper::TSModelWrapper(TrainingSet *ts)
 {
 	init(ts);
 }
 
-TSModelWrapper::~TSModelWrapper()
+ann_gui::TSModelWrapper::~TSModelWrapper()
 {
 
 }
 
-void TSModelWrapper::init(TrainingSet *ts)
+void ann_gui::TSModelWrapper::init(TrainingSet *ts)
 {
 	(void)ts;
 

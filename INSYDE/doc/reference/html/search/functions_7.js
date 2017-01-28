@@ -1,13 +1,10 @@
 var searchData=
 [
-  ['image',['Image',['../classcore_1_1_image.html#aad86489d5a88a5c17901406eaac7da7f',1,'core::Image::Image()'],['../classcore_1_1_image.html#af6f544ebb1ffda8fa98d042f687a5e44',1,'core::Image::Image(QImage *img)'],['../classcore_1_1_image.html#a3b17f4943426ce799284bbb8f56ec0f9',1,'core::Image::Image(const QString &amp;imgpath)']]],
-  ['imagedetailedwindow',['ImageDetailedWindow',['../classcore_1_1_image_detailed_window.html#ab1c2a160d419677534905ac421f31da8',1,'core::ImageDetailedWindow']]],
-  ['imageeffect',['ImageEffect',['../classcore_1_1_image_effect.html#ab41fce102a57082545c1bb51cf984bfc',1,'core::ImageEffect::ImageEffect()'],['../classcore_1_1_image_effect.html#ac358f64e2e514bacbfc930dc6f88b509',1,'core::ImageEffect::ImageEffect(GraphicObject *input)']]],
-  ['imageeffectpropertydialog',['ImageEffectPropertyDialog',['../classcore_1_1_image_effect_property_dialog.html#a20428b521ade4a007c3b7728a5c3be1d',1,'core::ImageEffectPropertyDialog::ImageEffectPropertyDialog(QWidget *parent=0)'],['../classcore_1_1_image_effect_property_dialog.html#ab96e1c3330d4242e00602748d2f49f11',1,'core::ImageEffectPropertyDialog::ImageEffectPropertyDialog(ImageEffect *giee, QWidget *parent=0)']]],
-  ['imageformatchanged',['imageFormatChanged',['../classcore_1_1_image_representation_widget.html#a6ed5bf06c4ce18c56b0f92f567ec81bf',1,'core::ImageRepresentationWidget']]],
-  ['imagepropertydialog',['ImagePropertyDialog',['../classcore_1_1_image_property_dialog.html#ac90622c09a2470760a4ef4eed0e2127e',1,'core::ImagePropertyDialog']]],
-  ['imagerepresentationwidget',['ImageRepresentationWidget',['../classcore_1_1_image_representation_widget.html#ae7792119debf14c2b8b1eeaa08143c0b',1,'core::ImageRepresentationWidget']]],
-  ['index',['index',['../class_a_n_n_model_wrapper.html#a968869640964c8df1a8a4f96b2e59a06',1,'ANNModelWrapper']]],
-  ['insertchildren',['insertChildren',['../class_a_n_n_model_tree.html#a4028be0b169ad94a5cf4f73c1a2fba18',1,'ANNModelTree::insertChildren()'],['../class_tree_item.html#ad6b6da67cc03e79c714419f93f5005c6',1,'TreeItem::insertChildren()']]],
-  ['insertcolumns',['insertColumns',['../class_a_n_n_model_tree.html#a7dad070ce892c4c89b76d6f731bf247e',1,'ANNModelTree']]]
+  ['haschildren',['hasChildren',['../d4/d81/classann__gui_1_1_a_n_n_model_wrapper.html#aa44dd32b17e3a1d6fda32373bb798b72',1,'ann_gui::ANNModelWrapper']]],
+  ['headerdata',['headerData',['../d3/df2/classann__base_1_1_training_result.html#a572c887b201a1922aa2e8526366d39ed',1,'ann_base::TrainingResult::headerData()'],['../d4/d81/classann__gui_1_1_a_n_n_model_wrapper.html#ace2e7d8ee5b63473966edf2f811733bc',1,'ann_gui::ANNModelWrapper::headerData()']]],
+  ['heightchanged',['heightChanged',['../da/d47/classcore_1_1_dot_matrix_representation.html#aebc2113cfe3749f33b76eec05efd276a',1,'core::DotMatrixRepresentation::heightChanged()'],['../d5/d2b/classcore_1_1_integer_size_widget.html#a13d9ce3a947a8aaaab84afbd20c2b09c',1,'core::IntegerSizeWidget::heightChanged()']]],
+  ['helpclick',['helpClick',['../d8/db6/classcore_1_1_basic_dialog.html#aae0ce70150db189bdd552c80045228b2',1,'core::BasicDialog']]],
+  ['hoverenterevent',['hoverEnterEvent',['../d0/d0e/classann__gui_1_1_weight_line.html#af4a6163ec7042a699b01caeac0453fac',1,'ann_gui::WeightLine']]],
+  ['hoverleaveevent',['hoverLeaveEvent',['../d0/d0e/classann__gui_1_1_weight_line.html#afd28298c13eec6cb89dcb315c322808a',1,'ann_gui::WeightLine']]],
+  ['hovermoveevent',['hoverMoveEvent',['../d2/dab/classcore_1_1_image.html#a73ab49a484d56244de34d2a18a9ea045',1,'core::Image']]]
 ];

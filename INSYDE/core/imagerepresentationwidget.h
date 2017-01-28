@@ -9,7 +9,7 @@
 #include "labeledcombobox.h"
 #include "datarepresentationwidget.h"
 #include "integersizewidget.h"
-#include "interfaces.h"
+#include "undo.h"
 
 namespace Ui {
 	class ImageRepresentationWidget;
@@ -21,14 +21,12 @@ class ImageDetailedWindow;
 namespace core{
 
 /*!
- * \class
- *
  * \brief The ImageRepresentationWidget class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class CORE_LIB_IMPORT_EXPORT ImageRepresentationWidget : public DataRepresentationWidget, public Resizable
+class CORE_LIB_IMPORT_EXPORT ImageRepresentationWidget : public DataRepresentationWidget, public IResizable
 {
 
 	public:

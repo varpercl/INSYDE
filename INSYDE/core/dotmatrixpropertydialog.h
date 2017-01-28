@@ -15,8 +15,6 @@ namespace core{
 
 class DotMatrix;
 /*!
- * \class
- *
  * \brief The DotMatrixElementPropertyDialog class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

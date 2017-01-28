@@ -1,18 +1,18 @@
 #include "trainingsetdialog.h"
 
-TrainingSetDialog::TrainingSetDialog(QWidget *parent) :
+ann_gui::TrainingSetDialog::TrainingSetDialog(QWidget *parent) :
 	BasicDialog(parent)
 {
 	init(new TrainingSet());
 }
 
-TrainingSetDialog::TrainingSetDialog(TrainingSet *ts, QWidget *parent):
+ann_gui::TrainingSetDialog::TrainingSetDialog(TrainingSet *ts, QWidget *parent):
 	BasicDialog(parent)
 {
 	init(ts);
 }
 
-TrainingSetDialog::TrainingSetDialog(int inputCount, int targetCount, int nPatterns, QWidget *parent) :
+ann_gui::TrainingSetDialog::TrainingSetDialog(int inputCount, int targetCount, int nPatterns, QWidget *parent) :
 	BasicDialog(parent)
 {
 	init(new TrainingSet(vector<vector<double> >(nPatterns, vector<double>(inputCount, 0)),
@@ -21,13 +21,13 @@ TrainingSetDialog::TrainingSetDialog(int inputCount, int targetCount, int nPatte
 						 targetCount));
 }
 
-TrainingSetDialog::TrainingSetDialog(const vector<vector<double> > &inputs, int is, const vector<vector<double> > &targets, int ts, QWidget *parent) :
+ann_gui::TrainingSetDialog::TrainingSetDialog(const vector<vector<double> > &inputs, int is, const vector<vector<double> > &targets, int ts, QWidget *parent) :
 	BasicDialog(parent)
 {
 	init(new TrainingSet(inputs, is, targets, ts));
 }
 
-TrainingSetDialog::TrainingSetDialog(ArtificialNeuralNetwork *ann, QWidget *parent) :
+ann_gui::TrainingSetDialog::TrainingSetDialog(ArtificialNeuralNetwork *ann, QWidget *parent) :
 	BasicDialog(parent)
 {
 	switch(ann->getType()){
@@ -51,7 +51,7 @@ TrainingSetDialog::TrainingSetDialog(ArtificialNeuralNetwork *ann, QWidget *pare
 	}
 }
 
-TrainingSetDialog::~TrainingSetDialog()
+ann_gui::TrainingSetDialog::~TrainingSetDialog()
 {
 	delete btnMsgBoxFirstPixels;
 	delete btnMsgBoxImageSegment;
@@ -63,7 +63,7 @@ TrainingSetDialog::~TrainingSetDialog()
 	delete tstInputs;
 }
 
-void TrainingSetDialog::setTrainingSet(TrainingSet *ts)
+void ann_gui::TrainingSetDialog::setTrainingSet(TrainingSet *ts)
 {
 	if(this->ts != ts){
 		this->ts = ts;
@@ -80,51 +80,51 @@ void TrainingSetDialog::setTrainingSet(TrainingSet *ts)
 	}
 }
 
-TrainingSet *TrainingSetDialog::getTrainingSet() const
+TrainingSet *ann_gui::TrainingSetDialog::getTrainingSet() const
 {
 	return ts;
 }
 
-void TrainingSetDialog::onExportClick()
+void ann_gui::TrainingSetDialog::onExportClick()
 {
 	//TODO: 15/4/16 onExportClick implement
 }
 
-void TrainingSetDialog::onInputsCellClicked(const QModelIndex &index)
+void ann_gui::TrainingSetDialog::onInputsCellClicked(const QModelIndex &index)
 {
 	(void)index;
 	getCutAction()->setEnabled(tstInputs->getCutAction()->isEnabled());
 	tstTargets->clearSelection();
 }
 
-void TrainingSetDialog::onTargetsCellClicked(const QModelIndex &index)
+void ann_gui::TrainingSetDialog::onTargetsCellClicked(const QModelIndex &index)
 {
 	(void)index;
 	getCutAction()->setEnabled(tstTargets->getCutAction()->isEnabled());
 	tstInputs->clearSelection();
 }
 
-void TrainingSetDialog::onInputsWidthChanged(int width)
+void ann_gui::TrainingSetDialog::onInputsWidthChanged(int width)
 {
 	ts->getInputsDataRepresentation()->setWidth(width);
 }
 
-void TrainingSetDialog::onInputsHeightChanged(int height)
+void ann_gui::TrainingSetDialog::onInputsHeightChanged(int height)
 {
 	ts->getInputsDataRepresentation()->setHeight(height);
 }
 
-void TrainingSetDialog::onTargetsWidthChanged(int width)
+void ann_gui::TrainingSetDialog::onTargetsWidthChanged(int width)
 {
 	ts->getTargetsDataRepresentation()->setWidth(width);
 }
 
-void TrainingSetDialog::onTargetsHeightChanged(int height)
+void ann_gui::TrainingSetDialog::onTargetsHeightChanged(int height)
 {
 	ts->getTargetsDataRepresentation()->setHeight(height);
 }
 
-void TrainingSetDialog::deleteRows()
+void ann_gui::TrainingSetDialog::deleteRows()
 {
 	QItemSelectionModel *ism = 0;
 	QModelIndexList mil;
@@ -146,7 +146,7 @@ void TrainingSetDialog::deleteRows()
 	}
 }
 
-void TrainingSetDialog::deleteColumns()
+void ann_gui::TrainingSetDialog::deleteColumns()
 {
 
 	QItemSelectionModel *ism = 0;
@@ -170,21 +170,21 @@ void TrainingSetDialog::deleteColumns()
 	}
 }
 
-void TrainingSetDialog::onInputsSizeChanged(int val)
+void ann_gui::TrainingSetDialog::onInputsSizeChanged(int val)
 {
 	ts->setInputsSize(val);
 
 	isEditingTS = true;
 }
 
-void TrainingSetDialog::onTargetsSizeChanged(int val)
+void ann_gui::TrainingSetDialog::onTargetsSizeChanged(int val)
 {
 	ts->setTargetsSize(val);
 
 	isEditingTS = true;
 }
 
-void TrainingSetDialog::onInputsNormalizationChanged(Normalization *nor)
+void ann_gui::TrainingSetDialog::onInputsNormalizationChanged(Normalization *nor)
 {
 	if(nor->getType() != Normalization::Nothing){
 		tstInputs->getPasteAction()->setEnabled(false);
@@ -197,7 +197,7 @@ void TrainingSetDialog::onInputsNormalizationChanged(Normalization *nor)
 	isEditingTS = true;
 }
 
-void TrainingSetDialog::onTargetsNormalizationChanged(Normalization *nor)
+void ann_gui::TrainingSetDialog::onTargetsNormalizationChanged(Normalization *nor)
 {
 	if(nor->getType() != Normalization::Nothing){
 		tstTargets->getPasteAction()->setEnabled(false);
@@ -210,7 +210,7 @@ void TrainingSetDialog::onTargetsNormalizationChanged(Normalization *nor)
 	isEditingTS = true;
 }
 
-void TrainingSetDialog::on_addPatternButton_clicked()
+void ann_gui::TrainingSetDialog::on_addPatternButton_clicked()
 {
 
 	ts->appendPattern();
@@ -218,7 +218,7 @@ void TrainingSetDialog::on_addPatternButton_clicked()
 	isEditingTS = true;
 }
 
-void TrainingSetDialog::on_delPatternButton_clicked()
+void ann_gui::TrainingSetDialog::on_delPatternButton_clicked()
 {
 	if(tstInputs->hasFocus()){
 		ts->removePattern(tstInputs->currentIndex().row());
@@ -228,7 +228,7 @@ void TrainingSetDialog::on_delPatternButton_clicked()
 }
 
 
-void TrainingSetDialog::init(TrainingSet *ts)
+void ann_gui::TrainingSetDialog::init(TrainingSet *ts)
 {
 	const double
 			minRange = 100;
@@ -356,7 +356,7 @@ void TrainingSetDialog::init(TrainingSet *ts)
 	connect(lisbTargetsSize->getIntegerSpinBox(), SIGNAL(valueChanged(int)), SLOT(onTargetsSizeChanged(int)));
 }
 
-void TrainingSetDialog::initMsgBoxes()
+void ann_gui::TrainingSetDialog::initMsgBoxes()
 {
 	mbLoadFileError.setIcon(QMessageBox::Critical);
 	mbLoadFileError.setModal(true);
@@ -382,7 +382,7 @@ void TrainingSetDialog::initMsgBoxes()
 	connect(&mbImageSegmentMessage, SIGNAL(buttonClicked(QAbstractButton*)), SLOT(onMessageBoxButtonClicked(QAbstractButton*)));
 }
 
-void TrainingSetDialog::connectTrainingSetSignals()
+void ann_gui::TrainingSetDialog::connectTrainingSetSignals()
 {
 	connect(ts, SIGNAL(inputChanged(int,int,double,double)), this, SLOT(onInputChanged(int,int,double,double)));
 	connect(ts, SIGNAL(targetChanged(int,int,double,double)), this, SLOT(onTargetChanged(int,int,double,double)));
@@ -396,7 +396,7 @@ void TrainingSetDialog::connectTrainingSetSignals()
 	connect(tstTargets->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(onTstTargetsSelectionChanged(QItemSelection,QItemSelection)));
 }
 
-QMessageBox::StandardButton TrainingSetDialog::askForLosingInformation()
+QMessageBox::StandardButton ann_gui::TrainingSetDialog::askForLosingInformation()
 {
 	QMessageBox msg;
 	msg.setWindowTitle(QString::fromLatin1("Conjunto de entranemiento en edición"));
@@ -407,7 +407,7 @@ QMessageBox::StandardButton TrainingSetDialog::askForLosingInformation()
 	return (QMessageBox::StandardButton)msg.exec();
 }
 
-void TrainingSetDialog::beginOpenDialog()
+void ann_gui::TrainingSetDialog::beginOpenDialog()
 {
 	QString openDir = QFileDialog::getOpenFileName(this, //widget
 												  "Abrir conjunto de entrenamiento", //caption
@@ -433,7 +433,7 @@ void TrainingSetDialog::beginOpenDialog()
 	}
 }
 
-void TrainingSetDialog::importInputsClick()
+void ann_gui::TrainingSetDialog::importInputsClick()
 {
 	//TODO: corregir los errores
 	QStringList files = QFileDialog::getOpenFileNames(this,
@@ -467,7 +467,7 @@ void TrainingSetDialog::importInputsClick()
 	tstInputs->blockSignals(false);
 }
 
-void TrainingSetDialog::importTargetsClick()
+void ann_gui::TrainingSetDialog::importTargetsClick()
 {
 	//TODO: corregir los errores
 	QStringList files = QFileDialog::getOpenFileNames(this,
@@ -502,7 +502,7 @@ void TrainingSetDialog::importTargetsClick()
 	tstTargets->selectRow(ts->getPatternCount() - 1);
 }
 
-void TrainingSetDialog::onMessageBoxButtonClicked(QAbstractButton *button)
+void ann_gui::TrainingSetDialog::onMessageBoxButtonClicked(QAbstractButton *button)
 {
 	vector<long> longInputs;
 	vector<double> result;
@@ -546,7 +546,7 @@ void TrainingSetDialog::onMessageBoxButtonClicked(QAbstractButton *button)
 	}
 }
 
-void TrainingSetDialog::appendVector(const vector<double> &vec)
+void ann_gui::TrainingSetDialog::appendVector(const vector<double> &vec)
 {
 	if(importingInputs){
 		tstTargets->clearSelection();
@@ -558,7 +558,7 @@ void TrainingSetDialog::appendVector(const vector<double> &vec)
 	isEditingTS = true;
 }
 
-void TrainingSetDialog::saveClick()
+void ann_gui::TrainingSetDialog::saveClick()
 {
 	QString path = QFileDialog::getSaveFileName(this,
 												"Guardar conjunto de entrenamiento",
@@ -584,26 +584,26 @@ void TrainingSetDialog::saveClick()
 	}
 }
 
-void TrainingSetDialog::saveAsClick()
+void ann_gui::TrainingSetDialog::saveAsClick()
 {
 	//TODO: 26/4/16 saveAsClick implement
 }
 
-void TrainingSetDialog::onInputChanged(int pat, int index, double value, double curValue)
+void ann_gui::TrainingSetDialog::onInputChanged(int pat, int index, double value, double curValue)
 {
 	(void)index; (void)value; (void)curValue;
 	gbInputsRepresentation->setInputs(ts->getInputs()[pat]);
 	isEditingTS = true;
 }
 
-void TrainingSetDialog::onTargetChanged(int pat, int index, double value, double curValue)
+void ann_gui::TrainingSetDialog::onTargetChanged(int pat, int index, double value, double curValue)
 {
 	(void)index; (void)value; (void)curValue;
 	gbTargetsRepresentation->setInputs(ts->getTargets()[pat]);
 	isEditingTS = true;
 }
 
-void TrainingSetDialog::onTstInputsSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+void ann_gui::TrainingSetDialog::onTstInputsSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
 	(void) deselected;
 	if(selected.isEmpty()){
@@ -617,7 +617,7 @@ void TrainingSetDialog::onTstInputsSelectionChanged(const QItemSelection &select
 	}
 }
 
-void TrainingSetDialog::onTstTargetsSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+void ann_gui::TrainingSetDialog::onTstTargetsSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
 	(void) deselected;
 	if(selected.isEmpty()){
@@ -630,7 +630,7 @@ void TrainingSetDialog::onTstTargetsSelectionChanged(const QItemSelection &selec
 	}
 }
 
-void TrainingSetDialog::openClick()
+void ann_gui::TrainingSetDialog::openClick()
 {
 	if(isEditingTS){
 		if(askForLosingInformation() == QMessageBox::Ok){
@@ -642,7 +642,7 @@ void TrainingSetDialog::openClick()
 	}
 }
 
-void TrainingSetDialog::copyClick()
+void ann_gui::TrainingSetDialog::copyClick()
 {
 	if(tstInputs->hasFocus()){
 		tstInputs->copyClick();
@@ -651,7 +651,7 @@ void TrainingSetDialog::copyClick()
 	}
 }
 
-void TrainingSetDialog::pasteClick()
+void ann_gui::TrainingSetDialog::pasteClick()
 {
 	if(tstInputs->hasFocus()){
 		tstInputs->pasteClick();
@@ -661,7 +661,7 @@ void TrainingSetDialog::pasteClick()
 	isEditingTS = true;
 }
 
-void TrainingSetDialog::newClick()
+void ann_gui::TrainingSetDialog::newClick()
 {
 	if(isEditingTS){
 		if(askForLosingInformation() == QMessageBox::Ok){
@@ -671,7 +671,7 @@ void TrainingSetDialog::newClick()
 	}
 }
 
-void TrainingSetDialog::importTrainingSetClick()
+void ann_gui::TrainingSetDialog::importTrainingSetClick()
 {
 	//TODO: 6/4/15 importTrainingSetClicked must be implemented
 }

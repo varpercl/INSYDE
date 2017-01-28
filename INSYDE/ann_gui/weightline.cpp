@@ -1,28 +1,28 @@
 #include "perceptrondisplay.h"
 
-WeightLine::WeightLine(const QLineF &line, SimplePerceptron *sp, int index, QGraphicsItem *parent) :
+ann_gui::WeightLine::WeightLine(const QLineF &line, SimplePerceptron *sp, int index, QGraphicsItem *parent) :
 	QObject(), QGraphicsLineItem(line, parent)
 {
 	init(sp, index);
 }//WeightLine
 
-WeightLine::WeightLine(const QLineF &line, double weight, double maxWeight, double minWeight, int lineWidth, SimplePerceptron *sp, int index, QGraphicsItem *parent) :
+ann_gui::WeightLine::WeightLine(const QLineF &line, double weight, double maxWeight, double minWeight, int lineWidth, SimplePerceptron *sp, int index, QGraphicsItem *parent) :
 	QObject(), QGraphicsLineItem(line, parent)
 {
 	init(sp, index, weight, maxWeight, minWeight, lineWidth);
 }//WeightLine
 
-WeightLine::~WeightLine()
+ann_gui::WeightLine::~WeightLine()
 {
 }//WeightLine
 
-void WeightLine::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void ann_gui::WeightLine::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	//TODO: evaluate if applicable
 	QGraphicsLineItem::paint(painter,option,widget);
 }//paint
 
-void WeightLine::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+void ann_gui::WeightLine::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
 	QGraphicsLineItem::hoverEnterEvent(event);
 
@@ -30,14 +30,14 @@ void WeightLine::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 
 }//hoverEnterEvent
 
-void WeightLine::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+void ann_gui::WeightLine::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
 	QGraphicsLineItem::hoverLeaveEvent(event);
 
 	setPen(QPen(QBrush(wlColor), lineWidth));
 }//hoverLeaveEvent
 
-void WeightLine::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void ann_gui::WeightLine::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
 	QGraphicsLineItem::mousePressEvent(event);
 
@@ -57,13 +57,13 @@ void WeightLine::mousePressEvent(QGraphicsSceneMouseEvent *event)
 	delete id;
 }//mousePressEvent
 
-void WeightLine::focusOutEvent(QFocusEvent *event)
+void ann_gui::WeightLine::focusOutEvent(QFocusEvent *event)
 {
 	QGraphicsLineItem::focusOutEvent(event);
 
 }//focusOutEvent
 
-void WeightLine::init(SimplePerceptron *sp, int index, double weight, double maxW, double minW, int lineWidth)
+void ann_gui::WeightLine::init(SimplePerceptron *sp, int index, double weight, double maxW, double minW, int lineWidth)
 {
 	this->sp = sp;
 
@@ -78,7 +78,7 @@ void WeightLine::init(SimplePerceptron *sp, int index, double weight, double max
 
 }//initWL
 
-void WeightLine::setWeightValue(double w)
+void ann_gui::WeightLine::setWeightValue(double w)
 {
 	//Set weight value for this WeightLine
 	//respecting limits
@@ -97,32 +97,32 @@ void WeightLine::setWeightValue(double w)
 	emit weightValueChanged(getWeightIndex(), before, getWeightValue());
 }//setWeightValue
 
-double WeightLine::getWeightValue() const
+double ann_gui::WeightLine::getWeightValue() const
 {
 	return weight;
 }//getWeightValue
 
-void WeightLine::setMaxWeightValue(double wu)
+void ann_gui::WeightLine::setMaxWeightValue(double wu)
 {
 	weightUpper = wu;
 }//setWeightUpper
 
-double WeightLine::getMaxWeightValue() const
+double ann_gui::WeightLine::getMaxWeightValue() const
 {
 	return weightUpper;
 }//getWeightUpper
 
-void WeightLine::setMinWeightValue(double wl)
+void ann_gui::WeightLine::setMinWeightValue(double wl)
 {
 	weightLower = wl;
 }//setMinWeightValue
 
-double WeightLine::getMinWeightValue() const
+double ann_gui::WeightLine::getMinWeightValue() const
 {
 	return weightLower;
 }//getMinWeightValue
 
-void WeightLine::setLineWidht(int lw)
+void ann_gui::WeightLine::setLineWidht(int lw)
 {
 	lineWidth = lw;
 
@@ -130,37 +130,37 @@ void WeightLine::setLineWidht(int lw)
 //	update();
 }//setLineWidht
 
-int WeightLine::getLineWidth() const
+int ann_gui::WeightLine::getLineWidth() const
 {
 	return lineWidth;
 }//getLineWidth
 
-void WeightLine::setAutomaticWeightLimits(bool aw)
+void ann_gui::WeightLine::setAutomaticWeightLimits(bool aw)
 {
 	automaticWeightsLimit = aw;
 }
 
-bool WeightLine::getAutomaticWeightLimit() const
+bool ann_gui::WeightLine::getAutomaticWeightLimit() const
 {
 	return automaticWeightsLimit;
 }
 
-void WeightLine::setWeightIndex(int i)
+void ann_gui::WeightLine::setWeightIndex(int i)
 {
 	wi = i;
 }
 
-int WeightLine::getWeightIndex() const
+int ann_gui::WeightLine::getWeightIndex() const
 {
 	return wi;
 }
 
-QColor WeightLine::getWeightLineColor() const
+QColor ann_gui::WeightLine::getWeightLineColor() const
 {
 	return wlColor;
 }
 
-void WeightLine::updateWeightColor()
+void ann_gui::WeightLine::updateWeightColor()
 {
 	double nValue;
 	if(automaticWeightsLimit){

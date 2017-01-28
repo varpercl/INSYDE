@@ -1,36 +1,36 @@
 #include "meleeunit.h"
 
-MeleeUnit::MeleeUnit()
+ec_gui::MeleeUnit::MeleeUnit()
 {
 }
 
-void MeleeUnit::initMU(){
+void ec_gui::MeleeUnit::initMU(){
 
 }
 
-void MeleeUnit::attackTo(Unit *ag)
+void ec_gui::MeleeUnit::attackTo(Unit *ag)
 {
     Q_UNUSED(ag)
 }
 
-void MeleeUnit::attackTo(const QPointF &pt)
+void ec_gui::MeleeUnit::attackTo(const QPointF &pt)
 {
     Q_UNUSED(pt)
 }
 
-QPainterPath MeleeUnit::shape() const
+QPainterPath ec_gui::MeleeUnit::shape() const
 {
     QPainterPath shape = Unit::shape();
     return shape;
 }
 
-QRectF MeleeUnit::boundingRect()
+QRectF ec_gui::MeleeUnit::boundingRect()
 {
     QRectF rect = Unit::boundingRect();
     return rect;
 }
 
-void MeleeUnit::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void ec_gui::MeleeUnit::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Unit::paint(painter, option, widget);
 }

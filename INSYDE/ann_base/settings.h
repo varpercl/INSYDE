@@ -9,6 +9,9 @@ namespace ann_base {
 
 /*!
  * \brief The Settings class
+ *
+ * \author Edixon Vargas <ingedixonvargas@gmail.com>
+ * TODO: check the creation commit of this class to update the creation date.
  */
 class ANN_BASE_LIB_IMPORT_EXPORT Settings
 {

@@ -4,6 +4,8 @@
 #include "share_ec_gui.h"
 #include "ofensiveunit.h"
 
+namespace ec_gui
+{
 /**
   @class Weapon
   @author Edixon Vargas
@@ -18,5 +20,5 @@ class EC_GUI_LIB_IMPORT_EXPORT Weapon : public Actuator
 	public:
 		explicit Weapon(OfensiveUnit *unit = 0);
 };
-
+}
 #endif // WEAPON_H

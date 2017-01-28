@@ -1,18 +1,18 @@
 #include "plotterdata.h"
 
 
-PlotterData::PlotterData() :
+gui::PlotterData::PlotterData() :
 	QStandardItemModel()
 {
 	init();
 }
 
-PlotterData::~PlotterData()
+gui::PlotterData::~PlotterData()
 {
 
 }
 
-void PlotterData::addPoint(int serie, double value)
+void gui::PlotterData::addPoint(int serie, double value)
 {
 	QModelIndex ind, lastRow;
 	int rc = rowCount();
@@ -43,12 +43,12 @@ void PlotterData::addPoint(int serie, double value)
 //	endInsertRows();
 }
 
-void PlotterData::addPoint(const QVector<double> &valSeries)
+void gui::PlotterData::addPoint(const QVector<double> &valSeries)
 {
 	(void)valSeries;
 }
 
-void PlotterData::addSerie(const QVector<double> &data)
+void gui::PlotterData::addSerie(const QVector<double> &data)
 {
 	(void)data;
 //	QModelIndex ind;
@@ -61,7 +61,7 @@ void PlotterData::addSerie(const QVector<double> &data)
 //	endInsertColumns();
 }
 
-bool PlotterData::loadFromCSV( const QString& filename )
+bool gui::PlotterData::loadFromCSV( const QString& filename )
 {
 	//TODO: corregir
 	(void)filename;
@@ -129,17 +129,17 @@ bool PlotterData::loadFromCSV( const QString& filename )
 	return false;
 }
 
-void PlotterData::setInterval(double interval)
+void gui::PlotterData::setInterval(double interval)
 {
 	this->interval = interval;
 }
 
-double PlotterData::getInterval() const
+double gui::PlotterData::getInterval() const
 {
 	return interval;
 }
 
-void PlotterData::init(int nSeries)
+void gui::PlotterData::init(int nSeries)
 {
 	this-> nSeries = nSeries;
 

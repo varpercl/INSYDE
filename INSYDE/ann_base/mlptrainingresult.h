@@ -12,9 +12,9 @@ using namespace std;
 
 namespace ann_base{
 /*!
- * \class
+ * \brief The MLPTrainingResult class
  *
- * \brief MLPTrainingResult contiene la data obtenida durante un ciclo de entrenamiento de una red neuronal cualquiera.
+ *  MLPTrainingResult contiene la data obtenida durante un ciclo de entrenamiento de una red neuronal cualquiera.
  *
  * Esta clase hace uso del esquema Modelo/Vista de Qt lo cual lo hace muy util para ser visualizado en tablas o para
  * ser graficado en tiempo real como lo hacen las ventanas de entrenamiento de las redes neuronales.

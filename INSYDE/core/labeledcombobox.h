@@ -7,8 +7,6 @@
 namespace core{
 
 /*!
- * \class
- *
  * \brief The LabeledComboBox class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

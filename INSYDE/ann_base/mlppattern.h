@@ -7,8 +7,6 @@
 
 namespace ann_base{
 /*!
- * \class
- *
  * \brief The MultilayerPerceptronPattern class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

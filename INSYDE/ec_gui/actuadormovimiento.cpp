@@ -1,25 +1,25 @@
 #include "actuadormovimiento.h"
 
-MovingActuator::MovingActuator(MovilAgent *agent){
+ec_gui::MovingActuator::MovingActuator(MovilAgent *agent){
     iniciarActuadorMovimiento(agent, 100, 0, 40);
 }
 
-MovingActuator::MovingActuator(MovilAgent *agent, double rapIni)
+ec_gui::MovingActuator::MovingActuator(MovilAgent *agent, double rapIni)
 {
     iniciarActuadorMovimiento(agent, rapIni, 0, 40);
 }
 
-MovingActuator::MovingActuator(MovilAgent *agent, double rapIni, double angInicial)
+ec_gui::MovingActuator::MovingActuator(MovilAgent *agent, double rapIni, double angInicial)
 {
     iniciarActuadorMovimiento(agent, rapIni, angInicial, 40);
 }
 
-MovingActuator::MovingActuator(MovilAgent *agent, double rapIni, double angInicial, double sensibilidad)
+ec_gui::MovingActuator::MovingActuator(MovilAgent *agent, double rapIni, double angInicial, double sensibilidad)
 {
     iniciarActuadorMovimiento(agent, rapIni, angInicial, sensibilidad);
 }
 
-MovingActuator::~MovingActuator()
+ec_gui::MovingActuator::~MovingActuator()
 {
 //    disconnect();
 //    movimiento->disconnect();
@@ -37,12 +37,12 @@ MovingActuator::~MovingActuator()
 //    return 0;
 //}
 
-void MovingActuator::setRapidez(double vel)
+void ec_gui::MovingActuator::setRapidez(double vel)
 {
     rapidez = vel;
 }
 
-double MovingActuator::getRapidez()
+double ec_gui::MovingActuator::getRapidez()
 {
     return rapidez;
 }
@@ -59,7 +59,7 @@ double MovingActuator::getRapidez()
 //    return Vector2D(rapidez, theta);
 //}
 
-void MovingActuator::iniciarActuadorMovimiento(MovilAgent *ag, double rapInicial, double angInicial, double sensibilidad){
+void ec_gui::MovingActuator::iniciarActuadorMovimiento(MovilAgent *ag, double rapInicial, double angInicial, double sensibilidad){
     movimiento = 0;
     countChanges = 0;
 
@@ -77,7 +77,7 @@ void MovingActuator::iniciarActuadorMovimiento(MovilAgent *ag, double rapInicial
 
 }
 
-void MovingActuator::moverA(double x, double y){
+void ec_gui::MovingActuator::moverA(double x, double y){
     if(agent != NULL){
         Vector2D vel(agent->pos(), QPointF(x, y));
         double distancia = vel.getModulo();
@@ -103,32 +103,32 @@ void MovingActuator::moverA(double x, double y){
     }
 }
 
-void MovingActuator::moverA(const QPointF &pt){
+void ec_gui::MovingActuator::moverA(const QPointF &pt){
     moverA(pt.x(), pt.y());
 }
 
-void MovingActuator::moverA(const QQueue<QPointF> &posiciones){
+void ec_gui::MovingActuator::moverA(const QQueue<QPointF> &posiciones){
     destinos = posiciones;
     moverA(destinos.first());
 }
 
-void MovingActuator::addPoint(double x, double y)
+void ec_gui::MovingActuator::addPoint(double x, double y)
 {
     addPoint(QPointF(x, y));
 }
 
-void MovingActuator::addPoint(const QPointF &pt)
+void ec_gui::MovingActuator::addPoint(const QPointF &pt)
 {
     destinos.enqueue(pt);
     moverA(destinos.first());
 }
 
-QQueue<QPointF> MovingActuator::getPoints()
+QQueue<QPointF> ec_gui::MovingActuator::getPoints()
 {
     return destinos;
 }
 
-void MovingActuator::clearPoints()
+void ec_gui::MovingActuator::clearPoints()
 {
     if(!destinos.isEmpty()){
         destinos.clear();
@@ -143,17 +143,17 @@ void MovingActuator::clearPoints()
 //    return movimiento;
 //}
 
-void MovingActuator::setSensibilidad(double sens)
+void ec_gui::MovingActuator::setSensibilidad(double sens)
 {
     sensibilidad = sens;
 }
 
-double MovingActuator::getSensibilidad()
+double ec_gui::MovingActuator::getSensibilidad()
 {
     return sensibilidad;
 }
 
-QPainterPath MovingActuator::getTrayectoria()
+QPainterPath ec_gui::MovingActuator::getTrayectoria()
 {
     if(agent != NULL){
         QPointF posAgente = agent->pos();
@@ -168,7 +168,7 @@ QPainterPath MovingActuator::getTrayectoria()
     return QPainterPath();
 }
 
-void MovingActuator::checkPointHasBeenReached(){
+void ec_gui::MovingActuator::checkPointHasBeenReached(){
     if(!destinos.isEmpty() && agent != NULL){
         if(agent->pos() == destinos.first()){
             destinos.dequeue();
@@ -185,7 +185,7 @@ void MovingActuator::checkPointHasBeenReached(){
     }
 }
 
-void MovingActuator::posChanged(QVariant valor)
+void ec_gui::MovingActuator::posChanged(QVariant valor)
 {
 //    signal(SIGSEGV, signalController);
     if(agent != NULL){
@@ -274,7 +274,7 @@ void MovingActuator::posChanged(QVariant valor)
     }
 }
 
-void MovingActuator::stop()
+void ec_gui::MovingActuator::stop()
 {
     if(movimiento != NULL){
         movimiento->disconnect();
@@ -284,24 +284,24 @@ void MovingActuator::stop()
     }
 }
 
-void MovingActuator::run()
+void ec_gui::MovingActuator::run()
 {
     if(!destinos.isEmpty()){
         moverA(destinos.first());
     }
 }
 
-bool MovingActuator::isMoving()
+bool ec_gui::MovingActuator::isMoving()
 {
     return (movimiento ? true : false);
 }
 
-void MovingActuator::setDetectColitions(bool detect)
+void ec_gui::MovingActuator::setDetectColitions(bool detect)
 {
     avoidColitions = detect;
 }
 
-bool MovingActuator::getDetectColitions()
+bool ec_gui::MovingActuator::getDetectColitions()
 {
     return avoidColitions;
 }

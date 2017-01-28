@@ -14,8 +14,6 @@ class Image;
 namespace core{
 
 /*!
- * \class
- *
  * \brief The ImageDetailedWindow class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

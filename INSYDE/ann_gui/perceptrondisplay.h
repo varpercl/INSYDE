@@ -13,6 +13,9 @@
 
 using namespace std;
 
+namespace ann_gui
+{
+
 class WeightEditProxy;
 class Soma;
 
@@ -116,5 +119,5 @@ class Soma : public QGraphicsEllipseItem
 	protected:
 		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 };
-
+}
 #endif // PERCEPTRONDISPLAY_H

@@ -1,18 +1,18 @@
 #include "shootingweapon.h"
 
 
-ShootingWeapon::ShootingWeapon(ShootingUnit *agent) : Actuator(agent)
+ec_gui::ShootingWeapon::ShootingWeapon(ShootingUnit *agent) : Actuator(agent)
 {
 
 	initSW(20, 100, 1);
 }
 
-ShootingWeapon::ShootingWeapon(ShootingUnit *agent, int power, int range, int frequency) : Actuator(static_cast<Agent*>(agent))
+ec_gui::ShootingWeapon::ShootingWeapon(ShootingUnit *agent, int power, int range, int frequency) : Actuator(static_cast<Agent*>(agent))
 {
 	initSW(power, range, frequency);
 }
 
-void ShootingWeapon::initSW(int power, int range, int frequency){
+void ec_gui::ShootingWeapon::initSW(int power, int range, int frequency){
 	timerID = 0;
 	timerGarbageCollectorID = 0;
 	unitToShoot = 0;
@@ -24,18 +24,18 @@ void ShootingWeapon::initSW(int power, int range, int frequency){
 	setProyectileVelocity(1000);
 }
 
-ShootingWeapon::~ShootingWeapon()
+ec_gui::ShootingWeapon::~ShootingWeapon()
 {
 	unitToShoot = NULL;
 	secureKillTimer(timerID);
 	secureKillTimer(timerGarbageCollectorID);
 }
 
-void ShootingWeapon::updateShape()
+void ec_gui::ShootingWeapon::updateShape()
 {
 }
 
-double ShootingWeapon::distanceBetweenUnits(Agent *unit1, Agent *unit2)
+double ec_gui::ShootingWeapon::distanceBetweenUnits(Agent *unit1, Agent *unit2)
 {
 	if(unit1 && unit2){
 		return hypot(unit1->x()-unit2->x(), unit1->y() - unit2->y());
@@ -43,12 +43,12 @@ double ShootingWeapon::distanceBetweenUnits(Agent *unit1, Agent *unit2)
 		return NAN;
 }
 
-double ShootingWeapon::distanceBetweenPoints(const QPointF &pt1, const QPointF &pt2)
+double ec_gui::ShootingWeapon::distanceBetweenPoints(const QPointF &pt1, const QPointF &pt2)
 {
 	return hypot(pt1.x() - pt2.x(), pt1.y() - pt2.y());
 }
 
-bool ShootingWeapon::canFire(Unit *un)
+bool ec_gui::ShootingWeapon::canFire(Unit *un)
 {
 //    Agent *agent = getAgent();
 	if(distanceBetweenUnits(getAgent(), un) <= range){
@@ -57,7 +57,7 @@ bool ShootingWeapon::canFire(Unit *un)
 	return false;
 }
 
-bool ShootingWeapon::canFire(QPointF pt)
+bool ec_gui::ShootingWeapon::canFire(QPointF pt)
 {
 	if(distanceBetweenPoints(getAgent()->pos(), pt) <= range){
 		return true;
@@ -70,37 +70,37 @@ bool ShootingWeapon::canFire(QPointF pt)
 
 //}
 
-void ShootingWeapon::setPower(int pow)
+void ec_gui::ShootingWeapon::setPower(int pow)
 {
 	power = pow;
 }
 
-int ShootingWeapon::getPower()
+int ec_gui::ShootingWeapon::getPower()
 {
 	return power;
 }
 
-void ShootingWeapon::setRange(int range)
+void ec_gui::ShootingWeapon::setRange(int range)
 {
 	this->range = range;
 }
 
-int ShootingWeapon::getRange()
+int ec_gui::ShootingWeapon::getRange()
 {
 	return range;
 }
 
-void ShootingWeapon::setFrequency(double frequency)
+void ec_gui::ShootingWeapon::setFrequency(double frequency)
 {
 	this->frequency = frequency;
 }
 
-double ShootingWeapon::getFrequency()
+double ec_gui::ShootingWeapon::getFrequency()
 {
 	return frequency;
 }
 
-bool ShootingWeapon::startFire(Unit *un)
+bool ec_gui::ShootingWeapon::startFire(Unit *un)
 {
 	if(canFire(un) && un != NULL){
 		unitToShoot = un;
@@ -111,7 +111,7 @@ bool ShootingWeapon::startFire(Unit *un)
 	return false;
 }
 
-bool ShootingWeapon::startFire(const QPointF &pt)
+bool ec_gui::ShootingWeapon::startFire(const QPointF &pt)
 {
 	if(canFire(pt))
 	{
@@ -123,7 +123,7 @@ bool ShootingWeapon::startFire(const QPointF &pt)
 	return false;
 }
 
-void ShootingWeapon::stopFire()
+void ec_gui::ShootingWeapon::stopFire()
 {
 	setShape(QPainterPath());
 	unitToShoot = NULL;
@@ -131,17 +131,17 @@ void ShootingWeapon::stopFire()
 //    su->update();
 }
 
-void ShootingWeapon::setProyectileVelocity(double vel)
+void ec_gui::ShootingWeapon::setProyectileVelocity(double vel)
 {
 	proyectileVelocity = vel;
 }
 
-double ShootingWeapon::getProyectileVelocity()
+double ec_gui::ShootingWeapon::getProyectileVelocity()
 {
 	return proyectileVelocity;
 }
 
-void ShootingWeapon::timerEvent(QTimerEvent *event)
+void ec_gui::ShootingWeapon::timerEvent(QTimerEvent *event)
 {
 	static int proyDistAnt = 999999;
 
@@ -196,12 +196,12 @@ void ShootingWeapon::timerEvent(QTimerEvent *event)
 //    }
 }
 
-void ShootingWeapon::activateGarbageCollector(int timems)
+void ec_gui::ShootingWeapon::activateGarbageCollector(int timems)
 {
 	secureStartTimer(timerGarbageCollectorID, timems);
 }
 
-void ShootingWeapon::enemyHitted(OfensiveUnit *au, Unit *unitHitted)
+void ec_gui::ShootingWeapon::enemyHitted(OfensiveUnit *au, Unit *unitHitted)
 {
 	ShootingWeapon *primaryWeapon = dynamic_cast<ShootingWeapon*>(au->getActuator("primary_weapon"));
 	unitHitted->decrementHealth(primaryWeapon->getPower());

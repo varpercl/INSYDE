@@ -12,10 +12,9 @@ using namespace std;
 namespace core{
 
 /*!
- * \class
- *
  * \brief The DataRepresentationWidget class contains a wide graphical representation of any data used commonly on
- * \code{TrainingSetDialog} or another kind of data consumer.
+ * TrainingSetDialog or another kind of data consumer.
+ *
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
@@ -25,29 +24,29 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentationWidget : public QWidget
 	public:
 
 		/*!
-		 * \brief DataRepresentationWidget
-		 * \param datainput
-		 * \param parent
+		 * \brief Builds this widget with input \p datainput.
+		 * \param datainput The data input to be graphically represented.
+		 * \param parent[in] The parent widget.
 		 */
 		explicit DataRepresentationWidget(const vector<double> &datainput, QWidget *parent = 0);
 
 		/*!
-		 * \brief setInputs
-		 * \param datainput
+		 * \brief Sets the current data input of this class.
+		 * \param datainput A vector with the input data.
 		 */
 		virtual void setInputs(const vector<double> &datainput);
 
 		/*!
-		 * \brief getInputs
-		 * \return
+		 * \brief Gets a vector containing all input passed to this class.
+		 * \return An std::vector containing all double values passed as input.
 		 */
 		vector<double> getInputs() const;
 
 	signals:
 
 		/*!
-		 * \brief imageSizeChanged
-		 * \param size
+		 * \brief Thrown when image size changed. This in case the type of representation being Image.
+		 * \param size The size to be set.
 		 */
 		void sizeChanged(const QSize &size);
 
@@ -59,8 +58,8 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentationWidget : public QWidget
 		vector<double> inputs;
 
 		/*!
-		 * \brief init
-		 * \param inputs
+		 * \brief Initialize all this graphic interface.
+		 * \param inputs The inputs to be passed to this class.
 		 */
 		virtual void init(const vector<double> &inputs);
 };

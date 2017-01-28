@@ -15,6 +15,9 @@
 #include "../core/graphicobject.h"
 #include "../ann_base/mlp.h"
 
+namespace ann_gui
+{
+
 /*!
  * \class
  *
@@ -249,5 +252,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT MLPObject : public GraphicObject
 		vector<double> filterMayorThan(vector<double> vec, double value);
 
 };
-
+}
 #endif // GRAPHICMLPELEMENT_H

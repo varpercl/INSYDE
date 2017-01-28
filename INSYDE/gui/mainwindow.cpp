@@ -1,25 +1,25 @@
 #include "mainwindow.h"
 static quintptr const& ptrDM = 0;
 
-MainWindow::MainWindow() :
+gui::MainWindow::MainWindow() :
 	BasicDialog()
 {
 	init();
 }
 
-MainWindow::~MainWindow()
+gui::MainWindow::~MainWindow()
 {
 
 }
 
-void MainWindow::onCloseTabsToRight()
+void gui::MainWindow::onCloseTabsToRight()
 {
 	while(currentTab != mainTab->count() - 1){
 		mainTab->removeTab(currentTab + 1);
 	}
 }
 
-void MainWindow::onCloseTabsToLeft()
+void gui::MainWindow::onCloseTabsToLeft()
 {
 	while(currentTab != 0){
 		mainTab->removeTab(0);
@@ -27,93 +27,93 @@ void MainWindow::onCloseTabsToLeft()
 	}
 }
 
-void MainWindow::onCloseOtherTabs()
+void gui::MainWindow::onCloseOtherTabs()
 {
 	onCloseTabsToRight();
 	onCloseTabsToLeft();
 }
 
-void MainWindow::onCloseAllTabs()
+void gui::MainWindow::onCloseAllTabs()
 {
 	mainTab->clear();
 }
 
-void MainWindow::on10pxTriggered()
+void gui::MainWindow::on10pxTriggered()
 {
 
 }
 
-void MainWindow::on20pxTriggered()
+void gui::MainWindow::on20pxTriggered()
 {
 
 }
 
-void MainWindow::on50pxTriggered()
+void gui::MainWindow::on50pxTriggered()
 {
 
 }
 
-void MainWindow::onCustomizeGrid()
+void gui::MainWindow::onCustomizeGrid()
 {
 
 }
 
-void MainWindow::onNativeTriggered()
+void gui::MainWindow::onNativeTriggered()
 {
 
 }
 
-void MainWindow::onOpenGLTriggered()
+void gui::MainWindow::onOpenGLTriggered()
 {
 
 }
 
-void MainWindow::onAddAdalineClicked()
-{
-	uncheckToolButton();
-}
-
-void MainWindow::onAddAgentClicked()
+void gui::MainWindow::onAddAdalineClicked()
 {
 	uncheckToolButton();
 }
 
-void MainWindow::onAddDotMatrixClicked()
+void gui::MainWindow::onAddAgentClicked()
 {
 	uncheckToolButton();
 }
 
-void MainWindow::onAddHopfieldClicked()
+void gui::MainWindow::onAddDotMatrixClicked()
 {
 	uncheckToolButton();
 }
 
-void MainWindow::onAddImageClicked()
+void gui::MainWindow::onAddHopfieldClicked()
 {
 	uncheckToolButton();
 }
 
-void MainWindow::onAddMLPClicked()
+void gui::MainWindow::onAddImageClicked()
 {
 	uncheckToolButton();
 }
 
-void MainWindow::onAddSimplePerceptronClicked()
+void gui::MainWindow::onAddMLPClicked()
 {
 	uncheckToolButton();
 }
 
-void MainWindow::onAddRegionClicked()
+void gui::MainWindow::onAddSimplePerceptronClicked()
 {
 	uncheckToolButton();
 }
 
-void MainWindow::onAddEffectClicked()
+void gui::MainWindow::onAddRegionClicked()
 {
 	uncheckToolButton();
 }
 
-void MainWindow::onGDVMousePressed(QMouseEvent *event)
+void gui::MainWindow::onAddEffectClicked()
+{
+	uncheckToolButton();
+}
+
+void gui::MainWindow::onGDVMousePressed(QMouseEvent *event)
 {
 	(void)event;
 	//Getting the button pointer to be used after in a switch statement
@@ -292,7 +292,7 @@ void MainWindow::onGDVMousePressed(QMouseEvent *event)
 	uncheckToolButton();
 }
 
-void MainWindow::onOpenOnNewWindowRequest(GraphicObject *obj)
+void gui::MainWindow::onOpenOnNewWindowRequest(GraphicObject *obj)
 {
 	if(isOpenWindow(obj)){
 		mainTab->setCurrentIndex(getTabIndex(obj));
@@ -345,7 +345,7 @@ void MainWindow::onOpenOnNewWindowRequest(GraphicObject *obj)
 	}
 }
 
-void MainWindow::onObjectRemoved(GraphicObject *obj)
+void gui::MainWindow::onObjectRemoved(GraphicObject *obj)
 {
 	for(int i = 0; i < mainTab->count(); i++){
 		if(mainTab->tabText(i) == obj->objectName()){
@@ -355,93 +355,93 @@ void MainWindow::onObjectRemoved(GraphicObject *obj)
 	}
 }
 
-void MainWindow::onTabCloseRequested(int index)
+void gui::MainWindow::onTabCloseRequested(int index)
 {
 	mainTab->removeTab(index);
 }
 
-void MainWindow::onTabContextMenu(QPoint pos)
+void gui::MainWindow::onTabContextMenu(QPoint pos)
 {
 	currentTab = mainTab->tabBar()->tabAt(pos);
 	menuTabs->exec(mainTab->tabBar()->mapToGlobal(pos));
 }
 
-void MainWindow::newClick()
+void gui::MainWindow::newClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::openClick()
+void gui::MainWindow::openClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::saveClick()
+void gui::MainWindow::saveClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::saveAsClick()
+void gui::MainWindow::saveAsClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::importClick()
+void gui::MainWindow::importClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::exportClick()
+void gui::MainWindow::exportClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::undoClick()
+void gui::MainWindow::undoClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::redoClick()
+void gui::MainWindow::redoClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::copyClick()
+void gui::MainWindow::copyClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::cutClick()
+void gui::MainWindow::cutClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::pasteClick()
+void gui::MainWindow::pasteClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::preferencesClick()
+void gui::MainWindow::preferencesClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::helpClick()
+void gui::MainWindow::helpClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::aboutClick()
+void gui::MainWindow::aboutClick()
 {
 	showUnderConstructionMessage();
 }
 
-void MainWindow::init()
+void gui::MainWindow::init()
 {
 	setupUI();
 }
 
-void MainWindow::setupUI()
+void gui::MainWindow::setupUI()
 {
 	clickedObject = NULL;
 	beginObject = NULL;
@@ -665,7 +665,7 @@ void MainWindow::setupUI()
 	connect(systemView->getGraphicsDetailedView(), SIGNAL(mousePressed(QMouseEvent*)), SLOT(onGDVMousePressed(QMouseEvent*)));
 }
 
-void MainWindow::uncheckToolButton()
+void gui::MainWindow::uncheckToolButton()
 {
 	QToolButton *btn = (QToolButton *)generalBG->checkedButton();
 
@@ -680,7 +680,7 @@ void MainWindow::uncheckToolButton()
 	}
 }
 
-bool MainWindow::isOpenWindow(GraphicObject *obj)
+bool gui::MainWindow::isOpenWindow(GraphicObject *obj)
 {
 	for(auto i = 0; i < mainTab->count(); i++){
 		if(mainTab->tabText(i) == obj->objectName()){
@@ -690,7 +690,7 @@ bool MainWindow::isOpenWindow(GraphicObject *obj)
 	return false;
 }
 
-int MainWindow::getTabIndex(GraphicObject *obj)
+int gui::MainWindow::getTabIndex(GraphicObject *obj)
 {
 	for(auto i = 0; i < mainTab->count(); i++){
 		if(mainTab->tabText(i) == obj->objectName()){
@@ -701,7 +701,7 @@ int MainWindow::getTabIndex(GraphicObject *obj)
 	return -1;
 }
 
-void MainWindow::showUnderConstructionMessage()
+void gui::MainWindow::showUnderConstructionMessage()
 {
 	underConstruction.setWindowTitle("En desarrollo");
 	underConstruction.setIcon(QMessageBox::Information);

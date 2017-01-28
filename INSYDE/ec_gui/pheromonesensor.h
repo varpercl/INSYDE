@@ -4,6 +4,8 @@
 #include "share_ec_gui.h"
 #include "sensor.h"
 
+namespace ec_gui
+{
 /**
   @class PheromoneSensor
   @author Edixon Vargas
@@ -18,5 +20,5 @@ class EC_GUI_LIB_IMPORT_EXPORT PheromoneSensor : public Sensor
 	public:
 		explicit PheromoneSensor();
 };
-
+}
 #endif // PHEROMONESENSOR_H

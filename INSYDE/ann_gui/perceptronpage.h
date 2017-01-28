@@ -14,6 +14,9 @@ namespace Ui{
 class PerceptronPage;
 }
 
+namespace ann_gui
+{
+
 class PerceptronDisplay;
 
 /*!
@@ -62,5 +65,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT PerceptronPage : public QWizardPage
 		void initializePage();
 
 };
-
+}
 #endif // PERCEPTRONPAGE_H

@@ -1,35 +1,35 @@
 #include "perceptronpage.h"
 #include "ui_perceptronpage.h"
 
-PerceptronPage::PerceptronPage(QWidget *parent) :
+ann_gui::PerceptronPage::PerceptronPage(QWidget *parent) :
 	QWizardPage(parent),
 	ui(new Ui::PerceptronPage)
 {
 //	initPage();
 }
 
-PerceptronPage::~PerceptronPage()
+ann_gui::PerceptronPage::~PerceptronPage()
 {
 	delete ui;
 }//~PerceptronPage
 
-void PerceptronPage::setSimplePerceptron(SimplePerceptron *sp)
+void ann_gui::PerceptronPage::setSimplePerceptron(SimplePerceptron *sp)
 {
 	this->sp = sp;
 }//setSimplePerceptron
 
-SimplePerceptron *PerceptronPage::getSimplePerceptron() const
+SimplePerceptron *ann_gui::PerceptronPage::getSimplePerceptron() const
 {
 	return sp;
 }//getSimplePerceptron
 
-void PerceptronPage::updatePerceptron()
+void ann_gui::PerceptronPage::updatePerceptron()
 {
 	on_sbInputs_editingFinished();
 	tupdate.stop();
 }//updatePerceptron
 
-void PerceptronPage::initializePage()
+void ann_gui::PerceptronPage::initializePage()
 {
 	ui->setupUi(this);
 
@@ -47,34 +47,34 @@ void PerceptronPage::initializePage()
 	connect(&tupdate, SIGNAL(timeout()), SLOT(updatePerceptron()));
 }//initializePage
 
-void PerceptronPage::on_sbInputs_valueChanged(int arg1)
+void ann_gui::PerceptronPage::on_sbInputs_valueChanged(int arg1)
 {
 	Q_UNUSED(arg1);
 
 	tupdate.start(300);
 }//on_sbInputs_valueChanged
 
-void PerceptronPage::on_sbInputs_editingFinished()
+void ann_gui::PerceptronPage::on_sbInputs_editingFinished()
 {
 	perceptronDisplay->setInputSize(ui->sbInputs->value());
 }//on_sbInputs_editingFinished
 
-void PerceptronPage::on_cbTransferFunction_currentIndexChanged(int index)
+void ann_gui::PerceptronPage::on_cbTransferFunction_currentIndexChanged(int index)
 {
 	sp->setTransferFunction((SimplePerceptron::TransferFunctionType)index);
 }//on_cbTransferFunction_currentIndexChanged
 
-void PerceptronPage::on_cbLearningRule_currentIndexChanged(int index)
+void ann_gui::PerceptronPage::on_cbLearningRule_currentIndexChanged(int index)
 {
 	sp->setLearningRule((SimplePerceptron::LearningRule) index);
 }//on_cbLearningRule_currentIndexChanged
 
-void PerceptronPage::on_btnEditWeights_clicked()
+void ann_gui::PerceptronPage::on_btnEditWeights_clicked()
 {
 	wed->exec();
 }//on_btnEditWeights_clicked
 
-void PerceptronPage::on_btnEditTrainingSet_clicked()
+void ann_gui::PerceptronPage::on_btnEditTrainingSet_clicked()
 {
 	TrainingSetDialog *tsd = new TrainingSetDialog(ui->sbInputs->value(), 1, 1);
 	tsd->exec();

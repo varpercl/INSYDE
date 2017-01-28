@@ -20,7 +20,6 @@ RCC_DIR = res
 DESTDIR = ..
 
 SOURCES += \
-    binaryoutputelement.cpp \
     chooseprojectnamepage.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -33,7 +32,6 @@ SOURCES += \
     simulationcontrol.cpp
 
 HEADERS += \
-    binaryoutputelement.h \
     chooseprojectnamepage.h \
     mainwindow.h \
     newprojectwizard.h \

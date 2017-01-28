@@ -1,0 +1,29 @@
+<map id="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/ann_gui/addnewmlpdialog.h" name="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/ann_gui/addnewmlpdialog.h">
+<area shape="rect" id="node3" href="$d0/d9f/share__ann__gui__lib_8h.html" title="share_ann_gui_lib.h" alt="" coords="1983,109,2121,136"/>
+<area shape="rect" id="node4" href="$dc/d54/common_8h.html" title="../core/common.h" alt="" coords="1205,408,1329,435"/>
+<area shape="rect" id="node14" href="$d6/db3/basicdialog_8h.html" title="../core/basicdialog.h" alt="" coords="525,408,664,435"/>
+<area shape="rect" id="node18" href="$d1/d36/labeledcombobox_8h.html" title="../core/labeledcombobox.h" alt="" coords="43,333,218,360"/>
+<area shape="rect" id="node20" href="$d0/d9f/labeleddoublespinbox_8h.html" title="../core/labeleddoublespinbox.h" alt="" coords="242,333,441,360"/>
+<area shape="rect" id="node21" href="$d4/dff/labeledintegerspinbox_8h.html" title="../core/labeledintegerspinbox.h" alt="" coords="465,333,663,360"/>
+<area shape="rect" id="node22" href="$de/d7e/mlp_8h.html" title="../ann_base/mlp.h" alt="" coords="1833,109,1959,136"/>
+<area shape="rect" id="node11" href="$d8/d43/share__core__lib_8h.html" title="share_core_lib.h" alt="" coords="640,557,757,584"/>
+<area shape="rect" id="node12" href="$de/d40/imath_8h.html" title="imath.h" alt="" coords="1169,483,1234,509"/>
+<area shape="rect" id="node15" href="$d2/da4/undo_8h.html" title="undo.h" alt="" coords="717,483,779,509"/>
+<area shape="rect" id="node16" href="$d7/d2d/core_2definitions_8h.html" title="definitions.h" alt="" coords="493,483,584,509"/>
+<area shape="rect" id="node17" href="$d5/da7/clipboard_8h.html" title="clipboard.h" alt="" coords="608,483,693,509"/>
+<area shape="rect" id="node19" href="$d8/dae/labeledwidget_8h.html" title="labeledwidget.h" alt="" coords="206,408,317,435"/>
+<area shape="rect" id="node26" href="$d4/d86/share__ann__base__lib_8h.html" title="share_ann_base_lib.h" alt="" coords="1958,333,2106,360"/>
+<area shape="rect" id="node27" href="$d5/d87/globals_8h.html" title="globals.h" alt="" coords="2404,333,2479,360"/>
+<area shape="rect" id="node28" href="$df/d37/bptrainingsettings_8h.html" title="bptrainingsettings.h" alt="" coords="2754,184,2889,211"/>
+<area shape="rect" id="node30" href="$d0/dd3/satrainingsettings_8h.html" title="satrainingsettings.h" alt="" coords="2595,184,2730,211"/>
+<area shape="rect" id="node31" href="$dc/df4/trainingset_8h.html" title="trainingset.h" alt="" coords="1525,184,1619,211"/>
+<area shape="rect" id="node37" href="$d0/d9d/mlppattern_8h.html" title="mlppattern.h" alt="" coords="1950,184,2045,211"/>
+<area shape="rect" id="node39" href="$da/d4d/mlptrainingresult_8h.html" title="mlptrainingresult.h" alt="" coords="2191,184,2319,211"/>
+<area shape="rect" id="node29" href="$de/d60/settings_8h.html" title="settings.h" alt="" coords="2707,259,2786,285"/>
+<area shape="rect" id="node33" href="$da/dd7/normalization_8h.html" title="../core/normalization.h" alt="" coords="1306,333,1457,360"/>
+<area shape="rect" id="node34" href="$d8/d42/datarepresentation_8h.html" title="../core/datarepresentation.h" alt="" coords="896,408,1077,435"/>
+<area shape="rect" id="node36" href="$d9/d8e/trainingsetfile_8h.html" title="trainingsetfile.h" alt="" coords="1571,259,1680,285"/>
+<area shape="rect" id="node35" href="$d9/d75/iresizable_8h.html" title="iresizable.h" alt="" coords="955,483,1043,509"/>
+<area shape="rect" id="node38" href="$df/dba/simpleinputpattern_8h.html" title="simpleinputpattern.h" alt="" coords="1856,259,1995,285"/>
+<area shape="rect" id="node40" href="$d1/db7/trainingresult_8h.html" title="trainingresult.h" alt="" coords="2272,259,2379,285"/>
+</map>

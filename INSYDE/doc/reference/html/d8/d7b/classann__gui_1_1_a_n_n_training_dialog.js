@@ -1,0 +1,27 @@
+var classann__gui_1_1_a_n_n_training_dialog =
+[
+    [ "ANNTrainingDialog", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#af6cb57ab246e57a1191f7c6b9b3873b0", null ],
+    [ "ANNTrainingDialog", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#ac9613e7711312e02a59c5964c9ff1b15", null ],
+    [ "ANNTrainingDialog", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#ab35ad450cad5aa1cfcb805d8e4f0235f", null ],
+    [ "~ANNTrainingDialog", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#a44244ed17f86788414311c60a505bb9a", null ],
+    [ "closeEvent", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#a019c2f9ea114597542f78ca1192c7e94", null ],
+    [ "getCanEditANNType", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#a2c3836df225676ada84cf52daccb8e80", null ],
+    [ "getCanEditInputSize", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#ab132b5d218d8f9d37b7df09c36af70ff", null ],
+    [ "getCanEditOutputSize", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#ab322a3c7c5f66775d0b74a5599447be4", null ],
+    [ "getEnableMultipleTraining", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#a135a0306e1c51d02e516d089bc2a4967", null ],
+    [ "getMultilayerPerceptron", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#ad1468c51144fd3614d0ce6938df3e2db", null ],
+    [ "getTestSet", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#ac3d5aa938a2c2468932b37cf23c5b0bf", null ],
+    [ "getTrainingSet", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#a3dd67b2c239720d448e5d2c004d0587f", null ],
+    [ "getUsingScrollArea", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#aa93c9398bdf2767781c52e2c9be9822f", null ],
+    [ "getValidationSet", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#a9b17f304ef32241195a306b9f74553d5", null ],
+    [ "saveClick", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#aceed7904f101069738f3ab5919929629", null ],
+    [ "setArtificialNeuralNetwork", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#a68324c75db6179bbba36920985e7c1ab", null ],
+    [ "setCanEditANNType", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#ad60990c03a5c125726ed9c12cf7057e0", null ],
+    [ "setCanEditInputSize", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#a71612cafd472758c4a988113b724fe01", null ],
+    [ "setCanEditOutputSize", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#ac18302dddd057214aac0a574c84d54bd", null ],
+    [ "setEnableMultipleTraining", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#aa55eb34a59a643c4c386ea7f701bf8ac", null ],
+    [ "setTestSet", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#aec9240361887fa9096462146168990c9", null ],
+    [ "setTrainingSet", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#ad218b0b68b5153262476b24545a47ae7", null ],
+    [ "setUsingScrollArea", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#a65fdb6dec3c74171edbaa15cb58042ea", null ],
+    [ "setValidationSet", "d8/d7b/classann__gui_1_1_a_n_n_training_dialog.html#a187bf7b5dc7e4268089e644a0811869e", null ]
+];

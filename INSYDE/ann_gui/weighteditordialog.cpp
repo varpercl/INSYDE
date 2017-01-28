@@ -1,67 +1,67 @@
 #include "weighteditordialog.h"
 
-WeightEditorDialog::WeightEditorDialog(QWidget *parent) :
+ann_gui::WeightEditorDialog::WeightEditorDialog(QWidget *parent) :
 	BasicDialog(parent)
 {
 	init();
 }
 
-WeightEditorDialog::WeightEditorDialog(ArtificialNeuralNetwork *sp, QWidget *parent) :
+ann_gui::WeightEditorDialog::WeightEditorDialog(ArtificialNeuralNetwork *sp, QWidget *parent) :
 	BasicDialog(parent)
 {
 	init(sp);
 }
 
-WeightEditorDialog::WeightEditorDialog(ANNModelWrapper *mw, QWidget *parent) :
+ann_gui::WeightEditorDialog::WeightEditorDialog(ANNModelWrapper *mw, QWidget *parent) :
 	BasicDialog(parent)
 {
 	init(mw);
 }
 
-WeightEditorDialog::~WeightEditorDialog()
+ann_gui::WeightEditorDialog::~WeightEditorDialog()
 {
 
 }
 
-void WeightEditorDialog::setArtificialNeuralNetwork(ArtificialNeuralNetwork *sp)
+void ann_gui::WeightEditorDialog::setArtificialNeuralNetwork(ArtificialNeuralNetwork *sp)
 {
 	this->ann = sp;
 }
 
-ArtificialNeuralNetwork *WeightEditorDialog::getArtificialNeuralNetwork() const
+ArtificialNeuralNetwork *ann_gui::WeightEditorDialog::getArtificialNeuralNetwork() const
 {
 	return ann;
 }
 
-void WeightEditorDialog::onRandomizeClicked()
+void ann_gui::WeightEditorDialog::onRandomizeClicked()
 {
 	model->randomizeWeights(ldsbFrom->getDoubleSpinBox()->value(), ldsbTo->getDoubleSpinBox()->value());
 }
 
-void WeightEditorDialog::onUpdateClicked()
+void ann_gui::WeightEditorDialog::onUpdateClicked()
 {
 	emit model->dataChanged(QModelIndex(), QModelIndex());
 	//	btWeights->update(QModelIndex());
 }
 
-void WeightEditorDialog::onTrainingAboutStart()
+void ann_gui::WeightEditorDialog::onTrainingAboutStart()
 {
 	btnRandomize->setEnabled(false);
 }
 
-void WeightEditorDialog::onTrainingFinished()
+void ann_gui::WeightEditorDialog::onTrainingFinished()
 {
 	btnRandomize->setEnabled(true);
 }
 
-void WeightEditorDialog::init()
+void ann_gui::WeightEditorDialog::init()
 {
 	model = 0;
 
 	setupUI();
 }
 
-void WeightEditorDialog::init(ANNModelWrapper *mw)
+void ann_gui::WeightEditorDialog::init(ANNModelWrapper *mw)
 {
 	model = mw;
 
@@ -70,7 +70,7 @@ void WeightEditorDialog::init(ANNModelWrapper *mw)
 	btWeights->setModel(model);
 }
 
-void WeightEditorDialog::init(ArtificialNeuralNetwork *ann)
+void ann_gui::WeightEditorDialog::init(ArtificialNeuralNetwork *ann)
 {
 	model = new ANNModelWrapper(ann);
 
@@ -79,7 +79,7 @@ void WeightEditorDialog::init(ArtificialNeuralNetwork *ann)
 	btWeights->setModel(model);
 }
 
-void WeightEditorDialog::setupUI()
+void ann_gui::WeightEditorDialog::setupUI()
 {
 
 	//Construct BasicTree

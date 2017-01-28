@@ -16,9 +16,7 @@ using namespace std;
 namespace core{
 
 /*!
- * \class
- *
- * \brief NormalizationWidget whiwch stores as much Normalization objects can exist (ie, one object per normalization type).
+ * \brief The NormalizationWidgetclass stores as much Normalization objects as may exist (ie, one object per normalization type).
  * Each object stores its configuration and user can select it anytime, this will update all controls of the widget and values.
  * The widget has a main Normalization object which is returned when needed, this object is rewritten each time user
  * change the current selected normalization at the Combobox

@@ -8,8 +8,6 @@
 namespace core{
 
 /*!
- * \class
- *
  * \brief The LabeledWidget class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

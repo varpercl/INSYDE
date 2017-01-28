@@ -10,8 +10,10 @@
 #include "pheromonedepositor.h"
 #include "ECFunctions.h"
 
-using namespace ECFunctions;
+using namespace common;
 
+namespace ec_gui
+{
 enum PlayerTeam;
 enum PlayerColor;
 enum PlayerType;
@@ -435,5 +437,5 @@ class EC_GUI_LIB_IMPORT_EXPORT ShootingUnit : public OfensiveUnit
 //        void unitHasReached(Orders order, Unit *un);
 //        void enemyHitted(Unit *unitHitted);
 };
-
+}
 #endif // SHOOTINGUNIT_H

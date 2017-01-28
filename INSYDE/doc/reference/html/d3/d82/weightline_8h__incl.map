@@ -1,0 +1,25 @@
+<map id="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/ann_gui/weightline.h" name="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/ann_gui/weightline.h">
+<area shape="rect" id="node4" href="$d0/d9f/share__ann__gui__lib_8h.html" title="share_ann_gui_lib.h" alt="" coords="757,109,894,136"/>
+<area shape="rect" id="node5" href="$d5/d12/simpleperceptron_8h.html" title="../ann_base/simpleperceptron.h" alt="" coords="918,109,1122,136"/>
+<area shape="rect" id="node6" href="$d4/d86/share__ann__base__lib_8h.html" title="share_ann_base_lib.h" alt="" coords="1155,483,1303,509"/>
+<area shape="rect" id="node7" href="$dc/d54/common_8h.html" title="../core/common.h" alt="" coords="2210,408,2334,435"/>
+<area shape="rect" id="node17" href="$d2/d52/perceptrontrainingpattern_8h.html" title="perceptrontrainingpattern.h" alt="" coords="433,333,609,360"/>
+<area shape="rect" id="node18" href="$df/dba/simpleinputpattern_8h.html" title="simpleinputpattern.h" alt="" coords="477,408,616,435"/>
+<area shape="rect" id="node20" href="$dc/df4/trainingset_8h.html" title="trainingset.h" alt="" coords="1832,184,1925,211"/>
+<area shape="rect" id="node37" href="$d0/dc6/artificialneuralnetwork_8h.html" title="artificialneuralnetwork.h" alt="" coords="195,408,352,435"/>
+<area shape="rect" id="node14" href="$d8/d43/share__core__lib_8h.html" title="share_core_lib.h" alt="" coords="2151,557,2268,584"/>
+<area shape="rect" id="node15" href="$de/d40/imath_8h.html" title="imath.h" alt="" coords="2434,483,2499,509"/>
+<area shape="rect" id="node19" href="$d5/d87/globals_8h.html" title="globals.h" alt="" coords="787,483,861,509"/>
+<area shape="rect" id="node22" href="$da/dd7/normalization_8h.html" title="../core/normalization.h" alt="" coords="2043,333,2194,360"/>
+<area shape="rect" id="node23" href="$d8/d42/datarepresentation_8h.html" title="../core/datarepresentation.h" alt="" coords="1939,408,2120,435"/>
+<area shape="rect" id="node26" href="$de/d7e/mlp_8h.html" title="mlp.h" alt="" coords="1275,259,1330,285"/>
+<area shape="rect" id="node36" href="$d9/d8e/trainingsetfile_8h.html" title="trainingsetfile.h" alt="" coords="1824,259,1933,285"/>
+<area shape="rect" id="node24" href="$d2/da4/undo_8h.html" title="undo.h" alt="" coords="2297,483,2359,509"/>
+<area shape="rect" id="node25" href="$d9/d75/iresizable_8h.html" title="iresizable.h" alt="" coords="1983,483,2071,509"/>
+<area shape="rect" id="node30" href="$df/d37/bptrainingsettings_8h.html" title="bptrainingsettings.h" alt="" coords="1547,333,1682,360"/>
+<area shape="rect" id="node32" href="$d0/dd3/satrainingsettings_8h.html" title="satrainingsettings.h" alt="" coords="1235,333,1370,360"/>
+<area shape="rect" id="node33" href="$d0/d9d/mlppattern_8h.html" title="mlppattern.h" alt="" coords="735,333,830,360"/>
+<area shape="rect" id="node34" href="$da/d4d/mlptrainingresult_8h.html" title="mlptrainingresult.h" alt="" coords="855,333,983,360"/>
+<area shape="rect" id="node31" href="$de/d60/settings_8h.html" title="settings.h" alt="" coords="1582,408,1661,435"/>
+<area shape="rect" id="node35" href="$d1/db7/trainingresult_8h.html" title="trainingresult.h" alt="" coords="893,408,1000,435"/>
+</map>

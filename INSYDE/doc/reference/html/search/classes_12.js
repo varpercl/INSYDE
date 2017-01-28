@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['undointerface',['UnDoInterface',['../classcore_1_1_un_do_interface.html',1,'core']]]
+  ['undo',['Undo',['../d4/d7a/classcore_1_1_undo.html',1,'core']]]
 ];

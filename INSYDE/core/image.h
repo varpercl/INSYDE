@@ -9,13 +9,11 @@
 #include "imagepropertydialog.h"
 #include "dotmatrix.h"
 #include "graphicobject.h"
-#include "interfaces.h"
+#include "undo.h"
 
 namespace core{
 
 /*!
- * \class
- *
  * \brief The GraphicImageElement class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

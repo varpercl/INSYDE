@@ -2,12 +2,12 @@
 
 const double angRange = 180;
 
-Unit::Unit() : MovilAgent()
+ec_gui::Unit::Unit() : MovilAgent()
 {
     iniciarUnidad(Human, Blue, None, 100, 100, 0, 0);
 }
 
-Unit::Unit(PlayerType tj,
+ec_gui::Unit::Unit(PlayerType tj,
                PlayerColor cr,
                PlayerTeam eq,
                int vitalidadMaxima,
@@ -20,7 +20,7 @@ Unit::Unit(PlayerType tj,
     iniciarUnidad(tj, cr, eq, vitalidadMaxima, vitalidad, energiaMaxima, energy);
 }
 
-Unit::Unit(PlayerType tj,
+ec_gui::Unit::Unit(PlayerType tj,
                PlayerColor cr,
                PlayerTeam eq,
                int vitalidadMaxima,
@@ -32,7 +32,7 @@ Unit::Unit(PlayerType tj,
 }
 
 
-void Unit::iniciarUnidad(PlayerType tj, PlayerColor cr, PlayerTeam eq, int maxVitalidad, int vitalidad, int maxEnergy, int energy){
+void ec_gui::Unit::iniciarUnidad(PlayerType tj, PlayerColor cr, PlayerTeam eq, int maxVitalidad, int vitalidad, int maxEnergy, int energy){
     const int barWidth = 20;
 
 //    QPainterPath path;
@@ -81,7 +81,7 @@ void Unit::iniciarUnidad(PlayerType tj, PlayerColor cr, PlayerTeam eq, int maxVi
 //    connect(actMov, SIGNAL(llegoADestinoFinal(QPointF)), SLOT(lastCheckPointReached(QPointF)));
 }
 
-QPointF Unit::generateRandomPosition(double minValX, double maxValX, double minValY, double maxValY)
+QPointF ec_gui::Unit::generateRandomPosition(double minValX, double maxValX, double minValY, double maxValY)
 {
     //    int time = QTime::currentTime().msec();
 //    struct timeval te;
@@ -106,7 +106,7 @@ QPointF Unit::generateRandomPosition(double minValX, double maxValX, double minV
 }
 
 
-QPointF Unit::generateRandomPosition(double module, double minAngle, double maxAngle)
+QPointF ec_gui::Unit::generateRandomPosition(double module, double minAngle, double maxAngle)
 {
 //    int time = QTime::currentTime().msec();
 //    struct timeval te;
@@ -133,7 +133,7 @@ QPointF Unit::generateRandomPosition(double module, double minAngle, double maxA
     }
 }
 
-QPointF Unit::generateRandomPosition(double module, double range)
+QPointF ec_gui::Unit::generateRandomPosition(double module, double range)
 {
     //TODO: Tiene que ser puesto aqui por problemas de generacion de numero aleatorio al que no consegui solucion
     qrand();
@@ -151,7 +151,7 @@ QPointF Unit::generateRandomPosition(double module, double range)
     }
 }
 
-void Unit::deleteUnit()
+void ec_gui::Unit::deleteUnit()
 {
 //    setVisible(false);
 //    setEnabled(false);
@@ -161,7 +161,7 @@ void Unit::deleteUnit()
     delete this;
 }
 
-QPointF Unit::generateNextValidPos()
+QPointF ec_gui::Unit::generateNextValidPos()
 {
     QPointF nextPos(0, 0);
     bool continua;
@@ -179,73 +179,73 @@ QPointF Unit::generateNextValidPos()
     return nextPos;
 }
 
-void Unit::setHealthBarPos(const QPointF &pos)
+void ec_gui::Unit::setHealthBarPos(const QPointF &pos)
 {
     prepareGeometryChange();
     healthBar.setTopLeft(pos);
 }
 
-QPointF Unit::getHealthBarPos()
+QPointF ec_gui::Unit::getHealthBarPos()
 {
     return healthBar.topLeft();
 }
 
-void Unit::setEnergyBarPos(const QPointF &pos)
+void ec_gui::Unit::setEnergyBarPos(const QPointF &pos)
 {
     prepareGeometryChange();
     energyBar.setTopLeft(pos);
 }
 
-QPointF Unit::getEnergyBarPos()
+QPointF ec_gui::Unit::getEnergyBarPos()
 {
     return energyBar.topLeft();
 }
 
-void Unit::setEnergyBarWidth(double val)
+void ec_gui::Unit::setEnergyBarWidth(double val)
 {
     prepareGeometryChange();
     energyBar.setWidth(val);
 }
 
-double Unit::getEnergyBarWidth()
+double ec_gui::Unit::getEnergyBarWidth()
 {
     return energyBar.width();
 }
 
-void Unit::setEnergyBarHeitght(double val)
+void ec_gui::Unit::setEnergyBarHeitght(double val)
 {
     prepareGeometryChange();
     energyBar.setHeight(val);
 }
 
-double Unit::getEnergyBarHeight()
+double ec_gui::Unit::getEnergyBarHeight()
 {
     return energyBar.height();
 }
 
-void Unit::setHealthBarWidth(double val)
+void ec_gui::Unit::setHealthBarWidth(double val)
 {
     prepareGeometryChange();
     healthBar.setWidth(val);
 }
 
-double Unit::getHealthBarWidth()
+double ec_gui::Unit::getHealthBarWidth()
 {
     return healthBar.width();
 }
 
-void Unit::setHealthBarHeight(double val)
+void ec_gui::Unit::setHealthBarHeight(double val)
 {
     prepareGeometryChange();
     healthBar.setHeight(val);
 }
 
-double Unit::getHealthBarHeight()
+double ec_gui::Unit::getHealthBarHeight()
 {
     return healthBar.height();
 }
 
-bool Unit::getVisibleEnergyBar() const
+bool ec_gui::Unit::getVisibleEnergyBar() const
 {
     if(useEnergy()){
         return visibleEnergyBar;
@@ -254,18 +254,18 @@ bool Unit::getVisibleEnergyBar() const
     }
 }
 
-void Unit::setVisibleHealthBar(bool b)
+void ec_gui::Unit::setVisibleHealthBar(bool b)
 {
     prepareGeometryChange();
     visibleHealthBar = b;
 }
 
-bool Unit::getVisibleHealthBar() const
+bool ec_gui::Unit::getVisibleHealthBar() const
 {
     return visibleHealthBar;
 }
 
-void Unit::setEnergy(int val)
+void ec_gui::Unit::setEnergy(int val)
 {
     if(val <= maxEnergy){
         energy = val;
@@ -277,23 +277,23 @@ void Unit::setEnergy(int val)
     update();
 }
 
-int Unit::getEnergy()
+int ec_gui::Unit::getEnergy()
 {
     return energy;
 }
 
-void Unit::setMaxEnergy(int valmax)
+void ec_gui::Unit::setMaxEnergy(int valmax)
 {
     maxEnergy = valmax;
     update();
 }
 
-int Unit::getMaxEnergy()
+int ec_gui::Unit::getMaxEnergy()
 {
     return maxEnergy;
 }
 
-void Unit::setUnitColor(PlayerColor col)
+void ec_gui::Unit::setUnitColor(PlayerColor col)
 {
     colorUnidad = col;
     switch(colorUnidad){
@@ -324,32 +324,32 @@ void Unit::setUnitColor(PlayerColor col)
     update();
 }
 
-PlayerColor Unit::getUnitColor()
+ec_gui::PlayerColor ec_gui::Unit::getUnitColor()
 {
     return colorUnidad;
 }
 
-void Unit::setPlayerType(PlayerType tipo)
+void ec_gui::Unit::setPlayerType(PlayerType tipo)
 {
     tipoJugador = tipo;
 }
 
-PlayerType Unit::getPlayerType()
+ec_gui::PlayerType ec_gui::Unit::getPlayerType()
 {
     return tipoJugador;
 }
 
-void Unit::setEquipo(PlayerTeam equipo)
+void ec_gui::Unit::setEquipo(PlayerTeam equipo)
 {
     team = equipo;
 }
 
-PlayerTeam Unit::getEquipo()
+ec_gui::PlayerTeam ec_gui::Unit::getEquipo()
 {
     return team;
 }
 
-void Unit::setHealth(int vitalidad)
+void ec_gui::Unit::setHealth(int vitalidad)
 {
     if(vitalidad > 0 && vitalidad <= maxHealth){
         health = vitalidad;
@@ -364,12 +364,12 @@ void Unit::setHealth(int vitalidad)
     }
 }
 
-int Unit::getHealth()
+int ec_gui::Unit::getHealth()
 {
     return health;
 }
 
-void Unit::incrementHealth(int increment)
+void ec_gui::Unit::incrementHealth(int increment)
 {
     if(health + increment <= maxHealth){
         health += increment;
@@ -379,7 +379,7 @@ void Unit::incrementHealth(int increment)
     update();
 }
 
-void Unit::decrementHealth(int decrement)
+void ec_gui::Unit::decrementHealth(int decrement)
 {
     if(health - decrement > 0){
         health -= decrement;
@@ -390,7 +390,7 @@ void Unit::decrementHealth(int decrement)
     }
 }
 
-void Unit::setMaxHealth(int vitalidad)
+void ec_gui::Unit::setMaxHealth(int vitalidad)
 {
     maxHealth = vitalidad;
     if(health > maxHealth){
@@ -399,27 +399,27 @@ void Unit::setMaxHealth(int vitalidad)
     update();
 }
 
-int Unit::getMaxHealth()
+int ec_gui::Unit::getMaxHealth()
 {
     return maxHealth;
 }
 
-bool Unit::isEnemy(Unit *un)
+bool ec_gui::Unit::isEnemy(Unit *un)
 {
     return (getDiplomacyTo(un->getUnitColor()) == Enemy && un->getColor() != getColor() ? true : false);
 }
 
-void Unit::setDiplomacies(const QMap<PlayerColor, Diplomacy> &dip)
+void ec_gui::Unit::setDiplomacies(const QMap<PlayerColor, Diplomacy> &dip)
 {
     diplomacias = dip;
 }
 
-QMap<PlayerColor, Diplomacy> Unit::getDiplomacies() const
+QMap<ec_gui::PlayerColor, ec_gui::Diplomacy> ec_gui::Unit::getDiplomacies() const
 {
     return diplomacias;
 }
 
-void Unit::setDiplomacyTo(const PlayerColor &pc, const Diplomacy &dip)
+void ec_gui::Unit::setDiplomacyTo(const PlayerColor &pc, const Diplomacy &dip)
 {
     if(pc == colorUnidad){
         qWarning() << "No puedes establecer la diplomacia hacia las unidades de tu mismo color (siempre seran aliados)";
@@ -428,12 +428,12 @@ void Unit::setDiplomacyTo(const PlayerColor &pc, const Diplomacy &dip)
     }
 }
 
-Diplomacy Unit::getDiplomacyTo(const PlayerColor &pc)
+ec_gui::Diplomacy ec_gui::Unit::getDiplomacyTo(const PlayerColor &pc)
 {
     return diplomacias[pc];
 }
 
-void Unit::setMode(Mode mod)
+void ec_gui::Unit::setMode(Mode mod)
 {
     currentMode = mod;
     switch(currentMode){
@@ -451,12 +451,12 @@ void Unit::setMode(Mode mod)
     }
 }
 
-Mode Unit::getMode()
+ec_gui::Mode ec_gui::Unit::getMode()
 {
     return currentMode;
 }
 
-void Unit::startSearchMode()
+void ec_gui::Unit::startSearchMode()
 {
     clearPoints();
 
@@ -465,14 +465,14 @@ void Unit::startSearchMode()
     currentMode = Search;
 }
 
-void Unit::startFleeMode()
+void ec_gui::Unit::startFleeMode()
 {
     clearPoints();
     addPoint(0, 0);
     currentMode = Flee;
 }
 
-QRectF Unit::boundingRect() const
+QRectF ec_gui::Unit::boundingRect() const
 {
     QPainterPath path;
 //    if(isSelected() || isUnderMouse()){
@@ -488,7 +488,7 @@ QRectF Unit::boundingRect() const
     return path.controlPointRect();
 }
 
-void Unit::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void ec_gui::Unit::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     MovilAgent::paint(painter, option, widget);
 
@@ -545,7 +545,7 @@ void Unit::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 //    }
 //}
 
-void Unit::checkPointReached(QPointF point)
+void ec_gui::Unit::checkPointReached(QPointF point)
 {
     switch(currentMode){
         case Stand:
@@ -565,7 +565,7 @@ void Unit::checkPointReached(QPointF point)
     }
 }
 
-void Unit::checkAll(QPointF pt)
+void ec_gui::Unit::checkAll(QPointF pt)
 {
     Q_UNUSED(pt);
 
@@ -627,7 +627,7 @@ void Unit::checkAll(QPointF pt)
     }
 }
 
-void Unit::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+void ec_gui::Unit::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     MovilAgent::hoverMoveEvent(event);
     update();

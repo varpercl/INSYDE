@@ -1,12 +1,12 @@
 #include "perceptrondisplay.h"
 
-PerceptronDisplay::PerceptronDisplay(SimplePerceptron *sp) :
+ann_gui::PerceptronDisplay::PerceptronDisplay(SimplePerceptron *sp) :
 	QGraphicsScene()
 {
 	init(sp);
 }
 
-PerceptronDisplay::~PerceptronDisplay()
+ann_gui::PerceptronDisplay::~PerceptronDisplay()
 {
 	int sInputs = geiInputs.size();
 	for(int i = 0; i < sInputs; i++){
@@ -15,7 +15,7 @@ PerceptronDisplay::~PerceptronDisplay()
 	}
 }
 
-void PerceptronDisplay::setInputSize(int n)
+void ann_gui::PerceptronDisplay::setInputSize(int n)
 {
 	const int hInput = 6;
 	const int wInput = 6;
@@ -73,33 +73,33 @@ void PerceptronDisplay::setInputSize(int n)
 
 }//setInputSize
 
-int PerceptronDisplay::getInputSize()
+int ann_gui::PerceptronDisplay::getInputSize()
 {
 	return geiInputs.size();
 }//getInputSize
 
-void PerceptronDisplay::setWeightsVector(vector<double> weights)
+void ann_gui::PerceptronDisplay::setWeightsVector(vector<double> weights)
 {
 	sp->setWeights(weights);
 	updateWeightLines(weights);
 }//setWeightsVector
 
-vector<double> PerceptronDisplay::getWeightsVector() const
+vector<double> ann_gui::PerceptronDisplay::getWeightsVector() const
 {
 	return sp->getWeightsVector();
 }//getWeightsVector
 
-void PerceptronDisplay::setPerceptron(SimplePerceptron *sp)
+void ann_gui::PerceptronDisplay::setPerceptron(SimplePerceptron *sp)
 {
 	this->sp = sp;
 }//setPerceptron
 
-SimplePerceptron* PerceptronDisplay::getPerceptron()
+SimplePerceptron* ann_gui::PerceptronDisplay::getPerceptron()
 {
 	return sp;
 }//getPerceptron
 
-void PerceptronDisplay::onWeightValueChanged(int index, double before, double after)
+void ann_gui::PerceptronDisplay::onWeightValueChanged(int index, double before, double after)
 {
 	(void)index;
 	(void)before;
@@ -108,7 +108,7 @@ void PerceptronDisplay::onWeightValueChanged(int index, double before, double af
 	updateWeightLines(sp->getWeightsVector());
 }//onWeightValueChanged
 
-void PerceptronDisplay::init(SimplePerceptron *sp)
+void ann_gui::PerceptronDisplay::init(SimplePerceptron *sp)
 {
 	this->sp = sp;
 	nucleo = new Soma();
@@ -117,7 +117,7 @@ void PerceptronDisplay::init(SimplePerceptron *sp)
 
 }//initPDisplay
 
-void PerceptronDisplay::updateWeightLines(vector<double> weights)
+void ann_gui::PerceptronDisplay::updateWeightLines(vector<double> weights)
 {
 	int wLines = (int)weights.size();
 	for(int i = 0; i < wLines; i++){
@@ -126,13 +126,13 @@ void PerceptronDisplay::updateWeightLines(vector<double> weights)
 
 }//updateWeightLines
 
-WeightEditProxy::WeightEditProxy(QGraphicsItem *parent) :
+ann_gui::WeightEditProxy::WeightEditProxy(QGraphicsItem *parent) :
 	QGraphicsProxyWidget(parent)
 {
 	init();
 }//WeightEdit
 
-void WeightEditProxy::setNodePosition(WeightEditProxy::NodePosition np)
+void ann_gui::WeightEditProxy::setNodePosition(WeightEditProxy::NodePosition np)
 {
 	switch(nodePosition = np){
 		case Left:
@@ -155,23 +155,23 @@ void WeightEditProxy::setNodePosition(WeightEditProxy::NodePosition np)
 
 }//setNodePosition
 
-WeightEditProxy::NodePosition WeightEditProxy::getNodePosition()
+ann_gui::WeightEditProxy::NodePosition ann_gui::WeightEditProxy::getNodePosition()
 {
 	return nodePosition;
 }//getNodePosition
 
-QPointF WeightEditProxy::getNodeCenter() const
+QPointF ann_gui::WeightEditProxy::getNodeCenter() const
 {
 	return mapToScene(QPointF(nodeRect.left() + nodeRect.width()/2, nodeRect.top() + nodeRect.height()/2));
 }//getNodeCenter
 
-void WeightEditProxy::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void ann_gui::WeightEditProxy::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	QGraphicsProxyWidget::paint(painter, option, widget);
 
 }//paint
 
-void WeightEditProxy::init()
+void ann_gui::WeightEditProxy::init()
 {
 	nodeDiameter = 6;
 
@@ -193,30 +193,30 @@ void WeightEditProxy::init()
 	//    setVisible(false);
 }//initWE
 
-Soma::Soma(QGraphicsItem *parent, QGraphicsScene *scene):
+ann_gui::Soma::Soma(QGraphicsItem *parent, QGraphicsScene *scene):
 	QGraphicsEllipseItem(parent)
 {
 	Q_UNUSED(scene);
 }//Soma
 
-Soma::Soma(const QRectF &rect, QGraphicsItem *parent, QGraphicsScene *scene):
+ann_gui::Soma::Soma(const QRectF &rect, QGraphicsItem *parent, QGraphicsScene *scene):
 	QGraphicsEllipseItem(rect, parent)
 {
 	Q_UNUSED(scene);
 }
 
-Soma::Soma(qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent, QGraphicsScene *scene):
+ann_gui::Soma::Soma(qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent, QGraphicsScene *scene):
 	QGraphicsEllipseItem(x, y, width, height, parent)
 {
 	Q_UNUSED(scene);
 }
 
-QPointF Soma::getCenter() const
+QPointF ann_gui::Soma::getCenter() const
 {
 	return mapToScene(QPointF(rect().left() + rect().width()/2, rect().top() + rect().height()/2));
 }
 
-void Soma::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void ann_gui::Soma::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	painter->drawLine(rect().left() + rect().width()/2, rect().top() + rect().height()/2, rect().left() + rect().width()/2, rect().top() + rect().height() + 30);
 	painter->drawPixmap(rect().left() + rect().width()/2 + 5, rect().top() + rect().height() + 20, 15, 22, QPixmap(":/imagenes/theta.png"));
@@ -239,7 +239,7 @@ void Soma::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
 }
 
-QRectF Soma::boundingRect() const
+QRectF ann_gui::Soma::boundingRect() const
 {
 	QPainterPath path;
 	path.addRect(QGraphicsEllipseItem::boundingRect());

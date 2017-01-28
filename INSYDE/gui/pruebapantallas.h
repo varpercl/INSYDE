@@ -21,7 +21,6 @@
 #include "../ann_gui/trainingsettable.h"
 
 #include "newprojectwizard.h"
-#include "binaryoutputelement.h"
 #include "view.h"
 #include "mainwindow.h"
 
@@ -30,6 +29,9 @@ using namespace core;
 namespace Ui {
 	class PruebaPantalla;
 }
+
+namespace gui
+{
 
 /*!
  * \brief PruebaPantalla brinda la posibilidad de visualizar todas las ventanas u objetos ejecutandolas solamente
@@ -96,5 +98,5 @@ class PruebaPantalla : public QWidget
 		View *visor;
 		Ui::PruebaPantalla *ui;
 };
-
+}
 #endif // PRUEBAPANTALLAS_H

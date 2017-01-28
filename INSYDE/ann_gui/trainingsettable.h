@@ -11,6 +11,9 @@
 
 using namespace ann_base;
 
+namespace ann_gui
+{
+
 /*!
  * \class
  *
@@ -166,5 +169,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT TrainingSetTable : public BasicTable
 
 		void connectTSSignals();
 };
-
+}
 #endif // TRAININGSETTABLE_H

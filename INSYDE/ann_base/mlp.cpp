@@ -342,7 +342,7 @@ void MultilayerPerceptron::setLayerSize(unsigned int layer, int size)
 	}
 
 	if(lastSize != layerWeights[layer].size()){
-		emit layerSizeChanged(layer, lastSize, (int)layerWeights[layer].size());
+		emit layerSizeChanged(layer, (int)lastSize, (int)layerWeights[layer].size());
 		emit layerSizeChanged(layer);
 	}
 	emit weightsChanged();

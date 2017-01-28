@@ -15,6 +15,9 @@ namespace Ui {
 	class SamplesDialog;
 }
 
+namespace ann_gui
+{
+
 /*!
  * \class
  *
@@ -44,5 +47,5 @@ class ANN_GUI_LIB_IMPORT_EXPORT SamplesDialog : public QDialog
 
 		void initDialog(MLPTrainingResult *tr);
 };
-
+}
 #endif // SAMPLESDIALOG_H

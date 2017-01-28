@@ -4,11 +4,13 @@
 #include <QtWidgets>
 
 #include "share_core_lib.h"
-#include "interfaces.h"
+#include "undo.h"
 #include "common.h"
 #include "definitions.h"
 #include "simulation.h"
 #include "imath.h"
+#include "iresizablef.h"
+#include "clipboard.h"
 
 
 namespace core{
@@ -16,14 +18,16 @@ namespace core{
 class Simulation;
 
 /*!
- * \class GraphicObject esta clase es la base para todos los objetos que necesitan ser representado en un sistema.
+ * \brief The GraphicObject class
+ *
+ * esta clase es la base para todos los objetos que necesitan ser representado en un sistema.
  *
  * Se encarga de dibujar un marco con los contactos necesarios para conectar dos o mas Objetos.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public ClipboardInterface, public ResizableF
+class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clipboard, public IResizableF
 {
 	public:
 		enum GraphicObjectTypes{
@@ -195,12 +199,11 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		QAction *getPropertiesAction() const;
 
 		/*!
-		 * \brief getXML Devuelve una transformacion de este objeto a un formato XML que es necesario para operaciones
-		 * basicas como almacenarlo en el portapapeles o guardarlo en un disco duro.
+		 * \brief Gets an XML string which contains all information about this object.
 		 *
-		 * TODO: documentar bien el formato
+		 * TODO: Format must be designed up.
 		 *
-		 * \return
+		 * \return A string containing all information of the current object.
 		 */
 		virtual QString getXML() const = 0;
 

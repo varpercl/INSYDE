@@ -14,6 +14,8 @@
 #include "../core/common.h"
 #include "movilagent.h"
 
+namespace ec_gui
+{
 class VisionSensor;
 class ShootingWeapon;
 
@@ -322,5 +324,5 @@ class EC_GUI_LIB_IMPORT_EXPORT Unit : public MovilAgent
 		  */
 		void checkAll(QPointF pt);
 };
-
+}
 #endif // UNIDAD_H

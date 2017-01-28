@@ -7,6 +7,8 @@
 #include "share_ec_gui.h"
 #include "ofensiveunit.h"
 
+namespace ec_gui
+{
 /**
   @class MeleeUnit
   @author Edixon Vargas
@@ -61,5 +63,5 @@ class EC_GUI_LIB_IMPORT_EXPORT MeleeUnit : public OfensiveUnit
 		  */
 		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 };
-
+}
 #endif // MELEEUNIT_H

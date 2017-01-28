@@ -1,37 +1,38 @@
 #include "view.h"
 
-View::View(QWidget *parent) :
+gui::View::View(QWidget *parent) :
 	DetailedWindow(parent)
 {
 	init();
 }
 
-View::~View()
+gui::View::~View()
 {
+
 }
 
-void View::setSimulationStatus(Status sta)
+void gui::View::setSimulationStatus(Status sta)
 {
 	QList<QGraphicsItem*> itms = getGraphicsDetailedView()->items();
-	Unit *un;
+	ec_gui::Unit *un;
 	switch(sta){
 		case Running:
 			foreach(QGraphicsItem *itm, itms){
-				if((un = dynamic_cast<Unit*>(itm)))
+				if((un = dynamic_cast<ec_gui::Unit*>(itm)))
 					un->setFlag(QGraphicsItem::ItemIsMovable, false);
 				un->run();
 			}
 			break;
 		case Paused:
 			foreach(QGraphicsItem *itm, itms){
-				if((un=dynamic_cast<Unit*>(itm)))
+				if((un=dynamic_cast<ec_gui::Unit*>(itm)))
 					un->setFlag(QGraphicsItem::ItemIsMovable, false);
 				un->stop();
 			}
 			break;
 		case Stopped:
 			foreach(QGraphicsItem *itm, itms){
-				if((un = dynamic_cast<Unit*>(itm))){
+				if((un = dynamic_cast<ec_gui::Unit*>(itm))){
 					un->setFlag(QGraphicsItem::ItemIsMovable);
 					un->clearPoints();
 				}
@@ -40,7 +41,7 @@ void View::setSimulationStatus(Status sta)
 	simulationStatus = sta;
 }
 
-Status View::getSimulationStatus()
+gui::Status gui::View::getSimulationStatus()
 {
 	return simulationStatus;
 }
@@ -49,7 +50,7 @@ int rectArea(QRect rect){
 	return rect.width() * rect.height();
 }
 
-void View::init()
+void gui::View::init()
 {
 	GraphicDetailedView *gdv = getGraphicsDetailedView();
 	setSimulationStatus(Stopped);

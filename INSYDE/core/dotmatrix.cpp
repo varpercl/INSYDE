@@ -346,17 +346,14 @@ void core::DotMatrix::propertyClick()
 	dmepd->show();
 }
 
-void core::DotMatrix::onClearClicked(bool checked)
+void core::DotMatrix::clear()
 {
-	(void) checked;
 	ptsList->clear();
 	update();
 }
 
-void core::DotMatrix::onFillClicked(bool checked)
+void core::DotMatrix::fill()
 {
-	(void)checked;
-
 	ptsList->clear();
 	for(int i = 0; i < rows; i++){
 		for(int j = 0; j < cols; j++){
@@ -474,8 +471,8 @@ void core::DotMatrix::init(int dotSize, int rows, int cols, DataFormat dt)
 	setDataType(dt);
 
 	connect(continuousDrawingAction, SIGNAL(triggered(bool)), SLOT(setEnableContinuousDrawing(bool)));
-	connect(clearAction, SIGNAL(triggered(bool)), SLOT(onClearClicked(bool)));
-	connect(fillAction, SIGNAL(triggered(bool)), SLOT(onFillClicked(bool)));
+	connect(clearAction, SIGNAL(triggered()), SLOT(clear()));
+	connect(fillAction, SIGNAL(triggered()), SLOT(fill()));
 	connect(eraserAction, SIGNAL(triggered(bool)), SLOT(setEnableEraserPen(bool)));
 }
 

@@ -1,18 +1,18 @@
 #include "anntrainingdialog.h"
 
-ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, QWidget *parent) :
+ann_gui::ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, QWidget *parent) :
 	BasicDialog(parent)
 {
 	init(mlp, ts, NULL, NULL);
 }
 
-ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, TrainingSet *vs, TrainingSet *testset, QWidget *parent):
+ann_gui::ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, TrainingSet *vs, TrainingSet *testset, QWidget *parent):
 	BasicDialog(parent)
 {
 	init(mlp, ts, vs, testset);
 }
 
-ANNTrainingDialog::ANNTrainingDialog(MLPObject *gmlp, QWidget *parent) :
+ann_gui::ANNTrainingDialog::ANNTrainingDialog(MLPObject *gmlp, QWidget *parent) :
 	BasicDialog(parent)
 {
 	init(gmlp->getMultilayerPerceptron(),
@@ -21,124 +21,124 @@ ANNTrainingDialog::ANNTrainingDialog(MLPObject *gmlp, QWidget *parent) :
 		 gmlp->getTestSet());
 }
 
-ANNTrainingDialog::~ANNTrainingDialog()
+ann_gui::ANNTrainingDialog::~ANNTrainingDialog()
 {
 	//TODO: 30/4/16 ~ANNTrainingDialog: implement
 }
 
-void ANNTrainingDialog::setUsingScrollArea(bool u)
+void ann_gui::ANNTrainingDialog::setUsingScrollArea(bool u)
 {
 	//TODO: must be implemented this and all functions regarding to fitting controlls to scroll area
 	usingScrollArea = u;
 }
 
-bool ANNTrainingDialog::getUsingScrollArea() const
+bool ann_gui::ANNTrainingDialog::getUsingScrollArea() const
 {
 	return usingScrollArea;
 }
 
-void ANNTrainingDialog::setTrainingSet(TrainingSet *ts)
+void ann_gui::ANNTrainingDialog::setTrainingSet(TrainingSet *ts)
 {
 	if(trainingSet != ts){
 		trainingSet = ts;
 	}
 }
 
-TrainingSet *ANNTrainingDialog::getTrainingSet() const
+TrainingSet *ann_gui::ANNTrainingDialog::getTrainingSet() const
 {
 	return trainingSet;
 }
 
-void ANNTrainingDialog::setValidationSet(TrainingSet *vs)
+void ann_gui::ANNTrainingDialog::setValidationSet(TrainingSet *vs)
 {
 	if(validationSet != vs){
 		validationSet = vs;
 	}
 }
 
-TrainingSet *ANNTrainingDialog::getValidationSet() const
+TrainingSet *ann_gui::ANNTrainingDialog::getValidationSet() const
 {
 	return validationSet;
 }
 
-void ANNTrainingDialog::setTestSet(TrainingSet *ts)
+void ann_gui::ANNTrainingDialog::setTestSet(TrainingSet *ts)
 {
 	if (testSet != ts) {
 		testSet = ts;
 	}
 }
 
-TrainingSet *ANNTrainingDialog::getTestSet() const
+TrainingSet *ann_gui::ANNTrainingDialog::getTestSet() const
 {
 	return testSet;
 }
 
-void ANNTrainingDialog::setArtificialNeuralNetwork(MultilayerPerceptron *mlp)
+void ann_gui::ANNTrainingDialog::setArtificialNeuralNetwork(MultilayerPerceptron *mlp)
 {
 	this->mlp = mlp;
 }
 
-MultilayerPerceptron *ANNTrainingDialog::getMultilayerPerceptron() const
+MultilayerPerceptron *ann_gui::ANNTrainingDialog::getMultilayerPerceptron() const
 {
 	return mlp;
 }
 
-void ANNTrainingDialog::saveClick()
+void ann_gui::ANNTrainingDialog::saveClick()
 {
 
 }
 
-void ANNTrainingDialog::setCanEditANNType(bool b)
+void ann_gui::ANNTrainingDialog::setCanEditANNType(bool b)
 {
 	canEditANN = b;
 }
 
-bool ANNTrainingDialog::getCanEditANNType() const
+bool ann_gui::ANNTrainingDialog::getCanEditANNType() const
 {
 	return canEditANN;
 }
 
-void ANNTrainingDialog::setCanEditInputSize(bool b)
+void ann_gui::ANNTrainingDialog::setCanEditInputSize(bool b)
 {
 	canEditInSize = b;
 }
 
-bool ANNTrainingDialog::getCanEditInputSize() const
+bool ann_gui::ANNTrainingDialog::getCanEditInputSize() const
 {
 	return canEditInSize;
 }
 
-void ANNTrainingDialog::setCanEditOutputSize(bool b)
+void ann_gui::ANNTrainingDialog::setCanEditOutputSize(bool b)
 {
 	canEditOutSize = b;
 }
 
-bool ANNTrainingDialog::getCanEditOutputSize() const
+bool ann_gui::ANNTrainingDialog::getCanEditOutputSize() const
 {
 	return canEditOutSize;
 }
 
-void ANNTrainingDialog::setEnableMultipleTraining(bool b)
+void ann_gui::ANNTrainingDialog::setEnableMultipleTraining(bool b)
 {
 	actionMultipleTraining->setEnabled(b);
 }
 
-bool ANNTrainingDialog::getEnableMultipleTraining() const
+bool ann_gui::ANNTrainingDialog::getEnableMultipleTraining() const
 {
 	return actionMultipleTraining->isEnabled();
 }
 
-void ANNTrainingDialog::closeEvent(QCloseEvent *)
+void ann_gui::ANNTrainingDialog::closeEvent(QCloseEvent *)
 {
 	mlp->stopTraining();
 }
 
-void ANNTrainingDialog::onOuputSizeChanged()
+void ann_gui::ANNTrainingDialog::onOuputSizeChanged()
 {
 	lisbOutputs->setValue(mlp->getOutputsSize());
 }
 
-void ANNTrainingDialog::onTrainingFinished(MLPTrainingResult tres)
+void ann_gui::ANNTrainingDialog::onTrainingFinished(MLPTrainingResult tres)
 {
 	(void)tres;
 	switch(currentTrainingStatus){
@@ -162,7 +162,7 @@ void ANNTrainingDialog::onTrainingFinished(MLPTrainingResult tres)
 
 }
 
-void ANNTrainingDialog::multipleTrainingResult(MLPTrainingResult *tres)
+void ann_gui::ANNTrainingDialog::multipleTrainingResult(MLPTrainingResult *tres)
 {
 	QString wnefp = multipleReportPath;
 	wnefp.truncate(multipleReportPath.lastIndexOf('.'));
@@ -176,7 +176,7 @@ void ANNTrainingDialog::multipleTrainingResult(MLPTrainingResult *tres)
 	createFile(wnefp + QString::number(fileIndex) + ext, tres, tres->getMSESize());
 }
 
-void ANNTrainingDialog::onBtnEditTrainingSetClicked()
+void ann_gui::ANNTrainingDialog::onBtnEditTrainingSetClicked()
 {
 	trainingSetDialog = new TrainingSetDialog(trainingSet);
 
@@ -191,7 +191,7 @@ void ANNTrainingDialog::onBtnEditTrainingSetClicked()
 	}
 }
 
-void ANNTrainingDialog::onTrainingAlgorithmChanged(int index)
+void ann_gui::ANNTrainingDialog::onTrainingAlgorithmChanged(int index)
 {
 	switch(index){
 		case 0:
@@ -206,7 +206,7 @@ void ANNTrainingDialog::onTrainingAlgorithmChanged(int index)
 	}
 }
 
-void ANNTrainingDialog::onTrasnferFunctionChanged(int index)
+void ann_gui::ANNTrainingDialog::onTrasnferFunctionChanged(int index)
 {
 	switch(index){
 		case 0:
@@ -218,7 +218,7 @@ void ANNTrainingDialog::onTrasnferFunctionChanged(int index)
 	}
 }
 
-void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, TrainingSet *vs, TrainingSet *testS)
+void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, TrainingSet *vs, TrainingSet *testS)
 {
 	QSpinBox
 			*sbInValue,
@@ -667,7 +667,7 @@ void ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *ts, Traini
 	connect(ldsbRndTo->getDoubleSpinBox(), SIGNAL(valueChanged(double)), SLOT(onRndToValueChanged(double)));
 }
 
-void ANNTrainingDialog::createFile(QString path, MLPTrainingResult *tr, int nsamples){
+void ann_gui::ANNTrainingDialog::createFile(QString path, MLPTrainingResult *tr, int nsamples){
 	QFile *f = new QFile(path);
 	if (f->open(QFile::ReadWrite)) { // file opened successfully
 		f->write("", qstrlen(""));
@@ -709,7 +709,7 @@ void ANNTrainingDialog::createFile(QString path, MLPTrainingResult *tr, int nsam
 	delete f;
 }
 
-void ANNTrainingDialog::disableAllControls()
+void ann_gui::ANNTrainingDialog::disableAllControls()
 {
 	chkSA->setEnabled(false);
 	cbStopCondition->setEnabled(false);
@@ -735,7 +735,7 @@ void ANNTrainingDialog::disableAllControls()
 	wSimulatedAnnealing->setEnabled(false);
 }
 
-void ANNTrainingDialog::setBPEnabledControls(bool enabled)
+void ann_gui::ANNTrainingDialog::setBPEnabledControls(bool enabled)
 {
 	cbStopCondition->setEnabled(enabled);
 	chkSA->setEnabled(enabled);
@@ -766,13 +766,13 @@ void ANNTrainingDialog::setBPEnabledControls(bool enabled)
 	ldsbSlope->setEnabled(enabled);
 }
 
-void ANNTrainingDialog::updateSAControls()
+void ann_gui::ANNTrainingDialog::updateSAControls()
 {
 	wSimulatedAnnealing->setVisible(chkSA->isChecked());
 	wSimulatedAnnealing->setEnabled(chkSA->isChecked());
 }
 
-void ANNTrainingDialog::updateActionClearChart()
+void ann_gui::ANNTrainingDialog::updateActionClearChart()
 {
 	if(tres->rowCount() > 0 && !mlp->isTraining()){
 		actionClearChart->setEnabled(true);
@@ -782,7 +782,7 @@ void ANNTrainingDialog::updateActionClearChart()
 
 }
 
-bool ANNTrainingDialog::isValidTrainingSet(TrainingSet *ts)
+bool ann_gui::ANNTrainingDialog::isValidTrainingSet(TrainingSet *ts)
 {
 	//FIXME: 30/4/16 isValidTrainingSet: not working, check it
 	if(ts->getInputsSize() == mlp->getInputsSize() &&
@@ -793,7 +793,7 @@ bool ANNTrainingDialog::isValidTrainingSet(TrainingSet *ts)
 	return false;
 }
 
-void ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingStatus ts)
+void ann_gui::ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingStatus ts)
 {
 	switch(ts){
 		case ANNTrainingDialog::Finished:
@@ -900,7 +900,7 @@ void ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingStatus ts)
 	}
 }
 
-void ANNTrainingDialog::updateControls(ArtificialNeuralNetwork *ann)
+void ann_gui::ANNTrainingDialog::updateControls(ArtificialNeuralNetwork *ann)
 {
 	switch(ann->getType()){
 		case ann_base::ArtificialNeuralNetwork::NoType:
@@ -919,7 +919,7 @@ void ANNTrainingDialog::updateControls(ArtificialNeuralNetwork *ann)
 	}
 }
 
-void ANNTrainingDialog::onTrainClicked()
+void ann_gui::ANNTrainingDialog::onTrainClicked()
 {
 	//Start validation process
 	QMessageBox message;
@@ -972,7 +972,7 @@ void ANNTrainingDialog::onTrainClicked()
 	}
 }
 
-void ANNTrainingDialog::onStopTrainingClicked()
+void ann_gui::ANNTrainingDialog::onStopTrainingClicked()
 {
 	switch(currentTrainingStatus){
 		case ANNTrainingDialog::Running:
@@ -991,7 +991,7 @@ void ANNTrainingDialog::onStopTrainingClicked()
 	}
 }
 
-void ANNTrainingDialog::onClearChartClicked()
+void ann_gui::ANNTrainingDialog::onClearChartClicked()
 {
 	if(tres->rowCount() != 0){
 		tres->clear();
@@ -999,18 +999,18 @@ void ANNTrainingDialog::onClearChartClicked()
 	}
 }
 
-void ANNTrainingDialog::onCancelClicked()
+void ann_gui::ANNTrainingDialog::onCancelClicked()
 {
 	//WARNING: onCancelClicked must be validated to finish training before close
 	close();
 }
 
-void ANNTrainingDialog::onBtnRandomizeClicked()
+void ann_gui::ANNTrainingDialog::onBtnRandomizeClicked()
 {
 	mlp->randomizeWeights(ldsbRndFrom->getValue(), ldsbRndTo->getValue());
 }
 
-void ANNTrainingDialog::onEditWeightsClicked()
+void ann_gui::ANNTrainingDialog::onEditWeightsClicked()
 {
 	weightEditor = new WeightEditorDialog(mlp, this);
 
@@ -1023,7 +1023,7 @@ void ANNTrainingDialog::onEditWeightsClicked()
 	weightEditor->show();
 }
 
-void ANNTrainingDialog::updateStatusLabels(MLPTrainingResult tres)
+void ann_gui::ANNTrainingDialog::updateStatusLabels(MLPTrainingResult tres)
 {
 	if(tres.isEmpty()){
 		xAxis->setTitleText("Epocas: 0");
@@ -1037,24 +1037,24 @@ void ANNTrainingDialog::updateStatusLabels(MLPTrainingResult tres)
 	}
 }
 
-void ANNTrainingDialog::generateReport()
+void ann_gui::ANNTrainingDialog::generateReport()
 {
 	//TODO: implement
 }
 
-void ANNTrainingDialog::onANNInputChanged(int value)
+void ann_gui::ANNTrainingDialog::onANNInputChanged(int value)
 {
 	mlp->setInputSize(value);
 	mlp->randomizeWeights(ldsbRndFrom->getValue(), ldsbRndTo->getValue());
 }
 
-void ANNTrainingDialog::onANNOutputChanged(int value)
+void ann_gui::ANNTrainingDialog::onANNOutputChanged(int value)
 {
 	mlp->setOutputSize(value);
 	mlp->randomizeWeights(ldsbRndFrom->getValue(), ldsbRndTo->getValue());
 }
 
-void ANNTrainingDialog::onAnnTypeSelectionChanged(int index)
+void ann_gui::ANNTrainingDialog::onAnnTypeSelectionChanged(int index)
 {
 	switch(index){
 		case 0: //"Adaline"
@@ -1079,17 +1079,17 @@ void ANNTrainingDialog::onAnnTypeSelectionChanged(int index)
 	}
 }
 
-void ANNTrainingDialog::onRndFromValueChanged(double value)
+void ann_gui::ANNTrainingDialog::onRndFromValueChanged(double value)
 {
 	mlp->setDefaultRandomMinimum(value);
 }
 
-void ANNTrainingDialog::onRndToValueChanged(double value)
+void ann_gui::ANNTrainingDialog::onRndToValueChanged(double value)
 {
 	mlp->setDefaultRandomMaximum(value);
 }
 
-void ANNTrainingDialog::exportData()
+void ann_gui::ANNTrainingDialog::exportData()
 {
 	if(!tres->isEmpty()){
 		QString path = QFileDialog::getSaveFileName(
@@ -1115,7 +1115,7 @@ void ANNTrainingDialog::exportData()
 	//	saveFile->setEnabled(true);
 }
 
-void ANNTrainingDialog::onBtnEditValidationTestClicked()
+void ann_gui::ANNTrainingDialog::onBtnEditValidationTestClicked()
 {
 	if(validationSet != NULL){
 		validationSetDialog = new TrainingSetDialog(validationSet);
@@ -1128,7 +1128,7 @@ void ANNTrainingDialog::onBtnEditValidationTestClicked()
 	delete validationSetDialog;
 }
 
-void ANNTrainingDialog::onBtnEditTestSetClicked()
+void ann_gui::ANNTrainingDialog::onBtnEditTestSetClicked()
 {
 	if(testSet != NULL){
 		testSetDialog = new TrainingSetDialog(testSet);
@@ -1141,7 +1141,7 @@ void ANNTrainingDialog::onBtnEditTestSetClicked()
 	delete testSet;
 }
 
-void ANNTrainingDialog::onBtnAddLayerClicked()
+void ann_gui::ANNTrainingDialog::onBtnAddLayerClicked()
 {
 	bool ok = false;
 	int val = QInputDialog::getInt(this,
@@ -1162,7 +1162,7 @@ void ANNTrainingDialog::onBtnAddLayerClicked()
 	}
 }
 
-void ANNTrainingDialog::onDeleteLayerClicked()
+void ann_gui::ANNTrainingDialog::onDeleteLayerClicked()
 {
 	QItemSelectionModel *selection = tblLayers->selectionModel();
 	QModelIndexList selList = selection->selectedIndexes();
@@ -1179,7 +1179,7 @@ void ANNTrainingDialog::onDeleteLayerClicked()
 	}
 }
 
-void ANNTrainingDialog::onMultipleTrainingClicked()
+void ann_gui::ANNTrainingDialog::onMultipleTrainingClicked()
 {
 	bool ok = false;
 
@@ -1238,7 +1238,7 @@ void ANNTrainingDialog::onMultipleTrainingClicked()
 	}
 }
 
-void ANNTrainingDialog::onCbStopConditionCurrentIndexChanged(int index)
+void ann_gui::ANNTrainingDialog::onCbStopConditionCurrentIndexChanged(int index)
 {
 
 	ldsbMinError->setEnabled(true);
@@ -1264,7 +1264,7 @@ void ANNTrainingDialog::onCbStopConditionCurrentIndexChanged(int index)
 	}
 }
 
-void ANNTrainingDialog::onChkSimAnnToggled(bool checked)
+void ann_gui::ANNTrainingDialog::onChkSimAnnToggled(bool checked)
 {
 	wSimulatedAnnealing->setVisible(checked);
 	wSimulatedAnnealing->setEnabled(checked);

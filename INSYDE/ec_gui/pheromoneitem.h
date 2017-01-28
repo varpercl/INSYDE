@@ -15,6 +15,8 @@
 
 #include "share_ec_gui.h"
 
+namespace ec_gui
+{
 /**
   @class PheromoneItem
   @author Edixon Vargas
@@ -241,5 +243,5 @@ class EC_GUI_LIB_IMPORT_EXPORT PheromoneItem : public QGraphicsObject
 		  */
 		void pheromoneHasDeleted(PheromoneItem *pi);
 };
-
+}
 #endif // PHEROMONEITEM_H
