@@ -75,7 +75,8 @@ HEADERS += \
     iresizable.h \
     iioobject.h \
     clipboard.h \
-    undo.h
+    undo.h \
+    documentation.h
 
 SOURCES += \
 	imath.cpp\

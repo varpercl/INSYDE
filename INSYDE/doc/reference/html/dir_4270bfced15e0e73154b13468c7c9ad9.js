@@ -51,6 +51,7 @@ var dir_4270bfced15e0e73154b13468c7c9ad9 =
     [ "detailedwindow.h", "df/d67/detailedwindow_8h.html", [
       [ "DetailedWindow", "dd/d0d/classcore_1_1_detailed_window.html", "dd/d0d/classcore_1_1_detailed_window" ]
     ] ],
+    [ "documentation.h", "d9/d36/documentation_8h.html", null ],
     [ "dotmatrix.cpp", "dc/dd1/dotmatrix_8cpp.html", null ],
     [ "dotmatrix.h", "d3/d6b/dotmatrix_8h.html", "d3/d6b/dotmatrix_8h" ],
     [ "dotmatrixdetailedwindow.cpp", "d9/d3c/dotmatrixdetailedwindow_8cpp.html", null ],

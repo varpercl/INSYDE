@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('dd/d0d/classcore_1_1_detailed_window.h
 </div><!--header-->
 <div class="contents">
 
-<p>The ElementDetailedWindow class.  
+<p>The <a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html" title="The DetailedWindow class is a container that allows users to show a detailed view of any GraphicObjec...">DetailedWindow</a> class is a container that allows users to show a detailed view of any <a class="el" href="../../db/dc8/classcore_1_1_graphic_object.html" title="The GraphicObject class. ">GraphicObject</a>. When users clicks on context menu's Open action a window will be opened.  
  <a href="../../dd/d0d/classcore_1_1_detailed_window.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../df/d67/detailedwindow_8h_source.html">detailedwindow.h</a>&gt;</code></p>
@@ -112,42 +112,46 @@ Collaboration diagram for core::DetailedWindow:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a42e96a2f97ffedaae941e92a88e4b49b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html#a42e96a2f97ffedaae941e92a88e4b49b">DetailedWindow</a> (QWidget *parent=0)</td></tr>
+<tr class="memdesc:a42e96a2f97ffedaae941e92a88e4b49b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a windows.  <a href="#a42e96a2f97ffedaae941e92a88e4b49b">More...</a><br /></td></tr>
 <tr class="separator:a42e96a2f97ffedaae941e92a88e4b49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a783f778296101e7625f1c2cfe96c3a6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html#a783f778296101e7625f1c2cfe96c3a6a">~DetailedWindow</a> ()</td></tr>
 <tr class="separator:a783f778296101e7625f1c2cfe96c3a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af587adb4f1dbebd84fca90b3254f2424"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html#af587adb4f1dbebd84fca90b3254f2424">setVisibleToolbar</a> (bool vtb)</td></tr>
+<tr class="memdesc:af587adb4f1dbebd84fca90b3254f2424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establish if wants to see a tool bar. This is important when showing some GraphicsObject because they have different properties.  <a href="#af587adb4f1dbebd84fca90b3254f2424">More...</a><br /></td></tr>
 <tr class="separator:af587adb4f1dbebd84fca90b3254f2424"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada481e2afeba92cd40cd1275a2fc97eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html#ada481e2afeba92cd40cd1275a2fc97eb">setEnableZooming</a> (bool curZoom)</td></tr>
-<tr class="memdesc:ada481e2afeba92cd40cd1275a2fc97eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">setEnableZooming allows user zooming over represented object.  <a href="#ada481e2afeba92cd40cd1275a2fc97eb">More...</a><br /></td></tr>
+<tr class="memdesc:ada481e2afeba92cd40cd1275a2fc97eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows user zooming over represented object. Setting <code>curZoom</code> to <code>true</code> will make a zoom control to appear.  <a href="#ada481e2afeba92cd40cd1275a2fc97eb">More...</a><br /></td></tr>
 <tr class="separator:ada481e2afeba92cd40cd1275a2fc97eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18e5d2005ea72edd85e68b7b1d2e0f4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html#a18e5d2005ea72edd85e68b7b1d2e0f4f">getEnableZooming</a> () const</td></tr>
-<tr class="memdesc:a18e5d2005ea72edd85e68b7b1d2e0f4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">getEnableZooming  <a href="#a18e5d2005ea72edd85e68b7b1d2e0f4f">More...</a><br /></td></tr>
+<tr class="memdesc:a18e5d2005ea72edd85e68b7b1d2e0f4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the status of the zooming control.  <a href="#a18e5d2005ea72edd85e68b7b1d2e0f4f">More...</a><br /></td></tr>
 <tr class="separator:a18e5d2005ea72edd85e68b7b1d2e0f4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea3f85983efb257831efb6b6ff72554d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html#aea3f85983efb257831efb6b6ff72554d">setGraphicDetailedView</a> (<a class="el" href="../../db/de1/classcore_1_1_graphic_detailed_view.html">GraphicDetailedView</a> *gdv)</td></tr>
-<tr class="memdesc:aea3f85983efb257831efb6b6ff72554d"><td class="mdescLeft">&#160;</td><td class="mdescRight">setGraphicView  <a href="#aea3f85983efb257831efb6b6ff72554d">More...</a><br /></td></tr>
+<tr class="memdesc:aea3f85983efb257831efb6b6ff72554d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current graphic view inside this widget. The <code>gdv</code> param must not be null.  <a href="#aea3f85983efb257831efb6b6ff72554d">More...</a><br /></td></tr>
 <tr class="separator:aea3f85983efb257831efb6b6ff72554d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab96a715ff9e513ca1a7f6ac95b7f2089"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/de1/classcore_1_1_graphic_detailed_view.html">GraphicDetailedView</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html#ab96a715ff9e513ca1a7f6ac95b7f2089">getGraphicsDetailedView</a> () const</td></tr>
-<tr class="memdesc:ab96a715ff9e513ca1a7f6ac95b7f2089"><td class="mdescLeft">&#160;</td><td class="mdescRight">getGraphicsView  <a href="#ab96a715ff9e513ca1a7f6ac95b7f2089">More...</a><br /></td></tr>
+<tr class="memdesc:ab96a715ff9e513ca1a7f6ac95b7f2089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a pointer tu the current <a class="el" href="../../db/de1/classcore_1_1_graphic_detailed_view.html">GraphicDetailedView</a>.  <a href="#ab96a715ff9e513ca1a7f6ac95b7f2089">More...</a><br /></td></tr>
 <tr class="separator:ab96a715ff9e513ca1a7f6ac95b7f2089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abed9c7782675e3cc334c751c8cf9828d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html#abed9c7782675e3cc334c751c8cf9828d">setToolbar</a> (QToolBar *tb)</td></tr>
-<tr class="memdesc:abed9c7782675e3cc334c751c8cf9828d"><td class="mdescLeft">&#160;</td><td class="mdescRight">setToolbar  <a href="#abed9c7782675e3cc334c751c8cf9828d">More...</a><br /></td></tr>
+<tr class="memdesc:abed9c7782675e3cc334c751c8cf9828d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new toolbar to this widget. By default when constructed this class has its own toolbar.  <a href="#abed9c7782675e3cc334c751c8cf9828d">More...</a><br /></td></tr>
 <tr class="separator:abed9c7782675e3cc334c751c8cf9828d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6aff082b6ca061bde3ff2cfc498db7a"><td class="memItemLeft" align="right" valign="top">QToolBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html#ac6aff082b6ca061bde3ff2cfc498db7a">getToolbar</a> ()</td></tr>
-<tr class="memdesc:ac6aff082b6ca061bde3ff2cfc498db7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">getToolbar  <a href="#ac6aff082b6ca061bde3ff2cfc498db7a">More...</a><br /></td></tr>
+<tr class="memdesc:ac6aff082b6ca061bde3ff2cfc498db7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the pointer to the current toolbar.  <a href="#ac6aff082b6ca061bde3ff2cfc498db7a">More...</a><br /></td></tr>
 <tr class="separator:ac6aff082b6ca061bde3ff2cfc498db7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-slots"></a>
 Protected Slots</h2></td></tr>
 <tr class="memitem:a6036146d3eea8bae5becaaa768a8ed8a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html#a6036146d3eea8bae5becaaa768a8ed8a">save</a> ()</td></tr>
-<tr class="memdesc:a6036146d3eea8bae5becaaa768a8ed8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">save  <a href="#a6036146d3eea8bae5becaaa768a8ed8a">More...</a><br /></td></tr>
+<tr class="memdesc:a6036146d3eea8bae5becaaa768a8ed8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the current status of this <a class="el" href="../../db/de1/classcore_1_1_graphic_detailed_view.html">GraphicDetailedView</a>. This function is virtual, so must be reimplemented in the derived classes.  <a href="#a6036146d3eea8bae5becaaa768a8ed8a">More...</a><br /></td></tr>
 <tr class="separator:a6036146d3eea8bae5becaaa768a8ed8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The ElementDetailedWindow class. </p>
+<div class="textblock"><p>The <a class="el" href="../../dd/d0d/classcore_1_1_detailed_window.html" title="The DetailedWindow class is a container that allows users to show a detailed view of any GraphicObjec...">DetailedWindow</a> class is a container that allows users to show a detailed view of any <a class="el" href="../../db/dc8/classcore_1_1_graphic_object.html" title="The GraphicObject class. ">GraphicObject</a>. When users clicks on context menu's Open action a window will be opened. </p>
+<p>Also this class is used when wants to show detailed views inside TrainingSetDialog.</p>
+<p>TODO: This class should allow to set a <a class="el" href="../../db/dc8/classcore_1_1_graphic_object.html" title="The GraphicObject class. ">GraphicObject</a> at any time.</p>
 <dl class="section author"><dt>Author</dt><dd>Edixon Vargas <a href="#" onclick="location.href='mai'+'lto:'+'ing'+'ed'+'ixo'+'nv'+'arg'+'as'+'@gm'+'ai'+'l.c'+'om'; return false;">inged<span style="display: none;">.nosp@m.</span>ixon<span style="display: none;">.nosp@m.</span>varga<span style="display: none;">.nosp@m.</span>s@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>02/02/2015 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d67/detailedwindow_8h_source.html#l00021">21</a> of file <a class="el" href="../../df/d67/detailedwindow_8h_source.html">detailedwindow.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d67/detailedwindow_8h_source.html#l00026">26</a> of file <a class="el" href="../../df/d67/detailedwindow_8h_source.html">detailedwindow.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a42e96a2f97ffedaae941e92a88e4b49b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a42e96a2f97ffedaae941e92a88e4b49b">&#9670;&nbsp;</a></span>DetailedWindow()</h2>
@@ -172,6 +176,14 @@ Protected Slots</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Builds a windows. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d09/detailedwindow_8cpp_source.html#l00004">4</a> of file <a class="el" href="../../d3/d09/detailedwindow_8cpp_source.html">detailedwindow.cpp</a>.</p>
 
@@ -212,8 +224,8 @@ Protected Slots</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>getEnableZooming </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Get the status of the zooming control. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the zooming control is shown. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d09/detailedwindow_8cpp_source.html#l00039">39</a> of file <a class="el" href="../../d3/d09/detailedwindow_8cpp_source.html">detailedwindow.cpp</a>.</p>
 
@@ -234,8 +246,8 @@ Protected Slots</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>getGraphicsView </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Gets a pointer tu the current <a class="el" href="../../db/de1/classcore_1_1_graphic_detailed_view.html">GraphicDetailedView</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../db/de1/classcore_1_1_graphic_detailed_view.html">GraphicDetailedView</a> pointer. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d09/detailedwindow_8cpp_source.html#l00063">63</a> of file <a class="el" href="../../d3/d09/detailedwindow_8cpp_source.html">detailedwindow.cpp</a>.</p>
 
@@ -256,7 +268,7 @@ Protected Slots</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>getToolbar </p>
+<p>Gets the pointer to the current toolbar. </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d09/detailedwindow_8cpp_source.html#l00049">49</a> of file <a class="el" href="../../d3/d09/detailedwindow_8cpp_source.html">detailedwindow.cpp</a>.</p>
@@ -286,9 +298,9 @@ Protected Slots</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>save </p>
+<p>Save the current status of this <a class="el" href="../../db/de1/classcore_1_1_graphic_detailed_view.html">GraphicDetailedView</a>. This function is virtual, so must be reimplemented in the derived classes. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d67/detailedwindow_8h_source.html#l00072">72</a> of file <a class="el" href="../../df/d67/detailedwindow_8h_source.html">detailedwindow.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d67/detailedwindow_8h_source.html#l00103">103</a> of file <a class="el" href="../../df/d67/detailedwindow_8h_source.html">detailedwindow.h</a>.</p>
 
 </div>
 </div>
@@ -308,10 +320,10 @@ Protected Slots</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>setEnableZooming allows user zooming over represented object. </p>
+<p>Allows user zooming over represented object. Setting <code>curZoom</code> to <code>true</code> will make a zoom control to appear. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">zoom</td><td></td></tr>
+    <tr><td class="paramname">zoom</td><td>True if wants to have zoom control. </td></tr>
   </table>
   </dd>
 </dl>
@@ -336,10 +348,11 @@ Protected Slots</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>setGraphicView </p>
+<p>Sets the current graphic view inside this widget. The <code>gdv</code> param must not be null. </p>
+<dl class="section note"><dt>Note</dt><dd>Setting a new <a class="el" href="../../db/de1/classcore_1_1_graphic_detailed_view.html">GraphicDetailedView</a> will make the last one to be hangling. So the user is responsible to manage memory.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gv</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">gdv</td><td>An instance of a <a class="el" href="../../db/de1/classcore_1_1_graphic_detailed_view.html">GraphicDetailedView</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -364,10 +377,11 @@ Protected Slots</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>setToolbar </p>
+<p>Sets a new toolbar to this widget. By default when constructed this class has its own toolbar. </p>
+<dl class="section note"><dt>Note</dt><dd>User is responsible for freeing memory when the setting a new toolbar because the current will become to a hangling pointer.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tb</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tb</td><td>A pointer to the new toolbar. </td></tr>
   </table>
   </dd>
 </dl>
@@ -391,6 +405,14 @@ Protected Slots</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Establish if wants to see a tool bar. This is important when showing some GraphicsObject because they have different properties. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vtb</td><td>True if want to show the toolbar. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d09/detailedwindow_8cpp_source.html#l00021">21</a> of file <a class="el" href="../../d3/d09/detailedwindow_8cpp_source.html">detailedwindow.cpp</a>.</p>
 

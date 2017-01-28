@@ -143,29 +143,16 @@ class ACOSolver
 		  */
 		long int compute_tour_length( long int *t );
 
-		/**
-		  Devuelve un numero aleatorio que esta distribuido uniformemente entre 0 y 1
-
-		  @param long *idum Puntero a la variable que contiene la semilla actual
-		  */
 		double ran01( long *idum );
 
-		/**
-		  Selecciona para una hormiga la cuidad con un maximo valor de informacion heuristica
-
-		  @param Ant *a Puntero a la hormiga actual
-		  @param long phase Fase actual de la construccion de la ruta
-
-		  */
 		void neighbour_choose_best_next( Ant *a, long int phase );
 
-		/**
-		  Selecciona el proximo vertice para una hormiga @code{a} con el maximo valor
-		  de informacion heuristica
-
-		  @param Ant *a Hormiga actual
-		  @param long phase Fase actual de construccion
-		  */
+		/*!
+		 * \brief Select the best next vertice for the current ant.
+		 *
+		 * \param[in] a A pointer to the current ant.
+		 * \param phase
+		 */
 		void choose_best_next( Ant *a, long int phase );
 
 		void start_timers(void);

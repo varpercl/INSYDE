@@ -1,0 +1,4 @@
+#ifndef DOCUMENTATION_H
+#define DOCUMENTATION_H
+
+#endif // DOCUMENTATION_H

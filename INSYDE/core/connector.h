@@ -50,7 +50,6 @@ class CORE_LIB_IMPORT_EXPORT Connector : public GraphicObject
 		 */
 		int type() const override;
 
-
 		QSizeF getSize() const override;
 		double getWidth() const override;
 		double getHeight() const override;
@@ -87,7 +86,7 @@ class CORE_LIB_IMPORT_EXPORT Connector : public GraphicObject
 
 		/*!
 		 * \brief The CollidingResult struct involves a determined line and the current points it is intersecting at.
-		 * This members means \c line intersects \i n \c objects  at determined \c points  (each point belongs to
+		 * This members means \c line intersects \c n  objects  at determined \c points  (each point belongs to
 		 * \c line)
 		 */
 		struct CollidingResult{
@@ -99,12 +98,6 @@ class CORE_LIB_IMPORT_EXPORT Connector : public GraphicObject
 		};
 
 		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
-
-		/*!
-		 * \brief hoverMoveEvent
-		 * \param event
-		 */
-//		void hoverMoveEvent(QGraphicsSceneHoverEvent *event) override;
 
 		bool eventFilter(QObject *sender, QEvent *event) override;
 

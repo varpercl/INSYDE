@@ -199,12 +199,11 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		QAction *getPropertiesAction() const;
 
 		/*!
-		 * \brief getXML Devuelve una transformacion de este objeto a un formato XML que es necesario para operaciones
-		 * basicas como almacenarlo en el portapapeles o guardarlo en un disco duro.
+		 * \brief Gets an XML string which contains all information about this object.
 		 *
-		 * TODO: documentar bien el formato
+		 * TODO: Format must be designed up.
 		 *
-		 * \return
+		 * \return A string containing all information of the current object.
 		 */
 		virtual QString getXML() const = 0;
 
