@@ -5,7 +5,7 @@
 
 #include "share_core_lib.h"
 #include "common.h"
-#include "graphiccursorelement.h"
+#include "cursor.h"
 #include "imagepropertydialog.h"
 #include "dotmatrix.h"
 #include "graphicobject.h"
@@ -14,7 +14,10 @@
 namespace core{
 
 /*!
- * \brief The GraphicImageElement class
+ * \brief The Image class is a speciallized GraphicObject which is capable
+ * to load and draw images from a local resource.
+ *
+ * TODO: Allow remote resources.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
@@ -24,26 +27,30 @@ class CORE_LIB_IMPORT_EXPORT Image : public GraphicObject
 	public:
 
 		/*!
-		 * \brief Image
+		 * \brief An empty Image object.
 		 */
 		explicit Image();
 
 		/*!
-		 * \brief Image
-		 * \param img
+		 * \brief Builds an Image object with the associated \p img.
+		 * \param img The associated image.
 		 */
 		explicit Image(QImage *img);
 
 		/*!
-		 * \brief Image
-		 * \param imgpath
+		 * \brief Builds a Image object which will load the \p imgpath.
+		 *
+		 * TODO: must validate if \p imgpath is available.
+		 *
+		 * \param imgpath The path to be evaluated when load the image.
 		 */
 		explicit Image(const QString &imgpath);
 
 		~Image();
 
 		/*!
-		 * \brief setImage Sets a new image. This method doesn't change addres of image is pointing to, it only changes
+		 * \brief Sets a new image.
+		 * \note This method doesn't change addres of image is pointing to, it only changes
 		 * the content of current image, if you want to change image pointer call setImage(QImage*) instead.
 		 *
 		 * \param path
@@ -51,92 +58,104 @@ class CORE_LIB_IMPORT_EXPORT Image : public GraphicObject
 		void setImage(const QString &path);
 
 		/*!
-		 * \brief setImage
-		 * \param image
+		 * \brief Sets a new QImage object \p image which will store the image information of any loaded resource.
+		 *
+		 * \note This method sets a new pointer. User is responsible to manage hangling pointers.
+		 *
+		 * \param[in] image The new image.
 		 */
 		void setImage(QImage *image);
 
 		/*!
-		 * \brief getImage
-		 * \return
+		 * \brief Returns the pointer to the current QImage object.
+		 * \return A pointer to the current QImage.
 		 */
 		QImage *getImage() const;
 
 		/*!
-		 * \brief setInputElement
-		 * \param ge
+		 * \see GraphicObject::setInputElement
 		 */
 		void setInputElement(GraphicObject *ge);
 
 		/*!
-		 * \brief type
-		 * \return
+		 * \see GraphicObject::type
 		 */
 		int type() const;
 
 		/*!
-		 * \brief setSelectionRectVisible
-		 * \param rv
+		 * \brief Establish if user wants the selection rectangle to be visible.
+		 *
+		 * \param rv If true the selection rectangle will be visible.
 		 */
 		void setSelectionRectVisible(bool rv);
 
 		/*!
-		 * \brief getSelectionRectVisible
-		 * \return
+		 * \brief Returns the status of the visibility of the selection rectangle.
+		 * \return A boolean which indicates the current status of the visibility of the selection rectangle.
 		 */
 		bool getSelectionRectVisible() const;
 
 		/*!
-		 * \brief setSelectionRect
-		 * \param sr
+		 * \brief Sets a new customized rectangle.
+		 *
+		 * FIXME: evaluate if this method is necessary.
+		 * \param sr The new selection rectangle.
 		 */
 		void setSelectionRect(const QRect &sr);
 
 		/*!
-		 * \brief getSelectionRect
+		 * \brief
+		 *
+		 * FIXME: evaluate if this method is necessary.
+		 *
 		 * \return
 		 */
 		QRect getSelectionRect() const;
 
 		/*!
-		 * \brief setSelectionRectColor
-		 * \param color
+		 * \brief Sets the color property of the selection rectangle.
+		 * \param color The new color of the selection rectangle.
 		 */
 		void setSelectionRectColor(const QColor &color);
 
 		/*!
-		 * \brief getSelectionRectColor
-		 * \return
+		 * \brief Gets the color of the selection rectangle.
+		 * \return The color of the selection rectangle.
 		 */
 		QColor getSelectionRectColor() const;
 
 		/*!
-		 * \brief getImageSelection
+		 * \brief
+		 * TODO: clarify the meaning of this function.
 		 * \return
 		 */
 		QImage getImageSelection() const;
 
 		/*!
-		 * \brief setImageSize
-		 * \param size
+		 * \brief Sets a new size to the current image.
+		 * \note This will resize this image itself.
+		 * \param size The new size of the image.
 		 */
 		void setImageSize(const QSize &size);
 
 		/*!
-		 * \brief getImageSize
-		 * \return
+		 * \brief Gets the size of the image.
+		 * \return The size of the image.
 		 */
 		QSize getImageSize() const;
 
 		/*!
-		 * \brief setImageWidth
-		 * \param w
+		 * \brief Sets the width of the image.
+		 *
+		 * \note This will resize the image itself.
+		 *
+		 * \param w The new width.
 		 */
 		void setImageWidth(int w);
 
 		/*!
-		 * \brief getImageWidth
-		 * \return
+		 * \brief Returns the width of the current image.
+		 * \return The width of the current image in pixels.
 		 */
 		int getImageWidth() const;
 

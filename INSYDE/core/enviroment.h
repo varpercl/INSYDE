@@ -10,8 +10,8 @@
 namespace core{
 
 /*!
- * \brief La clase @code{Enviroment} define un entorno en el que se ubicaran los agentes y demas objetos que formaran
- * parte de un sistema inteligente.
+ * \brief The Enviroment class defines an graphic space where user can allocate every agent, neural network and another
+ * system block.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
@@ -20,48 +20,48 @@ class CORE_LIB_IMPORT_EXPORT Enviroment : public QGraphicsScene
 {
 
 	public:
+
+		/*!
+		 * \brief Builds an empty enviroment.
+		 * \param [in] parent The parent of this enviroment.
+		 */
 		explicit Enviroment(QObject *parent = 0);
 
 		/*!
-		 * \brief setEnableGrid Determines if dotted grid will be visible
-		 * \param b
+		 * \brief Determines if dotted grid will be visible.
+		 * \param b True will make the grid visible.
 		 */
 		void setGridVisible(bool b);
 
 		/*!
-		 * \brief getEnableGrid
-		 * \return
+		 * \brief Gets the current visible status of the grid.
+		 * \return True in case of grid visible.
 		 */
 		bool getGridVisible() const;
 
 		/*!
-		 * \brief setCenterMarkerVisible Determine wether a marker will be drawn at the center of the enviroment
-		 * \param b
+		 * \brief Determines wether a marker will be drawn at the center of the enviroment.
+		 * \param b True will make the marker to be visible.
 		 */
 		void setCenterMarkerVisible(bool b);
 
 		/*!
-		 * \brief getCenterMarkerVisible
-		 * \return
+		 * \brief Gets the status of the center marker visibility.
+		 * \return True in case of the marker visible.
 		 */
 		bool getCenterMarkerVisible() const;
 
 	protected:
 
-		/**
-
-		  */
 		/*!
-		 * \brief drawBackground Implementacion del metodo heredado de la clase QGraphicsScene se usa en este
-		 * caso para dibujar una grilla y otros elementos que puedan ir de fondo
-		 * \param painter
-		 * \param rect
+		 * \brief This is a reimplemented method. In this case it draws the grid and other
+		 * background elements.
+		 *
+		 * \param[in] painter The passed painter object.
+		 * \param rect The rectangle to be drawn.
 		 */
 		void drawBackground(QPainter *painter, const QRectF &rect) override;
 
-//		void dragEnterEvent(QGraphicsSceneDragDropEvent *e) override;
-//        void dragMoveEvent(QGraphicsSceneDragDropEvent *e);
-//        void dropEvent(QGraphicsSceneDragDropEvent *e);
 
 	private:
 		Q_OBJECT
@@ -73,6 +73,9 @@ class CORE_LIB_IMPORT_EXPORT Enviroment : public QGraphicsScene
 		QPixmap grid;
 		int gridSpace;
 
+		/*!
+		 * \brief Initializes all graphic interface.
+		 */
 		void init();
 };
 }

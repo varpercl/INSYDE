@@ -91,13 +91,6 @@ core::DotMatrix *core::DotMatrixRepresentation::getDotMatrixObject() const
 	return dmWidget->getDotMatrixObject();
 }
 
-void core::DotMatrixRepresentation::onWidgetSizeChanged(const QSize &s)
-{
-	dmWidget->setSize(s);
-
-	emit sizeChanged(s);
-}
-
 void core::DotMatrixRepresentation::init()
 {
 	dmWidget = new DotMatrixDetailedWindow(getInputs());

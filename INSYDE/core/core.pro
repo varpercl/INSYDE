@@ -53,7 +53,6 @@ HEADERS += \
 	effect.h \
 	blackwhiteeffect.h \
 	grayscaleeffect.h \
-	graphiccursorelement.h \
 	vector2d.h \
 	share_core_lib.h \
 	imageeffect.h \
@@ -76,7 +75,8 @@ HEADERS += \
     iioobject.h \
     clipboard.h \
     undo.h \
-    documentation.h
+    documentation.h \
+    cursor.h
 
 SOURCES += \
 	imath.cpp\
@@ -110,7 +110,6 @@ SOURCES += \
 	effect.cpp \
 	blackwhiteeffect.cpp \
 	grayscaleeffect.cpp \
-	graphiccursorelement.cpp \
 	vector2d.cpp \
 	imageeffect.cpp \
 	imageeffectpropertydialog.cpp \
@@ -125,7 +124,8 @@ SOURCES += \
 	graphicobjectpropertydialog.cpp \
 	fileeditline.cpp \
 	simulation.cpp \
-	restrictedlinef.cpp
+	restrictedlinef.cpp \
+    cursor.cpp
 
 FORMS += \
 	graphicimageeffectelementpropertydialog.ui \

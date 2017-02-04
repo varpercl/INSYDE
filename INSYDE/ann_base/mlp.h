@@ -542,6 +542,9 @@ class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptron : public QThread, public A
 
 	signals:
 
+		/*!
+		 * \brief trainingAboutStart
+		 */
 		void trainingAboutStart();
 
 		/*!
@@ -660,6 +663,7 @@ class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptron : public QThread, public A
 		enabledSaveTrainingResults;
 
 		struct NewState{
+			public:
 				vector<vector<vector<double> > > newWeights;
 				vector<vector<double> > newOutputWeights;
 		};
@@ -685,6 +689,13 @@ class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptron : public QThread, public A
 
 		TransferFunctionType tf;
 
+		/*!
+		 * \brief init
+		 * \param ninputs
+		 * \param noutputs
+		 * \param layersizes
+		 * \param tf
+		 */
 		void init(int ninputs, int noutputs, const vector<int> &layersizes, const TransferFunctionType &tf);
 
 		/*!

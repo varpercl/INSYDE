@@ -9,7 +9,7 @@
 namespace core{
 
 /*!
- * \brief The LabeledDoubleSpinBoxWidget class
+ * \brief The LabeledDoubleSpinBox class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015

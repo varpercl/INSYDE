@@ -78,7 +78,7 @@ QPainterPath ec_gui::Agent::shape() const{
 QPainterPath ec_gui::Agent::radialShape() const
 {
     QPainterPath circulo;
-    double radio = Vector2D(forma.controlPointRect().center(), forma.controlPointRect().topLeft()).getModulo();
+    double radio = Vector2D(forma.controlPointRect().center(), forma.controlPointRect().topLeft()).getModulus();
     circulo.addEllipse(-radio, -radio, radio*2, radio*2);
     return circulo;
 }

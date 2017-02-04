@@ -46,5 +46,6 @@ var namespacecore =
     [ "SelectImageSegmentDialog", "df/dc4/classcore_1_1_select_image_segment_dialog.html", "df/dc4/classcore_1_1_select_image_segment_dialog" ],
     [ "Simulation", "d3/dd3/classcore_1_1_simulation.html", "d3/dd3/classcore_1_1_simulation" ],
     [ "Undo", "d4/d7a/classcore_1_1_undo.html", "d4/d7a/classcore_1_1_undo" ],
+    [ "Vector2D", "dc/d86/classcore_1_1_vector2_d.html", "dc/d86/classcore_1_1_vector2_d" ],
     [ "ZoomControl", "da/d44/classcore_1_1_zoom_control.html", "da/d44/classcore_1_1_zoom_control" ]
 ];

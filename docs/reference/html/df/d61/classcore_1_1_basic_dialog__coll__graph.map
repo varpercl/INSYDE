@@ -1,4 +1,4 @@
 <map id="core::BasicDialog" name="core::BasicDialog">
 <area shape="rect" id="node3" href="$db/d60/classcore_1_1_clipboard.html" title="Contiene los metodos basicos para aquellos objetos que trabajen directamente con el portapapeles..." alt="" coords="98,5,207,32"/>
-<area shape="rect" id="node4" href="$d4/d7a/classcore_1_1_undo.html" title="The UnDoInterface class. " alt="" coords="231,5,317,32"/>
+<area shape="rect" id="node4" href="$d4/d7a/classcore_1_1_undo.html" title="The Undo class involves all graphic interface needed to perform Undo/Redo actions. Every class that need to perform such actions should inherit from this class. " alt="" coords="231,5,317,32"/>
 </map>

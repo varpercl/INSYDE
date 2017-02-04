@@ -105,7 +105,7 @@ void core::GraphicDetailedView::mouseMoveEvent(QMouseEvent *event)
 	}else if(event->buttons() & Qt::RightButton){
 		QPointF posActual = mapToScene(event->pos());
 		Vector2D vector(posActual.x(), posActual.y(), posInicialMouse.x(), posInicialMouse.y());
-		if(vector.getModulo() > 20){ //Si la distancia de arrastre supera el valor
+		if(vector.getModulus() > 20){ //Si la distancia de arrastre supera el valor
 			if(nItems > 1){
 				showPointer(180 + (vector.getAngle()*180/M_PI));
 			}

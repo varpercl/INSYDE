@@ -14,8 +14,8 @@ core::Vector2D::Vector2D(double x0, double y0, double x1, double y1){
     y = y1-y0;
 }
 
-core::Vector2D::Vector2D(QPointF ptIni, QPointF ptFin){
-    QPointF pt = ptFin-ptIni;
+core::Vector2D::Vector2D(QPointF p0, QPointF p1){
+	QPointF pt = p1-p0;
     x = pt.x();
     y = pt.y();
 }
@@ -47,11 +47,11 @@ void core::Vector2D::setY(double y){
 //    return y;
 //}
 
-double core::Vector2D::getModulo(){
+double core::Vector2D::getModulus(){
     return hypot(x, y);
 }
 
-void core::Vector2D::setModulo(double mod){
+void core::Vector2D::setModulus(double mod){
     double ang = getAngle();
     x = mod*cos(ang);
     y = mod*sin(ang);
@@ -97,11 +97,11 @@ void core::Vector2D::setAngleDeg(double angle)
     y = mod*sin(angRad);
 }
 
-bool core::Vector2D::isParallel(Vector2D vector){
+bool core::Vector2D::isParallel(const Vector2D &vector){
     return (x / vector.x) == (y / vector.y);
 }
 
-bool core::Vector2D::isPerpendicular(Vector2D vector){
+bool core::Vector2D::isPerpendicular(const Vector2D &vector){
     return *this * vector == 0;
 }
 

@@ -7,6 +7,6 @@
 <area shape="rect" id="node7" href="$d6/db8/classcore_1_1_add_dot_matrix_dialog.html" title="The AddDotMatrixDialog class represents an specified dialog that allows user to add some DotMatrix ob..." alt="" coords="319,208,489,235"/>
 <area shape="rect" id="node8" href="$d5/dc9/classcore_1_1_graphic_object_property_dialog.html" title="The GraphicObjectPropertyDialog class. " alt="" coords="311,259,497,301"/>
 <area shape="rect" id="node11" href="$df/d15/classgui_1_1_main_window.html" title="gui::MainWindow" alt="" coords="343,325,465,352"/>
-<area shape="rect" id="node9" href="$dc/d18/classcore_1_1_dot_matrix_property_dialog.html" title="The DotMatrixElementPropertyDialog class. " alt="" coords="545,241,741,268"/>
-<area shape="rect" id="node10" href="$d7/da0/classcore_1_1_image_property_dialog.html" title="The GraphicImageElementPropertyDialog class. " alt="" coords="556,292,731,319"/>
+<area shape="rect" id="node9" href="$dc/d18/classcore_1_1_dot_matrix_property_dialog.html" title="The DotMatrixElementPropertyDialog class is an derived class from GraphicObjectPropertyDialog. These classes show a set of properties depending on the determined object. " alt="" coords="545,241,741,268"/>
+<area shape="rect" id="node10" href="$d7/da0/classcore_1_1_image_property_dialog.html" title="The ImagePropertyDialog class. " alt="" coords="556,292,731,319"/>
 </map>
