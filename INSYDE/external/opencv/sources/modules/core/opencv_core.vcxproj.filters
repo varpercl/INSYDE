@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\algorithm.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\alloc.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\arithm.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\array.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\command_line_parser.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\conjugate_gradient.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\convert.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\copy.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\cuda_gpu_mat.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\cuda_host_mem.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\cuda_info.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\cuda_stream.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\datastructs.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\directx.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\downhill_simplex.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\dxt.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\gl_core_3_1.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\glob.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\hal_internal.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\kmeans.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\lapack.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\lda.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\lpsolver.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\mathfuncs.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\mathfuncs_core.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\matmul.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\matop.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\matrix.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\matrix_decomp.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\merge.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\ocl.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\runtime\opencl_clamdblas.cpp">
+      <Filter>Src\opencl\runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\runtime\opencl_clamdfft.cpp">
+      <Filter>Src\opencl\runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\runtime\opencl_core.cpp">
+      <Filter>Src\opencl\runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opengl.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\out.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\ovx.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\parallel.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\parallel_pthreads.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\pca.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\persistence.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\rand.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\split.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\stat.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\stl.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\system.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\tables.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\types.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\umatrix.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\va_intel.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\opencl_kernels_core.cpp">
+      <Filter>Src\opencl\kernels\autogenerated</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\opencv_core_pch.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\block.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\border_interpolate.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\color.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\common.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\datamov_utils.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\dynamic_smem.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\emulation.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\filters.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\funcattrib.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\functional.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\limits.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\reduce.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\saturate_cast.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\scan.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\simd_functions.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\transform.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\type_traits.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\utility.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\vec_distance.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\vec_math.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\vec_traits.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\warp.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\warp_reduce.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\warp_shuffle.hpp">
+      <Filter>Include\Cuda Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\detail\color_detail.hpp">
+      <Filter>Include\Cuda Headers\Detail</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\detail\reduce.hpp">
+      <Filter>Include\Cuda Headers\Detail</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\detail\reduce_key_val.hpp">
+      <Filter>Include\Cuda Headers\Detail</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\detail\transform_detail.hpp">
+      <Filter>Include\Cuda Headers\Detail</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\detail\type_traits_detail.hpp">
+      <Filter>Include\Cuda Headers\Detail</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda\detail\vec_distance_detail.hpp">
+      <Filter>Include\Cuda Headers\Detail</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core.hpp">
+      <Filter>Include\opencv2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\affine.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\base.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\bufferpool.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\core.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda.inl.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda_stream_accessor.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cuda_types.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cvstd.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cvstd.inl.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\directx.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\eigen.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\fast_math.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\ippasync.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\mat.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\mat.inl.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\matx.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\neon_utils.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\ocl.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\ocl_genbase.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\opengl.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\operations.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\optim.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\ovx.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\persistence.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\private.cuda.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\private.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\ptr.inl.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\saturate.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\sse_utils.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\traits.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\types.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\utility.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\va_intel.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\version.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\wimage.hpp">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\core_c.h">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\cvdef.h">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\types_c.h">
+      <Filter>Include\opencv2\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\hal\hal.hpp">
+      <Filter>Include\opencv2\core\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\hal\intrin.hpp">
+      <Filter>Include\opencv2\core\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\hal\intrin_cpp.hpp">
+      <Filter>Include\opencv2\core\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\hal\intrin_neon.hpp">
+      <Filter>Include\opencv2\core\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\hal\intrin_sse.hpp">
+      <Filter>Include\opencv2\core\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include\opencv2\core\hal\interface.h">
+      <Filter>Include\opencv2\core\hal</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\opencl_kernels_core.hpp">
+      <Filter>Src\opencl\kernels\autogenerated</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\arithm_core.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\arithm_simd.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\bufferpool.impl.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\directx.inc.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\gl_core_3_1.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\hal_internal.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\hal_replacement.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\runtime\autogenerated\opencl_clamdblas_impl.hpp">
+      <Filter>Src\opencl\runtime\autogenerated</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\runtime\autogenerated\opencl_clamdfft_impl.hpp">
+      <Filter>Src\opencl\runtime\autogenerated</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\runtime\autogenerated\opencl_core_impl.hpp">
+      <Filter>Src\opencl\runtime\autogenerated</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\runtime\autogenerated\opencl_gl_impl.hpp">
+      <Filter>Src\opencl\runtime\autogenerated</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\runtime\runtime_common.hpp">
+      <Filter>Src\opencl\runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\precomp.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\cvconfig.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\opencv2\opencv_modules.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\ab64b82b315ccd2e110849b5ebece324\opencl_kernels_core.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\version_string.inc">
+      <Filter>Src</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\arithm.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\convert.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\copymakeborder.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\copyset.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\cvtclr_dx.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\fft.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\flip.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\gemm.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\inrange.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\lut.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\meanstddev.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\minmaxloc.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\mixchannels.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\mulspectrums.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\normalize.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\reduce.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\reduce2.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\repeat.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\set_identity.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\split_merge.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+    <None Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\src\opencl\transpose.cl">
+      <Filter>Src\opencl\kernels</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Src\opencl">
+      <UniqueIdentifier>{6CD2664E-F063-3123-83E8-0B81F1D449C5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\opencl\runtime">
+      <UniqueIdentifier>{F4E307BE-B04B-3E99-8C2C-B95798CAB68B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\opencl\kernels">
+      <UniqueIdentifier>{590B587E-C73B-3D8C-BCC6-060BBC91F24D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Cuda Headers">
+      <UniqueIdentifier>{12FC4531-3437-345C-85ED-92B5880BDDCB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2">
+      <UniqueIdentifier>{E82B3072-D01F-3227-9003-12E1C5371404}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Cuda Headers\Detail">
+      <UniqueIdentifier>{6E846255-C26D-3D08-9690-CE957A647954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2\core">
+      <UniqueIdentifier>{BB0CBE12-8D3C-3105-89F8-7849700ECDF4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2\core\hal">
+      <UniqueIdentifier>{833AE830-836C-37FE-9DC0-70E332542056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\opencl\kernels\autogenerated">
+      <UniqueIdentifier>{6AC0949A-03BC-33F1-9AAF-837A8A8D208D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\opencl\runtime\autogenerated">
+      <UniqueIdentifier>{3B92A0A1-8D55-33E8-8F38-79BB9AC5AB86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{62A86D44-81B8-3111-BBBE-6F4053619CE3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{B1EAE27A-49A1-3CAB-899A-B65854051237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{4FF43314-5191-3A16-900D-9A0371410D64}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\4caa27d55de3177afe7bc90f5235f3e9\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{62A86D44-81B8-3111-BBBE-6F4053619CE3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

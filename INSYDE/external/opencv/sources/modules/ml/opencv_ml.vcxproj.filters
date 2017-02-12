@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\ann_mlp.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\boost.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\data.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\em.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\gbt.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\inner_functions.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\kdtree.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\knearest.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\lr.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\nbayes.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\rtrees.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\svm.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\svmsgd.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\testset.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\tree.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\opencv_ml_pch.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\include\opencv2\ml.hpp">
+      <Filter>Include\opencv2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\include\opencv2\ml\ml.hpp">
+      <Filter>Include\opencv2\ml</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\kdtree.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\src\precomp.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\cvconfig.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\opencv2\opencv_modules.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include\opencv2">
+      <UniqueIdentifier>{E82B3072-D01F-3227-9003-12E1C5371404}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2\ml">
+      <UniqueIdentifier>{1C8340A4-BD39-3A1F-AE9D-AC875BAD3E15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{4FF43314-5191-3A16-900D-9A0371410D64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{B1EAE27A-49A1-3CAB-899A-B65854051237}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

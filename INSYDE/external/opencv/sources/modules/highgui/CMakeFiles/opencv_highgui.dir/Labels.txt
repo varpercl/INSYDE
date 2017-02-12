@@ -1,0 +1,36 @@
+# Target labels
+ Main
+ opencv_highgui
+ Module
+# Source files and their labels
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/include/opencv2/highgui.hpp
+ Main
+ opencv_highgui
+ Module
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/include/opencv2/highgui/highgui.hpp
+ Main
+ opencv_highgui
+ Module
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/include/opencv2/highgui/highgui_c.h
+ Main
+ opencv_highgui
+ Module
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/src/window.cpp
+ Main
+ opencv_highgui
+ Module
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/src/window_w32.cpp
+ Main
+ opencv_highgui
+ Module
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/src/precomp.hpp
+ Main
+ opencv_highgui
+ Module
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/cvconfig.h
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/opencv2/opencv_modules.hpp
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/opencv_highgui_pch.cpp
+ Main
+ opencv_highgui
+ Module
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/CMakeLists.txt

@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{CFDD5749-367B-3D06-88BA-919C9631C507}</ProjectGUID>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>opencv_perf_stitching</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+ <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+ <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\bin\Debug\</OutDir>
+     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_perf_stitching.dir\Debug\</IntDir>
+     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_perf_stitchingd</TargetName>
+     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\bin\Release\</OutDir>
+     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_perf_stitching.dir\Release\</IntDir>
+     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_perf_stitching</TargetName>
+     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    </PropertyGroup>
+ <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions)  /bigobj</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\3rdparty\ippicv\ippicv_win\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ts\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgcodecs\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\flann\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgproc\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\videoio\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\highgui\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\objdetect\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\features2d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\calib3d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4324;4275;4589</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>4</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\3rdparty\ippicv\ippicv_win\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ts\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgcodecs\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\flann\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgproc\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\videoio\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\highgui\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\objdetect\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\features2d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\calib3d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\3rdparty\ippicv\ippicv_win\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ts\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgcodecs\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\flann\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgproc\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\videoio\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\highgui\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\objdetect\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\features2d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\calib3d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\lib\Debug\opencv_ts320d.lib;..\..\lib\Debug\opencv_stitching320d.lib;..\..\lib\Debug\opencv_objdetect320d.lib;..\..\lib\Debug\opencv_calib3d320d.lib;..\..\3rdparty\ippicv\ippicv_win\lib\ia32\ippicvmt.lib;..\..\lib\Debug\opencv_features2d320d.lib;..\..\lib\Debug\opencv_flann320d.lib;..\..\lib\Debug\opencv_ml320d.lib;..\..\lib\Debug\opencv_highgui320d.lib;..\..\lib\Debug\opencv_videoio320d.lib;..\..\lib\Debug\opencv_imgcodecs320d.lib;..\..\lib\Debug\opencv_imgproc320d.lib;..\..\lib\Debug\opencv_core320d.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/bin/Debug/opencv_perf_stitchingd.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/bin/Debug/opencv_perf_stitchingd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+ <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions)  /bigobj</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\3rdparty\ippicv\ippicv_win\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ts\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgcodecs\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\flann\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgproc\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\videoio\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\highgui\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\objdetect\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\features2d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\calib3d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4324;4275;4589</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>4</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\3rdparty\ippicv\ippicv_win\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ts\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgcodecs\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\flann\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgproc\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\videoio\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\highgui\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\objdetect\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\features2d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\calib3d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\3rdparty\ippicv\ippicv_win\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ts\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgcodecs\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\flann\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgproc\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\videoio\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\highgui\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\objdetect\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\features2d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\calib3d\include;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\lib\Release\opencv_ts320.lib;..\..\lib\Release\opencv_stitching320.lib;..\..\lib\Release\opencv_objdetect320.lib;..\..\lib\Release\opencv_calib3d320.lib;..\..\3rdparty\ippicv\ippicv_win\lib\ia32\ippicvmt.lib;..\..\lib\Release\opencv_features2d320.lib;..\..\lib\Release\opencv_flann320.lib;..\..\lib\Release\opencv_ml320.lib;..\..\lib\Release\opencv_highgui320.lib;..\..\lib\Release\opencv_videoio320.lib;..\..\lib\Release\opencv_imgcodecs320.lib;..\..\lib\Release\opencv_imgproc320.lib;..\..\lib\Release\opencv_core320.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/bin/Release/opencv_perf_stitching.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/bin/Release/opencv_perf_stitching.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\CMakeLists.txt">
+     <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/CMakeLists.txt</Message>
+     <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources" "-BC:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources" --check-stamp-file "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+     <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/CMakeLists.txt;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\CMakeLists.txt;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+     <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\CMakeFiles\generate.stamp</Outputs>
+     <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+     <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/CMakeLists.txt</Message>
+     <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources" "-BC:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources" --check-stamp-file "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+     <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/CMakeLists.txt;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\CMakeLists.txt;C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+     <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\CMakeFiles\generate.stamp</Outputs>
+     <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf\perf_precomp.hpp" />
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf\opencl\perf_stitch.cpp" >
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf\opencl\perf_warpers.cpp" >
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf\perf_estimators.cpp" >
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf\perf_main.cpp" >
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf\perf_matchers.cpp" >
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\perf\perf_stich.cpp" >
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\opencv_perf_stitching_pch.cpp" >
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/perf/perf_precomp.hpp</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\ZERO_CHECK.vcxproj">
+      <Project>52C4E89C-F8E8-3C10-9331-1DA1E5EB188F</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\calib3d\opencv_calib3d.vcxproj">
+      <Project>FBA2FD07-FD26-3D91-AC5E-6C487D3FCE2C</Project>
+      <Name>opencv_calib3d</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\core\opencv_core.vcxproj">
+      <Project>25742934-10BC-386D-8C1A-13C9A43E6686</Project>
+      <Name>opencv_core</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\features2d\opencv_features2d.vcxproj">
+      <Project>C05B4782-6554-3B54-BBB1-1FB8461C052F</Project>
+      <Name>opencv_features2d</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\flann\opencv_flann.vcxproj">
+      <Project>AEF986BD-4C23-3190-983F-3600B85817A8</Project>
+      <Name>opencv_flann</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\highgui\opencv_highgui.vcxproj">
+      <Project>C3C42F8E-20C1-37FD-92A1-CD12B08135A6</Project>
+      <Name>opencv_highgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgcodecs\opencv_imgcodecs.vcxproj">
+      <Project>D69314E3-7AD8-360A-9C60-A6DD40523BA6</Project>
+      <Name>opencv_imgcodecs</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\imgproc\opencv_imgproc.vcxproj">
+      <Project>5681A5D6-C3D4-335B-B6B6-F349FF1751A2</Project>
+      <Name>opencv_imgproc</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ml\opencv_ml.vcxproj">
+      <Project>8EA6A4B0-1C39-3C07-AA9E-4FE6E206F1A2</Project>
+      <Name>opencv_ml</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\objdetect\opencv_objdetect.vcxproj">
+      <Project>1B04E2C1-88FD-3145-BE18-54B15768E83A</Project>
+      <Name>opencv_objdetect</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\stitching\opencv_stitching.vcxproj">
+      <Project>92B4612E-3272-3B08-8872-F75F158AA174</Project>
+      <Name>opencv_stitching</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\ts\opencv_ts.vcxproj">
+      <Project>B5CF80F1-8AAA-308D-905E-848C6D352D91</Project>
+      <Name>opencv_ts</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\videoio\opencv_videoio.vcxproj">
+      <Project>39EAAC8B-4107-30AF-AFF7-EF320A1AD8B5</Project>
+      <Name>opencv_videoio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

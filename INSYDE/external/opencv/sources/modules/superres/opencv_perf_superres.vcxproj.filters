@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\superres\perf\perf_main.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\superres\perf\perf_superres.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\superres\opencv_perf_superres_pch.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\superres\perf\perf_precomp.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\modules\superres\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{4FF43314-5191-3A16-900D-9A0371410D64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{B1EAE27A-49A1-3CAB-899A-B65854051237}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

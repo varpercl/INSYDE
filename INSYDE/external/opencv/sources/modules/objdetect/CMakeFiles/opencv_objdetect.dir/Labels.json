@@ -1,0 +1,112 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/include/opencv2/objdetect.hpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/include/opencv2/objdetect/detection_based_tracker.hpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/include/opencv2/objdetect/objdetect.hpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/include/opencv2/objdetect/objdetect_c.h",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/cascadedetect.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/cascadedetect_convert.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/detection_based_tracker.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/haar.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/hog.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/main.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/opencl/cascadedetect.cl",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/opencl/objdetect_hog.cl",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/opencl_kernels_objdetect.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/opencl_kernels_objdetect.hpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/cascadedetect.hpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/precomp.hpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/cvconfig.h"
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/opencv2/opencv_modules.hpp"
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/opencv_objdetect_pch.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/CMakeLists.txt"
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/78a1d90fe297f3e154b90b5350580df7/opencl_kernels_objdetect.cpp.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Main", "opencv_objdetect", "Module" ],
+		"name" : "opencv_objdetect"
+	}
+}

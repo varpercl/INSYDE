@@ -1,0 +1,30 @@
+# Target labels
+ Main
+ opencv_photo
+ PerfTest
+# Source files and their labels
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/perf/opencl/perf_denoising.cpp
+ Main
+ opencv_photo
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/perf/perf_cuda.cpp
+ Main
+ opencv_photo
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/perf/perf_inpaint.cpp
+ Main
+ opencv_photo
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/perf/perf_main.cpp
+ Main
+ opencv_photo
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/perf/perf_precomp.hpp
+ Main
+ opencv_photo
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/opencv_perf_photo_pch.cpp
+ Main
+ opencv_photo
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/CMakeLists.txt

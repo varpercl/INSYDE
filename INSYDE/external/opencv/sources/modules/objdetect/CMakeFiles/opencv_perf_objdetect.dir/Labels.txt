@@ -1,0 +1,26 @@
+# Target labels
+ Main
+ opencv_objdetect
+ PerfTest
+# Source files and their labels
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/perf/opencl/perf_cascades.cpp
+ Main
+ opencv_objdetect
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/perf/opencl/perf_hogdetect.cpp
+ Main
+ opencv_objdetect
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/perf/perf_main.cpp
+ Main
+ opencv_objdetect
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/perf/perf_precomp.hpp
+ Main
+ opencv_objdetect
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/opencv_perf_objdetect_pch.cpp
+ Main
+ opencv_objdetect
+ PerfTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/CMakeLists.txt

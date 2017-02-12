@@ -1,0 +1,35 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/test/test_gui.cpp",
+			"labels" : [ "Main", "opencv_highgui", "AccuracyTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/test/test_main.cpp",
+			"labels" : [ "Main", "opencv_highgui", "AccuracyTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/test/test_precomp.hpp",
+			"labels" : [ "Main", "opencv_highgui", "AccuracyTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/opencv_test_highgui_pch.cpp",
+			"labels" : [ "Main", "opencv_highgui", "AccuracyTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/CMakeLists.txt"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Main", "opencv_highgui", "AccuracyTest" ],
+		"name" : "opencv_test_highgui"
+	}
+}

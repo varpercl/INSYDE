@@ -1,0 +1,40 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/perf/opencl/perf_cascades.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "PerfTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/perf/opencl/perf_hogdetect.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "PerfTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/perf/perf_main.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "PerfTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/perf/perf_precomp.hpp",
+			"labels" : [ "Main", "opencv_objdetect", "PerfTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/opencv_perf_objdetect_pch.cpp",
+			"labels" : [ "Main", "opencv_objdetect", "PerfTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/CMakeLists.txt"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Main", "opencv_objdetect", "PerfTest" ],
+		"name" : "opencv_perf_objdetect"
+	}
+}

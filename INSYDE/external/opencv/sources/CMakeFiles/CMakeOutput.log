@@ -1,0 +1,743 @@
+The system is: Windows - 10.0.14393 - AMD64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler:  
+Build flags: 
+Id flags:  
+
+The output was:
+0
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:05.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\3.8.0-rc1\CompilerIdCXX\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "Debug\".
+  Creando directorio "Debug\CompilerIdCXX.tlog\".
+InitializeBuildStatus:
+  Se creará "Debug\CompilerIdCXX.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /nologo /W0 /WX- /diagnostics:classic /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue CMakeCXXCompilerId.cpp
+  CMakeCXXCompilerId.cpp
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCXXCompilerId.obj
+  CompilerIdCXX.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\3.8.0-rc1\CompilerIdCXX\.\CompilerIdCXX.exe
+PostBuildEvent:
+  for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+  :VCEnd
+  CMAKE_CXX_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\cl.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "Debug\CompilerIdCXX.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "Debug\CompilerIdCXX.tlog\CompilerIdCXX.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\3.8.0-rc1\CompilerIdCXX\CompilerIdCXX.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:02.73
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+
+The CXX compiler identification is MSVC, found in "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/3.8.0-rc1/CompilerIdCXX/CompilerIdCXX.exe"
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler:  
+Build flags: 
+Id flags:  
+
+The output was:
+0
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:08.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\3.8.0-rc1\CompilerIdC\CompilerIdC.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "Debug\".
+  Creando directorio "Debug\CompilerIdC.tlog\".
+InitializeBuildStatus:
+  Se creará "Debug\CompilerIdC.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /nologo /W0 /WX- /diagnostics:classic /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue CMakeCCompilerId.c
+  CMakeCCompilerId.c
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCCompilerId.obj
+  CompilerIdC.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\3.8.0-rc1\CompilerIdC\.\CompilerIdC.exe
+PostBuildEvent:
+  for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+  :VCEnd
+  CMAKE_C_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\cl.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "Debug\CompilerIdC.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "Debug\CompilerIdC.tlog\CompilerIdC.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\3.8.0-rc1\CompilerIdC\CompilerIdC.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.99
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+
+The C compiler identification is MSVC, found in "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/3.8.0-rc1/CompilerIdC/CompilerIdC.exe"
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_ce955.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:09.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_ce955.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_ce955.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_ce955.dir\Debug\cmTC_ce955.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_ce955.dir\Debug\cmTC_ce955.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_ce955.dir\Debug\\" /Fd"cmTC_ce955.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_ce955.dir\Debug\\" /Fd"cmTC_ce955.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
+  testCXXCompiler.cxx
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_ce955.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_ce955.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_ce955.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_ce955.dir\Debug\testCXXCompiler.obj
+  cmTC_ce955.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_ce955.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_ce955.dir\Debug\cmTC_ce955.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_ce955.dir\Debug\cmTC_ce955.tlog\cmTC_ce955.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_ce955.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:01.37
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_969f6.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:11.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_969f6.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_969f6.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_969f6.dir\Debug\cmTC_969f6.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_969f6.dir\Debug\cmTC_969f6.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_969f6.dir\Debug\\" /Fd"cmTC_969f6.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCXXCompilerABI.cpp"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_969f6.dir\Debug\\" /Fd"cmTC_969f6.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCXXCompilerABI.cpp"
+  CMakeCXXCompilerABI.cpp
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_969f6.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_969f6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_969f6.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_969f6.dir\Debug\CMakeCXXCompilerABI.obj
+  cmTC_969f6.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_969f6.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_969f6.dir\Debug\cmTC_969f6.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_969f6.dir\Debug\cmTC_969f6.tlog\cmTC_969f6.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_969f6.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.83
+
+
+
+
+Detecting CXX [] compiler features compiled with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_76af2.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:12.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_76af2.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_76af2.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_76af2.dir\Debug\cmTC_76af2.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_76af2.dir\Debug\cmTC_76af2.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_76af2.dir\Debug\\" /Fd"cmTC_76af2.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\feature_tests.cxx"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_76af2.dir\Debug\\" /Fd"cmTC_76af2.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\feature_tests.cxx"
+  feature_tests.cxx
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_76af2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_76af2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_76af2.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_76af2.dir\Debug\feature_tests.obj
+  cmTC_76af2.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_76af2.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_76af2.dir\Debug\cmTC_76af2.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_76af2.dir\Debug\cmTC_76af2.tlog\cmTC_76af2.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_76af2.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.83
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+Determining if the C compiler works passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_711ae.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:13.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_711ae.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_711ae.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_711ae.dir\Debug\cmTC_711ae.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_711ae.dir\Debug\cmTC_711ae.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_711ae.dir\Debug\\" /Fd"cmTC_711ae.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\testCCompiler.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_711ae.dir\Debug\\" /Fd"cmTC_711ae.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\testCCompiler.c"
+  testCCompiler.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_711ae.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_711ae.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_711ae.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_711ae.dir\Debug\testCCompiler.obj
+  cmTC_711ae.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_711ae.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_711ae.dir\Debug\cmTC_711ae.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_711ae.dir\Debug\cmTC_711ae.tlog\cmTC_711ae.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_711ae.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.81
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_fad64.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:14.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_fad64.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_fad64.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_fad64.dir\Debug\cmTC_fad64.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_fad64.dir\Debug\cmTC_fad64.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fad64.dir\Debug\\" /Fd"cmTC_fad64.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCCompilerABI.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fad64.dir\Debug\\" /Fd"cmTC_fad64.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCCompilerABI.c"
+  CMakeCCompilerABI.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_fad64.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_fad64.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_fad64.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_fad64.dir\Debug\CMakeCCompilerABI.obj
+  cmTC_fad64.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_fad64.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_fad64.dir\Debug\cmTC_fad64.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_fad64.dir\Debug\cmTC_fad64.tlog\cmTC_fad64.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_fad64.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.92
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_88841.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:21.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_88841.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_88841.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_88841.dir\Debug\cmTC_88841.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_88841.dir\Debug\cmTC_88841.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_88841.dir\Debug\\" /Fd"cmTC_88841.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_88841.dir\Debug\\" /Fd"cmTC_88841.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  CheckIncludeFile.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_88841.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_88841.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_88841.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_88841.dir\Debug\CheckIncludeFile.obj
+  cmTC_88841.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_88841.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_88841.dir\Debug\cmTC_88841.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_88841.dir\Debug\cmTC_88841.tlog\cmTC_88841.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_88841.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.88
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_c84a2.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:22.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_c84a2.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_c84a2.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_c84a2.dir\Debug\cmTC_c84a2.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_c84a2.dir\Debug\cmTC_c84a2.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c84a2.dir\Debug\\" /Fd"cmTC_c84a2.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c84a2.dir\Debug\\" /Fd"cmTC_c84a2.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  CheckIncludeFile.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_c84a2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_c84a2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_c84a2.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_c84a2.dir\Debug\CheckIncludeFile.obj
+  cmTC_c84a2.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_c84a2.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_c84a2.dir\Debug\cmTC_c84a2.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_c84a2.dir\Debug\cmTC_c84a2.tlog\cmTC_c84a2.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_c84a2.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.98
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_86a6f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:23.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_86a6f.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_86a6f.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_86a6f.dir\Debug\cmTC_86a6f.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_86a6f.dir\Debug\cmTC_86a6f.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_86a6f.dir\Debug\\" /Fd"cmTC_86a6f.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_86a6f.dir\Debug\\" /Fd"cmTC_86a6f.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  CheckIncludeFile.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_86a6f.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_86a6f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_86a6f.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_86a6f.dir\Debug\CheckIncludeFile.obj
+  cmTC_86a6f.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_86a6f.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_86a6f.dir\Debug\cmTC_86a6f.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_86a6f.dir\Debug\cmTC_86a6f.tlog\cmTC_86a6f.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_86a6f.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.98
+
+
+Determining size of unsigned short passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_32ae7.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:25.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_32ae7.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_32ae7.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_32ae7.dir\Debug\cmTC_32ae7.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_32ae7.dir\Debug\cmTC_32ae7.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_32ae7.dir\Debug\\" /Fd"cmTC_32ae7.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CheckTypeSize\CMAKE_SIZEOF_UNSIGNED_SHORT.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_32ae7.dir\Debug\\" /Fd"cmTC_32ae7.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CheckTypeSize\CMAKE_SIZEOF_UNSIGNED_SHORT.c"
+  CMAKE_SIZEOF_UNSIGNED_SHORT.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_32ae7.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_32ae7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_32ae7.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_32ae7.dir\Debug\CMAKE_SIZEOF_UNSIGNED_SHORT.obj
+  cmTC_32ae7.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_32ae7.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_32ae7.dir\Debug\cmTC_32ae7.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_32ae7.dir\Debug\cmTC_32ae7.tlog\cmTC_32ae7.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_32ae7.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:01.00
+
+
+Determining if the system is big endian passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_067dd.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:26.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_067dd.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_067dd.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_067dd.dir\Debug\cmTC_067dd.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_067dd.dir\Debug\cmTC_067dd.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_067dd.dir\Debug\\" /Fd"cmTC_067dd.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\TestEndianess.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_067dd.dir\Debug\\" /Fd"cmTC_067dd.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\TestEndianess.c"
+  TestEndianess.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_067dd.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_067dd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_067dd.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_067dd.dir\Debug\TestEndianess.obj
+  cmTC_067dd.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_067dd.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_067dd.dir\Debug\cmTC_067dd.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_067dd.dir\Debug\cmTC_067dd.tlog\cmTC_067dd.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_067dd.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.90
+
+TestEndianess.c:
+/* A 16 bit integer is required. */
+typedef unsigned short cmakeint16;
+
+/* On a little endian machine, these 16bit ints will give "THIS IS LITTLE ENDIAN."
+   On a big endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_little[] =  {0x4854, 0x5349, 0x4920, 0x2053, 0x494c, 0x5454, 0x454c, 0x4520, 0x444e, 0x4149, 0x2e4e, 0x0000};
+
+/* on a big endian machine, these 16bit ints will give "THIS IS BIG ENDIAN."
+   On a little endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_big[] =     {0x5448, 0x4953, 0x2049, 0x5320, 0x4249, 0x4720, 0x454e, 0x4449, 0x414e, 0x2e2e, 0x0000};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_little[argc];
+  require += info_big[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the include file assert.h exists passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_48ffa.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:31.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_48ffa.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_48ffa.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_48ffa.dir\Debug\cmTC_48ffa.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_48ffa.dir\Debug\cmTC_48ffa.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_48ffa.dir\Debug\\" /Fd"cmTC_48ffa.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_48ffa.dir\Debug\\" /Fd"cmTC_48ffa.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  CheckIncludeFile.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_48ffa.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_48ffa.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_48ffa.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_48ffa.dir\Debug\CheckIncludeFile.obj
+  cmTC_48ffa.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_48ffa.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_48ffa.dir\Debug\cmTC_48ffa.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_48ffa.dir\Debug\cmTC_48ffa.tlog\cmTC_48ffa.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_48ffa.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.83
+
+
+Determining if the include file fcntl.h exists passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_2063c.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:32.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_2063c.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_2063c.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_2063c.dir\Debug\cmTC_2063c.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_2063c.dir\Debug\cmTC_2063c.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2063c.dir\Debug\\" /Fd"cmTC_2063c.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2063c.dir\Debug\\" /Fd"cmTC_2063c.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  CheckIncludeFile.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_2063c.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_2063c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_2063c.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_2063c.dir\Debug\CheckIncludeFile.obj
+  cmTC_2063c.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_2063c.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_2063c.dir\Debug\cmTC_2063c.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_2063c.dir\Debug\cmTC_2063c.tlog\cmTC_2063c.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_2063c.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.82
+
+
+Determining if the include file io.h exists passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_7ec15.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:33.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_7ec15.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_7ec15.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_7ec15.dir\Debug\cmTC_7ec15.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_7ec15.dir\Debug\cmTC_7ec15.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7ec15.dir\Debug\\" /Fd"cmTC_7ec15.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7ec15.dir\Debug\\" /Fd"cmTC_7ec15.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  CheckIncludeFile.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_7ec15.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_7ec15.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_7ec15.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_7ec15.dir\Debug\CheckIncludeFile.obj
+  cmTC_7ec15.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_7ec15.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_7ec15.dir\Debug\cmTC_7ec15.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_7ec15.dir\Debug\cmTC_7ec15.tlog\cmTC_7ec15.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_7ec15.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.80
+
+
+Determining if the include file search.h exists passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_04e9d.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:36.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_04e9d.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_04e9d.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_04e9d.dir\Debug\cmTC_04e9d.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_04e9d.dir\Debug\cmTC_04e9d.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_04e9d.dir\Debug\\" /Fd"cmTC_04e9d.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_04e9d.dir\Debug\\" /Fd"cmTC_04e9d.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  CheckIncludeFile.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_04e9d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_04e9d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_04e9d.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_04e9d.dir\Debug\CheckIncludeFile.obj
+  cmTC_04e9d.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_04e9d.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_04e9d.dir\Debug\cmTC_04e9d.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_04e9d.dir\Debug\cmTC_04e9d.tlog\cmTC_04e9d.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_04e9d.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.78
+
+
+Determining if the include file string.h exists passed with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_ad17a.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 0:47:37.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_ad17a.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_ad17a.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_ad17a.dir\Debug\cmTC_ad17a.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_ad17a.dir\Debug\cmTC_ad17a.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ad17a.dir\Debug\\" /Fd"cmTC_ad17a.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ad17a.dir\Debug\\" /Fd"cmTC_ad17a.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  CheckIncludeFile.c
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_ad17a.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_ad17a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_ad17a.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_ad17a.dir\Debug\CheckIncludeFile.obj
+  cmTC_ad17a.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_ad17a.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_ad17a.dir\Debug\cmTC_ad17a.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_ad17a.dir\Debug\cmTC_ad17a.tlog\cmTC_ad17a.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_ad17a.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.82
+
+

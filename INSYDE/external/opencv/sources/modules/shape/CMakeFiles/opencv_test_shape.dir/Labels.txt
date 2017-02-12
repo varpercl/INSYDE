@@ -1,0 +1,22 @@
+# Target labels
+ Main
+ opencv_shape
+ AccuracyTest
+# Source files and their labels
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/test/test_main.cpp
+ Main
+ opencv_shape
+ AccuracyTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/test/test_shape.cpp
+ Main
+ opencv_shape
+ AccuracyTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/test/test_precomp.hpp
+ Main
+ opencv_shape
+ AccuracyTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/opencv_test_shape_pch.cpp
+ Main
+ opencv_shape
+ AccuracyTest
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/CMakeLists.txt

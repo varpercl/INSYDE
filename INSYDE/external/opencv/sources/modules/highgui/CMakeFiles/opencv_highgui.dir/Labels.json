@@ -1,0 +1,58 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/include/opencv2/highgui.hpp",
+			"labels" : [ "Main", "opencv_highgui", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/include/opencv2/highgui/highgui.hpp",
+			"labels" : [ "Main", "opencv_highgui", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/include/opencv2/highgui/highgui_c.h",
+			"labels" : [ "Main", "opencv_highgui", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/src/window.cpp",
+			"labels" : [ "Main", "opencv_highgui", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/src/window_w32.cpp",
+			"labels" : [ "Main", "opencv_highgui", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/src/precomp.hpp",
+			"labels" : [ "Main", "opencv_highgui", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/cvconfig.h"
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/opencv2/opencv_modules.hpp"
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/opencv_highgui_pch.cpp",
+			"labels" : [ "Main", "opencv_highgui", "Module" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui/CMakeLists.txt"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Main", "opencv_highgui", "Module" ],
+		"name" : "opencv_highgui"
+	}
+}

@@ -1,0 +1,40 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videoio/perf/perf_input.cpp",
+			"labels" : [ "Main", "opencv_videoio", "PerfTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videoio/perf/perf_main.cpp",
+			"labels" : [ "Main", "opencv_videoio", "PerfTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videoio/perf/perf_output.cpp",
+			"labels" : [ "Main", "opencv_videoio", "PerfTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videoio/perf/perf_precomp.hpp",
+			"labels" : [ "Main", "opencv_videoio", "PerfTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videoio/opencv_perf_videoio_pch.cpp",
+			"labels" : [ "Main", "opencv_videoio", "PerfTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videoio/CMakeLists.txt"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Main", "opencv_videoio", "PerfTest" ],
+		"name" : "opencv_perf_videoio"
+	}
+}

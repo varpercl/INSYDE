@@ -1,0 +1,35 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/test/test_main.cpp",
+			"labels" : [ "Main", "opencv_superres", "AccuracyTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/test/test_superres.cpp",
+			"labels" : [ "Main", "opencv_superres", "AccuracyTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/test/test_precomp.hpp",
+			"labels" : [ "Main", "opencv_superres", "AccuracyTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/opencv_test_superres_pch.cpp",
+			"labels" : [ "Main", "opencv_superres", "AccuracyTest" ]
+		},
+		
+		{
+			"file" : "C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/CMakeLists.txt"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Main", "opencv_superres", "AccuracyTest" ],
+		"name" : "opencv_test_superres"
+	}
+}
