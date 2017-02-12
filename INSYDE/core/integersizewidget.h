@@ -11,7 +11,8 @@
 namespace core{
 
 /*!
- * \brief The IntegerSizeWidget class
+ * \brief The IntegerSizeWidget class represents a widget that allows users to set width and height
+ * properties.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015

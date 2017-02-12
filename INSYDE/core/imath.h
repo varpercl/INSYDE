@@ -19,26 +19,19 @@ using namespace std;
 
 namespace core{
 
-/*!
- * \brief The math namespace stores a large collection of mathematical functions
- * shared between different classes and different code snippets.
- *
- * \date 01/02/2015
- * \author Edixon Vargas <ingedixonvargas@gmail.com>
- */
 namespace math {
 
 /*!
- * \brief angle
- * \param p1
- * \param p2
- * \return
+ * \brief Determines the angle of the line formed by \p p1 and \p p2.
+ * \param p1 The origin point of the line.
+ * \param p2 The ending point of the line.
+ * \return A double value which is the angle in radians.
  */
 CORE_LIB_IMPORT_EXPORT double angle(const QPointF &p1, const QPointF &p2);
 
 /*!
- * \brief distance Computes the distance between \code{point} and the line composed by points \code{p1} and \code{p2}
- * \param point
+ * \brief Computes the distance between \p point and the line composed by points \p p1 and \p p2.
+ * \param point The point to be evaluated.
  * \param p1
  * \param p2
  * \return

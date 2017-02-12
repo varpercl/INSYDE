@@ -2,13 +2,13 @@
 #include "ui_graphicimageeffectelementpropertydialog.h"
 
 core::ImageEffectPropertyDialog::ImageEffectPropertyDialog(QWidget *parent) :
-	QDialog(parent)
+	BasicDialog(parent)
 {
 
 }
 
 core::ImageEffectPropertyDialog::ImageEffectPropertyDialog(ImageEffect *giee, QWidget *parent) :
-	QDialog(parent),
+	BasicDialog(parent),
 	ui(new Ui::GraphicImageEffectElementPropertyDialog)
 {
 	ui->setupUi(this);

@@ -17,7 +17,7 @@ namespace core{
 class Image;
 
 /*!
- * \brief The ImagePropertyDialog class
+ * \brief The ImagePropertyDialog class represents a property dialog of Image objects.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
@@ -28,9 +28,17 @@ class CORE_LIB_IMPORT_EXPORT ImagePropertyDialog : public GraphicObjectPropertyD
 	public:
 
 		/*!
-		 * \brief ImagePropertyDialog
-		 * \param img
-		 * \param parent
+		 * \brief Builds an empty dialog which has no referenced Image object.
+		 * Basicly it shows a dialog with everything disabled.
+		 *
+		 * \param[in] parent The parent of this dialog.
+		 */
+		explicit ImagePropertyDialog(QWidget *parent = 0);
+
+		/*!
+		 * \brief Builds a dialog with a determined Image \p img object.
+		 * \param[in] img The Image object to take in account by this dialog.
+		 * \param[in] parent The parent of this dialog.
 		 */
 		explicit ImagePropertyDialog(Image *img, QWidget *parent = 0);
 
@@ -38,19 +46,14 @@ class CORE_LIB_IMPORT_EXPORT ImagePropertyDialog : public GraphicObjectPropertyD
 
 	private slots:
 
-		/*!
-		 * \brief onAcceptClicked
-		 */
-		void accept();
+		void accept() override;
+		void onApplyClicked() override;
 
 		/*!
-		 * \brief onApplyClicked
-		 */
-		void onApplyClicked();
-
-		/*!
-		 * \brief onFilePathChanged
-		 * \param path
+		 * \brief A response when the file path has changed. This
+		 * will performs some validations to accept the referenced image file.
+		 *
+		 * \param path The path of the image.
 		 */
 		void onFilePathChanged(const QString &path);
 
@@ -68,8 +71,19 @@ class CORE_LIB_IMPORT_EXPORT ImagePropertyDialog : public GraphicObjectPropertyD
 
 		QVBoxLayout *mainLayout;
 
+		/*!
+		 * \brief Initializes a dialog with a referenced Image \p img object.
+		 * \param[in] img The Image object.
+		 */
 		void init(Image *img);
 
+		/*!
+		 * \brief Enables or disables all the controls.
+		 * Useful when loads an empty dialog.
+		 *
+		 * \param b True will enable all controls.
+		 * \param tempImage The image to update the related controls.
+		 */
 		void enableControls(bool b, const QImage &tempImage);
 };
 }

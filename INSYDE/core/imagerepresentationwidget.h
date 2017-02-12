@@ -21,7 +21,8 @@ class ImageDetailedWindow;
 namespace core{
 
 /*!
- * \brief The ImageRepresentationWidget class
+ * \brief The ImageRepresentationWidget class involves a specialized data representation.
+ * This shows all the properties to friendly handle numeric data.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
@@ -32,106 +33,119 @@ class CORE_LIB_IMPORT_EXPORT ImageRepresentationWidget : public DataRepresentati
 	public:
 
 		/*!
-		 * \brief ImageRepresentationWidget
-		 * \param data
-		 * \param parent
+		 * \brief Creates an empty widget with no data associated.
+		 * \param[in] parent The parent of this widget.
+		 */
+		explicit ImageRepresentationWidget(QWidget *parent = 0);
+
+		/*!
+		 * \brief Builds a widget with a specific \p data.
+		 * \param data The data to represent.
+		 * \param[in] parent The parent of this widget.
 		 */
 		explicit ImageRepresentationWidget(const vector<double> &data, QWidget *parent = 0);
 
 		~ImageRepresentationWidget();
 
+		/*!
+		 * \brief Establish the inputs to this representation.
+		 * \param datainput The data inputs.
+		 */
 		void setInputs(const vector<double> &datainput);
 
 		/*!
-		 * \brief setWidth
-		 * \param w
+		 * \brief Establish the width of the shown image.
+		 * \param w The width to set.
 		 */
 		void setWidth(int w) override;
 
 		/*!
-		 * \brief getWidth
-		 * \return
+		 * \brief Gets the current width of the shown image.
+		 * \return An integer value which is the width of the shown image.
 		 */
 		int getWidth() const override;
 
 		/*!
-		 * \brief setHeight
-		 * \param h
+		 * \brief Establish the height of the shown image.
+		 * \param h The height value.
 		 */
 		void setHeight(int h) override;
 
 		/*!
-		 * \brief getHeight
-		 * \return
+		 * \brief Returns the height of the current image.
+		 * \return An integer which is the height.
 		 */
 		int getHeight() const override;
 
 		/*!
-		 * \brief setSize
-		 * \param size
+		 * \brief Sets the size of the shown image.
+		 * \param size The new size to be set.
 		 */
 		void setSize(const QSize &size) override;
 
 		/*!
-		 * \brief getSize
-		 * \return
+		 * \brief Returns the size of the shown image.
+		 * \return A QSize object which is the size of the image.
 		 */
 		QSize getSize() const override;
 
 		/*!
-		 * \brief getImage
-		 * \return
+		 * \brief Gets the resulting image from the data input.
+		 * \return A QImage resulting from the data.
 		 */
 		QImage getImage() const;
 
 		/*!
-		 * \brief getImageFormat
-		 * \return
+		 * \brief Gets the format of the resulting image.
+		 * \return The format of the image.
 		 */
 		QImage::Format getImageFormat() const;
 
 		/*!
-		 * \brief setImageFormat
+		 * \brief Sets the format of the resulting image.
 		 * \param value
 		 */
 		void setImageFormat(const QImage::Format &value);
 
 		/*!
 		 * \brief setImageObject
+		 *
+		 * TODO: evaluate if can set a new Image object.
 		 * \param img
 		 */
-		void setImageObject(Image *img);
+//		void setImageObject(Image *img);
 
 		/*!
-		 * \brief getImageObject
-		 * \return
+		 * \brief Returns a pointer to the Image object.
+		 * \return A Image object pointer.
 		 */
 		Image *getImageObject() const;
 
 	signals:
 
 		/*!
-		 * \brief imageFormatChanged
-		 * \param format
+		 * \brief This signal is thrown when the format of the image has changed.
+		 * \param format The new format.
 		 */
 		void imageFormatChanged(const QImage::Format &format);
 
 	private slots:
 
 		/*!
-		 * \brief onSizeValueChanged
-		 * \param size
+		 * \brief Adjust the image when some size value has changed.
+		 * \param size The new size.
 		 */
 		void onSizeValueChanged(const QSize &size);
 
 		/*!
-		 * \brief on_cbImageFormat_currentIndexChanged
-		 * \param index
+		 * \brief Performs updates on the resulting image based on the current selected format.
+		 * \param index The index of the format combo box.
 		 */
 		void on_cbImageFormat_currentIndexChanged(int index);
 
 		/*!
-		 * \brief TrainingSetDialog::onIgnoreAlphaChannelToogled
+		 * \brief Updates the resulting image when user doesn't want to take in
+		 * account the alpha channel.
 		 *
 		 * FIXME: se debe corregir este metodo para que inhiba el canal alfa sin que
 		 * se pierdan los datos y luego se puedan volver a recuperar
@@ -176,22 +190,23 @@ class CORE_LIB_IMPORT_EXPORT ImageRepresentationWidget : public DataRepresentati
 		IntegerSizeWidget *isw;
 		ImageDetailedWindow *giedw;
 
+		/*!
+		 * \brief Initializes all graphic interface.
+		 */
 		void init();
 
 		/*!
-		 * \brief imageFromData
-		 * \param size
-		 * \param data
-		 * \return
+		 * \brief Converts a set of \p data to a QImage object.
+		 * \param size The size of the image.
+		 * \note If the total size is larger than \p data size then the rest of the pixels will be set to black.
+		 *
+		 * \param data The data to be converted.
+		 * \return A QImage resulting from the conversion of the \p data.
 		 */
 		QImage imageFromData(const QSize &size, const vector<double> &data) const;
 
 		/*!
-		 * \brief imageFromData
-		 * \param w
-		 * \param h
-		 * \param data
-		 * \return
+		 * \overload
 		 */
 		QImage imageFromData(int w, int h, const vector<double> &data) const;
 };

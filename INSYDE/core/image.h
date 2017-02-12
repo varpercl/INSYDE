@@ -253,46 +253,25 @@ class CORE_LIB_IMPORT_EXPORT Image : public GraphicObject
 
 	protected slots:
 
+		void copyClick() override;
 		/*!
-		 * \brief copyClick
-		 *
-		 * \reimp
-		 */
-		void copyClick();
-
-		/*!
-		 * \brief copyImageClick
+		 * \brief Copies the image to the clipboard.
+		 * This is different than making a simple copy in which the entire object will be copied.
 		 */
 		void copyImageClick();
+		void cutClick() override;
+		void pasteClick() override;
+		void saveClick() override;
+		void propertyClick() override;
 
 		/*!
-		 * \brief cutClick
-		 */
-		void cutClick();
-
-		/*!
-		 * \brief pasteClick
-		 */
-		void pasteClick();
-
-		/*!
-		 * \brief saveClick
-		 */
-		void saveClick();
-
-		/*!
-		 * \brief propertyClick
-		 */
-		void propertyClick();
-
-		/*!
-		 * \brief onChangeImageClick
+		 * \brief When the image has changed.
 		 */
 		void onChangeImageClick();
 
 		/*!
-		 * \brief getXML returns XML format wich contains image label translated to base64. Its useful to exchange with
-		 * other kind of data consumer
+		 * \brief Returns XML format wich contains image label translated to base64. Its useful to exchange with
+		 * other kind of data consumer.
 		 *
 		 * \return A QString with XML format
 		 *
@@ -302,6 +281,10 @@ class CORE_LIB_IMPORT_EXPORT Image : public GraphicObject
 
 	signals:
 
+		/*!
+		 * \brief Thrown to comunicate that the image has changed.
+		 * \param img The new image.
+		 */
 		void imageChange(const QImage &img);
 
 	private:
@@ -335,16 +318,37 @@ class CORE_LIB_IMPORT_EXPORT Image : public GraphicObject
 
 
 		/*!
-		 * \brief initGIE Metodo auxiliar para la inicializacion de los parametros
+		 * \brief Initializes all member variables. This takes as
+		 * parameter a previous built QImage pointer.
+		 *
+		 * \note \p img Must not be a null or invalid pointer.
 		 */
 		void init(QImage *img);
 
+		/*!
+		 * \brief Initializes everything from a \p path. This will
+		 * load the image after checking the directory and if image
+		 * exists
+		 * \param path The path of the image.
+		 */
 		void init(const QString &path);
 
+		/*!
+		 * \brief Gets a thumbnail of the image.
+		 * \param img A pointer to the image that will be reference for the thumbnail.
+		 * \return The thumbnail.
+		 */
 		QImage *getThumbnail(QImage *img);
 
+		/*!
+		 * \brief Updates the position of the selection rectangle depending on \p pos.
+		 * \param pos The new position to be set.
+		 */
 		void updateSelRect(const QPointF &pos);
 
+		/*!
+		 * \brief This will set up important things like new actions and thumbnails.
+		 */
 		void setup();
 
 };

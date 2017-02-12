@@ -16,6 +16,8 @@ namespace core{
 /*!
  * \brief The ImageEffect class
  *
+ * TODO: evaluate what is happening with this class and why is a derived from cursor.
+ *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */

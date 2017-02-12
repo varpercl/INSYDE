@@ -1,5 +1,11 @@
 #include "imagerepresentationwidget.h"
 
+core::ImageRepresentationWidget::ImageRepresentationWidget(QWidget *parent) :
+	DataRepresentationWidget(vector<double>(), parent)
+{
+	init();
+}
+
 core::ImageRepresentationWidget::ImageRepresentationWidget(const vector<double> &data, QWidget *parent) :
 	DataRepresentationWidget(data, parent)
 {
@@ -123,10 +129,10 @@ void core::ImageRepresentationWidget::setImageFormat(const QImage::Format &value
 	emit imageFormatChanged(value);
 }
 
-void core::ImageRepresentationWidget::setImageObject(Image *img)
-{
-	giedw->setImageObject(img);
-}
+//void core::ImageRepresentationWidget::setImageObject(Image *img)
+//{
+//	giedw->setImageObject(img);
+//}
 
 core::Image *core::ImageRepresentationWidget::getImageObject() const
 {

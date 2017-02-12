@@ -26,12 +26,16 @@ namespace core{
 class ImageEffect;
 
 /*!
- * \brief The ImageEffectPropertyDialog class
+ * \brief The ImageEffectPropertyDialog class represents a property dialog which has
+ * inside all properties of some ImageEffect object.
+ *
+ * TODO: evaluates what the ImageEffect class does. If it is necessary because it inherits from
+ * Cursor and thats pretty weird.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class CORE_LIB_IMPORT_EXPORT ImageEffectPropertyDialog : public QDialog
+class CORE_LIB_IMPORT_EXPORT ImageEffectPropertyDialog : public BasicDialog
 {
 		Q_OBJECT
 

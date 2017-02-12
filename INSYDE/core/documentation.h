@@ -13,4 +13,14 @@
  * the variety of tecniques or paradigms of Artificial Intelligence.
  */
 
+
+/*!
+ * \namespace core::math
+ *
+ * \brief The math namespace stores a large collection of mathematical functions
+ * shared between different classes and different code snippets.
+ *
+ * \date 01/02/2015
+ * \author Edixon Vargas <ingedixonvargas@gmail.com>
+ */
 #endif // DOCUMENTATION_H
