@@ -7,13 +7,13 @@ var classcore_1_1_black_white_effect =
     [ "EffectType", "d6/d05/classcore_1_1_black_white_effect.html#a3d5df90cb15a00265d5b5f8375d73b46", [
       [ "BNEffectType", "d6/d05/classcore_1_1_black_white_effect.html#a3d5df90cb15a00265d5b5f8375d73b46ae0a30c2bd2289273bba3b3d340563f73", null ]
     ] ],
-    [ "BlackWhiteEffect", "d6/d05/classcore_1_1_black_white_effect.html#a4c7f2531d6b82267829cdf0ebdbb69a2", null ],
-    [ "BlackWhiteEffect", "d6/d05/classcore_1_1_black_white_effect.html#a5829991c1f884d80eb7a439561c8bda3", null ],
-    [ "~BlackWhiteEffect", "d6/d05/classcore_1_1_black_white_effect.html#ad03512b57fb6905cbe79f8965d5d90f1", null ],
-    [ "getImage", "d6/d05/classcore_1_1_black_white_effect.html#a5d5c99316e040a388a5811782eafb727", null ],
-    [ "getThreshold", "d6/d05/classcore_1_1_black_white_effect.html#ace023a483ed17289d4b777c639450e4c", null ],
-    [ "getType", "d6/d05/classcore_1_1_black_white_effect.html#a488fe365ccb8d0163c98479d040c7147", null ],
-    [ "setConvertionFormat", "d6/d05/classcore_1_1_black_white_effect.html#ae923a336b318255f9354359a6d875060", null ],
-    [ "setImage", "d6/d05/classcore_1_1_black_white_effect.html#abd21273f8e79e8921610808b0d4f953f", null ],
-    [ "setThreshold", "d6/d05/classcore_1_1_black_white_effect.html#a7b6429d446af91e63cfb628ff68b1507", null ]
+    [ "BlackWhiteEffect", "d6/d05/classcore_1_1_black_white_effect.html#a12b8f7312120d064575f42eddc4c7582", null ],
+    [ "BlackWhiteEffect", "d6/d05/classcore_1_1_black_white_effect.html#ab741e113f581950690a909048298e8e7", null ],
+    [ "~BlackWhiteEffect", "d6/d05/classcore_1_1_black_white_effect.html#aff043f9ce758eeb5d5f956bfb0ce18dd", null ],
+    [ "getImage", "d6/d05/classcore_1_1_black_white_effect.html#a977d8567fa85e622b6605d20d3424db9", null ],
+    [ "getThreshold", "d6/d05/classcore_1_1_black_white_effect.html#a2a856cef176685d15c56322297dbffa0", null ],
+    [ "getType", "d6/d05/classcore_1_1_black_white_effect.html#a89149c55ade453d697386cbf4f209ef1", null ],
+    [ "setConvertionFormat", "d6/d05/classcore_1_1_black_white_effect.html#a5de13d365632c9d836a4e11f33c9a47d", null ],
+    [ "setImage", "d6/d05/classcore_1_1_black_white_effect.html#a5f617f3e3a922864a969f24ba718cb31", null ],
+    [ "setThreshold", "d6/d05/classcore_1_1_black_white_effect.html#aaf41e1d8d91410c3074217896c69242e", null ]
 ];

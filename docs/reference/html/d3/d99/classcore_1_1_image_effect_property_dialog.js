@@ -1,12 +1,12 @@
 var classcore_1_1_image_effect_property_dialog =
 [
-    [ "ImageEffectPropertyDialog", "d3/d99/classcore_1_1_image_effect_property_dialog.html#a20428b521ade4a007c3b7728a5c3be1d", null ],
-    [ "ImageEffectPropertyDialog", "d3/d99/classcore_1_1_image_effect_property_dialog.html#ab96e1c3330d4242e00602748d2f49f11", null ],
-    [ "~ImageEffectPropertyDialog", "d3/d99/classcore_1_1_image_effect_property_dialog.html#ae7e820d0ae3129a0b832af6372c1ae14", null ],
-    [ "getBNEffectChecked", "d3/d99/classcore_1_1_image_effect_property_dialog.html#a7dd40088d9f2099b99a99669fc483c9c", null ],
-    [ "getEffectList", "d3/d99/classcore_1_1_image_effect_property_dialog.html#a3af044ccc9d15d0aced259a5dbbc2b19", null ],
-    [ "getSubWidget", "d3/d99/classcore_1_1_image_effect_property_dialog.html#a5288b1b2dc74d90323eca7aa96d27c3b", null ],
-    [ "setBNEffectChecked", "d3/d99/classcore_1_1_image_effect_property_dialog.html#ad72c2a444499f77bb7ccc988668b8283", null ],
-    [ "setGraphicImageEffectElement", "d3/d99/classcore_1_1_image_effect_property_dialog.html#aa08db15195318840a94859e9dff1b45f", null ],
-    [ "setGraphicImageEffectElement", "d3/d99/classcore_1_1_image_effect_property_dialog.html#ab80b296b89a1360cb188edf8032869c3", null ]
+    [ "ImageEffectPropertyDialog", "d3/d99/classcore_1_1_image_effect_property_dialog.html#a77b4bddfb40fef993cc30426fd28e8b7", null ],
+    [ "ImageEffectPropertyDialog", "d3/d99/classcore_1_1_image_effect_property_dialog.html#a2a28cff821f184c76336ff9874b9e20e", null ],
+    [ "~ImageEffectPropertyDialog", "d3/d99/classcore_1_1_image_effect_property_dialog.html#aa244778c5dd884ff8e68ed62dcd0351e", null ],
+    [ "getBNEffectChecked", "d3/d99/classcore_1_1_image_effect_property_dialog.html#ad63a6c294ca99b7499314a2207d404fc", null ],
+    [ "getEffectList", "d3/d99/classcore_1_1_image_effect_property_dialog.html#a4c0e35e2ecf347ae04be1aed2c6881c4", null ],
+    [ "getSubWidget", "d3/d99/classcore_1_1_image_effect_property_dialog.html#a5e689304b72ae483a72052fd3fdc6673", null ],
+    [ "setBNEffectChecked", "d3/d99/classcore_1_1_image_effect_property_dialog.html#af51dc1e4573a06a844462e632e1a5906", null ],
+    [ "setGraphicImageEffectElement", "d3/d99/classcore_1_1_image_effect_property_dialog.html#aa342528c4742e375a12a4734d8d57a7a", null ],
+    [ "setGraphicImageEffectElement", "d3/d99/classcore_1_1_image_effect_property_dialog.html#a44cc8241fe2466dae13f7ead10de2ce7", null ]
 ];

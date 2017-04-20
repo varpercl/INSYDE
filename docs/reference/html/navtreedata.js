@@ -41,14 +41,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d2/dab/classcore_1_1_image.html#a225b0e3911350b1e194aa05b76f28844",
-"d4/d5a/classcore_1_1_restricted_line_f.html#a5319c5b1a79482e559115940de518149af8887958381877b92369a655dcfb4350",
-"d5/dc9/classcore_1_1_graphic_object_property_dialog.html#ab60e572034d0d3ff7d3e78e2e64e3477",
-"d7/d66/classcore_1_1_image_detailed_window.html",
-"d8/db6/classcore_1_1_basic_dialog.html#a2a499c3fda225fa6e524635dc44d6d25",
-"da/d96/classcore_1_1_labeled_double_spin_box.html#a53e8220540c779671325c64b6d9af389",
-"dc/dad/mlpobjectpropertydialog_8cpp.html",
-"de/d72/classcore_1_1_labeled_integer_spin_box.html"
+"d2/dab/classcore_1_1_image.html#a6444915e4ceac01b2646a56471bf7066",
+"d4/d81/classann__gui_1_1_a_n_n_model_wrapper.html#a2186c3f05924dd2f8d9456d87e5f68a1",
+"d6/d4f/classgui_1_1_plotter_data.html#a9f75f9cbc35bbfa8451fd335c6b8cd24",
+"d7/dee/basicdialog_8cpp_source.html",
+"d8/df7/acosolver_8h.html#ae7520c5477c11965aabeedc033c9862b",
+"db/dc8/classcore_1_1_graphic_object.html#aca007c071f7ae0e7411f369380f6d352ab2bd34561743a4f8fbb34ad7aa81e707",
+"dd/da8/restrictedlinef_8h.html",
+"functions_func_i.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -2,6 +2,7 @@ var classcore_1_1_image_detailed_window =
 [
     [ "ImageDetailedWindow", "d7/d66/classcore_1_1_image_detailed_window.html#ab1c2a160d419677534905ac421f31da8", null ],
     [ "ImageDetailedWindow", "d7/d66/classcore_1_1_image_detailed_window.html#a1fc5a859150d492a980bfc6ff825c1dc", null ],
+    [ "ImageDetailedWindow", "d7/d66/classcore_1_1_image_detailed_window.html#aceae0a376e60a994c0aeb77f4d48d603", null ],
     [ "~ImageDetailedWindow", "d7/d66/classcore_1_1_image_detailed_window.html#a1bf19df20f925fb93217a5e7deae01bb", null ],
     [ "getImage", "d7/d66/classcore_1_1_image_detailed_window.html#a473649cef519773abdfc9c50e0e95697", null ],
     [ "getImageObject", "d7/d66/classcore_1_1_image_detailed_window.html#a227e810d8b868283a54230b5acea724e", null ],

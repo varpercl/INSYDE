@@ -25,14 +25,6 @@ var dir_73b7e169cd608b21deda9900ac8bec10 =
       [ "ANNView", "d4/db1/classann__gui_1_1_a_n_n_view.html", "d4/db1/classann__gui_1_1_a_n_n_view" ]
     ] ],
     [ "definitions.h", "df/d3c/ann__gui_2definitions_8h.html", "df/d3c/ann__gui_2definitions_8h" ],
-    [ "graphicmlpelement.cpp", "d1/d10/graphicmlpelement_8cpp.html", null ],
-    [ "graphicmlpelement.h", "d1/d02/graphicmlpelement_8h.html", [
-      [ "GraphicMLPElement", "dd/d38/class_graphic_m_l_p_element.html", "dd/d38/class_graphic_m_l_p_element" ]
-    ] ],
-    [ "graphicmlpelementpropertydialog.cpp", "d2/d57/graphicmlpelementpropertydialog_8cpp.html", null ],
-    [ "graphicmlpelementpropertydialog.h", "d9/d42/graphicmlpelementpropertydialog_8h.html", [
-      [ "GraphicMLPElementPropertyDialog", "d8/d76/class_graphic_m_l_p_element_property_dialog.html", "d8/d76/class_graphic_m_l_p_element_property_dialog" ]
-    ] ],
     [ "mlpobject.cpp", "dd/d2a/mlpobject_8cpp.html", null ],
     [ "mlpobject.h", "de/dcf/mlpobject_8h.html", [
       [ "MLPObject", "d6/d55/classann__gui_1_1_m_l_p_object.html", "d6/d55/classann__gui_1_1_m_l_p_object" ]
@@ -64,10 +56,6 @@ var dir_73b7e169cd608b21deda9900ac8bec10 =
     ] ],
     [ "trainingsettable.cpp", "df/dab/trainingsettable_8cpp.html", null ],
     [ "trainingsettable.h", "d2/de5/trainingsettable_8h.html", null ],
-    [ "treeitem.cpp", "da/dbe/treeitem_8cpp.html", null ],
-    [ "treeitem.h", "d0/d3a/treeitem_8h.html", [
-      [ "TreeItem", "dd/db5/class_tree_item.html", "dd/db5/class_tree_item" ]
-    ] ],
     [ "tsmodelwrapper.cpp", "dd/d57/tsmodelwrapper_8cpp.html", null ],
     [ "tsmodelwrapper.h", "d3/dc9/tsmodelwrapper_8h.html", [
       [ "TSModelWrapper", "d9/d37/classann__gui_1_1_t_s_model_wrapper.html", "d9/d37/classann__gui_1_1_t_s_model_wrapper" ]

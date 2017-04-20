@@ -20,7 +20,7 @@ namespace core{
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class GraphicPointer : public GraphicObject
+class CORE_LIB_IMPORT_EXPORT GraphicPointer : public GraphicObject
 {
 	private:
 //        qreal width;
@@ -76,6 +76,14 @@ class GraphicPointer : public GraphicObject
 		  */
 		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
+
+		// Clipboard interface
+	public:
+		void pasteClick() override{}
+
+		// GraphicObject interface
+	protected slots:
+		void propertyClick() override{}
 };
 }
 #endif // APUNTADOR_H

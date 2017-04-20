@@ -12,7 +12,5 @@ var searchData=
   ['view_2eh',['view.h',['../d3/dda/view_8h.html',1,'']]],
   ['viewtype',['ViewType',['../d4/d81/classann__gui_1_1_a_n_n_model_wrapper.html#a88108b77f2e9eab21fc45ae059bee07d',1,'ann_gui::ANNModelWrapper']]],
   ['virtual',['VIRTUAL',['../d0/d45/namespaceec__base.html#a3d6fd6d40e85df2700c76a399dfc2116a5d8305573322fc9fe5b96f58224e2b38',1,'ec_base']]],
-  ['visited',['visited',['../da/d83/classec__base_1_1_ant.html#a277386e631af71dcd5f6213b56108d96',1,'ec_base::Ant']]],
-  ['visor_2ecpp',['visor.cpp',['../d8/d3e/visor_8cpp.html',1,'']]],
-  ['visor_2eh',['visor.h',['../d6/d21/visor_8h.html',1,'']]]
+  ['visited',['visited',['../da/d83/classec__base_1_1_ant.html#a277386e631af71dcd5f6213b56108d96',1,'ec_base::Ant']]]
 ];

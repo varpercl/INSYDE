@@ -20,8 +20,10 @@ var hierarchy =
         [ "core::AddDotMatrixDialog", "d6/db8/classcore_1_1_add_dot_matrix_dialog.html", null ],
         [ "core::GraphicObjectPropertyDialog", "d5/dc9/classcore_1_1_graphic_object_property_dialog.html", [
           [ "core::DotMatrixPropertyDialog", "dc/d18/classcore_1_1_dot_matrix_property_dialog.html", null ],
-          [ "core::ImagePropertyDialog", "d7/da0/classcore_1_1_image_property_dialog.html", null ]
+          [ "core::ImagePropertyDialog", "d7/da0/classcore_1_1_image_property_dialog.html", null ],
+          [ "cv_gui::FaceRecognizerPropertyDialog", "d0/da4/classcv__gui_1_1_face_recognizer_property_dialog.html", null ]
         ] ],
+        [ "core::ImageEffectPropertyDialog", "d3/d99/classcore_1_1_image_effect_property_dialog.html", null ],
         [ "gui::MainWindow", "df/d15/classgui_1_1_main_window.html", null ]
       ] ],
       [ "core::BasicTable", "da/ddc/classcore_1_1_basic_table.html", null ],
@@ -34,25 +36,16 @@ var hierarchy =
         ] ],
         [ "core::DotMatrix", "d3/d6e/classcore_1_1_dot_matrix.html", null ],
         [ "core::Image", "d2/dab/classcore_1_1_image.html", null ],
-        [ "GraphicMLPElement", "dd/d38/class_graphic_m_l_p_element.html", null ]
+        [ "cv_gui::FaceRecognizer", "db/d3b/classcv__gui_1_1_face_recognizer.html", null ]
       ] ]
     ] ],
     [ "core::Connector::CollidingResult", "dc/dd7/structcore_1_1_connector_1_1_colliding_result.html", null ],
     [ "core::DotMatrix::Dot", "d4/dd7/structcore_1_1_dot_matrix_1_1_dot.html", null ],
-    [ "Effect", "d6/d58/class_effect.html", [
-      [ "BlackWhiteEffect", "de/d14/class_black_white_effect.html", null ],
-      [ "GrayScaleEffect", "de/dc1/class_gray_scale_effect.html", null ]
-    ] ],
     [ "core::Effect", "d5/d87/classcore_1_1_effect.html", [
       [ "core::BlackWhiteEffect", "d6/d05/classcore_1_1_black_white_effect.html", null ],
       [ "core::GrayScaleEffect", "d0/d4e/classcore_1_1_gray_scale_effect.html", null ]
     ] ],
-    [ "Erp", "d4/d46/class_erp.html", null ],
-    [ "GraphicObject", null, [
-      [ "Cursor", "d2/de5/class_cursor.html", [
-        [ "ImageEffect", "d4/d99/class_image_effect.html", null ]
-      ] ]
-    ] ],
+    [ "erp::Erp", "d2/d5f/classerp_1_1_erp.html", null ],
     [ "core::IIOObject", "d8/daf/classcore_1_1_i_i_o_object.html", null ],
     [ "core::IResizable", "db/d9f/classcore_1_1_i_resizable.html", [
       [ "core::DataRepresentation", "d6/d03/classcore_1_1_data_representation.html", null ],
@@ -74,19 +67,14 @@ var hierarchy =
         [ "ann_base::MLPTrainingResult", "d8/da0/classann__base_1_1_m_l_p_training_result.html", null ]
       ] ],
       [ "ann_base::TrainingSet", "db/dcc/classann__base_1_1_training_set.html", null ],
-      [ "ann_gui::TSModelWrapper", "d9/d37/classann__gui_1_1_t_s_model_wrapper.html", null ],
-      [ "MLPTrainingResult", "d9/dd7/class_m_l_p_training_result.html", null ]
+      [ "ann_gui::TSModelWrapper", "d9/d37/classann__gui_1_1_t_s_model_wrapper.html", null ]
     ] ],
     [ "QDialog", null, [
       [ "ann_gui::MLPObjectPropertyDialog", "de/d83/classann__gui_1_1_m_l_p_object_property_dialog.html", null ],
       [ "ann_gui::SamplesDialog", "d6/d89/classann__gui_1_1_samples_dialog.html", null ],
       [ "core::BasicDialog", "d8/db6/classcore_1_1_basic_dialog.html", null ],
-      [ "core::ImageEffectPropertyDialog", "d3/d99/classcore_1_1_image_effect_property_dialog.html", null ],
       [ "core::SelectImageSegmentDialog", "df/dc4/classcore_1_1_select_image_segment_dialog.html", null ],
-      [ "ec_gui::AddAgentsDialog", "df/d2e/classec__gui_1_1_add_agents_dialog.html", null ],
-      [ "GraphicMLPElementPropertyDialog", "d8/d76/class_graphic_m_l_p_element_property_dialog.html", null ],
-      [ "ImageEffectPropertyDialog", "d3/d32/class_image_effect_property_dialog.html", null ],
-      [ "SelectImageSegmentDialog", "d0/da8/class_select_image_segment_dialog.html", null ]
+      [ "ec_gui::AddAgentsDialog", "df/d2e/classec__gui_1_1_add_agents_dialog.html", null ]
     ] ],
     [ "QFile", null, [
       [ "ann_base::SimplePerceptronFile", "da/d94/classann__base_1_1_simple_perceptron_file.html", null ],
@@ -108,7 +96,8 @@ var hierarchy =
       [ "ann_gui::WeightEditProxy", "d8/d4c/classann__gui_1_1_weight_edit_proxy.html", null ]
     ] ],
     [ "QGraphicsScene", null, [
-      [ "ann_gui::PerceptronDisplay", "d6/d83/classann__gui_1_1_perceptron_display.html", null ]
+      [ "ann_gui::PerceptronDisplay", "d6/d83/classann__gui_1_1_perceptron_display.html", null ],
+      [ "core::Enviroment", "d8/dd1/classcore_1_1_enviroment.html", null ]
     ] ],
     [ "QGraphicsView", null, [
       [ "core::GraphicDetailedView", "db/de1/classcore_1_1_graphic_detailed_view.html", null ]
@@ -141,7 +130,6 @@ var hierarchy =
     ] ],
     [ "QWidget", null, [
       [ "ann_gui::SimulatedAnnealingWidget", "de/d70/classann__gui_1_1_simulated_annealing_widget.html", null ],
-      [ "BNSubWidget", "d6/d57/class_b_n_sub_widget.html", null ],
       [ "core::BNSubWidget", "db/d2d/classcore_1_1_b_n_sub_widget.html", null ],
       [ "core::DataRepresentationWidget", "d4/d63/classcore_1_1_data_representation_widget.html", [
         [ "core::DotMatrixRepresentation", "da/d47/classcore_1_1_dot_matrix_representation.html", null ],
@@ -162,7 +150,6 @@ var hierarchy =
         [ "core::LabeledIntegerSpinBox", "de/d72/classcore_1_1_labeled_integer_spin_box.html", null ]
       ] ],
       [ "core::NormalizationWidget", "dd/d4a/classcore_1_1_normalization_widget.html", null ],
-      [ "GSSubWidget", "d5/d61/class_g_s_sub_widget.html", null ],
       [ "gui::PruebaPantalla", "d3/da7/classgui_1_1_prueba_pantalla.html", null ]
     ] ],
     [ "QWizard", null, [
@@ -183,9 +170,8 @@ var hierarchy =
       [ "ann_base::MultilayerPerceptronPattern", "d7/d2a/classann__base_1_1_multilayer_perceptron_pattern.html", null ],
       [ "ann_base::PerceptronTrainingPattern", "d4/dc9/classann__base_1_1_perceptron_training_pattern.html", null ]
     ] ],
-    [ "ann_base::SimplePerceptron::TrainResult", "d5/d8b/structann__base_1_1_simple_perceptron_1_1_train_result.html", null ],
     [ "ann_base::Adaline::TrainResult", "d4/d99/structann__base_1_1_adaline_1_1_train_result.html", null ],
-    [ "TreeItem", "dd/db5/class_tree_item.html", null ],
+    [ "ann_base::SimplePerceptron::TrainResult", "d5/d8b/structann__base_1_1_simple_perceptron_1_1_train_result.html", null ],
     [ "core::Undo", "d4/d7a/classcore_1_1_undo.html", [
       [ "core::BasicDialog", "d8/db6/classcore_1_1_basic_dialog.html", null ]
     ] ],

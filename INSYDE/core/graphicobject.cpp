@@ -17,6 +17,42 @@ core::GraphicObject::~GraphicObject()
 
 }
 
+void core::GraphicObject::setIcon(const QIcon &icon)
+{
+	this->icon = icon;
+}
+
+QIcon core::GraphicObject::getIcon() const
+{
+	return icon;
+}
+
+void core::GraphicObject::setIconFixedSize(bool fs)
+{
+	isIconResizable = fs;
+}
+
+bool core::GraphicObject::isIconFixedSize() const
+{
+	return isIconResizable;
+}
+
+void core::GraphicObject::setIconFixedSizeValue(const QSize &size)
+{
+	iconFixedSize = size;
+}
+
+void core::GraphicObject::setIconFixedSizeValue(int width, int height)
+{
+	iconFixedSize.setWidth(width);
+	iconFixedSize.setHeight(height);
+}
+
+QSize core::GraphicObject::getIconFixedSize() const
+{
+	return iconFixedSize;
+}
+
 void core::GraphicObject::setContainerRect(const QRectF &rect)
 {
 	containerRect = rect;
@@ -315,6 +351,12 @@ void core::GraphicObject::paint(QPainter *painter, const QStyleOptionGraphicsIte
 		}
 	}
 
+	if(isIconResizable)
+	{
+		painter->drawPixmap(containerRect.toRect(), icon.pixmap(containerRect.toRect().size()));
+	}else{
+		painter->drawPixmap(containerRect.toRect(), icon.pixmap(iconFixedSize));
+	}
 	painter->drawRect(containerRect.adjusted(-border.widthF(), -border.widthF(), 0, 0));
 
 	painter->restore();
@@ -393,11 +435,15 @@ void core::GraphicObject::init(const QRectF &rect, int border)
 	getPasteAction()->setEnabled(false);
 
 	contextMenu.addSeparator();
-	lockAction = contextMenu.addAction(ICON_PADLOCK, "Bloquear", this, SLOT(setObjectLocked(bool)));
+	lockAction = contextMenu.addAction(ICON_PADLOCK, tr("Locked"), this, SLOT(setObjectLocked(bool)));
 	lockAction->setCheckable(true);
 	contextMenu.addSeparator();
-	removeAction = contextMenu.addAction(ICON_DELETE, "Eliminar", this, SLOT(removeClick()));
-	propertiesAction = contextMenu.addAction(ICON_PROPERTIES, "Propiedades...", this, SLOT(propertyClick()));
+	removeAction = contextMenu.addAction(ICON_DELETE, tr("Delete"), this, SLOT(removeClick()));
+	propertiesAction = contextMenu.addAction(ICON_PROPERTIES, tr("Properties..."), this, SLOT(propertyClick()));
+
+
+	setIconFixedSize(true);
+	setIconFixedSizeValue(30, 30);
 
 	setObjectLocked(false);
 	setBorder(QPen(Qt::black, border));

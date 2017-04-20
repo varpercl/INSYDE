@@ -20,4 +20,8 @@
 #define ICON_AGENT QIcon(":/media/icons/Agent_icon.png")
 #endif
 
+#ifndef ICON_FACE_RECOGNIZER
+#define ICON_FACE_RECOGNIZER QIcon(":/media/icons/icon-facial-recognition.png")
+#endif
+
 #endif // ICONS_H

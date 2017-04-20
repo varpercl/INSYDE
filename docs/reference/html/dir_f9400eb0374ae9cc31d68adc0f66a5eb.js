@@ -40,10 +40,6 @@ var dir_f9400eb0374ae9cc31d68adc0f66a5eb =
     [ "mlptrainingresult.h", "da/d4d/mlptrainingresult_8h.html", [
       [ "MLPTrainingResult", "d8/da0/classann__base_1_1_m_l_p_training_result.html", "d8/da0/classann__base_1_1_m_l_p_training_result" ]
     ] ],
-    [ "mlptrainingresultconcurrentvector.cpp", "da/d67/mlptrainingresultconcurrentvector_8cpp.html", null ],
-    [ "mlptrainingresultconcurrentvector.h", "df/d90/mlptrainingresultconcurrentvector_8h.html", [
-      [ "MLPTrainingResult", "d9/dd7/class_m_l_p_training_result.html", "d9/dd7/class_m_l_p_training_result" ]
-    ] ],
     [ "perceptrontrainingpattern.cpp", "db/d56/perceptrontrainingpattern_8cpp.html", null ],
     [ "perceptrontrainingpattern.h", "d2/d52/perceptrontrainingpattern_8h.html", [
       [ "PerceptronTrainingPattern", "d4/dc9/classann__base_1_1_perceptron_training_pattern.html", null ]

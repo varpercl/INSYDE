@@ -94,8 +94,11 @@ $(document).ready(function(){initNavTree('da/db1/namespacecore_1_1math.html','..
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab9632a464498ced03283427e866dddc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d43/share__core__lib_8h.html#ad52f773f02a3b34172072d7cdf57faf1">CORE_LIB_IMPORT_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db1/namespacecore_1_1math.html#ab9632a464498ced03283427e866dddc7">angle</a> (const QPointF &amp;p1, const QPointF &amp;p2)</td></tr>
-<tr class="memdesc:ab9632a464498ced03283427e866dddc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">angle  <a href="#ab9632a464498ced03283427e866dddc7">More...</a><br /></td></tr>
+<tr class="memdesc:ab9632a464498ced03283427e866dddc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the angle of the line formed by <code>p1</code> and <code>p2</code>.  <a href="#ab9632a464498ced03283427e866dddc7">More...</a><br /></td></tr>
 <tr class="separator:ab9632a464498ced03283427e866dddc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a5696138c682bc6310aafc42acc7737"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d43/share__core__lib_8h.html#ad52f773f02a3b34172072d7cdf57faf1">CORE_LIB_IMPORT_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db1/namespacecore_1_1math.html#a9a5696138c682bc6310aafc42acc7737">distance</a> (const QPointF &amp;point, const QPointF &amp;p1, const QPointF &amp;p2)</td></tr>
+<tr class="memdesc:a9a5696138c682bc6310aafc42acc7737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the distance between <code>point</code> and the line composed by points <code>p1</code> and <code>p2</code>.  <a href="#a9a5696138c682bc6310aafc42acc7737">More...</a><br /></td></tr>
+<tr class="separator:a9a5696138c682bc6310aafc42acc7737"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The math namespace stores a large collection of mathematical functions shared between different classes and different code snippets. </p>
@@ -128,9 +131,56 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>angle </p>
+<p>Determines the angle of the line formed by <code>p1</code> and <code>p2</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">p1</td><td>The origin point of the line. </td></tr>
+    <tr><td class="paramname">p2</td><td>The ending point of the line. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A double value which is the angle in radians. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d05/imath_8cpp_source.html#l00016">16</a> of file <a class="el" href="../../d0/d05/imath_8cpp_source.html">imath.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9a5696138c682bc6310aafc42acc7737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a5696138c682bc6310aafc42acc7737">&#9670;&nbsp;</a></span>distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double core::math::distance </td>
+          <td>(</td>
+          <td class="paramtype">const QPointF &amp;&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QPointF &amp;&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QPointF &amp;&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the distance between <code>point</code> and the line composed by points <code>p1</code> and <code>p2</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>The point to be evaluated. </td></tr>
     <tr><td class="paramname">p1</td><td></td></tr>
     <tr><td class="paramname">p2</td><td></td></tr>
   </table>
@@ -138,7 +188,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d05/imath_8cpp_source.html#l00016">16</a> of file <a class="el" href="../../d0/d05/imath_8cpp_source.html">imath.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d05/imath_8cpp_source.html#l00021">21</a> of file <a class="el" href="../../d0/d05/imath_8cpp_source.html">imath.cpp</a>.</p>
 
 </div>
 </div>

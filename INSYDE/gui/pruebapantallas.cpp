@@ -247,7 +247,15 @@ void gui::PruebaPantalla::on_GraphicObjectPropertyDialogButton_clicked()
 {
 	DotMatrix *dm = new DotMatrix(10, 10, DotMatrix::Unipolar);
 
-	GraphicObjectPropertyDialog *gopd = new GraphicObjectPropertyDialog(dm);
+	PropertiesDialog *gopd = new PropertiesDialog(dm);
 
 	gopd->show();
+}
+
+void gui::PruebaPantalla::on_FaceRecognizerPropertyDialog_clicked()
+{
+	FaceRecognizer *fr = new FaceRecognizer();
+	FaceRecognizerPropertyDialog *frpd = new FaceRecognizerPropertyDialog(fr);
+
+	frpd->show();
 }

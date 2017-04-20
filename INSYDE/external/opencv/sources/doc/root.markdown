@@ -4,7 +4,7 @@ OpenCV modules {#mainpage}
 - @ref intro
 - @ref tutorial_root
 - @ref tutorial_py_root
-
+- @ref tutorial_contrib_root
 - @ref faq
 - @ref citelist
 
@@ -40,4 +40,37 @@ OpenCV modules {#mainpage}
 	- viz. @ref viz
 
 
+- Extra modules:
+	- aruco. @ref aruco
+	- bgsegm. @ref bgsegm
+	- bioinspired. @ref bioinspired
+	- ccalib. @ref ccalib
+	- cnn_3dobj. @ref cnn_3dobj
+	- cvv. @ref cvv
+	- datasets. @ref datasets
+	- dnn. @ref dnn
+	- dnn_modern. @ref dnn_modern
+	- dpm. @ref dpm
+	- face. @ref face
+	- freetype. @ref freetype
+	- fuzzy. @ref fuzzy
+	- hdf. @ref hdf
+	- line_descriptor. @ref line_descriptor
+	- matlab. @ref matlab
+	- optflow. @ref optflow
+	- phase_unwrapping. @ref phase_unwrapping
+	- plot. @ref plot
+	- reg. @ref reg
+	- rgbd. @ref rgbd
+	- saliency. @ref saliency
+	- sfm. @ref sfm
+	- stereo. @ref stereo
+	- structured_light. @ref structured_light
+	- surface_matching. @ref surface_matching
+	- text. @ref text
+	- tracking. @ref tracking
+	- xfeatures2d. @ref xfeatures2d
+	- ximgproc. @ref ximgproc
+	- xobjdetect. @ref xobjdetect
+	- xphoto. @ref xphoto
 

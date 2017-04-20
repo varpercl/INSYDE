@@ -12,5 +12,6 @@
         <file>media/icons/add_effect_icon.jpg</file>
         <file>media/icons/conjuntos.gif</file>
         <file>media/icons/Agent_icon.png</file>
+        <file>media/icons/icon-facial-recognition.png</file>
     </qresource>
 </RCC>

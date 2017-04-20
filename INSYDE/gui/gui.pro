@@ -1,8 +1,9 @@
 
 include(../external/kdchart2.pri)
 include(../external/tbb.pri)
+include(../external/opencv.pri)
 
-QT += core gui widgets xml opengl
+QT += core gui widgets xml opengl multimedia multimediawidgets
 
 CONFIG += qt opengl
 
@@ -60,7 +61,7 @@ win32:{
     CONFIG(release, debug|release):{
 		message("Building release binaries for gui module");
 
-		QMAKE_CXXFLAGS += /MD
+#		QMAKE_CXXFLAGS += /MD
 
 		TARGET = INSYDE
 
@@ -68,7 +69,8 @@ win32:{
 				-L$$DESTDIR -lann_base \
 				-L$$DESTDIR -lann_gui\
 				-L$$DESTDIR -lec_base \
-				-L$$DESTDIR -lec_gui
+				-L$$DESTDIR -lec_gui \
+				-L$$DESTDIR -lcv_gui
 
 	}else:{#DEBUG
 
@@ -76,13 +78,14 @@ win32:{
 
 		TARGET = INSYDE_debug
 
-		QMAKE_CXXFLAGS += /MDd
+#		QMAKE_CXXFLAGS += /MDd
 
 		LIBS += -L$$DESTDIR -lcore_debug \
 				-L$$DESTDIR -lann_base_debug \
 				-L$$DESTDIR -lann_gui_debug \
 				-L$$DESTDIR -lec_base_debug \
-				-L$$DESTDIR -lec_gui_debug
+				-L$$DESTDIR -lec_gui_debug \
+				-L$$DESTDIR -lcv_gui_debug
 
     }
 #   if x86_64

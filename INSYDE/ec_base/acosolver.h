@@ -106,7 +106,7 @@ class ACOSolver
 		  Inicializa una hormiga indicando que ningun nodo ha sido visitado
 		  Esto quiere decir, a un estado inicial.
 
-		  @param Ant *a Puntero a la hormiga que se quiere inicializar
+		  @param[in] a Puntero a la hormiga que se quiere inicializar
 
 		  */
 		void ant_empty_memory( Ant *a );
@@ -114,8 +114,8 @@ class ACOSolver
 		/**
 		  Coloca una hormiga en una ciudad aleatoriamente
 
-		  @param Ant *a Puntero a la hormiga que se desea posicionar
-		  @param long int step Numero de pasos para construir el camino
+		  @param[in] a Puntero a la hormiga que se desea posicionar
+		  @param step Numero de pasos para construir el camino
 		  */
 		void place_ant( Ant *a , long int step );
 
@@ -123,23 +123,23 @@ class ACOSolver
 		  Selecciona y mueve la hormiga al proximo nodo vecino basandose en
 		  la probabilidad de visitar ese nodo.
 
-		  @param Ant *a Puntero a la hormiga que se movera
-		  @param long int phase Paso actual en la fase de construccion
+		  @param[in] a Puntero a la hormiga que se movera
+		  @param phase Paso actual en la fase de construccion
 		  */
 		void neighbour_choose_and_move_to_next( Ant *a , long phase );
 
 		/**
 		  Elimina parte de las feromonas en la arista por la cual acaba de pasar la hormiga
 
-		  @param Ant *a Puntero a la hormiga que hara la actualizacion
-		  @param long phase Fase en la que se encuentra la construccion
+		  @param[in] a Puntero a la hormiga que hara la actualizacion
+		  @param phase Fase en la que se encuentra la construccion
 		  */
 		void local_acs_pheromone_update( Ant *a, long int phase );
 
 		/**
 		  Calcula la longitud de un tour basandose en las distancias de los vertices @code{t}
 
-		  @param long *t Puntero al tour que se calculara
+		  @param[in] t Puntero al tour que se calculara
 		  */
 		long int compute_tour_length( long int *t );
 

@@ -741,3 +741,42 @@ Compilación correcta.
 Tiempo transcurrido 00:00:00.82
 
 
+Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX11 succeeded with the following output:
+Change Dir: C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_7845e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.1.458.808
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 12/02/2017 3:27:57.
+Proyecto "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_7845e.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_7845e.dir\Debug\".
+  Creando directorio "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_7845e.dir\Debug\cmTC_7845e.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_7845e.dir\Debug\cmTC_7845e.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\CL.exe /c /Zi /W4 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D COMPILER_SUPPORTS_CXX11 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHa /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7845e.dir\Debug\\" /Fd"cmTC_7845e.dir\Debug\vc141.pdb" /Gd /TP /wd4251 /wd4324 /wd4275 /wd4589 /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\src.cxx"
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.10.24728 para x86
+  (C) Microsoft Corporation. Reservados todos los derechos.
+  
+  cl /c /Zi /W4 /WX- /diagnostics:classic /MP4 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D COMPILER_SUPPORTS_CXX11 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHa /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7845e.dir\Debug\\" /Fd"cmTC_7845e.dir\Debug\vc141.pdb" /Gd /TP /wd4251 /wd4324 /wd4275 /wd4589 /analyze- /errorReport:queue   /bigobj "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\src.cxx"
+  src.cxx
+  
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24728\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_7845e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_7845e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/CMakeFiles/CMakeTmp/Debug/cmTC_7845e.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_7845e.dir\Debug\src.obj
+  cmTC_7845e.vcxproj -> C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\Debug\cmTC_7845e.exe
+FinalizeBuildStatus:
+  Se eliminará el archivo "cmTC_7845e.dir\Debug\cmTC_7845e.tlog\unsuccessfulbuild".
+  Aplicando tarea Touch a "cmTC_7845e.dir\Debug\cmTC_7845e.tlog\cmTC_7845e.lastbuildstate".
+Compilación del proyecto terminada "C:\Users\Edixon Vargas\Documents\GitHub\INSYDE_Repo\INSYDE\external\opencv\sources\CMakeFiles\CMakeTmp\cmTC_7845e.vcxproj" (destinos predeterminados).
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:01.07
+
+Source file was:
+int main() { return 0; }

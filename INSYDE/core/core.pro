@@ -1,6 +1,6 @@
 include(../external/tbb.pri)
 
-QT += gui widgets opengl xml
+QT += gui widgets opengl xml multimedia multimediawidgets
 
 CONFIG +=  qt shared
 

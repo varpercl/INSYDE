@@ -1,7 +1,7 @@
 #include "dotmatrixpropertydialog.h"
 
 core::DotMatrixPropertyDialog::DotMatrixPropertyDialog(DotMatrix *dm, QWidget *parent) :
-	GraphicObjectPropertyDialog(dm, parent)
+	PropertiesDialog(dm, parent)
 {
 	init(dm);
 }

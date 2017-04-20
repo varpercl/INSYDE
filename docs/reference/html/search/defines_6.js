@@ -17,6 +17,7 @@ var searchData=
   ['icon_5feffect',['ICON_EFFECT',['../d7/de0/gui_2icons_8h.html#aed1a6945204aad08b1af2484800f2982',1,'icons.h']]],
   ['icon_5feraser',['ICON_ERASER',['../d7/d2d/core_2definitions_8h.html#a05f2f50f44d1370c9d6a59d93ee44f11',1,'definitions.h']]],
   ['icon_5fexport',['ICON_EXPORT',['../d7/d2d/core_2definitions_8h.html#ae4cdde0fff079b356ca17dc11ee009b0',1,'ICON_EXPORT():&#160;definitions.h'],['../dc/de3/core_2icons_8h.html#ae4cdde0fff079b356ca17dc11ee009b0',1,'ICON_EXPORT():&#160;icons.h']]],
+  ['icon_5fface_5frecognizer',['ICON_FACE_RECOGNIZER',['../d7/de0/gui_2icons_8h.html#a98a171f4d652efb34ae010fd414b2c54',1,'icons.h']]],
   ['icon_5ffill',['ICON_FILL',['../d7/d2d/core_2definitions_8h.html#ae960383adff6b9ad29bd4e5350267b80',1,'definitions.h']]],
   ['icon_5ffreehand',['ICON_FREEHAND',['../d7/d2d/core_2definitions_8h.html#a5f99f98c208526f1c6b7c6fbb909244d',1,'definitions.h']]],
   ['icon_5fgrid',['ICON_GRID',['../d7/de0/gui_2icons_8h.html#a164830b2cbf397ae4df18554d9b3905e',1,'icons.h']]],

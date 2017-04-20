@@ -1,13 +1,13 @@
 #include "imagepropertydialog.h"
 
 core::ImagePropertyDialog::ImagePropertyDialog(QWidget *parent) :
-	GraphicObjectPropertyDialog(nullptr, parent)
+	PropertiesDialog(nullptr, parent)
 {
 	init(nullptr);
 }
 
 core::ImagePropertyDialog::ImagePropertyDialog(Image *img, QWidget *parent) :
-	GraphicObjectPropertyDialog(img, parent)
+	PropertiesDialog(img, parent)
 {
 	init(img);
 }

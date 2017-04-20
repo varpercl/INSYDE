@@ -3,11 +3,13 @@
 
 #include "erp_global.h"
 
+namespace erp
+{
 class ERPSHARED_EXPORT Erp
 {
 
 	public:
 		Erp();
 };
-
+}
 #endif // ERP_H

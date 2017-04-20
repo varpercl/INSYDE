@@ -13,9 +13,11 @@
 
 #include "icons.h"
 #include "view.h"
+#include "../cv_gui/facerecognizer.h"
 
 using namespace core;
 using namespace ann_gui;
+using namespace cv_gui;
 
 namespace gui
 {
@@ -125,6 +127,11 @@ class MainWindow : public BasicDialog
 		 * \brief onAddEffectClicked
 		 */
 		void onAddEffectClicked();
+
+		/*!
+		 * \brief Attends Add face recognizer button click.
+		 */
+		void onAddFaceRecognizer();
 
 		/*!
 		 * \brief onGDVMousePressed Throwed when GraphicDetailedView clicked
@@ -280,7 +287,8 @@ class MainWindow : public BasicDialog
 		*btnAddMLP,
 		*btnAddSimplePerceptron,
 		*btnAddRegion,
-		*btnAddEffect;
+		*btnAddEffect,
+		*btnAddFaceRecognizer;
 
 		QToolBox
 		*mainToolBox;
@@ -292,7 +300,8 @@ class MainWindow : public BasicDialog
 		*systemWidget,
 		*generalTBWidget,
 		*annTBWidget,
-		*ecTBWidget;
+		*ecTBWidget,
+		*cvTBWidget;
 
 		QTabWidget
 		*mainTab;
@@ -317,12 +326,19 @@ class MainWindow : public BasicDialog
 		QVBoxLayout
 		*vlyGeneralToolBox,
 		*vlyANNToolBox,
-		*vlyECToolBox;
+		*vlyECToolBox,
+		*vlyCVToolBox;
 
 		Simulation *simulation;
 
+		/*!
+		 * \brief Initializes all attributes of this instance.
+		 */
 		void init();
 
+		/*!
+		 * \brief Starts all graphic interface.
+		 */
 		void setupUI();
 
 		void uncheckToolButton();

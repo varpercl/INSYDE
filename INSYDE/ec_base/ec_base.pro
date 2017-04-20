@@ -1,5 +1,5 @@
 
-QT += core gui widgets opengl xml
+QT += core gui widgets opengl xml multimedia multimediawidgets
 
 CONFIG += qt opengl shared_and_static
 

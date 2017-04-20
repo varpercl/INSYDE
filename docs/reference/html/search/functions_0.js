@@ -7,7 +7,7 @@ var searchData=
   ['add',['add',['../d3/dd3/classcore_1_1_simulation.html#a6551f07cb6d7c5430246732308f79f6a',1,'core::Simulation']]],
   ['addagentsdialog',['AddAgentsDialog',['../df/d2e/classec__gui_1_1_add_agents_dialog.html#ace43afaa939a8fe261b3874263985135',1,'ec_gui::AddAgentsDialog']]],
   ['addbutton',['addButton',['../d8/db6/classcore_1_1_basic_dialog.html#a681a7091f8fe9efe85783c73d00ea953',1,'core::BasicDialog']]],
-  ['addchilditem',['addChildItem',['../d6/d5c/classann__gui_1_1_a_n_n_model_tree.html#a3fd94ae7664c249c6bbae785601fda83',1,'ann_gui::ANNModelTree::addChildItem()'],['../dd/db5/class_tree_item.html#a7cf9103ce047c31e936e3b7b4fc81933',1,'TreeItem::addChildItem()']]],
+  ['addchilditem',['addChildItem',['../d6/d5c/classann__gui_1_1_a_n_n_model_tree.html#a3fd94ae7664c249c6bbae785601fda83',1,'ann_gui::ANNModelTree']]],
   ['adddotmatrixdialog',['AddDotMatrixDialog',['../d6/db8/classcore_1_1_add_dot_matrix_dialog.html#afcc1ca05f351de2f6fa41688da387d3c',1,'core::AddDotMatrixDialog::AddDotMatrixDialog(QWidget *parent=0)'],['../d6/db8/classcore_1_1_add_dot_matrix_dialog.html#a4f7b23fcc5fd51277c71e3a26c752007',1,'core::AddDotMatrixDialog::AddDotMatrixDialog(int rows, int cols, QWidget *parent=0)']]],
   ['addmenu',['addMenu',['../d8/db6/classcore_1_1_basic_dialog.html#ac4ff1b39ab02c8d55b550a55c603a241',1,'core::BasicDialog']]],
   ['addnewmlpdialog',['AddNewMLPDialog',['../de/d06/classann__gui_1_1_add_new_m_l_p_dialog.html#a78c4e49a7824eaeb5cb6afdf1e9bed08',1,'ann_gui::AddNewMLPDialog']]],

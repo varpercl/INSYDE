@@ -4,8 +4,8 @@ var searchData=
   ['samplesdialog_2eh',['samplesdialog.h',['../d0/d52/samplesdialog_8h.html',1,'']]],
   ['satrainingsettings_2ecpp',['satrainingsettings.cpp',['../df/d04/satrainingsettings_8cpp.html',1,'']]],
   ['satrainingsettings_2eh',['satrainingsettings.h',['../d0/dd3/satrainingsettings_8h.html',1,'']]],
-  ['selectimagesegmentdialog_2ecpp',['selectimagesegmentdialog.cpp',['../db/d88/core_2selectimagesegmentdialog_8cpp.html',1,'(Global Namespace)'],['../dd/d24/gui_2selectimagesegmentdialog_8cpp.html',1,'(Global Namespace)']]],
-  ['selectimagesegmentdialog_2eh',['selectimagesegmentdialog.h',['../d7/db8/core_2selectimagesegmentdialog_8h.html',1,'(Global Namespace)'],['../d8/d98/gui_2selectimagesegmentdialog_8h.html',1,'(Global Namespace)']]],
+  ['selectimagesegmentdialog_2ecpp',['selectimagesegmentdialog.cpp',['../d2/df4/selectimagesegmentdialog_8cpp.html',1,'']]],
+  ['selectimagesegmentdialog_2eh',['selectimagesegmentdialog.h',['../d5/d7f/selectimagesegmentdialog_8h.html',1,'']]],
   ['selectprojectpage_2ecpp',['selectprojectpage.cpp',['../d0/d32/selectprojectpage_8cpp.html',1,'']]],
   ['selectprojectpage_2eh',['selectprojectpage.h',['../d3/d28/selectprojectpage_8h.html',1,'']]],
   ['sensor_2ecpp',['sensor.cpp',['../da/dfa/sensor_8cpp.html',1,'']]],
@@ -17,6 +17,7 @@ var searchData=
   ['share_5fann_5fbase_5flib_2eh',['share_ann_base_lib.h',['../d4/d86/share__ann__base__lib_8h.html',1,'']]],
   ['share_5fann_5fgui_5flib_2eh',['share_ann_gui_lib.h',['../d0/d9f/share__ann__gui__lib_8h.html',1,'']]],
   ['share_5fcore_5flib_2eh',['share_core_lib.h',['../d8/d43/share__core__lib_8h.html',1,'']]],
+  ['share_5fcv_5fgui_5flib_2eh',['share_cv_gui_lib.h',['../da/d19/share__cv__gui__lib_8h.html',1,'']]],
   ['share_5fec_5fgui_2eh',['share_ec_gui.h',['../d4/d27/share__ec__gui_8h.html',1,'']]],
   ['shootingunit_2ecpp',['shootingunit.cpp',['../da/d32/shootingunit_8cpp.html',1,'']]],
   ['shootingunit_2eh',['shootingunit.h',['../d4/dd9/shootingunit_8h.html',1,'']]],
@@ -34,7 +35,5 @@ var searchData=
   ['simulation_2ecpp',['simulation.cpp',['../d2/d93/simulation_8cpp.html',1,'']]],
   ['simulation_2eh',['simulation.h',['../dd/d6a/simulation_8h.html',1,'']]],
   ['simulationcontrol_2ecpp',['simulationcontrol.cpp',['../d7/de0/simulationcontrol_8cpp.html',1,'']]],
-  ['simulationcontrol_2eh',['simulationcontrol.h',['../d4/dca/simulationcontrol_8h.html',1,'']]],
-  ['statusanimation_2ecpp',['statusanimation.cpp',['../d3/d84/statusanimation_8cpp.html',1,'']]],
-  ['statusanimation_2eh',['statusanimation.h',['../d8/da5/statusanimation_8h.html',1,'']]]
+  ['simulationcontrol_2eh',['simulationcontrol.h',['../d4/dca/simulationcontrol_8h.html',1,'']]]
 ];

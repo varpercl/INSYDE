@@ -11,5 +11,5 @@ var searchData=
   ['sound',['Sound',['../d6/d03/classcore_1_1_data_representation.html#a2c6e47562295914882bc3f32c2d7ac8bae565c6a8668a788c0d6de0fa2fa40f25',1,'core::DataRepresentation']]],
   ['stand',['Stand',['../d1/d53/namespaceec__gui.html#a71a6eee566f86851e56bd138aa9cc72daaac5b83655bec6266fe27bcae733eda4',1,'ec_gui']]],
   ['step',['Step',['../d9/dc7/classann__base_1_1_hopfield.html#a13a874ac798ede8358d494dd9cdbd208af637a7f8786eb20875249ef037aca296',1,'ann_base::Hopfield']]],
-  ['stopped',['Stopped',['../d7/dc4/namespacegui.html#a9306882e3582ba357c78cdc0460421f5a8e1b1c5d5ebb1689106dfd63d6bbbc0d',1,'gui::Stopped()'],['../d8/da5/statusanimation_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70ba4d049c6d45e08a294523df186ad77a75',1,'Stopped():&#160;statusanimation.h']]]
+  ['stopped',['Stopped',['../d7/dc4/namespacegui.html#a9306882e3582ba357c78cdc0460421f5a8e1b1c5d5ebb1689106dfd63d6bbbc0d',1,'gui']]]
 ];

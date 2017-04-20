@@ -1,10 +1,10 @@
 var classcore_1_1_select_image_segment_dialog =
 [
-    [ "SelectImageSegmentDialog", "df/dc4/classcore_1_1_select_image_segment_dialog.html#acf899efc995ecbb44b13bc8f7d31db7d", null ],
-    [ "~SelectImageSegmentDialog", "df/dc4/classcore_1_1_select_image_segment_dialog.html#a9241a5c40f01ebf8c13f14e0e41a3c1e", null ],
-    [ "getImageSegment", "df/dc4/classcore_1_1_select_image_segment_dialog.html#a99c2138af7757288c4aa2bde0fbe1c82", null ],
-    [ "getIntegerSizeWidget", "df/dc4/classcore_1_1_select_image_segment_dialog.html#aeeef23fa31f806a6c56fa7de0075fe25", null ],
-    [ "getSelectionRect", "df/dc4/classcore_1_1_select_image_segment_dialog.html#aab7648887aba68db622bb4ade3519c0c", null ],
-    [ "setIntegerSizeWidget", "df/dc4/classcore_1_1_select_image_segment_dialog.html#a7a2761b1446f93ed4d5a8c5639c399b1", null ],
-    [ "setSelectionRect", "df/dc4/classcore_1_1_select_image_segment_dialog.html#a19339e79ecdb77e17793afea68ef3a42", null ]
+    [ "SelectImageSegmentDialog", "df/dc4/classcore_1_1_select_image_segment_dialog.html#afa630f1c8744578b6bc2aa5b8a1d3105", null ],
+    [ "~SelectImageSegmentDialog", "df/dc4/classcore_1_1_select_image_segment_dialog.html#a2c62b72bd269ab1b2c87505443c308d2", null ],
+    [ "getImageSegment", "df/dc4/classcore_1_1_select_image_segment_dialog.html#a55e7e3a3b324ba6865373fcfca7df1e9", null ],
+    [ "getIntegerSizeWidget", "df/dc4/classcore_1_1_select_image_segment_dialog.html#a22ff04f6cbfdf12decb82e49b44ea47a", null ],
+    [ "getSelectionRect", "df/dc4/classcore_1_1_select_image_segment_dialog.html#afc592d6985068844d519d9674dc2420d", null ],
+    [ "setIntegerSizeWidget", "df/dc4/classcore_1_1_select_image_segment_dialog.html#a9aa5e68453f3314cf02129ca37d6d404", null ],
+    [ "setSelectionRect", "df/dc4/classcore_1_1_select_image_segment_dialog.html#a99beb55ed5a12132910353c2c80fe8ae", null ]
 ];

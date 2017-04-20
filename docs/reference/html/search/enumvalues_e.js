@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['paused',['Paused',['../d7/dc4/namespacegui.html#a9306882e3582ba357c78cdc0460421f5a90d048e4791d7d5d45eddf2418e332d6',1,'gui::Paused()'],['../d8/da5/statusanimation_8h.html#a67a0db04d321a74b7e7fcfd3f1a3f70ba7038380f2ccd1d2edf36a73fd4c2d068',1,'Paused():&#160;statusanimation.h']]],
+  ['paused',['Paused',['../d7/dc4/namespacegui.html#a9306882e3582ba357c78cdc0460421f5a90d048e4791d7d5d45eddf2418e332d6',1,'gui']]],
   ['percentaje',['Percentaje',['../d8/d5e/classcore_1_1_labeled_widget.html#a67697f18c155cf5e39f78391e089bcb2a5896195fc4361d92f0ff025028660742',1,'core::LabeledWidget']]],
   ['perceptronpageid',['PerceptronPageID',['../d7/dc4/namespacegui.html#a16e5ab1ff9fa720dc77ba1ab08ffdab4aa14b4fc3bf2c056254af8ac59f95e6aa',1,'gui']]],
   ['pixels',['Pixels',['../d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665ba2bdb897bd15f88cef4f0e6921c37c7fb',1,'core::IntegerSizeWidget::Pixels()'],['../d8/d5e/classcore_1_1_labeled_widget.html#a67697f18c155cf5e39f78391e089bcb2ae7fa027054d21da0f853f6652541dd9f',1,'core::LabeledWidget::Pixels()']]],

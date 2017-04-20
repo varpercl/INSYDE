@@ -31,8 +31,6 @@ var searchData=
   ['annview_2eh',['annview.h',['../d7/d7e/annview_8h.html',1,'']]],
   ['ant_2ecpp',['ant.cpp',['../df/d4a/ant_8cpp.html',1,'']]],
   ['ant_2eh',['ant.h',['../de/d4f/ant_8h.html',1,'']]],
-  ['apuntador_2ecpp',['apuntador.cpp',['../d5/df5/apuntador_8cpp.html',1,'']]],
-  ['apuntador_2eh',['apuntador.h',['../d6/d7e/apuntador_8h.html',1,'']]],
   ['artificialneuralnetwork_2ecpp',['artificialneuralnetwork.cpp',['../d9/d00/artificialneuralnetwork_8cpp.html',1,'']]],
   ['artificialneuralnetwork_2eh',['artificialneuralnetwork.h',['../d0/dc6/artificialneuralnetwork_8h.html',1,'']]]
 ];

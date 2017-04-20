@@ -141,13 +141,7 @@ class ANN_GUI_LIB_IMPORT_EXPORT MLPObject : public GraphicObject
 
 	protected:
 
-		/*!
-		 * \brief paint
-		 * \param painter
-		 * \param option
-		 * \param widget
-		 */
-		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
 	protected slots:
 

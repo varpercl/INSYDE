@@ -3,7 +3,7 @@
 <area shape="rect" id="node5" href="$d5/db2/image_8h.html" title="image.h" alt="" coords="1369,109,1437,136"/>
 <area shape="rect" id="node34" href="$df/d67/detailedwindow_8h.html" title="detailedwindow.h" alt="" coords="2149,184,2269,211"/>
 <area shape="rect" id="node6" href="$dc/d54/common_8h.html" title="common.h" alt="" coords="2453,483,2536,509"/>
-<area shape="rect" id="node14" href="$d8/d12/core_2graphiccursorelement_8h.html" title="graphiccursorelement.h" alt="" coords="95,333,252,360"/>
+<area shape="rect" id="node14" href="$d8/d08/cursor_8h.html" title="cursor.h" alt="" coords="139,333,208,360"/>
 <area shape="rect" id="node16" href="$d2/dd2/graphicobject_8h.html" title="graphicobject.h" alt="" coords="1267,408,1378,435"/>
 <area shape="rect" id="node17" href="$d2/da4/undo_8h.html" title="undo.h" alt="" coords="869,483,931,509"/>
 <area shape="rect" id="node22" href="$d7/df0/imagepropertydialog_8h.html" title="imagepropertydialog.h" alt="" coords="1396,259,1545,285"/>
@@ -16,7 +16,7 @@
 <area shape="rect" id="node23" href="$de/dd6/graphicobjectpropertydialog_8h.html" title="graphicobjectpropertydialog.h" alt="" coords="1130,333,1321,360"/>
 <area shape="rect" id="node25" href="$d5/d3c/fileeditline_8h.html" title="fileeditline.h" alt="" coords="1603,408,1693,435"/>
 <area shape="rect" id="node26" href="$d1/d36/labeledcombobox_8h.html" title="labeledcombobox.h" alt="" coords="559,333,694,360"/>
-<area shape="rect" id="node24" href="$d6/db3/basicdialog_8h.html" title="basicdialog.h" alt="" coords="1088,408,1187,435"/>
+<area shape="rect" id="node24" href="$d6/db3/basicdialog_8h.html" title="basicdialog.h" alt="" coords="1100,408,1199,435"/>
 <area shape="rect" id="node27" href="$d8/dae/labeledwidget_8h.html" title="labeledwidget.h" alt="" coords="481,483,591,509"/>
 <area shape="rect" id="node30" href="$d6/d85/dotmatrixpropertydialog_8h.html" title="dotmatrixpropertydialog.h" alt="" coords="735,259,903,285"/>
 <area shape="rect" id="node31" href="$db/d5c/integersizewidget_8h.html" title="integersizewidget.h" alt="" coords="719,333,852,360"/>

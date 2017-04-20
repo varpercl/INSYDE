@@ -82,6 +82,51 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		~GraphicObject();
 
 		/*!
+		 * \brief Establish a \p icon to this object with a determined size if setIconFixedSize was
+		 * called with true parameter.
+		 * \param icon The QIcon to be set.
+		 */
+		void setIcon(const QIcon &icon);
+
+		/*!
+		 * \brief Returns the current icon of this object.
+		 * \return A QIcon object which is the icon.
+		 */
+		QIcon getIcon() const;
+
+		/*!
+		 * \brief Establish wether or not icon will be fixed size.
+		 * \param fs True value determines the icon will be fixed.
+		 */
+		void setIconFixedSize(bool fs);
+
+		/*!
+		 * \brief Returns if the current icon is fixed or not.
+		 * \return True if icon is fixed size.
+		 */
+		bool isIconFixedSize() const;
+
+		/*!
+		 * \brief In case of fixed size icon this will set the size of such icon.
+		 * \param size The size to set.
+		 */
+		void setIconFixedSizeValue(const QSize &size);
+
+		/*!
+		 * \overload
+		 */
+		void setIconFixedSizeValue(int width, int height);
+
+		/*!
+		 * \brief Returns the fixed size of the icon.
+		 * \note This is not necessarily the current size of the icon. It depends on the
+		 * setIconFixedSize property.
+		 *
+		 * \return The fixed size of the icon.
+		 */
+		QSize getIconFixedSize() const;
+
+		/*!
 		 * \brief Establish current dimension of an graphic object.
 		 * Notice that this is the current area where an object is drawed, this doesn't encloses all QGraphicObject rect.
 		 *
@@ -404,6 +449,9 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		//Menu contextual
 		QMenu contextMenu;
 
+		QIcon icon;
+
+
 		void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
 
 		/*!
@@ -456,12 +504,12 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		/*!
 		 * \see Clipboard::pasteClick
 		 */
-		virtual void pasteClick(){}
+		virtual void pasteClick() = 0;
 
 		/*!
 		 * \brief Called when an user performs clicks over properties context menu action.
 		 */
-		virtual void propertyClick(){}
+		virtual void propertyClick() = 0;
 
 		/*!
 		 * \brief Called when user clicks over "Remove" action on the context menu.
@@ -504,6 +552,10 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		double
 		resizeRectSize,
 		portSensitivity;
+
+		bool isIconResizable;
+
+		QSize iconFixedSize;
 
 		int
 		inputsSize; //Contiene el numero de entradas que tendra este objeto en caso de que no este conectado a ningun objeto en su entrada

@@ -113,6 +113,11 @@ void gui::MainWindow::onAddEffectClicked()
 	uncheckToolButton();
 }
 
+void gui::MainWindow::onAddFaceRecognizer()
+{
+	uncheckToolButton();
+}
+
 void gui::MainWindow::onGDVMousePressed(QMouseEvent *event)
 {
 	(void)event;
@@ -207,6 +212,15 @@ void gui::MainWindow::onGDVMousePressed(QMouseEvent *event)
 //		connect(giee, SIGNAL(objectRemoved(GraphicObject*)), SLOT(onObjectRemoved(GraphicObject*)));
 
 		showUnderConstructionMessage();
+	}else if(btn == btnAddFaceRecognizer){
+
+		FaceRecognizer *fr = new FaceRecognizer();
+
+		fr->setPos(gdv->mapToScene(event->pos()));
+
+		env->addItem(fr);
+		simulation->add(fr);
+
 	}else{
 
 		QPointF mappedPos = gdv->mapToScene(event->pos());
@@ -465,11 +479,13 @@ void gui::MainWindow::setupUI()
 	generalTBWidget = new QWidget();
 	annTBWidget = new QWidget();
 	ecTBWidget = new QWidget();
+	cvTBWidget = new QWidget();
 
 	//Initialize QVBoxLayouts
 	vlyGeneralToolBox = new QVBoxLayout();
 	vlyANNToolBox = new QVBoxLayout();
 	vlyECToolBox = new QVBoxLayout();
+	vlyCVToolBox = new QVBoxLayout();
 
 	//Initialize View
 	systemView = new View();
@@ -490,6 +506,7 @@ void gui::MainWindow::setupUI()
 	btnAddSimplePerceptron = new QToolButton();
 	btnAddRegion = new QToolButton();
 	btnAddEffect = new QToolButton();
+	btnAddFaceRecognizer = new QToolButton();
 
 	//Initialize QActionGroup
 	gridGroup = new QActionGroup(menuGrid);
@@ -589,11 +606,17 @@ void gui::MainWindow::setupUI()
 	btnAddHopfield->setAutoRaise(true);
 	btnAddHopfield->setCheckable(true);
 
-	btnAddAgent->setText("Agente");
+	btnAddAgent->setText("Agent");
 	btnAddAgent->setIcon(ICON_AGENT);
 	btnAddAgent->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 	btnAddAgent->setAutoRaise(true);
 	btnAddAgent->setCheckable(true);
+
+	btnAddFaceRecognizer->setText(tr("Face recognizer"));
+	btnAddFaceRecognizer->setIcon(ICON_FACE_RECOGNIZER);
+	btnAddFaceRecognizer->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+	btnAddFaceRecognizer->setAutoRaise(true);
+	btnAddFaceRecognizer->setCheckable(true);
 
 	generalBG->addButton(btnAddDotMatrix);
 	generalBG->addButton(btnAddImage);
@@ -604,6 +627,7 @@ void gui::MainWindow::setupUI()
 	generalBG->addButton(btnAddMLP);
 	generalBG->addButton(btnAddHopfield);
 	generalBG->addButton(btnAddAgent);
+	generalBG->addButton(btnAddFaceRecognizer);
 
 	vlyGeneralToolBox->addWidget(btnAddDotMatrix);
 	vlyGeneralToolBox->addWidget(btnAddImage);
@@ -617,17 +641,22 @@ void gui::MainWindow::setupUI()
 	vlyANNToolBox->addWidget(btnAddHopfield);
 	vlyANNToolBox->addStretch(1);
 
+	vlyCVToolBox->addWidget(btnAddFaceRecognizer);
+	vlyCVToolBox->addStretch(1);
+
 	vlyECToolBox->addWidget(btnAddAgent);
 	vlyECToolBox->addStretch(1);
 
-	generalTBWidget->children();
+//	generalTBWidget->children();
 	generalTBWidget->setLayout(vlyGeneralToolBox);
 	annTBWidget->setLayout(vlyANNToolBox);
 	ecTBWidget->setLayout(vlyECToolBox);
+	cvTBWidget->setLayout(vlyCVToolBox);
 
-	mainToolBox->addItem(generalTBWidget, "General");
-	mainToolBox->addItem(annTBWidget, "Redes neuronales");
-	mainToolBox->addItem(ecTBWidget, QString::fromLatin1("Computación emergente"));
+	mainToolBox->addItem(generalTBWidget, tr("General"));
+	mainToolBox->addItem(annTBWidget, tr("Artificial neural networks"));
+	mainToolBox->addItem(cvTBWidget, tr("Computer vision"));
+	mainToolBox->addItem(ecTBWidget, tr("Emergent computing"));
 
 	dwToolBox->setFeatures(QDockWidget::NoDockWidgetFeatures | QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
 	dwToolBox->setWidget(mainToolBox);
@@ -662,6 +691,7 @@ void gui::MainWindow::setupUI()
 	connect(btnAddSimplePerceptron, SIGNAL(clicked()), SLOT(onAddSimplePerceptronClicked()));
 	connect(btnAddRegion, SIGNAL(clicked()), SLOT(onAddRegionClicked()));
 	connect(btnAddEffect, SIGNAL(clicked()), SLOT(onAddEffectClicked()));
+	connect(btnAddFaceRecognizer, SIGNAL(clicked()), SLOT(onAddFaceRecognizer()));
 	connect(systemView->getGraphicsDetailedView(), SIGNAL(mousePressed(QMouseEvent*)), SLOT(onGDVMousePressed(QMouseEvent*)));
 }
 

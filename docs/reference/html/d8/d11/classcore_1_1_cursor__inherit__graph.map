@@ -1,6 +1,6 @@
 <map id="core::Cursor" name="core::Cursor">
 <area shape="rect" id="node6" href="$d2/dfe/classcore_1_1_image_effect.html" title="The ImageEffect class. " alt="" coords="145,229,268,256"/>
-<area shape="rect" id="node2" href="$db/dc8/classcore_1_1_graphic_object.html" title="The GraphicObject class. " alt="" coords="137,80,276,107"/>
+<area shape="rect" id="node2" href="$db/dc8/classcore_1_1_graphic_object.html" title="The GraphicObject class is the base class for any object added to an enviroment or system..." alt="" coords="137,80,276,107"/>
 <area shape="rect" id="node4" href="$db/d60/classcore_1_1_clipboard.html" title="Contiene los metodos basicos para aquellos objetos que trabajen directamente con el portapapeles..." alt="" coords="152,5,261,32"/>
 <area shape="rect" id="node5" href="$d5/df5/classcore_1_1_i_resizable_f.html" title="The IResizableF interface La interfaz Resizable define todos aquellos objetos que tienen medidas de a..." alt="" coords="285,5,408,32"/>
 </map>

@@ -22,7 +22,7 @@ class DotMatrix;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class CORE_LIB_IMPORT_EXPORT DotMatrixPropertyDialog : public GraphicObjectPropertyDialog
+class CORE_LIB_IMPORT_EXPORT DotMatrixPropertyDialog : public PropertiesDialog
 {
 
 	public:

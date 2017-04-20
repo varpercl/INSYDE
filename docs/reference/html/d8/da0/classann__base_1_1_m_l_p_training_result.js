@@ -8,7 +8,7 @@ var classann__base_1_1_m_l_p_training_result =
     [ "appendRecord", "d8/da0/classann__base_1_1_m_l_p_training_result.html#a16fbc38bc0611c999b21ff1095e1e8dd", null ],
     [ "clear", "d8/da0/classann__base_1_1_m_l_p_training_result.html#ac2bc7bd4556814033dc146d0bcdabc95", null ],
     [ "columnCount", "d8/da0/classann__base_1_1_m_l_p_training_result.html#a94960139d454b6d2550cf09364944bff", null ],
-    [ "getCEHistory", "d8/da0/classann__base_1_1_m_l_p_training_result.html#a3e2c56381ba38dbab06b04fb89dbda00", null ],
+    [ "getCEHistory", "d8/da0/classann__base_1_1_m_l_p_training_result.html#af0dd08d406a9e5bfcd40b86e2ad07223", null ],
     [ "getCESize", "d8/da0/classann__base_1_1_m_l_p_training_result.html#a0601749ae0fbe8c91b158f1ed8a811ae", null ],
     [ "getClasificationError", "d8/da0/classann__base_1_1_m_l_p_training_result.html#a2bd86e842f93cbf1b52811b4b4774b1b", null ],
     [ "operator=", "d8/da0/classann__base_1_1_m_l_p_training_result.html#a92a98330dd96f351f6352e91d7c87464", null ],

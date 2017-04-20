@@ -4,10 +4,12 @@
 <area shape="rect" id="node7" href="$d8/d69/classann__gui_1_1_training_set_dialog.html" title="ann_gui::TrainingSetDialog" alt="" coords="340,107,516,133"/>
 <area shape="rect" id="node8" href="$d7/dd6/classann__gui_1_1_weight_editor_dialog.html" title="The WeightEditorDialog class. " alt="" coords="335,157,521,184"/>
 <area shape="rect" id="node9" href="$d6/db8/classcore_1_1_add_dot_matrix_dialog.html" title="The AddDotMatrixDialog class represents an specified dialog that allows user to add some DotMatrix ob..." alt="" coords="343,208,513,235"/>
-<area shape="rect" id="node10" href="$d5/dc9/classcore_1_1_graphic_object_property_dialog.html" title="The GraphicObjectPropertyDialog class. " alt="" coords="335,259,521,301"/>
-<area shape="rect" id="node13" href="$df/d15/classgui_1_1_main_window.html" title="gui::MainWindow" alt="" coords="367,325,489,352"/>
-<area shape="rect" id="node3" href="$db/d60/classcore_1_1_clipboard.html" title="Contiene los metodos basicos para aquellos objetos que trabajen directamente con el portapapeles..." alt="" coords="5,157,115,184"/>
-<area shape="rect" id="node4" href="$d4/d7a/classcore_1_1_undo.html" title="The Undo class involves all graphic interface needed to perform Undo/Redo actions. Every class that need to perform such actions should inherit from this class. " alt="" coords="17,208,103,235"/>
-<area shape="rect" id="node11" href="$dc/d18/classcore_1_1_dot_matrix_property_dialog.html" title="The DotMatrixElementPropertyDialog class is an derived class from GraphicObjectPropertyDialog. These classes show a set of properties depending on the determined object. " alt="" coords="569,241,765,268"/>
-<area shape="rect" id="node12" href="$d7/da0/classcore_1_1_image_property_dialog.html" title="The ImagePropertyDialog class. " alt="" coords="580,292,755,319"/>
+<area shape="rect" id="node10" href="$d5/dc9/classcore_1_1_graphic_object_property_dialog.html" title="The GraphicObjectPropertyDialog class represents a properties dialog. This is open when user clicks o..." alt="" coords="335,259,521,301"/>
+<area shape="rect" id="node14" href="$d3/d99/classcore_1_1_image_effect_property_dialog.html" title="The ImageEffectPropertyDialog class represents a property dialog which has inside all properties of s..." alt="" coords="342,325,514,366"/>
+<area shape="rect" id="node15" href="$df/d15/classgui_1_1_main_window.html" title="gui::MainWindow" alt="" coords="367,391,489,417"/>
+<area shape="rect" id="node3" href="$db/d60/classcore_1_1_clipboard.html" title="Contiene los metodos basicos para aquellos objetos que trabajen directamente con el portapapeles..." alt="" coords="5,183,115,209"/>
+<area shape="rect" id="node4" href="$d4/d7a/classcore_1_1_undo.html" title="The Undo class involves all graphic interface needed to perform Undo/Redo actions. Every class that need to perform such actions should inherit from this class. " alt="" coords="17,233,103,260"/>
+<area shape="rect" id="node11" href="$dc/d18/classcore_1_1_dot_matrix_property_dialog.html" title="The DotMatrixElementPropertyDialog class is an derived class from GraphicObjectPropertyDialog. These classes show a set of properties depending on the determined object. " alt="" coords="576,216,772,243"/>
+<area shape="rect" id="node12" href="$d7/da0/classcore_1_1_image_property_dialog.html" title="The ImagePropertyDialog class represents a property dialog of Image objects. " alt="" coords="587,267,761,293"/>
+<area shape="rect" id="node13" href="$d0/da4/classcv__gui_1_1_face_recognizer_property_dialog.html" title="cv_gui::FaceRecognizerProperty\lDialog" alt="" coords="569,318,779,359"/>
 </map>

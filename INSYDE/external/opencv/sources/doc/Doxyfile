@@ -92,7 +92,7 @@ SHOW_FILES             = YES
 SHOW_NAMESPACES        = YES
 FILE_VERSION_FILTER    =
 LAYOUT_FILE            = C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/doc/DoxygenLayout.xml
-CITE_BIB_FILES         = C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/doc/opencv.bib  C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/doc/calib3d.bib
+CITE_BIB_FILES         = C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/doc/opencv.bib  C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/doc/calib3d.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm/doc/bgsegm.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/doc/bioinspired.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cnn_3dobj/doc/cnn_3dobj.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/doc/dpm.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/doc/face.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/doc/fuzzy.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/doc/line_descriptor.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/doc/optflow.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/doc/phase_unwrapping.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/doc/reg.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/doc/saliency.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/doc/structured_light.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/doc/surface_matching.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/doc/tracking.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/doc/xfeatures2d.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/doc/ximgproc.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/doc/xobjdetect.bib C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/doc/xphoto.bib
 QUIET                  = YES
 WARNINGS               = YES
 WARN_IF_UNDOCUMENTED   = YES
@@ -130,7 +130,39 @@ C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sourc
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/include \
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/include \
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videostab/include \
-C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/viz/include  \
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/viz/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cnn_3dobj/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cvv/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn_modern/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/freetype/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/hdf/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/matlab/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/plot/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/sfm/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/include \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/include  \
  C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/core/src/hal_replacement.hpp \
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/imgproc/src/hal_replacement.hpp  \
  C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/core/doc \
@@ -142,11 +174,46 @@ C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sourc
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/doc \
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ml/doc \
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/doc \
-C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/viz/doc  \
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/viz/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cnn_3dobj/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/hdf/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/plot/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/sfm/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/doc  \
  C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/doc/tutorials  \
  C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/doc/py_tutorials  \
-   \
- 
+ C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cnn_3dobj/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cvv/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/sfm/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/tutorials  \
+ C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/doc/contrib_tutorials.markdown
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          =
 RECURSIVE              = YES
@@ -164,8 +231,56 @@ C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sourc
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/doc \
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ml/doc \
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/doc \
-C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/viz/doc  \
- 
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/viz/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cnn_3dobj/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/hdf/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/plot/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/sfm/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/doc  \
+ C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cnn_3dobj/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cvv/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn_modern/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/sfm/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/samples \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/samples
 EXAMPLE_PATTERNS       = *
 EXAMPLE_RECURSIVE      = YES
 IMAGE_PATH             = C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/core/doc \
@@ -177,10 +292,45 @@ C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sourc
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/doc \
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ml/doc \
 C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/doc \
-C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/viz/doc  \
+C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/viz/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cnn_3dobj/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/hdf/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/plot/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/sfm/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/doc \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/doc  \
  C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/doc/tutorials  \
  C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/doc/py_tutorials  \
- 
+ C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cnn_3dobj/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cvv/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/sfm/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/tutorials \
+C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/tutorials
 INPUT_FILTER           =
 FILTER_PATTERNS        =
 FILTER_SOURCE_FILES    = NO

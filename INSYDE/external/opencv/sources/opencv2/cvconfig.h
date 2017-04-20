@@ -90,8 +90,8 @@
 /* #undef HAVE_INTELPERC */
 
 /* Intel Integrated Performance Primitives */
-#define HAVE_IPP
-#define HAVE_IPP_ICV_ONLY
+/* #undef HAVE_IPP */
+/* #undef HAVE_IPP_ICV_ONLY */
 
 /* Intel IPP Async */
 /* #undef HAVE_IPP_A */

@@ -2,7 +2,7 @@ var searchData=
 [
   ['weapon_2ecpp',['weapon.cpp',['../d4/dd7/weapon_8cpp.html',1,'']]],
   ['weapon_2eh',['weapon.h',['../d7/d1c/weapon_8h.html',1,'']]],
-  ['weight',['Weight',['../d6/d5c/classann__gui_1_1_a_n_n_model_tree.html#a70806446cb54c34c44a87fab71fa1663a84925a7feeb4da5abe7ccc81d8e10cff',1,'ann_gui::ANNModelTree::Weight()'],['../dd/db5/class_tree_item.html#ae3c4cec229d671b60f704a3d8c445fcaac3119b51f814f6269050849ec159b071',1,'TreeItem::Weight()']]],
+  ['weight',['Weight',['../d6/d5c/classann__gui_1_1_a_n_n_model_tree.html#a70806446cb54c34c44a87fab71fa1663a84925a7feeb4da5abe7ccc81d8e10cff',1,'ann_gui::ANNModelTree']]],
   ['weighteditordialog',['WeightEditorDialog',['../d7/dd6/classann__gui_1_1_weight_editor_dialog.html',1,'ann_gui::WeightEditorDialog'],['../d7/dd6/classann__gui_1_1_weight_editor_dialog.html#af46dbe75934b8c51852e772213e94dab',1,'ann_gui::WeightEditorDialog::WeightEditorDialog(QWidget *parent=0)'],['../d7/dd6/classann__gui_1_1_weight_editor_dialog.html#a7edeb1afebecd79c1130e0d02e1328b6',1,'ann_gui::WeightEditorDialog::WeightEditorDialog(ArtificialNeuralNetwork *ann, QWidget *parent=0)'],['../d7/dd6/classann__gui_1_1_weight_editor_dialog.html#a174c71485e2ae9373a73c8ec8ef0ce79',1,'ann_gui::WeightEditorDialog::WeightEditorDialog(ANNModelWrapper *mw, QWidget *parent=0)']]],
   ['weighteditordialog_2ecpp',['weighteditordialog.cpp',['../d6/d21/weighteditordialog_8cpp.html',1,'']]],
   ['weighteditordialog_2eh',['weighteditordialog.h',['../d8/d9d/weighteditordialog_8h.html',1,'']]],

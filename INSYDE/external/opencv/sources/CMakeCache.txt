@@ -44,6 +44,9 @@ BUILD_PERF_TESTS:BOOL=ON
 //Build libpng from source
 BUILD_PNG:BOOL=ON
 
+//Force to build libprotobuf from sources
+BUILD_PROTOBUF:BOOL=ON
+
 //Build shared libraries (.dll/.so) instead of static ones (.lib/.a)
 BUILD_SHARED_LIBS:BOOL=ON
 
@@ -71,17 +74,47 @@ BUILD_ZLIB:BOOL=ON
 //Build utility applications (used for example to train classifiers)
 BUILD_opencv_apps:BOOL=ON
 
+//Include opencv_aruco module into the OpenCV build
+BUILD_opencv_aruco:BOOL=ON
+
+//Include opencv_bgsegm module into the OpenCV build
+BUILD_opencv_bgsegm:BOOL=ON
+
+//Include opencv_bioinspired module into the OpenCV build
+BUILD_opencv_bioinspired:BOOL=ON
+
 //Include opencv_calib3d module into the OpenCV build
 BUILD_opencv_calib3d:BOOL=ON
 
+//Include opencv_ccalib module into the OpenCV build
+BUILD_opencv_ccalib:BOOL=ON
+
+//Include opencv_contrib_world module into the OpenCV build
+BUILD_opencv_contrib_world:BOOL=OFF
+
 //Include opencv_core module into the OpenCV build
 BUILD_opencv_core:BOOL=ON
+
+//Include opencv_datasets module into the OpenCV build
+BUILD_opencv_datasets:BOOL=ON
+
+//Include opencv_dnn module into the OpenCV build
+BUILD_opencv_dnn:BOOL=ON
+
+//Include opencv_dpm module into the OpenCV build
+BUILD_opencv_dpm:BOOL=ON
+
+//Include opencv_face module into the OpenCV build
+BUILD_opencv_face:BOOL=ON
 
 //Include opencv_features2d module into the OpenCV build
 BUILD_opencv_features2d:BOOL=ON
 
 //Include opencv_flann module into the OpenCV build
 BUILD_opencv_flann:BOOL=ON
+
+//Include opencv_fuzzy module into the OpenCV build
+BUILD_opencv_fuzzy:BOOL=ON
 
 //Include opencv_highgui module into the OpenCV build
 BUILD_opencv_highgui:BOOL=ON
@@ -92,23 +125,59 @@ BUILD_opencv_imgcodecs:BOOL=ON
 //Include opencv_imgproc module into the OpenCV build
 BUILD_opencv_imgproc:BOOL=ON
 
+//Include opencv_line_descriptor module into the OpenCV build
+BUILD_opencv_line_descriptor:BOOL=ON
+
 //Include opencv_ml module into the OpenCV build
 BUILD_opencv_ml:BOOL=ON
 
 //Include opencv_objdetect module into the OpenCV build
 BUILD_opencv_objdetect:BOOL=ON
 
+//Include opencv_optflow module into the OpenCV build
+BUILD_opencv_optflow:BOOL=ON
+
+//Include opencv_phase_unwrapping module into the OpenCV build
+BUILD_opencv_phase_unwrapping:BOOL=ON
+
 //Include opencv_photo module into the OpenCV build
 BUILD_opencv_photo:BOOL=ON
+
+//Include opencv_plot module into the OpenCV build
+BUILD_opencv_plot:BOOL=ON
+
+//Include opencv_reg module into the OpenCV build
+BUILD_opencv_reg:BOOL=ON
+
+//Include opencv_rgbd module into the OpenCV build
+BUILD_opencv_rgbd:BOOL=ON
+
+//Include opencv_saliency module into the OpenCV build
+BUILD_opencv_saliency:BOOL=ON
 
 //Include opencv_shape module into the OpenCV build
 BUILD_opencv_shape:BOOL=ON
 
+//Include opencv_stereo module into the OpenCV build
+BUILD_opencv_stereo:BOOL=ON
+
 //Include opencv_stitching module into the OpenCV build
 BUILD_opencv_stitching:BOOL=ON
 
+//Include opencv_structured_light module into the OpenCV build
+BUILD_opencv_structured_light:BOOL=ON
+
 //Include opencv_superres module into the OpenCV build
 BUILD_opencv_superres:BOOL=ON
+
+//Include opencv_surface_matching module into the OpenCV build
+BUILD_opencv_surface_matching:BOOL=ON
+
+//Include opencv_text module into the OpenCV build
+BUILD_opencv_text:BOOL=ON
+
+//Include opencv_tracking module into the OpenCV build
+BUILD_opencv_tracking:BOOL=ON
 
 //Include opencv_ts module into the OpenCV build
 BUILD_opencv_ts:BOOL=ON
@@ -124,6 +193,18 @@ BUILD_opencv_videostab:BOOL=ON
 
 //Include opencv_world module into the OpenCV build
 BUILD_opencv_world:BOOL=OFF
+
+//Include opencv_xfeatures2d module into the OpenCV build
+BUILD_opencv_xfeatures2d:BOOL=ON
+
+//Include opencv_ximgproc module into the OpenCV build
+BUILD_opencv_ximgproc:BOOL=ON
+
+//Include opencv_xobjdetect module into the OpenCV build
+BUILD_opencv_xobjdetect:BOOL=ON
+
+//Include opencv_xphoto module into the OpenCV build
+BUILD_opencv_xphoto:BOOL=ON
 
 //clAmdFft include directory
 CLAMDBLAS_INCLUDE_DIR:PATH=CLAMDBLAS_INCLUDE_DIR-NOTFOUND
@@ -380,6 +461,15 @@ CUDA_cufft_LIBRARY:FILEPATH=CUDA_cufft_LIBRARY-NOTFOUND
 //"cufftemu" library
 CUDA_cufftemu_LIBRARY:FILEPATH=CUDA_cufftemu_LIBRARY-NOTFOUND
 
+//Path to a file.
+Caffe_INCLUDE_DIR:PATH=Caffe_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+Caffe_LIBS:FILEPATH=Caffe_LIBS-NOTFOUND
+
+//The directory containing a CMake configuration file for Ceres.
+Ceres_DIR:PATH=Ceres_DIR-NOTFOUND
+
 //Download external test data (Python executable and OPENCV_TEST_DATA_PATH
 // environment variable may be required)
 DOWNLOAD_EXTERNAL_TEST_DATA:BOOL=OFF
@@ -507,8 +597,23 @@ GSTREAMER_gsttag_LIBRARY:FILEPATH=GSTREAMER_gsttag_LIBRARY-NOTFOUND
 //gstvideo library to link with
 GSTREAMER_gstvideo_LIBRARY:FILEPATH=GSTREAMER_gstvideo_LIBRARY-NOTFOUND
 
+//The directory containing a CMake configuration file for Gflags.
+Gflags_DIR:PATH=Gflags_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for Glog.
+Glog_DIR:PATH=Glog_DIR-NOTFOUND
+
+//Path to a library.
+Glog_LIBS:FILEPATH=Glog_LIBS-NOTFOUND
+
 //True if MKL found
 HAVE_MKL:BOOL=OFF
+
+//Path to a library.
+HDF5_C_LIBRARY:FILEPATH=HDF5_C_LIBRARY-NOTFOUND
+
+//Path to a file.
+HDF5_INCLUDE_DIRS:PATH=HDF5_INCLUDE_DIRS-NOTFOUND
 
 //Change install rules to build the distribution package
 INSTALL_CREATE_DISTRIB:BOOL=OFF
@@ -555,6 +660,9 @@ LAPACK_LAPACKE_H:STRING=
 //Names of BLAS & LAPACK binaries (.so, .dll, .a, .lib)
 LAPACK_LIBRARIES:STRING=
 
+//Path to a library.
+Lept_LIBRARY:FILEPATH=Lept_LIBRARY-NOTFOUND
+
 //Path to a program.
 MATLAB_ROOT_DIR_:FILEPATH=MATLAB_ROOT_DIR_-NOTFOUND
 
@@ -586,7 +694,7 @@ OPENCV_CONFIG_FILE_INCLUDE_DIR:PATH=C:/Users/Edixon Vargas/Documents/GitHub/INSY
 OPENCV_ENABLE_NONFREE:BOOL=OFF
 
 //Where to look for additional OpenCV modules
-OPENCV_EXTRA_MODULES_PATH:PATH=
+OPENCV_EXTRA_MODULES_PATH:PATH=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules
 
 //Treat warnings as errors
 OPENCV_WARNINGS_ARE_ERRORS:BOOL=OFF
@@ -650,6 +758,21 @@ PYTHON3_PACKAGES_PATH:PATH=
 
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=PYTHON_EXECUTABLE-NOTFOUND
+
+//Path to a library.
+Protobuf_LIBS:FILEPATH=Protobuf_LIBS-NOTFOUND
+
+//Path to a file.
+TINYDNN_INCLUDE_DIR:PATH=TINYDNN_INCLUDE_DIR-NOTFOUND
+
+//Path to a file.
+Tesseract_INCLUDE_DIR:PATH=Tesseract_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+Tesseract_LIBRARY:FILEPATH=Tesseract_LIBRARY-NOTFOUND
+
+//Force to rebuild .proto files
+UPDATE_PROTO_FILES:BOOL=OFF
 
 //The directory containing a CMake configuration file for VTK.
 VTK_DIR:PATH=VTK_DIR-NOTFOUND
@@ -803,6 +926,12 @@ createsamples_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_R
 createsamples_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/apps/createsamples
 
 //Value Computed by CMake
+interactive-calibration_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/apps/interactive-calibration
+
+//Value Computed by CMake
+interactive-calibration_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/apps/interactive-calibration
+
+//Value Computed by CMake
 libjasper_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/3rdparty/libjasper
 
 //Dependencies for target
@@ -830,6 +959,15 @@ libpng_LIB_DEPENDS:STATIC=general;zlib;
 libpng_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/3rdparty/libpng
 
 //Value Computed by CMake
+libprotobuf_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/3rdparty/protobuf
+
+//Dependencies for target
+libprotobuf_LIB_DEPENDS:STATIC=
+
+//Value Computed by CMake
+libprotobuf_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/3rdparty/protobuf
+
+//Value Computed by CMake
 libtiff_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/3rdparty/libtiff
 
 //Dependencies for the target
@@ -854,22 +992,79 @@ mkl_core:FILEPATH=C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/wi
 mkl_intel_:FILEPATH=mkl_intel_-NOTFOUND
 
 //Value Computed by CMake
+opencv_aruco_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/aruco
+
+//Dependencies for the target
+opencv_aruco_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;
+
+//Value Computed by CMake
+opencv_aruco_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco
+
+//Value Computed by CMake
+opencv_bgsegm_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/bgsegm
+
+//Dependencies for the target
+opencv_bgsegm_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;
+
+//Value Computed by CMake
+opencv_bgsegm_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm
+
+//Value Computed by CMake
+opencv_bioinspired_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/bioinspired
+
+//Dependencies for the target
+opencv_bioinspired_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;
+
+//Value Computed by CMake
+opencv_bioinspired_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired
+
+//Value Computed by CMake
 opencv_calib3d_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d
 
 //Dependencies for the target
-opencv_calib3d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;ippicv;
+opencv_calib3d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;
 
 //Value Computed by CMake
 opencv_calib3d_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d
 
 //Value Computed by CMake
+opencv_ccalib_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ccalib
+
+//Dependencies for the target
+opencv_ccalib_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;
+
+//Value Computed by CMake
+opencv_ccalib_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib
+
+//Value Computed by CMake
 opencv_core_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/core
 
 //Dependencies for the target
-opencv_core_LIB_DEPENDS:STATIC=general;zlib;general;ippicv;
+opencv_core_LIB_DEPENDS:STATIC=general;zlib;
 
 //Value Computed by CMake
 opencv_core_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/core
+
+//Value Computed by CMake
+opencv_datasets_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/datasets
+
+//Dependencies for the target
+opencv_datasets_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_objdetect;general;opencv_face;general;opencv_features2d;general;opencv_text;
+
+//Value Computed by CMake
+opencv_datasets_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets
+
+//Value Computed by CMake
+opencv_dnn_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/dnn
+
+//Build Torch model importer
+opencv_dnn_BUILD_TORCH_IMPORTER:BOOL=ON
+
+//Dependencies for the target
+opencv_dnn_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;libprotobuf;
+
+//Value Computed by CMake
+opencv_dnn_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn
 
 //Value Computed by CMake
 opencv_docs_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/doc
@@ -878,10 +1073,28 @@ opencv_docs_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Rep
 opencv_docs_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/doc
 
 //Value Computed by CMake
+opencv_dpm_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/dpm
+
+//Dependencies for the target
+opencv_dpm_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_objdetect;
+
+//Value Computed by CMake
+opencv_dpm_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm
+
+//Value Computed by CMake
+opencv_face_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/face
+
+//Dependencies for the target
+opencv_face_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_objdetect;
+
+//Value Computed by CMake
+opencv_face_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face
+
+//Value Computed by CMake
 opencv_features2d_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/features2d
 
 //Dependencies for the target
-opencv_features2d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;ippicv;
+opencv_features2d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;
 
 //Value Computed by CMake
 opencv_features2d_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/features2d
@@ -890,16 +1103,25 @@ opencv_features2d_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSY
 opencv_flann_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/flann
 
 //Dependencies for the target
-opencv_flann_LIB_DEPENDS:STATIC=general;opencv_core;general;ippicv;
+opencv_flann_LIB_DEPENDS:STATIC=general;opencv_core;
 
 //Value Computed by CMake
 opencv_flann_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/flann
 
 //Value Computed by CMake
+opencv_fuzzy_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/fuzzy
+
+//Dependencies for the target
+opencv_fuzzy_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
+
+//Value Computed by CMake
+opencv_fuzzy_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy
+
+//Value Computed by CMake
 opencv_highgui_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui
 
 //Dependencies for the target
-opencv_highgui_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;ippicv;general;comctl32;general;gdi32;general;ole32;general;setupapi;general;ws2_32;
+opencv_highgui_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;comctl32;general;gdi32;general;ole32;general;setupapi;general;ws2_32;
 
 //Value Computed by CMake
 opencv_highgui_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui
@@ -908,7 +1130,7 @@ opencv_highgui_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_
 opencv_imgcodecs_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/imgcodecs
 
 //Dependencies for the target
-opencv_imgcodecs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;ippicv;general;zlib;general;libjpeg;general;libwebp;general;libpng;general;libtiff;general;libjasper;general;IlmImf;
+opencv_imgcodecs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;zlib;general;libjpeg;general;libwebp;general;libpng;general;libtiff;general;libjasper;general;IlmImf;
 
 //Value Computed by CMake
 opencv_imgcodecs_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/imgcodecs
@@ -917,16 +1139,25 @@ opencv_imgcodecs_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYD
 opencv_imgproc_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/imgproc
 
 //Dependencies for the target
-opencv_imgproc_LIB_DEPENDS:STATIC=general;opencv_core;general;ippicv;
+opencv_imgproc_LIB_DEPENDS:STATIC=general;opencv_core;
 
 //Value Computed by CMake
 opencv_imgproc_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/imgproc
 
 //Value Computed by CMake
+opencv_line_descriptor_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/line_descriptor
+
+//Dependencies for the target
+opencv_line_descriptor_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;
+
+//Value Computed by CMake
+opencv_line_descriptor_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor
+
+//Value Computed by CMake
 opencv_ml_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ml
 
 //Dependencies for the target
-opencv_ml_LIB_DEPENDS:STATIC=general;opencv_core;general;ippicv;
+opencv_ml_LIB_DEPENDS:STATIC=general;opencv_core;
 
 //Value Computed by CMake
 opencv_ml_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ml
@@ -935,52 +1166,151 @@ opencv_ml_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/
 opencv_objdetect_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect
 
 //Dependencies for the target
-opencv_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;ippicv;
+opencv_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;
 
 //Value Computed by CMake
 opencv_objdetect_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect
 
 //Value Computed by CMake
+opencv_optflow_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/optflow
+
+//Dependencies for the target
+opencv_optflow_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;opencv_ximgproc;
+
+//Value Computed by CMake
+opencv_optflow_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow
+
+//Value Computed by CMake
+opencv_phase_unwrapping_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/phase_unwrapping
+
+//Dependencies for the target
+opencv_phase_unwrapping_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;opencv_rgbd;
+
+//Value Computed by CMake
+opencv_phase_unwrapping_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping
+
+//Value Computed by CMake
 opencv_photo_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo
 
 //Dependencies for the target
-opencv_photo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;ippicv;
+opencv_photo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
 
 //Value Computed by CMake
 opencv_photo_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo
 
 //Value Computed by CMake
+opencv_plot_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/plot
+
+//Dependencies for the target
+opencv_plot_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;
+
+//Value Computed by CMake
+opencv_plot_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/plot
+
+//Value Computed by CMake
+opencv_reg_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/reg
+
+//Dependencies for the target
+opencv_reg_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
+
+//Value Computed by CMake
+opencv_reg_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg
+
+//Value Computed by CMake
+opencv_rgbd_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/rgbd
+
+//Dependencies for the target
+opencv_rgbd_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;
+
+//Value Computed by CMake
+opencv_rgbd_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd
+
+//Value Computed by CMake
+opencv_saliency_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/saliency
+
+//Dependencies for the target
+opencv_saliency_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;
+
+//Value Computed by CMake
+opencv_saliency_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency
+
+//Value Computed by CMake
 opencv_shape_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape
 
 //Dependencies for the target
-opencv_shape_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_video;general;ippicv;
+opencv_shape_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_video;
 
 //Value Computed by CMake
 opencv_shape_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape
 
 //Value Computed by CMake
+opencv_stereo_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stereo
+
+//Dependencies for the target
+opencv_stereo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;
+
+//Value Computed by CMake
+opencv_stereo_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo
+
+//Value Computed by CMake
 opencv_stitching_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching
 
 //Dependencies for the target
-opencv_stitching_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_objdetect;general;opencv_features2d;general;opencv_calib3d;general;ippicv;
+opencv_stitching_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_video;general;opencv_imgcodecs;general;opencv_shape;general;opencv_videoio;general;opencv_highgui;general;opencv_objdetect;general;opencv_features2d;general;opencv_calib3d;general;opencv_xfeatures2d;
 
 //Value Computed by CMake
 opencv_stitching_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching
 
 //Value Computed by CMake
+opencv_structured_light_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/structured_light
+
+//Dependencies for the target
+opencv_structured_light_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;opencv_rgbd;general;opencv_phase_unwrapping;
+
+//Value Computed by CMake
+opencv_structured_light_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light
+
+//Value Computed by CMake
 opencv_superres_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres
 
 //Dependencies for the target
-opencv_superres_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;ippicv;
+opencv_superres_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;
 
 //Value Computed by CMake
 opencv_superres_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres
 
 //Value Computed by CMake
+opencv_surface_matching_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/surface_matching
+
+//Dependencies for the target
+opencv_surface_matching_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;
+
+//Value Computed by CMake
+opencv_surface_matching_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching
+
+//Value Computed by CMake
+opencv_text_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/text
+
+//Dependencies for the target
+opencv_text_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;
+
+//Value Computed by CMake
+opencv_text_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text
+
+//Value Computed by CMake
+opencv_tracking_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/tracking
+
+//Dependencies for the target
+opencv_tracking_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_video;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_objdetect;general;opencv_plot;general;opencv_face;general;opencv_features2d;general;opencv_text;general;opencv_datasets;
+
+//Value Computed by CMake
+opencv_tracking_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking
+
+//Value Computed by CMake
 opencv_ts_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ts
 
 //Dependencies for the target
-opencv_ts_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;ippicv;
+opencv_ts_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;
 
 //Value Computed by CMake
 opencv_ts_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ts
@@ -995,7 +1325,7 @@ opencv_version_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_
 opencv_video_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/video
 
 //Dependencies for the target
-opencv_video_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;ippicv;
+opencv_video_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
 
 //Value Computed by CMake
 opencv_video_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/video
@@ -1004,7 +1334,7 @@ opencv_video_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Re
 opencv_videoio_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videoio
 
 //Dependencies for the target
-opencv_videoio_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;ippicv;general;vfw32;
+opencv_videoio_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;vfw32;
 
 //Value Computed by CMake
 opencv_videoio_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videoio
@@ -1013,10 +1343,52 @@ opencv_videoio_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_
 opencv_videostab_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videostab
 
 //Dependencies for the target
-opencv_videostab_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_photo;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;ippicv;
+opencv_videostab_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_photo;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;
 
 //Value Computed by CMake
 opencv_videostab_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/videostab
+
+//Value Computed by CMake
+opencv_waldboost_detector_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/xobjdetect/tools/waldboost_detector
+
+//Value Computed by CMake
+opencv_waldboost_detector_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/tools/waldboost_detector
+
+//Value Computed by CMake
+opencv_xfeatures2d_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/xfeatures2d
+
+//Dependencies for the target
+opencv_xfeatures2d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_video;general;opencv_imgcodecs;general;opencv_shape;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;
+
+//Value Computed by CMake
+opencv_xfeatures2d_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d
+
+//Value Computed by CMake
+opencv_ximgproc_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ximgproc
+
+//Dependencies for the target
+opencv_ximgproc_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;
+
+//Value Computed by CMake
+opencv_ximgproc_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc
+
+//Value Computed by CMake
+opencv_xobjdetect_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/xobjdetect
+
+//Dependencies for the target
+opencv_xobjdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_ml;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_objdetect;
+
+//Value Computed by CMake
+opencv_xobjdetect_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect
+
+//Value Computed by CMake
+opencv_xphoto_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/xphoto
+
+//Dependencies for the target
+opencv_xphoto_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_photo;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;
+
+//Value Computed by CMake
+opencv_xphoto_SOURCE_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto
 
 //Value Computed by CMake
 openexr_BINARY_DIR:STATIC=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/3rdparty/openexr
@@ -1124,7 +1496,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=71
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=132
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER
@@ -1163,6 +1535,8 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_USE_RELATIVE_PATHS:INTERNAL=ON
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Test COMPILER_SUPPORTS_CXX11
+COMPILER_SUPPORTS_CXX11:INTERNAL=1
 //ADVANCED property for variable: CPACK_BINARY_7Z
 CPACK_BINARY_7Z-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CPACK_BINARY_IFW
@@ -1279,6 +1653,8 @@ HAVE_STDINT_H:INTERNAL=1
 HAVE_STRING_H:INTERNAL=1
 //Have include sys/types.h
 HAVE_SYS_TYPES_H:INTERNAL=1
+//Have torch binary
+HAVE_TORCH_EXE:INTERNAL=OFF
 //Have include unistd.h
 HAVE_UNISTD_H:INTERNAL=
 //Result of TRY_COMPILE
@@ -1287,8 +1663,20 @@ HAVE_VFW:INTERNAL=TRUE
 HAVE_WIN32UI:INTERNAL=TRUE
 //Result of TRY_COMPILE
 HAVE_WORDS_BIGENDIAN:INTERNAL=TRUE
+//Module opencv_aruco will be built in current configuration
+HAVE_opencv_aruco:INTERNAL=ON
+//Module opencv_bgsegm will be built in current configuration
+HAVE_opencv_bgsegm:INTERNAL=ON
+//Module opencv_bioinspired will be built in current configuration
+HAVE_opencv_bioinspired:INTERNAL=ON
 //Module opencv_calib3d will be built in current configuration
 HAVE_opencv_calib3d:INTERNAL=ON
+//Module opencv_ccalib will be built in current configuration
+HAVE_opencv_ccalib:INTERNAL=ON
+//Module opencv_cnn_3dobj can not be built in current configuration
+HAVE_opencv_cnn_3dobj:INTERNAL=OFF
+//Module opencv_contrib_world will not be built in current configuration
+HAVE_opencv_contrib_world:INTERNAL=OFF
 //Module opencv_core will be built in current configuration
 HAVE_opencv_core:INTERNAL=ON
 //Module opencv_cudaarithm can not be built in current configuration
@@ -1315,10 +1703,28 @@ HAVE_opencv_cudastereo:INTERNAL=OFF
 HAVE_opencv_cudawarping:INTERNAL=OFF
 //Module opencv_cudev can not be built in current configuration
 HAVE_opencv_cudev:INTERNAL=OFF
+//Module opencv_cvv can not be built in current configuration
+HAVE_opencv_cvv:INTERNAL=OFF
+//Module opencv_datasets will be built in current configuration
+HAVE_opencv_datasets:INTERNAL=ON
+//Module opencv_dnn will be built in current configuration
+HAVE_opencv_dnn:INTERNAL=ON
+//Module opencv_dnn_modern can not be built in current configuration
+HAVE_opencv_dnn_modern:INTERNAL=OFF
+//Module opencv_dpm will be built in current configuration
+HAVE_opencv_dpm:INTERNAL=ON
+//Module opencv_face will be built in current configuration
+HAVE_opencv_face:INTERNAL=ON
 //Module opencv_features2d will be built in current configuration
 HAVE_opencv_features2d:INTERNAL=ON
 //Module opencv_flann will be built in current configuration
 HAVE_opencv_flann:INTERNAL=ON
+//Module opencv_freetype can not be built in current configuration
+HAVE_opencv_freetype:INTERNAL=OFF
+//Module opencv_fuzzy will be built in current configuration
+HAVE_opencv_fuzzy:INTERNAL=ON
+//Module opencv_hdf can not be built in current configuration
+HAVE_opencv_hdf:INTERNAL=OFF
 //Module opencv_highgui will be built in current configuration
 HAVE_opencv_highgui:INTERNAL=ON
 //Module opencv_imgcodecs will be built in current configuration
@@ -1327,22 +1733,50 @@ HAVE_opencv_imgcodecs:INTERNAL=ON
 HAVE_opencv_imgproc:INTERNAL=ON
 //Module opencv_java can not be built in current configuration
 HAVE_opencv_java:INTERNAL=OFF
+//Module opencv_line_descriptor will be built in current configuration
+HAVE_opencv_line_descriptor:INTERNAL=ON
+//Module opencv_matlab can not be built in current configuration
+HAVE_opencv_matlab:INTERNAL=OFF
 //Module opencv_ml will be built in current configuration
 HAVE_opencv_ml:INTERNAL=ON
 //Module opencv_objdetect will be built in current configuration
 HAVE_opencv_objdetect:INTERNAL=ON
+//Module opencv_optflow will be built in current configuration
+HAVE_opencv_optflow:INTERNAL=ON
+//Module opencv_phase_unwrapping will be built in current configuration
+HAVE_opencv_phase_unwrapping:INTERNAL=ON
 //Module opencv_photo will be built in current configuration
 HAVE_opencv_photo:INTERNAL=ON
+//Module opencv_plot will be built in current configuration
+HAVE_opencv_plot:INTERNAL=ON
 //Module opencv_python2 can not be built in current configuration
 HAVE_opencv_python2:INTERNAL=OFF
 //Module opencv_python3 can not be built in current configuration
 HAVE_opencv_python3:INTERNAL=OFF
+//Module opencv_reg will be built in current configuration
+HAVE_opencv_reg:INTERNAL=ON
+//Module opencv_rgbd will be built in current configuration
+HAVE_opencv_rgbd:INTERNAL=ON
+//Module opencv_saliency will be built in current configuration
+HAVE_opencv_saliency:INTERNAL=ON
+//Module opencv_sfm can not be built in current configuration
+HAVE_opencv_sfm:INTERNAL=OFF
 //Module opencv_shape will be built in current configuration
 HAVE_opencv_shape:INTERNAL=ON
+//Module opencv_stereo will be built in current configuration
+HAVE_opencv_stereo:INTERNAL=ON
 //Module opencv_stitching will be built in current configuration
 HAVE_opencv_stitching:INTERNAL=ON
+//Module opencv_structured_light will be built in current configuration
+HAVE_opencv_structured_light:INTERNAL=ON
 //Module opencv_superres will be built in current configuration
 HAVE_opencv_superres:INTERNAL=ON
+//Module opencv_surface_matching will be built in current configuration
+HAVE_opencv_surface_matching:INTERNAL=ON
+//Module opencv_text will be built in current configuration
+HAVE_opencv_text:INTERNAL=ON
+//Module opencv_tracking will be built in current configuration
+HAVE_opencv_tracking:INTERNAL=ON
 //Module opencv_ts will be built in current configuration
 HAVE_opencv_ts:INTERNAL=ON
 //Module opencv_video will be built in current configuration
@@ -1355,6 +1789,14 @@ HAVE_opencv_videostab:INTERNAL=ON
 HAVE_opencv_viz:INTERNAL=OFF
 //Module opencv_world will not be built in current configuration
 HAVE_opencv_world:INTERNAL=OFF
+//Module opencv_xfeatures2d will be built in current configuration
+HAVE_opencv_xfeatures2d:INTERNAL=ON
+//Module opencv_ximgproc will be built in current configuration
+HAVE_opencv_ximgproc:INTERNAL=ON
+//Module opencv_xobjdetect will be built in current configuration
+HAVE_opencv_xobjdetect:INTERNAL=ON
+//Module opencv_xphoto will be built in current configuration
+HAVE_opencv_xphoto:INTERNAL=ON
 //ADVANCED property for variable: JAVA_AWT_INCLUDE_PATH
 JAVA_AWT_INCLUDE_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: JAVA_AWT_LIBRARY
@@ -1390,15 +1832,111 @@ OPENCV_EXTRA_FLAGS_RELEASE:INTERNAL= /Zi
 //ICV package hash
 OPENCV_ICV_PACKAGE_DOWNLOADED:INTERNAL=04e81ce5d0e329c3fbc606ae32cad44d
 //List of OpenCV modules included into the build
-OPENCV_MODULES_BUILD:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_photo;opencv_video;opencv_imgcodecs;opencv_shape;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_superres;opencv_ts;opencv_features2d;opencv_calib3d;opencv_stitching;opencv_videostab
+OPENCV_MODULES_BUILD:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_photo;opencv_reg;opencv_surface_matching;opencv_video;opencv_dnn;opencv_fuzzy;opencv_imgcodecs;opencv_shape;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_plot;opencv_superres;opencv_ts;opencv_xobjdetect;opencv_xphoto;opencv_bgsegm;opencv_bioinspired;opencv_dpm;opencv_face;opencv_features2d;opencv_line_descriptor;opencv_saliency;opencv_text;opencv_calib3d;opencv_ccalib;opencv_datasets;opencv_rgbd;opencv_stereo;opencv_tracking;opencv_videostab;opencv_xfeatures2d;opencv_ximgproc;opencv_aruco;opencv_optflow;opencv_phase_unwrapping;opencv_stitching;opencv_structured_light
 //List of OpenCV modules implicitly disabled due to dependencies
 OPENCV_MODULES_DISABLED_AUTO:INTERNAL=
 //List of OpenCV modules which can not be build in current configuration
-OPENCV_MODULES_DISABLED_FORCE:INTERNAL=opencv_cudaarithm;opencv_cudabgsegm;opencv_cudacodec;opencv_cudafeatures2d;opencv_cudafilters;opencv_cudaimgproc;opencv_cudalegacy;opencv_cudaobjdetect;opencv_cudaoptflow;opencv_cudastereo;opencv_cudawarping;opencv_cudev;opencv_java;opencv_python2;opencv_python3;opencv_viz
+OPENCV_MODULES_DISABLED_FORCE:INTERNAL=opencv_cudaarithm;opencv_cudabgsegm;opencv_cudacodec;opencv_cudafeatures2d;opencv_cudafilters;opencv_cudaimgproc;opencv_cudalegacy;opencv_cudaobjdetect;opencv_cudaoptflow;opencv_cudastereo;opencv_cudawarping;opencv_cudev;opencv_java;opencv_python2;opencv_python3;opencv_viz;opencv_cnn_3dobj;opencv_cvv;opencv_dnn_modern;opencv_freetype;opencv_hdf;opencv_matlab;opencv_sfm
 //List of OpenCV modules explicitly disabled by user
-OPENCV_MODULES_DISABLED_USER:INTERNAL=opencv_world
+OPENCV_MODULES_DISABLED_USER:INTERNAL=opencv_world;opencv_contrib_world
 //List of OpenCV modules marked for export
-OPENCV_MODULES_PUBLIC:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_shape;opencv_stitching;opencv_superres;opencv_video;opencv_videoio;opencv_videostab
+OPENCV_MODULES_PUBLIC:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_shape;opencv_stitching;opencv_superres;opencv_video;opencv_videoio;opencv_videostab;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_ccalib;opencv_datasets;opencv_dnn;opencv_dpm;opencv_face;opencv_fuzzy;opencv_line_descriptor;opencv_optflow;opencv_phase_unwrapping;opencv_plot;opencv_reg;opencv_rgbd;opencv_saliency;opencv_stereo;opencv_structured_light;opencv_surface_matching;opencv_text;opencv_tracking;opencv_xfeatures2d;opencv_ximgproc;opencv_xobjdetect;opencv_xphoto
+OPENCV_MODULE_opencv_aruco_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/aruco
+//List of opencv_aruco submodules
+OPENCV_MODULE_opencv_aruco_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_aruco_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_aruco module
+OPENCV_MODULE_opencv_aruco_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Extra dependencies of opencv_aruco module
+OPENCV_MODULE_opencv_aruco_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_aruco module (for linker)
+OPENCV_MODULE_opencv_aruco_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Brief description of opencv_aruco module
+OPENCV_MODULE_opencv_aruco_DESCRIPTION:INTERNAL=ArUco Marker Detection
+//List of header files for opencv_aruco
+OPENCV_MODULE_opencv_aruco_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/include/opencv2/aruco.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/include/opencv2/aruco/charuco.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/include/opencv2/aruco/dictionary.hpp
+OPENCV_MODULE_opencv_aruco_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_aruco_LABEL:INTERNAL=Extra;opencv_aruco
+OPENCV_MODULE_opencv_aruco_LINK_DEPS:INTERNAL=;
+//Location of opencv_aruco module sources
+OPENCV_MODULE_opencv_aruco_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco
+//Optional dependencies of opencv_aruco module
+OPENCV_MODULE_opencv_aruco_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_aruco module
+OPENCV_MODULE_opencv_aruco_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_aruco module
+OPENCV_MODULE_opencv_aruco_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_aruco module
+OPENCV_MODULE_opencv_aruco_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_calib3d
+//List of source files for opencv_aruco
+OPENCV_MODULE_opencv_aruco_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/src/aruco.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/src/charuco.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/src/dictionary.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/aruco/src/predefined_dictionaries.hpp
+//List of wrappers supporting module opencv_aruco
+OPENCV_MODULE_opencv_aruco_WRAPPERS:INTERNAL=java;python2;python3
+OPENCV_MODULE_opencv_bgsegm_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/bgsegm
+//List of opencv_bgsegm submodules
+OPENCV_MODULE_opencv_bgsegm_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_bgsegm_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_bgsegm module
+OPENCV_MODULE_opencv_bgsegm_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_video;opencv_imgcodecs;opencv_videoio;opencv_highgui
+//Extra dependencies of opencv_bgsegm module
+OPENCV_MODULE_opencv_bgsegm_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_bgsegm module (for linker)
+OPENCV_MODULE_opencv_bgsegm_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc;opencv_video;opencv_imgcodecs;opencv_videoio;opencv_highgui
+//Brief description of opencv_bgsegm module
+OPENCV_MODULE_opencv_bgsegm_DESCRIPTION:INTERNAL=Background Segmentation Algorithms
+//List of header files for opencv_bgsegm
+OPENCV_MODULE_opencv_bgsegm_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm/include/opencv2/bgsegm.hpp
+OPENCV_MODULE_opencv_bgsegm_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_bgsegm_LABEL:INTERNAL=Extra;opencv_bgsegm
+OPENCV_MODULE_opencv_bgsegm_LINK_DEPS:INTERNAL=;
+//Location of opencv_bgsegm module sources
+OPENCV_MODULE_opencv_bgsegm_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm
+//Optional dependencies of opencv_bgsegm module
+OPENCV_MODULE_opencv_bgsegm_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_bgsegm module
+OPENCV_MODULE_opencv_bgsegm_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_bgsegm module
+OPENCV_MODULE_opencv_bgsegm_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_bgsegm module
+OPENCV_MODULE_opencv_bgsegm_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_video;opencv_highgui
+//List of source files for opencv_bgsegm
+OPENCV_MODULE_opencv_bgsegm_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm/src/bgfg_gaussmix.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm/src/bgfg_gmg.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bgsegm/src/precomp.hpp
+//List of wrappers supporting module opencv_bgsegm
+OPENCV_MODULE_opencv_bgsegm_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_bioinspired_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/bioinspired
+//List of opencv_bioinspired submodules
+OPENCV_MODULE_opencv_bioinspired_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_bioinspired_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_bioinspired module
+OPENCV_MODULE_opencv_bioinspired_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_imgcodecs;opencv_videoio;opencv_highgui
+//Extra dependencies of opencv_bioinspired module
+OPENCV_MODULE_opencv_bioinspired_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_bioinspired module (for linker)
+OPENCV_MODULE_opencv_bioinspired_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc;opencv_imgcodecs;opencv_videoio;opencv_highgui
+//Brief description of opencv_bioinspired module
+OPENCV_MODULE_opencv_bioinspired_DESCRIPTION:INTERNAL=Biologically inspired algorithms
+//List of header files for opencv_bioinspired
+OPENCV_MODULE_opencv_bioinspired_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/bioinspired.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/retina.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/retinafasttonemapping.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/transientareassegmentationmodule.hpp
+OPENCV_MODULE_opencv_bioinspired_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_bioinspired_LABEL:INTERNAL=Extra;opencv_bioinspired
+OPENCV_MODULE_opencv_bioinspired_LINK_DEPS:INTERNAL=;
+//Location of opencv_bioinspired module sources
+OPENCV_MODULE_opencv_bioinspired_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired
+//Optional dependencies of opencv_bioinspired module
+OPENCV_MODULE_opencv_bioinspired_OPT_DEPS:INTERNAL=opencv_highgui;opencv_ocl
+//Optional private dependencies of opencv_bioinspired module
+OPENCV_MODULE_opencv_bioinspired_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_bioinspired module
+OPENCV_MODULE_opencv_bioinspired_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_bioinspired module
+OPENCV_MODULE_opencv_bioinspired_REQ_DEPS:INTERNAL=opencv_core
+//List of source files for opencv_bioinspired
+OPENCV_MODULE_opencv_bioinspired_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/basicretinafilter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/imagelogpolprojection.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/magnoretinafilter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/parvoretinafilter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/retina.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/retina_ocl.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/retinacolor.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/retinafasttonemapping.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/retinafilter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/transientareassegmentationmodule.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/opencl/retina_kernel.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/bioinspired/opencl_kernels_bioinspired.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/bioinspired/opencl_kernels_bioinspired.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/imagelogpolprojection.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/magnoretinafilter.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/parvoretinafilter.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/retina_ocl.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/retinacolor.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/retinafilter.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/bioinspired/src/templatebuffer.hpp
+//List of wrappers supporting module opencv_bioinspired
+OPENCV_MODULE_opencv_bioinspired_WRAPPERS:INTERNAL=java;python2;python3
 OPENCV_MODULE_opencv_calib3d_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d
 //List of opencv_calib3d submodules
 OPENCV_MODULE_opencv_calib3d_CHILDREN:INTERNAL=
@@ -1431,6 +1969,61 @@ OPENCV_MODULE_opencv_calib3d_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_features2d
 OPENCV_MODULE_opencv_calib3d_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/calibinit.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/calibration.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/checkchessboard.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/circlesgrid.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/compat_ptsetreg.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/compat_stereo.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/dls.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/epnp.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/fisheye.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/five-point.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/fundam.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/homography_decomp.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/levmarq.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/main.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/p3p.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/polynom_solver.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/posit.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/ptsetreg.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/quadsubpix.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/rho.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/solvepnp.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/stereobm.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/stereosgbm.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/triangulate.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/upnp.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/opencl/stereobm.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/opencl_kernels_calib3d.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/opencl_kernels_calib3d.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/circlesgrid.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/fisheye.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/dls.h;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/epnp.h;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/p3p.h;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/polynom_solver.h;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/rho.h;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/calib3d/src/upnp.h
 //List of wrappers supporting module opencv_calib3d
 OPENCV_MODULE_opencv_calib3d_WRAPPERS:INTERNAL=java;python2;python3
+OPENCV_MODULE_opencv_ccalib_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ccalib
+//List of opencv_ccalib submodules
+OPENCV_MODULE_opencv_ccalib_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_ccalib_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_ccalib module
+OPENCV_MODULE_opencv_ccalib_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Extra dependencies of opencv_ccalib module
+OPENCV_MODULE_opencv_ccalib_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_ccalib module (for linker)
+OPENCV_MODULE_opencv_ccalib_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Brief description of opencv_ccalib module
+OPENCV_MODULE_opencv_ccalib_DESCRIPTION:INTERNAL=Custom Calibration Pattern
+//List of header files for opencv_ccalib
+OPENCV_MODULE_opencv_ccalib_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/include/opencv2/ccalib.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/include/opencv2/ccalib/multicalib.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/include/opencv2/ccalib/omnidir.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/include/opencv2/ccalib/randpattern.hpp
+OPENCV_MODULE_opencv_ccalib_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_ccalib_LABEL:INTERNAL=Extra;opencv_ccalib
+OPENCV_MODULE_opencv_ccalib_LINK_DEPS:INTERNAL=;
+//Location of opencv_ccalib module sources
+OPENCV_MODULE_opencv_ccalib_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib
+//Optional dependencies of opencv_ccalib module
+OPENCV_MODULE_opencv_ccalib_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_ccalib module
+OPENCV_MODULE_opencv_ccalib_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_ccalib module
+OPENCV_MODULE_opencv_ccalib_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_ccalib module
+OPENCV_MODULE_opencv_ccalib_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_calib3d;opencv_features2d
+//List of source files for opencv_ccalib
+OPENCV_MODULE_opencv_ccalib_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/src/ccalib.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/src/multicalib.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/src/omnidir.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/src/randpattern.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ccalib/src/precomp.hpp
+//List of wrappers supporting module opencv_ccalib
+OPENCV_MODULE_opencv_ccalib_WRAPPERS:INTERNAL=python2;python3
+//Location of opencv_cnn_3dobj module sources
+OPENCV_MODULE_opencv_cnn_3dobj_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cnn_3dobj
+//List of opencv_contrib_world submodules
+OPENCV_MODULE_opencv_contrib_world_CHILDREN:INTERNAL=opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_ccalib;opencv_cvv;opencv_datasets;opencv_dnn;opencv_dpm;opencv_face;opencv_fuzzy;opencv_hdf;opencv_line_descriptor;opencv_optflow;opencv_plot;opencv_reg;opencv_rgbd;opencv_saliency;opencv_sfm;opencv_stereo;opencv_structured_light;opencv_surface_matching;opencv_text;opencv_tracking;opencv_xfeatures2d;opencv_ximgproc;opencv_xobjdetect;opencv_xphoto
+//The category of the module
+OPENCV_MODULE_opencv_contrib_world_CLASS:INTERNAL=PUBLIC
+//Brief description of opencv_contrib_world module
+OPENCV_MODULE_opencv_contrib_world_DESCRIPTION:INTERNAL=Separate world module containing all contrib modules
+OPENCV_MODULE_opencv_contrib_world_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_contrib_world_LABEL:INTERNAL=Extra;opencv_contrib_world
+OPENCV_MODULE_opencv_contrib_world_LINK_DEPS:INTERNAL=
+//Location of opencv_contrib_world module sources
+OPENCV_MODULE_opencv_contrib_world_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/contrib_world
+//Optional dependencies of opencv_contrib_world module
+OPENCV_MODULE_opencv_contrib_world_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_contrib_world module
+OPENCV_MODULE_opencv_contrib_world_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_contrib_world module
+OPENCV_MODULE_opencv_contrib_world_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_contrib_world module
+OPENCV_MODULE_opencv_contrib_world_REQ_DEPS:INTERNAL=
+//List of wrappers supporting module opencv_contrib_world
+OPENCV_MODULE_opencv_contrib_world_WRAPPERS:INTERNAL=
 OPENCV_MODULE_opencv_core_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/core
 //List of opencv_core submodules
 OPENCV_MODULE_opencv_core_CHILDREN:INTERNAL=
@@ -1487,6 +2080,138 @@ OPENCV_MODULE_opencv_cudastereo_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documen
 OPENCV_MODULE_opencv_cudawarping_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/cudawarping
 //Location of opencv_cudev module sources
 OPENCV_MODULE_opencv_cudev_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/cudev
+//Location of opencv_cvv module sources
+OPENCV_MODULE_opencv_cvv_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/cvv
+OPENCV_MODULE_opencv_datasets_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/datasets
+//List of opencv_datasets submodules
+OPENCV_MODULE_opencv_datasets_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_datasets_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_datasets module
+OPENCV_MODULE_opencv_datasets_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_face;opencv_features2d;opencv_text
+//Extra dependencies of opencv_datasets module
+OPENCV_MODULE_opencv_datasets_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_datasets module (for linker)
+OPENCV_MODULE_opencv_datasets_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_face;opencv_features2d;opencv_text
+//Brief description of opencv_datasets module
+OPENCV_MODULE_opencv_datasets_DESCRIPTION:INTERNAL=datasets framework
+//List of header files for opencv_datasets
+OPENCV_MODULE_opencv_datasets_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/ar_hmdb.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/ar_sports.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/dataset.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/fr_adience.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/fr_lfw.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/gr_chalearn.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/gr_skig.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/hpe_humaneva.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/hpe_parse.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/ir_affine.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/ir_robot.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/is_bsds.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/is_weizmann.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/msm_epfl.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/msm_middlebury.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/or_imagenet.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/or_mnist.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/or_pascal.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/or_sun.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/pd_caltech.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/pd_inria.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/slam_kitti.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/slam_tumindoor.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/tr_chars.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/tr_icdar.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/tr_svt.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/track_alov.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/track_vot.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/include/opencv2/datasets/util.hpp
+OPENCV_MODULE_opencv_datasets_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_datasets_LABEL:INTERNAL=Extra;opencv_datasets
+OPENCV_MODULE_opencv_datasets_LINK_DEPS:INTERNAL=;
+//Location of opencv_datasets module sources
+OPENCV_MODULE_opencv_datasets_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets
+//Optional dependencies of opencv_datasets module
+OPENCV_MODULE_opencv_datasets_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_datasets module
+OPENCV_MODULE_opencv_datasets_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_datasets module
+OPENCV_MODULE_opencv_datasets_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_datasets module
+OPENCV_MODULE_opencv_datasets_REQ_DEPS:INTERNAL=opencv_core;opencv_face;opencv_ml;opencv_flann;opencv_text
+//List of source files for opencv_datasets
+OPENCV_MODULE_opencv_datasets_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/ar_hmdb.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/ar_sports.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/dataset.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/fr_adience.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/fr_lfw.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/gr_chalearn.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/gr_skig.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/hpe_humaneva.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/hpe_parse.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/ir_affine.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/ir_robot.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/is_bsds.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/is_weizmann.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/msm_epfl.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/msm_middlebury.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/or_imagenet.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/or_mnist.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/or_pascal.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/or_sun.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/pd_caltech.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/pd_inria.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/slam_kitti.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/slam_tumindoor.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/tinyxml2/tinyxml2.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/tr_chars.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/tr_icdar.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/tr_svt.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/track_alov.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/track_vot.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/util.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/datasets/src/tinyxml2/tinyxml2.h
+//List of wrappers supporting module opencv_datasets
+OPENCV_MODULE_opencv_datasets_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_dnn_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/dnn
+//List of opencv_dnn submodules
+OPENCV_MODULE_opencv_dnn_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_dnn_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_dnn module
+OPENCV_MODULE_opencv_dnn_DEPS:INTERNAL=opencv_core;opencv_imgproc
+//Extra dependencies of opencv_dnn module
+OPENCV_MODULE_opencv_dnn_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_dnn module (for linker)
+OPENCV_MODULE_opencv_dnn_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
+//Brief description of opencv_dnn module
+OPENCV_MODULE_opencv_dnn_DESCRIPTION:INTERNAL=Deep neural network module. It allows to load models from different frameworks and to make forward pass
+//List of header files for opencv_dnn
+OPENCV_MODULE_opencv_dnn_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/attr_value.pb.cc;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/function.pb.cc;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/graph.pb.cc;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/op_def.pb.cc;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/tensor.pb.cc;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/tensor_shape.pb.cc;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/types.pb.cc;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/versions.pb.cc;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/caffe/caffe.pb.cc;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/attr_value.pb.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/function.pb.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/graph.pb.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/op_def.pb.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/tensor.pb.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/tensor_shape.pb.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/types.pb.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/tensorflow/versions.pb.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/misc/caffe/caffe.pb.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/include/opencv2/dnn.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/include/opencv2/dnn/all_layers.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/include/opencv2/dnn/blob.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/include/opencv2/dnn/blob.inl.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/include/opencv2/dnn/dict.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/include/opencv2/dnn/dnn.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/include/opencv2/dnn/dnn.inl.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/include/opencv2/dnn/layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/include/opencv2/dnn/shape_utils.hpp
+OPENCV_MODULE_opencv_dnn_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_dnn_LABEL:INTERNAL=Extra;opencv_dnn
+OPENCV_MODULE_opencv_dnn_LINK_DEPS:INTERNAL=;libprotobuf
+//Location of opencv_dnn module sources
+OPENCV_MODULE_opencv_dnn_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn
+//Optional dependencies of opencv_dnn module
+OPENCV_MODULE_opencv_dnn_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_dnn module
+OPENCV_MODULE_opencv_dnn_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_dnn module
+OPENCV_MODULE_opencv_dnn_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_dnn module
+OPENCV_MODULE_opencv_dnn_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc
+//List of source files for opencv_dnn
+OPENCV_MODULE_opencv_dnn_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/blob.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/caffe/caffe_importer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/caffe/caffe_io.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/caffe/layer_loaders.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/dnn.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/init.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/batch_norm_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/concat_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/convolution_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/crop_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/detection_output_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/elementwise_layers.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/eltwise_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/flatten_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/fully_connected_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/layers_common.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/lrn_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/max_unpooling_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/mvn_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/normalize_bbox_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/op_blas.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/op_im2col.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/padding_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/permute_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/pooling_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/prior_box_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/recurrent_layers.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/reshape_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/shift_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/slice_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/softmax_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/split_layer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/tensorflow/tf_importer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/tensorflow/tf_io.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/torch/THDiskFile.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/torch/THFile.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/torch/THGeneral.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/torch/torch_importer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/opencl/activations.cl;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/opencl/col2im.cl;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/opencl/im2col.cl;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/opencl/lrn.cl;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/opencl/pooling.cl;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/opencl/softmax.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/dnn/opencl_kernels_dnn.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/dnn/opencl_kernels_dnn.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/caffe/caffe_io.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/caffe/glog_emulator.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/caffe/layer_loaders.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/batch_norm_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/blank_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/concat_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/convolution_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/crop_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/detection_output_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/elementwise_layers.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/eltwise_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/flatten_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/fully_connected_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/layers_common.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/lrn_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/max_unpooling_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/mvn_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/normalize_bbox_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/op_blas.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/op_im2col.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/padding_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/permute_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/pooling_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/prior_box_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/recurrent_layers.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/reshape_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/shift_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/slice_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/softmax_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/layers/split_layer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/tensorflow/tf_io.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/torch/THDiskFile.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/torch/THFile.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/torch/THFilePrivate.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn/src/torch/THGeneral.h
+//List of wrappers supporting module opencv_dnn
+OPENCV_MODULE_opencv_dnn_WRAPPERS:INTERNAL=matlab;python2;python3
+//Location of opencv_dnn_modern module sources
+OPENCV_MODULE_opencv_dnn_modern_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dnn_modern
+OPENCV_MODULE_opencv_dpm_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/dpm
+//List of opencv_dpm submodules
+OPENCV_MODULE_opencv_dpm_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_dpm_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_dpm module
+OPENCV_MODULE_opencv_dpm_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect
+//Extra dependencies of opencv_dpm module
+OPENCV_MODULE_opencv_dpm_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_dpm module (for linker)
+OPENCV_MODULE_opencv_dpm_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect
+//Brief description of opencv_dpm module
+OPENCV_MODULE_opencv_dpm_DESCRIPTION:INTERNAL=Object Detection
+//List of header files for opencv_dpm
+OPENCV_MODULE_opencv_dpm_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/include/opencv2/dpm.hpp
+OPENCV_MODULE_opencv_dpm_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_dpm_LABEL:INTERNAL=Extra;opencv_dpm
+OPENCV_MODULE_opencv_dpm_LINK_DEPS:INTERNAL=;
+//Location of opencv_dpm module sources
+OPENCV_MODULE_opencv_dpm_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm
+//Optional dependencies of opencv_dpm module
+OPENCV_MODULE_opencv_dpm_OPT_DEPS:INTERNAL=opencv_highgui
+//Optional private dependencies of opencv_dpm module
+OPENCV_MODULE_opencv_dpm_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_dpm module
+OPENCV_MODULE_opencv_dpm_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_dpm module
+OPENCV_MODULE_opencv_dpm_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_objdetect
+//List of source files for opencv_dpm
+OPENCV_MODULE_opencv_dpm_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_cascade.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_cascade_detector.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_convolution.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_feature.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_model.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_nms.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_cascade.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_convolution.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_feature.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_model.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/dpm_nms.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/dpm/src/precomp.hpp
+//List of wrappers supporting module opencv_dpm
+OPENCV_MODULE_opencv_dpm_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_face_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/face
+//List of opencv_face submodules
+OPENCV_MODULE_opencv_face_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_face_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_face module
+OPENCV_MODULE_opencv_face_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect
+//Extra dependencies of opencv_face module
+OPENCV_MODULE_opencv_face_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_face module (for linker)
+OPENCV_MODULE_opencv_face_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect
+//Brief description of opencv_face module
+OPENCV_MODULE_opencv_face_DESCRIPTION:INTERNAL=Face recognition etc
+//List of header files for opencv_face
+OPENCV_MODULE_opencv_face_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/include/opencv2/face.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/include/opencv2/face/bif.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/include/opencv2/face/facerec.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/include/opencv2/face/predict_collector.hpp
+OPENCV_MODULE_opencv_face_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_face_LABEL:INTERNAL=Extra;opencv_face
+OPENCV_MODULE_opencv_face_LINK_DEPS:INTERNAL=;
+//Location of opencv_face module sources
+OPENCV_MODULE_opencv_face_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face
+//Optional dependencies of opencv_face module
+OPENCV_MODULE_opencv_face_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_face module
+OPENCV_MODULE_opencv_face_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_face module
+OPENCV_MODULE_opencv_face_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_face module
+OPENCV_MODULE_opencv_face_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_objdetect
+//List of source files for opencv_face
+OPENCV_MODULE_opencv_face_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/src/bif.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/src/eigen_faces.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/src/facerec.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/src/fisher_faces.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/src/lbph_faces.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/src/predict_collector.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/src/face_basic.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/face/src/precomp.hpp
+//List of wrappers supporting module opencv_face
+OPENCV_MODULE_opencv_face_WRAPPERS:INTERNAL=python2;python3
 OPENCV_MODULE_opencv_features2d_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/features2d
 //List of opencv_features2d submodules
 OPENCV_MODULE_opencv_features2d_CHILDREN:INTERNAL=
@@ -1551,6 +2276,42 @@ OPENCV_MODULE_opencv_flann_REQ_DEPS:INTERNAL=opencv_core
 OPENCV_MODULE_opencv_flann_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/flann/src/flann.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/flann/src/miniflann.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/flann/src/precomp.hpp
 //List of wrappers supporting module opencv_flann
 OPENCV_MODULE_opencv_flann_WRAPPERS:INTERNAL=python2;python3
+//Location of opencv_freetype module sources
+OPENCV_MODULE_opencv_freetype_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/freetype
+OPENCV_MODULE_opencv_fuzzy_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/fuzzy
+//List of opencv_fuzzy submodules
+OPENCV_MODULE_opencv_fuzzy_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_fuzzy_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_fuzzy module
+OPENCV_MODULE_opencv_fuzzy_DEPS:INTERNAL=opencv_core;opencv_imgproc
+//Extra dependencies of opencv_fuzzy module
+OPENCV_MODULE_opencv_fuzzy_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_fuzzy module (for linker)
+OPENCV_MODULE_opencv_fuzzy_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
+//Brief description of opencv_fuzzy module
+OPENCV_MODULE_opencv_fuzzy_DESCRIPTION:INTERNAL=Fuzzy mathematical image processing
+//List of header files for opencv_fuzzy
+OPENCV_MODULE_opencv_fuzzy_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/include/opencv2/fuzzy.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/include/opencv2/fuzzy/fuzzy_F0_math.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/include/opencv2/fuzzy/fuzzy_image.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/include/opencv2/fuzzy/types.hpp
+OPENCV_MODULE_opencv_fuzzy_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_fuzzy_LABEL:INTERNAL=Extra;opencv_fuzzy
+OPENCV_MODULE_opencv_fuzzy_LINK_DEPS:INTERNAL=;
+//Location of opencv_fuzzy module sources
+OPENCV_MODULE_opencv_fuzzy_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy
+//Optional dependencies of opencv_fuzzy module
+OPENCV_MODULE_opencv_fuzzy_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_fuzzy module
+OPENCV_MODULE_opencv_fuzzy_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_fuzzy module
+OPENCV_MODULE_opencv_fuzzy_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_fuzzy module
+OPENCV_MODULE_opencv_fuzzy_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_core
+//List of source files for opencv_fuzzy
+OPENCV_MODULE_opencv_fuzzy_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/src/fuzzy_F0_math.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/src/fuzzy_image.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/fuzzy/src/precomp.hpp
+//List of wrappers supporting module opencv_fuzzy
+OPENCV_MODULE_opencv_fuzzy_WRAPPERS:INTERNAL=python2;python3
+//Location of opencv_hdf module sources
+OPENCV_MODULE_opencv_hdf_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/hdf
 OPENCV_MODULE_opencv_highgui_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/highgui
 //List of opencv_highgui submodules
 OPENCV_MODULE_opencv_highgui_CHILDREN:INTERNAL=
@@ -1650,7 +2411,7 @@ OPENCV_MODULE_opencv_imgproc_WRAPPERS:INTERNAL=java;python2;python3
 //Location of opencv_java module sources
 OPENCV_MODULE_opencv_java_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/java
 //Optional dependencies of opencv_java module
-OPENCV_MODULE_opencv_java_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_video;opencv_videoio
+OPENCV_MODULE_opencv_java_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_video;opencv_videoio;opencv_aruco;opencv_bioinspired;opencv_phase_unwrapping;opencv_structured_light;opencv_tracking;opencv_xfeatures2d
 //Optional private dependencies of opencv_java module
 OPENCV_MODULE_opencv_java_PRIVATE_OPT_DEPS:INTERNAL=
 //Required private dependencies of opencv_java module
@@ -1659,6 +2420,51 @@ OPENCV_MODULE_opencv_java_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_java_REQ_DEPS:INTERNAL=
 //List of wrappers supporting module opencv_java
 OPENCV_MODULE_opencv_java_WRAPPERS:INTERNAL=
+OPENCV_MODULE_opencv_line_descriptor_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/line_descriptor
+//List of opencv_line_descriptor submodules
+OPENCV_MODULE_opencv_line_descriptor_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_line_descriptor_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_line_descriptor module
+OPENCV_MODULE_opencv_line_descriptor_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d
+//Extra dependencies of opencv_line_descriptor module
+OPENCV_MODULE_opencv_line_descriptor_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_line_descriptor module (for
+// linker)
+OPENCV_MODULE_opencv_line_descriptor_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d
+//Brief description of opencv_line_descriptor module
+OPENCV_MODULE_opencv_line_descriptor_DESCRIPTION:INTERNAL=Line descriptor
+//List of header files for opencv_line_descriptor
+OPENCV_MODULE_opencv_line_descriptor_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/include/opencv2/line_descriptor.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/include/opencv2/line_descriptor/descriptor.hpp
+OPENCV_MODULE_opencv_line_descriptor_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_line_descriptor_LABEL:INTERNAL=Extra;opencv_line_descriptor
+OPENCV_MODULE_opencv_line_descriptor_LINK_DEPS:INTERNAL=;
+//Location of opencv_line_descriptor module sources
+OPENCV_MODULE_opencv_line_descriptor_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor
+//Optional dependencies of opencv_line_descriptor module
+OPENCV_MODULE_opencv_line_descriptor_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_line_descriptor module
+OPENCV_MODULE_opencv_line_descriptor_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_line_descriptor module
+OPENCV_MODULE_opencv_line_descriptor_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_line_descriptor module
+OPENCV_MODULE_opencv_line_descriptor_REQ_DEPS:INTERNAL=opencv_features2d;opencv_imgproc;opencv_highgui
+//List of source files for opencv_line_descriptor
+OPENCV_MODULE_opencv_line_descriptor_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/src/LSDDetector.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/src/binary_descriptor.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/src/binary_descriptor_matcher.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/src/draw.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/src/bitarray.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/src/bitops.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/line_descriptor/src/types.hpp
+//List of wrappers supporting module opencv_line_descriptor
+OPENCV_MODULE_opencv_line_descriptor_WRAPPERS:INTERNAL=python2;python3
+//Location of opencv_matlab module sources
+OPENCV_MODULE_opencv_matlab_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/matlab
+//Optional dependencies of opencv_matlab module
+OPENCV_MODULE_opencv_matlab_OPT_DEPS:INTERNAL=opencv_dnn
+//Optional private dependencies of opencv_matlab module
+OPENCV_MODULE_opencv_matlab_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_matlab module
+OPENCV_MODULE_opencv_matlab_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_matlab module
+OPENCV_MODULE_opencv_matlab_REQ_DEPS:INTERNAL=
+//List of wrappers supporting module opencv_matlab
+OPENCV_MODULE_opencv_matlab_WRAPPERS:INTERNAL=
 OPENCV_MODULE_opencv_ml_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ml
 //List of opencv_ml submodules
 OPENCV_MODULE_opencv_ml_CHILDREN:INTERNAL=
@@ -1723,6 +2529,71 @@ OPENCV_MODULE_opencv_objdetect_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;open
 OPENCV_MODULE_opencv_objdetect_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/cascadedetect.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/cascadedetect_convert.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/detection_based_tracker.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/haar.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/hog.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/main.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/opencl/cascadedetect.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/opencl/objdetect_hog.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/opencl_kernels_objdetect.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/opencl_kernels_objdetect.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/cascadedetect.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/objdetect/src/precomp.hpp
 //List of wrappers supporting module opencv_objdetect
 OPENCV_MODULE_opencv_objdetect_WRAPPERS:INTERNAL=java;python2;python3
+OPENCV_MODULE_opencv_optflow_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/optflow
+//List of opencv_optflow submodules
+OPENCV_MODULE_opencv_optflow_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_optflow_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_optflow module
+OPENCV_MODULE_opencv_optflow_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_video;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d;opencv_ximgproc
+//Extra dependencies of opencv_optflow module
+OPENCV_MODULE_opencv_optflow_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_optflow module (for linker)
+OPENCV_MODULE_opencv_optflow_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_video;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d;opencv_ximgproc
+//Brief description of opencv_optflow module
+OPENCV_MODULE_opencv_optflow_DESCRIPTION:INTERNAL=Optical Flow Algorithms
+//List of header files for opencv_optflow
+OPENCV_MODULE_opencv_optflow_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/include/opencv2/optflow.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/include/opencv2/optflow/motempl.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/include/opencv2/optflow/pcaflow.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/include/opencv2/optflow/sparse_matching_gpc.hpp
+OPENCV_MODULE_opencv_optflow_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_optflow_LABEL:INTERNAL=Extra;opencv_optflow
+OPENCV_MODULE_opencv_optflow_LINK_DEPS:INTERNAL=;
+//Location of opencv_optflow module sources
+OPENCV_MODULE_opencv_optflow_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow
+//Optional dependencies of opencv_optflow module
+OPENCV_MODULE_opencv_optflow_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_optflow module
+OPENCV_MODULE_opencv_optflow_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_optflow module
+OPENCV_MODULE_opencv_optflow_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_optflow module
+OPENCV_MODULE_opencv_optflow_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_video;opencv_highgui;opencv_ximgproc
+//List of source files for opencv_optflow
+OPENCV_MODULE_opencv_optflow_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/deepflow.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/dis_flow.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/interfaces.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/motempl.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/optical_flow_io.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/pcaflow.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/simpleflow.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/sparse_matching_gpc.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/sparsetodenseflow.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/variational_refinement.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/opencl/sparse_matching_gpc.cl;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/opencl/updatemotionhistory.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/optflow/opencl_kernels_optflow.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/optflow/opencl_kernels_optflow.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/optflow/src/precomp.hpp
+//List of wrappers supporting module opencv_optflow
+OPENCV_MODULE_opencv_optflow_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_phase_unwrapping_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/phase_unwrapping
+//List of opencv_phase_unwrapping submodules
+OPENCV_MODULE_opencv_phase_unwrapping_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_phase_unwrapping_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_phase_unwrapping module
+OPENCV_MODULE_opencv_phase_unwrapping_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d;opencv_rgbd
+//Extra dependencies of opencv_phase_unwrapping module
+OPENCV_MODULE_opencv_phase_unwrapping_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_phase_unwrapping module (for
+// linker)
+OPENCV_MODULE_opencv_phase_unwrapping_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d;opencv_rgbd
+//Brief description of opencv_phase_unwrapping module
+OPENCV_MODULE_opencv_phase_unwrapping_DESCRIPTION:INTERNAL=Phase Unwrapping API
+//List of header files for opencv_phase_unwrapping
+OPENCV_MODULE_opencv_phase_unwrapping_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/include/opencv2/phase_unwrapping.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/include/opencv2/phase_unwrapping/histogramphaseunwrapping.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/include/opencv2/phase_unwrapping/phase_unwrapping.hpp
+OPENCV_MODULE_opencv_phase_unwrapping_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_phase_unwrapping_LABEL:INTERNAL=Extra;opencv_phase_unwrapping
+OPENCV_MODULE_opencv_phase_unwrapping_LINK_DEPS:INTERNAL=;
+//Location of opencv_phase_unwrapping module sources
+OPENCV_MODULE_opencv_phase_unwrapping_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping
+//Optional dependencies of opencv_phase_unwrapping module
+OPENCV_MODULE_opencv_phase_unwrapping_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_phase_unwrapping module
+OPENCV_MODULE_opencv_phase_unwrapping_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_phase_unwrapping module
+OPENCV_MODULE_opencv_phase_unwrapping_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_phase_unwrapping module
+OPENCV_MODULE_opencv_phase_unwrapping_REQ_DEPS:INTERNAL=opencv_core;opencv_calib3d;opencv_imgproc;opencv_highgui;opencv_features2d;opencv_rgbd
+//List of source files for opencv_phase_unwrapping
+OPENCV_MODULE_opencv_phase_unwrapping_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/src/histogramphaseunwrapping.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/phase_unwrapping/src/precomp.hpp
+//List of wrappers supporting module opencv_phase_unwrapping
+OPENCV_MODULE_opencv_phase_unwrapping_WRAPPERS:INTERNAL=java;python2;python3
 OPENCV_MODULE_opencv_photo_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo
 //List of opencv_photo submodules
 OPENCV_MODULE_opencv_photo_CHILDREN:INTERNAL=
@@ -1755,10 +2626,42 @@ OPENCV_MODULE_opencv_photo_REQ_DEPS:INTERNAL=opencv_imgproc
 OPENCV_MODULE_opencv_photo_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/align.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/calibrate.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/contrast_preserve.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/denoise_tvl1.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/denoising.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/denoising.cuda.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/hdr_common.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/inpaint.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/merge.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/npr.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/seamless_cloning.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/seamless_cloning_impl.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/tonemap.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/opencl/nlmeans.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/opencl_kernels_photo.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/opencl_kernels_photo.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/arrays.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/contrast_preserve.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/fast_nlmeans_denoising_invoker.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/fast_nlmeans_denoising_invoker_commons.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/fast_nlmeans_denoising_opencl.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/fast_nlmeans_multi_denoising_invoker.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/hdr_common.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/npr.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/photo/src/seamless_cloning.hpp
 //List of wrappers supporting module opencv_photo
 OPENCV_MODULE_opencv_photo_WRAPPERS:INTERNAL=java;python2;python3
+OPENCV_MODULE_opencv_plot_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/plot
+//List of opencv_plot submodules
+OPENCV_MODULE_opencv_plot_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_plot_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_plot module
+OPENCV_MODULE_opencv_plot_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_imgcodecs;opencv_videoio;opencv_highgui
+//Extra dependencies of opencv_plot module
+OPENCV_MODULE_opencv_plot_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_plot module (for linker)
+OPENCV_MODULE_opencv_plot_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc;opencv_imgcodecs;opencv_videoio;opencv_highgui
+//Brief description of opencv_plot module
+OPENCV_MODULE_opencv_plot_DESCRIPTION:INTERNAL=Plot function for Mat data.
+//List of header files for opencv_plot
+OPENCV_MODULE_opencv_plot_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/plot/include/opencv2/plot.hpp
+OPENCV_MODULE_opencv_plot_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_plot_LABEL:INTERNAL=Extra;opencv_plot
+OPENCV_MODULE_opencv_plot_LINK_DEPS:INTERNAL=;
+//Location of opencv_plot module sources
+OPENCV_MODULE_opencv_plot_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/plot
+//Optional dependencies of opencv_plot module
+OPENCV_MODULE_opencv_plot_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_plot module
+OPENCV_MODULE_opencv_plot_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_plot module
+OPENCV_MODULE_opencv_plot_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_plot module
+OPENCV_MODULE_opencv_plot_REQ_DEPS:INTERNAL=opencv_core;opencv_highgui
+//List of source files for opencv_plot
+OPENCV_MODULE_opencv_plot_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/plot/src/plot.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/plot/src/precomp.hpp
+//List of wrappers supporting module opencv_plot
+OPENCV_MODULE_opencv_plot_WRAPPERS:INTERNAL=python2;python3
 //Location of opencv_python2 module sources
 OPENCV_MODULE_opencv_python2_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/python/python2
 //Optional dependencies of opencv_python2 module
-OPENCV_MODULE_opencv_python2_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_shape;opencv_stitching;opencv_superres;opencv_video;opencv_videoio;opencv_videostab
+OPENCV_MODULE_opencv_python2_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_shape;opencv_stitching;opencv_superres;opencv_video;opencv_videoio;opencv_videostab;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_ccalib;opencv_datasets;opencv_dnn;opencv_dpm;opencv_face;opencv_fuzzy;opencv_line_descriptor;opencv_optflow;opencv_phase_unwrapping;opencv_plot;opencv_reg;opencv_rgbd;opencv_saliency;opencv_structured_light;opencv_surface_matching;opencv_text;opencv_tracking;opencv_xfeatures2d;opencv_ximgproc;opencv_xobjdetect;opencv_xphoto
 //Optional private dependencies of opencv_python2 module
 OPENCV_MODULE_opencv_python2_PRIVATE_OPT_DEPS:INTERNAL=
 //Required private dependencies of opencv_python2 module
@@ -1770,7 +2673,7 @@ OPENCV_MODULE_opencv_python2_WRAPPERS:INTERNAL=
 //Location of opencv_python3 module sources
 OPENCV_MODULE_opencv_python3_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/python/python3
 //Optional dependencies of opencv_python3 module
-OPENCV_MODULE_opencv_python3_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_shape;opencv_stitching;opencv_superres;opencv_video;opencv_videoio;opencv_videostab
+OPENCV_MODULE_opencv_python3_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_shape;opencv_stitching;opencv_superres;opencv_video;opencv_videoio;opencv_videostab;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_ccalib;opencv_datasets;opencv_dnn;opencv_dpm;opencv_face;opencv_fuzzy;opencv_line_descriptor;opencv_optflow;opencv_phase_unwrapping;opencv_plot;opencv_reg;opencv_rgbd;opencv_saliency;opencv_structured_light;opencv_surface_matching;opencv_text;opencv_tracking;opencv_xfeatures2d;opencv_ximgproc;opencv_xobjdetect;opencv_xphoto
 //Optional private dependencies of opencv_python3 module
 OPENCV_MODULE_opencv_python3_PRIVATE_OPT_DEPS:INTERNAL=
 //Required private dependencies of opencv_python3 module
@@ -1779,6 +2682,104 @@ OPENCV_MODULE_opencv_python3_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_python3_REQ_DEPS:INTERNAL=
 //List of wrappers supporting module opencv_python3
 OPENCV_MODULE_opencv_python3_WRAPPERS:INTERNAL=
+OPENCV_MODULE_opencv_reg_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/reg
+//List of opencv_reg submodules
+OPENCV_MODULE_opencv_reg_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_reg_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_reg module
+OPENCV_MODULE_opencv_reg_DEPS:INTERNAL=opencv_core;opencv_imgproc
+//Extra dependencies of opencv_reg module
+OPENCV_MODULE_opencv_reg_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_reg module (for linker)
+OPENCV_MODULE_opencv_reg_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
+//Brief description of opencv_reg module
+OPENCV_MODULE_opencv_reg_DESCRIPTION:INTERNAL=Image Registration
+//List of header files for opencv_reg
+OPENCV_MODULE_opencv_reg_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/map.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/mapaffine.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/mapper.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/mappergradaffine.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/mappergradeuclid.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/mappergradproj.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/mappergradshift.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/mappergradsimilar.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/mapperpyramid.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/mapprojec.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/include/opencv2/reg/mapshift.hpp
+OPENCV_MODULE_opencv_reg_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_reg_LABEL:INTERNAL=Extra;opencv_reg
+OPENCV_MODULE_opencv_reg_LINK_DEPS:INTERNAL=;
+//Location of opencv_reg module sources
+OPENCV_MODULE_opencv_reg_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg
+//Optional dependencies of opencv_reg module
+OPENCV_MODULE_opencv_reg_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_reg module
+OPENCV_MODULE_opencv_reg_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_reg module
+OPENCV_MODULE_opencv_reg_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_reg module
+OPENCV_MODULE_opencv_reg_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_core
+//List of source files for opencv_reg
+OPENCV_MODULE_opencv_reg_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/map.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/mapaffine.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/mapper.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/mappergradaffine.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/mappergradeuclid.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/mappergradproj.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/mappergradshift.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/mappergradsimilar.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/mapperpyramid.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/mapprojec.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/mapshift.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/reg/src/precomp.hpp
+//List of wrappers supporting module opencv_reg
+OPENCV_MODULE_opencv_reg_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_rgbd_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/rgbd
+//List of opencv_rgbd submodules
+OPENCV_MODULE_opencv_rgbd_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_rgbd_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_rgbd module
+OPENCV_MODULE_opencv_rgbd_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Extra dependencies of opencv_rgbd module
+OPENCV_MODULE_opencv_rgbd_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_rgbd module (for linker)
+OPENCV_MODULE_opencv_rgbd_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Brief description of opencv_rgbd module
+OPENCV_MODULE_opencv_rgbd_DESCRIPTION:INTERNAL=RGBD algorithms
+//List of header files for opencv_rgbd
+OPENCV_MODULE_opencv_rgbd_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/include/opencv2/rgbd.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/include/opencv2/rgbd/linemod.hpp
+OPENCV_MODULE_opencv_rgbd_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_rgbd_LABEL:INTERNAL=Extra;opencv_rgbd
+OPENCV_MODULE_opencv_rgbd_LINK_DEPS:INTERNAL=;
+//Location of opencv_rgbd module sources
+OPENCV_MODULE_opencv_rgbd_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd
+//Optional dependencies of opencv_rgbd module
+OPENCV_MODULE_opencv_rgbd_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_rgbd module
+OPENCV_MODULE_opencv_rgbd_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_rgbd module
+OPENCV_MODULE_opencv_rgbd_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_rgbd module
+OPENCV_MODULE_opencv_rgbd_REQ_DEPS:INTERNAL=opencv_core;opencv_calib3d;opencv_highgui;opencv_imgproc
+//List of source files for opencv_rgbd
+OPENCV_MODULE_opencv_rgbd_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/depth_cleaner.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/depth_registration.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/depth_to_3d.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/linemod.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/normal.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/odometry.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/plane.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/utils.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/depth_to_3d.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/rgbd/src/utils.h
+//List of wrappers supporting module opencv_rgbd
+OPENCV_MODULE_opencv_rgbd_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_saliency_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/saliency
+//List of opencv_saliency submodules
+OPENCV_MODULE_opencv_saliency_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_saliency_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_saliency module
+OPENCV_MODULE_opencv_saliency_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d
+//Extra dependencies of opencv_saliency module
+OPENCV_MODULE_opencv_saliency_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_saliency module (for linker)
+OPENCV_MODULE_opencv_saliency_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d
+//Brief description of opencv_saliency module
+OPENCV_MODULE_opencv_saliency_DESCRIPTION:INTERNAL=Saliency API
+//List of header files for opencv_saliency
+OPENCV_MODULE_opencv_saliency_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/include/opencv2/saliency.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/include/opencv2/saliency/saliencyBaseClasses.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/include/opencv2/saliency/saliencySpecializedClasses.hpp
+OPENCV_MODULE_opencv_saliency_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_saliency_LABEL:INTERNAL=Extra;opencv_saliency
+OPENCV_MODULE_opencv_saliency_LINK_DEPS:INTERNAL=;
+//Location of opencv_saliency module sources
+OPENCV_MODULE_opencv_saliency_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency
+//Optional dependencies of opencv_saliency module
+OPENCV_MODULE_opencv_saliency_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_saliency module
+OPENCV_MODULE_opencv_saliency_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_saliency module
+OPENCV_MODULE_opencv_saliency_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_saliency module
+OPENCV_MODULE_opencv_saliency_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_highgui;opencv_features2d
+//List of source files for opencv_saliency
+OPENCV_MODULE_opencv_saliency_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/BING/CmFile.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/BING/CmShow.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/BING/FilterTIG.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/BING/ValStructVec.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/BING/objectnessBING.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/motionSaliency.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/motionSaliencyBinWangApr2014.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/objectness.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/saliency.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/staticSaliency.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/staticSaliencyFineGrained.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/staticSaliencySpectralResidual.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/BING/CmFile.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/BING/CmShow.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/BING/CmTimer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/BING/kyheader.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/saliency/src/precomp.hpp
+//List of wrappers supporting module opencv_saliency
+OPENCV_MODULE_opencv_saliency_WRAPPERS:INTERNAL=python2;python3
+//Location of opencv_sfm module sources
+OPENCV_MODULE_opencv_sfm_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/sfm
 OPENCV_MODULE_opencv_shape_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape
 //List of opencv_shape submodules
 OPENCV_MODULE_opencv_shape_CHILDREN:INTERNAL=
@@ -1811,17 +2812,49 @@ OPENCV_MODULE_opencv_shape_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_v
 OPENCV_MODULE_opencv_shape_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/src/aff_trans.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/src/emdL1.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/src/haus_dis.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/src/hist_cost.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/src/precomp.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/src/sc_dis.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/src/tps_trans.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/src/emdL1_def.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/shape/src/scd_def.hpp
 //List of wrappers supporting module opencv_shape
 OPENCV_MODULE_opencv_shape_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_stereo_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stereo
+//List of opencv_stereo submodules
+OPENCV_MODULE_opencv_stereo_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_stereo_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_stereo module
+OPENCV_MODULE_opencv_stereo_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Extra dependencies of opencv_stereo module
+OPENCV_MODULE_opencv_stereo_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_stereo module (for linker)
+OPENCV_MODULE_opencv_stereo_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Brief description of opencv_stereo module
+OPENCV_MODULE_opencv_stereo_DESCRIPTION:INTERNAL=Stereo Correspondence
+//List of header files for opencv_stereo
+OPENCV_MODULE_opencv_stereo_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo/include/opencv2/stereo.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo/include/opencv2/stereo/descriptor.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo/include/opencv2/stereo/matching.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo/include/opencv2/stereo/stereo.hpp
+OPENCV_MODULE_opencv_stereo_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_stereo_LABEL:INTERNAL=Extra;opencv_stereo
+OPENCV_MODULE_opencv_stereo_LINK_DEPS:INTERNAL=;
+//Location of opencv_stereo module sources
+OPENCV_MODULE_opencv_stereo_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo
+//Optional dependencies of opencv_stereo module
+OPENCV_MODULE_opencv_stereo_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_stereo module
+OPENCV_MODULE_opencv_stereo_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_stereo module
+OPENCV_MODULE_opencv_stereo_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_stereo module
+OPENCV_MODULE_opencv_stereo_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_features2d;opencv_core;opencv_highgui;opencv_calib3d
+//List of source files for opencv_stereo
+OPENCV_MODULE_opencv_stereo_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo/src/descriptor.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo/src/stereo_binary_bm.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo/src/stereo_binary_sgbm.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/stereo/src/precomp.hpp
+//List of wrappers supporting module opencv_stereo
+OPENCV_MODULE_opencv_stereo_WRAPPERS:INTERNAL=
 OPENCV_MODULE_opencv_stitching_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching
 //List of opencv_stitching submodules
 OPENCV_MODULE_opencv_stitching_CHILDREN:INTERNAL=
 //The category of the module
 OPENCV_MODULE_opencv_stitching_CLASS:INTERNAL=PUBLIC
 //Flattened dependencies of opencv_stitching module
-OPENCV_MODULE_opencv_stitching_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_features2d;opencv_calib3d
+OPENCV_MODULE_opencv_stitching_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_video;opencv_imgcodecs;opencv_shape;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_features2d;opencv_calib3d;opencv_xfeatures2d
 //Extra dependencies of opencv_stitching module
 OPENCV_MODULE_opencv_stitching_DEPS_EXT:INTERNAL=
 //Flattened dependencies of opencv_stitching module (for linker)
-OPENCV_MODULE_opencv_stitching_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_features2d;opencv_calib3d
+OPENCV_MODULE_opencv_stitching_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_video;opencv_imgcodecs;opencv_shape;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_features2d;opencv_calib3d;opencv_xfeatures2d
 //Brief description of opencv_stitching module
 OPENCV_MODULE_opencv_stitching_DESCRIPTION:INTERNAL=Images stitching
 //List of header files for opencv_stitching
@@ -1843,6 +2876,39 @@ OPENCV_MODULE_opencv_stitching_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_features2
 OPENCV_MODULE_opencv_stitching_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/autocalib.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/blenders.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/camera.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/exposure_compensate.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/matchers.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/motion_estimators.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/seam_finders.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/stitcher.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/timelapsers.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/util.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/warpers.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/warpers_cuda.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/opencl/multibandblend.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/opencl/warpers.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/opencl_kernels_stitching.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/opencl_kernels_stitching.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/stitching/src/util_log.hpp
 //List of wrappers supporting module opencv_stitching
 OPENCV_MODULE_opencv_stitching_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_structured_light_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/structured_light
+//List of opencv_structured_light submodules
+OPENCV_MODULE_opencv_structured_light_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_structured_light_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_structured_light module
+OPENCV_MODULE_opencv_structured_light_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d;opencv_rgbd;opencv_phase_unwrapping
+//Extra dependencies of opencv_structured_light module
+OPENCV_MODULE_opencv_structured_light_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_structured_light module (for
+// linker)
+OPENCV_MODULE_opencv_structured_light_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d;opencv_rgbd;opencv_phase_unwrapping
+//Brief description of opencv_structured_light module
+OPENCV_MODULE_opencv_structured_light_DESCRIPTION:INTERNAL=Structured Light API
+//List of header files for opencv_structured_light
+OPENCV_MODULE_opencv_structured_light_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/include/opencv2/structured_light.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/include/opencv2/structured_light/graycodepattern.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/include/opencv2/structured_light/sinusoidalpattern.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/include/opencv2/structured_light/structured_light.hpp
+OPENCV_MODULE_opencv_structured_light_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_structured_light_LABEL:INTERNAL=Extra;opencv_structured_light
+OPENCV_MODULE_opencv_structured_light_LINK_DEPS:INTERNAL=;
+//Location of opencv_structured_light module sources
+OPENCV_MODULE_opencv_structured_light_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light
+//Optional dependencies of opencv_structured_light module
+OPENCV_MODULE_opencv_structured_light_OPT_DEPS:INTERNAL=opencv_viz
+//Optional private dependencies of opencv_structured_light module
+OPENCV_MODULE_opencv_structured_light_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_structured_light module
+OPENCV_MODULE_opencv_structured_light_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_structured_light module
+OPENCV_MODULE_opencv_structured_light_REQ_DEPS:INTERNAL=opencv_core;opencv_calib3d;opencv_imgproc;opencv_highgui;opencv_features2d;opencv_rgbd;opencv_phase_unwrapping
+//List of source files for opencv_structured_light
+OPENCV_MODULE_opencv_structured_light_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/src/graycodepattern.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/src/sinusoidalpattern.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/structured_light/src/precomp.hpp
+//List of wrappers supporting module opencv_structured_light
+OPENCV_MODULE_opencv_structured_light_WRAPPERS:INTERNAL=java;python2;python3
 OPENCV_MODULE_opencv_superres_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres
 //List of opencv_superres submodules
 OPENCV_MODULE_opencv_superres_CHILDREN:INTERNAL=
@@ -1875,6 +2941,103 @@ OPENCV_MODULE_opencv_superres_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_video
 OPENCV_MODULE_opencv_superres_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/src/btv_l1.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/src/btv_l1_cuda.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/src/frame_source.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/src/input_array_utility.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/src/optical_flow.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/src/super_resolution.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/src/opencl/superres_btvl1.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/opencl_kernels_superres.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/opencl_kernels_superres.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/src/input_array_utility.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/superres/src/ring_buffer.hpp
 //List of wrappers supporting module opencv_superres
 OPENCV_MODULE_opencv_superres_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_surface_matching_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/surface_matching
+//List of opencv_surface_matching submodules
+OPENCV_MODULE_opencv_surface_matching_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_surface_matching_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_surface_matching module
+OPENCV_MODULE_opencv_surface_matching_DEPS:INTERNAL=opencv_core;opencv_flann
+//Extra dependencies of opencv_surface_matching module
+OPENCV_MODULE_opencv_surface_matching_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_surface_matching module (for
+// linker)
+OPENCV_MODULE_opencv_surface_matching_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann
+//Brief description of opencv_surface_matching module
+OPENCV_MODULE_opencv_surface_matching_DESCRIPTION:INTERNAL=3D point features
+//List of header files for opencv_surface_matching
+OPENCV_MODULE_opencv_surface_matching_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching/icp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching/pose_3d.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching/ppf_helpers.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching/ppf_match_3d.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching/t_hash_int.hpp
+OPENCV_MODULE_opencv_surface_matching_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_surface_matching_LABEL:INTERNAL=Extra;opencv_surface_matching
+OPENCV_MODULE_opencv_surface_matching_LINK_DEPS:INTERNAL=;
+//Location of opencv_surface_matching module sources
+OPENCV_MODULE_opencv_surface_matching_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching
+//Optional dependencies of opencv_surface_matching module
+OPENCV_MODULE_opencv_surface_matching_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_surface_matching module
+OPENCV_MODULE_opencv_surface_matching_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_surface_matching module
+OPENCV_MODULE_opencv_surface_matching_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_surface_matching module
+OPENCV_MODULE_opencv_surface_matching_REQ_DEPS:INTERNAL=opencv_core;opencv_flann
+//List of source files for opencv_surface_matching
+OPENCV_MODULE_opencv_surface_matching_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/src/icp.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/src/pose_3d.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/src/ppf_helpers.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/src/ppf_match_3d.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/src/t_hash_int.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/src/c_utils.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/src/hash_murmur.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/src/hash_murmur64.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/src/hash_murmur86.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/surface_matching/src/precomp.hpp
+//List of wrappers supporting module opencv_surface_matching
+OPENCV_MODULE_opencv_surface_matching_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_text_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/text
+//List of opencv_text submodules
+OPENCV_MODULE_opencv_text_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_text_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_text module
+OPENCV_MODULE_opencv_text_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d
+//Extra dependencies of opencv_text module
+OPENCV_MODULE_opencv_text_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_text module (for linker)
+OPENCV_MODULE_opencv_text_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d
+//Brief description of opencv_text module
+OPENCV_MODULE_opencv_text_DESCRIPTION:INTERNAL=Text Detection and Recognition
+//List of header files for opencv_text
+OPENCV_MODULE_opencv_text_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/include/opencv2/text.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/include/opencv2/text/erfilter.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/include/opencv2/text/ocr.hpp
+OPENCV_MODULE_opencv_text_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_text_LABEL:INTERNAL=Extra;opencv_text
+OPENCV_MODULE_opencv_text_LINK_DEPS:INTERNAL=;
+//Location of opencv_text module sources
+OPENCV_MODULE_opencv_text_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text
+//Optional dependencies of opencv_text module
+OPENCV_MODULE_opencv_text_OPT_DEPS:INTERNAL=opencv_highgui
+//Optional private dependencies of opencv_text module
+OPENCV_MODULE_opencv_text_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_text module
+OPENCV_MODULE_opencv_text_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_text module
+OPENCV_MODULE_opencv_text_REQ_DEPS:INTERNAL=opencv_ml;opencv_imgproc;opencv_core;opencv_features2d
+//List of source files for opencv_text
+OPENCV_MODULE_opencv_text_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/src/erfilter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/src/ocr_beamsearch_decoder.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/src/ocr_hmm_decoder.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/src/ocr_tesseract.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/text/src/precomp.hpp
+//List of wrappers supporting module opencv_text
+OPENCV_MODULE_opencv_text_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_tracking_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/tracking
+//List of opencv_tracking submodules
+OPENCV_MODULE_opencv_tracking_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_tracking_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_tracking module
+OPENCV_MODULE_opencv_tracking_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_video;opencv_dnn;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_plot;opencv_face;opencv_features2d;opencv_text;opencv_datasets
+//Extra dependencies of opencv_tracking module
+OPENCV_MODULE_opencv_tracking_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_tracking module (for linker)
+OPENCV_MODULE_opencv_tracking_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_video;opencv_dnn;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_plot;opencv_face;opencv_features2d;opencv_text;opencv_datasets
+//Brief description of opencv_tracking module
+OPENCV_MODULE_opencv_tracking_DESCRIPTION:INTERNAL=Tracking API
+//List of header files for opencv_tracking
+OPENCV_MODULE_opencv_tracking_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/include/opencv2/tracking.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/include/opencv2/tracking/feature.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/include/opencv2/tracking/kalman_filters.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/include/opencv2/tracking/onlineBoosting.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/include/opencv2/tracking/onlineMIL.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/include/opencv2/tracking/tldDataset.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/include/opencv2/tracking/tracker.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/include/opencv2/tracking/tracking.hpp
+OPENCV_MODULE_opencv_tracking_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_tracking_LABEL:INTERNAL=Extra;opencv_tracking
+OPENCV_MODULE_opencv_tracking_LINK_DEPS:INTERNAL=;
+//Location of opencv_tracking module sources
+OPENCV_MODULE_opencv_tracking_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking
+//Optional dependencies of opencv_tracking module
+OPENCV_MODULE_opencv_tracking_OPT_DEPS:INTERNAL=opencv_datasets
+//Optional private dependencies of opencv_tracking module
+OPENCV_MODULE_opencv_tracking_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_tracking module
+OPENCV_MODULE_opencv_tracking_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_tracking module
+OPENCV_MODULE_opencv_tracking_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_core;opencv_video;opencv_highgui;opencv_dnn;opencv_plot
+//List of source files for opencv_tracking
+OPENCV_MODULE_opencv_tracking_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/augmented_unscented_kalman.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/feature.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/featureColorName.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/gtrTracker.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/gtrUtils.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/multiTracker.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/multiTracker_alt.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/onlineBoosting.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/onlineMIL.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/roiSelector.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldDataset.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldDetector.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldEnsembleClassifier.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldModel.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldTracker.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldUtils.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tracker.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerBoosting.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerBoostingModel.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerFeature.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerFeatureSet.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerKCF.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerMIL.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerMILModel.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerMedianFlow.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerModel.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerSampler.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerSamplerAlgorithm.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerStateEstimator.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/unscented_kalman.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/opencl/tldDetector.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/tracking/opencl_kernels_tracking.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/tracking/opencl_kernels_tracking.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/PFSolver.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/TrackingFunctionPF.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/gtrTracker.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/gtrUtils.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/multiTracker.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldDetector.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldEnsembleClassifier.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldModel.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldTracker.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/tldUtils.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerBoostingModel.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/tracking/src/trackerMILModel.hpp
+//List of wrappers supporting module opencv_tracking
+OPENCV_MODULE_opencv_tracking_WRAPPERS:INTERNAL=java;python2;python3
 OPENCV_MODULE_opencv_ts_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ts
 //List of opencv_ts submodules
 OPENCV_MODULE_opencv_ts_CHILDREN:INTERNAL=
@@ -2026,6 +3189,134 @@ OPENCV_MODULE_opencv_world_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_world_REQ_DEPS:INTERNAL=opencv_core
 //List of wrappers supporting module opencv_world
 OPENCV_MODULE_opencv_world_WRAPPERS:INTERNAL=
+OPENCV_MODULE_opencv_xfeatures2d_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/xfeatures2d
+//List of opencv_xfeatures2d submodules
+OPENCV_MODULE_opencv_xfeatures2d_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_xfeatures2d_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_xfeatures2d module
+OPENCV_MODULE_opencv_xfeatures2d_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_video;opencv_imgcodecs;opencv_shape;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Extra dependencies of opencv_xfeatures2d module
+OPENCV_MODULE_opencv_xfeatures2d_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_xfeatures2d module (for linker)
+OPENCV_MODULE_opencv_xfeatures2d_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_video;opencv_imgcodecs;opencv_shape;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Brief description of opencv_xfeatures2d module
+OPENCV_MODULE_opencv_xfeatures2d_DESCRIPTION:INTERNAL=Contributed/Experimental Algorithms for Salient 2D Features Detection
+//List of header files for opencv_xfeatures2d
+OPENCV_MODULE_opencv_xfeatures2d_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d/cuda.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d/nonfree.hpp
+OPENCV_MODULE_opencv_xfeatures2d_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_xfeatures2d_LABEL:INTERNAL=Extra;opencv_xfeatures2d
+OPENCV_MODULE_opencv_xfeatures2d_LINK_DEPS:INTERNAL=;
+//Location of opencv_xfeatures2d module sources
+OPENCV_MODULE_opencv_xfeatures2d_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d
+//Optional dependencies of opencv_xfeatures2d module
+OPENCV_MODULE_opencv_xfeatures2d_OPT_DEPS:INTERNAL=opencv_cudaarithm
+//Optional private dependencies of opencv_xfeatures2d module
+OPENCV_MODULE_opencv_xfeatures2d_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_xfeatures2d module
+OPENCV_MODULE_opencv_xfeatures2d_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_xfeatures2d module
+OPENCV_MODULE_opencv_xfeatures2d_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_features2d;opencv_calib3d;opencv_shape;opencv_highgui;opencv_videoio;opencv_ml
+//List of source files for opencv_xfeatures2d
+OPENCV_MODULE_opencv_xfeatures2d_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/affine_feature2d.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/boostdesc.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/brief.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/daisy.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/ellipticKeyPoint.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/freak.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/harris_lapace_detector.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/latch.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/lucid.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/msd.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures/grayscale_bitmap.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures/pct_clusterizer.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures/pct_sampler.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures_sqfd.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/sift.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/stardetector.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/surf.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/surf.cuda.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/surf.ocl.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/vgg.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/xfeatures2d_init.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/opencl/surf.cl;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/xfeatures2d/opencl_kernels_xfeatures2d.cpp;C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/xfeatures2d/opencl_kernels_xfeatures2d.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures/constants.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures/distance.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures/grayscale_bitmap.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures/pct_clusterizer.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures/pct_sampler.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/pct_signatures/similarity.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xfeatures2d/src/surf.hpp
+//List of wrappers supporting module opencv_xfeatures2d
+OPENCV_MODULE_opencv_xfeatures2d_WRAPPERS:INTERNAL=java;python2;python3
+OPENCV_MODULE_opencv_ximgproc_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/ximgproc
+//List of opencv_ximgproc submodules
+OPENCV_MODULE_opencv_ximgproc_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_ximgproc_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_ximgproc module
+OPENCV_MODULE_opencv_ximgproc_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Extra dependencies of opencv_ximgproc module
+OPENCV_MODULE_opencv_ximgproc_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_ximgproc module (for linker)
+OPENCV_MODULE_opencv_ximgproc_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_features2d;opencv_calib3d
+//Brief description of opencv_ximgproc module
+OPENCV_MODULE_opencv_ximgproc_DESCRIPTION:INTERNAL=Extended image processing module. It includes edge-aware filters and etc.
+//List of header files for opencv_ximgproc
+OPENCV_MODULE_opencv_ximgproc_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/deriche_filter.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/disparity_filter.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/edge_filter.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/estimated_covariance.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/fast_hough_transform.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/fast_line_detector.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/lsc.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/paillou_filter.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/seeds.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/segmentation.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/slic.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/sparse_match_interpolator.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/structured_edge_detection.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/weighted_median_filter.hpp
+OPENCV_MODULE_opencv_ximgproc_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_ximgproc_LABEL:INTERNAL=Extra;opencv_ximgproc
+OPENCV_MODULE_opencv_ximgproc_LINK_DEPS:INTERNAL=;
+//Location of opencv_ximgproc module sources
+OPENCV_MODULE_opencv_ximgproc_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc
+//Optional dependencies of opencv_ximgproc module
+OPENCV_MODULE_opencv_ximgproc_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_ximgproc module
+OPENCV_MODULE_opencv_ximgproc_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_ximgproc module
+OPENCV_MODULE_opencv_ximgproc_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_ximgproc module
+OPENCV_MODULE_opencv_ximgproc_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_core;opencv_highgui;opencv_calib3d
+//List of source files for opencv_ximgproc
+OPENCV_MODULE_opencv_ximgproc_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/adaptive_manifold_filter_n.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/bilateral_texture_filter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/deriche_filter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/disparity_filters.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/domain_transform.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/dtfilter_cpu.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/edgeaware_filters_common.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/estimated_covariance.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/fast_hough_transform.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/fast_line_detector.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/fgs_filter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/graphsegmentation.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/guided_filter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/joint_bilateral_filter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/l0_smooth.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/lsc.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/niblack_thresholding.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/paillou_filter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/rolling_guidance_filter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/seeds.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/selectivesearchsegmentation.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/slic.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/sparse_match_interpolators.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/structured_edge_detection.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/thinning.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/weighted_median_filter.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/advanced_types.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/dtfilter_cpu.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/dtfilter_cpu.inl.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/edgeaware_filters_common.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/ximgproc/src/precomp.hpp
+//List of wrappers supporting module opencv_ximgproc
+OPENCV_MODULE_opencv_ximgproc_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_xobjdetect_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/xobjdetect
+//List of opencv_xobjdetect submodules
+OPENCV_MODULE_opencv_xobjdetect_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_xobjdetect_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_xobjdetect module
+OPENCV_MODULE_opencv_xobjdetect_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect
+//Extra dependencies of opencv_xobjdetect module
+OPENCV_MODULE_opencv_xobjdetect_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_xobjdetect module (for linker)
+OPENCV_MODULE_opencv_xobjdetect_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc;opencv_ml;opencv_imgcodecs;opencv_videoio;opencv_highgui;opencv_objdetect
+//Brief description of opencv_xobjdetect module
+OPENCV_MODULE_opencv_xobjdetect_DESCRIPTION:INTERNAL=Object detection algorithms
+//List of header files for opencv_xobjdetect
+OPENCV_MODULE_opencv_xobjdetect_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/include/opencv2/xobjdetect.hpp
+OPENCV_MODULE_opencv_xobjdetect_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_xobjdetect_LABEL:INTERNAL=Extra;opencv_xobjdetect
+OPENCV_MODULE_opencv_xobjdetect_LINK_DEPS:INTERNAL=;
+//Location of opencv_xobjdetect module sources
+OPENCV_MODULE_opencv_xobjdetect_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect
+//Optional dependencies of opencv_xobjdetect module
+OPENCV_MODULE_opencv_xobjdetect_OPT_DEPS:INTERNAL=
+//Optional private dependencies of opencv_xobjdetect module
+OPENCV_MODULE_opencv_xobjdetect_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_xobjdetect module
+OPENCV_MODULE_opencv_xobjdetect_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_xobjdetect module
+OPENCV_MODULE_opencv_xobjdetect_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_highgui;opencv_objdetect
+//List of source files for opencv_xobjdetect
+OPENCV_MODULE_opencv_xobjdetect_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/src/feature_evaluator.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/src/lbpfeatures.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/src/waldboost.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/src/wbdetector.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/src/feature_evaluator.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/src/precomp.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/src/waldboost.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/src/wbdetector.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/src/cascadeclassifier.h;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xobjdetect/src/lbpfeatures.h
+//List of wrappers supporting module opencv_xobjdetect
+OPENCV_MODULE_opencv_xobjdetect_WRAPPERS:INTERNAL=python2;python3
+OPENCV_MODULE_opencv_xphoto_BINARY_DIR:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/external/opencv/sources/modules/xphoto
+//List of opencv_xphoto submodules
+OPENCV_MODULE_opencv_xphoto_CHILDREN:INTERNAL=
+//The category of the module
+OPENCV_MODULE_opencv_xphoto_CLASS:INTERNAL=PUBLIC
+//Flattened dependencies of opencv_xphoto module
+OPENCV_MODULE_opencv_xphoto_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_photo;opencv_imgcodecs;opencv_videoio;opencv_highgui
+//Extra dependencies of opencv_xphoto module
+OPENCV_MODULE_opencv_xphoto_DEPS_EXT:INTERNAL=
+//Flattened dependencies of opencv_xphoto module (for linker)
+OPENCV_MODULE_opencv_xphoto_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc;opencv_photo;opencv_imgcodecs;opencv_videoio;opencv_highgui
+//Brief description of opencv_xphoto module
+OPENCV_MODULE_opencv_xphoto_DESCRIPTION:INTERNAL=Addon to basic photo module
+//List of header files for opencv_xphoto
+OPENCV_MODULE_opencv_xphoto_HEADERS:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/include/opencv2/xphoto.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/include/opencv2/xphoto/bm3d_image_denoising.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/include/opencv2/xphoto/dct_image_denoising.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/include/opencv2/xphoto/inpainting.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/include/opencv2/xphoto/white_balance.hpp
+OPENCV_MODULE_opencv_xphoto_IS_PART_OF_WORLD:INTERNAL=OFF
+OPENCV_MODULE_opencv_xphoto_LABEL:INTERNAL=Extra;opencv_xphoto
+OPENCV_MODULE_opencv_xphoto_LINK_DEPS:INTERNAL=;
+//Location of opencv_xphoto module sources
+OPENCV_MODULE_opencv_xphoto_LOCATION:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto
+//Optional dependencies of opencv_xphoto module
+OPENCV_MODULE_opencv_xphoto_OPT_DEPS:INTERNAL=opencv_photo;opencv_highgui
+//Optional private dependencies of opencv_xphoto module
+OPENCV_MODULE_opencv_xphoto_PRIVATE_OPT_DEPS:INTERNAL=
+//Required private dependencies of opencv_xphoto module
+OPENCV_MODULE_opencv_xphoto_PRIVATE_REQ_DEPS:INTERNAL=
+//Required dependencies of opencv_xphoto module
+OPENCV_MODULE_opencv_xphoto_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc
+//List of source files for opencv_xphoto
+OPENCV_MODULE_opencv_xphoto_SOURCES:INTERNAL=C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/bm3d_image_denoising.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/dct_image_denoising.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/grayworld_white_balance.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/inpainting.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/learning_based_color_balance.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/simple_color_balance.cpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/advanced_types.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/annf.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/blending.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/bm3d_denoising_invoker_commons.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/bm3d_denoising_invoker_step1.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/bm3d_denoising_invoker_step2.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/bm3d_denoising_invoker_structs.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/bm3d_denoising_transforms.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/bm3d_denoising_transforms_1D.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/bm3d_denoising_transforms_2D.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/bm3d_denoising_transforms_haar.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/gcgraph.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/kaiser_window.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/learning_based_color_balance_model.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/norm2.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/photomontage.hpp;C:/Users/Edixon Vargas/Documents/GitHub/opencv_contrib/modules/xphoto/src/whs.hpp
+//List of wrappers supporting module opencv_xphoto
+OPENCV_MODULE_opencv_xphoto_WRAPPERS:INTERNAL=python2;python3
 //List of OpenCV modules included into the world
 OPENCV_WORLD_MODULES:INTERNAL=
 //ADVANCED property for variable: OpenBLAS_INCLUDE_DIR
@@ -2033,7 +3324,9 @@ OpenBLAS_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenBLAS_LIB
 OpenBLAS_LIB-ADVANCED:INTERNAL=1
 //List of OpenCVModules targets
-OpenCVModules_TARGETS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_photo;opencv_video;opencv_imgcodecs;opencv_shape;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_superres;opencv_features2d;opencv_calib3d;opencv_stitching;opencv_videostab
+OpenCVModules_TARGETS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_photo;opencv_reg;opencv_surface_matching;opencv_video;opencv_dnn;opencv_fuzzy;opencv_imgcodecs;opencv_shape;opencv_videoio;opencv_highgui;opencv_objdetect;opencv_plot;opencv_superres;opencv_xobjdetect;opencv_xphoto;opencv_bgsegm;opencv_bioinspired;opencv_dpm;opencv_face;opencv_features2d;opencv_line_descriptor;opencv_saliency;opencv_text;opencv_calib3d;opencv_ccalib;opencv_datasets;opencv_rgbd;opencv_stereo;opencv_tracking;opencv_videostab;opencv_xfeatures2d;opencv_ximgproc;opencv_aruco;opencv_optflow;opencv_phase_unwrapping;opencv_stitching;opencv_structured_light
+//PROTOBUF_CPP hash
+PROTOBUF_CPP_DOWNLOADED_HASH:INTERNAL=bd5e3eed635a8d32e2b99658633815ef
 PYTHON2INTERP_FOUND:INTERNAL=
 PYTHON2LIBS_FOUND:INTERNAL=
 PYTHON2LIBS_VERSION_STRING:INTERNAL=

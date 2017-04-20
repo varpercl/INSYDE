@@ -1,18 +1,18 @@
 <map id="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/core/imagerepresentationwidget.h" name="C:/Users/Edixon Vargas/Documents/GitHub/INSYDE_Repo/INSYDE/core/imagerepresentationwidget.h">
 <area shape="rect" id="node3" href="$d8/d43/share__core__lib_8h.html" title="share_core_lib.h" alt="" coords="1784,707,1901,733"/>
 <area shape="rect" id="node4" href="$dc/d54/common_8h.html" title="common.h" alt="" coords="633,557,716,584"/>
-<area shape="rect" id="node13" href="$dc/d04/imagedetailedwindow_8h.html" title="imagedetailedwindow.h" alt="" coords="2279,109,2433,136"/>
+<area shape="rect" id="node13" href="$dc/d04/imagedetailedwindow_8h.html" title="imagedetailedwindow.h" alt="" coords="2185,109,2340,136"/>
 <area shape="rect" id="node18" href="$d2/da4/undo_8h.html" title="undo.h" alt="" coords="1415,557,1476,584"/>
 <area shape="rect" id="node27" href="$d1/d36/labeledcombobox_8h.html" title="labeledcombobox.h" alt="" coords="2870,408,3005,435"/>
 <area shape="rect" id="node32" href="$db/d5c/integersizewidget_8h.html" title="integersizewidget.h" alt="" coords="2379,408,2512,435"/>
 <area shape="rect" id="node41" href="$d6/d0a/datarepresentationwidget_8h.html" title="datarepresentationwidget.h" alt="" coords="2763,557,2941,584"/>
 <area shape="rect" id="node11" href="$de/d40/imath_8h.html" title="imath.h" alt="" coords="739,632,805,659"/>
-<area shape="rect" id="node14" href="$d5/db2/image_8h.html" title="image.h" alt="" coords="2035,184,2103,211"/>
+<area shape="rect" id="node14" href="$d5/db2/image_8h.html" title="image.h" alt="" coords="2082,184,2150,211"/>
 <area shape="rect" id="node35" href="$df/d67/detailedwindow_8h.html" title="detailedwindow.h" alt="" coords="1629,259,1749,285"/>
-<area shape="rect" id="node15" href="$d8/d12/core_2graphiccursorelement_8h.html" title="graphiccursorelement.h" alt="" coords="1135,408,1292,435"/>
+<area shape="rect" id="node15" href="$d8/d08/cursor_8h.html" title="cursor.h" alt="" coords="1195,408,1264,435"/>
 <area shape="rect" id="node17" href="$d2/dd2/graphicobject_8h.html" title="graphicobject.h" alt="" coords="1169,483,1279,509"/>
 <area shape="rect" id="node23" href="$d7/df0/imagepropertydialog_8h.html" title="imagepropertydialog.h" alt="" coords="2089,333,2239,360"/>
-<area shape="rect" id="node29" href="$d3/d6b/dotmatrix_8h.html" title="dotmatrix.h" alt="" coords="1954,259,2041,285"/>
+<area shape="rect" id="node29" href="$d3/d6b/dotmatrix_8h.html" title="dotmatrix.h" alt="" coords="1977,259,2063,285"/>
 <area shape="rect" id="node19" href="$d7/d2d/core_2definitions_8h.html" title="definitions.h" alt="" coords="1753,557,1844,584"/>
 <area shape="rect" id="node20" href="$dd/d6a/simulation_8h.html" title="simulation.h" alt="" coords="943,557,1035,584"/>
 <area shape="rect" id="node21" href="$da/d88/iresizablef_8h.html" title="iresizablef.h" alt="" coords="931,632,1021,659"/>

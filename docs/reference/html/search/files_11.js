@@ -10,8 +10,6 @@ var searchData=
   ['trainingsetfile_2eh',['trainingsetfile.h',['../d9/d8e/trainingsetfile_8h.html',1,'']]],
   ['trainingsettable_2ecpp',['trainingsettable.cpp',['../df/dab/trainingsettable_8cpp.html',1,'']]],
   ['trainingsettable_2eh',['trainingsettable.h',['../d2/de5/trainingsettable_8h.html',1,'']]],
-  ['treeitem_2ecpp',['treeitem.cpp',['../da/dbe/treeitem_8cpp.html',1,'']]],
-  ['treeitem_2eh',['treeitem.h',['../d0/d3a/treeitem_8h.html',1,'']]],
   ['tsmodelwrapper_2ecpp',['tsmodelwrapper.cpp',['../dd/d57/tsmodelwrapper_8cpp.html',1,'']]],
   ['tsmodelwrapper_2eh',['tsmodelwrapper.h',['../d3/dc9/tsmodelwrapper_8h.html',1,'']]]
 ];

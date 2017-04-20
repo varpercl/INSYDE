@@ -1,11 +1,11 @@
 <map id="core::IResizableF" name="core::IResizableF">
 <area shape="rect" id="node2" href="$dd/df9/classcore_1_1_dot_matrix_detailed_window.html" title="The DotMatrixElementDetailedWindow class construct a detailed window specially designed to show DotMa..." alt="" coords="176,81,380,108"/>
-<area shape="rect" id="node3" href="$db/dc8/classcore_1_1_graphic_object.html" title="The GraphicObject class. " alt="" coords="209,132,347,159"/>
-<area shape="rect" id="node4" href="$d6/d55/classann__gui_1_1_m_l_p_object.html" title="ann_gui::MLPObject" alt="" coords="429,5,569,32"/>
-<area shape="rect" id="node5" href="$d7/dd1/classcore_1_1_connector.html" title="The Connector class represents an interactive composed line which represents a graphic connection bet..." alt="" coords="442,56,557,83"/>
-<area shape="rect" id="node6" href="$d5/d0f/classcore_1_1_cursor.html" title="The GraphicCursorElement class. " alt="" coords="453,107,546,133"/>
-<area shape="rect" id="node8" href="$d3/d6e/classcore_1_1_dot_matrix.html" title="The DotMatrix class represents a graphic view of a binary MxN matrix. This class is useful to see the..." alt="" coords="444,157,555,184"/>
-<area shape="rect" id="node9" href="$d2/dab/classcore_1_1_image.html" title="The Image class. " alt="" coords="454,208,545,235"/>
-<area shape="rect" id="node10" href="$dd/d38/class_graphic_m_l_p_element.html" title="GraphicMLPElement" alt="" coords="428,259,571,285"/>
-<area shape="rect" id="node7" href="$d2/dfe/classcore_1_1_image_effect.html" title="The ImageEffect class. " alt="" coords="619,107,741,133"/>
+<area shape="rect" id="node3" href="$db/dc8/classcore_1_1_graphic_object.html" title="The GraphicObject class is the base class for any object added to an enviroment or system..." alt="" coords="209,132,347,159"/>
+<area shape="rect" id="node4" href="$d6/d55/classann__gui_1_1_m_l_p_object.html" title="ann_gui::MLPObject" alt="" coords="438,5,578,32"/>
+<area shape="rect" id="node5" href="$d7/dd1/classcore_1_1_connector.html" title="The Connector class represents an interactive composed line which represents a graphic connection bet..." alt="" coords="451,56,565,83"/>
+<area shape="rect" id="node6" href="$d5/d0f/classcore_1_1_cursor.html" title="The Cursor class. " alt="" coords="461,107,555,133"/>
+<area shape="rect" id="node8" href="$d3/d6e/classcore_1_1_dot_matrix.html" title="The DotMatrix class represents a graphic view of a binary MxN matrix. This class is useful to see the..." alt="" coords="453,157,563,184"/>
+<area shape="rect" id="node9" href="$d2/dab/classcore_1_1_image.html" title="The Image class is a speciallized GraphicObject which is capable to load and draw images from a local..." alt="" coords="463,208,553,235"/>
+<area shape="rect" id="node10" href="$db/d3b/classcv__gui_1_1_face_recognizer.html" title="cv_gui::FaceRecognizer" alt="" coords="428,259,588,285"/>
+<area shape="rect" id="node7" href="$d2/dfe/classcore_1_1_image_effect.html" title="The ImageEffect class. " alt="" coords="636,107,759,133"/>
 </map>

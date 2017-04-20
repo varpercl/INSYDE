@@ -19,6 +19,7 @@ var namespacecore =
     [ "DotMatrixRepresentation", "da/d47/classcore_1_1_dot_matrix_representation.html", "da/d47/classcore_1_1_dot_matrix_representation" ],
     [ "DoubleMinMaxWidget", "dd/d54/classcore_1_1_double_min_max_widget.html", "dd/d54/classcore_1_1_double_min_max_widget" ],
     [ "Effect", "d5/d87/classcore_1_1_effect.html", "d5/d87/classcore_1_1_effect" ],
+    [ "Enviroment", "d8/dd1/classcore_1_1_enviroment.html", "d8/dd1/classcore_1_1_enviroment" ],
     [ "FileEditLine", "d7/dac/classcore_1_1_file_edit_line.html", "d7/dac/classcore_1_1_file_edit_line" ],
     [ "GraphicDetailedView", "db/de1/classcore_1_1_graphic_detailed_view.html", "db/de1/classcore_1_1_graphic_detailed_view" ],
     [ "GraphicObject", "db/dc8/classcore_1_1_graphic_object.html", "db/dc8/classcore_1_1_graphic_object" ],

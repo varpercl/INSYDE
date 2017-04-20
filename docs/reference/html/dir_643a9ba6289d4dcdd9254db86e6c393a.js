@@ -16,12 +16,12 @@ var dir_643a9ba6289d4dcdd9254db86e6c393a =
     [ "basictree.h", "d6/ddb/basictree_8h.html", [
       [ "BasicTree", "da/dd7/classcore_1_1_basic_tree.html", "da/dd7/classcore_1_1_basic_tree" ]
     ] ],
-    [ "blackwhiteeffect.cpp", "d4/d69/core_2blackwhiteeffect_8cpp.html", null ],
-    [ "blackwhiteeffect.h", "df/da3/core_2blackwhiteeffect_8h.html", [
+    [ "blackwhiteeffect.cpp", "dd/d6e/blackwhiteeffect_8cpp.html", null ],
+    [ "blackwhiteeffect.h", "d1/d10/blackwhiteeffect_8h.html", [
       [ "BlackWhiteEffect", "d6/d05/classcore_1_1_black_white_effect.html", "d6/d05/classcore_1_1_black_white_effect" ]
     ] ],
-    [ "bnsubwidget.cpp", "d9/d3a/core_2bnsubwidget_8cpp.html", null ],
-    [ "bnsubwidget.h", "d5/dad/core_2bnsubwidget_8h.html", [
+    [ "bnsubwidget.cpp", "df/d68/bnsubwidget_8cpp.html", null ],
+    [ "bnsubwidget.h", "d5/dac/bnsubwidget_8h.html", [
       [ "BNSubWidget", "db/d2d/classcore_1_1_b_n_sub_widget.html", "db/d2d/classcore_1_1_b_n_sub_widget" ]
     ] ],
     [ "clipboard.h", "d5/da7/clipboard_8h.html", [
@@ -33,6 +33,10 @@ var dir_643a9ba6289d4dcdd9254db86e6c393a =
     [ "connector.h", "d9/d07/connector_8h.html", [
       [ "Connector", "d7/dd1/classcore_1_1_connector.html", "d7/dd1/classcore_1_1_connector" ],
       [ "CollidingResult", "dc/dd7/structcore_1_1_connector_1_1_colliding_result.html", "dc/dd7/structcore_1_1_connector_1_1_colliding_result" ]
+    ] ],
+    [ "cursor.cpp", "d3/d07/cursor_8cpp.html", null ],
+    [ "cursor.h", "d8/d08/cursor_8h.html", [
+      [ "Cursor", "d5/d0f/classcore_1_1_cursor.html", "d5/d0f/classcore_1_1_cursor" ]
     ] ],
     [ "datarepresentation.cpp", "d3/dc3/datarepresentation_8cpp.html", null ],
     [ "datarepresentation.h", "d8/d42/datarepresentation_8h.html", [
@@ -51,7 +55,7 @@ var dir_643a9ba6289d4dcdd9254db86e6c393a =
     [ "detailedwindow.h", "df/d67/detailedwindow_8h.html", [
       [ "DetailedWindow", "dd/d0d/classcore_1_1_detailed_window.html", "dd/d0d/classcore_1_1_detailed_window" ]
     ] ],
-    [ "documentation.h", "d9/d36/documentation_8h.html", null ],
+    [ "documentation.h", "d7/dea/core_2documentation_8h.html", null ],
     [ "dotmatrix.cpp", "dc/dd1/dotmatrix_8cpp.html", null ],
     [ "dotmatrix.h", "d3/d6b/dotmatrix_8h.html", "d3/d6b/dotmatrix_8h" ],
     [ "dotmatrixdetailedwindow.cpp", "d9/d3c/dotmatrixdetailedwindow_8cpp.html", null ],
@@ -70,19 +74,17 @@ var dir_643a9ba6289d4dcdd9254db86e6c393a =
     [ "doubleminmaxvaluewidget.h", "de/d6b/doubleminmaxvaluewidget_8h.html", [
       [ "DoubleMinMaxWidget", "dd/d54/classcore_1_1_double_min_max_widget.html", "dd/d54/classcore_1_1_double_min_max_widget" ]
     ] ],
-    [ "effect.cpp", "de/d18/core_2effect_8cpp.html", null ],
-    [ "effect.h", "da/d67/core_2effect_8h.html", [
+    [ "effect.cpp", "d0/d32/effect_8cpp.html", null ],
+    [ "effect.h", "d2/d76/effect_8h.html", [
       [ "Effect", "d5/d87/classcore_1_1_effect.html", "d5/d87/classcore_1_1_effect" ]
     ] ],
     [ "enviroment.cpp", "df/d17/enviroment_8cpp.html", null ],
-    [ "enviroment.h", "d8/d7e/enviroment_8h.html", null ],
+    [ "enviroment.h", "d8/d7e/enviroment_8h.html", [
+      [ "Enviroment", "d8/dd1/classcore_1_1_enviroment.html", "d8/dd1/classcore_1_1_enviroment" ]
+    ] ],
     [ "fileeditline.cpp", "d7/d3d/fileeditline_8cpp.html", null ],
     [ "fileeditline.h", "d5/d3c/fileeditline_8h.html", [
       [ "FileEditLine", "d7/dac/classcore_1_1_file_edit_line.html", "d7/dac/classcore_1_1_file_edit_line" ]
-    ] ],
-    [ "graphiccursorelement.cpp", "dc/d03/core_2graphiccursorelement_8cpp.html", null ],
-    [ "graphiccursorelement.h", "d8/d12/core_2graphiccursorelement_8h.html", [
-      [ "Cursor", "d5/d0f/classcore_1_1_cursor.html", "d5/d0f/classcore_1_1_cursor" ]
     ] ],
     [ "graphicdetailedview.cpp", "da/d14/graphicdetailedview_8cpp.html", null ],
     [ "graphicdetailedview.h", "d4/d6f/graphicdetailedview_8h.html", [
@@ -98,12 +100,12 @@ var dir_643a9ba6289d4dcdd9254db86e6c393a =
     ] ],
     [ "graphicpointer.cpp", "d6/d99/graphicpointer_8cpp.html", null ],
     [ "graphicpointer.h", "dc/d1a/graphicpointer_8h.html", null ],
-    [ "grayscaleeffect.cpp", "d3/d2a/core_2grayscaleeffect_8cpp.html", null ],
-    [ "grayscaleeffect.h", "d1/d72/core_2grayscaleeffect_8h.html", [
+    [ "grayscaleeffect.cpp", "d7/d71/grayscaleeffect_8cpp.html", null ],
+    [ "grayscaleeffect.h", "d8/d4f/grayscaleeffect_8h.html", [
       [ "GrayScaleEffect", "d0/d4e/classcore_1_1_gray_scale_effect.html", "d0/d4e/classcore_1_1_gray_scale_effect" ]
     ] ],
-    [ "gssubwidget.cpp", "d4/d98/core_2gssubwidget_8cpp.html", null ],
-    [ "gssubwidget.h", "d6/de6/core_2gssubwidget_8h.html", [
+    [ "gssubwidget.cpp", "dd/dfe/gssubwidget_8cpp.html", null ],
+    [ "gssubwidget.h", "dd/d2c/gssubwidget_8h.html", [
       [ "GSSubWidget", "d4/d9e/classcore_1_1_g_s_sub_widget.html", "d4/d9e/classcore_1_1_g_s_sub_widget" ]
     ] ],
     [ "icons.h", "dc/de3/core_2icons_8h.html", "dc/de3/core_2icons_8h" ],
@@ -119,7 +121,7 @@ var dir_643a9ba6289d4dcdd9254db86e6c393a =
       [ "ImageDetailedWindow", "d7/d66/classcore_1_1_image_detailed_window.html", "d7/d66/classcore_1_1_image_detailed_window" ]
     ] ],
     [ "imageeffect.cpp", "dc/d14/imageeffect_8cpp.html", null ],
-    [ "imageeffect.h", "d9/d14/core_2imageeffect_8h.html", [
+    [ "imageeffect.h", "d9/df9/imageeffect_8h.html", [
       [ "ImageEffect", "d2/dfe/classcore_1_1_image_effect.html", "d2/dfe/classcore_1_1_image_effect" ]
     ] ],
     [ "imageeffectpropertydialog.cpp", "df/d57/imageeffectpropertydialog_8cpp.html", null ],
@@ -178,8 +180,8 @@ var dir_643a9ba6289d4dcdd9254db86e6c393a =
     [ "restrictedlinef.h", "dd/da8/restrictedlinef_8h.html", [
       [ "RestrictedLineF", "d4/d5a/classcore_1_1_restricted_line_f.html", "d4/d5a/classcore_1_1_restricted_line_f" ]
     ] ],
-    [ "selectimagesegmentdialog.cpp", "db/d88/core_2selectimagesegmentdialog_8cpp.html", null ],
-    [ "selectimagesegmentdialog.h", "d7/db8/core_2selectimagesegmentdialog_8h.html", [
+    [ "selectimagesegmentdialog.cpp", "d2/df4/selectimagesegmentdialog_8cpp.html", null ],
+    [ "selectimagesegmentdialog.h", "d5/d7f/selectimagesegmentdialog_8h.html", [
       [ "SelectImageSegmentDialog", "df/dc4/classcore_1_1_select_image_segment_dialog.html", "df/dc4/classcore_1_1_select_image_segment_dialog" ]
     ] ],
     [ "share_core_lib.h", "d8/d43/share__core__lib_8h.html", "d8/d43/share__core__lib_8h" ],

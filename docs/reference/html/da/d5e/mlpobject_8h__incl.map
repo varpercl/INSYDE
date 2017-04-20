@@ -5,7 +5,7 @@
 <area shape="rect" id="node15" href="$d7/d1e/anntrainingdialog_8h.html" title="anntrainingdialog.h" alt="" coords="1335,184,1465,211"/>
 <area shape="rect" id="node20" href="$de/d7e/mlp_8h.html" title="../ann_base/mlp.h" alt="" coords="531,348,658,375"/>
 <area shape="rect" id="node34" href="$df/d3c/ann__gui_2definitions_8h.html" title="definitions.h" alt="" coords="1659,109,1749,136"/>
-<area shape="rect" id="node35" href="$d9/d14/core_2imageeffect_8h.html" title="../core/imageeffect.h" alt="" coords="2710,109,2850,136"/>
+<area shape="rect" id="node35" href="$d9/df9/imageeffect_8h.html" title="../core/imageeffect.h" alt="" coords="2731,109,2871,136"/>
 <area shape="rect" id="node38" href="$d2/dd2/graphicobject_8h.html" title="graphicobject.h" alt="" coords="2135,423,2246,449"/>
 <area shape="rect" id="node44" href="$d3/d6b/dotmatrix_8h.html" title="dotmatrix.h" alt="" coords="2147,348,2234,375"/>
 <area shape="rect" id="node13" href="$d8/d43/share__core__lib_8h.html" title="share_core_lib.h" alt="" coords="2351,647,2468,673"/>
@@ -21,11 +21,11 @@
 <area shape="rect" id="node29" href="$d0/d9d/mlppattern_8h.html" title="mlppattern.h" alt="" coords="590,423,685,449"/>
 <area shape="rect" id="node30" href="$da/d4d/mlptrainingresult_8h.html" title="mlptrainingresult.h" alt="" coords="227,423,355,449"/>
 <area shape="rect" id="node32" href="$d4/dff/labeledintegerspinbox_8h.html" title="../core/labeledintegerspinbox.h" alt="" coords="2290,497,2489,524"/>
-<area shape="rect" id="node36" href="$d5/db2/image_8h.html" title="image.h" alt="" coords="2478,266,2546,293"/>
-<area shape="rect" id="node37" href="$d8/d12/core_2graphiccursorelement_8h.html" title="graphiccursorelement.h" alt="" coords="2701,348,2859,375"/>
-<area shape="rect" id="node47" href="$dc/d04/imagedetailedwindow_8h.html" title="imagedetailedwindow.h" alt="" coords="2421,184,2576,211"/>
-<area shape="rect" id="node48" href="$da/d67/core_2effect_8h.html" title="../core/effect.h" alt="" coords="3039,572,3145,599"/>
-<area shape="rect" id="node49" href="$df/da3/core_2blackwhiteeffect_8h.html" title="../core/blackwhiteeffect.h" alt="" coords="2919,497,3086,524"/>
+<area shape="rect" id="node36" href="$d5/db2/image_8h.html" title="image.h" alt="" coords="2543,266,2611,293"/>
+<area shape="rect" id="node37" href="$d8/d08/cursor_8h.html" title="cursor.h" alt="" coords="2767,348,2836,375"/>
+<area shape="rect" id="node47" href="$dc/d04/imagedetailedwindow_8h.html" title="imagedetailedwindow.h" alt="" coords="2487,184,2641,211"/>
+<area shape="rect" id="node48" href="$d2/d76/effect_8h.html" title="../core/effect.h" alt="" coords="3039,572,3145,599"/>
+<area shape="rect" id="node49" href="$d1/d10/blackwhiteeffect_8h.html" title="../core/blackwhiteeffect.h" alt="" coords="2919,497,3086,524"/>
 <area shape="rect" id="node50" href="$d4/dd9/imageeffectpropertydialog_8h.html" title="imageeffectpropertydialog.h" alt="" coords="2869,423,3049,449"/>
 <area shape="rect" id="node39" href="$d2/da4/undo_8h.html" title="undo.h" alt="" coords="2121,572,2183,599"/>
 <area shape="rect" id="node40" href="$d7/d2d/core_2definitions_8h.html" title="definitions.h" alt="" coords="2073,497,2164,524"/>

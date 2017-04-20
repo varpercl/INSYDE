@@ -22,7 +22,7 @@ class Image;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class CORE_LIB_IMPORT_EXPORT ImagePropertyDialog : public GraphicObjectPropertyDialog
+class CORE_LIB_IMPORT_EXPORT ImagePropertyDialog : public PropertiesDialog
 {
 
 	public:

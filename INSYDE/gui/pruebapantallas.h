@@ -20,6 +20,9 @@
 #include "../ann_gui/weighteditordialog.h"
 #include "../ann_gui/trainingsettable.h"
 
+#include "../cv_gui/facerecognizer.h"
+#include "../cv_gui/facerecognizerpropertydialog.h"
+
 #include "newprojectwizard.h"
 #include "view.h"
 #include "mainwindow.h"
@@ -89,6 +92,8 @@ class PruebaPantalla : public QWidget
 		void on_NewMainWindowButton_clicked();
 
 		void on_GraphicObjectPropertyDialogButton_clicked();
+
+		void on_FaceRecognizerPropertyDialog_clicked();
 
 	private:
 		Q_OBJECT
