@@ -184,7 +184,7 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		/*!
 		 * \see QGraphicsItem::boundingRect
 		 */
-		QRectF boundingRect() const;
+		QRectF boundingRect() const override;
 
 		/*!
 		 * \brief Gets the "Open" action.
@@ -404,7 +404,11 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		//Menu contextual
 		QMenu contextMenu;
 
+		//Overrided
 		void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
+		void mouseMoveEvent(QGraphicsSceneMouseEvent *e) override;
+		void mousePressEvent(QGraphicsSceneMouseEvent *e) override;
+		void mouseReleaseEvent(QGraphicsSceneMouseEvent *e) override;
 
 		/*!
 		 * \brief shape
@@ -508,9 +512,9 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		int
 		inputsSize; //Contiene el numero de entradas que tendra este objeto en caso de que no este conectado a ningun objeto en su entrada
 
-		//Rectangulo que contiene las dimensiones de este objeto grafico
+
 		QRectF
-		containerRect,
+		containerRect, /**< Rectangulo que contiene las dimensiones de este objeto grafico */
 		topLeftResizeRect,
 		topCenterResizeRect,
 		topRightResizeRect,
@@ -521,7 +525,8 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		rightCenterResizeRect;
 
 		bool
-		objectLocked;
+		objectLocked,
+		dragging;
 
 		/*!
 		 * \brief Initializes all graphic interface.

@@ -235,15 +235,19 @@ void core::DotMatrix::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
 	if(flags() & GraphicObject::ItemIsMovable) return;
 
+	//Taken only when continuous drawing
+	//See the mouseReleaseEvent for clicking a determined dot.
 	if(event->buttons() & Qt::LeftButton && enableContinuousDrawing){
 
 		QPointF pointerPos = event->pos();
 
 		updateCurRowAndColIndexes(pointerPos);
 
-		updateMouseRectangle(pointerPos);
+//		qDebug() << "Row: " + QString::number(curRowIndex) + "Col: " + QString::number(curColIndex);
 
 		setDot(curRowIndex, curColIndex, !enableEraser);
+
+		updateMouseRectangle(pointerPos);
 
 		update();
 	}
@@ -296,7 +300,7 @@ void core::DotMatrix::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 		if(k < sInputs){
 			if(k < nDotList){
 				painter->setBrush(Qt::black);
-				painter->drawRect(ptsList->operator [](k).row * size, ptsList->operator [](k).col * size, size, size);
+				painter->drawRect(ptsList->operator [](k).col * size, ptsList->operator [](k).row * size, size, size);
 			}
 		}else{
 			painter->setBrush(Qt::red);
@@ -438,7 +442,7 @@ QVector<core::DotMatrix::Dot> *core::DotMatrix::getDotList() const
 
 QSize core::DotMatrix::getMatrixSize() const
 {
-	return QSize(rows, cols);
+	return QSize(cols, rows);
 }
 
 void core::DotMatrix::init(int dotSize, int rows, int cols, DataFormat dt)
@@ -550,7 +554,7 @@ void core::DotMatrix::updateMouseRectangle(const QPointF &pos)
 {
 	QRectF container = getContainerRect();
 	if(container.contains(pos)){
-		mouseRect = QRectF(container.x() + curRowIndex * size, container.y() + curColIndex * size, size, size);
+		mouseRect = QRectF(container.x() + curColIndex * size, container.y() + curRowIndex * size, size, size);
 	}else{
 		mouseRect = QRectF(-1, -1, -1, -1);
 	}
@@ -559,8 +563,11 @@ void core::DotMatrix::updateMouseRectangle(const QPointF &pos)
 void core::DotMatrix::updateCurRowAndColIndexes(const QPointF &pos)
 {
 	int
-            row = pos.x() / size,
-            col = pos.y() / size;
+			col = pos.x() / size,
+			row = pos.y() / size;
+	
+//	qDebug() << "X: " + QString::number(pos.x()) + "; Y: " + QString::number(pos.y());
+//	qDebug() << "Row " + QString::number(row) + " of " + QString::number(rows) + "; Col " + QString::number(col) + " of " + QString::number(cols);
 
 	curRowIndex = row < rows ? row : rows - 1;
 	curColIndex = col < cols ? col : cols - 1;

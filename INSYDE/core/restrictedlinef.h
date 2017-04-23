@@ -72,10 +72,23 @@ class CORE_LIB_IMPORT_EXPORT RestrictedLineF : public QLineF
 		 */
 		QPointF getCorrectedP2(const QPointF &p2);
 
+		/*!
+		 * \brief Sets the points of the restricted line.
+		 * \param p1 The first point.
+		 * \param p2 The second point.
+		 */
 		void setPoints(const QPointF &p1, const QPointF &p2);
 
+		/*!
+		 * \brief Determines if the current line is horizontal or not.
+		 * \return True in case of a horizontal line.
+		 */
 		bool isHorizontal() const;
 
+		/*!
+		 * \brief Determines if the current line is vertical or not.
+		 * \return True in case of a vertical line.
+		 */
 		bool isVertical() const;
 
 //		RestrictedLineF &operator=(const RestrictedLineF &rl);

@@ -14,8 +14,6 @@ namespace ann_gui
 {
 
 /*!
- * \class
- *
  * \brief The AdalinePage class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>

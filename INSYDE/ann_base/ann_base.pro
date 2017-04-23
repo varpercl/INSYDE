@@ -36,7 +36,8 @@ globals.h \
     adalinetrainingpattern.h \
     simpleinputpattern.h \
     kohonen.h \
-    settings.h
+    settings.h \
+    documentation.h
 
 SOURCES += \
 trainingset.cpp \

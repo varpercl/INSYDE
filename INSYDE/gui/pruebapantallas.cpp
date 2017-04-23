@@ -241,6 +241,8 @@ void gui::PruebaPantalla::on_NewMainWindowButton_clicked()
 	MainWindow *mainWindow = new MainWindow;
 
 	mainWindow->show();
+
+	close();
 }
 
 void gui::PruebaPantalla::on_GraphicObjectPropertyDialogButton_clicked()

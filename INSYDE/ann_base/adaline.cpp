@@ -87,9 +87,9 @@ void Adaline::setWeights(const vector<double> &w)
 	weights = w;
 }
 
-void Adaline::setWeight(int pos, double value)
+void Adaline::setWeight(int n, double value)
 {
-	weights[pos] = value;
+	weights[n] = value;
 }
 
 double *Adaline::getWeights()
