@@ -1,5 +1,5 @@
 <map id="core::LabeledWidget" name="core::LabeledWidget">
 <area shape="rect" id="node3" href="$d9/d65/classcore_1_1_labeled_combo_box.html" title="The LabeledComboBox class. " alt="" coords="5,155,169,181"/>
-<area shape="rect" id="node4" href="$da/d96/classcore_1_1_labeled_double_spin_box.html" title="The LabeledDoubleSpinBox class. " alt="" coords="194,155,383,181"/>
+<area shape="rect" id="node4" href="$da/d96/classcore_1_1_labeled_double_spin_box.html" title="The LabeledDoubleSpinBoxWidget class. " alt="" coords="194,155,383,181"/>
 <area shape="rect" id="node5" href="$de/d72/classcore_1_1_labeled_integer_spin_box.html" title="The LabeledIntegerSpinBox class. " alt="" coords="408,155,596,181"/>
 </map>

@@ -163,32 +163,40 @@ win32:{
 
 unix:{
 
+#        LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
+#                -L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
+#                -L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
+
 	CONFIG(release, debug|release):{
 
-		QMAKE_CXX += -O3 -std=c++11
+            QMAKE_CXX += -O3 -std=c++11
+            TARGET = core
 
-	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
-		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
+#            LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
+#                    -L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
+#                    -L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
 
-	lib.path = $$PWD/../../custom_libs/insyde/$$APP_BASENAME/lib
-	lib.files = $$OUT_PWD/../$$join(APP_BASENAME,,"lib").*
+            lib.path = $$PWD/../../custom_libs/insyde/$$APP_BASENAME/lib
+            lib.files = $$OUT_PWD/../$$join(APP_BASENAME,,"lib").*
 
-	includes.path = $$PWD/../../custom_libs/insyde/$$APP_BASENAME/include
-	includes.files = $$PWD/*.h
+            includes.path = $$PWD/../../custom_libs/insyde/$$APP_BASENAME/include
+            includes.files = $$PWD/*.h
 
-	tbb_lib.path = $$PWD/../../custom_libs/insyde/tbb/lib
-	tbb_lib.files = $$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/libtbb.*
+            tbb_lib.path = $$PWD/../../custom_libs/insyde/tbb/lib
+            tbb_lib.files = $$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/libtbb.*
 
-	tbb_include.path = $$PWD/../../custom_libs/insyde/tbb
-	tbb_include.files = $$PWD/../external/tbb42_20140416oss_lin/include
+            tbb_include.path = $$PWD/../../custom_libs/insyde/tbb
+            tbb_include.files = $$PWD/../external/tbb42_20140416oss_lin/include
 
-	INSTALLS += lib includes tbb_lib tbb_include
-	}else{
-	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
-		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
-		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
-	}
+            INSTALLS += lib includes tbb_lib tbb_include
+        }
+        else:
+        {
+            TARGET = core_debug
+#            LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
+#                    -L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
+#                    -L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release -lkdchart
+        }
 
 	INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
 	DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include

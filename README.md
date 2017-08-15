@@ -1,6 +1,19 @@
 INSYDE
 ======
 
+Requirements:
+=============
+
+The following requirements has been tested to compile the full project. Another conditions
+don't guarantee the correct compilation of the project.
+
+Unix:
+
+- Qt 5.7 up to 5.9
+- mesa-common-dev
+- kdchart
+- tbb library (version is not clear yet)
+
 INSYDE (Intelligent System Designer): An integrated enviroment to make your own intelligent systems.
 
 

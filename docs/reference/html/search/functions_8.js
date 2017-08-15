@@ -21,7 +21,5 @@ var searchData=
   ['isapplybuttonvisible',['isApplyButtonVisible',['../d8/db6/classcore_1_1_basic_dialog.html#a550b4f5ee79e42444d148f5772c7039e',1,'core::BasicDialog']]],
   ['isenabledundoframework',['isEnabledUnDoFramework',['../d8/db6/classcore_1_1_basic_dialog.html#a278365c9c33a73d064f42c19fe871d6b',1,'core::BasicDialog']]],
   ['ishorizontal',['isHorizontal',['../d4/d5a/classcore_1_1_restricted_line_f.html#a9704647fe8acbadbe0d28136b32a9fe7',1,'core::RestrictedLineF']]],
-  ['isparallel',['isParallel',['../dc/d86/classcore_1_1_vector2_d.html#a0f62f634ccb52bb810cdb97a7f034bf6',1,'core::Vector2D']]],
-  ['isperpendicular',['isPerpendicular',['../dc/d86/classcore_1_1_vector2_d.html#a598dc32636b87ccd49d9347158334847',1,'core::Vector2D']]],
   ['isvertical',['isVertical',['../d4/d5a/classcore_1_1_restricted_line_f.html#a90bcf96d5624a18f83775357b263a258',1,'core::RestrictedLineF']]]
 ];

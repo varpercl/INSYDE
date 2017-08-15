@@ -87,7 +87,7 @@ var searchData=
   ['importclick',['importClick',['../d8/db6/classcore_1_1_basic_dialog.html#abbe4d37b1baee5ccff054b7b2f2dcf3f',1,'core::BasicDialog']]],
   ['incepochs',['incEpochs',['../d3/df2/classann__base_1_1_training_result.html#a8b07c2d86f1e9a115bb327c01f95b048',1,'ann_base::TrainingResult']]],
   ['inches',['Inches',['../d5/d2b/classcore_1_1_integer_size_widget.html#a8b2fbaaa6c4624f44701540f232d665baaa6588bb8571fb316d93a160a4f5298e',1,'core::IntegerSizeWidget::Inches()'],['../d8/d5e/classcore_1_1_labeled_widget.html#a67697f18c155cf5e39f78391e089bcb2ac63ad276a1b9b485e29246f4b9844ed3',1,'core::LabeledWidget::Inches()']]],
-  ['index',['index',['../d4/d81/classann__gui_1_1_a_n_n_model_wrapper.html#af878c5acaa4ca867a47594e797b38333',1,'ann_gui::ANNModelWrapper::index()'],['../index.html',1,'(Global Namespace)']]],
+  ['index',['index',['../d4/d81/classann__gui_1_1_a_n_n_model_wrapper.html#af878c5acaa4ca867a47594e797b38333',1,'ann_gui::ANNModelWrapper']]],
   ['infty',['INFTY',['../d8/df7/acosolver_8h.html#a84d177cf462436476c9bca8ef9e22c43',1,'acosolver.h']]],
   ['insertbutton',['insertButton',['../d8/db6/classcore_1_1_basic_dialog.html#a7160dfe664e85aa9be29268759f1497d',1,'core::BasicDialog::insertButton(int index, QPushButton *btn)'],['../d8/db6/classcore_1_1_basic_dialog.html#a8eda0672407c25d568078aefff2dca56',1,'core::BasicDialog::insertButton(int index, QToolButton *btn)']]],
   ['insertchildren',['insertChildren',['../d6/d5c/classann__gui_1_1_a_n_n_model_tree.html#a078dff9abc8dd803241e93234b50e9cd',1,'ann_gui::ANNModelTree::insertChildren()'],['../dd/db5/class_tree_item.html#ad6b6da67cc03e79c714419f93f5005c6',1,'TreeItem::insertChildren()']]],
@@ -105,8 +105,6 @@ var searchData=
   ['isapplybuttonvisible',['isApplyButtonVisible',['../d8/db6/classcore_1_1_basic_dialog.html#a550b4f5ee79e42444d148f5772c7039e',1,'core::BasicDialog']]],
   ['isenabledundoframework',['isEnabledUnDoFramework',['../d8/db6/classcore_1_1_basic_dialog.html#a278365c9c33a73d064f42c19fe871d6b',1,'core::BasicDialog']]],
   ['ishorizontal',['isHorizontal',['../d4/d5a/classcore_1_1_restricted_line_f.html#a9704647fe8acbadbe0d28136b32a9fe7',1,'core::RestrictedLineF']]],
-  ['isparallel',['isParallel',['../dc/d86/classcore_1_1_vector2_d.html#a0f62f634ccb52bb810cdb97a7f034bf6',1,'core::Vector2D']]],
-  ['isperpendicular',['isPerpendicular',['../dc/d86/classcore_1_1_vector2_d.html#a598dc32636b87ccd49d9347158334847',1,'core::Vector2D']]],
   ['isvertical',['isVertical',['../d4/d5a/classcore_1_1_restricted_line_f.html#a90bcf96d5624a18f83775357b263a258',1,'core::RestrictedLineF']]],
   ['itemtype',['ItemType',['../d6/d5c/classann__gui_1_1_a_n_n_model_tree.html#a70806446cb54c34c44a87fab71fa1663',1,'ann_gui::ANNModelTree::ItemType()'],['../dd/db5/class_tree_item.html#ae3c4cec229d671b60f704a3d8c445fca',1,'TreeItem::ItemType()']]],
   ['iterations',['iterations',['../db/d5f/structann__base_1_1_hopfield_1_1_output_result.html#aa094efaed26493ca8286a4cc52c3864b',1,'ann_base::Hopfield::OutputResult']]]

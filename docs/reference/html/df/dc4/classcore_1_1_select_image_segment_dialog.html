@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('df/dc4/classcore_1_1_select_image_segm
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html" title="The SelectImageSegmentDialog class involves dialog which allows users to select a rectangle of any lo...">SelectImageSegmentDialog</a> class involves dialog which allows users to select a rectangle of any loaded image. This image segment can be retrieved after.  
+<p>The <a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html" title="The SelectImageSegmentDialog class Esta clase genera un cuadro de dialogo que permite al usuario sele...">SelectImageSegmentDialog</a> class Esta clase genera un cuadro de dialogo que permite al usuario seleccionar grafica e intuitivamente un segmento de dimension ajustable de una imagen preseleccionada. Este segmento puede ser utilizado en otras clases para su posterior procesamiento como por ejemplo el procesamiento por barrido de una imagen completa en una red neuronal.  
  <a href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d7/db8/core_2selectimagesegmentdialog_8h_source.html">selectimagesegmentdialog.h</a>&gt;</code></p>
@@ -107,33 +107,26 @@ Collaboration diagram for core::SelectImageSegmentDialog:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acf899efc995ecbb44b13bc8f7d31db7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html#acf899efc995ecbb44b13bc8f7d31db7d">SelectImageSegmentDialog</a> (const QImage &amp;img, const QRect &amp;selrect, QWidget *parent=0)</td></tr>
-<tr class="memdesc:acf899efc995ecbb44b13bc8f7d31db7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a dialog with a loaded image <code>img</code>, and a predefined selection rectangle <code>selrect</code>.  <a href="#acf899efc995ecbb44b13bc8f7d31db7d">More...</a><br /></td></tr>
 <tr class="separator:acf899efc995ecbb44b13bc8f7d31db7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9241a5c40f01ebf8c13f14e0e41a3c1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html#a9241a5c40f01ebf8c13f14e0e41a3c1e">~SelectImageSegmentDialog</a> ()</td></tr>
 <tr class="separator:a9241a5c40f01ebf8c13f14e0e41a3c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19339e79ecdb77e17793afea68ef3a42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html#a19339e79ecdb77e17793afea68ef3a42">setSelectionRect</a> (const QRect &amp;rect)</td></tr>
-<tr class="memdesc:a19339e79ecdb77e17793afea68ef3a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current selection rectangle.  <a href="#a19339e79ecdb77e17793afea68ef3a42">More...</a><br /></td></tr>
 <tr class="separator:a19339e79ecdb77e17793afea68ef3a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab7648887aba68db622bb4ade3519c0c"><td class="memItemLeft" align="right" valign="top">QRect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html#aab7648887aba68db622bb4ade3519c0c">getSelectionRect</a> () const</td></tr>
-<tr class="memdesc:aab7648887aba68db622bb4ade3519c0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current selection rectangle.  <a href="#aab7648887aba68db622bb4ade3519c0c">More...</a><br /></td></tr>
 <tr class="separator:aab7648887aba68db622bb4ade3519c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99c2138af7757288c4aa2bde0fbe1c82"><td class="memItemLeft" align="right" valign="top">QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html#a99c2138af7757288c4aa2bde0fbe1c82">getImageSegment</a> () const</td></tr>
-<tr class="memdesc:a99c2138af7757288c4aa2bde0fbe1c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current image selected segment.  <a href="#a99c2138af7757288c4aa2bde0fbe1c82">More...</a><br /></td></tr>
 <tr class="separator:a99c2138af7757288c4aa2bde0fbe1c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a2761b1446f93ed4d5a8c5639c399b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html#a7a2761b1446f93ed4d5a8c5639c399b1">setIntegerSizeWidget</a> (<a class="el" href="../../d5/d2b/classcore_1_1_integer_size_widget.html">IntegerSizeWidget</a> *isw)</td></tr>
-<tr class="memdesc:a7a2761b1446f93ed4d5a8c5639c399b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new <a class="el" href="../../d5/d2b/classcore_1_1_integer_size_widget.html" title="The IntegerSizeWidget class. ">IntegerSizeWidget</a>. This is useful when users want to set it's own control.  <a href="#a7a2761b1446f93ed4d5a8c5639c399b1">More...</a><br /></td></tr>
 <tr class="separator:a7a2761b1446f93ed4d5a8c5639c399b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeeef23fa31f806a6c56fa7de0075fe25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d2b/classcore_1_1_integer_size_widget.html">IntegerSizeWidget</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html#aeeef23fa31f806a6c56fa7de0075fe25">getIntegerSizeWidget</a> () const</td></tr>
-<tr class="memdesc:aeeef23fa31f806a6c56fa7de0075fe25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current <a class="el" href="../../d5/d2b/classcore_1_1_integer_size_widget.html" title="The IntegerSizeWidget class. ">IntegerSizeWidget</a> pointer.  <a href="#aeeef23fa31f806a6c56fa7de0075fe25">More...</a><br /></td></tr>
 <tr class="separator:aeeef23fa31f806a6c56fa7de0075fe25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html" title="The SelectImageSegmentDialog class involves dialog which allows users to select a rectangle of any lo...">SelectImageSegmentDialog</a> class involves dialog which allows users to select a rectangle of any loaded image. This image segment can be retrieved after. </p>
-<p>This is useful when need to add a image segment to a training set or another set of inputs.</p>
+<div class="textblock"><p>The <a class="el" href="../../df/dc4/classcore_1_1_select_image_segment_dialog.html" title="The SelectImageSegmentDialog class Esta clase genera un cuadro de dialogo que permite al usuario sele...">SelectImageSegmentDialog</a> class Esta clase genera un cuadro de dialogo que permite al usuario seleccionar grafica e intuitivamente un segmento de dimension ajustable de una imagen preseleccionada. Este segmento puede ser utilizado en otras clases para su posterior procesamiento como por ejemplo el procesamiento por barrido de una imagen completa en una red neuronal. </p>
 <dl class="section author"><dt>Author</dt><dd>Edixon Vargas <a href="#" onclick="location.href='mai'+'lto:'+'ing'+'ed'+'ixo'+'nv'+'arg'+'as'+'@gm'+'ai'+'l.c'+'om'; return false;">inged<span style="display: none;">.nosp@m.</span>ixon<span style="display: none;">.nosp@m.</span>varga<span style="display: none;">.nosp@m.</span>s@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>02/02/2015 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/db8/core_2selectimagesegmentdialog_8h_source.html#l00028">28</a> of file <a class="el" href="../../d7/db8/core_2selectimagesegmentdialog_8h_source.html">selectimagesegmentdialog.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/db8/core_2selectimagesegmentdialog_8h_source.html#l00029">29</a> of file <a class="el" href="../../d7/db8/core_2selectimagesegmentdialog_8h_source.html">selectimagesegmentdialog.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acf899efc995ecbb44b13bc8f7d31db7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf899efc995ecbb44b13bc8f7d31db7d">&#9670;&nbsp;</a></span>SelectImageSegmentDialog()</h2>
@@ -175,16 +168,6 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a dialog with a loaded image <code>img</code>, and a predefined selection rectangle <code>selrect</code>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">img</td><td>The image to be loaded. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">selrect</td><td>The selection rectangle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">parent</td><td>The parent of this dialog. </td></tr>
-  </table>
-  </dd>
-</dl>
-
 <p class="definition">Definition at line <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html#l00004">4</a> of file <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html">selectimagesegmentdialog.cpp</a>.</p>
 
 </div>
@@ -224,9 +207,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the current image selected segment. </p>
-<dl class="section return"><dt>Returns</dt><dd>The current image segment. </dd></dl>
-
 <p class="definition">Definition at line <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html#l00026">26</a> of file <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html">selectimagesegmentdialog.cpp</a>.</p>
 
 </div>
@@ -246,9 +226,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the current <a class="el" href="../../d5/d2b/classcore_1_1_integer_size_widget.html" title="The IntegerSizeWidget class. ">IntegerSizeWidget</a> pointer. </p>
-<dl class="section return"><dt>Returns</dt><dd>The pointer to the current <a class="el" href="../../d5/d2b/classcore_1_1_integer_size_widget.html" title="The IntegerSizeWidget class. ">IntegerSizeWidget</a>. </dd></dl>
-
 <p class="definition">Definition at line <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html">selectimagesegmentdialog.cpp</a>.</p>
 
 </div>
@@ -267,9 +244,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Gets the current selection rectangle. </p>
-<dl class="section return"><dt>Returns</dt><dd>A QRect which represents the current selection rectangle. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html#l00021">21</a> of file <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html">selectimagesegmentdialog.cpp</a>.</p>
 
@@ -291,15 +265,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets a new <a class="el" href="../../d5/d2b/classcore_1_1_integer_size_widget.html" title="The IntegerSizeWidget class. ">IntegerSizeWidget</a>. This is useful when users want to set it's own control. </p>
-<dl class="section note"><dt>Note</dt><dd>User is responsible for managin hangling pointers.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">isw</td><td>The new IntegetSizeWidget. </td></tr>
-  </table>
-  </dd>
-</dl>
-
 <p class="definition">Definition at line <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html#l00031">31</a> of file <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html">selectimagesegmentdialog.cpp</a>.</p>
 
 </div>
@@ -319,14 +284,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Sets the current selection rectangle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rect</td><td>The new rectangle. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html#l00016">16</a> of file <a class="el" href="../../db/d88/core_2selectimagesegmentdialog_8cpp_source.html">selectimagesegmentdialog.cpp</a>.</p>
 
