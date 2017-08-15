@@ -300,7 +300,7 @@ void ann_gui::MLPObject::updateInputCursor(int pos)
 
 void ann_gui::MLPObject::init(MultilayerPerceptron *mlp, TrainingSet *ts)
 {
-	Q_INIT_RESOURCE(ann_gui_media);
+    Q_INIT_RESOURCE(ann_gui_media);
 
 	input = new QInputDialog();
 	//	input->setIntMaximum(9999999);

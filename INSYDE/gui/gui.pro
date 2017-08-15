@@ -2,7 +2,7 @@
 include(../external/kdchart2.pri)
 include(../external/tbb.pri)
 
-QT += core gui widgets xml opengl
+QT += core widgets xml opengl
 
 CONFIG += qt opengl
 
@@ -97,13 +97,32 @@ unix:{
 
     CONFIG(release, debug|release):{
 	QMAKE_CXX += -O3
-	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
-		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
-		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
-	}else:{
-	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
-		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
-		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
+
+        TARGET = INSYDE
+
+        LIBS += -L$$DESTDIR -lcore \
+                -L$$DESTDIR -lann_base \
+                -L$$DESTDIR -lann_gui\
+                -L$$DESTDIR -lec_base \
+                -L$$DESTDIR -lec_gui
+
+#	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
+#		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
+#		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
+    }
+    else:
+    {
+        TARGET = INSYDE_debug
+
+        LIBS += -L$$DESTDIR -lcore_debug \
+                -L$$DESTDIR -lann_base_debug \
+                -L$$DESTDIR -lann_gui_debug \
+                -L$$DESTDIR -lec_base_debug \
+                -L$$DESTDIR -lec_gui_debug
+
+#	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
+#		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
+#		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
     }
 
     INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
