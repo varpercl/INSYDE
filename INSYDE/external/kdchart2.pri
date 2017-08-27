@@ -27,3 +27,10 @@ win32:{
 	DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-win/include
 
 }
+unix:{
+
+    LIBS += -L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
+
+    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
+    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
+}

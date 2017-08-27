@@ -4,6 +4,8 @@
 ann_gui::AddNewMLPDialog::AddNewMLPDialog(QWidget *parent) :
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init();
 }
 

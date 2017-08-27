@@ -117,7 +117,7 @@ void core::GraphicObject::setBorder(const QPen &pen)
 
 QRectF core::GraphicObject::boundingRect() const
 {
-	int border = border.width();
+    int border = this->border.width();
 
 	if(resizeRectSize >= portSensitivity){
 		return containerRect.adjusted(-(border + resizeRectSize), -(border + resizeRectSize), (border + resizeRectSize), (border + resizeRectSize));
@@ -271,7 +271,7 @@ void core::GraphicObject::mousePressEvent(QGraphicsSceneMouseEvent *e)
 	}
 }
 
-void core::GraphicObject::mouseReleaseEvent(QGraphicsSceneMouseEvent *e)
+void core::GraphicObject::mouseReleaseEvent(QGraphicsSceneMouseEvent */*e*/)
 {
 	dragging = false;
 }

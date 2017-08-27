@@ -3,18 +3,24 @@
 ann_gui::TrainingSetDialog::TrainingSetDialog(QWidget *parent) :
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(new TrainingSet());
 }
 
 ann_gui::TrainingSetDialog::TrainingSetDialog(TrainingSet *ts, QWidget *parent):
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(ts);
 }
 
 ann_gui::TrainingSetDialog::TrainingSetDialog(int inputCount, int targetCount, int nPatterns, QWidget *parent) :
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(new TrainingSet(vector<vector<double> >(nPatterns, vector<double>(inputCount, 0)),
 						 inputCount,
 						 vector<vector<double> >(nPatterns, vector<double>(targetCount, 0)),
@@ -24,12 +30,16 @@ ann_gui::TrainingSetDialog::TrainingSetDialog(int inputCount, int targetCount, i
 ann_gui::TrainingSetDialog::TrainingSetDialog(const vector<vector<double> > &inputs, int is, const vector<vector<double> > &targets, int ts, QWidget *parent) :
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(new TrainingSet(inputs, is, targets, ts));
 }
 
 ann_gui::TrainingSetDialog::TrainingSetDialog(ArtificialNeuralNetwork *ann, QWidget *parent) :
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	switch(ann->getType()){
 		case ann_base::ArtificialNeuralNetwork::NoType:
 			break;

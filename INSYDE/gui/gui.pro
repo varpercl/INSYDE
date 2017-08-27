@@ -52,7 +52,9 @@ FORMS += \
     prueba_pantallas.ui
 
 RESOURCES += \
-    gui_media.qrc
+    gui_media.qrc \
+    ../core/core_media.qrc \
+    ../ann_gui/ann_gui_media.qrc
 
 win32:{
 	CONFIG += windows c++11
@@ -93,10 +95,10 @@ win32:{
 
 unix:{
 
-    QMAKE_CXX += -std=c++11
-
+    QMAKE_CXXFLAGS += -std=c++11
     CONFIG(release, debug|release):{
-	QMAKE_CXX += -O3
+
+        QMAKE_CXXFLAGS += -O3
 
         TARGET = INSYDE
 
@@ -125,10 +127,10 @@ unix:{
 #		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
     }
 
-    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
-    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
+#    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
+#    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
 
 
-    INCLUDEPATH += $$PWD/../external/tbb42_20140416oss_lin/include
-    DEPENDPATH += $$PWD/../external/tbb42_20140416oss_lin/include
+#    INCLUDEPATH += $$PWD/../external/tbb42_20140416oss_lin/include
+#    DEPENDPATH += $$PWD/../external/tbb42_20140416oss_lin/include
 }

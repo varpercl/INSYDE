@@ -5,6 +5,8 @@ ann_gui::SamplesDialog::SamplesDialog(MLPTrainingResult *tr, QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::SamplesDialog)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	initDialog(tr);
 }
 

@@ -90,10 +90,10 @@ win32:{
 
 unix:{
 
-    QMAKE_CXX += -std=c++11
-
+    QMAKE_CXXFLAGS += -std=c++11
     CONFIG(release, debug|release):{
-	QMAKE_CXX += -O3
+
+        QMAKE_CXXFLAGS += -O3
 
         TARGET = ann_base
 
@@ -109,20 +109,15 @@ unix:{
 	includes.files = $$PWD/*.h
 	INSTALLS += lib includes
     }
-#    else:
-#    {
+    else:
+    {
         TARGET = ann_base_debug
 
         LIBS += -L$$DESTDIR -lcore_debug
 #	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
 #		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
 #		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
-#    }
-
-    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
-    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
+    }
 
 
-    INCLUDEPATH += $$PWD/../external/tbb42_20140416oss_lin/include
-    DEPENDPATH += $$PWD/../external/tbb42_20140416oss_lin/include
 }

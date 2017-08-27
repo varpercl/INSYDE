@@ -4,6 +4,8 @@ ann_gui::TrainingSetTable::TrainingSetTable(TrainingSet *ts, QWidget *parent) :
 	BasicTable(parent),
 	ts(0)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(ts);
 }
 

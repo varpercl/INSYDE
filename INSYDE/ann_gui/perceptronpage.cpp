@@ -5,6 +5,8 @@ ann_gui::PerceptronPage::PerceptronPage(QWidget *parent) :
 	QWizardPage(parent),
 	ui(new Ui::PerceptronPage)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 //	initPage();
 }
 
