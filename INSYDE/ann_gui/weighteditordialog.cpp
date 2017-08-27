@@ -3,18 +3,24 @@
 ann_gui::WeightEditorDialog::WeightEditorDialog(QWidget *parent) :
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init();
 }
 
 ann_gui::WeightEditorDialog::WeightEditorDialog(ArtificialNeuralNetwork *sp, QWidget *parent) :
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(sp);
 }
 
 ann_gui::WeightEditorDialog::WeightEditorDialog(ANNModelWrapper *mw, QWidget *parent) :
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(mw);
 }
 

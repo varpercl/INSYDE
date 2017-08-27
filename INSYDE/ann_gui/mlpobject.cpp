@@ -2,11 +2,15 @@
 
 ann_gui::MLPObject::MLPObject(MultilayerPerceptron *mlp)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(mlp, new TrainingSet(mlp->getInputsSize(), mlp->getOutputsSize()));
 }
 
 ann_gui::MLPObject::MLPObject(MultilayerPerceptron *mlp, TrainingSet *ts)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(mlp, ts);
 }
 
@@ -300,7 +304,6 @@ void ann_gui::MLPObject::updateInputCursor(int pos)
 
 void ann_gui::MLPObject::init(MultilayerPerceptron *mlp, TrainingSet *ts)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
 
 	input = new QInputDialog();
 	//	input->setIntMaximum(9999999);

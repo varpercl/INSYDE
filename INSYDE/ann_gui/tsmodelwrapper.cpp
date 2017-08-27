@@ -3,6 +3,8 @@ namespace ann_gui{
 
 ann_gui::TSModelWrapper::TSModelWrapper(TrainingSet *ts)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(ts);
 }
 

@@ -29,8 +29,8 @@ class CORE_LIB_IMPORT_EXPORT DetailedWindow : public QWidget
 	public:
 
 		/*!
-		 * \brief Builds a windows
-		 * \param parent
+		 * \brief Builds an empty windows.
+		 * \param parent The parent of this widget.
 		 */
 		explicit DetailedWindow(QWidget *parent = 0);
 

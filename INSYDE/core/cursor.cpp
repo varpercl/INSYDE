@@ -1,4 +1,4 @@
-#include "graphiccursorelement.h"
+#include "cursor.h"
 
 core::Cursor::Cursor(const QRect &rect) :
 	GraphicObject()

@@ -118,7 +118,7 @@ void core::ImagePropertyDialog::init(Image *img)
 	//LabeledComboBox
 	lcbImageFormats = new LabeledComboBox("Formatos", img->getFormats());
 
-	felPath->setFilter("All image formats (*.bmp *.png *.jpg *.gif);; Bitmap BMP (*.bmp);; Portable Network Graphic PNG (*.png);; JPEG image (*.jpg);; GIF image (*.gif)");
+	felPath->setFilters("All image formats (*.bmp *.png *.jpg *.gif);; Bitmap BMP (*.bmp);; Portable Network Graphic PNG (*.png);; JPEG image (*.jpg);; GIF image (*.gif)");
 	felPath->setSelectedFilter("All image formats (*.bmp *.png *.jpg *.gif)");
 
 	if(img->getImage()->isNull()){

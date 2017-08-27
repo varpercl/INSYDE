@@ -8,11 +8,10 @@
 namespace core
 {
 /*!
- * \brief The IIOObject interface
+ * \brief The IIOObject interface defines all objects that handles inputs and outputs.
+ * For example, all graphics objects inherits from this interface.
  *
- * La interfaz IOObject define todos aquellos objetos que poseen (obligatoriamente) entradas y salidas
- *
- * NOTE: no se ha implementado todavia, se esta evaluando si es factible aplicarla a las clases
+ * WARNING: in evaluation.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 11/02/2015

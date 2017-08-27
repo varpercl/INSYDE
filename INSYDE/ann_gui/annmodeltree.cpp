@@ -4,6 +4,8 @@
 
 ann_gui::ANNModelTree::ANNModelTree(const QVector<QVariant> &data, const QVector<Qt::ItemFlags> &flags, ItemType itemType, ANNModelTree *parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	childItems = new QVector<ANNModelTree*>();
 	parentItem = parent;
 	itemData = data;

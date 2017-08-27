@@ -28,12 +28,12 @@ QString core::FileEditLine::getFilePath() const
 	return path;
 }
 
-void core::FileEditLine::setFilter(const QString &formats)
+void core::FileEditLine::setFilters(const QString &formats)
 {
 	this->formats = formats;
 }
 
-QString core::FileEditLine::getFilter() const
+QString core::FileEditLine::getFilters() const
 {
 	return formats;
 }

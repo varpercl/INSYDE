@@ -15,6 +15,8 @@ namespace core{
  * La clase @code{GraphicPointer} consiste en una flecha que indicara la direccion final en la que se quiere
  * que los agentes queden apuntando al llegar al destino final asignado.
  *
+ * TODO: Deambiguate because it conflicts with Cursor class.
+ *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */

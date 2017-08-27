@@ -132,7 +132,7 @@ void ec_gui::MovilAgent::paint(QPainter *painter, const QStyleOptionGraphicsItem
 
 double ec_gui::MovilAgent::getRadius()
 {
-    return Vector2D(forma.controlPointRect().center(), forma.controlPointRect().topLeft()).getModulo();
+    return Vector2D(forma.controlPointRect().center(), forma.controlPointRect().topLeft()).getModulus();
 }
 
 void ec_gui::MovilAgent::setDirection(double dir)

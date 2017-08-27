@@ -3,12 +3,16 @@
 ann_gui::SimulatedAnnealingWidget::SimulatedAnnealingWidget(QWidget *parent) :
 	QWidget(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(0, 0, 0, 0, 0, 0, 0, 0);
 }
 
 ann_gui::SimulatedAnnealingWidget::SimulatedAnnealingWidget(double start, int samples, int changes, double minTemp, double fdec, double itemp, double minNoise, double maxNoise, QWidget *parent) :
 	QWidget(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(samples, start, changes, minTemp, fdec, itemp, minNoise, maxNoise);
 }
 

@@ -117,7 +117,7 @@ void core::GraphicObject::setBorder(const QPen &pen)
 
 QRectF core::GraphicObject::boundingRect() const
 {
-	int border = this->border.width();
+    int border = this->border.width();
 
 	if(resizeRectSize >= portSensitivity){
 		return containerRect.adjusted(-(border + resizeRectSize), -(border + resizeRectSize), (border + resizeRectSize), (border + resizeRectSize));
@@ -252,6 +252,28 @@ QPointF core::GraphicObject::getCurrentPortPos(const QPoint &pos)
 void core::GraphicObject::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 {
 	contextMenu.exec(event->screenPos());
+}
+
+void core::GraphicObject::mouseMoveEvent(QGraphicsSceneMouseEvent *e)
+{
+	if(e->buttons() & Qt::LeftButton && dragging){
+		QGraphicsObject::mouseMoveEvent(e);
+	}
+}
+
+void core::GraphicObject::mousePressEvent(QGraphicsSceneMouseEvent *e)
+{
+	if(e->buttons() & Qt::LeftButton){
+		if(containerRect.contains(e->pos()))
+		{
+			dragging = true;
+		}
+	}
+}
+
+void core::GraphicObject::mouseReleaseEvent(QGraphicsSceneMouseEvent */*e*/)
+{
+	dragging = false;
 }
 
 void core::GraphicObject::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

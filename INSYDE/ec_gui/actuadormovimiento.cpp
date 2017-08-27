@@ -80,7 +80,7 @@ void ec_gui::MovingActuator::iniciarActuadorMovimiento(MovilAgent *ag, double ra
 void ec_gui::MovingActuator::moverA(double x, double y){
     if(agent != NULL){
         Vector2D vel(agent->pos(), QPointF(x, y));
-        double distancia = vel.getModulo();
+        double distancia = vel.getModulus();
         if(distancia != 0){
             double angulo = vel.getAngle();
             agent->setDirectionRads(angulo);
@@ -208,7 +208,7 @@ void ec_gui::MovingActuator::posChanged(QVariant valor)
                 QPointF posAgente = valor.toPointF();
                 double anguloAgente =  agent->getDirection();
                 QRectF cuadroAgente = agent->shape().controlPointRect();
-                double ancho = Vector2D(cuadroAgente.topLeft(), cuadroAgente.center()).getModulo() * 2;
+                double ancho = Vector2D(cuadroAgente.topLeft(), cuadroAgente.center()).getModulus() * 2;
                 QRectF formaRectAgente = QRectF(posAgente.x() - ancho/2, posAgente.y() - ancho/2, ancho, ancho);
                 Vector2D pos((float)(sensibilidad + formaRectAgente.height()/2), (float)0);
 
@@ -244,7 +244,7 @@ void ec_gui::MovingActuator::posChanged(QVariant valor)
                         }else{
                             if(!destinos.isEmpty()){
                                 posTrans = QPointF(pos.getX(), -pos.getY());
-                                distPuntoActual = Vector2D(posAgente + posTrans, destinos.first()).getModulo();
+                                distPuntoActual = Vector2D(posAgente + posTrans, destinos.first()).getModulus();
                                 distMinima = (distPuntoActual < distMinima ? distPuntoActual : distMinima);
                                 if(distMinima == distPuntoActual){
                                     nextPoint = posAgente + posTrans;

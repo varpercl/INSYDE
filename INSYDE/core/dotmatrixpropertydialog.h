@@ -14,8 +14,10 @@
 namespace core{
 
 class DotMatrix;
+
 /*!
- * \brief The DotMatrixElementPropertyDialog class
+ * \brief The DotMatrixElementPropertyDialog class is an derived class from GraphicObjectPropertyDialog.
+ * These classes show a set of properties depending on the determined object.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
@@ -26,9 +28,9 @@ class CORE_LIB_IMPORT_EXPORT DotMatrixPropertyDialog : public GraphicObjectPrope
 	public:
 
 		/*!
-		 * \brief DotMatrixPropertyDialog
-		 * \param dm
-		 * \param parent
+		 * \brief Builds a property dialog with all properties of \p dm.
+		 * \param[in] dm The DotMatrix object where the properties come from.
+		 * \param[in] parent The parent of this dialog.
 		 */
 		explicit DotMatrixPropertyDialog(DotMatrix *dm, QWidget *parent = 0);
 
@@ -37,16 +39,19 @@ class CORE_LIB_IMPORT_EXPORT DotMatrixPropertyDialog : public GraphicObjectPrope
 	public slots:
 
 		/*!
-		 * \brief onApplyClicked Throwed when user clicks apply button
+		 * \brief Performs actions when the Apply button is clicked.
 		 */
 		void onApplyClicked();
 
+		/*!
+		 * \brief Performs actions when the Accept button is clicked.
+		 */
 		void accept();
 
 	private:
 		Q_OBJECT
 
-		DotMatrix *dm;
+		DotMatrix *dm; /**< The DotMatrix associated to this properties dialog. */
 
 		LabeledComboBox
 		*lcbDataTypes;
@@ -68,7 +73,9 @@ class CORE_LIB_IMPORT_EXPORT DotMatrixPropertyDialog : public GraphicObjectPrope
 		*gbView;
 
 		/*!
-		 * \brief init
+		 * \brief Initializes all graphic interface for this properties dialog.
+		 *
+		 * \param[in] dm A DotMatrix pointer to the object to be owned by this dialog.
 		 */
 		void init(DotMatrix *dm);
 };

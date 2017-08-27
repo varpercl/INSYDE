@@ -1,14 +1,20 @@
 #include "mlpobjectpropertydialog.h"
 #include "ui_graphicmlpelementpropertydialog.h"
 
-ann_gui::MLPObjectPropertyDialog::MLPObjectPropertyDialog(QWidget *parent) :
+namespace ann_gui{
+
+MLPObjectPropertyDialog::MLPObjectPropertyDialog(QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::GraphicMLPElementPropertyDialog)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	ui->setupUi(this);
 }
 
-ann_gui::MLPObjectPropertyDialog::~MLPObjectPropertyDialog()
+MLPObjectPropertyDialog::~MLPObjectPropertyDialog()
 {
 	delete ui;
+}
+
 }

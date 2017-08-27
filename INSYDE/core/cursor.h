@@ -9,9 +9,9 @@
 namespace core{
 
 /*!
- * \brief The GraphicCursorElement class
+ * \brief The Cursor class
  *
- * TODO: definir concretamente para que se usa esta clase
+ * TODO: Define if this class is necessary.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015

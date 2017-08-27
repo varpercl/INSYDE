@@ -6,7 +6,7 @@
 #include "../core/image.h"
 #include "../core/imagedetailedwindow.h"
 #include "../core/graphicobject.h"
-#include "../core/graphiccursorelement.h"
+#include "../core/cursor.h"
 #include "../core/effect.h"
 #include "../core/blackwhiteeffect.h"
 #include "imageeffectpropertydialog.h"
@@ -14,7 +14,7 @@
 namespace core{
 
 /*!
- * \brief The GraphicImageEffectElement class
+ * \brief The ImageEffect class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015

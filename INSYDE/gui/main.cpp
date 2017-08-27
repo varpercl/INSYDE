@@ -13,11 +13,12 @@ using namespace gui;
 
 int main(int argc, char *argv[])
 {
-    Q_INIT_RESOURCE(gui_media);
-    Q_INIT_RESOURCE(core_media);
-    Q_INIT_RESOURCE(ann_gui_media);
+    QApplication a(argc, argv);
 
-	QApplication a(argc, argv);
+    Q_INIT_RESOURCE(gui_media);
+//    Q_INIT_RESOURCE(core_media);
+//    Q_INIT_RESOURCE(ann_gui_media);
+
 
 #ifdef TESTS
 

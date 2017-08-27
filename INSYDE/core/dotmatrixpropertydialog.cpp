@@ -13,6 +13,7 @@ core::DotMatrixPropertyDialog::~DotMatrixPropertyDialog()
 
 void core::DotMatrixPropertyDialog::onApplyClicked()
 {
+	qDebug() << iswSize->getSize();
     dm->setMatrixSize(QSize(iswSize->getSize()));
 	dm->setDotSize(lisbDotSize->getValue());
 	dm->setInputsSize(lisbInputSize->getValue());

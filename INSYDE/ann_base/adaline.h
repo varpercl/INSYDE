@@ -12,22 +12,14 @@
 #include <vector>
 #include <time.h>
 
-/*!
- * \namespace ann_base
- *
- * \brief The ann_base namespace stores all classes and methods to perform artificial neural
- * network training algorithm.
- *
- * \author Edixon V
- *
- */
+
 namespace ann_base{
 
 using namespace std;
 
 /*!
  * \brief The Adaline class represent one basic ANN topology which consist in one neuron with
- * only one output with a transfer function that can be.
+ * only one output with a transfer function.
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 03/02/2015
@@ -47,12 +39,6 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 			BatchUpdate /*!< Updates all weights once all patterns have been passed to the training algorithm */
 		};
 
-		/**
-		  Contiene informacion sobre el resultado de un entrenamiento, como el numero
-		  de epocas que le tomo el entrenamiento, un historial de cambios de los pesos
-		  sinapticos, que lo hace ideal si queremos realizar graficas o analisis del
-		  avance de los mismos.
-		  */
 		/*!
 		 * \brief The TrainResult struct stores all information about a in-course or finished training,
 		 * information like epochs to finish the training, a weight history of every weight, this is
@@ -65,81 +51,61 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 				vector<double> thresholdHistory; /*!< The change history of the threshold */
 		};
 
-		/**
-		  @enum TransferFunctionType
-
-		  Indica los tipos de funciones de transferencias para un perceptron simple
-
-		  Parametros:
-
-		  alpha = Indica la pendiente de la funcion de transferencia, solamente es considerado en algunos casos
-		  suminput = Sumatoria de todas las entradas multiplicadas por los pesos correspondientes
-
-		  @name Sigmoid Esta funcion es del tipo y = 1 / (1 + exp(-alpha*suminputs))
-		  @name Linear La funcion @code{Linear} es igual al valor de la sumatoria, es decir, y = suminputs
-		  */
 		/*!
-		 * \brief The TransferFunctionType enum
+		 * \brief The TransferFunctionType enum indicates the transfer function types for a simple perceptron.
 		 */
 		enum TransferFunctionType{
-			Sigmoid,
-			Linear
+			Sigmoid, /**!< Indicates the transfer function is y = 1 / (1 + exp(-alpha * suminputs)) */
+			Linear /**!< The transfer function is y = suminputs */
 		};
 
-		/**
-		  Crea un objeto SimplePerceptron con un numero de entradas @code{ninputs} inicialmente puestas en 0
-		  y una funcion de transferencia.
-
-		  @param int ninputs Numero de entradas que tendra este perceptron
-		  @param TransferFunctionType tf Funcion de transferencia.
-		  */
+		/*!
+		 * \brief Creates an ADALINE with \p ninputs.
+		 * \param ninputs The number of inputs of this ADALINE.
+		 * \param tf The transfer function.
+		 */
 		explicit Adaline(int ninputs, TransferFunctionType tf);
 
-		/**
-		  Crea una instancia de SimplePerceptron con un puntero a un arreglo de valores de entrada, al igual
-		  que un puntero a los pesos sinapticos, un threshold y una funcion de transferencia.
-
-		  @param double *inputs Puntero que indica la direccion de un arreglo de entradas ya preestablecidas
-		  @param int ninputs Numero de entradas que se consideraran de el arreglo @code{inputs}
-		  @param double *weights Puntero a un arreglo de pesos sinapticos, el tamaño sera el mismo que @code{ninputs}
-		  @param double threshold Valor de disparo de la funcion de transferencia.
-		  @param TranferFunctionType tf Funcion de transferencia que se le asignara a este perceptron
-
-		  */
+		/*!
+		 * \brief Creates an ADALINE object with a determined list of \p weights.
+		 * \note \p weights pointer should point to an array of values with the same size of ninputs.
+		 *
+		 * \param ninputs The number of inputs.
+		 * \param weights The pointer to the list of weights.
+		 * \param tf The transfer function.
+		 */
 		explicit Adaline(int ninputs, double *weights, TransferFunctionType tf);
 
-		/**
-		  Crea un objeto de SimplePerceptron con un vector de entradas y un vector de pesos sinapticos, asimismo se
-		  inicializa el valor de disparo de la funcion de transferencia y se le asigna una funcion de transferencia.
-
-		  @param vector<double> inputs Vector que contiene las entradas de este perceptron.
-		  @param vector<double> weights Vector que contiene los pesos sinapticos de cada entrada
-		  @param double threshold Valor de disparo de la funcion de transferencia
-		  @param TransferFunctionType tf Tipo de funcion de transferencia que se le asignara
-		  */
+		/*!
+		 * \brief Creates an ADALINE with a determined list of \p weights.
+		 *
+		 * \note The number of inputs will be the same of the \p weights size.
+		 *
+		 * \param weights The weights list.
+		 * \param tf The transfer function.
+		 */
 		explicit Adaline(const vector<double> &weights, TransferFunctionType tf);
 
-
-		/**
-		  Establece el numero de entradas de este perceptron. Al utilizarse esta funcion
-		  automaticamente todos los pesos sinapticos se estableceran en valores aleatorios
-
-		  @param int n Numero de entradas que tendra este perceptron
-		  */
+		/*!
+		 * \brief Establish the number of inputs of this ADALINE object.
+		 * \param n The number of inputs.
+		 */
 		void setNumberInputs(size_t n);
 
-		/**
-			Devuelve el numero de entradas que tiene este perceptron
-
-			@return int Numero de entradas del perceptron actualmente
-			*/
+		/*!
+		 * \brief Returns the number of inputs of this ADALINE.
+		 * \return The number of inputs.
+		 */
+#define getInputsCount getNumberInputs
 		int getNumberInputs();
 
-		/**
-			Devuelve un puntero a un arreglo de entradas actuales de este perceptron.
-
-			@return double* Puntero a un arreglo de valores de entradas.
-			*/
+		/*!
+		 * \brief Returns the inputs of this ADALINE.
+		 *
+		 * \note The inputs can be modified when accessing to this pointer.
+		 *
+		 * \return A pointer to the list of inputs of this ADALINE.
+		 */
 		double *getInputs();
 
 		/**
@@ -147,6 +113,12 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 
 			@param double *w Puntero a un arreglo de pesos sinapticos. Se tomaran solo el numero de valores correspondientes al numero de entradas, por eso no es necesario especificar el numero de valores que se tomara de este puntero.
 			*/
+		/*!
+		 * \brief Establish a list of weights of this ADALINE.
+		 * \param w A pointer with a list of weights.
+		 *
+		 * \note The pointer array should be the same size as getNumberInputs
+		 */
 		void setWeights(double *w);
 
 		/**
@@ -159,13 +131,26 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 			@param double *w Puntero a un arreglo de pesos sinapticos. Se tomaran solo el numero de valores correspondientes al numero de entradas, por eso no es necesario especificar el numero de valores que se tomara de este puntero.
 			@param int ninputs Numero de entradas que se asignaran al ADALINE
 			*/
+
+		/*!
+		 * \brief Establish the weights of this ADALINE object. In this case, this method
+		 * can modify the number of inputs of the current ADALINE.
+		 *
+		 * \param ninputs The number of inputs.
+		 * \param w A pointer with a list of weights.
+		 */
 		void setWeights(int ninputs, double *w);
 
-		/**
-			Establece los pesos actuales de este perceptron.
-
-			@param vector<double> w Vector con los pesos sinapticos. El tamaño del vector debe ser el mismo que el numero de entradas. Caso contrario no se asignara ningun valor y se devolvera un error.
-			*/
+		/*!
+		 * \brief Establish the weights of this ADALINE object.
+		 *
+		 * \note The vector \p w should be the same size as the inputs count of this object.
+		 *
+		 * \param w The list of weights.
+		 *
+		 * TODO: implements a second parameter (possibly alterSize) which ask users if want to
+		 * set the current inputs number to the same size of the \p w vector.
+		 */
 		void setWeights(const vector<double> &w);
 
 		/**
@@ -174,34 +159,38 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 			@param int pos Indice del peso que se actualizara
 			@param double value Valor que se le asignara al peso en la posicion @code{pos}
 			*/
-		void setWeight(int pos, double value);
+		/*!
+		 * \brief Establish the value of the weight \p n to \p value.
+		 * \param n The index of the weight.
+		 * \param value The new value.
+		 */
+		void setWeight(int n, double value);
 
-		/**
-			Obtiene un puntero a un arreglo con los pesos sinapticos.
-
-			@return double* Puntero a un arreglo con los pesos sinapticos
-			*/
+		/*!
+		 * \brief Returns the pointer to the weights list.
+		 * \return A pointer to the weights list.
+		 */
 		double *getWeights();
 
-		/**
-			Devuelve un vector con los pesos sinapticos actuales de este perceptron
-
-			@return vector<double> Vector con los pesos sinapticos.
-			*/
+		/*!
+		 * \brief Returns the list of weights.
+		 *
+		 * \note This returned object will be a copy of the values.
+		 *
+		 * \return A vector object with the copy of the values.
+		 */
 		vector<double> getWeightVector();
 
-		/**
-			Devuelve una referencia al vector de pesos sinapticos actuales de este perceptron
-
-			@return vector<double> Vector con los pesos sinapticos.
-			*/
+		/*!
+		 * \brief Returns a reference to the current weights list.
+		 * \return The weight list.
+		 */
 		inline vector<double> &getRefWeightVector(){return weights;}
 
-		/**
-			Establece el valor de disparo de la funcion de transferencia
-
-			@param double threshold Valor de disparo que se le asignara a la funcion.
-			*/
+		/*!
+		 * \brief Establish the threeshold of the transfer function.
+		 * \param value The threshold value.
+		 */
 		void setThreshold(double value);
 
 		/**
@@ -213,20 +202,16 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 			*/
 		double getThreshold();
 
-		/**
-			Establece la funcion de transferencia que tendra este perceptron.
-
-			@param TransferFunctionType tf Funcion de transferencia que se le asignara
-
-			@see getTransferFunction
-			*/
+		/*!
+		 * \brief Establish the transfer function type to \p tf.
+		 * \param tf The new transfer function.
+		 */
 		void setTransferFunction(TransferFunctionType tf);
 
-		/**
-			Devuelve la funcion de transferencia actual de este perceptron
-
-			@return TransferFunctionType Funcion de transferencia actual de este perceptron
-			*/
+		/*!
+		 * \brief Returns the current transfer function.
+		 * \return The transfer function type.
+		 */
 		TransferFunctionType getTransferFunction();
 
 		/**
@@ -240,11 +225,27 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 		  @param int nEpochs Numero maximo de epocas de entrenamiento
 		  @param double learningFactor Indica la rapidez con la cual el perceptron aprendera
 		  */
+		/*!
+		 * \brief Starts the training process with a determined start condition.
+		 * \param inputs The list of inputs of the trainit set.
+		 * \param targets The targets of the training set.
+		 * \param error The minimum error to stop training.
+		 * \param nEpochs The maximum epochs to stop trainint.
+		 * \param learningFactor The learning factor of the transfer function.
+		 * \param wut The way the weights will be updated.
+		 * \return Returns the training result.
+		 */
 		TrainResult train(const vector<vector<double> > &inputs, const vector<double> &targets, double error, int nEpochs, double learningFactor, WeightUpdateType wut = BatchUpdate);
 
-		/**
-
-		  */
+		/*!
+		 * \brief train
+		 * \param ts
+		 * \param error
+		 * \param nEpochs
+		 * \param learningFactor
+		 * \param wut
+		 * \return
+		 */
 		TrainResult train(vector<AdalineTrainingPattern> &ts, double error, int nEpochs, double learningFactor, WeightUpdateType wut = BatchUpdate);
 
 		/**
@@ -255,6 +256,11 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 
 			@return double Respuesta que genera este perceptron ante la entrada @code{data}
 			*/
+		/*!
+		 * \brief getOutput
+		 * \param data
+		 * \return
+		 */
 		double getOutput(const vector<double> &data);
 
 		/**

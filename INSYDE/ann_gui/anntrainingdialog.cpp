@@ -3,18 +3,24 @@
 ann_gui::ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, QWidget *parent) :
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(mlp, ts, NULL, NULL);
 }
 
 ann_gui::ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, TrainingSet *vs, TrainingSet *testset, QWidget *parent):
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(mlp, ts, vs, testset);
 }
 
 ann_gui::ANNTrainingDialog::ANNTrainingDialog(MLPObject *gmlp, QWidget *parent) :
 	BasicDialog(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(gmlp->getMultilayerPerceptron(),
 		 gmlp->getTrainingSet(),
 		 gmlp->getValidationSet(),

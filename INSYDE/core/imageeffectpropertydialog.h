@@ -26,7 +26,7 @@ namespace core{
 class ImageEffect;
 
 /*!
- * \brief The GraphicImageEffectElementPropertyDialog class
+ * \brief The ImageEffectPropertyDialog class
  *
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015

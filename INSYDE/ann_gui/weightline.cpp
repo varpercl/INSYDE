@@ -3,12 +3,16 @@
 ann_gui::WeightLine::WeightLine(const QLineF &line, SimplePerceptron *sp, int index, QGraphicsItem *parent) :
 	QObject(), QGraphicsLineItem(line, parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(sp, index);
 }//WeightLine
 
 ann_gui::WeightLine::WeightLine(const QLineF &line, double weight, double maxWeight, double minWeight, int lineWidth, SimplePerceptron *sp, int index, QGraphicsItem *parent) :
 	QObject(), QGraphicsLineItem(line, parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(sp, index, weight, maxWeight, minWeight, lineWidth);
 }//WeightLine
 

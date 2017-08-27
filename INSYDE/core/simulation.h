@@ -10,31 +10,37 @@ namespace core{
 
 class GraphicObject;
 
+/*!
+ * \brief The Simulation class takes every single object in the enviroment and
+ * performs a step-by-step simulation.
+ *
+ * TODO: This class is not implemented yet.
+ */
 class CORE_LIB_IMPORT_EXPORT Simulation : public QThread
 {
 	public:
 
 		/*!
-		 * \brief Simulation
+		 * \brief A empty simulation.
 		 */
 		explicit Simulation();
 
 		/*!
-		 * \brief add
-		 * \param obj
+		 * \brief Adds an object to this simulation.
+		 * \param obj The object.
 		 */
 		void add(GraphicObject *obj);
 
 		/*!
-		 * \brief remove
-		 * \param obj
+		 * \brief Removes a determined object \p obj.
+		 * \param obj The object to be removed.
 		 */
 		void remove(GraphicObject *obj);
 
 	protected:
 
 		/*!
-		 * \brief run
+		 * \brief Runs the current simulation taking in acount all objects and connections.
 		 */
 		void run();
 
@@ -60,10 +66,15 @@ class CORE_LIB_IMPORT_EXPORT Simulation : public QThread
 		QVector<GraphicObject*> objects;
 
 		/*!
-		 * \brief init
+		 * \brief Initializes everyting
 		 */
 		void init();
 
+		/*!
+		 * \brief getNamePrivateHelper
+		 * \param suffix
+		 * \return
+		 */
 		QString getNamePrivateHelper(const QString &suffix) const;
 };
 }

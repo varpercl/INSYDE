@@ -4,12 +4,16 @@
 ann_gui::ANNModelWrapper::ANNModelWrapper() :
 	QAbstractItemModel()
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(0);
 }
 
 ann_gui::ANNModelWrapper::ANNModelWrapper(ArtificialNeuralNetwork *ann, QObject *parent) :
 	QAbstractItemModel(parent)
 {
+    Q_INIT_RESOURCE(ann_gui_media);
+
 	init(ann);
 }
 

@@ -11,86 +11,90 @@
 
 namespace core{
 
+/*!
+ * \brief The GraphicDetailedView class a graphic detailed view is a speciallized QGraphicsView class
+ * which allows to draw any kind of GraphicObject in detail.
+ *
+ * It is commonly used in the graphic data representations.
+ *
+ * \author Edixon Vargas <ingedixonvargas@gmail.com>
+ * \date
+ */
 class CORE_LIB_IMPORT_EXPORT GraphicDetailedView : public QGraphicsView
 {
 	public:
 
 		/*!
-		 * \brief GraphicDetailedView
+		 * \brief An empty instance with a \p parent.
+		 *
+		 * \param[in] parent The parent of this widget.
 		 */
 		explicit GraphicDetailedView(QWidget *parent = 0);
 
 		/*!
-		 * \brief GraphicDetailedView
-		 * \param env
-		 * \param parent
+		 * \brief An instance with a defined Enviroment \p env.
+		 *
+		 * \param[in] env The default enviroment.
+		 * \param[in] parent The parent of this view.
 		 */
 		explicit GraphicDetailedView(Enviroment *env, QWidget *parent = 0);
 
 		~GraphicDetailedView();
 
 		/*!
-		 * \brief setEnableGrid Determines if dotted grid will be visible
-		 * \param b
+		 * \brief Determines if dotted grid will be visible.
+		 *
+		 * TODO: evaluate if this method is necessary becaus Enviroment class has a similar method.
+		 * \param b True in case of grid visible.
 		 */
 		void setGridVisible(bool b);
 
 		/*!
-		 * \brief getEnableGrid
-		 * \return
+		 * \brief Makes the grid visible.
+		 *
+		 * TODO: evaluate if this method is necessary becaus Enviroment class has a similar method.
+		 * \return True in case of grid visible.
 		 */
 		bool getGridVisible() const;
 
 		/*!
-		 * \brief setCenterMarkerVisible Determine wether a marker will be drawn at the center of the enviroment
-		 * \param b
+		 * \brief Determines wether a marker will be drawn at the center of the enviroment.
+		 *
+		 * TODO: evaluate if this method is necessary becaus Enviroment class has a similar method.
+		 *
+		 * \param b True in case the marker will be visible.
 		 */
 		void setCenterMarkerVisible(bool b);
 
 		/*!
-		 * \brief getCenterMarkerVisible
-		 * \return
+		 * \brief Gets the visibility of the marker.
+		 *
+		 * TODO: evaluate if this method is necessary becaus Enviroment class has a similar method.
+		 *
+		 * \return True in case of marker visible.
 		 */
 		bool getCenterMarkerVisible() const;
 
 	public slots:
 
 		/*!
-		 * \brief removeSelected
+		 * \brief Removes the selected GraphicObjects.
 		 */
 		void removeSelected();
 
 	protected:
 
-		/*!
-		 * \brief contextMenuEvent
-		 * \param event
-		 */
 		void contextMenuEvent(QContextMenuEvent *event) override;
-
-		/*!
-		 * \brief mousePressEvent
-		 * \param event
-		 */
 		void mousePressEvent(QMouseEvent *event) override;
-
-		/*!
-		 * \brief mouseMoveEvent
-		 * \param event
-		 */
 		void mouseMoveEvent(QMouseEvent *event) override;
-
-		/*!
-		 * \brief mouseReleaseEvent
-		 * \param event
-		 */
 		void mouseReleaseEvent(QMouseEvent *event) override;
 
 	signals:
 
 		/*!
-		 * \brief clicked
-		 * \param event
+		 * \brief A signal to comunicate the click event to other objects.
+		 *
+		 * \param event The event object.
 		 */
 		void mousePressed(QMouseEvent *event);
 
@@ -105,12 +109,31 @@ class CORE_LIB_IMPORT_EXPORT GraphicDetailedView : public QGraphicsView
 
 		Enviroment *enviroment;
 
+		/*!
+		 * \brief Initializes all graphic interface.
+		 * \param env The default enviroment.
+		 */
 		void init(Enviroment *env);
 
+		/*!
+		 * \brief Determines if want to show a pointer pointing in the direction of the mouse drag.
+		 *
+		 * TODO: evaluate if this method is necessary in this class.
+		 *
+		 * \param angle The angle of the pointer.
+		 */
 		void showPointer(double angle);
 
+		/*!
+		 * \brief Removes the visible pointer.
+		 */
 		void removePointer();
 
+		/*!
+		 * \brief Determines if the GraphicObjects \p list are different.
+		 * \param list The list of objects.
+		 * \return True in case at least one is different than others.
+		 */
 		bool areDifferentTypes(const QList<QGraphicsItem*> &list);
 };
 }

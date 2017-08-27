@@ -151,7 +151,7 @@ void ec_gui::ShootingWeapon::timerEvent(QTimerEvent *event)
 		ShootingUnit *su = static_cast<ShootingUnit*>(getAgent());
 		if(unitToShoot != NULL && su){
 			Vector2D line(su->pos(), unitToShoot->pos());
-			line.setModulo(10);
+			line.setModulus(10);
 
 			incProyectile += int(proyectileVelocity * double(timerInterval)/1000);
 			QPointF startPoint = Vector2D(float(su->getRadius() + incProyectile), float(line.getAngle())).toPointF();
