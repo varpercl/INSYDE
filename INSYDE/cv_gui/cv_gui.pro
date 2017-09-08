@@ -3,9 +3,9 @@
 include(../external/tbb.pri)
 include(../external/opencv.pri)
 
-QT += core xml opengl multimedia multimediawidgets
+QT += core xml opengl multimedia multimediawidgets widgets
 
-CONFIG += qt thread shared
+CONFIG += qt thread shared dll
 
 TEMPLATE = lib
 

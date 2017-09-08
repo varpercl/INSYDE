@@ -2,7 +2,7 @@
 include(../external/kdchart2.pri)
 include(../external/tbb.pri)
 
-QT += core xml opengl multimedia multimediawidgets
+QT += core xml opengl multimedia multimediawidgets widgets
 
 CONFIG += qt thread shared
 
