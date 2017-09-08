@@ -9,12 +9,13 @@ const QString core::BasicTable::STR_DATA = "data";
 core::BasicTable::BasicTable(QWidget *parent) :
 	QTableView(parent)
 {
+//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
 	init();
 }
 
 core::BasicTable::~BasicTable()
 {
-//	delete cellContextMenu;
+//	delete cellContextMenu; //At least in linux, never call this inside user namespace, instead use a wrapper function
 //	delete horizontalHeaderContextMenu;
 //	delete verticalHeaderContextMenu;
 }

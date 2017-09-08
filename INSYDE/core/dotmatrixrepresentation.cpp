@@ -3,6 +3,7 @@
 core::DotMatrixRepresentation::DotMatrixRepresentation(const vector<double> &inputs, QWidget *parent) :
 	DataRepresentationWidget(inputs, parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init();
 }
 

@@ -3,12 +3,14 @@
 core::Connector::Connector() :
 	GraphicObject()
 {
+//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
 	init(0, 0);
 }
 
 core::Connector::Connector(GraphicObject *begin, GraphicObject *end) :
 	GraphicObject()
 {
+//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
 	init(begin, end);
 }
 

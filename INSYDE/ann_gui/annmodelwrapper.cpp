@@ -4,7 +4,7 @@
 ann_gui::ANNModelWrapper::ANNModelWrapper() :
 	QAbstractItemModel()
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(0);
 }
@@ -12,7 +12,7 @@ ann_gui::ANNModelWrapper::ANNModelWrapper() :
 ann_gui::ANNModelWrapper::ANNModelWrapper(ArtificialNeuralNetwork *ann, QObject *parent) :
 	QAbstractItemModel(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(ann);
 }
@@ -27,9 +27,6 @@ void ann_gui::ANNModelWrapper::setArtificialNeuralNetwork(ArtificialNeuralNetwor
 	this->ann = ann;
 
 	switch(ann->getType()){
-		case ann_base::ArtificialNeuralNetwork::NoType:
-
-			break;
 		case ann_base::ArtificialNeuralNetwork::Adaline:
 			adaline = (Adaline*)ann;
 
@@ -136,7 +133,6 @@ QVariant ann_gui::ANNModelWrapper::data(const QModelIndex &index, int role) cons
 
 			}
 		}
-		case ann_base::ArtificialNeuralNetwork::NoType:
 		case ann_base::ArtificialNeuralNetwork::Adaline:
 		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
 		case ann_base::ArtificialNeuralNetwork::Hopfiel:
@@ -252,8 +248,6 @@ QModelIndex ann_gui::ANNModelWrapper::parent(const QModelIndex &child) const
 bool ann_gui::ANNModelWrapper::hasChildren(const QModelIndex &parent) const
 {
 	switch(ann->getType()){
-		case ann_base::ArtificialNeuralNetwork::NoType:
-			break;
 		case ann_base::ArtificialNeuralNetwork::Adaline:
 			break;
 		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
@@ -296,8 +290,6 @@ int ann_gui::ANNModelWrapper::rowCount(const QModelIndex &parent) const
 {
 
 	switch(ann->getType()){
-		case ann_base::ArtificialNeuralNetwork::NoType:
-			break;
 		case ann_base::ArtificialNeuralNetwork::Adaline:
 			break;
 		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
@@ -458,8 +450,6 @@ void ann_gui::ANNModelWrapper::init(ArtificialNeuralNetwork *ann)
 void ann_gui::ANNModelWrapper::setupTree()
 {
 	switch(ann->getType()){
-		case ann_base::ArtificialNeuralNetwork::NoType:
-			break;
 		case ann_base::ArtificialNeuralNetwork::Adaline:
 			break;
 		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
@@ -535,8 +525,6 @@ void ann_gui::ANNModelWrapper::setupTree()
 void ann_gui::ANNModelWrapper::updateTree()
 {
 	switch(ann->getType()){
-		case ann_base::ArtificialNeuralNetwork::NoType:
-			break;
 		case ann_base::ArtificialNeuralNetwork::Adaline:
 			break;
 		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:

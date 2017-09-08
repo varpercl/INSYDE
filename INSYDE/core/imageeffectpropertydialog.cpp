@@ -5,15 +5,17 @@ core::ImageEffectPropertyDialog::ImageEffectPropertyDialog(QWidget *parent) :
 	QDialog(parent)
 {
 
+//    Q_INIT_RESOURCE(core_media);
 }
 
 core::ImageEffectPropertyDialog::ImageEffectPropertyDialog(ImageEffect *giee, QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::GraphicImageEffectElementPropertyDialog)
 {
+//    Q_INIT_RESOURCE(core_media);
 	ui->setupUi(this);
 
-	initGIEEPD(giee);
+    init(giee);
 }
 
 core::ImageEffectPropertyDialog::~ImageEffectPropertyDialog()
@@ -77,7 +79,7 @@ void core::ImageEffectPropertyDialog::on_lwEffects_currentRowChanged(int current
 	updateConfigWidget(currentRow);
 }
 
-void core::ImageEffectPropertyDialog::initGIEEPD(ImageEffect *giee)
+void core::ImageEffectPropertyDialog::init(ImageEffect *giee)
 {
 	QListWidgetItem* item;
 	int sList = ui->lwEffects->count();

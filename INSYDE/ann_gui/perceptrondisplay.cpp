@@ -3,7 +3,7 @@
 ann_gui::PerceptronDisplay::PerceptronDisplay(SimplePerceptron *sp) :
 	QGraphicsScene()
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(sp);
 }

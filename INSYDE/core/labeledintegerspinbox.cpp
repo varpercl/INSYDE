@@ -3,6 +3,7 @@
 core::LabeledIntegerSpinBox::LabeledIntegerSpinBox(const QString &label, int value, const Position &pos, QWidget *parent) :
 	LabeledWidget(label, pos, parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(value);
 }
 

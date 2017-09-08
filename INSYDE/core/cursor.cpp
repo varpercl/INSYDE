@@ -3,6 +3,7 @@
 core::Cursor::Cursor(const QRect &rect) :
 	GraphicObject()
 {
+//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
 	grect = new QGraphicsRectItem(rect, this);
 	setCursorRect(rect);
 	setCursorVisible(false);
@@ -10,6 +11,7 @@ core::Cursor::Cursor(const QRect &rect) :
 
 core::Cursor::Cursor(int x, int y, int w, int h)
 {
+//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
 	grect = new QGraphicsRectItem(QRect(x, y, w, h), this);
 	setCursorRect(QRect(x, y, w, h));
 	setCursorVisible(false);

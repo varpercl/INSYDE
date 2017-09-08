@@ -3,12 +3,14 @@
 core::DotMatrixDetailedWindow::DotMatrixDetailedWindow(const vector<double> &data, QWidget *parent) :
 	DetailedWindow(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(data);
 }
 
 core::DotMatrixDetailedWindow::DotMatrixDetailedWindow(DotMatrix *dm, QWidget *parent) :
 	DetailedWindow(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(dm);
 }
 

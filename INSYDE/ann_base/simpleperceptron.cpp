@@ -3,7 +3,8 @@
 using namespace ann_base;
 using namespace math;
 
-void SimplePerceptron::init(int ninputs, double *weights, TransferFunctionType ft, LearningRule lr){
+void SimplePerceptron::init(int ninputs, double *weights, TransferFunctionType ft, LearningRule lr)
+{
 	setWeights(ninputs, weights);
 	setAlfa(1);
 	setThreshold(getRandomValues(1)[0]);
@@ -38,23 +39,34 @@ void SimplePerceptron::init(vector<double> weights, TransferFunctionType tf, Lea
 }
 
 SimplePerceptron::SimplePerceptron(int ninputs, TransferFunctionType tf, LearningRule lr)
+//	:
+//	ArtificialNeuralNetwork(ninputs, 1)
 {
 	init(ninputs, tf, lr);
 }
 
 SimplePerceptron::SimplePerceptron(int ninputs, double *weights, TransferFunctionType ft, LearningRule lr)
+//	:
+//	ArtificialNeuralNetwork(ninputs, 1)
 {
 	init(ninputs, weights, ft, lr);
 }
 
 SimplePerceptron::SimplePerceptron(vector<double> weights, TransferFunctionType tf, LearningRule lr)
+//	:
+//	ArtificialNeuralNetwork((int) weights.size(), 1)
 {
 	init(weights, tf, lr);
 }
 
-void SimplePerceptron::setInputSize(size_t n)
+SimplePerceptron::~SimplePerceptron()
 {
-	if(n != weights.size()){
+
+}
+
+void SimplePerceptron::setInputSize(int n)
+{
+	if(n != (int) weights.size()){
 		setWeights(getRandomValues((int)n));
 		setThreshold(getRandomValues(1)[0]);
 	}else{
@@ -62,7 +74,7 @@ void SimplePerceptron::setInputSize(size_t n)
 	}
 }
 
-int SimplePerceptron::getInputSize()
+int SimplePerceptron::getInputSize() const
 {
 	return (int)weights.size();
 }
@@ -221,6 +233,15 @@ void SimplePerceptron::randomizeWeights(double min, double max)
 	(void)min;
 	(void)max;
 	//TODO: 5/9/15 randomizeWeights must be implemented
+}
+
+QString SimplePerceptron::getName() const
+{
+	return "sp";
+}
+
+void SimplePerceptron::setOutputSize(int)
+{
 }
 
 SimplePerceptron::TrainResult SimplePerceptron::train(const vector<vector<double> > &inputs, const vector<bool> &targets, int epochs, int nEpochsAfterNoChange, double learningFactor)

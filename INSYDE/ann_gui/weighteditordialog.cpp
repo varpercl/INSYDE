@@ -3,7 +3,7 @@
 ann_gui::WeightEditorDialog::WeightEditorDialog(QWidget *parent) :
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init();
 }
@@ -11,7 +11,7 @@ ann_gui::WeightEditorDialog::WeightEditorDialog(QWidget *parent) :
 ann_gui::WeightEditorDialog::WeightEditorDialog(ArtificialNeuralNetwork *sp, QWidget *parent) :
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(sp);
 }
@@ -19,7 +19,7 @@ ann_gui::WeightEditorDialog::WeightEditorDialog(ArtificialNeuralNetwork *sp, QWi
 ann_gui::WeightEditorDialog::WeightEditorDialog(ANNModelWrapper *mw, QWidget *parent) :
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(mw);
 }

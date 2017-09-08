@@ -7,7 +7,7 @@ MLPObjectPropertyDialog::MLPObjectPropertyDialog(QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::GraphicMLPElementPropertyDialog)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	ui->setupUi(this);
 }

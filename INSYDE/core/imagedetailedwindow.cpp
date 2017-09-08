@@ -3,12 +3,14 @@
 core::ImageDetailedWindow::ImageDetailedWindow(QWidget *parent) :
 	DetailedWindow(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(new QImage());
 }
 
 core::ImageDetailedWindow::ImageDetailedWindow(QImage *image, QWidget *parent) :
 	DetailedWindow(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(image);
 }
 

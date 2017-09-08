@@ -86,11 +86,13 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 		 */
 		explicit Adaline(const vector<double> &weights, TransferFunctionType tf);
 
+		~Adaline();
+
 		/*!
 		 * \brief Establish the number of inputs of this ADALINE object.
 		 * \param n The number of inputs.
 		 */
-		void setNumberInputs(size_t n);
+		void setInputSize(int n) override;
 
 		/*!
 		 * \brief Returns the number of inputs of this ADALINE.
@@ -267,7 +269,7 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 		  Establece todos los pesos sinapticos incluyendo el umbral
 		  en un valor aleatorio.
 		  */
-		void randomizeWeights(double min = -1, double max = 1);
+		void randomizeWeights(double min = -1, double max = 1) override;
 
 		/**
 		  Establece el valor alfa de la funcion de transferencia. El factor alfa
@@ -288,11 +290,20 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 		  */
 		double getAlfa();
 
-		Type getType() const;
-		QString getName() const;
+		Type getType() const override;
+		QString getName() const override;
+
+
+		inline int getOutputSize() const override {return 1;}
+		int getInputSize() const override;
+
+	public slots:
+		inline void setOutputSize(int) override {}
+
 
 	private:
 
+		Q_OBJECT
 		//Factor de crecimiento en la funcion de transferencia de salida
 		double alfa;
 
@@ -344,6 +355,7 @@ class ANN_BASE_LIB_IMPORT_EXPORT Adaline : public ArtificialNeuralNetwork
 		  @param TransferFunctionType tf Funcion de transferencia de este perceptron
 		  */
 		void init(const vector<double> &weights, TransferFunctionType tf);
+
 
 };
 

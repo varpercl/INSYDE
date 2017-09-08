@@ -15,7 +15,7 @@ void Adaline::init(int ninputs, TransferFunctionType ft)
 {
 	if(ninputs > 0){
 		setAlfa(1);
-		setNumberInputs(ninputs);
+		setInputSize(ninputs);
 		setTransferFunction(ft);
 	}else{
 		qWarning()<<"Se debe asignar al menos una entrada a un perceptron simple";
@@ -36,24 +36,35 @@ void Adaline::init(const vector<double> &weights, TransferFunctionType tf)
 }
 
 Adaline::Adaline(int ninputs, TransferFunctionType tf)
+//	:
+//	ArtificialNeuralNetwork(ninputs, 1)
 {
 	init(ninputs, tf);
 }
 
 Adaline::Adaline(int ninputs, double *weights, Adaline::TransferFunctionType tf)
+//	:
+//	ArtificialNeuralNetwork(ninputs, 1)
 {
 	init(ninputs, weights, tf);
 }
 
 
 Adaline::Adaline(const vector<double> &weights, TransferFunctionType tf)
+//	:
+//	ArtificialNeuralNetwork((int) weights.size(), 1)
 {
 	init(weights, tf);
 }
 
-void Adaline::setNumberInputs(size_t n)
+Adaline::~Adaline()
 {
-	if(n != weights.size()){
+
+}
+
+void Adaline::setInputSize(int n)
+{
+	if(n != (int) weights.size()){
 		setWeights(getRandomValues((int)n));
 		setThreshold(getRandomValues(1)[0]);
 	}else{
@@ -173,7 +184,12 @@ ArtificialNeuralNetwork::Type Adaline::getType() const
 
 QString Adaline::getName() const
 {
-	return "Adaline";
+	return "adaline";
+}
+
+int Adaline::getInputSize() const
+{
+	return (int) weights.size();
 }
 
 Adaline::TrainResult Adaline::train(const vector<vector<double> > &inputs, const vector<double> &targets, double error, int nEpochs, double learningFactor, Adaline::WeightUpdateType wut)

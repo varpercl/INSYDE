@@ -3,6 +3,7 @@
 core::ImageRepresentationWidget::ImageRepresentationWidget(const vector<double> &data, QWidget *parent) :
 	DataRepresentationWidget(data, parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init();
 }
 

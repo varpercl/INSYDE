@@ -1,32 +1,44 @@
 #include "vector2d.h"
 
-core::Vector2D::Vector2D(){
+core::Vector2D::Vector2D()
+{
+//    Q_INIT_RESOURCE(core_media);
     x = y = 0;
 }
 
-core::Vector2D::Vector2D(double x, double y){
+core::Vector2D::Vector2D(double x, double y)
+{
+//    Q_INIT_RESOURCE(core_media);
     this->x = x;
     this->y = y;
 }
 
-core::Vector2D::Vector2D(double x0, double y0, double x1, double y1){
+core::Vector2D::Vector2D(double x0, double y0, double x1, double y1)
+{
+//    Q_INIT_RESOURCE(core_media);
     x = x1-x0;
     y = y1-y0;
 }
 
-core::Vector2D::Vector2D(QPointF p0, QPointF p1){
-	QPointF pt = p1-p0;
+core::Vector2D::Vector2D(QPointF p0, QPointF p1)
+{
+
+//    Q_INIT_RESOURCE(core_media);
+    QPointF pt = p1-p0;
     x = pt.x();
     y = pt.y();
 }
 
 core::Vector2D::Vector2D(QPointF pt)
 {
+//    Q_INIT_RESOURCE(core_media);
     x = pt.x();
     y = pt.y();
 }
 
-core::Vector2D::Vector2D(float modulo, float angle){
+core::Vector2D::Vector2D(float modulo, float angle)
+{
+//    Q_INIT_RESOURCE(core_media);
     x = modulo*cos(angle);
     y = modulo*sin(angle);
 }

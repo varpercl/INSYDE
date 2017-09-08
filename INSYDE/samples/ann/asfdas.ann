@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ann version="1.0" type="MLP" inputs="1" outputs="1" alfa="1" trasferfunction="sigmoid">
+   <weights>
+      <layer>
+         <neuron format="csv">0.00404786,0.00374686</neuron>
+      </layer>
+      <layer>
+         <neuron format="csv">0.00404786,0.003746860.00604697,-0.00635906</neuron>
+      </layer>
+   </weights>
+</ann>

@@ -3,18 +3,21 @@
 core::Image::Image() :
 	GraphicObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(new QImage());
 }
 
 core::Image::Image(QImage *img) :
 	GraphicObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(img);
 }
 
 core::Image::Image(const QString &imgpath) :
     GraphicObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(imgpath);
 }
 

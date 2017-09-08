@@ -4,6 +4,7 @@ core::RawRepresentationWidget::RawRepresentationWidget(const vector<double> &dat
 	DataRepresentationWidget(data, parent)
 {
 
+//    Q_INIT_RESOURCE(core_media);
 }
 
 core::RawRepresentationWidget::~RawRepresentationWidget()

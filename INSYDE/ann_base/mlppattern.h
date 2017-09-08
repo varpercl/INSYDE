@@ -28,9 +28,9 @@ class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptronPattern : public SimpleInpu
 
 		vector<double> targets;
 
-		void initMLPP(int ntargets);
-		void initMLPP(vector<double> targets);
-		void initMLPP(double *targets, size_t s);
+		void init(int ntargets);
+		void init(vector<double> targets);
+		void init(double *targets, size_t s);
 
 };
 }

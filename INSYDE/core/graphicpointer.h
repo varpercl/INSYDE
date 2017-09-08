@@ -23,6 +23,7 @@ namespace core{
 class GraphicPointer : public GraphicObject
 {
 	private:
+		Q_OBJECT
 //        qreal width;
 //        qreal height;
 
@@ -39,7 +40,7 @@ class GraphicPointer : public GraphicObject
 		  @param w Ancho del apuntador
 		  @param h Alto del apuntador
 		  */
-		void iniciarApuntador(double w, double h);
+		void init(double w, double h);
 
 	public:
 

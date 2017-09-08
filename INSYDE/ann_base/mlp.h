@@ -48,7 +48,7 @@ class MLPTrainingResult;
  * \date 03/02/2015
  */
 
-class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptron : public QThread, public ArtificialNeuralNetwork
+class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptron : public ArtificialNeuralNetwork
 {
 	public:
 
@@ -143,25 +143,25 @@ class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptron : public QThread, public A
 		 * @brief setOutputSize Indica el tamaño de la salida de la red neuronal
 		 * @param size Valor que indica el tamaño de la red neuronal
 		 */
-		void setOutputSize(int size);
+		void setOutputSize(int size) override;
 
 		/**
 		 * @brief getOutputSize Devuelve el tamaño de la salida de la red neuronal
 		 * @return  Valor entero del tamaño de la salida de la red
 		 */
-		int getOutputsSize();
+		int getOutputSize() const override;
 
 		/**
 		 * @brief setInputSize Asigna el tamaño de la entrada de la red neuronal
 		 * @param size Tama�oo que se le asignara a la red
 		 */
-		void setInputSize(int size);
+		void setInputSize(int size) override;
 
 		/**
 		 * @brief getInputSize Devuelve el tamaño de la entrada de esta red neuronal
 		 * @return Tamaño de la entrada de la red
 		 */
-		int getInputsSize();
+		int getInputSize() const override;
 
 		/**
 		 * @brief getOutput Devuelve un vector con los valores de las salidas de la red neuronal, dada las entradas (double)
@@ -498,6 +498,8 @@ class ANN_BASE_LIB_IMPORT_EXPORT MultilayerPerceptron : public QThread, public A
 		/*!
 		 * \brief getWeights Returns a 3D vector with all weights in this MLP, including output weights.
 		 * First index correspond to a layer, second index correspond to a neuron and third index correspond to a weight.
+		 *
+		 * \note: The layer \code{n - 1} correspond to the output layer.
 		 *
 		 * \return A 3D vector with all weights in this MLP.
 		 */

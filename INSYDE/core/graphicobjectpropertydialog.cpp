@@ -4,6 +4,7 @@ core::GraphicObjectPropertyDialog::GraphicObjectPropertyDialog(GraphicObject *ob
 	BasicDialog(parent)
 
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(obj);
 }
 

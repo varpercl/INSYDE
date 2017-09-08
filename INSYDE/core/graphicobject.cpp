@@ -3,12 +3,14 @@
 core::GraphicObject::GraphicObject() :
 	QGraphicsObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(QRect(0,0,50,50), 1);
 }
 
 core::GraphicObject::GraphicObject(const QRectF &rect, int border) :
 	QGraphicsObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(rect, border);
 }
 

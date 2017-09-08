@@ -83,7 +83,7 @@ void gui::PruebaPantalla::on_ANNTrainingDialog_clicked()
 	sizes.push_back(50);
 	mlp = new MultilayerPerceptron(403, 36, sizes, MultilayerPerceptron::Sigmoid);
 
-	ANNTrainingDialog *mlptd = new ANNTrainingDialog(mlp, new TrainingSet(mlp->getInputsSize(), mlp->getOutputsSize()));
+	ANNTrainingDialog *mlptd = new ANNTrainingDialog(mlp, new TrainingSet(mlp->getInputSize(), mlp->getOutputSize()));
 //	mlptd->setEnableOpen(false);
 //	mlptd->setEnableSave(false);
 //	mlptd->setEnableNew(false);

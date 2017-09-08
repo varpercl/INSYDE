@@ -3,12 +3,14 @@
 core::NormalizationWidget::NormalizationWidget(Normalization *nor, const QString &title, QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(title, nor);
 }
 
 core::NormalizationWidget::NormalizationWidget(const QString &title, QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(title, new Normalization());
 }
 

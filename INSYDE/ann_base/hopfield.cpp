@@ -2,7 +2,7 @@
 
 using namespace ann_base;
 
-void Hopfield::initHopfield(unsigned int neuronCount, OutputType tf)
+void Hopfield::init(unsigned int neuronCount, OutputType tf)
 {
 	setNumberNeurons(neuronCount);
 	setOutputFunction(tf);
@@ -31,8 +31,15 @@ bool Hopfield::propagateUnit(int i)
 }
 
 Hopfield::Hopfield(unsigned int neuronNumber, OutputType tf)
+//	:
+//	ArtificialNeuralNetwork(neuronNumber, neuronNumber)
 {
-	initHopfield(neuronNumber, tf);
+	init(neuronNumber, tf);
+}
+
+Hopfield::~Hopfield()
+{
+
 }
 
 void Hopfield::setNumberNeurons(unsigned int nc)
@@ -45,7 +52,7 @@ void Hopfield::setNumberNeurons(unsigned int nc)
 	neuronNumber = nc;
 }
 
-unsigned int Hopfield::getNumberNeurons()
+unsigned int Hopfield::getNumberNeurons() const
 {
 	return neuronNumber;
 }
@@ -89,6 +96,26 @@ vector<vector<int> > Hopfield::calculateWeights(const vector<vector<double> > &p
 //    getOutput(rnds);
 //    qDebug() << str;
 	return weights;
+}
+
+int Hopfield::getOutputSize() const
+{
+	return getNumberNeurons();
+}
+
+int Hopfield::getInputSize() const
+{
+	return getNumberNeurons();
+}
+
+void Hopfield::setInputSize(int i)
+{
+	setNumberNeurons(i);
+}
+
+void Hopfield::setOutputSize(int)
+{
+
 }
 
 Hopfield::OutputResult Hopfield::getOutput(const vector<double> &inputs, const PropagationType &pt)

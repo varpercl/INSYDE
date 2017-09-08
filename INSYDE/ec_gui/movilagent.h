@@ -27,6 +27,8 @@ class MovingActuator;
   */
 class EC_GUI_LIB_IMPORT_EXPORT MovilAgent : public Agent
 {
+	private:
+		Q_OBJECT
 		/*
 		  Indica si se quiere visualizar el trayecto dentro del recuadro del objeto, esta variable es para uso
 		  interno unicamente

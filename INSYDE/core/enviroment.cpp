@@ -2,6 +2,7 @@
 
 core::Enviroment::Enviroment(QObject *parent) : QGraphicsScene(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init();
 }
 

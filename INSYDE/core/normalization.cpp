@@ -3,18 +3,21 @@
 core::Normalization::Normalization() :
 	QObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(Nothing, 999999999, -999999999, 0, 1, 1);
 }
 
 core::Normalization::Normalization(Type nt, double max, double min, double threshold, double amp, double elong) :
 	QObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(nt, max, min, threshold, amp, elong);
 }
 
 core::Normalization::Normalization(const Normalization &nor) :
 	QObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	*this = nor;
 }
 

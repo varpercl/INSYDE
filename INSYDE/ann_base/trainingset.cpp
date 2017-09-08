@@ -54,10 +54,10 @@ TrainingSet::TrainingSet(double **inputs,
 TrainingSet::TrainingSet(MultilayerPerceptron *mlp, DataRepresentation *idr, DataRepresentation *tdr) :
 	QAbstractTableModel()
 {
-	init(vector<vector<double> >(1, vector<double>(mlp->getInputsSize(), 0)),
-		 mlp->getInputsSize(),
-		 vector<vector<double> >(1, vector<double>(mlp->getOutputsSize(), 0)),
-		 mlp->getOutputsSize(),
+	init(vector<vector<double> >(1, vector<double>(mlp->getInputSize(), 0)),
+		 mlp->getInputSize(),
+		 vector<vector<double> >(1, vector<double>(mlp->getOutputSize(), 0)),
+		 mlp->getOutputSize(),
 		 idr,
 		 tdr,
 		 new Normalization(),

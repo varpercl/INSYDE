@@ -114,20 +114,22 @@ class ANN_BASE_LIB_IMPORT_EXPORT SimplePerceptron : public ArtificialNeuralNetwo
 		  */
 		explicit SimplePerceptron(vector<double> weights, TransferFunctionType tf = Step, LearningRule lr = SimpleRule);
 
+		~SimplePerceptron();
+
 		/**
 		  Establece el numero de entradas de este perceptron. Al utilizarse esta funcion
 		  automaticamente todos los pesos sinapticos se estableceran en valores aleatorios
 
-		  @param int n Numero de entradas que tendra este perceptron
+		  @param n Numero de entradas que tendra este perceptron
 		  */
-		void setInputSize(size_t n);
+		void setInputSize(int n) override;
 
 		/**
-			Devuelve el numero de entradas que tiene este perceptron
+		Devuelve el numero de entradas que tiene este perceptron
 
-			@return int Numero de entradas del perceptron actualmente
-			*/
-		int getInputSize();
+		@return int Numero de entradas del perceptron actualmente
+		*/
+		int getInputSize() const override;
 
 		/**
 			Establece los pesos sinapticos actuales de este perceptron.
@@ -303,7 +305,15 @@ class ANN_BASE_LIB_IMPORT_EXPORT SimplePerceptron : public ArtificialNeuralNetwo
 
 		void randomizeWeights(double min = -0.01, double max = 0.01);
 
+		QString getName() const override;
+		inline int getOutputSize() const override {return 1;}
+
+	public slots:
+		void setOutputSize(int o) override;
+
 	private:
+		Q_OBJECT
+
 		//Factor de crecimiento en la funcion de transferencia de salida
 		double alfa;
 
@@ -353,6 +363,7 @@ class ANN_BASE_LIB_IMPORT_EXPORT SimplePerceptron : public ArtificialNeuralNetwo
 			@param TransferFunctionType tf Funcion de transferencia de este perceptron
 			*/
 		void init(vector<double> weights, TransferFunctionType tf, LearningRule lr);
+
 
 };
 

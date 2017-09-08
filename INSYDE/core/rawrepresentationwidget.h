@@ -13,7 +13,7 @@ namespace core{
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 02/02/2015
  */
-class CORE_LIB_IMPORT_EXPORT RawRepresentationWidget :public DataRepresentationWidget
+class CORE_LIB_IMPORT_EXPORT RawRepresentationWidget : public DataRepresentationWidget
 {
 	public:
 
@@ -22,7 +22,7 @@ class CORE_LIB_IMPORT_EXPORT RawRepresentationWidget :public DataRepresentationW
 		 * \param data The data to be passed by the user.
 		 * \param parent The parent of this widget.
 		 */
-		RawRepresentationWidget(const vector<double> &data, QWidget *parent = 0);
+		explicit RawRepresentationWidget(const vector<double> &data, QWidget *parent = 0);
 
 		~RawRepresentationWidget();
 
@@ -32,7 +32,7 @@ class CORE_LIB_IMPORT_EXPORT RawRepresentationWidget :public DataRepresentationW
 		void update();
 
 	private:
-
+		Q_OBJECT
 		/*!
 		 * \brief Initialize all attributes of this class.
 		 * \param inputs The inputs to be represented by this widget.

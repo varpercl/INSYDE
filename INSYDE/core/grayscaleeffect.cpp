@@ -2,11 +2,13 @@
 
 core::GrayScaleEffect::GrayScaleEffect()
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(QImage());
 }
 
 core::GrayScaleEffect::GrayScaleEffect(const QImage &img)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(img);
 }
 

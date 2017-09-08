@@ -3,12 +3,14 @@
 core::GraphicDetailedView::GraphicDetailedView(QWidget *parent) :
 	QGraphicsView(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(new Enviroment());
 }
 
 core::GraphicDetailedView::GraphicDetailedView(Enviroment *env, QWidget *parent) :
 	QGraphicsView(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(env);
 }
 

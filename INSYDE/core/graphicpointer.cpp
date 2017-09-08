@@ -1,18 +1,22 @@
 #include "graphicpointer.h"
 
-core::GraphicPointer::GraphicPointer(){
-    iniciarApuntador(40, 80);
+core::GraphicPointer::GraphicPointer()
+{
+//    Q_INIT_RESOURCE(core_media);
+    init(40, 80);
 }
 
-core::GraphicPointer::GraphicPointer(double width){
-	iniciarApuntador(width, width*2);
+core::GraphicPointer::GraphicPointer(double width)
+{
+//    Q_INIT_RESOURCE(core_media);
+    init(width, width*2);
 }
 
 core::GraphicPointer::~GraphicPointer()
 {
 }
 
-void core::GraphicPointer::iniciarApuntador(double width, double height){
+void core::GraphicPointer::init(double width, double height){
     lineWidth = 4;
     curShape.lineTo(QPointF(width, 0));
     curShape.lineTo(QPointF(width*0.7, -height*0.1));

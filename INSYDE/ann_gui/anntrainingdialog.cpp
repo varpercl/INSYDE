@@ -1,9 +1,17 @@
 #include "anntrainingdialog.h"
 
+ann_gui::ANNTrainingDialog::ANNTrainingDialog()
+{
+	vector<int> layers(1);
+	layers[0] = 1;
+
+	init(new MultilayerPerceptron(1, 1, layers), new TrainingSet(), new TrainingSet(), new TrainingSet());
+}
+
 ann_gui::ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, QWidget *parent) :
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+	//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(mlp, ts, NULL, NULL);
 }
@@ -11,7 +19,7 @@ ann_gui::ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, Trainin
 ann_gui::ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, TrainingSet *vs, TrainingSet *testset, QWidget *parent):
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+	//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(mlp, ts, vs, testset);
 }
@@ -19,7 +27,7 @@ ann_gui::ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, Trainin
 ann_gui::ANNTrainingDialog::ANNTrainingDialog(MLPObject *gmlp, QWidget *parent) :
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+	//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(gmlp->getMultilayerPerceptron(),
 		 gmlp->getTrainingSet(),
@@ -91,12 +99,35 @@ MultilayerPerceptron *ann_gui::ANNTrainingDialog::getMultilayerPerceptron() cons
 
 void ann_gui::ANNTrainingDialog::saveClick()
 {
+	QString file = QFileDialog::getSaveFileName();
+	QSaveFile sf; //Safe write
+
+	if(file != ""){
+		annfile->setFileName(file);
+
+		if(annfile->open(QIODevice::OpenModeFlag::ReadWrite))
+		{
+
+			annfile->flush();
+			annfile->close();
+		}
+	}
+}
+
+void ann_gui::ANNTrainingDialog::openClick()
+{
+	QString file = QFileDialog::getOpenFileName();
 
 }
 
 void ann_gui::ANNTrainingDialog::setCanEditANNType(bool b)
 {
 	canEditANN = b;
+}
+
+void ann_gui::ANNTrainingDialog::canEditANNType(bool b)
+{
+	setCanEditANNType(b);
 }
 
 bool ann_gui::ANNTrainingDialog::getCanEditANNType() const
@@ -141,7 +172,7 @@ void ann_gui::ANNTrainingDialog::closeEvent(QCloseEvent *)
 
 void ann_gui::ANNTrainingDialog::onOuputSizeChanged()
 {
-	lisbOutputs->setValue(mlp->getOutputsSize());
+	lisbOutputs->setValue(mlp->getOutputSize());
 }
 
 void ann_gui::ANNTrainingDialog::onTrainingFinished(MLPTrainingResult tres)
@@ -179,7 +210,7 @@ void ann_gui::ANNTrainingDialog::multipleTrainingResult(MLPTrainingResult *tres)
 	while(QFile::exists(wnefp + QString::number(fileIndex) + ext)){
 		fileIndex++;
 	}
-	createFile(wnefp + QString::number(fileIndex) + ext, tres, tres->getMSESize());
+	saveFile(wnefp + QString::number(fileIndex) + ext, tres, tres->getMSESize());
 }
 
 void ann_gui::ANNTrainingDialog::onBtnEditTrainingSetClicked()
@@ -234,7 +265,7 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 			decimals = 5,
 			max = 999999,
 			min = -999999/*,
-			step = 0.01*/;
+					step = 0.01*/;
 
 	const double
 			minError = 0.5;
@@ -353,20 +384,25 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 	//Initialize every WeightEditorDialog
 	weightEditor = new WeightEditorDialog();
 
+	//Initialize ANNFiles
+	annfile = new ANNFile(".", imlp);
+
 	//TODO: 26/4/16 implement all ANNs
 	QStringList annTypeList;
 	annTypeList <<
-//				   "Adaline" <<
-//				   "Hopfield" <<
+				   //				   "Adaline" <<
+				   //				   "Hopfield" <<
 				   "MLP" //<<
-//				   "Simple Perceptron" <<
-//				   "Kohonen"
+				   //				   "Simple Perceptron" <<
+				   //				   "Kohonen"
 				   ;
 
 	lcbANNType->getComboBox()->addItems(annTypeList);
 
 	//==================================================================================================================
 	sbInValue = lisbInputs->getIntegerSpinBox();
+	sbInValue->setMinimum(1);
+	sbInValue->setMaximum(100000);
 	sbInValue->setReadOnly(!canEditInSize);
 	if(canEditInSize){
 		sbInValue->setButtonSymbols(QSpinBox::PlusMinus);
@@ -376,6 +412,8 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 
 	//==================================================================================================================
 	sbOutValue = lisbOutputs->getIntegerSpinBox();
+	sbOutValue->setMinimum(1);
+	sbOutValue->setMaximum(100000);
 	sbOutValue->setReadOnly(!canEditOutSize);
 	if(canEditOutSize){
 		sbOutValue->setButtonSymbols(QSpinBox::PlusMinus);
@@ -412,11 +450,11 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 
 	//==================================================================================================================
 	ldsbSlope->setDecimals(decimals);
-//	ldsbSlope->getDoubleSpinBox()->setSingleStep(step);
+	//	ldsbSlope->getDoubleSpinBox()->setSingleStep(step);
 
 	//==================================================================================================================
 	ldsbLearningRate->setDecimals(decimals);
-//	ldsbLearningRate->getDoubleSpinBox()->setSingleStep(step);
+	//	ldsbLearningRate->getDoubleSpinBox()->setSingleStep(step);
 
 	//==================================================================================================================
 	cbStopCondition->addItem(QString::fromLatin1("MSE mínimo"));
@@ -480,7 +518,7 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 	wOptimizations->setLayout(vlyOptimizationWidget);
 
 	//==================================================================================================================
-//	saOptimization->setWidgetResizable(true);
+	//	saOptimization->setWidgetResizable(true);
 	saOptimization->setWidget(wOptimizations);
 
 	//==================================================================================================================
@@ -495,7 +533,7 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 
 	//==================================================================================================================
 	xAxis->setPosition(KDChart::CartesianAxis::Bottom);
-//	xAxis->setAlignment(Qt::AlignJustify);
+	//	xAxis->setAlignment(Qt::AlignJustify);
 	xAxis->setTitleText("Epocas");
 
 	//==================================================================================================================
@@ -624,8 +662,8 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 
 	ta = MultilayerPerceptron::Backpropagation;
 
-	lisbInputs->setValue(mlp->getInputsSize());
-	lisbOutputs->setValue(mlp->getOutputsSize());
+	lisbInputs->setValue(mlp->getInputSize());
+	lisbOutputs->setValue(mlp->getOutputSize());
 
 	annModel = new ANNModelWrapper(mlp);
 
@@ -644,6 +682,9 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 	onCbStopConditionCurrentIndexChanged(0);
 	onBtnRandomizeClicked();
 	wSimulatedAnnealing->setVisible(false);
+
+	//============================================================================================
+	setWindowTitle(tr("ANN Training Tool"));
 
 
 	//Connect save action
@@ -673,7 +714,7 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 	connect(ldsbRndTo->getDoubleSpinBox(), SIGNAL(valueChanged(double)), SLOT(onRndToValueChanged(double)));
 }
 
-void ann_gui::ANNTrainingDialog::createFile(QString path, MLPTrainingResult *tr, int nsamples){
+void ann_gui::ANNTrainingDialog::saveFile(QString path, MLPTrainingResult *tr, int nsamples){
 	QFile *f = new QFile(path);
 	if (f->open(QFile::ReadWrite)) { // file opened successfully
 		f->write("", qstrlen(""));
@@ -708,6 +749,47 @@ void ann_gui::ANNTrainingDialog::createFile(QString path, MLPTrainingResult *tr,
 			case QFile::PermissionsError:
 			case QFile::CopyError:
 				msg = "Ocurrio un error inesperado al intentar guardar el archivo.\nPor favor intentelo de nuevo.";
+				break;
+		}
+		QMessageBox::critical(this, "Error", msg);
+	}
+	delete f;
+}
+
+void ann_gui::ANNTrainingDialog::saveFile(QString path, ArtificialNeuralNetwork *ann)
+{
+	ANNFile *f = new ANNFile(path, ann);
+
+	if (f->open(QFile::ReadWrite)) { // file opened successfully
+		f->write("", qstrlen("")); //NOTE: Why this? I can't remember. Evaluate if necessary or if it was wrote for testing purposes
+		QTextStream t( f ); // use a text stream
+		QString s("");
+		const QString sep = "\t";
+
+
+		t << s;
+		f->close();
+	}else if(path != ""){
+		QString msg;
+		switch(f->error()){
+			case QFile::OpenError:
+				msg = tr("No se pudo guardar el archivo.\nPosiblemente el archivo esta abierto o no existe.");
+				break;
+			case QFile::NoError:
+			case QFile::ReadError:
+			case QFile::WriteError:
+			case QFile::FatalError:
+			case QFile::ResourceError:
+			case QFile::AbortError:
+			case QFile::TimeOutError:
+			case QFile::UnspecifiedError:
+			case QFile::RemoveError:
+			case QFile::RenameError:
+			case QFile::PositionError:
+			case QFile::ResizeError:
+			case QFile::PermissionsError:
+			case QFile::CopyError:
+				msg = tr("Ocurrio un error inesperado al intentar guardar el archivo.\nPor favor intentelo de nuevo.");
 				break;
 		}
 		QMessageBox::critical(this, "Error", msg);
@@ -791,8 +873,8 @@ void ann_gui::ANNTrainingDialog::updateActionClearChart()
 bool ann_gui::ANNTrainingDialog::isValidTrainingSet(TrainingSet *ts)
 {
 	//FIXME: 30/4/16 isValidTrainingSet: not working, check it
-	if(ts->getInputsSize() == mlp->getInputsSize() &&
-	   ts->getTargetsSize() == mlp->getOutputsSize()){
+	if(ts->getInputsSize() == mlp->getInputSize() &&
+			ts->getTargetsSize() == mlp->getOutputSize()){
 		return true;
 	}
 
@@ -827,20 +909,20 @@ void ann_gui::ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingSt
 			actionClearChart->setEnabled(false);
 
 			BackpropagationSettings *bp = new BackpropagationSettings(
-											  lisbEpochs->getValue(),
-											  (StopCondition)cbStopCondition->currentIndex(),
-											  ldsbMinError->getValue(),
-											  ldsbLearningRate->getValue());
+						lisbEpochs->getValue(),
+						(StopCondition)cbStopCondition->currentIndex(),
+						ldsbMinError->getValue(),
+						ldsbLearningRate->getValue());
 
 			SimulatedAnnealingSettings *sa = new SimulatedAnnealingSettings(
-												 wSimulatedAnnealing->getMinTemperature(),
-												 wSimulatedAnnealing->getSamples(),
-												 wSimulatedAnnealing->getNumberOfChanges(),
-												 wSimulatedAnnealing->getStartCondition(),
-												 wSimulatedAnnealing->getStartTemperature(),
-												 wSimulatedAnnealing->getMinNoise(),
-												 wSimulatedAnnealing->getMaxNoise(),
-												 wSimulatedAnnealing->getDecTempFactor());
+						wSimulatedAnnealing->getMinTemperature(),
+						wSimulatedAnnealing->getSamples(),
+						wSimulatedAnnealing->getNumberOfChanges(),
+						wSimulatedAnnealing->getStartCondition(),
+						wSimulatedAnnealing->getStartTemperature(),
+						wSimulatedAnnealing->getMinNoise(),
+						wSimulatedAnnealing->getMaxNoise(),
+						wSimulatedAnnealing->getDecTempFactor());
 			//Si esta habilitado Simulated Annealing
 			if(chkSA->isChecked()){
 				mlp->startTraining(trainingSet, bp, sa);
@@ -909,8 +991,6 @@ void ann_gui::ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingSt
 void ann_gui::ANNTrainingDialog::updateControls(ArtificialNeuralNetwork *ann)
 {
 	switch(ann->getType()){
-		case ann_base::ArtificialNeuralNetwork::NoType:
-			break;
 		case ann_base::ArtificialNeuralNetwork::Adaline:
 			break;
 		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
@@ -944,11 +1024,11 @@ void ann_gui::ANNTrainingDialog::onTrainClicked()
 		case ANNTrainingDialog::Stopped:
 		default:
 
-			if(mlp->getInputsSize() != trainingSet->getInputsSize()){
+			if(mlp->getInputSize() != trainingSet->getInputsSize()){
 				strings << QString::fromLatin1("- El número de entradas de la red neuronal no coincide con el número de entradas suministradas por el conjunto de entrenamiento. \n\n");
 				incongruence = true;
 			}
-			if(mlp->getOutputsSize() != trainingSet->getTargetsSize()){
+			if(mlp->getOutputSize() != trainingSet->getTargetsSize()){
 				strings << QString::fromLatin1("- El número de salidas de la red neuronal no coincide con el número de salidas suministradas por el conjunto de entrenamiento. \n\n");
 				incongruence = true;
 			}
@@ -1099,15 +1179,15 @@ void ann_gui::ANNTrainingDialog::exportData()
 {
 	if(!tres->isEmpty()){
 		QString path = QFileDialog::getSaveFileName(
-						   this,
-						   "Ruta del archivo",
-						   "resultado",
-						   tr("Valores separados por comas (*.csv);;Archivo EXCEL (*.xls);;Archivo XML (*.xml)")
-						   );
+					this,
+					"Ruta del archivo",
+					"resultado",
+					tr("Valores separados por comas (*.csv);;Archivo EXCEL (*.xls);;Archivo XML (*.xml)")
+					);
 		if(path != ""){
 			SamplesDialog sd(tres, this);
 			if(sd.exec() == QDialog::Accepted){
-				createFile(path, tres, sd.getSampleCount());
+				saveFile(path, tres, sd.getSampleCount());
 				//TODO: corregir boton de guardar
 				//				saveFile->setEnabled(false);
 				return;
@@ -1126,7 +1206,7 @@ void ann_gui::ANNTrainingDialog::onBtnEditValidationTestClicked()
 	if(validationSet != NULL){
 		validationSetDialog = new TrainingSetDialog(validationSet);
 	}else{
-		validationSetDialog = new TrainingSetDialog(validationSet = new TrainingSet(mlp->getInputsSize(), mlp->getOutputsSize()));
+		validationSetDialog = new TrainingSetDialog(validationSet = new TrainingSet(mlp->getInputSize(), mlp->getOutputSize()));
 	}
 	if(validationSetDialog->exec() == QDialog::Accepted){
 		validationSet = validationSetDialog->getTrainingSet();
@@ -1190,12 +1270,12 @@ void ann_gui::ANNTrainingDialog::onMultipleTrainingClicked()
 	bool ok = false;
 
 	multipleReportPath = QFileDialog::getSaveFileName(
-							 this,
-							 "Ruta del archivo",
-							 "resultado",
-							 tr("Valores separados por comas (*.csv);;Archivo EXCEL (*.xls);;Archivo XML (*.xml)"),
-							 0,
-							 QFileDialog::ShowDirsOnly);
+				this,
+				"Ruta del archivo",
+				"resultado",
+				tr("Valores separados por comas (*.csv);;Archivo EXCEL (*.xls);;Archivo XML (*.xml)"),
+				0,
+				QFileDialog::ShowDirsOnly);
 	if(multipleReportPath == ""){
 		return;
 	}
@@ -1214,19 +1294,19 @@ void ann_gui::ANNTrainingDialog::onMultipleTrainingClicked()
 		//		TrainingSet *trainingSet = gmlp->getTrainingSet();
 
 		BackpropagationSettings *bp = new BackpropagationSettings(
-										  lisbEpochs->getValue(),
-										  (StopCondition)cbStopCondition->currentIndex(),
-										  ldsbMinError->getValue(),
-										  //											  ui->sbMinRMSError->value(),
-										  //											  ui->sbMinErrorClasification->value(),
-										  ldsbLearningRate->getValue());
+					lisbEpochs->getValue(),
+					(StopCondition)cbStopCondition->currentIndex(),
+					ldsbMinError->getValue(),
+					//											  ui->sbMinRMSError->value(),
+					//											  ui->sbMinErrorClasification->value(),
+					ldsbLearningRate->getValue());
 
 
 		SimulatedAnnealingSettings *sa = wSimulatedAnnealing->getSimulatedAnnealingSettings();
 
 		for(int i = 0; i < nSamples; i++){
-			arr[i] = new MultilayerPerceptron(mlp->getInputsSize(),
-											  mlp->getOutputsSize(),
+			arr[i] = new MultilayerPerceptron(mlp->getInputSize(),
+											  mlp->getOutputSize(),
 											  mlp->getLayerSizes(),
 											  mlp->getTransferFunctionType());
 

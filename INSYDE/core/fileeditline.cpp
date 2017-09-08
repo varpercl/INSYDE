@@ -3,12 +3,14 @@
 core::FileEditLine::FileEditLine(QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init("");
 }
 
 core::FileEditLine::FileEditLine(const QString &path, QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(path);
 }
 

@@ -3,19 +3,23 @@
 core::IntegerSizeWidget::IntegerSizeWidget(QWidget *parent) :
 	QWidget(parent)
 {
-	init(QSize(0,0),
-			QPair<IntegerSizeWidget::Units, IntegerSizeWidget::Units>(IntegerSizeWidget::Pixels, IntegerSizeWidget::Pixels));
+//    Q_INIT_RESOURCE(core_media);
+    init(QSize(0,0),
+         QPair<IntegerSizeWidget::Units,
+         IntegerSizeWidget::Units>(IntegerSizeWidget::Pixels, IntegerSizeWidget::Pixels));
 }
 
 core::IntegerSizeWidget::IntegerSizeWidget(const QSize &size, const QPair<Units, Units> &units, QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(size, units);
 }
 
 core::IntegerSizeWidget::IntegerSizeWidget(int width, int height, const QPair<Units, Units> &units, QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(QSize(width, height), units);
 }
 

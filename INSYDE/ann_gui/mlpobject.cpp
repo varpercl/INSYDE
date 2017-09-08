@@ -2,14 +2,14 @@
 
 ann_gui::MLPObject::MLPObject(MultilayerPerceptron *mlp)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
-	init(mlp, new TrainingSet(mlp->getInputsSize(), mlp->getOutputsSize()));
+	init(mlp, new TrainingSet(mlp->getInputSize(), mlp->getOutputSize()));
 }
 
 ann_gui::MLPObject::MLPObject(MultilayerPerceptron *mlp, TrainingSet *ts)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(mlp, ts);
 }

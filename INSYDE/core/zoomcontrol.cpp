@@ -4,6 +4,7 @@
 core::ZoomControl::ZoomControl(QWidget *parent) :
 	QToolBar(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init();
 }
 
@@ -60,7 +61,7 @@ void core::ZoomControl::onEditZoomChanged(int val)
 
 void core::ZoomControl::init()
 {
-    Q_INIT_RESOURCE(core_media);
+//    Q_INIT_RESOURCE(core_media);
 
 	layout()->setMargin(0);
 

@@ -5,6 +5,7 @@ core::SelectImageSegmentDialog::SelectImageSegmentDialog(const QImage &img, cons
 	QDialog(parent),
 	ui(new Ui::SelectImageSegmentDialog)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(img, selrect);
 }
 

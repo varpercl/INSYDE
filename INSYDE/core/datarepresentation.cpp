@@ -2,11 +2,13 @@
 
 core::DataRepresentation::DataRepresentation()
 {
+//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
 	init(Raw, QImage::Format_RGB32, 1, 1);
 }
 
 core::DataRepresentation::DataRepresentation(const core::DataRepresentation::Type &type, const QImage::Format &imgFormat, int w, int h)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(type, imgFormat, w, h);
 }
 

@@ -3,12 +3,14 @@
 core::DoubleMinMaxWidget::DoubleMinMaxWidget(QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(0, 1);
 }
 
 core::DoubleMinMaxWidget::DoubleMinMaxWidget(double min, double max, QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(min, max);
 }
 

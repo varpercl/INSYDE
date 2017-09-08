@@ -12,6 +12,7 @@
 
 #include "../ann_gui/mlpobject.h"
 #include "../ec_gui/shootingunit.h"
+#include "../ec_gui/unit.h"
 
 using namespace ec_gui;
 
@@ -28,7 +29,7 @@ class Unit;
  * \author Edixon Vargas <ingedixonvargas@gmail.com>
  * \date 08/06/2012
  */
-class View : public DetailedWindow
+class View : public core::DetailedWindow
 {
 
 	public:

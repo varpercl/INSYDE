@@ -26,6 +26,7 @@
 #include "../ann_base/hopfield.h"
 #include "../ann_base/kohonen.h"
 #include "../ann_base/simpleperceptron.h"
+#include "../ann_base/annfile.h"
 
 namespace ann_gui
 {
@@ -43,6 +44,11 @@ class MLPObject;
 class ANN_GUI_LIB_IMPORT_EXPORT ANNTrainingDialog : public BasicDialog
 {
 	public:
+
+		/*!
+		 * \brief ANNTrainingDialog
+		 */
+		explicit ANNTrainingDialog();
 
 		/*!
 		 * \brief ANNTrainingDialog
@@ -97,8 +103,15 @@ class ANN_GUI_LIB_IMPORT_EXPORT ANNTrainingDialog : public BasicDialog
 		void setArtificialNeuralNetwork(MultilayerPerceptron *mlp);
 		MultilayerPerceptron *getMultilayerPerceptron() const;
 
-		void saveClick();
+		/*!
+		 * \brief saveClick
+		 */
+		void saveClick() override;
 
+		/*!
+		 * \brief openClick
+		 */
+		void openClick() override;
 
 		/*!
 		 * \brief canEditANNType Indicate if user can change ANN type. This implies a partial or total restructuration
@@ -109,6 +122,11 @@ class ANN_GUI_LIB_IMPORT_EXPORT ANNTrainingDialog : public BasicDialog
 		 * TODO: 5/9/15 implement canChangeANNType
 		 */
 		void setCanEditANNType(bool b);
+
+		/*!
+		 * \see setCanEditANNType
+		 */
+		void canEditANNType(bool b);
 
 		/*!
 		 * \brief getCanEditANNType
@@ -159,7 +177,7 @@ class ANN_GUI_LIB_IMPORT_EXPORT ANNTrainingDialog : public BasicDialog
 		/*!
 		 * \brief closeEvent
 		 */
-		void closeEvent(QCloseEvent *);
+		void closeEvent(QCloseEvent *) override;
 
 	private slots:
 
@@ -395,6 +413,8 @@ class ANN_GUI_LIB_IMPORT_EXPORT ANNTrainingDialog : public BasicDialog
 		ANNModelWrapper
 		*annModel;
 
+		ANNFile *annfile;
+
 		//Cuadro de dialogo del conjunto de entrenamiento
 		TrainingSetDialog
 		*trainingSetDialog,
@@ -416,7 +436,18 @@ class ANN_GUI_LIB_IMPORT_EXPORT ANNTrainingDialog : public BasicDialog
 		 * @param tr Resultado obtenido
 		 * @param interval Intervalo que se usara para generar el archivo
 		 */
-		void createFile(QString path, MLPTrainingResult *tr, int interval);
+		void saveFile(QString path, MLPTrainingResult *tr, int interval);
+
+		/*!
+		 * \brief saveFile Saves an ANN file storing all information about it.
+		 * \param path The file path
+		 * \param ann The ANN object to save
+		 *
+		 * TODO: evaluate if necessary, it is replaced by saveClick function and ANNFile wrapper
+		 *
+		 */
+		void saveFile(QString path, ArtificialNeuralNetwork *ann);
+
 
 		/**
 		 * @brief disableAllControls Bloquea todos los controles, por lo general usado cuando se inicializa el entrenamiento

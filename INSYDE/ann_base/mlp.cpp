@@ -1,21 +1,12 @@
 #include "mlp.h"
 using namespace ann_base;
 
-void MultilayerPerceptron::setSaveTrainingResults(bool estr)
-{
-	enabledSaveTrainingResults = estr;
-}
-
-bool MultilayerPerceptron::getSaveTrainingResults() const
-{
-	return enabledSaveTrainingResults;
-}
-
 MultilayerPerceptron::MultilayerPerceptron(int ninputs,
 										   int noutputs,
 										   const vector<int> &layersizes,
-										   const TransferFunctionType &tf) :
-	QThread(0)
+										   const TransferFunctionType &tf)
+//	:
+//	ArtificialNeuralNetwork(ninputs, noutputs)
 {
 	init(ninputs, noutputs, layersizes, tf);
 }
@@ -37,7 +28,7 @@ void MultilayerPerceptron::init(int ninputs, int noutputs, const vector<int> &hi
 {
 	tres = new MLPTrainingResult();
 
-	nInputs = ninputs;
+//	nInputs = ninputs;
 	training = false;
 
 	setDefaultRandomRange(-1, 1);
@@ -154,7 +145,7 @@ void MultilayerPerceptron::addLayer(int nElements)
 	QMutexLocker locker(&mutex);
 
 	int last = (int)layerWeights.size();
-	layerWeights.push_back(vector<vector<double> >(nElements, vector<double>(getInputsSize() + 1)));
+	layerWeights.push_back(vector<vector<double> >(nElements, vector<double>(getInputSize() + 1)));
 
 	randomizeWeights(defaultRandomMinimum, defaultRandomMaximum);
 
@@ -242,7 +233,7 @@ QString MultilayerPerceptron::getName() const
 
 void MultilayerPerceptron::setSaturationRange(double min, double max)
 {
-	//TODO: 3/9/15 implement setEnableSaturationRange method. Implement this method on every assigment.
+	//TODO: must be validated the maxSat and minSat on each weight assigment
 	minSat = min;
 	maxSat = max;
 }
@@ -294,7 +285,7 @@ double MultilayerPerceptron::getNewMSE(const vector<vector<vector<double> > > &l
 	size_t nPatterns = inputs.size();
 	double pMSE = 0;
 	vector<double> yObtained;
-	size_t nOutputs = getOutputsSize();
+	size_t nOutputs = getOutputSize();
 	for(size_t p = 0; p < nPatterns; p++){
 		yObtained = getAuxOutput(lweights, oweights, inputs[p]);
 		for(size_t neuron = 0; neuron < nOutputs; neuron++){
@@ -333,7 +324,7 @@ void MultilayerPerceptron::setLayerSize(unsigned int layer, int size)
 	}
 	if(layer == 0){
 		for(size_t n = 0; n < layerWeights[layer].size(); n++){
-			layerWeights[layer][n] = math::getRandomValues(getInputsSize() + 1, defaultRandomMinimum, defaultRandomMaximum);
+			layerWeights[layer][n] = math::getRandomValues(getInputSize() + 1, defaultRandomMinimum, defaultRandomMaximum);
 		}
 	}else{
 		for(size_t n = 0; n < layerWeights[layer].size(); n++){
@@ -415,7 +406,7 @@ void MultilayerPerceptron::setOutputSize(int size)
 	emit weightsChanged();
 }
 
-int MultilayerPerceptron::getOutputsSize()
+int MultilayerPerceptron::getOutputSize() const
 {
 	return (int)outputWeights.size();
 }
@@ -433,7 +424,7 @@ void MultilayerPerceptron::setInputSize(int size)
 	emit weightsChanged();
 }
 
-int MultilayerPerceptron::getInputsSize()
+int MultilayerPerceptron::getInputSize() const
 {
 //	return layerWeights[0][0].size() - 1;
 	return nInputs;
@@ -481,7 +472,7 @@ vector<int> MultilayerPerceptron::getClasifierOutput(const vector<double> &input
 {
 	vector<double> yObtained = getOutput(inputs);
 	vector<int> out(yObtained.size());
-	int os = getOutputsSize();
+	int os = getOutputSize();
 	for(int i = 0; i < os; i++){
 		switch(cot){
 			case UnipolarClasifier:
@@ -581,7 +572,7 @@ void MultilayerPerceptron::randomizeWeights(double min, double max)
 	for(layer = 0; layer < nLayers; layer++){
 		nNeurons = layerWeights[layer].size();
 		for(neuron = 0; neuron < nNeurons; neuron++){
-			layerWeights[layer][neuron] = (layer == 0 ? math::getRandomValues(getInputsSize()+1, min, max) : math::getRandomValues((int)(layerWeights[layer-1].size()+1), min, max));
+			layerWeights[layer][neuron] = (layer == 0 ? math::getRandomValues(getInputSize()+1, min, max) : math::getRandomValues((int)(layerWeights[layer-1].size()+1), min, max));
 		}
 	}
 	nOutputs = outputWeights.size();
@@ -675,7 +666,7 @@ void MultilayerPerceptron::startTraining(const vector<MultilayerPerceptronPatter
 		targets[i] = ts[i]->getTargets();
 	}
 
-	this->ts = new TrainingSet(inputs, getInputsSize(), targets, getOutputsSize());
+	this->ts = new TrainingSet(inputs, getInputSize(), targets, getOutputSize());
 	mlpbpts = new BackpropagationSettings(epochs,
 												 MSEmin,
 												 RMSEmin,
@@ -699,7 +690,7 @@ void MultilayerPerceptron::startTraining(const vector<vector<double> > &inputs,
 										 //										 TrainingAlgorithm ta,
 										 StopCondition sc)
 {
-	ts = new TrainingSet(inputs, getInputsSize(), targets, getOutputsSize());
+	ts = new TrainingSet(inputs, getInputSize(), targets, getOutputSize());
 	mlpbpts = new BackpropagationSettings(epochs,
 												 MSEmin,
 												 RMSEmin,
@@ -750,7 +741,7 @@ double MultilayerPerceptron::getMSE(const vector<vector<double> > &inputs, const
 	vector<double> yObtained;
 //	yObtained.clear();
 
-	size_t nOutputs = getOutputsSize();
+	size_t nOutputs = getOutputSize();
 	for(size_t p = 0; p < nPatterns; p++){
 		yObtained = getOutput(inputs[p]);
 		for(size_t neuron = 0; neuron < nOutputs; neuron++){
@@ -772,7 +763,7 @@ double MultilayerPerceptron::getRMSE(const vector<vector<double> > &inputs, cons
 
 	vector<double> yObtained;
 
-	size_t nOutputs = getOutputsSize();
+	size_t nOutputs = getOutputSize();
 
 	for(size_t p = 0; p < nPatterns; p++){
 		yObtained = getOutput(inputs[p]);
@@ -790,7 +781,7 @@ double MultilayerPerceptron::getRMSE(const vector<vector<double> > &inputs, cons
 double MultilayerPerceptron::getCE(const vector<vector<double> > &inputs, const vector<vector<double> > &targets)
 {
 	size_t sInputs = inputs.size();
-	int os = getOutputsSize();
+	int os = getOutputSize();
 	int errCount = 0;
 	int n = 0;
 	vector<int> yObtained;
@@ -889,7 +880,7 @@ void MultilayerPerceptron::run()
 	nPatterns = tsInputs.size();
 	int nLayers  = int(layerWeights.size());
 
-	nOutputs = getOutputsSize();
+	nOutputs = getOutputSize();
 	//	MultilayerPerceptron::TrainingResult tr;
 
 //	static MLPTrainingResult *tres = new MLPTrainingResult();
@@ -1117,3 +1108,12 @@ void MultilayerPerceptron::onRecordAppened(double mse, double rmse, double ce)
 	tres->appendRecord(mse, rmse, ce);
 }
 
+void MultilayerPerceptron::setSaveTrainingResults(bool estr)
+{
+	enabledSaveTrainingResults = estr;
+}
+
+bool MultilayerPerceptron::getSaveTrainingResults() const
+{
+	return enabledSaveTrainingResults;
+}

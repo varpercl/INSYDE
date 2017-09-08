@@ -3,12 +3,14 @@
 core::LabeledComboBox::LabeledComboBox(const QString &lbl, const LabeledWidget::Position &pos, QWidget *parent) :
 	LabeledWidget(lbl, pos, parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(QStringList());
 }
 
 core::LabeledComboBox::LabeledComboBox(const QString &lbl, const QStringList &list, const Position &pos, QWidget *parent) :
 	LabeledWidget(lbl, pos, parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(list);
 }
 

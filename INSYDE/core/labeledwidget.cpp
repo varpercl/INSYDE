@@ -3,6 +3,7 @@
 core::LabeledWidget::LabeledWidget(const QString &str, const LabeledWidget::Position &pos, QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(str, pos);
 }
 

@@ -48,7 +48,9 @@ TrainingSetFile::TrainingSetFile(TrainingSet *ts, const QString &path) :
 TrainingSetFile::TrainingSetFile(const TrainingSetFile &tsf):
 	QFile(tsf.fileName())
 {
+	//TODO: implement. define operator =
 
+//	*this = tsf;
 }
 
 bool TrainingSetFile::flush()
@@ -86,6 +88,7 @@ bool TrainingSetFile::flush()
 	tsWriteXML.writeStartDocument();
 
 	tsWriteXML.writeStartElement(STR_TRAININGSET);
+
 	//Indica el numero de patrones a almacenar
 	tsWriteXML.writeAttribute(STR_PATTERNSIZE, QString::number(nPatterns));
 

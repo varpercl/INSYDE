@@ -4,7 +4,7 @@
 
 ann_gui::ANNModelTree::ANNModelTree(const QVector<QVariant> &data, const QVector<Qt::ItemFlags> &flags, ItemType itemType, ANNModelTree *parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	childItems = new QVector<ANNModelTree*>();
 	parentItem = parent;

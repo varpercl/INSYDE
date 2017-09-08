@@ -71,7 +71,7 @@ class CORE_LIB_IMPORT_EXPORT ImageEffectPropertyDialog : public QDialog
 		BNSubWidget *bnsw;
 		ImageEffect *giee;
 
-		void initGIEEPD(ImageEffect *giee);
+		void init(ImageEffect *giee);
 
 		void updateConfigWidget(int i);
 };

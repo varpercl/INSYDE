@@ -31,7 +31,7 @@ win32:{
 
 }
 
-unix: {
+unix{
     LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
             -L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb
 

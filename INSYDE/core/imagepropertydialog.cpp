@@ -3,6 +3,7 @@
 core::ImagePropertyDialog::ImagePropertyDialog(Image *img, QWidget *parent) :
 	GraphicObjectPropertyDialog(img, parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(img);
 }
 

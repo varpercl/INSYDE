@@ -3,6 +3,7 @@
 core::LabeledDoubleSpinBox::LabeledDoubleSpinBox(const QString &label, double value, const LabeledWidget::Position &pos, QWidget *parent) :
 	LabeledWidget(label, pos, parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(value);
 }
 

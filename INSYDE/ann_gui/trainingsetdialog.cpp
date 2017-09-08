@@ -3,7 +3,7 @@
 ann_gui::TrainingSetDialog::TrainingSetDialog(QWidget *parent) :
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(new TrainingSet());
 }
@@ -11,7 +11,7 @@ ann_gui::TrainingSetDialog::TrainingSetDialog(QWidget *parent) :
 ann_gui::TrainingSetDialog::TrainingSetDialog(TrainingSet *ts, QWidget *parent):
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(ts);
 }
@@ -19,7 +19,7 @@ ann_gui::TrainingSetDialog::TrainingSetDialog(TrainingSet *ts, QWidget *parent):
 ann_gui::TrainingSetDialog::TrainingSetDialog(int inputCount, int targetCount, int nPatterns, QWidget *parent) :
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(new TrainingSet(vector<vector<double> >(nPatterns, vector<double>(inputCount, 0)),
 						 inputCount,
@@ -30,7 +30,7 @@ ann_gui::TrainingSetDialog::TrainingSetDialog(int inputCount, int targetCount, i
 ann_gui::TrainingSetDialog::TrainingSetDialog(const vector<vector<double> > &inputs, int is, const vector<vector<double> > &targets, int ts, QWidget *parent) :
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(new TrainingSet(inputs, is, targets, ts));
 }
@@ -38,11 +38,9 @@ ann_gui::TrainingSetDialog::TrainingSetDialog(const vector<vector<double> > &inp
 ann_gui::TrainingSetDialog::TrainingSetDialog(ArtificialNeuralNetwork *ann, QWidget *parent) :
 	BasicDialog(parent)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	switch(ann->getType()){
-		case ann_base::ArtificialNeuralNetwork::NoType:
-			break;
 		case ann_base::ArtificialNeuralNetwork::Adaline:
 			break;
 		case ann_base::ArtificialNeuralNetwork::SimplePerceptron:
@@ -50,7 +48,7 @@ ann_gui::TrainingSetDialog::TrainingSetDialog(ArtificialNeuralNetwork *ann, QWid
 		case ann_base::ArtificialNeuralNetwork::MultilayerPerceptron:
 		{
 			MultilayerPerceptron *mlp = dynamic_cast<MultilayerPerceptron *>(ann);
-			init(new TrainingSet(mlp->getInputsSize(), mlp->getOutputsSize()));
+			init(new TrainingSet(mlp->getInputSize(), mlp->getOutputSize()));
 			break;
 		}
 		case ann_base::ArtificialNeuralNetwork::Hopfiel:
@@ -356,6 +354,8 @@ void ann_gui::TrainingSetDialog::init(TrainingSet *ts)
 
 	initMsgBoxes();
 
+	setWindowTitle(tr("Training Set Tool"));
+
 	connectTrainingSetSignals();
 
 	connect(addPatternButton, SIGNAL(clicked()), SLOT(on_addPatternButton_clicked()));
@@ -582,7 +582,15 @@ void ann_gui::TrainingSetDialog::saveClick()
 
 		   if(!tsf.flush()){
 			   //TODO: 25/4/16 saveClick should validate flushing. Currently always returns true but must be evaluated
-			   //if some problems are experimented during this flushing
+			   //if some problems are experimented during flushing
+
+			   QMessageBox msg;
+			   msg.setText(tr("Ocurrio un error al guardar"));
+			   msg.setInformativeText(tr("Ocurrio un error desconocido mientras se guardaba el archivo. \nPor favor intente de nuevo."));
+			   msg.setWindowTitle(tr("Error"));
+			   msg.setIcon(QMessageBox::Critical);
+
+			   msg.exec();
 		   }
 		}else{
 			QMessageBox msg;
@@ -590,6 +598,8 @@ void ann_gui::TrainingSetDialog::saveClick()
 			msg.setInformativeText("Ocurrio un error desconocido mientras se guardaba el archivo. \nPor favor intente de nuevo.");
 			msg.setWindowTitle("Error");
 			msg.setIcon(QMessageBox::Critical);
+
+			msg.exec();
 		}
 	}
 }

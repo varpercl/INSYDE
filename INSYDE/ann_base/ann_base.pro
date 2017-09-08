@@ -37,7 +37,8 @@ globals.h \
     simpleinputpattern.h \
     kohonen.h \
     settings.h \
-    documentation.h
+    documentation.h \
+    annfile.h
 
 SOURCES += \
 trainingset.cpp \
@@ -57,7 +58,8 @@ hopfield.cpp \
     perceptrontrainingpattern.cpp \
     adalinetrainingpattern.cpp \
     kohonen.cpp \
-    settings.cpp
+    settings.cpp \
+    annfile.cpp
 
 win32:{
 
@@ -88,36 +90,32 @@ win32:{
 	}
 }
 
-unix:{
+unix:CONFIG(release, debug|release){
+
+    QMAKE_CXXFLAGS += -std=c++11 -O3
+
+    TARGET = ann_base
+
+    LIBS += -L$$DESTDIR -lcore
+
+    lib.path = $$PWD/../../custom_libs/insyde/$$TARGET/lib
+    lib.files = $$OUT_PWD/../$$join(TARGET,,"lib").*
+
+    includes.path = $$PWD/../../custom_libs/insyde/$$TARGET/include
+    includes.files = $$PWD/*.h
+    INSTALLS += lib includes
+
+    message("Preparing $$TARGET binaries in release mode")
+}
+
+unix:CONFIG(debug, debug|release){
 
     QMAKE_CXXFLAGS += -std=c++11
-    CONFIG(release, debug|release):{
 
-        QMAKE_CXXFLAGS += -O3
+    TARGET = ann_base_debug
 
-        TARGET = ann_base
+    LIBS += -L$$DESTDIR -lcore_debug
 
-        LIBS += -L$$DESTDIR -lcore
-#	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
-#		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
-#		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
-
-	lib.path = $$PWD/../../custom_libs/insyde/$$TARGET/lib
-	lib.files = $$OUT_PWD/../$$join(TARGET,,"lib").*
-
-	includes.path = $$PWD/../../custom_libs/insyde/$$TARGET/include
-	includes.files = $$PWD/*.h
-	INSTALLS += lib includes
-    }
-    else:
-    {
-        TARGET = ann_base_debug
-
-        LIBS += -L$$DESTDIR -lcore_debug
-#	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
-#		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
-#		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
-    }
-
+    message("Preparing $$TARGET binaries in debug mode")
 
 }

@@ -1,8 +1,10 @@
 #include "kohonen.h"
 
-namespace ann_base{
+using namespace ann_base;
 
 Kohonen::Kohonen()
+//	:
+//	ArtificialNeuralNetwork(1, 1) //TODO: define
 {
 
 }
@@ -29,4 +31,23 @@ void Kohonen::randomizeWeights(double min, double max)
 	(void)max;
 }
 
+int Kohonen::getOutputSize() const
+{
+	return 1;
 }
+
+int Kohonen::getInputSize() const
+{
+	return 1;
+}
+
+void Kohonen::setInputSize(int )
+{
+
+}
+
+void Kohonen::setOutputSize(int )
+{
+
+}
+

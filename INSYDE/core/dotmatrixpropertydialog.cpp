@@ -3,6 +3,7 @@
 core::DotMatrixPropertyDialog::DotMatrixPropertyDialog(DotMatrix *dm, QWidget *parent) :
 	GraphicObjectPropertyDialog(dm, parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(dm);
 }
 

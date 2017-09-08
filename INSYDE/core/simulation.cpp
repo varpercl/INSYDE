@@ -3,6 +3,7 @@
 core::Simulation::Simulation() :
 	QThread()
 {
+//    Q_INIT_RESOURCE(core_media);
 
 }
 

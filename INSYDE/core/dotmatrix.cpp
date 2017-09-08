@@ -3,6 +3,7 @@
 core::DotMatrix::DotMatrix() :
 	GraphicObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	//QVector
 	ptsList = new QVector<Dot>();
 	init(5, 10, 10, DotMatrix::Unipolar);
@@ -11,6 +12,7 @@ core::DotMatrix::DotMatrix() :
 core::DotMatrix::DotMatrix(int rows, int cols, const DotMatrix::DataFormat &dt) :
 	GraphicObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	//QVector
 	ptsList = new QVector<Dot>();
 
@@ -20,6 +22,7 @@ core::DotMatrix::DotMatrix(int rows, int cols, const DotMatrix::DataFormat &dt) 
 core::DotMatrix::DotMatrix(int dotsize, int rows, int cols, const DotMatrix::DataFormat &dt) :
 	GraphicObject()
 {
+//    Q_INIT_RESOURCE(core_media);
 	//QVector
 	ptsList = new QVector<Dot>();
 	init(dotsize, rows, cols, dt);
@@ -27,6 +30,7 @@ core::DotMatrix::DotMatrix(int dotsize, int rows, int cols, const DotMatrix::Dat
 
 core::DotMatrix::DotMatrix(QVector<Dot> *dotList, int dotsize, int rows, int cols, const DotMatrix::DataFormat &dt)
 {
+//    Q_INIT_RESOURCE(core_media);
 	//QVector
 	ptsList = dotList;
 	init(dotsize, rows, cols, dt);

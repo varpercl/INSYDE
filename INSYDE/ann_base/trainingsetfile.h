@@ -83,6 +83,7 @@ class ANN_BASE_LIB_IMPORT_EXPORT TrainingSetFile : public QFile
 		 */
 		bool flush();
 
+
 		/*!
 		 * \brief setTrainingSet
 		 * \param ts

@@ -13,31 +13,32 @@ gui::View::~View()
 
 void gui::View::setSimulationStatus(Status sta)
 {
-	QList<QGraphicsItem*> itms = getGraphicsDetailedView()->items();
-	ec_gui::Unit *un;
-	switch(sta){
-		case Running:
-			foreach(QGraphicsItem *itm, itms){
-				if((un = dynamic_cast<ec_gui::Unit*>(itm)))
-					un->setFlag(QGraphicsItem::ItemIsMovable, false);
-				un->run();
-			}
-			break;
-		case Paused:
-			foreach(QGraphicsItem *itm, itms){
-				if((un=dynamic_cast<ec_gui::Unit*>(itm)))
-					un->setFlag(QGraphicsItem::ItemIsMovable, false);
-				un->stop();
-			}
-			break;
-		case Stopped:
-			foreach(QGraphicsItem *itm, itms){
-				if((un = dynamic_cast<ec_gui::Unit*>(itm))){
-					un->setFlag(QGraphicsItem::ItemIsMovable);
-					un->clearPoints();
-				}
-			}
-	}
+//	QList<QGraphicsItem*> itms = getGraphicsDetailedView()->items();
+//	ec_gui::Unit *un;
+//	switch(sta){
+//		case Running:
+//			foreach(QGraphicsItem *itm, itms){
+//				if((un = dynamic_cast<ec_gui::Unit*>(itm)))
+//					un->setFlag(QGraphicsItem::ItemIsMovable, false);
+
+//				un->run();
+//			}
+//			break;
+//		case Paused:
+//			foreach(QGraphicsItem *itm, itms){
+//				if((un=dynamic_cast<ec_gui::Unit*>(itm)))
+//					un->setFlag(QGraphicsItem::ItemIsMovable, false);
+//				un->stop();
+//			}
+//			break;
+//		case Stopped:
+//			foreach(QGraphicsItem *itm, itms){
+//				if((un = dynamic_cast<ec_gui::Unit*>(itm))){
+//					un->setFlag(QGraphicsItem::ItemIsMovable);
+//					un->clearPoints();
+//				}
+//			}
+//	}
 	simulationStatus = sta;
 }
 

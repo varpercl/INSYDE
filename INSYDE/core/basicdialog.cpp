@@ -3,6 +3,7 @@
 core::BasicDialog::BasicDialog(QWidget *parent) :
 	QDialog(parent)
 {
+//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
 	init();
 }
 
@@ -76,6 +77,11 @@ void core::BasicDialog::setEnableSave(bool s)
 	}
 }
 
+void core::BasicDialog::canSave(bool s)
+{
+	setEnableSave(s);
+}
+
 void core::BasicDialog::setEnableSaveAs(bool sa)
 {
 	if(enableSaveAs != sa){
@@ -88,6 +94,11 @@ void core::BasicDialog::setEnableSaveAs(bool sa)
 	}
 }
 
+void core::BasicDialog::canSaveAs(bool sa)
+{
+	setEnableSaveAs(sa);
+}
+
 void core::BasicDialog::setEnableOpen(bool open)
 {
 	if(enableOpen != open){
@@ -98,6 +109,11 @@ void core::BasicDialog::setEnableOpen(bool open)
 
 		updateActionsVisibility();
 	}
+}
+
+void core::BasicDialog::canOpenFile(bool open)
+{
+	setEnableOpen(open);
 }
 
 void core::BasicDialog::setEnableUnDoFramework(bool undo)

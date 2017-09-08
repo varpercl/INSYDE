@@ -2,10 +2,12 @@
 
 core::Effect::Effect()
 {
+//    Q_INIT_RESOURCE(core_media);
 }
 
 core::Effect::Effect(const QImage &img)
 {
+//    Q_INIT_RESOURCE(core_media);
 	setImage(img);
 }
 

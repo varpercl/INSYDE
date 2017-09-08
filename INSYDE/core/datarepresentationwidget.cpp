@@ -3,6 +3,7 @@
 core::DataRepresentationWidget::DataRepresentationWidget(const vector<double> &datainput, QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(datainput);
 }
 

@@ -7,12 +7,12 @@
 #include <QtCore>
 
 
-namespace core{
+namespace core CORE_LIB_IMPORT_EXPORT{
 
 /*!
  * \brief The Direction enum indicates the spin direction.
  */
-enum Direction{
+enum Direction {
 	ClockWise,
     CounterClockWise
 };

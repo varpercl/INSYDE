@@ -62,30 +62,32 @@ namespace KDChart
 	int metric(PaintDeviceMetric metric) const
 	{
 	    switch (metric)
-	    {
-		case QPaintDevice::PdmDevicePixelRatio:
-		    break;
-		case QPaintDevice::PdmWidth:
-		    return m_size.width();
-		case QPaintDevice::PdmHeight:
-		    return m_size.height();
-		case QPaintDevice::PdmWidthMM:
-		    return 1;
-		case QPaintDevice::PdmHeightMM:
-		    return 1;
-		case QPaintDevice::PdmNumColors:
-		    return int((uint)(-1));
-		case QPaintDevice::PdmDepth:
-		    return 1;
-		case QPaintDevice::PdmDpiX:
-		    return 1;
-		case QPaintDevice::PdmDpiY:
-		    return 1;
-		case QPaintDevice::PdmPhysicalDpiX:
-		    return 1;
-		case QPaintDevice::PdmPhysicalDpiY:
-		    return 1;
-	    }
+            {
+            case QPaintDevice::PdmDevicePixelRatioScaled:
+                break;
+            case QPaintDevice::PdmDevicePixelRatio:
+                break;
+            case QPaintDevice::PdmWidth:
+                return m_size.width();
+            case QPaintDevice::PdmHeight:
+                return m_size.height();
+            case QPaintDevice::PdmWidthMM:
+                return 1;
+            case QPaintDevice::PdmHeightMM:
+                return 1;
+            case QPaintDevice::PdmNumColors:
+                return int((uint)(-1));
+            case QPaintDevice::PdmDepth:
+                return 1;
+            case QPaintDevice::PdmDpiX:
+                return 1;
+            case QPaintDevice::PdmDpiY:
+                return 1;
+            case QPaintDevice::PdmPhysicalDpiX:
+                return 1;
+            case QPaintDevice::PdmPhysicalDpiY:
+                return 1;
+            }
 	    return 1;
 	}
 

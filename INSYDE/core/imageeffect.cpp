@@ -3,11 +3,13 @@
 core::ImageEffect::ImageEffect() :
 	Cursor(0, 0, 0, 0)
 {
+//    Q_INIT_RESOURCE(core_media);
 }
 
 core::ImageEffect::ImageEffect(GraphicObject *input) :
 	Cursor(0, 0, 0, 0)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(input);
 }
 

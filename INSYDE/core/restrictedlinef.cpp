@@ -3,12 +3,14 @@
 core::RestrictedLineF::RestrictedLineF() :
 	QLineF()
 {
+//    Q_INIT_RESOURCE(core_media);
 	lineConstrain = None;
 }
 
 core::RestrictedLineF::RestrictedLineF(const QPointF &p1, const QPointF &p2, Constrain lc)
 //	QLineF(p1, p2)
 {
+//    Q_INIT_RESOURCE(core_media);
 	lineConstrain = lc;
 	setP1(p1);
 	setP2(p2);
@@ -17,6 +19,7 @@ core::RestrictedLineF::RestrictedLineF(const QPointF &p1, const QPointF &p2, Con
 core::RestrictedLineF::RestrictedLineF(qreal x1, qreal y1, qreal x2, qreal y2, Constrain lc)
 //	QLineF(x1, x2, y1, y2)
 {
+//    Q_INIT_RESOURCE(core_media);
 	lineConstrain = lc;
 	setP1(QPointF(x1, y1));
 	setP2(QPointF(x2, y2));

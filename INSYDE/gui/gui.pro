@@ -8,10 +8,10 @@ CONFIG += qt opengl
 
 TEMPLATE = app
 
-DEFINES += \
-#WINDOW_HEIGH=31 \
-#WINDOW_WIDTH=13 \
-#WINDOW_STEP=1
+#DEFINES += \
+##WINDOW_HEIGH=31 \
+##WINDOW_WIDTH=13 \
+##WINDOW_STEP=1
 
 MOC_DIR = moc
 UI_DIR = ui
@@ -52,12 +52,10 @@ FORMS += \
     prueba_pantallas.ui
 
 RESOURCES += \
-    gui_media.qrc \
-    ../core/core_media.qrc \
-    ../ann_gui/ann_gui_media.qrc
+    gui_media.qrc
 
 win32:{
-	CONFIG += windows c++11
+    CONFIG += windows c++11
 
     CONFIG(release, debug|release):{
 		message("Building release binaries for gui module");
@@ -91,46 +89,39 @@ win32:{
 	contains(QMAKE_TARGET.arch, x86_64): {
 		QMAKE_LFLAGS += /MACHINE:X64
 	}
+
+    message("Windows")
 }
 
-unix:{
+unix:CONFIG(release, debug|release){
+
+    QMAKE_CXXFLAGS += -std=c++11 -O3
+
+    TARGET = INSYDE
+
+    LIBS += -L$$DESTDIR -lcore \
+            -L$$DESTDIR -lann_base \
+            -L$$DESTDIR -lann_gui
+#            -L$$DESTDIR -lec_base \
+#            -L$$DESTDIR -lec_gui
+
+    message("Building $$TARGET binaries in release mode")
+
+}
+
+unix:CONFIG(debug, debug|release){
 
     QMAKE_CXXFLAGS += -std=c++11
-    CONFIG(release, debug|release):{
 
-        QMAKE_CXXFLAGS += -O3
+    TARGET = INSYDE_debug
 
-        TARGET = INSYDE
-
-        LIBS += -L$$DESTDIR -lcore \
-                -L$$DESTDIR -lann_base \
-                -L$$DESTDIR -lann_gui\
-                -L$$DESTDIR -lec_base \
-                -L$$DESTDIR -lec_gui
-
-#	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
-#		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
-#		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
-    }
-    else:
-    {
-        TARGET = INSYDE_debug
-
-        LIBS += -L$$DESTDIR -lcore_debug \
-                -L$$DESTDIR -lann_base_debug \
-                -L$$DESTDIR -lann_gui_debug \
-                -L$$DESTDIR -lec_base_debug \
-                -L$$DESTDIR -lec_gui_debug
-
-#	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
-#		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
-#		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
-    }
-
-#    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
-#    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
+    LIBS += -L$$DESTDIR -lcore_debug \
+            -L$$DESTDIR -lann_base_debug \
+            -L$$DESTDIR -lann_gui_debug
+#            -L$$DESTDIR -lec_base_debug \
+#            -L$$DESTDIR -lec_gui_debug
 
 
-#    INCLUDEPATH += $$PWD/../external/tbb42_20140416oss_lin/include
-#    DEPENDPATH += $$PWD/../external/tbb42_20140416oss_lin/include
+    message("Building $$TARGET binaries in debug mode")
+
 }

@@ -133,8 +133,7 @@ FORMS += \
 	gssubwidget.ui \
 	selectimagesegmentdialog.ui
 
-RESOURCES += \
-	core_media.qrc
+RESOURCES += core_media.qrc
 
 win32:{
 	CONFIG += windows c++11
@@ -161,44 +160,36 @@ win32:{
 	}
 }
 
-unix:{
+unix:CONFIG(release, debug|release){
+
+    QMAKE_CXXFLAGS += -std=c++11 -O3
+
+    TARGET = core
+
+    lib.path = $$PWD/../../custom_libs/insyde/$$APP_BASENAME/lib
+    lib.files = $$OUT_PWD/../$$join(APP_BASENAME,,"lib").*
+
+    includes.path = $$PWD/../../custom_libs/insyde/$$APP_BASENAME/include
+    includes.files = $$PWD/*.h
+
+    tbb_lib.path = $$PWD/../../custom_libs/insyde/tbb/lib
+    tbb_lib.files = $$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/libtbb.*
+
+    tbb_include.path = $$PWD/../../custom_libs/insyde/tbb
+    tbb_include.files = $$PWD/../external/tbb42_20140416oss_lin/include
+
+    INSTALLS += lib includes tbb_lib tbb_include
+
+    message("Building $$TARGET binaries in release mode")
+
+}
+
+unix:CONFIG(debug, debug|release){
 
     QMAKE_CXXFLAGS += -std=c++11
-    CONFIG(release, debug|release):{
 
-        QMAKE_CXXFLAGS += -O3
-        TARGET = core
+    TARGET = core_debug
 
-#            LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
-#                    -L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
-#                    -L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
+    message("Building $$TARGET binaries in debug mode")
 
-        lib.path = $$PWD/../../custom_libs/insyde/$$APP_BASENAME/lib
-        lib.files = $$OUT_PWD/../$$join(APP_BASENAME,,"lib").*
-
-        includes.path = $$PWD/../../custom_libs/insyde/$$APP_BASENAME/include
-        includes.files = $$PWD/*.h
-
-        tbb_lib.path = $$PWD/../../custom_libs/insyde/tbb/lib
-        tbb_lib.files = $$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/libtbb.*
-
-        tbb_include.path = $$PWD/../../custom_libs/insyde/tbb
-        tbb_include.files = $$PWD/../external/tbb42_20140416oss_lin/include
-
-        INSTALLS += lib includes tbb_lib tbb_include
-    }
-    else:
-    {
-        TARGET = core_debug
-#            LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
-#                    -L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
-#                    -L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release -lkdchart
-    }
-
-#       INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
-#	DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
-
-
-#	INCLUDEPATH += $$PWD/../external/tbb42_20140416oss_lin/include
-#	DEPENDPATH += $$PWD/../external/tbb42_20140416oss_lin/include
 }

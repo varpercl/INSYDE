@@ -4,6 +4,7 @@
 core::DetailedWindow::DetailedWindow(QWidget *parent) :
 	QWidget(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init();
 }
 

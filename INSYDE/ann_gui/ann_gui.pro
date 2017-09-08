@@ -14,7 +14,7 @@ OBJECTS_DIR = obj
 RCC_DIR = res
 DESTDIR = ..
 
-DEFINES += EXPORT_ANN_GUI_LIB \
+DEFINES += EXPORT_ANN_GUI_LIB
 
 SOURCES += \
     adalinepage.cpp \
@@ -57,8 +57,7 @@ HEADERS += \
     mlpobject.h \
     mlpobjectpropertydialog.h
 
-RESOURCES += \
-    ann_gui_media.qrc
+RESOURCES += ann_gui_media.qrc
 
 FORMS += \
     adalinepage.ui \
@@ -100,43 +99,34 @@ win32:{
 	}
 }
 
-unix:{
+unix:CONFIG(release, debug|release){
+
+    QMAKE_CXXFLAGS += -std=c++11 -O3
+
+    TARGET = ann_gui
+
+    LIBS += -L$$DESTDIR -lcore \
+            -L$$DESTDIR -lann_base
+
+    lib.path = $$PWD/../../custom_libs/insyde/$$TARGET/lib
+    lib.files = $$OUT_PWD/../$$join(TARGET,,"lib").*
+
+    includes.path = $$PWD/../../custom_libs/insyde/$$TARGET/include
+    includes.files = $$PWD/*.h
+    INSTALLS += lib includes
+
+    message("Building $$TARGET binaries in release mode")
+}
+
+unix:CONFIG(debug, debug|release){
 
     QMAKE_CXXFLAGS += -std=c++11
-    CONFIG(release, debug|release):{
 
-        QMAKE_CXXFLAGS += -O3
+    TARGET = ann_gui_debug
 
-        TARGET = ann_gui
+    LIBS += -L$$DESTDIR -lcore_debug \
+            -L$$DESTDIR -lann_base_debug
 
-        LIBS += -L$$DESTDIR -lcore \
-                -L$$DESTDIR -lann_base
-#	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
-#		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
-#		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
+    message("Building $$TARGET binaries in debug mode")
 
-	lib.path = $$PWD/../../custom_libs/insyde/$$TARGET/lib
-	lib.files = $$OUT_PWD/../$$join(TARGET,,"lib").*
-
-	includes.path = $$PWD/../../custom_libs/insyde/$$TARGET/include
-	includes.files = $$PWD/*.h
-	INSTALLS += lib includes
-    }
-    else:
-    {
-        TARGET = ann_gui_debug
-
-        LIBS += -L$$DESTDIR -lcore_debug \
-                -L$$DESTDIR -lann_base_debug
-
-#	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
-#		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
-#		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
-    }
-
-#    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
-#    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
-
-#    INCLUDEPATH += $$PWD/../external/tbb42_20140416oss_lin/include
-#    DEPENDPATH += $$PWD/../external/tbb42_20140416oss_lin/include
 }

@@ -4,7 +4,7 @@ ann_gui::TrainingSetTable::TrainingSetTable(TrainingSet *ts, QWidget *parent) :
 	BasicTable(parent),
 	ts(0)
 {
-    Q_INIT_RESOURCE(ann_gui_media);
+//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(ts);
 }

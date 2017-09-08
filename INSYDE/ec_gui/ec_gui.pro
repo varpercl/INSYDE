@@ -16,8 +16,7 @@ OBJECTS_DIR = obj
 RCC_DIR = res
 DESTDIR = ..
 
-DEFINES += \
-EXPORT_EC_GUI_LIB
+DEFINES += EXPORT_EC_GUI_LIB
 
 SOURCES += \
     actuador.cpp \
@@ -99,42 +98,32 @@ win32:{
 	}
 }
 
-unix:{
+unix:CONFIG(release, debug|release){
+
+    QMAKE_CXXFLAGS += -std=c++11 -O3
+
+    TARGET = ec_gui
+
+    LIBS += -L$$DESTDIR -lcore
+
+    lib.path = $$PWD/../../custom_libs/insyde/$$TARGET/lib
+    lib.files = $$OUT_PWD/../$$join(TARGET,,"lib").*
+
+    includes.path = $$PWD/../../custom_libs/insyde/$$TARGET/include
+    includes.files = $$PWD/*.h
+    INSTALLS += lib includes
+
+    message("Building $$TARGET binaries in release mode")
+}
+
+unix:CONFIG(debug, debug|release){
 
     QMAKE_CXXFLAGS += -std=c++11
-    CONFIG(release, debug|release):{
+    TARGET = ec_gui_debug
 
-        QMAKE_CXXFLAGS += -O3
+    LIBS += -L$$DESTDIR -lcore_debug
 
-        TARGET = ec_gui
+    message("Building $$TARGET binaries in debug mode")
 
-        LIBS += -L$$DESTDIR -lcore
-#	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb \
-#		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb \
-#		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/release/ -lkdchart
-
-	lib.path = $$PWD/../../custom_libs/insyde/$$TARGET/lib
-	lib.files = $$OUT_PWD/../$$join(TARGET,,"lib").*
-
-	includes.path = $$PWD/../../custom_libs/insyde/$$TARGET/include
-	includes.files = $$PWD/*.h
-	INSTALLS += lib includes
-    }
-    else:
-    {
-        TARGET = ec_gui_debug
-
-        LIBS += -L$$DESTDIR -lcore_debug
-
-#	LIBS += -L$$PWD/../external/tbb42_20140416oss_lin/bin/intel64/gcc4.4/ -ltbb_debug \
-#		-L$$PWD/../external/tbb42_20140416oss_lin/lib/intel64/gcc4.4/ -ltbb_debug \
-#		-L$$PWD/../external/kdchart-2.5.1-source-linux/lib/debug/ -lkdchart
-    }
-
-#    INCLUDEPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
-#    DEPENDPATH += $$PWD/../external/kdchart-2.5.1-source-linux/include
-
-
-#    INCLUDEPATH += $$PWD/../external/tbb42_20140416oss_lin/include
-#    DEPENDPATH += $$PWD/../external/tbb42_20140416oss_lin/include
 }
+

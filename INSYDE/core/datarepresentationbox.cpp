@@ -3,12 +3,14 @@
 core::DataRepresentationBox::DataRepresentationBox(QWidget *parent) :
 	QGroupBox(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(vector<double>(1, 0), new DataRepresentation);
 }
 
 core::DataRepresentationBox::DataRepresentationBox(const vector<double> &inputdata, DataRepresentation *dr, QWidget *parent) :
 	QGroupBox(parent)
 {
+//    Q_INIT_RESOURCE(core_media);
 	init(inputdata, dr);
 }//GraphicRepresentation
 

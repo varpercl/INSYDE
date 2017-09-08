@@ -5,6 +5,7 @@ core::BNSubWidget::BNSubWidget(double threshold, QWidget *parent) :
 	QWidget(parent),
 	ui(new Ui::BNSubWidget)
 {
+//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
 	ui->setupUi(this);
 
 	init(threshold);

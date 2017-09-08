@@ -44,5 +44,4 @@
         <file>media/LineFreehand.png</file>
         <file>media/eraser-icon-30208.png</file>
     </qresource>
-    <qresource prefix="/"/>
 </RCC>

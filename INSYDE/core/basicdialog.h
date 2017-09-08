@@ -97,6 +97,11 @@ class CORE_LIB_IMPORT_EXPORT BasicDialog
 		void setEnableSave(bool s);
 
 		/*!
+		 * \see setEnableSave
+		 */
+		void canSave(bool s);
+
+		/*!
 		 * \brief Enables the Save as button. This allow
 		 * the button to be visible.
 		 *
@@ -105,12 +110,21 @@ class CORE_LIB_IMPORT_EXPORT BasicDialog
 		void setEnableSaveAs(bool sa);
 
 		/*!
+		 * \see setEnableSaveAs
+		 */
+		void canSaveAs(bool sa);
+		/*!
 		 * \brief Enables the Open as button. This allow
 		 * the button to be visible.
 		 *
 		 * \param open Indicates if wants to enable this button.
 		 */
 		void setEnableOpen(bool open);
+
+		/*!
+		 * \see setEnableOpen
+		 */
+		void canOpenFile(bool open);
 
 		/*!
 		 * \brief Enables the UnDo framework which allow user to undo and redo actions on the

@@ -3,12 +3,15 @@
 core::AddDotMatrixDialog::AddDotMatrixDialog(QWidget *parent) :
 	BasicDialog(parent)
 {
+//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
 	init(10, 10);
 }
 
 core::AddDotMatrixDialog::AddDotMatrixDialog(int rows, int cols, QWidget *parent) :
 	BasicDialog(parent)
 {
+//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
+
 	init(rows, cols);
 }
 
