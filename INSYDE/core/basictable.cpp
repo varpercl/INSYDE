@@ -9,7 +9,6 @@ const QString core::BasicTable::STR_DATA = "data";
 core::BasicTable::BasicTable(QWidget *parent) :
 	QTableView(parent)
 {
-//    Q_INIT_RESOURCE(core_media); //At least in linux, never call this inside user namespace, instead use a wrapper function
 	init();
 }
 
@@ -207,6 +206,8 @@ void core::BasicTable::onRemoveRowTriggered()
 
 void core::BasicTable::init()
 {
+    initCoreResources();
+
 	cellContextMenu = new QMenu();
 	horizontalHeaderContextMenu = new QMenu();
 	verticalHeaderContextMenu = new QMenu();

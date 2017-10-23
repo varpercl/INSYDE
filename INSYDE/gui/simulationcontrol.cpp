@@ -2,10 +2,10 @@
 
 gui::SimulationControl::SimulationControl(QWidget *parent) : QFrame(parent)
 {
-    iniciarStatusAnimation();
+    init();
 }
 
-void gui::SimulationControl::iniciarStatusAnimation()
+void gui::SimulationControl::init()
 {
     status = Stopped;
     normalPlayIcon = QIcon(":/imagenes/png/Play Normal.png");

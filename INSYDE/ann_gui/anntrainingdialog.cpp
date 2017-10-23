@@ -1,26 +1,30 @@
 #include "anntrainingdialog.h"
 
+void initResources()
+{
+    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
+}
+
 ann_gui::ANNTrainingDialog::ANNTrainingDialog()
 {
+    initResources();
 	vector<int> layers(1);
 	layers[0] = 1;
 
-	init(new MultilayerPerceptron(1, 1, layers), new TrainingSet(), new TrainingSet(), new TrainingSet());
+    init(new MultilayerPerceptron(1, 1, layers), new TrainingSet(1, 1), nullptr, nullptr);
 }
 
 ann_gui::ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, QWidget *parent) :
 	BasicDialog(parent)
 {
-	//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
-
+    initResources();
 	init(mlp, ts, NULL, NULL);
 }
 
 ann_gui::ANNTrainingDialog::ANNTrainingDialog(MultilayerPerceptron *mlp, TrainingSet *ts, TrainingSet *vs, TrainingSet *testset, QWidget *parent):
 	BasicDialog(parent)
 {
-	//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
-
+    initResources();
 	init(mlp, ts, vs, testset);
 }
 
@@ -29,6 +33,7 @@ ann_gui::ANNTrainingDialog::ANNTrainingDialog(MLPObject *gmlp, QWidget *parent) 
 {
 	//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
+    initResources();
 	init(gmlp->getMultilayerPerceptron(),
 		 gmlp->getTrainingSet(),
 		 gmlp->getValidationSet(),
@@ -217,6 +222,10 @@ void ann_gui::ANNTrainingDialog::onBtnEditTrainingSetClicked()
 {
 	trainingSetDialog = new TrainingSetDialog(trainingSet);
 
+	trainingSetDialog->setApplyButtonVisible(false);
+	trainingSetDialog->canEditInputSize(false);
+	trainingSetDialog->canEditTargetSize(false);
+
 	if(trainingSetDialog->exec() == QDialog::Accepted){
 
 		TrainingSet *ts;;
@@ -367,19 +376,24 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 
 	//Initialize every SimulatedAnnealingWidget
 	wSimulatedAnnealing = new SimulatedAnnealingWidget(0.01, 200, 50,  1, 0.9, 4, -0.02, 0.02);
+	//wSimulatedAnnealing = new SimulatedAnnealingWidget();
 
 	//Initialize every KDChart::Chart
-	chart = new KDChart::Chart();
+//	chart = new KDChart::Chart();
+	chart = new QChart();
+
+	//Initialize QChartView
+	chartView = new QChartView();
 
 	//Initialize every KDChart::Plotter
-	plotter = new KDChart::Plotter();
+	//plotter = new KDChart::Plotter();
 
 	//Initialize every KDChart::CartesianAxis
-	xAxis = new KDChart::CartesianAxis(plotter);
-	yAxis = new KDChart::CartesianAxis(plotter);
+	//xAxis = new KDChart::CartesianAxis(plotter);
+	//yAxis = new KDChart::CartesianAxis(plotter);
 
 	//Initialize every KDChart::Legend
-	legend = new KDChart::Legend(plotter, chart);
+//	legend = new KDChart::Legend(plotter, chart); //FIXME: add support to QChart
 
 	//Initialize every WeightEditorDialog
 	weightEditor = new WeightEditorDialog();
@@ -442,11 +456,11 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 	hlyLayers->addLayout(vlyToolButtons);
 
 	//==================================================================================================================
-	lcbAlgorithm->getComboBox()->addItem("Backpropagation");
+	lcbAlgorithm->getComboBox()->addItem(tr("Backpropagation"));
 
 	//==================================================================================================================
-	lcbTransferFunction->getComboBox()->addItem("Sigmoide");
-	lcbTransferFunction->getComboBox()->addItem("Tangente");
+	lcbTransferFunction->getComboBox()->addItem(tr("Sigmoid"));
+	lcbTransferFunction->getComboBox()->addItem(tr("Tang"));
 
 	//==================================================================================================================
 	ldsbSlope->setDecimals(decimals);
@@ -457,9 +471,9 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 	//	ldsbLearningRate->getDoubleSpinBox()->setSingleStep(step);
 
 	//==================================================================================================================
-	cbStopCondition->addItem(QString::fromLatin1("MSE mínimo"));
-	cbStopCondition->addItem(QString::fromLatin1("RMSE mínimo"));
-	cbStopCondition->addItem(QString::fromLatin1("CE mínimo"));
+	cbStopCondition->addItem(tr("Minimum MSE"));
+	cbStopCondition->addItem(tr("Minimum RMSE"));
+	cbStopCondition->addItem(tr("Minimum CE"));
 
 	//==================================================================================================================
 	ldsbMinError->setLabelVisible(false);
@@ -485,8 +499,8 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 	ldsbRndTo->setDecimals(decimals);
 
 	//==================================================================================================================
-	actionRandomizeWeights = mnuWeights->addAction(ICON_DICE, "Aleatorizar pesos");
-	actionEditWeights = mnuWeights->addAction(ICON_EDIT, "Editar pesos...");
+	actionRandomizeWeights = mnuWeights->addAction(ICON_DICE, tr("Randomise weights"));
+	actionEditWeights = mnuWeights->addAction(ICON_EDIT, tr("Edit weights..."));
 
 	//==================================================================================================================
 	btnWeights->setDefaultAction(actionRandomizeWeights);
@@ -532,34 +546,35 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 	vlyTrainingConditions->addWidget(gbOptimization);
 
 	//==================================================================================================================
-	xAxis->setPosition(KDChart::CartesianAxis::Bottom);
+	//xAxis->setPosition(KDChart::CartesianAxis::Bottom);
 	//	xAxis->setAlignment(Qt::AlignJustify);
-	xAxis->setTitleText("Epocas");
+	//xAxis->setTitleText("Epocas");
 
 	//==================================================================================================================
-	yAxis->setPosition(KDChart::CartesianAxis::Left);
-	yAxis->setTitleText("Error");
+	//yAxis->setPosition(KDChart::CartesianAxis::Left);
+	//yAxis->setTitleText("Error");
 
 	//==================================================================================================================
 
-	legend->setPosition(KDChart::Position::East);
-	legend->setAlignment(Qt::AlignCenter);
-	legend->setTitleText(tr("Leyenda"));
-	legend->setOrientation(Qt::Vertical);
-	legend->setShowLines(false);
-	legend->setVisible(true);
+//	legend->setPosition(KDChart::Position::East);
+//	legend->setAlignment(Qt::AlignCenter);
+//	legend->setTitleText(tr("Leyenda"));
+//	legend->setOrientation(Qt::Vertical);
+//	legend->setShowLines(false);
+//	legend->setVisible(true);
 
 	//==================================================================================================================
-	plotter->addAxis(xAxis);
-	plotter->addAxis(yAxis);
+//	plotter->addAxis(xAxis);
+//	plotter->addAxis(yAxis);
 
 	//==================================================================================================================
-	chart->addLegend(legend);
-	chart->coordinatePlane()->replaceDiagram(plotter);
-	chart->coordinatePlane()->setRubberBandZoomingEnabled(true);
+//	chart->addLegend(legend);
+//	chart->coordinatePlane()->replaceDiagram(plotter);
+//	chart->coordinatePlane()->setRubberBandZoomingEnabled(true);
+
 
 	//==================================================================================================================
-	vlyPlotter->addWidget(chart);
+	vlyPlotter->addWidget(chartView);
 	vlyPlotter->addWidget(lblTime);
 
 	//==================================================================================================================
@@ -633,7 +648,7 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 	setEnableImport(false);
 	setEnableUnDoFramework(false);
 	setEnableClipboardFramework(false);
-	getRejectButton()->setText("Cerrar");
+	getRejectButton()->setText(tr("Close"));
 	setAcceptButtonVisible(false);
 	getPreferencesAction()->setVisible(false);
 
@@ -652,7 +667,72 @@ void ann_gui::ANNTrainingDialog::init(MultilayerPerceptron *imlp, TrainingSet *t
 	mlp->setDefaultRandomRange(ldsbRndFrom->getValue(), ldsbRndTo->getValue());
 
 	tres = mlp->getTrainingResult();
-	plotter->setModel(tres);
+
+	QLineSeries
+			*serieMSE = new QLineSeries(),
+			*serieCE = new QLineSeries(),
+			*serieRMSE = new QLineSeries();
+
+	serieMSE->setName(tr("MSE"));
+	serieMSE->setPointsVisible();
+
+	serieCE->setName(tr("CE"));
+	serieRMSE->setName(tr("RMSE"));
+
+	mMaper = new QVXYModelMapper(this);
+	mMaper->setXColumn(0);
+	mMaper->setYColumn(1);
+
+	mMaper->setSeries(serieMSE);
+	mMaper->setModel(tres);
+
+
+//	mMaper->setModel(tres);
+
+	chart->setAnimationOptions(QChart::NoAnimation);
+	chart->addSeries(serieMSE);
+
+
+//	chart->axisY(serie1)->setRange(0, 1000);
+//	chart->axisX(serie1)->setRange(0, 10000);
+//	QString serieColor = "#000000";
+
+
+	chart->createDefaultAxes();
+
+	axisX = ((QValueAxis*)chart->axisX(serieMSE));
+//	axisX->setTickCount(0);
+	axisX->setMinorTickCount(3);
+	axisX->setTickCount(10);
+	axisX->setLabelFormat("%d");
+
+	axisY = ((QValueAxis*)chart->axisY(serieMSE));
+	axisY->setTickCount(10);
+
+//	connect(mMaper, SIGNAL(rowCountChanged()), axisX, SLOT(applyNiceNumbers()));
+//	connect(mMaper, &QVXYModelMapper::rowCountChanged, [=](){
+	connect(tres, &MLPTrainingResult::rowsInserted, [=](){
+
+		vector<double> mseHistory = tres->getMSEHistory();
+
+		axisY->setRange(0, *(std::max_element(mseHistory.begin(), mseHistory.end())));
+		axisY->applyNiceNumbers();
+
+		axisX->setRange(0, tres->getEpochs());
+//		axisX->applyNiceNumbers();
+//		axisX->applyNiceNumbers();
+//		chart->update();
+//		chartView->update();
+	});
+
+//	connect(mMaper, SIGNAL(rowCountChanged()), axisY, SLOT(applyNiceNumbers()));
+	//==================================================================================================================
+
+//	chartView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+	chartView->setRenderHint(QPainter::Antialiasing);
+	chartView->setChart(chart);
+
+//	plotter->setModel(tres);
 
 	setTrainingSet(ts);
 	setValidationSet(vs);
@@ -732,7 +812,7 @@ void ann_gui::ANNTrainingDialog::saveFile(QString path, MLPTrainingResult *tr, i
 		QString msg;
 		switch(f->error()){
 			case QFile::OpenError:
-				msg = "No se pudo guardar el archivo.\nPosiblemente el archivo esta abierto o no existe.";
+				msg = this->tr("Can not save the file.\nFile may not exist.");
 				break;
 			case QFile::NoError:
 			case QFile::ReadError:
@@ -748,7 +828,7 @@ void ann_gui::ANNTrainingDialog::saveFile(QString path, MLPTrainingResult *tr, i
 			case QFile::ResizeError:
 			case QFile::PermissionsError:
 			case QFile::CopyError:
-				msg = "Ocurrio un error inesperado al intentar guardar el archivo.\nPor favor intentelo de nuevo.";
+				msg = this->tr("A problem has ocurred during save file process.\nPlease try again.");
 				break;
 		}
 		QMessageBox::critical(this, "Error", msg);
@@ -773,7 +853,7 @@ void ann_gui::ANNTrainingDialog::saveFile(QString path, ArtificialNeuralNetwork 
 		QString msg;
 		switch(f->error()){
 			case QFile::OpenError:
-				msg = tr("No se pudo guardar el archivo.\nPosiblemente el archivo esta abierto o no existe.");
+			msg = tr("Can not save the file.\nFile may not exist.");
 				break;
 			case QFile::NoError:
 			case QFile::ReadError:
@@ -789,7 +869,7 @@ void ann_gui::ANNTrainingDialog::saveFile(QString path, ArtificialNeuralNetwork 
 			case QFile::ResizeError:
 			case QFile::PermissionsError:
 			case QFile::CopyError:
-				msg = tr("Ocurrio un error inesperado al intentar guardar el archivo.\nPor favor intentelo de nuevo.");
+			msg = tr("A problem has ocurred during save file process.\nPlease try again.");
 				break;
 		}
 		QMessageBox::critical(this, "Error", msg);
@@ -891,7 +971,7 @@ void ann_gui::ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingSt
 			updateSAControls();
 
 			actionStartTraining->setIcon(ICON_TRAINING);
-			actionStartTraining->setText("Entrenar");
+			actionStartTraining->setText(tr("Train"));
 			actionStopTraining->setEnabled(false);
 			btnTraining->setText(actionStartTraining->text());
 
@@ -903,7 +983,7 @@ void ann_gui::ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingSt
 			disableAllControls();
 
 			actionStartTraining->setIcon(ICON_PAUSE);
-			actionStartTraining->setText("Pausar");
+			actionStartTraining->setText(tr("Pause"));
 			actionStopTraining->setEnabled(true);
 			btnTraining->setText(actionStartTraining->text());
 			actionClearChart->setEnabled(false);
@@ -936,7 +1016,7 @@ void ann_gui::ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingSt
 		case ANNTrainingDialog::Pausing:
 			mlp->stopTraining();
 			actionStartTraining->setIcon(ICON_WAITING);
-			actionStartTraining->setText("Pausando...");
+			actionStartTraining->setText(tr("Pausing..."));
 			actionStopTraining->setEnabled(false);
 			btnTraining->setText(actionStartTraining->text());
 			actionClearChart->setEnabled(false);
@@ -950,7 +1030,7 @@ void ann_gui::ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingSt
 			updateSAControls();
 
 			actionStartTraining->setIcon(ICON_TRAINING);
-			actionStartTraining->setText("Continuar");
+			actionStartTraining->setText(tr("Continue"));
 			actionStopTraining->setEnabled(true);
 			btnTraining->setText(actionStartTraining->text());
 
@@ -960,7 +1040,7 @@ void ann_gui::ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingSt
 			mlp->stopTraining();
 
 			actionStartTraining->setIcon(ICON_WAITING);
-			actionStartTraining->setText("Deteniendo...");
+			actionStartTraining->setText(tr("Stopping..."));
 			actionStopTraining->setEnabled(false);
 			btnTraining->setText(actionStartTraining->text());
 			actionClearChart->setEnabled(false);
@@ -974,7 +1054,7 @@ void ann_gui::ANNTrainingDialog::setTrainingStatus(ANNTrainingDialog::TrainingSt
 			updateSAControls();
 
 			actionStartTraining->setIcon(ICON_TRAINING);
-			actionStartTraining->setText("Entrenar");
+			actionStartTraining->setText(tr("Train"));
 			actionStopTraining->setEnabled(false);
 			btnTraining->setText(actionStartTraining->text());
 
@@ -1025,26 +1105,26 @@ void ann_gui::ANNTrainingDialog::onTrainClicked()
 		default:
 
 			if(mlp->getInputSize() != trainingSet->getInputsSize()){
-				strings << QString::fromLatin1("- El número de entradas de la red neuronal no coincide con el número de entradas suministradas por el conjunto de entrenamiento. \n\n");
+				strings << tr("- The number of ANN inputs is not equal to the training set inputs. \n\n");
 				incongruence = true;
 			}
 			if(mlp->getOutputSize() != trainingSet->getTargetsSize()){
-				strings << QString::fromLatin1("- El número de salidas de la red neuronal no coincide con el número de salidas suministradas por el conjunto de entrenamiento. \n\n");
+				strings << tr("- The number of ANN outputs is not equal to the training set outputs. \n\n");
 				incongruence = true;
 			}
 
 			if(incongruence){
 				QString wholeString;
 
-				wholeString = QString::fromLatin1("Se han detectado los siguientes errores:\n\n");
+				wholeString = tr("Have found following errors:\n\n");
 
 				for(int i = 0; i < strings.size(); i++){
 					wholeString += strings[i];
 				}
 
-				wholeString += QString::fromLatin1("Debe corregir estos errores para poder continuar.");
+				wholeString += tr("Must correct errors before continue.");
 
-				message.setWindowTitle("Se detectaron irregularidades");
+				message.setWindowTitle(tr("Errors detected"));
 				message.setIcon(QMessageBox::Warning);
 				message.setText(wholeString);
 
@@ -1112,13 +1192,13 @@ void ann_gui::ANNTrainingDialog::onEditWeightsClicked()
 void ann_gui::ANNTrainingDialog::updateStatusLabels(MLPTrainingResult tres)
 {
 	if(tres.isEmpty()){
-		xAxis->setTitleText("Epocas: 0");
-
-		lblTime->setText("Tiempo transcurrido: 0");
+//		xAxis->setTitleText("Epocas: 0"); //FIXME: migrate to qchart
+		axisX->setTitleText(tr("Epochs: 0"));
+		lblTime->setText(tr("Elapsed time: 0"));
 	}else{
-		xAxis->setTitleText("Epocas: " + QString::number(tres.getEpochs()));
-
-		lblTime->setText("Tiempo transcurrido: " + QString::number(tres.getTime()));
+//		xAxis->setTitleText("Epocas: " + QString::number(tres.getEpochs())); //FIXME: migrate to qchart
+		axisX->setTitleText(tr("Epochs: ") + QString::number(tres.getEpochs()));
+		lblTime->setText(tr("Elapsed time: ") + QString::number(tres.getTime()));
 		//	lblTime->setText("Tiempo transcurrido: " + QTime(0, 0, tres.getTime()).toString("hh:mm:ss"));
 	}
 }
@@ -1208,6 +1288,9 @@ void ann_gui::ANNTrainingDialog::onBtnEditValidationTestClicked()
 	}else{
 		validationSetDialog = new TrainingSetDialog(validationSet = new TrainingSet(mlp->getInputSize(), mlp->getOutputSize()));
 	}
+
+	validationSetDialog->canEditInputSize(false);
+	validationSetDialog->canEditTargetSize(false);
 	if(validationSetDialog->exec() == QDialog::Accepted){
 		validationSet = validationSetDialog->getTrainingSet();
 	}
@@ -1221,6 +1304,9 @@ void ann_gui::ANNTrainingDialog::onBtnEditTestSetClicked()
 	}else{
 		testSetDialog = new TrainingSetDialog(testSet = new TrainingSet(mlp));
 	}
+
+	testSetDialog->canEditInputSize(false);
+	testSetDialog->canEditTargetSize(false);
 	if(testSetDialog->exec() == QDialog::Accepted){
 		testSet = testSetDialog->getTrainingSet();
 	}

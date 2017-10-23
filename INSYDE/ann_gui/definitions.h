@@ -1,6 +1,12 @@
 #ifndef ANN_GUI_DEFINITIONS_H
 #define ANN_GUI_DEFINITIONS_H
 
+#include <QtCore>
+
+#include "share_ann_gui_lib.h"
+
+ANN_GUI_LIB_IMPORT_EXPORT void initAnnGuiResources();
+
 #ifndef ICON_MLP
 #define ICON_MLP QIcon(":/icons/media/Multi-Layer_Neural_Network-Vector.png")
 #endif

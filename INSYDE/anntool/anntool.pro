@@ -1,10 +1,10 @@
 
-include(../external/kdchart2.pri)
+#include(../external/kdchart2.pri)
 include(../external/tbb.pri)
 
-QT += core widgets xml opengl
+QT += gui core widgets xml opengl charts
 
-CONFIG += qt opengl
+CONFIG += qt opengl console
 
 TEMPLATE = app
 
@@ -29,9 +29,9 @@ win32:{
 
                 LIBS += -L$$DESTDIR -lcore \
                                 -L$$DESTDIR -lann_base \
-                                -L$$DESTDIR -lann_gui\
-                                -L$$DESTDIR -lec_base \
-                                -L$$DESTDIR -lec_gui
+				-L$$DESTDIR -lann_gui \
+				-L$$DESTDIR -lec_base \ #Necesary?
+				-L$$DESTDIR -lec_gui	#Necesary?
 
         }else:{#DEBUG
 
@@ -44,16 +44,14 @@ win32:{
                 LIBS += -L$$DESTDIR -lcore_debug \
                                 -L$$DESTDIR -lann_base_debug \
                                 -L$$DESTDIR -lann_gui_debug \
-                                -L$$DESTDIR -lec_base_debug \
-                                -L$$DESTDIR -lec_gui_debug
+				-L$$DESTDIR -lec_base_debug \	#Necesary?
+				-L$$DESTDIR -lec_gui_debug	#Necesary?
 
     }
 #   if x86_64
         contains(QMAKE_TARGET.arch, x86_64): {
                 QMAKE_LFLAGS += /MACHINE:X64
         }
-
-    message("Windows")
 }
 
 unix:CONFIG(release, debug|release){

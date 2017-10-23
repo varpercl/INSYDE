@@ -14,10 +14,13 @@ core::DotMatrixPropertyDialog::~DotMatrixPropertyDialog()
 
 void core::DotMatrixPropertyDialog::onApplyClicked()
 {
-	qDebug() << iswSize->getSize();
+//	qDebug() << iswSize->getSize();
+	QRectF lastRect = dm->boundingRect();
+
     dm->setMatrixSize(QSize(iswSize->getSize()));
 	dm->setDotSize(lisbDotSize->getValue());
 	dm->setInputsSize(lisbInputSize->getValue());
+	dm->scene()->update(lastRect);
 
 	switch(lcbDataTypes->getComboBox()->currentIndex()){
 		case 0:

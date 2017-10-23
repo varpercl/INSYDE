@@ -32,7 +32,7 @@ void core::DotMatrixRepresentation::setSize(const QSize &size)
 		isw->setSize(size);
 		isw->blockSignals(false);
 
-		dmWidget->setSize(size);
+		dmWidget->getDotMatrixObject()->setMatrixSize(size);
 
 		update();
 		emit sizeChanged(size);
@@ -53,7 +53,7 @@ void core::DotMatrixRepresentation::setWidth(int w)
 		isw->setWidth(w);
 		isw->blockSignals(false);
 
-		dmWidget->setWidth(w);
+		dmWidget->getDotMatrixObject()->setMatrixSize(QSize(w, isw->height()));
 		emit sizeChanged(QSize(w, isw->height()));
 		emit widthChanged(w);
 	}
@@ -71,7 +71,7 @@ void core::DotMatrixRepresentation::setHeight(int h)
 		isw->setHeight(h);
 		isw->blockSignals(false);
 
-		dmWidget->setHeight(h);
+		dmWidget->getDotMatrixObject()->setMatrixSize(QSize(isw->getWidth(), h));
 		emit sizeChanged(QSize(isw->width(), h));
 		emit heightChanged(h);
 	}
@@ -105,12 +105,15 @@ void core::DotMatrixRepresentation::init()
 	gbPropLayout = new QVBoxLayout();
 	gbPropLayout->addWidget(isw);
 
-	gbProperties = new QGroupBox("Propiedades");
+	gbProperties = new QGroupBox(tr("Properties"));
 	gbProperties->setLayout(gbPropLayout);
 
 	layout()->addWidget(gbProperties);
 	layout()->addWidget(dmWidget);
 
-	connect(isw, SIGNAL(sizeChanged(QSize)), SLOT(onWidgetSizeChanged(QSize)));
+	connect(isw, &IntegerSizeWidget::sizeChanged,[=](const QSize &s) {
+
+		dmWidget->getDotMatrixObject()->setMatrixSize(s);
+	});
 }
 

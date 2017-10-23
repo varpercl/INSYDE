@@ -273,7 +273,7 @@ void core::GraphicObject::mousePressEvent(QGraphicsSceneMouseEvent *e)
 	}
 }
 
-void core::GraphicObject::mouseReleaseEvent(QGraphicsSceneMouseEvent */*e*/)
+void core::GraphicObject::mouseReleaseEvent(QGraphicsSceneMouseEvent * /*e*/)
 {
 	dragging = false;
 }
@@ -325,17 +325,19 @@ void core::GraphicObject::paint(QPainter *painter, const QStyleOptionGraphicsIte
 			painter->fillRect(rightCenterResizeRect, Qt::black);
 		}
 	}else{
-		if(nearPort(portTop)){
-			painter->fillRect(topCenterResizeRect, Qt::black);
-		}
-		if(nearPort(portBottom)){
-			painter->fillRect(bottomCenterResizeRect, Qt::black);
-		}
-		if(nearPort(portLeft)){
-			painter->fillRect(leftCenterResizeRect, Qt::black);
-		}
-		if(nearPort(portRight)){
-			painter->fillRect(rightCenterResizeRect, Qt::black);
+		if(resizeRectVisible){
+			if(nearPort(portTop)){
+				painter->fillRect(topCenterResizeRect, Qt::black);
+			}
+			if(nearPort(portBottom)){
+				painter->fillRect(bottomCenterResizeRect, Qt::black);
+			}
+			if(nearPort(portLeft)){
+				painter->fillRect(leftCenterResizeRect, Qt::black);
+			}
+			if(nearPort(portRight)){
+				painter->fillRect(rightCenterResizeRect, Qt::black);
+			}
 		}
 	}
 
@@ -401,14 +403,14 @@ void core::GraphicObject::init(const QRectF &rect, int border)
 
 	portSensitivity = 15;
 
-	openAction = contextMenu.addAction(ICON_OPEN_WINDOWT, "Abrir en ventana", this, SLOT(openOnWindowClick()));
-	saveAction = contextMenu.addAction(ICON_SAVE, "Guardar...", this, SLOT(saveClick()));
+	openAction = contextMenu.addAction(ICON_OPEN_WINDOWT, tr("Open"), this, SLOT(openOnWindowClick()));
+	saveAction = contextMenu.addAction(ICON_SAVE, tr("Save..."), this, SLOT(saveClick()));
 	//TODO: 10/5/16 implement correct procedures to save any object
 	saveAction->setEnabled(false);
 
 	contextMenu.addSeparator();
-	setCopyAction(contextMenu.addAction(ICON_COPY, "Copiar", this, SLOT(copyClick())));
-	setCutAction(contextMenu.addAction(ICON_CUT, "Cortar", this, SLOT(cutClick())));
+	setCopyAction(contextMenu.addAction(ICON_COPY, tr("Copy"), this, SLOT(copyClick())));
+	setCutAction(contextMenu.addAction(ICON_CUT, tr("Cut"), this, SLOT(cutClick())));
 	setPasteAction(contextMenu.addAction(ICON_PASTE, "Pegar", this, SLOT(pasteClick())));
 
 	//TODO: 10/5/16 implement correct clipboard handling

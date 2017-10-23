@@ -12,10 +12,14 @@
 #include "../core/dotmatrix.h"
 #include "../core/common.h"
 #include "../core/definitions.h"
+#include "../core/selectimagesegmentdialog.h"
+#include "../core/databaseconnectiondialog.h"
+
 #include "../ann_base/trainingsetfile.h"
 #include "../ann_base/trainingset.h"
-#include "../core/selectimagesegmentdialog.h"
+#include "../ann_base/trainingsetsql.h"
 
+#include "definitions.h"
 #include "share_ann_gui_lib.h"
 #include "trainingsettable.h"
 
@@ -87,6 +91,18 @@ class ANN_GUI_LIB_IMPORT_EXPORT TrainingSetDialog : public BasicDialog
 		~TrainingSetDialog();
 
 		/*!
+		 * \brief canEditInputSize
+		 * \param c
+		 */
+		void canEditInputSize(bool c);
+
+		/*!
+		 * \brief canEditTargetSize
+		 * \param c
+		 */
+		void canEditTargetSize(bool c);
+
+		/*!
 		 * \brief setTrainingSet
 		 * \param ts
 		 */
@@ -141,6 +157,7 @@ class ANN_GUI_LIB_IMPORT_EXPORT TrainingSetDialog : public BasicDialog
 
 		void newClick();
 
+		void databaseImportClick();
 
 	private slots:
 
@@ -233,7 +250,8 @@ class ANN_GUI_LIB_IMPORT_EXPORT TrainingSetDialog : public BasicDialog
 
 		QAction
 		*actionDeleteRow,
-		*actionDeleteCol;
+		*actionDeleteCol,
+		*actionImportFromDatabase;
 
 		QToolBar *mainToolBar;
 

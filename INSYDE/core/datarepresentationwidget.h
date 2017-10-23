@@ -30,11 +30,6 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentationWidget : public QWidget
 		 */
 		explicit DataRepresentationWidget(const vector<double> &datainput, QWidget *parent = 0);
 
-		/*!
-		 * \brief Sets the current data input of this class.
-		 * \param datainput A vector with the input data.
-		 */
-		virtual void setInputs(const vector<double> &datainput);
 
 		/*!
 		 * \brief Gets a vector containing all input passed to this class.
@@ -42,20 +37,30 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentationWidget : public QWidget
 		 */
 		vector<double> getInputs() const;
 
+	public slots:
+		/*!
+		 * \brief Sets the current data input of this class.
+		 * \param datainput A vector with the input data.
+		 */
+		virtual void setInputs(const vector<double> &datainput);
+
 	signals:
 
 		/*!
-		 * \brief Thrown when image size changed. This in case the type of representation being Image.
+		 * \brief
 		 * \param size The size to be set.
 		 */
 		void sizeChanged(const QSize &size);
+
+	protected:
+
+		vector<double> inputs;
 
 	private:
 		Q_OBJECT
 
 		QVBoxLayout *mainLayout;
 
-		vector<double> inputs;
 
 		/*!
 		 * \brief Initialize all this graphic interface.

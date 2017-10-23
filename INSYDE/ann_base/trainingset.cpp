@@ -75,6 +75,12 @@ TrainingSet::TrainingSet(const QString &path) :
 	}
 }
 
+//TrainingSet::TrainingSet(const QString &table, const QSqlDatabase &database)
+//{
+
+
+//}
+
 TrainingSet::TrainingSet(const TrainingSetFile &file) :
 	QAbstractTableModel()
 {

@@ -3,7 +3,7 @@
 
 #include <QtWidgets>
 
-#include <KDChart/KDChart>
+//#include <KDChart/KDChart>
 
 namespace gui
 {
@@ -19,8 +19,8 @@ class ProgressPlotter : public QFrame
 	public:
 		explicit ProgressPlotter(QWidget *parent = 0);
 
-		void setChart(KDChart::Chart *chart);
-		KDChart::Chart *getChart() const;
+//		void setChart(KDChart::Chart *chart);
+//		KDChart::Chart *getChart() const;
 
 		void addSerie();
 
@@ -36,7 +36,7 @@ class ProgressPlotter : public QFrame
 		QVector<QCheckBox*> series;
 		QScrollArea *seriesBox;
 		QVBoxLayout *mainLayout;
-		KDChart::Chart *mainChart;
+//		KDChart::Chart *mainChart;
 
 		void init();
 };

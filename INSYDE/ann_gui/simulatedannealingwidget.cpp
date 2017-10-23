@@ -4,7 +4,7 @@ ann_gui::SimulatedAnnealingWidget::SimulatedAnnealingWidget(QWidget *parent) :
 	QWidget(parent)
 {
 //    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
-
+    initAnnGuiResources();
 	init(0, 0, 0, 0, 0, 0, 0, 0);
 }
 
@@ -12,7 +12,7 @@ ann_gui::SimulatedAnnealingWidget::SimulatedAnnealingWidget(double start, int sa
 	QWidget(parent)
 {
 //    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
-
+    initAnnGuiResources();
 	init(samples, start, changes, minTemp, fdec, itemp, minNoise, maxNoise);
 }
 

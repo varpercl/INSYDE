@@ -32,6 +32,7 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 {
 	public:
 
+		Q_PROPERTY(bool resizeRectVisible READ isResizeRectVisible WRITE setResizeRectVisible NOTIFY resizeRectVisibleChanged)
 		/*!
 		 * \brief The GraphicObjectTypes enum the list of current available objects.
 		 */
@@ -345,6 +346,11 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		 */
 		void setPortSensitivity(double sensitivity);
 
+
+		bool isResizeRectVisible() const
+		{
+			return resizeRectVisible;
+		}
 	public slots:
 
 		/*!
@@ -358,6 +364,19 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		 * \param locked True indicates this object is locked.
 		 */
 		void setObjectLocked(bool locked);
+
+		/*!
+		 * \brief setResizeRectVisible
+		 * \param resizeRectVisible
+		 */
+		void setResizeRectVisible(bool vis)
+		{
+			if (resizeRectVisible == vis)
+				return;
+
+			resizeRectVisible = vis;
+			emit resizeRectVisibleChanged(vis);
+		}
 
 	signals:
 
@@ -378,6 +397,8 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		  * \param size The new size.
 		  */
 		void inputsSizeChanged(int size);
+
+		void resizeRectVisibleChanged(bool resizeRectVisible);
 
 	protected:
 
@@ -512,7 +533,6 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		int
 		inputsSize; //Contiene el numero de entradas que tendra este objeto en caso de que no este conectado a ningun objeto en su entrada
 
-
 		QRectF
 		containerRect, /**< Rectangulo que contiene las dimensiones de este objeto grafico */
 		topLeftResizeRect,
@@ -525,6 +545,7 @@ class CORE_LIB_IMPORT_EXPORT GraphicObject : public QGraphicsObject, public Clip
 		rightCenterResizeRect;
 
 		bool
+		resizeRectVisible,
 		objectLocked,
 		dragging;
 

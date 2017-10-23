@@ -1,10 +1,10 @@
 
-include(../external/kdchart2.pri)
+#include(../external/kdchart2.pri)
 include(../external/tbb.pri)
 
-QT += core widgets opengl gui
+QT += core widgets opengl gui charts
 
-CONFIG += qt shared
+CONFIG += qt shared precompile_header
 
 TEMPLATE = lib
 
@@ -33,8 +33,13 @@ SOURCES += \
     annview.cpp \
     annmodeltree.cpp \
     mlpobject.cpp \
-    mlpobjectpropertydialog.cpp
+    mlpobjectpropertydialog.cpp \
+    definitions.cpp
 
+PRECOMPILED_HEADER += \
+trainingsettable.h \
+    anntrainingdialog.h \
+    trainingsetdialog.h
 
 HEADERS += \
     adalinepage.h \

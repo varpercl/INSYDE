@@ -3,6 +3,7 @@
 
 #include <QtGui>
 
+#include "definitions.h"
 #include "share_ann_gui_lib.h"
 #include "../ann_base/satrainingsettings.h"
 #include "../core/labeledintegerspinbox.h"

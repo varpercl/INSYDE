@@ -1,8 +1,8 @@
 include(../external/tbb.pri)
 
-QT += gui widgets opengl xml
+QT += gui widgets opengl xml charts
 
-CONFIG +=  qt shared
+CONFIG +=  qt shared precompile_header
 
 
 #TODO: implement labeled color editor
@@ -20,6 +20,15 @@ UI_DIR = ui
 OBJECTS_DIR = obj
 RCC_DIR = res
 DESTDIR = ..
+
+PRECOMPILED_HEADER += \
+    basicdialog.h \
+    graphicobject.h \
+dotmatrix.h \
+common.h \
+imath.h \
+datarepresentationbox.h
+
 
 HEADERS += \
 	imath.h\
@@ -76,7 +85,9 @@ HEADERS += \
     clipboard.h \
     undo.h \
     documentation.h \
-    cursor.h
+    cursor.h \
+    chartrepresentation.h \
+    databaseconnectiondialog.h
 
 SOURCES += \
 	imath.cpp\
@@ -125,7 +136,10 @@ SOURCES += \
 	fileeditline.cpp \
 	simulation.cpp \
 	restrictedlinef.cpp \
-    cursor.cpp
+    cursor.cpp \
+    definitions.cpp \
+    chartrepresentation.cpp \
+    databaseconnectiondialog.cpp
 
 FORMS += \
 	graphicimageeffectelementpropertydialog.ui \

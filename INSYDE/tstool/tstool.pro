@@ -1,8 +1,8 @@
 
-include(../external/kdchart2.pri)
+#include(../external/kdchart2.pri)
 include(../external/tbb.pri)
 
-QT += core widgets xml opengl
+QT += core widgets xml opengl charts
 
 CONFIG += qt opengl
 

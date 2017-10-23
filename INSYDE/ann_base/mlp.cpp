@@ -28,7 +28,9 @@ void MultilayerPerceptron::init(int ninputs, int noutputs, const vector<int> &hi
 {
 	tres = new MLPTrainingResult();
 
-//	nInputs = ninputs;
+    //IMPORTANT: nInputs must be hard-initialized during construction because setLayerSizes(hiddenLayerSizes)
+    //uses it as reference for building layers
+    nInputs = ninputs;
 	training = false;
 
 	setDefaultRandomRange(-1, 1);
@@ -42,10 +44,10 @@ void MultilayerPerceptron::init(int ninputs, int noutputs, const vector<int> &hi
 	setEnabledElapsedEpochsEvent(false);
 	setEnabledElapsedTimeEvent(false);
 
-	setAlfa(1);
-	setLayerSizes(hiddenLayerSizes);
-	setInputSize(ninputs);
-	setOutputSize(noutputs);
+    setAlfa(1);
+    setLayerSizes(hiddenLayerSizes);
+    setInputSize(ninputs);
+    setOutputSize(noutputs);
 	setTransferFunctionType(tf);
 	//	setOutputType(Continuous);
 

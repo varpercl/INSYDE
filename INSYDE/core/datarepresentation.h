@@ -33,16 +33,16 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentation : public IResizable
 			Raw, /**< The data will be shown as pure numbers as it is. */
 			Image, /**< Data will be represented and translated to a image. */
 			DotMatrix, /**< Data will be represented as a dot matrix. */
+
+			Chart,	/**< Data will be represented as a chart.
+					TODO: should implement chart properties.
+					*/
 			Sound, /**< Data will be represented as a sound wave. */
 			Text, /**< This represents data as simple text.
 					WARNING: should be specified different character codifications.
 					*/
 
-			Chart /**< Data will be represented as a chart.
-					TODO: should implement chart properties.
-					*/
 		};
-
 		/*!
 		 * \brief A default no-parameters constructor. This means all data will be null and no information
 		 * will have this class. This will construct a null data representation.
@@ -162,7 +162,8 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentation : public IResizable
 		bool operator!=(const DataRepresentation &dr);
 
 	private:
-
+		Q_GADGET
+		Q_ENUM(Type)
 		//		Format_Invalid,
 		//        Format_Mono,
 		//        Format_MonoLSB,

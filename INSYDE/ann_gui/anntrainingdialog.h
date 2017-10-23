@@ -2,10 +2,11 @@
 #define ANNTRAININGDIALOG_H
 
 #include <QtGui>
+#include <QtCharts>
 
-#include <KDChart/KDChart>
-#include <KDChart/KDChartPlotter>
-#include <KDChart/KDChartThreeDBarAttributes>
+//#include <KDChart/KDChart>
+//#include <KDChart/KDChartPlotter>
+//#include <KDChart/KDChartThreeDBarAttributes>
 
 #include "share_ann_gui_lib.h"
 #include "samplesdialog.h"
@@ -27,6 +28,8 @@
 #include "../ann_base/kohonen.h"
 #include "../ann_base/simpleperceptron.h"
 #include "../ann_base/annfile.h"
+
+void ANN_GUI_LIB_IMPORT_EXPORT initResources();
 
 namespace ann_gui
 {
@@ -370,15 +373,21 @@ class ANN_GUI_LIB_IMPORT_EXPORT ANNTrainingDialog : public BasicDialog
 
 //		QMutex mutex;
 
-		KDChart::Legend *legend;
+//		KDChart::Legend *legend;
 
-		KDChart::CartesianAxis
-		*xAxis,
-		*yAxis;
+//		KDChart::CartesianAxis
+//		*xAxis,
+//		*yAxis;
 
-		KDChart::Plotter *plotter;
+//		KDChart::Plotter *plotter;
 
-		KDChart::Chart *chart;
+//		KDChart::Chart *chart;
+		QVXYModelMapper *mMaper;
+		QChart *chart;
+		QChartView *chartView;
+		QValueAxis
+		*axisX,
+		*axisY;
 
 		SimulatedAnnealingWidget *wSimulatedAnnealing;
 

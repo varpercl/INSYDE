@@ -34,6 +34,9 @@ void core::DataRepresentation::setType(const DataRepresentation::Type &value)
 
 QString core::DataRepresentation::getName() const
 {
+
+	//TODO: use metaobject information to get information about all possible representations
+	//Q_ENUM(Type)
 	switch (type) {
 		case DataRepresentation::Raw:
 			return "Raw";

@@ -53,11 +53,11 @@ class CORE_LIB_IMPORT_EXPORT IntegerSizeWidget : public QWidget, public IResizab
 		void setUnits(Units widthUnit, Units heightUnit);
 		QPair<Units, Units> getUnits() const;
 
-		void setWidth(int width) override;
+		void setWidth(int width);
 		int getWidth() const;
 
-		void setHeight(int height) override;
-		int getHeight() const override;
+		void setHeight(int height);
+		int getHeight() const;
 
 		void setLabelAlignment(const Qt::Alignment &al);
 		Qt::Alignment getLabelAlignment() const;

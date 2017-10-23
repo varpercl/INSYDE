@@ -3,7 +3,6 @@
 ann_gui::TrainingSetDialog::TrainingSetDialog(QWidget *parent) :
 	BasicDialog(parent)
 {
-//    Q_INIT_RESOURCE(ann_gui_media); //never call it inside a namespace, instead use a wrapper function
 
 	init(new TrainingSet());
 }
@@ -69,6 +68,16 @@ ann_gui::TrainingSetDialog::~TrainingSetDialog()
 	delete addPatternButton;
 	delete delPatternButton;
 	delete tstInputs;
+}
+
+void ann_gui::TrainingSetDialog::canEditInputSize(bool c)
+{
+	lisbInputsSize->getIntegerSpinBox()->setEnabled(c);
+}
+
+void ann_gui::TrainingSetDialog::canEditTargetSize(bool c)
+{
+	lisbTargetsSize->getIntegerSpinBox()->setEnabled(c);
 }
 
 void ann_gui::TrainingSetDialog::setTrainingSet(TrainingSet *ts)
@@ -238,6 +247,8 @@ void ann_gui::TrainingSetDialog::on_delPatternButton_clicked()
 
 void ann_gui::TrainingSetDialog::init(TrainingSet *ts)
 {
+    initAnnGuiResources();
+
 	const double
 			minRange = 100;
 
@@ -689,6 +700,26 @@ void ann_gui::TrainingSetDialog::newClick()
 			isEditingTS = false;
 		}
 	}
+}
+
+void ann_gui::TrainingSetDialog::databaseImportClick()
+{
+	 db;
+
+	TrainingSetSQL *sqlTS = new TrainingSetSQL();
+//	if(!database.isOpen())
+//	{
+//		if(!database.open())
+//		{
+//			qDebug() << tr("Error while opening database");
+//			return;
+//		}
+//	}
+
+//	QSqlTableModel *sqlModel = new QSqlTableModel(this, database);
+
+//	sqlModel->setTable(table);
+//	sqlModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
 }
 
 void ann_gui::TrainingSetDialog::importTrainingSetClick()

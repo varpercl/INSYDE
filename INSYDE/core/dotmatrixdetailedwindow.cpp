@@ -100,6 +100,7 @@ void core::DotMatrixDetailedWindow::init(DotMatrix *dm)
 void core::DotMatrixDetailedWindow::setupUI()
 {
 	dm->setObjectLocked(true);
+//	dm->setEnableEdit(false);
 	dm->getLockAction()->setVisible(false);
 //	dm->getPropertiesAction()->setEnabled(false);
 	dm->getOpenAction()->setVisible(false);

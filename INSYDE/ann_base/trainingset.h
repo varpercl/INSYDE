@@ -2,6 +2,7 @@
 #define TRAININGSET_H
 
 #include <QtCore>
+#include <QtSql/QtSql>
 
 #include <vector>
 #include <list>
@@ -31,7 +32,7 @@ class MultilayerPerceptron;
 
 /*!
  * \brief La clase TrainingSet es basica para entrenar cualquier red neuronal
- * consiste basicamente en un arreglo (vector) de pares de entrenamiento
+ * consiste en un arreglo (vector) de pares de entrenamiento
  * (TrainingPair) estos pares de entrenamiento a su vez son un vector V = <I, T> donde I
  * son las entradas y T son los valores deseados. En un objeto TrainingSet
  * pueden existir tantos pares de entrenamiento como se desee o como asi lo
@@ -78,8 +79,16 @@ class ANN_BASE_LIB_IMPORT_EXPORT TrainingSet : public QAbstractTableModel
 							 DataRepresentation *idr = new DataRepresentation(),
 							 DataRepresentation *tdr = new DataRepresentation());
 
+		/*!
+		 * \brief TrainingSet
+		 * \param file
+		 */
 		explicit TrainingSet(const TrainingSetFile &file);
 
+		/*!
+		 * \brief TrainingSet
+		 * \param path
+		 */
 		explicit TrainingSet(const QString &path);
 
 		/*!

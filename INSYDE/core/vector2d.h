@@ -7,7 +7,7 @@
 #include <QtCore>
 
 
-namespace core CORE_LIB_IMPORT_EXPORT{
+namespace core {
 
 /*!
  * \brief The Direction enum indicates the spin direction.

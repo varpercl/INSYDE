@@ -6,11 +6,12 @@
 #include <vector>
 
 #include "share_core_lib.h"
+#include "chartrepresentation.h"
 #include "datarepresentation.h"
 #include "dotmatrixrepresentation.h"
 #include "imagerepresentationwidget.h"
 #include "rawrepresentationwidget.h"
-#include "dotmatrixdetailedwindow.h"
+//#include "dotmatrixdetailedwindow.h"
 #include "labeledcombobox.h"
 
 using namespace std;
@@ -139,6 +140,7 @@ class CORE_LIB_IMPORT_EXPORT DataRepresentationBox : public QGroupBox
 		RawRepresentationWidget *rrw;
 		ImageRepresentationWidget *irw;
 		DotMatrixRepresentation *dmrw;
+		ChartRepresentation *crw;
 
 		vector<double> inputs;
 

@@ -27,19 +27,20 @@ void core::DataRepresentationBox::setInputs(const vector<double> &inputs)
 
 	switch(dataRepresentation->getType()){
 		case DataRepresentation::Raw:
-			rrw->setInputs(this->inputs);
+			rrw->setInputs(inputs);
 			break;
 		case DataRepresentation::Image:
-			irw->setInputs(this->inputs);
+			irw->setInputs(inputs);
 			break;
 		case DataRepresentation::DotMatrix:
-			dmrw->setInputs(this->inputs);
+			dmrw->setInputs(inputs);
 			break;
 		case DataRepresentation::Sound:
 			break;
 		case DataRepresentation::Text:
 			break;
 		case DataRepresentation::Chart:
+			crw->setInputs(inputs);
 			break;
 
 	}
@@ -76,58 +77,81 @@ void core::DataRepresentationBox::update()
 	QComboBox *repComboBox = repType->getComboBox();
 	switch(dataRepresentation->getType()){
 		case DataRepresentation::Raw:
+			crw->setVisible(false);
+			irw->setVisible(false);
+			dmrw->setVisible(false);
+			rrw->setVisible(true);
+
+			repComboBox->setCurrentIndex(0);
+
 			if(currentRepWidget != rrw){
-				irw->setVisible(false);
-				dmrw->setVisible(false);
-				rrw->setVisible(true);
-
-				repComboBox->setCurrentIndex(0);
-
 				currentRepWidget = rrw;
 			}
 			break;
 		case DataRepresentation::Image:
+			crw->setVisible(false);
+			rrw->setVisible(false);
+			dmrw->setVisible(false);
+
+			repComboBox->setCurrentIndex(1);
+
+			irw->blockSignals(true);
+			irw->setImageFormat(dataRepresentation->getImageFormat());
+			irw->setSize(dataRepresentation->getSize());
+			irw->blockSignals(false);
+
+			irw->setVisible(true);
+
 			if(currentRepWidget != irw){
-				rrw->setVisible(false);
-				dmrw->setVisible(false);
-
-				repComboBox->setCurrentIndex(1);
-
-				irw->blockSignals(true);
-				irw->setImageFormat(dataRepresentation->getImageFormat());
-				irw->setSize(dataRepresentation->getSize());
-				irw->blockSignals(false);
-
-				irw->setVisible(true);
-
 				currentRepWidget = irw;
 			}
 			break;
 		case DataRepresentation::DotMatrix:
+		{
+			crw->setVisible(false);
+			rrw->setVisible(false);
+			irw->setVisible(false);
+
+			repComboBox->setCurrentIndex(2);
+
+			dmrw->blockSignals(true);
+			QSize size = dataRepresentation->getSize();
+//			dmrw->getDotMatrixObject()->setMatrixSize(size);
+			dmrw->setSize(size);
+//			dmrw->setMatrixSize(size);
+			dmrw->blockSignals(false);
+
+			dmrw->setVisible(true);
 			if(currentRepWidget != dmrw){
-				rrw->setVisible(false);
-				irw->setVisible(false);
-				dmrw->setVisible(true);
-
-				repComboBox->setCurrentIndex(2);
-
-				dmrw->blockSignals(true);
-				dmrw->setSize(dataRepresentation->getSize());
-				dmrw->blockSignals(false);
-
 				currentRepWidget = dmrw;
 			}
 			break;
+		}
 		case DataRepresentation::Sound:
 			break;
 		case DataRepresentation::Text:
 			break;
 		case DataRepresentation::Chart:
+			rrw->setVisible(false);
+			irw->setVisible(false);
+			dmrw->setVisible(false);
+
+			repComboBox->setCurrentIndex(3);
+
+//			crw->blockSignals(true);
+
+			crw->setInputs(this->inputs);
+
+//			crw->blockSignals(false);
+
+			crw->setVisible(true);
+			if(currentRepWidget != crw){
+				currentRepWidget = crw;
+			}
 			break;
 		default:
 			break;
 	}
-
 }
 
 void core::DataRepresentationBox::changeDataRepresentation(int index)
@@ -174,10 +198,11 @@ void core::DataRepresentationBox::init(const vector<double> &inputdata, DataRepr
 {
 
 	repType = new LabeledComboBox(QString::fromLatin1("Representación"),
-											   QStringList()
-											   << QString::fromLatin1("Sin representación")
-											   << QString::fromLatin1("Imagen")
-											   << QString::fromLatin1("Matriz de puntos")
+								  QStringList()
+								  << tr("Nothing")
+								  << tr("Image")
+								  << tr("Dot matrix")
+								  << tr("Chart")
 								  //TODO: 25/4/16 init implement this representations before showing them
 //											   << QString::fromLatin1("Salida de audio")
 //											   << QString::fromLatin1("Texto")
@@ -188,6 +213,7 @@ void core::DataRepresentationBox::init(const vector<double> &inputdata, DataRepr
 
 	irw = new ImageRepresentationWidget(inputdata);
 	Image *img = irw->getImageObject();
+	img->setResizeRectVisible(false);
 	img->getOpenAction()->setVisible(false);
 	img->getCopyAction()->setVisible(false);
 	img->getCutAction()->setVisible(false);
@@ -197,6 +223,7 @@ void core::DataRepresentationBox::init(const vector<double> &inputdata, DataRepr
 
 	dmrw = new DotMatrixRepresentation(inputdata);
 	DotMatrix *dm = dmrw->getDotMatrixObject();
+	dm->setResizeRectVisible(false);
 	dm->getOpenAction()->setVisible(false);
 	dm->getSaveAction()->setVisible(false);
 	dm->getCopyAction()->setVisible(false);
@@ -205,12 +232,17 @@ void core::DataRepresentationBox::init(const vector<double> &inputdata, DataRepr
 	dm->getRemoveAction()->setVisible(false);
 	dmrw->setVisible(false);
 
+	crw = new ChartRepresentation();
+	crw->setGeometry(0,0,100,100);
+	crw->setVisible(false);
+
 	mainLayout = new QVBoxLayout();
 	mainLayout->setAlignment(Qt::AlignTop);
 	mainLayout->addWidget(repType);
 	mainLayout->addWidget(currentRepWidget = rrw);
 	mainLayout->addWidget(irw);
 	mainLayout->addWidget(dmrw);
+	mainLayout->addWidget(crw);
 
 	setDataRepresentation(dr);
 	setInputs(inputdata);

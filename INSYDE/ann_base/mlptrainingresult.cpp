@@ -63,13 +63,14 @@ QVariant MLPTrainingResult::data(const QModelIndex &index, int role) const
 			col = index.column();
 	if(row < rowCount() && row >= 0 && col >= 0 && col < columnCount()){
 		if(col == 0 || col == 2 || col == 4){
-			return row;
+			return QVariant(row);
 		}else if(col == mseIndex+1 && visibleMSE){
-			return mseHistory[row];
+//			return QVariant(row);
+			return QVariant(mseHistory[row]);
 		}else if(col == (rmseIndex*2) + 1 && visibleRMSE){
-			return rmseHistory[row];
+			return QVariant(rmseHistory[row]);
 		}else if(col == (ceIndex*2) + 1 && visibleCE){
-			return ceHistory[row];
+			return QVariant(ceHistory[row]);
 		}else{
 			return QVariant();
 		}

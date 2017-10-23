@@ -67,7 +67,7 @@ class SimulationControl : public QFrame
 		*playPauseButton,
 		*stopButton;
 
-		void iniciarStatusAnimation();
+        void init();
 };
 }
 #endif // STATUSANIMATION_H

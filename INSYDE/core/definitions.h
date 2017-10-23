@@ -1,6 +1,12 @@
 #ifndef CORE_GUI_DEFINITIONS_H
 #define CORE_GUI_DEFINITIONS_H
 
+#include <QtCore>
+
+#include "share_core_lib.h"
+
+CORE_LIB_IMPORT_EXPORT void initCoreResources();
+
 #ifndef DIR_SAMPLES
 #define DIR_SAMPLES "/media/windows7/Documents and Settings/Edixon/Google Drive/Programacion/C++/Qt/INSYDE/samples"
 #endif
@@ -129,5 +135,8 @@
 #ifndef ICON_INSERT_COLUMN
 #define ICON_INSERT_COLUMN QIcon(":/icons/media/icon_insert_column.jpg")
 #endif
+
+
+
 #endif // ICONS_H
 

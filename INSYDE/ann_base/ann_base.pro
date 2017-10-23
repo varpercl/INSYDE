@@ -1,10 +1,10 @@
 
-include(../external/kdchart2.pri)
+#include(../external/kdchart2.pri)
 include(../external/tbb.pri)
 
-QT += core xml opengl
+QT += core xml opengl sql charts
 
-CONFIG += qt thread shared
+CONFIG += qt thread shared precompile_header
 
 TEMPLATE = lib
 
@@ -15,6 +15,13 @@ UI_DIR = ui
 OBJECTS_DIR = obj
 RCC_DIR = res
 DESTDIR = ..
+
+PRECOMPILED_HEADER += \
+    trainingset.h \
+    mlp.h \
+simpleperceptron.h \
+adaline.h \
+trainingsetfile.h
 
 HEADERS += \
 trainingset.h \
@@ -38,7 +45,8 @@ globals.h \
     kohonen.h \
     settings.h \
     documentation.h \
-    annfile.h
+    annfile.h \
+    trainingsetsql.h
 
 SOURCES += \
 trainingset.cpp \
@@ -59,7 +67,8 @@ hopfield.cpp \
     adalinetrainingpattern.cpp \
     kohonen.cpp \
     settings.cpp \
-    annfile.cpp
+    annfile.cpp \
+    trainingsetsql.cpp
 
 win32:{
 
