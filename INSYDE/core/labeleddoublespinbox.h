@@ -3,6 +3,7 @@
 
 #include <QtWidgets>
 
+#include "definitions.h"
 #include "share_core_lib.h"
 #include "labeledwidget.h"
 
@@ -19,7 +20,7 @@ class CORE_LIB_IMPORT_EXPORT LabeledDoubleSpinBox : public LabeledWidget
 
 	public:
 
-		explicit LabeledDoubleSpinBox(const QString &label = "Value", double value = 0, const LabeledWidget::Position &pos = LabeledWidget::Left, QWidget *parent = 0);
+		explicit LabeledDoubleSpinBox(const QString &label = "Value", double value = 0, const Position &pos = Left, QWidget *parent = 0);
 
 		~LabeledDoubleSpinBox();
 

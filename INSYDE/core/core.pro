@@ -1,6 +1,6 @@
 include(../external/tbb.pri)
 
-QT += gui widgets opengl xml charts
+QT += gui widgets opengl xml charts sql
 
 CONFIG +=  qt shared precompile_header
 
@@ -87,7 +87,9 @@ HEADERS += \
     documentation.h \
     cursor.h \
     chartrepresentation.h \
-    databaseconnectiondialog.h
+    databaseconnectiondialog.h \
+    extendedlineedit.h \
+    databasemapperdialog.h
 
 SOURCES += \
 	imath.cpp\
@@ -139,7 +141,9 @@ SOURCES += \
     cursor.cpp \
     definitions.cpp \
     chartrepresentation.cpp \
-    databaseconnectiondialog.cpp
+    databaseconnectiondialog.cpp \
+    extendedtextbox.cpp \
+    databasemapperdialog.cpp
 
 FORMS += \
 	graphicimageeffectelementpropertydialog.ui \
@@ -150,28 +154,34 @@ FORMS += \
 RESOURCES += core_media.qrc
 
 win32:{
-	CONFIG += windows c++11
+    CONFIG += windows c++11
 
-	CONFIG(release, debug|release):{
-		message("Building release binaries for core module");
+    CONFIG(release, debug|release):{
+	    message("Building release binaries for core module");
 
-		QMAKE_CXXFLAGS += /MD
-		TARGET = core
+	    QMAKE_CXXFLAGS += /MD
+	    TARGET = core
 
-	}else:{ #DEBUG
+    }else:{ #DEBUG
 
-		message("Building debug binaries for core module");
+	    message("Building debug binaries for core module");
 
-		TARGET = core_debug
+	    TARGET = core_debug
 
-		QMAKE_CXXFLAGS += /MDd
+	    QMAKE_CXXFLAGS += /MDd
 
 
-	}
+    }
 #   if x86_64
-	contains(QMAKE_TARGET.arch, x86_64): {
-		QMAKE_LFLAGS += /MACHINE:X64
-	}
+    contains(QMAKE_TARGET.arch, x86_64): {
+	    QMAKE_LFLAGS += /MACHINE:X64
+    }
+
+#    LIBS += -L"C:\Program Files\MySQL\MySQL Server 5.7\lib" -llibmysql
+#    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt" -llibmysqlcppconn
+#    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt" -lmysqlcppconn
+    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\lib" -llibmysql
+#    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\lib" -lmysql
 }
 
 unix:CONFIG(release, debug|release){

@@ -168,6 +168,20 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="btnDatabaseConnection">
+        <property name="text">
+         <string>DatabaseConnectionDialog</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="btnExtendedLineEdit">
+        <property name="text">
+         <string>ExtendedLineEdit</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

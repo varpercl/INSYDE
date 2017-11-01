@@ -12,6 +12,11 @@ core::BasicDialog::~BasicDialog()
 
 }
 
+QMenuBar *core::BasicDialog::getMainMenuBar() const
+{
+	return menuBar;
+}
+
 QMainWindow *core::BasicDialog::getMainWindow() const
 {
 	return mw;
@@ -234,9 +239,10 @@ void core::BasicDialog::addButton(QPushButton *btn)
 	hlyButtons->addWidget(btn);
 }
 
-void core::BasicDialog::insertButton(int index, QPushButton *btn)
+QPushButton* core::BasicDialog::insertButton(int index, QPushButton *btn)
 {
 	hlyButtons->insertWidget(index, btn);
+	return btn;
 }
 
 void core::BasicDialog::insertButton(int index, QToolButton *btn)

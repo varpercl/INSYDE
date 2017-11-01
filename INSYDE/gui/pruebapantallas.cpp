@@ -1,35 +1,35 @@
 #include "pruebapantallas.h"
 #include "ui_prueba_pantallas.h"
 
-gui::PruebaPantalla::PruebaPantalla(QWidget *parent) :
+PruebaPantalla::PruebaPantalla(QWidget *parent) :
 	QWidget(parent),
 	ui(new Ui::PruebaPantalla)
 {
 	ui->setupUi(this);
 }
 
-gui::PruebaPantalla::~PruebaPantalla()
+PruebaPantalla::~PruebaPantalla()
 {
 	delete ui;
 }
 
-void gui::PruebaPantalla::on_newProjectButton_clicked()
+void PruebaPantalla::on_newProjectButton_clicked()
 {
-	NewProjectWizard *npw = new NewProjectWizard();
+	gui::NewProjectWizard *npw = new gui::NewProjectWizard();
 	//    npw->hide();
 	npw->exec();
 }
 
-void gui::PruebaPantalla::on_perceptronButton_clicked()
+void PruebaPantalla::on_perceptronButton_clicked()
 {
 	PerceptronPage *pp = new PerceptronPage();
 	pp->show();
 }
 
-void gui::PruebaPantalla::on_systemButton_clicked()
+void PruebaPantalla::on_systemButton_clicked()
 {
 	//    ui->mainSystemLayout->addWidget(visor, Qt::Vertical);
-	visor = new View();
+	visor = new gui::View();
 	visor->setVisible(false);
 	visor->getGraphicsDetailedView()->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 	visor->getGraphicsDetailedView()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -39,7 +39,7 @@ void gui::PruebaPantalla::on_systemButton_clicked()
 	connect(visor, SIGNAL(clicked(QMouseEvent*)), SLOT(onVisorClicked(QMouseEvent*)));
 }
 
-void gui::PruebaPantalla::onVisorClicked(QMouseEvent *event)
+void PruebaPantalla::onVisorClicked(QMouseEvent *event)
 {
 
 	(void)event;
@@ -74,7 +74,7 @@ void gui::PruebaPantalla::onVisorClicked(QMouseEvent *event)
 	//	}
 }
 
-void gui::PruebaPantalla::on_ANNTrainingDialog_clicked()
+void PruebaPantalla::on_ANNTrainingDialog_clicked()
 {
 
 	vector<int> sizes;
@@ -99,14 +99,14 @@ void gui::PruebaPantalla::on_ANNTrainingDialog_clicked()
 	mlptd->show();
 }
 
-void gui::PruebaPantalla::on_TrainingSetDialogButton_clicked()
+void PruebaPantalla::on_TrainingSetDialogButton_clicked()
 {
 	QString path = "/home/edixon/programacion/INSYDE/samples/aprendizaje-de-letras-de-placas.tsf";
 	TrainingSetDialog *tsd1 = new TrainingSetDialog(new TrainingSet(path));
 	tsd1->exec();
 }
 
-void gui::PruebaPantalla::on_DataRepresentationBoxButton_clicked()
+void PruebaPantalla::on_DataRepresentationBoxButton_clicked()
 {
 	QString openDir = QFileDialog::getOpenFileName(this, //widget
 												  "Abrir conjunto de entrenamiento", //caption
@@ -122,16 +122,16 @@ void gui::PruebaPantalla::on_DataRepresentationBoxButton_clicked()
 
 	drb->show();
 }
-void gui::PruebaPantalla::on_LabeledIntegerSpinBoxButton_clicked()
+void PruebaPantalla::on_LabeledIntegerSpinBoxButton_clicked()
 {
-	LabeledIntegerSpinBox *isb = new LabeledIntegerSpinBox("Valor", 0, LabeledWidget::Right);
+	LabeledIntegerSpinBox *isb = new LabeledIntegerSpinBox("Valor", 0, Position::Right);
 
 //	isb->setLabelPosition(LabeledIntegerSpinBox::Top);
 
 	isb->show();
 }
 
-void gui::PruebaPantalla::on_IntegerSizeWidgetButton_clicked()
+void PruebaPantalla::on_IntegerSizeWidgetButton_clicked()
 {
 	IntegerSizeWidget *isw = new IntegerSizeWidget();
 
@@ -139,7 +139,7 @@ void gui::PruebaPantalla::on_IntegerSizeWidgetButton_clicked()
 	isw->show();
 }
 
-void gui::PruebaPantalla::on_SelectImageSegmentButton_clicked()
+void PruebaPantalla::on_SelectImageSegmentButton_clicked()
 {
 	//	QMessageBox msgBox;
 	QImage imageFile;
@@ -152,7 +152,7 @@ void gui::PruebaPantalla::on_SelectImageSegmentButton_clicked()
 	sisd->exec();
 }
 
-void gui::PruebaPantalla::on_LabeledComboBoxButton_clicked()
+void PruebaPantalla::on_LabeledComboBoxButton_clicked()
 {
 	LabeledComboBox *lcb = new LabeledComboBox("Lista",
 											   QStringList()
@@ -163,18 +163,18 @@ void gui::PruebaPantalla::on_LabeledComboBoxButton_clicked()
 											   << "Item5"
 											   << "Item6");
 
-	lcb->setLabelPosition(LabeledWidget::Top);
+	lcb->setLabelPosition(Position::Top);
 	lcb->show();
 }
 
-void gui::PruebaPantalla::on_BasicDialogButton_clicked()
+void PruebaPantalla::on_BasicDialogButton_clicked()
 {
 	BasicDialog *bd = new BasicDialog();
 
 	bd->exec();
 }
 
-void gui::PruebaPantalla::on_DotMatrixRepresentationButton_clicked()
+void PruebaPantalla::on_DotMatrixRepresentationButton_clicked()
 {
 	QString openDir = QFileDialog::getOpenFileName(this, //widget
 												  "Abrir conjunto de entrenamiento", //caption
@@ -191,14 +191,14 @@ void gui::PruebaPantalla::on_DotMatrixRepresentationButton_clicked()
 	dmr->show();
 }
 
-void gui::PruebaPantalla::on_ZoomControlButton_clicked()
+void PruebaPantalla::on_ZoomControlButton_clicked()
 {
 	ZoomControl *zc = new ZoomControl();
 
 	zc->show();
 }
 
-void gui::PruebaPantalla::on_DetailedWindowButton_clicked()
+void PruebaPantalla::on_DetailedWindowButton_clicked()
 {
 	DetailedWindow *dw = new DetailedWindow();
 
@@ -206,14 +206,14 @@ void gui::PruebaPantalla::on_DetailedWindowButton_clicked()
 	dw->show();
 }
 
-void gui::PruebaPantalla::on_NormalizationWidgetButton_clicked()
+void PruebaPantalla::on_NormalizationWidgetButton_clicked()
 {
 	NormalizationWidget *nw = new NormalizationWidget();
 
 	nw->show();
 }
 
-void gui::PruebaPantalla::on_WeightEditorDialogButton_clicked()
+void PruebaPantalla::on_WeightEditorDialogButton_clicked()
 {
 	vector<int> sizes;
 	sizes.push_back(10);
@@ -225,7 +225,7 @@ void gui::PruebaPantalla::on_WeightEditorDialogButton_clicked()
 
 	wed->exec();
 }
-void gui::PruebaPantalla::on_DoubleMinMaxWidgetButton_clicked()
+void PruebaPantalla::on_DoubleMinMaxWidgetButton_clicked()
 {
 	DoubleMinMaxWidget *dmmw = new DoubleMinMaxWidget(-2, 2);
 
@@ -236,20 +236,35 @@ void gui::PruebaPantalla::on_DoubleMinMaxWidgetButton_clicked()
 }
 
 
-void gui::PruebaPantalla::on_NewMainWindowButton_clicked()
+void PruebaPantalla::on_NewMainWindowButton_clicked()
 {
-	MainWindow *mainWindow = new MainWindow;
+	gui::MainWindow *mainWindow = new gui::MainWindow;
 
 	mainWindow->show();
 
 	close();
 }
 
-void gui::PruebaPantalla::on_GraphicObjectPropertyDialogButton_clicked()
+void PruebaPantalla::on_GraphicObjectPropertyDialogButton_clicked()
 {
 	DotMatrix *dm = new DotMatrix(10, 10, DotMatrix::Unipolar);
 
 	GraphicObjectPropertyDialog *gopd = new GraphicObjectPropertyDialog(dm);
 
 	gopd->show();
+}
+
+void PruebaPantalla::on_btnDatabaseConnection_clicked()
+{
+	DatabaseConnectionDialog *dbc = new DatabaseConnectionDialog();
+
+	dbc->show();
+}
+
+void PruebaPantalla::on_btnExtendedLineEdit_clicked()
+{
+	ExtendedLineEdit *ele = new ExtendedLineEdit("sample", "sample text");
+
+	ele->setLabelPosition(Position::Left);
+	ele->show();
 }

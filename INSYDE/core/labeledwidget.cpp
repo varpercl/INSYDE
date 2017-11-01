@@ -1,10 +1,10 @@
 #include "labeledwidget.h"
 
-core::LabeledWidget::LabeledWidget(const QString &str, const LabeledWidget::Position &pos, QWidget *parent) :
+core::LabeledWidget::LabeledWidget(const QString &labelText, const Position &pos, QWidget *parent) :
 	QWidget(parent)
 {
 //    Q_INIT_RESOURCE(core_media);
-	init(str, pos);
+	init(labelText, pos);
 }
 
 core::LabeledWidget::~LabeledWidget()
@@ -23,22 +23,22 @@ QString core::LabeledWidget::getLabelText() const
 	return label->text();
 }
 
-void core::LabeledWidget::setLabelPosition(const LabeledWidget::Position &pos)
+void core::LabeledWidget::setLabelPosition(const Position &pos)
 {
 	if(labelPosition != pos){
 
 		mainLayout->removeWidget(label);
 		switch(pos){
-			case LabeledWidget::Top:
+			case Position::Top:
 				mainLayout->addWidget(label, 0, 1);
 				break;
-			case LabeledWidget::Bottom:
+			case Position::Bottom:
 				mainLayout->addWidget(label, 2, 1);
 				break;
-			case LabeledWidget::Left:
+			case Position::Left:
 				mainLayout->addWidget(label, 1, 1);
 				break;
-			case LabeledWidget::Right:
+			case Position::Right:
 				mainLayout->addWidget(label, 1, 2);
 				break;
 
@@ -47,7 +47,7 @@ void core::LabeledWidget::setLabelPosition(const LabeledWidget::Position &pos)
 	}
 }
 
-core::LabeledWidget::Position core::LabeledWidget::getLabelPosition() const
+Position core::LabeledWidget::getLabelPosition() const
 {
 	return labelPosition;
 }
@@ -62,14 +62,24 @@ QLabel *core::LabeledWidget::getLabel() const
 	return label;
 }
 
-void core::LabeledWidget::setUnits(LabeledWidget::Units unit)
+void core::LabeledWidget::setUnits(Units unit)
 {
 	units = unit;
 }
 
-core::LabeledWidget::Units core::LabeledWidget::getUnits() const
+Units core::LabeledWidget::getUnits() const
 {
 	return units;
+}
+
+QLayout *core::LabeledWidget::getLayout() const
+{
+	return mainLayout;
+}
+
+void core::LabeledWidget::setCentralWidget(QWidget *w)
+{
+	mainLayout->addWidget(w, 1, 1);
 }
 
 void core::LabeledWidget::init(const QString &str, const Position &pos)

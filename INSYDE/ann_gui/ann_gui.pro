@@ -2,7 +2,7 @@
 #include(../external/kdchart2.pri)
 include(../external/tbb.pri)
 
-QT += core widgets opengl gui charts
+QT += core widgets opengl gui charts sql
 
 CONFIG += qt shared precompile_header
 
@@ -102,6 +102,12 @@ win32:{
 	contains(QMAKE_TARGET.arch, x86_64): {
 		QMAKE_LFLAGS += /MACHINE:X64
 	}
+
+#    LIBS += -L"C:\Program Files\MySQL\MySQL Server 5.7\lib" -llibmysql
+#    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt" -llibmysqlcppconn
+#    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt" -lmysqlcppconn
+    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\lib" -llibmysql
+#    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\lib" -lmysql
 }
 
 unix:CONFIG(release, debug|release){

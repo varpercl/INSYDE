@@ -49,6 +49,12 @@ class CORE_LIB_IMPORT_EXPORT BasicDialog
 		~BasicDialog();
 
 		/*!
+		 * \brief getMainMenuBar
+		 * \return
+		 */
+		QMenuBar *getMainMenuBar() const;
+
+		/*!
 		 * \brief Obtains a pointer to the QMainWindow object inside this BasicDialog.
 		 *
 		 * \return Return a QMainWindow pointer. This pointer is fully modifiable so user should act
@@ -282,7 +288,7 @@ class CORE_LIB_IMPORT_EXPORT BasicDialog
 		 *
 		 * \see addButton
 		 */
-		void insertButton(int index, QPushButton* btn);
+		QPushButton *insertButton(int index, QPushButton* btn);
 
 		/*!
 		 * \param[in] btn A pointer to a QToolButton which represents the button to be inserted.

@@ -135,8 +135,36 @@ CORE_LIB_IMPORT_EXPORT void initCoreResources();
 #ifndef ICON_INSERT_COLUMN
 #define ICON_INSERT_COLUMN QIcon(":/icons/media/icon_insert_column.jpg")
 #endif
+#ifndef ICON_TEST
+#define ICON_TEST QIcon(":/icons/media/checklist-512.png")
+#endif
+#ifndef ICON_INFORMATION
+#define ICON_INFORMATION QIcon(":/icons/media/Sign-Info-icon.png")
+#endif
 
+enum Position
+{
+	Top,
+	Bottom,
+	Left,
+	Right
+};
 
+//TODO: 16/4/15 should add volume, time units.
+enum Units{
+	Nothing,
+	Pixels,
+	Dots,
+	Points,
+	Milimeters,
+	Centimeters,
+	Kilometers,
+	Meters,
+	Inches,
+	Feets,
+	Miles,
+	Percentaje
+};
 
 #endif // ICONS_H
 

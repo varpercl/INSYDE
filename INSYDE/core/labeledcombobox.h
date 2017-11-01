@@ -1,6 +1,7 @@
 #ifndef LABELEDCOMBOBOX_H
 #define LABELEDCOMBOBOX_H
 
+#include "definitions.h"
 #include "share_core_lib.h"
 #include "labeledwidget.h"
 
@@ -22,7 +23,7 @@ class CORE_LIB_IMPORT_EXPORT LabeledComboBox : public LabeledWidget
 		 * \param pos
 		 * \param parent
 		 */
-		explicit LabeledComboBox(const QString &lbl = "List", const Position &pos = Left, QWidget *parent = 0);
+		explicit LabeledComboBox(const QString &lbl = "List", const Position &pos = Position::Left, QWidget *parent = 0);
 
 		/*!
 		 * \brief LabeledComboBox
@@ -31,7 +32,7 @@ class CORE_LIB_IMPORT_EXPORT LabeledComboBox : public LabeledWidget
 		 * \param pos
 		 * \param parent
 		 */
-		explicit LabeledComboBox(const QString &lbl, const QStringList &list, const Position &pos = Left, QWidget *parent = 0);
+		explicit LabeledComboBox(const QString &lbl, const QStringList &list, const Position &pos = Position::Left, QWidget *parent = 0);
 
 		~LabeledComboBox();
 

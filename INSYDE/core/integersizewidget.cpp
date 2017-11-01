@@ -229,9 +229,9 @@ void core::IntegerSizeWidget::init(const QSize &size, const QPair<Units, Units> 
 	heightLabel = new QLabel("Height");
 	heightLabel->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
 
-	heightField = new LabeledIntegerSpinBox(tr("Width"), 0, LabeledWidget::Right);
+	heightField = new LabeledIntegerSpinBox(tr("Width"), 0, Position::Right);
 
-	widthField = new LabeledIntegerSpinBox(tr("Height"), 0, LabeledWidget::Right);
+	widthField = new LabeledIntegerSpinBox(tr("Height"), 0, Position::Right);
 
 	mainLayout = new QFormLayout();
 	mainLayout->setMargin(0);

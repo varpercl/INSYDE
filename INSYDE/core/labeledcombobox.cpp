@@ -1,6 +1,6 @@
 #include "labeledcombobox.h"
 
-core::LabeledComboBox::LabeledComboBox(const QString &lbl, const LabeledWidget::Position &pos, QWidget *parent) :
+core::LabeledComboBox::LabeledComboBox(const QString &lbl, const Position &pos, QWidget *parent) :
 	LabeledWidget(lbl, pos, parent)
 {
 //    Q_INIT_RESOURCE(core_media);

@@ -22,5 +22,8 @@ ANN_GUI_LIB_IMPORT_EXPORT void initAnnGuiResources();
 #ifndef ICON_SIMPLEPERCEPTRON
 #define ICON_SIMPLEPERCEPTRON QIcon(":/icons/media/perceptron2.png")
 #endif
+#ifndef ICON_IMPORT_DB
+#define ICON_IMPORT_DB QIcon(":/icons/media/update--database-icon-33693.png")
+#endif
 
 #endif

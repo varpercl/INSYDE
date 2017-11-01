@@ -43,5 +43,7 @@
         <file>media/fill.png</file>
         <file>media/LineFreehand.png</file>
         <file>media/eraser-icon-30208.png</file>
+        <file>media/checklist-512.png</file>
+        <file>media/Sign-Info-icon.png</file>
     </qresource>
 </RCC>

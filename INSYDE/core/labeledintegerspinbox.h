@@ -17,7 +17,7 @@ class CORE_LIB_IMPORT_EXPORT LabeledIntegerSpinBox : public LabeledWidget
 
 	public:
 
-		explicit LabeledIntegerSpinBox(const QString &label, int value = 0, const LabeledWidget::Position &pos = LabeledWidget::Left, QWidget *parent = 0);
+		explicit LabeledIntegerSpinBox(const QString &label, int value = 0, const Position &pos = Position::Left, QWidget *parent = 0);
 
 		~LabeledIntegerSpinBox();
 

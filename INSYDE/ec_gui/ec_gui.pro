@@ -2,7 +2,7 @@ include(../external/tbb.pri)
 
 QT += gui core widgets opengl
 
-CONFIG += qt shared_and_static
+CONFIG += qt shared_and_static precompile_header
 
 #CONFIG(release, debug|release):message("Staring RELEASE build for ec_gui sources") #will print
 #CONFIG(debug, debug|release):message("Staring DEBUG build for ec_gui sources") #no print
@@ -39,6 +39,14 @@ SOURCES += \
     shootingweapon.cpp \
     unit.cpp \
     weapon.cpp
+
+PRECOMPILED_HEADER += \
+unit.h \
+shootingunit.h \
+agent.h \
+actuadormovimiento.h \
+movilagent.h \
+weapon.h
 
 HEADERS += \
     actuador.h \

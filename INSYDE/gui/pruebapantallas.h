@@ -2,6 +2,7 @@
 #define PRUEBAPANTALLAS_H
 
 #include <QtGui>
+#include <QtSql>
 
 #include "../core/graphicobjectpropertydialog.h"
 #include "../core/dotmatrixrepresentation.h"
@@ -13,6 +14,8 @@
 #include "../core/normalizationwidget.h"
 #include "../core/doubleminmaxvaluewidget.h"
 #include "../core/imageeffectpropertydialog.h"
+#include "../core/databaseconnectiondialog.h"
+#include "../core/extendedlineedit.h"
 
 #include "../ann_gui/perceptronpage.h"
 #include "../ann_gui/anntrainingdialog.h"
@@ -20,9 +23,9 @@
 #include "../ann_gui/weighteditordialog.h"
 #include "../ann_gui/trainingsettable.h"
 
-#include "newprojectwizard.h"
-#include "view.h"
-#include "mainwindow.h"
+#include "../gui/newprojectwizard.h"
+#include "../gui/view.h"
+#include "../gui/mainwindow.h"
 
 using namespace core;
 
@@ -30,8 +33,7 @@ namespace Ui {
 	class PruebaPantalla;
 }
 
-namespace gui
-{
+
 
 /*!
  * \brief PruebaPantalla brinda la posibilidad de visualizar todas las ventanas u objetos ejecutandolas solamente
@@ -90,13 +92,16 @@ class PruebaPantalla : public QWidget
 
 		void on_GraphicObjectPropertyDialogButton_clicked();
 
+		void on_btnDatabaseConnection_clicked();
+
+		void on_btnExtendedLineEdit_clicked();
+
 	private:
 		Q_OBJECT
 
 		SelectImageSegmentDialog *sisd;
 		MultilayerPerceptron *mlp;
-		View *visor;
+		gui::View *visor;
 		Ui::PruebaPantalla *ui;
 };
-}
 #endif // PRUEBAPANTALLAS_H

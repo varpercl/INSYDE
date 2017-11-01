@@ -260,13 +260,19 @@ void ann_gui::TrainingSetDialog::init(TrainingSet *ts)
 	//Initialize QGridLayout
 	gridLayout = new QGridLayout();
 
-	lisbInputsSize = new LabeledIntegerSpinBox(QString::fromLatin1("Número de entradas"), ts->getInputsSize());
-	lisbTargetsSize = new LabeledIntegerSpinBox(QString::fromLatin1("Número de salidas"), ts->getTargetsSize());
+	lisbInputsSize = new LabeledIntegerSpinBox(tr("Inputs"), ts->getInputsSize());
+	lisbTargetsSize = new LabeledIntegerSpinBox(tr("Outputs"), ts->getTargetsSize());
 
-	QMenu *importMenu = new QMenu("Importar");
-	importMenu->addAction(ICON_IMPORT, "Entradas...", this, SLOT(importInputsClick()));
-	importMenu->addAction(ICON_IMPORT, "Salidas...", this, SLOT(importTargetsClick()));
+	actionImportFromDatabase = new QAction(tr("From SQL Database..."));
 
+	btnTables = new QToolButton();
+
+	mnuTables = new QMenu();
+
+	QMenu *importMenu = new QMenu(tr("Import"));
+	importMenu->addAction(ICON_IMPORT, tr("Inputs..."), this, SLOT(importInputsClick()));
+	importMenu->addAction(ICON_IMPORT, tr("Outputs..."), this, SLOT(importTargetsClick()));
+	importMenu->addAction(ICON_IMPORT_DB, tr("From SQL Database..."), this, SLOT(importFromDBClick()));
 	//TODO: 16/4/15 implement this
 //	importMenu->addAction(ICON_IMPORT, "Conjunto de entrenamiento...", this, SLOT(importTrainingSetClick()));
 
@@ -277,10 +283,10 @@ void ann_gui::TrainingSetDialog::init(TrainingSet *ts)
 	addPatternButton->setPopupMode(QToolButton::MenuButtonPopup);
 	addPatternButton->setMenu(importMenu);
 
-	QMenu *delMenu = new QMenu("Eliminar");
+	QMenu *delMenu = new QMenu(tr("Remove"));
 	QAction *defaultDelMenuAction;
-	actionDeleteRow = defaultDelMenuAction = delMenu->addAction(ICON_MINUS, "Eliminar fila", this, SLOT(deleteRows()));
-	actionDeleteCol = delMenu->addAction(ICON_MINUS, "Eliminar columna", this, SLOT(deleteColumns()));
+	actionDeleteRow = defaultDelMenuAction = delMenu->addAction(ICON_MINUS, tr("Remove row"), this, SLOT(deleteRows()));
+	actionDeleteCol = delMenu->addAction(ICON_MINUS, tr("Remove column"), this, SLOT(deleteColumns()));
 	delMenu->setDefaultAction(defaultDelMenuAction);
 
 	delPatternButton = new QToolButton();
@@ -288,9 +294,13 @@ void ann_gui::TrainingSetDialog::init(TrainingSet *ts)
 	delPatternButton->setPopupMode(QToolButton::MenuButtonPopup);
 	delPatternButton->setMenu(delMenu);
 
+	btnTables->setMenu(mnuTables);
+
 	mainToolBar = new QToolBar();
 	mainToolBar->addWidget(addPatternButton);
 	mainToolBar->addWidget(delPatternButton);
+	mainToolBar->addSeparator();
+	mainToolBar->addWidget(btnTables);
 
 	inw = new NormalizationWidget(this->ts->getInputsNormalization(), QString::fromLatin1("Normalización de entradas"));
 
@@ -702,19 +712,27 @@ void ann_gui::TrainingSetDialog::newClick()
 	}
 }
 
-void ann_gui::TrainingSetDialog::databaseImportClick()
+void ann_gui::TrainingSetDialog::importFromDBClick()
 {
-	 db;
+	DatabaseConnectionDialog *dbConnectDialog = new DatabaseConnectionDialog();
 
-	TrainingSetSQL *sqlTS = new TrainingSetSQL();
-//	if(!database.isOpen())
-//	{
-//		if(!database.open())
-//		{
-//			qDebug() << tr("Error while opening database");
-//			return;
-//		}
-//	}
+	QSqlDatabase dbase = dbConnectDialog->getDatabase();
+//	 db;
+
+	if(dbase.isOpen()){
+		QString table;
+
+		DatabaseMapperDialog *dbmapdialog = new DatabaseMapperDialog(dbase);
+
+		if(dbmapdialog->exec()){
+			QMap<QString, QString> map = dbmapdialog->getMap();
+			TrainingSetSQL *sqlTS = new TrainingSetSQL(table, map, dbase);
+		}
+
+	}
+
+	qDebug() << tr("Error while opening database");
+	return;
 
 //	QSqlTableModel *sqlModel = new QSqlTableModel(this, database);
 

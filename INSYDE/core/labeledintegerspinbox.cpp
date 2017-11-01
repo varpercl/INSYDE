@@ -56,46 +56,46 @@ QSpinBox *core::LabeledIntegerSpinBox::getIntegerSpinBox() const
 	return sbValue;
 }
 
-void core::LabeledIntegerSpinBox::setUnits(LabeledWidget::Units unit)
+void core::LabeledIntegerSpinBox::setUnits(Units unit)
 {
 	LabeledWidget::setUnits(unit);
 
 	switch(unit){
-		case LabeledWidget::Percentaje:
+		case Units::Percentaje:
 			sbValue->setSuffix(" %");
 			break;
-		case LabeledWidget::Pixels:
+		case Units::Pixels:
 			sbValue->setSuffix(" px");
 			break;
-		case LabeledWidget::Dots:
+		case Units::Dots:
 			sbValue->setSuffix(" dots");
 			break;
-		case LabeledWidget::Points:
+		case Units::Points:
 			sbValue->setSuffix(" pt");
 			break;
-		case LabeledWidget::Milimeters:
+		case Units::Milimeters:
 			sbValue->setSuffix(" mm");
 			break;
-		case LabeledWidget::Centimeters:
+		case Units::Centimeters:
 			sbValue->setSuffix(" cm");
 			break;
-		case LabeledWidget::Kilometers:
+		case Units::Kilometers:
 			sbValue->setSuffix(" Km");
 			break;
-		case LabeledWidget::Meters:
+		case Units::Meters:
 			sbValue->setSuffix(" m");
 			break;
-		case LabeledWidget::Inches:
+		case Units::Inches:
 			sbValue->setSuffix(" in");
 			break;
-		case LabeledWidget::Feets:
+		case Units::Feets:
 			sbValue->setSuffix(" ft");
 			break;
-		case LabeledWidget::Miles:
+		case Units::Miles:
 			sbValue->setSuffix(" mi");
 			break;
 
-		case LabeledWidget::Nothing:
+		case Units::Nothing:
 		default:
 			break;
 	}

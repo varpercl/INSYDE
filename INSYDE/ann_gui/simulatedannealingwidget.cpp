@@ -125,7 +125,7 @@ void ann_gui::SimulatedAnnealingWidget::init(int samples, double start, int chan
 	mainLayout = new QVBoxLayout(this);
 	mainLayout->setObjectName("mainLayout");
 
-	lisbSamples = new LabeledIntegerSpinBox("Muestras", samples);
+	lisbSamples = new LabeledIntegerSpinBox(tr("Samples"), samples);
 	lisbSamples->setMinimumValue(10);
 	lisbSamples->setMaximumValue(10000);
 
@@ -134,26 +134,26 @@ void ann_gui::SimulatedAnnealingWidget::init(int samples, double start, int chan
 	startCondition->setMaximumValue(10);
 	startCondition->setDecimals(decimals);
 
-	nChanges = new LabeledIntegerSpinBox(QString::fromLatin1("Número de cambios"), changes, LabeledIntegerSpinBox::Left);
+	nChanges = new LabeledIntegerSpinBox(tr("Input number"), changes, Position::Left);
 	nChanges->setMinimumValue(1);
 
-	minTemperature = new LabeledDoubleSpinBox(QString::fromLatin1("Temperatura mínima"), minTemp);
+	minTemperature = new LabeledDoubleSpinBox(tr("Minimum temperature"), minTemp);
 	minTemperature->setMinimumValue(0);
 	minTemperature->setMaximumValue(10);
 	minTemperature->setDecimals(decimals);
 
-	decTempFactor = new LabeledDoubleSpinBox(QString::fromLatin1("Decrecimiento de temp."), fdec);
+	decTempFactor = new LabeledDoubleSpinBox(tr("Temperature decrement"), fdec);
 	decTempFactor->setDecimals(decimals);
 
-	startTemperature = new LabeledDoubleSpinBox(QString::fromLatin1("Temperatura inicial"), itemp);
+	startTemperature = new LabeledDoubleSpinBox(tr("Start temperature"), itemp);
 	startTemperature->setDecimals(decimals);
 
-	this->minNoise = new LabeledDoubleSpinBox(QString::fromLatin1("Ruido mínimo"), minNoise);
+	this->minNoise = new LabeledDoubleSpinBox(tr("Minimum noise"), minNoise);
 	this->minNoise->setMinimumValue(-10);
 	this->minNoise->setMaximumValue(10);
 	this->minNoise->setDecimals(decimals);
 
-	this->maxNoise = new LabeledDoubleSpinBox(QString::fromLatin1("Ruido máximo"), maxNoise);
+	this->maxNoise = new LabeledDoubleSpinBox(tr("Maximum noise"), maxNoise);
 	this->maxNoise->setMinimumValue(-10);
 	this->maxNoise->setMaximumValue(10);
 	this->maxNoise->setDecimals(decimals);

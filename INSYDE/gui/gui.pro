@@ -2,7 +2,7 @@
 #include(../external/kdchart2.pri)
 include(../external/tbb.pri)
 
-QT += core widgets xml opengl charts
+QT += core widgets xml opengl charts sql
 
 CONFIG += qt opengl
 
@@ -27,8 +27,8 @@ SOURCES += \
     plotterdata.cpp \
     progressplotter.cpp \
     selectprojectpage.cpp \
-    pruebapantallas.cpp \
     view.cpp \
+pruebapantallas.cpp \
     simulationcontrol.cpp
 
 HEADERS += \
@@ -38,7 +38,7 @@ HEADERS += \
     plotterdata.h \
     progressplotter.h \
     selectprojectpage.h \
-    pruebapantallas.h \
+pruebapantallas.h \
     icons.h \
     view.h \
     simulationcontrol.h
@@ -49,7 +49,7 @@ FORMS += \
     newprojectdialog.ui \
     newprojectwizard.ui \
     selectprojectpage.ui \
-    prueba_pantallas.ui
+prueba_pantallas.ui
 
 RESOURCES += \
     gui_media.qrc
@@ -91,6 +91,12 @@ win32:{
 	}
 
     message("Windows")
+
+#    LIBS += -L"C:\Program Files\MySQL\MySQL Server 5.7\lib" -llibmysql
+#    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt" -llibmysqlcppconn
+#    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt" -lmysqlcppconn
+    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\lib" -llibmysql
+#    LIBS += -L"C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\lib" -lmysql
 }
 
 unix:CONFIG(release, debug|release){

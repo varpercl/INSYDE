@@ -14,6 +14,7 @@
 #include "../core/definitions.h"
 #include "../core/selectimagesegmentdialog.h"
 #include "../core/databaseconnectiondialog.h"
+#include "../core/databasemapperdialog.h"
 
 #include "../ann_base/trainingsetfile.h"
 #include "../ann_base/trainingset.h"
@@ -22,6 +23,7 @@
 #include "definitions.h"
 #include "share_ann_gui_lib.h"
 #include "trainingsettable.h"
+
 
 using namespace std;
 using namespace core;
@@ -157,7 +159,7 @@ class ANN_GUI_LIB_IMPORT_EXPORT TrainingSetDialog : public BasicDialog
 
 		void newClick();
 
-		void databaseImportClick();
+		void importFromDBClick();
 
 	private slots:
 
@@ -246,12 +248,15 @@ class ANN_GUI_LIB_IMPORT_EXPORT TrainingSetDialog : public BasicDialog
 
 		QToolButton
 		*addPatternButton,
-		*delPatternButton;
+		*delPatternButton,
+		*btnTables;
 
 		QAction
 		*actionDeleteRow,
 		*actionDeleteCol,
 		*actionImportFromDatabase;
+
+		QMenu *mnuTables;
 
 		QToolBar *mainToolBar;
 
